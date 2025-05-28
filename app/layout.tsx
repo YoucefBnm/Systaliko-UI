@@ -2,6 +2,7 @@ import { RootProvider } from "fumadocs-ui/provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { StyleProvider } from "@/providers/style-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,7 +38,9 @@ export default function RootLayout({
       <body
         className={`${inter.className} antialiased flex flex-col min-h-dvh`}
       >
-        <RootProvider>{children}</RootProvider>
+        <StyleProvider>
+          <RootProvider>{children}</RootProvider>
+        </StyleProvider>
       </body>
     </html>
   );
