@@ -1,32 +1,32 @@
-"use client";
+'use client';
 
-import * as React from "react";
+import * as React from 'react';
 
-import { Label } from "@/components/ui/label";
-import { Slider } from "@/components/ui/slider";
-import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
+import { Label } from '@/components/ui/label';
+import { Slider } from '@/components/ui/slider';
+import { Input } from '@/components/ui/input';
+import { cn } from '@/lib/utils';
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "../ui/collapsible";
+} from '../ui/collapsible';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
-import { ChevronsUpDown } from "lucide-react";
-import { Styles } from "@/constants";
+} from '../ui/select';
+import { ChevronsUpDown } from 'lucide-react';
+import { Styles } from '@/constants';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "../ui/tooltip";
-import { Switch } from "../ui/switch";
+} from '../ui/tooltip';
+import { Switch } from '../ui/switch';
 
 type BaseBindNumber = { value: number; disableVariants?: Styles[] };
 type BindNumberSlider = BaseBindNumber & {
@@ -88,7 +88,7 @@ const NumericInput: React.FC<NumericInputProps> = ({
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const v = e.target.value;
       setDisplay(v);
-      if (v !== "") {
+      if (v !== '') {
         let n = Number(v);
         if (!isNaN(n)) {
           if (min !== undefined && n < min) n = min;
@@ -98,12 +98,12 @@ const NumericInput: React.FC<NumericInputProps> = ({
         }
       }
     },
-    [min, max, step, onValueChange]
+    [min, max, step, onValueChange],
   );
 
   const handleBlur = React.useCallback(
     () => setDisplay(value.toString()),
-    [value]
+    [value],
   );
 
   return (
@@ -111,7 +111,7 @@ const NumericInput: React.FC<NumericInputProps> = ({
       {...props}
       className={cn(
         '[&[type="number"]::-webkit-inner-spin-button]:appearance-none [&[type="number"]::-webkit-outer-spin-button]:appearance-none text-sm',
-        className
+        className,
       )}
       min={min}
       max={max}
@@ -129,20 +129,20 @@ const NumericInput: React.FC<NumericInputProps> = ({
 const isNestedBinds = (binds: Binds): binds is NestedBinds =>
   Object.values(binds).every(
     (v) =>
-      typeof v === "object" &&
+      typeof v === 'object' &&
       v !== null &&
-      !("value" in v) &&
+      !('value' in v) &&
       Object.values(v).every(
         (inner) =>
-          typeof inner === "object" && inner !== null && "value" in inner
-      )
+          typeof inner === 'object' && inner !== null && 'value' in inner,
+      ),
   );
 
 const renderNumber = (
   key: string,
   bind: BindNumber,
   onChange: (value: number) => void,
-  currentStyle: Styles
+  currentStyle: Styles,
 ) => {
   const disabled = bind.disableVariants?.includes(currentStyle);
 
@@ -150,7 +150,7 @@ const renderNumber = (
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          {"min" in bind && "max" in bind ? (
+          {'min' in bind && 'max' in bind ? (
             <div key={key} className="flex flex-row gap-2.5">
               <div className="w-[80px] flex items-center shrink-0 min-w-0">
                 <Label
@@ -181,7 +181,7 @@ const renderNumber = (
                 disabled={disabled}
               />
             </div>
-          ) : "options" in bind ? (
+          ) : 'options' in bind ? (
             <div key={key} className="flex flex-row gap-2.5">
               <div className="w-[80px] truncate flex items-center shrink-0 min-w-0">
                 <Label
@@ -253,7 +253,7 @@ const renderString = (
   key: string,
   bind: BindString,
   onChange: (value: string) => void,
-  currentStyle: Styles
+  currentStyle: Styles,
 ) => {
   const disabled = bind.disableVariants?.includes(currentStyle);
 
@@ -329,7 +329,7 @@ const renderBoolean = (
   key: string,
   bind: BindBoolean,
   onChange: (value: boolean) => void,
-  currentStyle: Styles
+  currentStyle: Styles,
 ) => {
   const disabled = bind.disableVariants?.includes(currentStyle);
 
@@ -370,16 +370,16 @@ const renderBind = (
   key: string,
   bind: Bind,
   onChange: (value: unknown) => void,
-  currentStyle: Styles
+  currentStyle: Styles,
 ) => {
-  if ("value" in bind) {
-    if (typeof bind.value === "number") {
+  if ('value' in bind) {
+    if (typeof bind.value === 'number') {
       return renderNumber(key, bind as BindNumber, onChange, currentStyle);
     }
-    if (typeof bind.value === "string") {
+    if (typeof bind.value === 'string') {
       return renderString(key, bind as BindString, onChange, currentStyle);
     }
-    if (typeof bind.value === "boolean") {
+    if (typeof bind.value === 'boolean') {
       return renderBoolean(key, bind as BindBoolean, onChange, currentStyle);
     }
   }
@@ -389,7 +389,7 @@ const renderBind = (
 const renderFlatBinds = (
   binds: FlatBinds,
   onBindsChange: (binds: FlatBinds) => void,
-  currentStyle: Styles
+  currentStyle: Styles,
 ): React.ReactNode => (
   <div className="bg-background rounded-[7px] flex flex-col gap-2 pr-1.5 pl-2 py-[7px]">
     {Object.entries(binds).map(([key, bind]) => (
@@ -399,7 +399,7 @@ const renderFlatBinds = (
           bind,
           (value) =>
             onBindsChange({ ...binds, [key]: { ...bind, value } } as FlatBinds),
-          currentStyle
+          currentStyle,
         )}
       </React.Fragment>
     ))}
@@ -410,7 +410,7 @@ const renderNestedBinds = (
   binds: NestedBinds,
   onBindsChange: (binds: NestedBinds) => void,
   initial: boolean,
-  currentStyle: Styles
+  currentStyle: Styles,
 ): React.ReactNode[] =>
   Object.entries(binds).map(([groupKey, groupBind]) => (
     <Collapsible
@@ -431,7 +431,7 @@ const renderNestedBinds = (
             groupBind,
             (updatedGroupBind) =>
               onBindsChange({ ...binds, [groupKey]: updatedGroupBind }),
-            currentStyle
+            currentStyle,
           )}
         </div>
       </CollapsibleContent>
@@ -442,19 +442,19 @@ const renderBinds = (
   binds: Binds,
   onBindsChange: (binds: Binds) => void,
   inital: boolean,
-  currentStyle: Styles
+  currentStyle: Styles,
 ) =>
   isNestedBinds(binds)
     ? renderNestedBinds(
         binds,
         onBindsChange as (b: NestedBinds) => void,
         inital,
-        currentStyle
+        currentStyle,
       )
     : renderFlatBinds(
         binds,
         onBindsChange as (b: FlatBinds) => void,
-        currentStyle
+        currentStyle,
       );
 
 const Tweakpane = ({
@@ -463,7 +463,7 @@ const Tweakpane = ({
   ...props
 }: TweakpaneProps) => {
   const [localBinds, setLocalBinds] = React.useState<Binds>(
-    "binds" in props ? props.binds : props.initialBinds
+    'binds' in props ? props.binds : props.initialBinds,
   );
   const [initial, setInitial] = React.useState(false);
 
@@ -472,11 +472,11 @@ const Tweakpane = ({
       setLocalBinds(binds);
       onBindsChange?.(binds);
     },
-    [onBindsChange]
+    [onBindsChange],
   );
 
   React.useEffect(() => {
-    if ("binds" in props) setLocalBinds(props.binds);
+    if ('binds' in props) setLocalBinds(props.binds);
     setTimeout(() => setInitial(true), 500);
   }, [props]);
 

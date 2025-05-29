@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-default-text-vertical-demo",
+  "type": "registry:ui",
+  "title": "Vertical Text Demo",
+  "description": "Demo showing a vertical text with shadcn-default style.",
+  "registryDependencies": [
+    "http://localhost:3000/r/text-vertical"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/text/text-vertical/shadcn-default/index.tsx",
+      "content": "import { TextVertical } from '@/components/systaliko-ui/text/text-vertical';\n\nexport const TextVerticalDemo = () => {\n  return <TextVertical />;\n};\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/text/text-vertical.tsx"
+    }
+  ]
+}

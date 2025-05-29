@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-new-york-use-animation-variants-demo",
+  "type": "registry:hook",
+  "title": "Use Animation Variants Demo",
+  "description": "Demo showing how to use use-animation-variants hook with shadcn-new-york style.",
+  "registryDependencies": [
+    "http://localhost:3000/r/use-animation-variants",
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/utils/use-animation-variants/shadcn-new-york/index.tsx",
+      "content": "'use client';\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\nimport { useEffect, useState } from 'react';\n\nconst animations: { value: AnimationT; label: string }[] = [\n  { value: 'left', label: 'Slide from Left' },\n  { value: 'right', label: 'Slide from Right' },\n  { value: 'top', label: 'Slide from Top' },\n  { value: 'bottom', label: 'Slide from Bottom' },\n  { value: 'z', label: 'Scale' },\n  { value: 'blur', label: 'Blur' },\n  // { value: \"\", label: 'Opacity' },\n];\n\nexport const TextVerticalDemo = () => {\n  const [animation, setAnimation] = useState<AnimationT>();\n  const [isVisible, setIsVisible] = useState(false);\n  const animationVariants = useAnimationVariants(animation);\n\n  // Reset animation when type changes\n  useEffect(() => {\n    setIsVisible(false);\n    const timer = setTimeout(() => setIsVisible(true), 50);\n    return () => clearTimeout(timer);\n  }, [animation]);\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <Select onValueChange={(value) => setAnimation(value as AnimationT)}>\n        <SelectTrigger className=\"w-[180px]\">\n          <SelectValue placeholder=\"Choose your animation\" />\n        </SelectTrigger>\n        <SelectContent className=\"relative z-40\">\n          {/* <SelectItem value=\"system\">System</SelectItem> */}\n          {animations.map((animation) => (\n            <SelectItem\n              key={animation.value ?? animation.label}\n              value={animation.value ?? ''}\n            >\n              {animation.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        animate={isVisible ? 'visible' : 'hidden'}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Choose your animation, simple as that !!\n      </motion.h2>\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/utils/use-animation-variants.tsx"
+    }
+  ]
+}

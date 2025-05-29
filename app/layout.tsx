@@ -1,30 +1,30 @@
-import { RootProvider } from "fumadocs-ui/provider";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { StyleProvider } from "@/providers/style-provider";
+import { RootProvider } from 'fumadocs-ui/provider';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { StyleProvider } from '@/providers/style-provider';
 
 const inter = Inter({
-  subsets: ["latin"],
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
   title: {
-    template: "%s - Systaliko UI",
-    default: "Systaliko UI - Component distribution",
+    template: '%s - Systaliko UI',
+    default: 'Systaliko UI - Component distribution',
   },
   description:
-    "Collection of fully customizable, animated, free UI components built with React, TypeScript, Tailwind CSS, and Motion.",
+    'Collection of fully customizable, animated, free UI components built with React, TypeScript, Tailwind CSS, and Motion.',
   keywords: [
-    "Systaliko UI",
-    "React",
-    "TypeScript",
-    "Tailwind CSS",
-    "Motion",
-    "Free UI components",
-    "Animated UI components",
-    "UI distribution",
-    "Open-source components",
+    'Systaliko UI',
+    'React',
+    'TypeScript',
+    'Tailwind CSS',
+    'Motion',
+    'Free UI components',
+    'Animated UI components',
+    'UI distribution',
+    'Open-source components',
   ],
 };
 

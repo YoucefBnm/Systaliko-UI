@@ -1,98 +1,140 @@
-"use client";
+'use client';
 
-import React from "react";
-import { cn } from "@/lib/utils";
-// You would typically import a highlighting library here, e.g., import { highlight } from 'shiki';
+import {
+  type HTMLAttributes,
+  type ReactNode,
+  forwardRef,
+  useCallback,
+  useRef,
+  useState,
+} from 'react';
+import { cn } from '@/lib/utils';
+import {
+  ScrollArea,
+  ScrollBar,
+  ScrollViewport,
+} from '@/components/ui/scroll-area';
+import type { ScrollAreaViewportProps } from '@radix-ui/react-scroll-area';
+import { CopyButton } from '@/registry/buttons/copy';
 
-interface CodeBlockProps extends React.HTMLAttributes<HTMLPreElement> {
-  code?: string;
-  language?: string;
-  children?: React.ReactNode;
-}
+export type CodeBlockProps = HTMLAttributes<HTMLElement> & {
+  icon?: ReactNode;
+  allowCopy?: boolean;
+  viewportProps?: ScrollAreaViewportProps;
+  onCopy?: () => void;
+};
 
-export function CodeBlock({
-  code = "",
-  language = "text",
-  className,
-  children,
-  ...props
-}: CodeBlockProps) {
-  // If children are provided, use them directly
-  if (children) {
+export const Pre = forwardRef<HTMLPreElement, HTMLAttributes<HTMLPreElement>>(
+  ({ className, ...props }, ref) => {
     return (
       <pre
+        ref={ref}
         className={cn(
-          "relative overflow-x-auto rounded-md bg-muted/50 dark:bg-neutral-900 p-6 font-mono text-sm text-foreground dark:text-white",
-          className
+          'p-4 focus-visible:outline-none overflow-x-auto text-sm font-mono',
+          className,
         )}
         {...props}
       >
-        {children}
+        {props.children}
       </pre>
     );
-  }
+  },
+);
 
-  // Otherwise, use the code prop
-  const highlightedCode = code;
+Pre.displayName = 'Pre';
 
-  if (typeof highlightedCode !== "string") {
-    console.error("CodeBlock received non-string code:", highlightedCode);
+export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
+  (
+    {
+      title,
+      allowCopy = true,
+      icon,
+      viewportProps,
+      onCopy: onCopyEvent,
+      ...props
+    },
+    ref,
+  ) => {
+    const [isCopied, setIsCopied] = useState(false);
+    const areaRef = useRef<HTMLDivElement>(null);
+
+    const onCopy = useCallback(() => {
+      const pre = areaRef.current?.getElementsByTagName('pre').item(0);
+
+      if (!pre) return;
+
+      const clone = pre.cloneNode(true) as HTMLElement;
+      clone.querySelectorAll('.nd-copy-ignore').forEach((node) => {
+        node.remove();
+      });
+
+      void navigator.clipboard.writeText(clone.textContent ?? '').then(() => {
+        setIsCopied(true);
+        onCopyEvent?.();
+        setTimeout(() => setIsCopied(false), 3000);
+      });
+    }, [onCopyEvent]);
+
     return (
-      <pre
-        className={cn(
-          "relative overflow-x-auto rounded-md bg-muted/50 dark:bg-neutral-900 p-6 font-mono text-sm text-foreground dark:text-white",
-          className
-        )}
+      <figure
+        ref={ref}
         {...props}
-      >
-        <code className="grid leading-relaxed [&>span]:table-row">
-          <span className="table-row">
-            <span className="table-cell w-4 select-none text-muted-foreground">
-              1
-            </span>
-            <span className="table-cell pl-4 text-foreground dark:text-white">
-              No code content available
-            </span>
-          </span>
-        </code>
-      </pre>
-    );
-  }
-
-  // Split the code into lines and add line numbers
-  const lines = highlightedCode.split("\n");
-
-  return (
-    <pre
-      className={cn(
-        "relative overflow-x-auto rounded-md bg-muted/50 dark:bg-neutral-900 p-6 font-mono text-sm text-foreground dark:text-white",
-        className
-      )}
-      {...props}
-    >
-      <code
         className={cn(
-          "grid leading-relaxed [&>span]:table-row",
-          `language-${language}`
+          'not-prose group fd-codeblock relative my-6 overflow-hidden rounded-xl border border-border bg-muted/50 text-sm',
+          props.className?.replace(
+            'shiki shiki-themes github-light github-dark',
+            '',
+          ),
         )}
       >
-        {lines.map((line, index) => (
-          <span key={index} className="table-row">
-            <span className="table-cell w-4 select-none text-muted-foreground">
-              {index + 1}
-            </span>
-            <span className="table-cell pl-4 text-foreground dark:text-white">
-              {line}
-            </span>
-          </span>
-        ))}
-      </code>
-    </pre>
-  );
-}
+        {title ? (
+          <div className="flex flex-row items-center gap-2 bg-muted border-b border-border/75 dark:border-border/50 px-4 h-10">
+            {icon ? (
+              <div
+                className="text-muted-foreground [&_svg]:size-3.5"
+                dangerouslySetInnerHTML={
+                  typeof icon === 'string' ? { __html: icon } : undefined
+                }
+              >
+                {typeof icon !== 'string' ? icon : null}
+              </div>
+            ) : null}
+            <figcaption className="flex-1 truncate text-muted-foreground">
+              {title}
+            </figcaption>
+            {allowCopy ? (
+              <CopyButton
+                size="sm"
+                variant="ghost"
+                className="-me-2 bg-transparent hover:bg-black/5 dark:hover:bg-white/10"
+                onClick={onCopy}
+                isCopied={isCopied}
+              />
+            ) : null}
+          </div>
+        ) : (
+          allowCopy && (
+            <CopyButton
+              size="sm"
+              variant="ghost"
+              className="absolute right-2 top-2 z-[2] backdrop-blur-md bg-transparent hover:bg-black/5 dark:hover:bg-white/10"
+              onClick={onCopy}
+              isCopied={isCopied}
+            />
+          )
+        )}
+        <ScrollArea ref={areaRef} dir="ltr">
+          <ScrollViewport
+            {...viewportProps}
+            className={cn('max-h-[600px]', viewportProps?.className)}
+          >
+            {props.children}
+          </ScrollViewport>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
+      </figure>
+    );
+  },
+);
 
-// The Pre helper is not strictly needed if CodeBlock handles rendering lines
-// but keeping it for now based on animate-ui structure reference.
-export function Pre({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
-}
+CodeBlock.displayName = 'CodeBlock';

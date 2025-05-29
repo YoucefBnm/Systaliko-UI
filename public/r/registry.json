@@ -4,19 +4,343 @@
   "homepage": "https://systaliko.com",
   "items": [
     {
-      "name": "text-stagger-inview",
-      "type": "registry:block",
-      "title": "Text Stagger Inview",
-      "description": "A text animation component that staggers text elements on scroll into view.",
+      "name": "index",
+      "type": "registry:style",
+      "dependencies": [
+        "tw-animate-css",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [],
+      "cssVars": {}
+    },
+    {
+      "name": "default-copy-button",
+      "type": "registry:ui",
+      "title": "Copy Button",
+      "description": "A button with a copy to clipboard animation with default style.",
+      "dependencies": [
+        "motion",
+        "lucide-react",
+        "class-variance-authority"
+      ],
       "files": [
         {
-          "path": "registry/text/text-stagger-inview/index.tsx",
-          "type": "registry:component"
-        },
+          "path": "__registry__/buttons/copy/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/animate-ui/buttons/copy.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-copy-button",
+      "type": "registry:ui",
+      "title": "Copy Button",
+      "description": "A button with a copy to clipboard animation with shadcn-default style.",
+      "dependencies": [
+        "motion",
+        "lucide-react",
+        "class-variance-authority"
+      ],
+      "files": [
         {
-          "path": "registry/text/text-stagger-inview/text-stagger-inview-demo.tsx",
-          "type": "registry:component",
-          "name": "default-text-stagger-inview-demo"
+          "path": "__registry__/buttons/copy/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/animate-ui/buttons/copy.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-copy-button",
+      "type": "registry:ui",
+      "title": "Copy Button",
+      "description": "A button with a copy to clipboard animation with shadcn-new-york style.",
+      "dependencies": [
+        "motion",
+        "lucide-react",
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "__registry__/buttons/copy/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/animate-ui/buttons/copy.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-text-stagger-inview-demo",
+      "type": "registry:ui",
+      "title": "Text Stagger Inview Demo",
+      "description": "Demo showing a split text with stagger animation with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/text-stagger-inview"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/text/text-stagger-inview/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/text/text-stagger-inview.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-text-stagger-inview-demo",
+      "type": "registry:ui",
+      "title": "Text Stagger Inview Demo",
+      "description": "Demo showing a split text with stagger animation with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/text-stagger-inview"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/text/text-stagger-inview/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/text/text-stagger-inview.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-text-stagger-inview-demo",
+      "type": "registry:ui",
+      "title": "Text Stagger Inview Demo",
+      "description": "Demo showing a split text with stagger animation with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/text-stagger-inview"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/text/text-stagger-inview/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/text/text-stagger-inview.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-text-vertical-demo",
+      "type": "registry:ui",
+      "title": "Vertical Text Demo",
+      "description": "Demo showing a vertical text with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/text-vertical"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/text/text-vertical/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/text/text-vertical.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-text-vertical-demo",
+      "type": "registry:ui",
+      "title": "Vertical Text Demo",
+      "description": "Demo showing a vertical text with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/text-vertical"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/text/text-vertical/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/text/text-vertical.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-text-vertical-demo",
+      "type": "registry:ui",
+      "title": "Vertical Text Demo",
+      "description": "Demo showing a vertical text with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/text-vertical"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/text/text-vertical/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/text/text-vertical.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-use-animation-variants-demo",
+      "type": "registry:hook",
+      "title": "Use Animation Variants Demo",
+      "description": "Demo showing how to use use-animation-variants hook with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/use-animation-variants",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/utils/use-animation-variants/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/utils/use-animation-variants.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-use-animation-variants-demo",
+      "type": "registry:hook",
+      "title": "Use Animation Variants Demo",
+      "description": "Demo showing how to use use-animation-variants hook with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/use-animation-variants",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/utils/use-animation-variants/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/utils/use-animation-variants.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-use-animation-variants-demo",
+      "type": "registry:hook",
+      "title": "Use Animation Variants Demo",
+      "description": "Demo showing how to use use-animation-variants hook with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/use-animation-variants",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/utils/use-animation-variants/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/utils/use-animation-variants.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-text-stagger-inview",
+      "type": "registry:ui",
+      "title": "Text Stagger Inview",
+      "description": "Splitted text animation with staggered reveal triggered by view, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition with default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/text/text-stagger-inview/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/text/text-stagger-inview.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-text-stagger-inview",
+      "type": "registry:ui",
+      "title": "Text Stagger Inview",
+      "description": "Splitted text animation with staggered reveal triggered by view, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition with shadcn-default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/text/text-stagger-inview/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/text/text-stagger-inview.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-text-stagger-inview",
+      "type": "registry:ui",
+      "title": "Text Stagger Inview",
+      "description": "Splitted text animation with staggered reveal triggered by view, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition with shadcn-new-york style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/text/text-stagger-inview/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/text/text-stagger-inview.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-text-vertical",
+      "type": "registry:ui",
+      "title": "Vertical Text",
+      "description": "Text with vertical display, Can be used as a title or a subtitle with default style.",
+      "files": [
+        {
+          "path": "__registry__/text/text-vertical/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/text/text-vertical.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-text-vertical",
+      "type": "registry:ui",
+      "title": "Vertical Text",
+      "description": "Text with vertical display, Can be used as a title or a subtitle with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/text/text-vertical/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/text/text-vertical.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-text-vertical",
+      "type": "registry:ui",
+      "title": "Vertical Text",
+      "description": "Text with vertical display, Can be used as a title or a subtitle with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/text/text-vertical/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/text/text-vertical.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-use-animation-variants",
+      "type": "registry:hook",
+      "title": "Use Animation Variants",
+      "description": "Use animation variants hook, for your motion components, allows to animate component with transforms, opacity, and blur with default style.",
+      "files": [
+        {
+          "path": "__registry__/utils/use-animation-variants/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/utils/use-animation-variants.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-use-animation-variants",
+      "type": "registry:hook",
+      "title": "Use Animation Variants",
+      "description": "Use animation variants hook, for your motion components, allows to animate component with transforms, opacity, and blur with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/utils/use-animation-variants/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/utils/use-animation-variants.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-use-animation-variants",
+      "type": "registry:hook",
+      "title": "Use Animation Variants",
+      "description": "Use animation variants hook, for your motion components, allows to animate component with transforms, opacity, and blur with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/utils/use-animation-variants/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/utils/use-animation-variants.tsx"
         }
       ]
     }

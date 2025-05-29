@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-new-york-text-vertical",
+  "type": "registry:ui",
+  "title": "Vertical Text",
+  "description": "Text with vertical display, Can be used as a title or a subtitle with shadcn-new-york style.",
+  "files": [
+    {
+      "path": "__registry__/text/text-vertical/shadcn-new-york/index.tsx",
+      "content": "export function TextVertical() {\n  return <div>Text Vertical</div>;\n}\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/text/text-vertical.tsx"
+    }
+  ]
+}

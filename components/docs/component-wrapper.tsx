@@ -1,21 +1,21 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { Fullscreen, RotateCcw, SlidersHorizontal } from "lucide-react";
-import { useMemo, useState } from "react";
-import { motion } from "motion/react";
-import Iframe from "./iframe";
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import { Fullscreen, RotateCcw, SlidersHorizontal } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { motion } from 'motion/react';
+import Iframe from './iframe';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
-import { STYLES_INFO, useStyle } from "@/providers/style-provider";
-import { index } from "@/__registry__";
-import { useIsMobile } from "@/hooks/use-mobile";
+} from '../ui/select';
+import { STYLES_INFO, useStyle } from '@/providers/style-provider';
+import { index } from '@/__registry__';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface ComponentWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
@@ -37,7 +37,7 @@ export const ComponentWrapper = ({
 
   const isMobile = useIsMobile();
   const { style, setStyle } = useStyle();
-  const componentName = useMemo(() => name.replace("-demo", ""), [name]);
+  const componentName = useMemo(() => name.replace('-demo', ''), [name]);
 
   const styleName = `${style}-${componentName}`;
   const hasStyles = index[styleName]?.component;
@@ -45,9 +45,9 @@ export const ComponentWrapper = ({
   return (
     <motion.div
       className={cn(
-        "max-w-screen relative rounded-xl border bg-background flex flex-col md:flex-row",
-        bigScreen && "overflow-hidden",
-        className
+        'max-w-screen relative rounded-xl border bg-background flex flex-col md:flex-row',
+        bigScreen && 'overflow-hidden',
+        className,
       )}
     >
       <motion.div className="relative size-full flex-1">
@@ -82,7 +82,7 @@ export const ComponentWrapper = ({
                 // variant="neutral"
                 // size="icon-sm"
                 size="icon"
-                variant={"secondary"}
+                variant={'secondary'}
                 asChild
               >
                 <motion.button
@@ -95,12 +95,12 @@ export const ComponentWrapper = ({
 
               {iframe && (
                 <Button
-                  onClick={() => window.open(`/examples/${name}`, "_blank")}
+                  onClick={() => window.open(`/examples/${name}`, '_blank')}
                   className="flex items-center rounded-lg"
                   // variant="neutral"
                   // size="icon-sm"
                   size="icon"
-                  variant={"secondary"}
+                  variant={'secondary'}
                   asChild
                 >
                   <motion.button
@@ -119,7 +119,7 @@ export const ComponentWrapper = ({
                   // variant="neutral"
                   // size="icon-sm"
                   size="icon"
-                  variant={"secondary"}
+                  variant={'secondary'}
                   asChild
                 >
                   <motion.button
@@ -149,12 +149,12 @@ export const ComponentWrapper = ({
       <motion.div
         initial={false}
         animate={{
-          width: isMobile ? "100%" : tweakMode ? "250px" : "0px",
-          height: isMobile ? (tweakMode ? "250px" : "0px") : "auto",
+          width: isMobile ? '100%' : tweakMode ? '250px' : '0px',
+          height: isMobile ? (tweakMode ? '250px' : '0px') : 'auto',
           opacity: tweakMode ? 1 : 0,
         }}
         transition={{
-          type: "spring",
+          type: 'spring',
           stiffness: 300,
           damping: 30,
           restDelta: 0.01,

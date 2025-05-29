@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-new-york-text-stagger-inview-demo",
+  "type": "registry:ui",
+  "title": "Text Stagger Inview Demo",
+  "description": "Demo showing a split text with stagger animation with shadcn-new-york style.",
+  "registryDependencies": [
+    "http://localhost:3000/r/text-stagger-inview"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/text/text-stagger-inview/shadcn-new-york/index.tsx",
+      "content": "import { TextStaggerInview } from '@/components/systaliko-ui/text/text-stagger-inview';\n\nexport const TextStaggerInviewDemo = () => {\n  return <TextStaggerInview />;\n};\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/text/text-stagger-inview.tsx"
+    }
+  ]
+}

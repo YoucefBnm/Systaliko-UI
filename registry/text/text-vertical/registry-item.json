@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-vertical",
+  "type": "registry:ui",
+  "title": "Vertical Text",
+  "description": "Text with vertical display, Can be used as a title or a subtitle.",
+  "files": [
+    {
+      "path": "registry/text/text-vertical/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/text/text-vertical.tsx"
+    }
+  ]
+}

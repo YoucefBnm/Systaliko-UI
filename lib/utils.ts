@@ -1,5 +1,5 @@
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -17,12 +17,12 @@ export function transformImportPaths(content: string): string {
     /from ['"](@\/components\/[^'"]+)['"]/g,
     (match, path) => {
       // Extract the component path after @/components/
-      const componentPath = path.replace(/^@\/components\//, "");
+      const componentPath = path.replace(/^@\/components\//, '');
 
       // Convert to shadcn-style import path
       // Example: @/components/systaliko-ui/text/text-stagger-inview
       return `from '@/components/systaliko-ui/${componentPath}'`;
-    }
+    },
   );
 
   // Then handle relative imports (like "./index")
@@ -31,9 +31,9 @@ export function transformImportPaths(content: string): string {
     (match, path) => {
       // For relative imports, we want to point to the component's main file
       // Example: from './index' -> from '@/components/systaliko-ui/text/text-stagger-inview'
-      const componentName = path === "index" ? "text-stagger-inview" : path;
+      const componentName = path === 'index' ? 'text-stagger-inview' : path;
       return `from '@/components/systaliko-ui/text/${componentName}'`;
-    }
+    },
   );
 
   return transformed;

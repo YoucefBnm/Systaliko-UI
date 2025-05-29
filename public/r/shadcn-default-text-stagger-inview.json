@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-default-text-stagger-inview",
+  "type": "registry:ui",
+  "title": "Text Stagger Inview",
+  "description": "Splitted text animation with staggered reveal triggered by view, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition with shadcn-default style.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "__registry__/text/text-stagger-inview/shadcn-default/index.tsx",
+      "content": "'use client';\n\nimport * as React from 'react';\n\nexport function TextStaggerInview() {\n  return <div>Text Stagger Inview</div>;\n}\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/text/text-stagger-inview.tsx"
+    }
+  ]
+}
