@@ -34,7 +34,6 @@ export const TextVerticalDemo = () => {
           <SelectValue placeholder="Choose your animation" />
         </SelectTrigger>
         <SelectContent className="relative z-40">
-          {/* <SelectItem value="system">System</SelectItem> */}
           {animations.map((animation) => (
             <SelectItem
               key={animation.value ?? animation.label}

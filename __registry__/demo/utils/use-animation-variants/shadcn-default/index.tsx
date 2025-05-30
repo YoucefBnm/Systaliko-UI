@@ -11,7 +11,7 @@ import {
   useAnimationVariants,
 } from '@/__registry__/utils/use-animation-variants/shadcn-default';
 import { motion } from 'motion/react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const animations: { value: AnimationT; label: string }[] = [
   { value: 'left', label: 'Slide from Left' },
@@ -25,15 +25,7 @@ const animations: { value: AnimationT; label: string }[] = [
 
 export const TextVerticalDemo = () => {
   const [animation, setAnimation] = useState<AnimationT>();
-  const [isVisible, setIsVisible] = useState(false);
   const animationVariants = useAnimationVariants(animation);
-
-  // Reset animation when type changes
-  useEffect(() => {
-    setIsVisible(false);
-    const timer = setTimeout(() => setIsVisible(true), 50);
-    return () => clearTimeout(timer);
-  }, [animation]);
 
   return (
     <div className="flex h-80 flex-col justify-between gap-8">
@@ -42,7 +34,6 @@ export const TextVerticalDemo = () => {
           <SelectValue placeholder="Choose your animation" />
         </SelectTrigger>
         <SelectContent className="relative z-40">
-          {/* <SelectItem value="system">System</SelectItem> */}
           {animations.map((animation) => (
             <SelectItem
               key={animation.value ?? animation.label}
@@ -59,7 +50,8 @@ export const TextVerticalDemo = () => {
         variants={animationVariants}
         transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}
         initial="hidden"
-        animate={isVisible ? 'visible' : 'hidden'}
+        whileInView="visible"
+        viewport={{ once: false }}
         className="text-4xl tracking-tight font-bold"
       >
         Choose your animation, simple as that !!

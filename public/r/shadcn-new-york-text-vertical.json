@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "__registry__/text/text-vertical/shadcn-new-york/index.tsx",
-      "content": "export function TextVertical() {\n  return <div>Text Vertical</div>;\n}\n",
+      "content": "import { cn } from '@/lib/utils';\nimport * as React from 'react';\n\ntype ElementType = React.ElementType;\n\ninterface TextVerticalProps extends React.HTMLAttributes<HTMLElement> {\n  as?: ElementType;\n}\n\nexport function TextVertical({\n  as: Component = 'div',\n  className,\n  style,\n  ...props\n}: TextVerticalProps) {\n  return (\n    <Component\n      className={cn('size-min -rotate-180 whitespace-nowrap', className)}\n      style={{\n        writingMode: 'vertical-rl',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}\n",
       "type": "registry:ui",
       "target": "components/systaliko-ui/text/text-vertical.tsx"
     }
