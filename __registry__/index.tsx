@@ -22,6 +22,113 @@ export const index: Record<string, any> = {
     component: null,
     command: 'https://animate-ui.com/r/index',
   },
+  'default-animation-config': {
+    name: 'default-animation-config',
+    description: 'Animation configuration for animations with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/animation-config/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/text/animation-config.tsx',
+        content:
+          "import { Input } from '@/components/ui/input';\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select';\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { createContext, useContext, useState } from 'react';\n\nconst animations: { value: AnimationT; label: string }[] = [\n  { value: 'left', label: 'Slide from Left' },\n  { value: 'right', label: 'Slide from Right' },\n  { value: 'top', label: 'Slide from Top' },\n  { value: 'bottom', label: 'Slide from Bottom' },\n  { value: 'z', label: 'Scale' },\n  { value: 'blur', label: 'Blur' },\n];\n\ntype AnimationConfigContextType = {\n  animation: AnimationT | undefined;\n  staggerValue: number;\n  setAnimation: (value: AnimationT) => void;\n  setStaggerValue: (value: number) => void;\n};\n\nconst AnimationConfigContext = createContext<\n  AnimationConfigContextType | undefined\n>(undefined);\n\nexport function AnimationConfigProvider({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  const [animation, setAnimation] = useState<AnimationT>();\n  const [staggerValue, setStaggerValue] = useState<number>(0.02);\n\n  return (\n    <AnimationConfigContext.Provider\n      value={{\n        animation,\n        staggerValue,\n        setAnimation,\n        setStaggerValue,\n      }}\n    >\n      {children}\n    </AnimationConfigContext.Provider>\n  );\n}\n\nexport function useSetAnimationConfig() {\n  const context = useContext(AnimationConfigContext);\n  if (!context) {\n    throw new Error(\n      'useSetAnimationConfig must be used within an AnimationConfigProvider',\n    );\n  }\n  return context;\n}\n\nexport function AnimationSelector() {\n  const { setAnimation } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"animation-select\">\n        Select Animation\n      </label>\n      <Select onValueChange={(value) => setAnimation(value as AnimationT)}>\n        <SelectTrigger id=\"animation-select\" className=\"w-[180px]\">\n          <SelectValue placeholder=\"Choose your animation\" />\n        </SelectTrigger>\n        <SelectContent className=\"relative z-40\">\n          {animations.map((animation) => (\n            <SelectItem\n              key={animation.value ?? animation.label}\n              value={animation.value ?? ''}\n            >\n              {animation.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n    </div>\n  );\n}\n\nexport function StaggerInput() {\n  const { staggerValue, setStaggerValue } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"stagger-input\">\n        Set Stagger Value\n      </label>\n      <Input\n        id=\"stagger-input\"\n        className=\"max-w-fit\"\n        type=\"number\"\n        step={0.01}\n        min={0}\n        value={staggerValue}\n        onChange={(e) => setStaggerValue(Number(e.target.value))}\n      />\n    </div>\n  );\n}\n\nexport function AnimationConfig() {\n  return (\n    <div className=\"flex flex-col gap-4 items-start\">\n      <AnimationSelector />\n      <StaggerInput />\n    </div>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/animation-config/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-animation-config';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-animation-config',
+  },
+  'shadcn-default-animation-config': {
+    name: 'shadcn-default-animation-config',
+    description:
+      'Animation configuration for animations with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/animation-config/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/text/animation-config.tsx',
+        content:
+          "import { Input } from '@/components/ui/input';\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select';\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { createContext, useContext, useState } from 'react';\n\nconst animations: { value: AnimationT; label: string }[] = [\n  { value: 'left', label: 'Slide from Left' },\n  { value: 'right', label: 'Slide from Right' },\n  { value: 'top', label: 'Slide from Top' },\n  { value: 'bottom', label: 'Slide from Bottom' },\n  { value: 'z', label: 'Scale' },\n  { value: 'blur', label: 'Blur' },\n];\n\ntype AnimationConfigContextType = {\n  animation: AnimationT | undefined;\n  staggerValue: number;\n  setAnimation: (value: AnimationT) => void;\n  setStaggerValue: (value: number) => void;\n};\n\nconst AnimationConfigContext = createContext<\n  AnimationConfigContextType | undefined\n>(undefined);\n\nexport function AnimationConfigProvider({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  const [animation, setAnimation] = useState<AnimationT>();\n  const [staggerValue, setStaggerValue] = useState<number>(0.02);\n\n  return (\n    <AnimationConfigContext.Provider\n      value={{\n        animation,\n        staggerValue,\n        setAnimation,\n        setStaggerValue,\n      }}\n    >\n      {children}\n    </AnimationConfigContext.Provider>\n  );\n}\n\nexport function useSetAnimationConfig() {\n  const context = useContext(AnimationConfigContext);\n  if (!context) {\n    throw new Error(\n      'useSetAnimationConfig must be used within an AnimationConfigProvider',\n    );\n  }\n  return context;\n}\n\nexport function AnimationSelector() {\n  const { setAnimation } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"animation-select\">\n        Select Animation\n      </label>\n      <Select onValueChange={(value) => setAnimation(value as AnimationT)}>\n        <SelectTrigger id=\"animation-select\" className=\"w-[180px]\">\n          <SelectValue placeholder=\"Choose your animation\" />\n        </SelectTrigger>\n        <SelectContent className=\"relative z-40\">\n          {animations.map((animation) => (\n            <SelectItem\n              key={animation.value ?? animation.label}\n              value={animation.value ?? ''}\n            >\n              {animation.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n    </div>\n  );\n}\n\nexport function StaggerInput() {\n  const { staggerValue, setStaggerValue } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"stagger-input\">\n        Set Stagger Value\n      </label>\n      <Input\n        id=\"stagger-input\"\n        className=\"max-w-fit\"\n        type=\"number\"\n        step={0.01}\n        min={0}\n        value={staggerValue}\n        onChange={(e) => setStaggerValue(Number(e.target.value))}\n      />\n    </div>\n  );\n}\n\nexport function AnimationConfig() {\n  return (\n    <div className=\"flex flex-col gap-4 items-start\">\n      <AnimationSelector />\n      <StaggerInput />\n    </div>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/animation-config/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-animation-config';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-animation-config',
+  },
+  'shadcn-new-york-animation-config': {
+    name: 'shadcn-new-york-animation-config',
+    description:
+      'Animation configuration for animations with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/animation-config/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/text/animation-config.tsx',
+        content:
+          "import { Input } from '@/components/ui/input';\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select';\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { createContext, useContext, useState } from 'react';\n\nconst animations: { value: AnimationT; label: string }[] = [\n  { value: 'left', label: 'Slide from Left' },\n  { value: 'right', label: 'Slide from Right' },\n  { value: 'top', label: 'Slide from Top' },\n  { value: 'bottom', label: 'Slide from Bottom' },\n  { value: 'z', label: 'Scale' },\n  { value: 'blur', label: 'Blur' },\n];\n\ntype AnimationConfigContextType = {\n  animation: AnimationT | undefined;\n  staggerValue: number;\n  setAnimation: (value: AnimationT) => void;\n  setStaggerValue: (value: number) => void;\n};\n\nconst AnimationConfigContext = createContext<\n  AnimationConfigContextType | undefined\n>(undefined);\n\nexport function AnimationConfigProvider({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  const [animation, setAnimation] = useState<AnimationT>();\n  const [staggerValue, setStaggerValue] = useState<number>(0.02);\n\n  return (\n    <AnimationConfigContext.Provider\n      value={{\n        animation,\n        staggerValue,\n        setAnimation,\n        setStaggerValue,\n      }}\n    >\n      {children}\n    </AnimationConfigContext.Provider>\n  );\n}\n\nexport function useSetAnimationConfig() {\n  const context = useContext(AnimationConfigContext);\n  if (!context) {\n    throw new Error(\n      'useSetAnimationConfig must be used within an AnimationConfigProvider',\n    );\n  }\n  return context;\n}\n\nexport function AnimationSelector() {\n  const { setAnimation } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"animation-select\">\n        Select Animation\n      </label>\n      <Select onValueChange={(value) => setAnimation(value as AnimationT)}>\n        <SelectTrigger id=\"animation-select\" className=\"w-[180px]\">\n          <SelectValue placeholder=\"Choose your animation\" />\n        </SelectTrigger>\n        <SelectContent className=\"relative z-40\">\n          {animations.map((animation) => (\n            <SelectItem\n              key={animation.value ?? animation.label}\n              value={animation.value ?? ''}\n            >\n              {animation.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n    </div>\n  );\n}\n\nexport function StaggerInput() {\n  const { staggerValue, setStaggerValue } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"stagger-input\">\n        Set Stagger Value\n      </label>\n      <Input\n        id=\"stagger-input\"\n        className=\"max-w-fit\"\n        type=\"number\"\n        step={0.01}\n        min={0}\n        value={staggerValue}\n        onChange={(e) => setStaggerValue(Number(e.target.value))}\n      />\n    </div>\n  );\n}\n\nexport function AnimationConfig() {\n  return (\n    <div className=\"flex flex-col gap-4 items-start\">\n      <AnimationSelector />\n      <StaggerInput />\n    </div>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/animation-config/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-animation-config';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-animation-config',
+  },
   'default-copy-button': {
     name: 'default-copy-button',
     description:
@@ -145,7 +252,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/text/text-stagger-inview.tsx',
         content:
-          "'use client';\n\nimport { useState } from 'react';\nimport { TextStaggerInview } from '@/components/systaliko-ui/text/text-stagger-inview';\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select';\nimport { Input } from '@/components/ui/input';\n\nconst animations: { value: AnimationT; label: string }[] = [\n  { value: 'left', label: 'Slide from Left' },\n  { value: 'right', label: 'Slide from Right' },\n  { value: 'top', label: 'Slide from Top' },\n  { value: 'bottom', label: 'Slide from Bottom' },\n  { value: 'z', label: 'Scale' },\n  { value: 'blur', label: 'Blur' },\n  // { value: \"\", label: 'Opacity' },\n];\n\nexport const TextStaggerInviewDemo = () => {\n  const [animation, setAnimation] = useState<AnimationT>();\n  const [staggerValue, setStaggerValue] = useState<number>(0.02);\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <div className=\"flex items-center justify-between\">\n        <Select onValueChange={(value) => setAnimation(value as AnimationT)}>\n          <SelectTrigger className=\"w-[180px]\">\n            <SelectValue placeholder=\"Choose your animation\" />\n          </SelectTrigger>\n          <SelectContent className=\"relative z-40\">\n            {animations.map((animation) => (\n              <SelectItem\n                key={animation.value ?? animation.label}\n                value={animation.value ?? ''}\n              >\n                {animation.label}\n              </SelectItem>\n            ))}\n          </SelectContent>\n        </Select>\n        <Input\n          className=\"max-w-fit\"\n          type=\"number\"\n          step={0.01}\n          min={0}\n          value={staggerValue}\n          onChange={(e) => setStaggerValue(Number(e.target.value))}\n        />\n      </div>\n      <TextStaggerInview\n        key={`${animation}-${staggerValue}`}\n        animation={animation}\n        className=\"overflow-hidden text-4xl tracking-tight font-bold\"\n        stagger={staggerValue}\n      >\n        Orchestrated text animation with staggered animations\n      </TextStaggerInview>\n    </div>\n  );\n};",
+          '\'use client\';\n\nimport {\n  AnimationConfigProvider,\n  AnimationSelector,\n  StaggerInput,\n  useSetAnimationConfig,\n} from \'@/components/systaliko-ui/animation-config\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\n\nexport const TextStaggerInviewDemo = () => {\n  return (\n    <AnimationConfigProvider>\n      <TextStaggerInviewDemoContent />\n    </AnimationConfigProvider>\n  );\n};\n\nconst TextStaggerInviewDemoContent = () => {\n  const { animation, staggerValue } = useSetAnimationConfig();\n  return (\n    <div className="flex h-80 flex-col justify-between gap-8">\n      <div className="flex flex-col gap-4 items-start">\n        <AnimationSelector />\n        <StaggerInput />\n      </div>\n      <TextStaggerInview\n        key={`${animation}-${staggerValue}`}\n        animation={animation}\n        className="overflow-hidden text-4xl tracking-tight font-bold"\n        stagger={staggerValue}\n      >\n        Stagger Text Inview Demo\n      </TextStaggerInview>\n    </div>\n  );\n};',
       },
     ],
     component: (function () {
@@ -181,7 +288,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/text/text-stagger-inview.tsx',
         content:
-          "'use client';\n\nimport { useState } from 'react';\nimport { TextStaggerInview } from '@/components/systaliko-ui/text/text-stagger-inview';\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select';\nimport { Input } from '@/components/ui/input';\n\nconst animations: { value: AnimationT; label: string }[] = [\n  { value: 'left', label: 'Slide from Left' },\n  { value: 'right', label: 'Slide from Right' },\n  { value: 'top', label: 'Slide from Top' },\n  { value: 'bottom', label: 'Slide from Bottom' },\n  { value: 'z', label: 'Scale' },\n  { value: 'blur', label: 'Blur' },\n  // { value: \"\", label: 'Opacity' },\n];\n\nexport const TextStaggerInviewDemo = () => {\n  const [animation, setAnimation] = useState<AnimationT>();\n  const [staggerValue, setStaggerValue] = useState<number>(0.02);\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <div className=\"flex items-center justify-between\">\n        <Select onValueChange={(value) => setAnimation(value as AnimationT)}>\n          <SelectTrigger className=\"w-[180px]\">\n            <SelectValue placeholder=\"Choose your animation\" />\n          </SelectTrigger>\n          <SelectContent className=\"relative z-40\">\n            {animations.map((animation) => (\n              <SelectItem\n                key={animation.value ?? animation.label}\n                value={animation.value ?? ''}\n              >\n                {animation.label}\n              </SelectItem>\n            ))}\n          </SelectContent>\n        </Select>\n        <Input\n          className=\"max-w-fit\"\n          type=\"number\"\n          step={0.01}\n          min={0}\n          value={staggerValue}\n          onChange={(e) => setStaggerValue(Number(e.target.value))}\n        />\n      </div>\n      <TextStaggerInview\n        key={`${animation}-${staggerValue}`}\n        animation={animation}\n        className=\"overflow-hidden text-4xl tracking-tight font-bold\"\n        stagger={staggerValue}\n      >\n        Orchestrated text animation with staggered animations\n      </TextStaggerInview>\n    </div>\n  );\n};",
+          '\'use client\';\n\nimport {\n  AnimationConfigProvider,\n  AnimationSelector,\n  StaggerInput,\n  useSetAnimationConfig,\n} from \'@/components/systaliko-ui/animation-config\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\n\nexport const TextStaggerInviewDemo = () => {\n  return (\n    <AnimationConfigProvider>\n      <TextStaggerInviewDemoContent />\n    </AnimationConfigProvider>\n  );\n};\n\nconst TextStaggerInviewDemoContent = () => {\n  const { animation, staggerValue } = useSetAnimationConfig();\n  return (\n    <div className="flex h-80 flex-col justify-between gap-8">\n      <div className="flex flex-col gap-4 items-start">\n        <AnimationSelector />\n        <StaggerInput />\n      </div>\n      <TextStaggerInview\n        key={`${animation}-${staggerValue}`}\n        animation={animation}\n        className="overflow-hidden text-4xl tracking-tight font-bold"\n        stagger={staggerValue}\n      >\n        Stagger Text Inview Demo\n      </TextStaggerInview>\n    </div>\n  );\n};',
       },
     ],
     component: (function () {
@@ -217,7 +324,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/text/text-stagger-inview.tsx',
         content:
-          "'use client';\n\nimport { useState } from 'react';\nimport { TextStaggerInview } from '@/components/systaliko-ui/text/text-stagger-inview';\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select';\nimport { Input } from '@/components/ui/input';\n\nconst animations: { value: AnimationT; label: string }[] = [\n  { value: 'left', label: 'Slide from Left' },\n  { value: 'right', label: 'Slide from Right' },\n  { value: 'top', label: 'Slide from Top' },\n  { value: 'bottom', label: 'Slide from Bottom' },\n  { value: 'z', label: 'Scale' },\n  { value: 'blur', label: 'Blur' },\n  // { value: \"\", label: 'Opacity' },\n];\n\nexport const TextStaggerInviewDemo = () => {\n  const [animation, setAnimation] = useState<AnimationT>();\n  const [staggerValue, setStaggerValue] = useState<number>(0.02);\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <div className=\"flex items-center justify-between\">\n        <Select onValueChange={(value) => setAnimation(value as AnimationT)}>\n          <SelectTrigger className=\"w-[180px]\">\n            <SelectValue placeholder=\"Choose your animation\" />\n          </SelectTrigger>\n          <SelectContent className=\"relative z-40\">\n            {animations.map((animation) => (\n              <SelectItem\n                key={animation.value ?? animation.label}\n                value={animation.value ?? ''}\n              >\n                {animation.label}\n              </SelectItem>\n            ))}\n          </SelectContent>\n        </Select>\n        <Input\n          className=\"max-w-fit\"\n          type=\"number\"\n          step={0.01}\n          min={0}\n          value={staggerValue}\n          onChange={(e) => setStaggerValue(Number(e.target.value))}\n        />\n      </div>\n      <TextStaggerInview\n        key={`${animation}-${staggerValue}`}\n        animation={animation}\n        className=\"overflow-hidden text-4xl tracking-tight font-bold\"\n        stagger={staggerValue}\n      >\n        Orchestrated text animation with staggered animations\n      </TextStaggerInview>\n    </div>\n  );\n};",
+          '\'use client\';\n\nimport {\n  AnimationConfigProvider,\n  AnimationSelector,\n  StaggerInput,\n  useSetAnimationConfig,\n} from \'@/components/systaliko-ui/animation-config\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\n\nexport const TextStaggerInviewDemo = () => {\n  return (\n    <AnimationConfigProvider>\n      <TextStaggerInviewDemoContent />\n    </AnimationConfigProvider>\n  );\n};\n\nconst TextStaggerInviewDemoContent = () => {\n  const { animation, staggerValue } = useSetAnimationConfig();\n  return (\n    <div className="flex h-80 flex-col justify-between gap-8">\n      <div className="flex flex-col gap-4 items-start">\n        <AnimationSelector />\n        <StaggerInput />\n      </div>\n      <TextStaggerInview\n        key={`${animation}-${staggerValue}`}\n        animation={animation}\n        className="overflow-hidden text-4xl tracking-tight font-bold"\n        stagger={staggerValue}\n      >\n        Stagger Text Inview Demo\n      </TextStaggerInview>\n    </div>\n  );\n};',
       },
     ],
     component: (function () {
@@ -253,7 +360,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/text/text-vertical.tsx',
         content:
-          'import { TextVertical } from \'@/components/systaliko-ui/text/text-vertical\';\n\nexport const TextVerticalDemo = () => {\n  return (\n    <TextVertical\n      className="uppercase text-sm tracking-wider font-medium"\n      as="h4"\n    >\n      our summer collection\n    </TextVertical>\n  );\n};',
+          'import { TextVertical } from \'@/components/systaliko-ui/text/text-vertical\';\n\nexport const TextVerticalDemo = () => {\n  return (\n    <TextVertical\n      className="uppercase text-2xl tracking-wider font-bold"\n      as="h4"\n    >\n      our summer collection\n    </TextVertical>\n  );\n};',
       },
     ],
     component: (function () {
@@ -288,7 +395,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/text/text-vertical.tsx',
         content:
-          'import { TextVertical } from \'@/components/systaliko-ui/text/text-vertical\';\n\nexport const TextVerticalDemo = () => {\n  return (\n    <TextVertical\n      className="uppercase text-sm tracking-wider font-medium"\n      as="h4"\n    >\n      our summer collection\n    </TextVertical>\n  );\n};',
+          'import { TextVertical } from \'@/components/systaliko-ui/text/text-vertical\';\n\nexport const TextVerticalDemo = () => {\n  return (\n    <TextVertical\n      className="uppercase text-2xl tracking-wider font-bold"\n      as="h4"\n    >\n      our summer collection\n    </TextVertical>\n  );\n};',
       },
     ],
     component: (function () {
@@ -323,7 +430,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/text/text-vertical.tsx',
         content:
-          'import { TextVertical } from \'@/components/systaliko-ui/text/text-vertical\';\n\nexport const TextVerticalDemo = () => {\n  return (\n    <TextVertical\n      className="uppercase text-sm tracking-wider font-medium"\n      as="h4"\n    >\n      our summer collection\n    </TextVertical>\n  );\n};',
+          'import { TextVertical } from \'@/components/systaliko-ui/text/text-vertical\';\n\nexport const TextVerticalDemo = () => {\n  return (\n    <TextVertical\n      className="uppercase text-2xl tracking-wider font-bold"\n      as="h4"\n    >\n      our summer collection\n    </TextVertical>\n  );\n};',
       },
     ],
     component: (function () {
@@ -362,7 +469,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/utils/use-animation-variants.tsx',
         content:
-          "'use client';\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\nimport { useState } from 'react';\n\nconst animations: { value: AnimationT; label: string }[] = [\n  { value: 'left', label: 'Slide from Left' },\n  { value: 'right', label: 'Slide from Right' },\n  { value: 'top', label: 'Slide from Top' },\n  { value: 'bottom', label: 'Slide from Bottom' },\n  { value: 'z', label: 'Scale' },\n  { value: 'blur', label: 'Blur' },\n  // { value: \"\", label: 'Opacity' },\n];\n\nexport const TextVerticalDemo = () => {\n  const [animation, setAnimation] = useState<AnimationT>();\n  const animationVariants = useAnimationVariants(animation);\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <Select onValueChange={(value) => setAnimation(value as AnimationT)}>\n        <SelectTrigger className=\"w-[180px]\">\n          <SelectValue placeholder=\"Choose your animation\" />\n        </SelectTrigger>\n        <SelectContent className=\"relative z-40\">\n          {animations.map((animation) => (\n            <SelectItem\n              key={animation.value ?? animation.label}\n              value={animation.value ?? ''}\n            >\n              {animation.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Choose your animation, simple as that !!\n      </motion.h2>\n    </div>\n  );\n};",
+          "'use client';\n\nimport {\n  AnimationConfigProvider,\n  AnimationSelector,\n  useSetAnimationConfig,\n} from '@/components/systaliko-ui/animation-config';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\nexport const AnimationVariantsDemo = () => {\n  return (\n    <AnimationConfigProvider>\n      <AnimationVariantsDemoContent />\n    </AnimationConfigProvider>\n  );\n};\n\nconst AnimationVariantsDemoContent = () => {\n  const { animation } = useSetAnimationConfig();\n  const animationVariants = useAnimationVariants(animation);\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <AnimationSelector />\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Animation variants demo\n      </motion.h2>\n    </div>\n  );\n};",
       },
     ],
     component: (function () {
@@ -401,7 +508,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/utils/use-animation-variants.tsx',
         content:
-          "'use client';\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\nimport { useState } from 'react';\n\nconst animations: { value: AnimationT; label: string }[] = [\n  { value: 'left', label: 'Slide from Left' },\n  { value: 'right', label: 'Slide from Right' },\n  { value: 'top', label: 'Slide from Top' },\n  { value: 'bottom', label: 'Slide from Bottom' },\n  { value: 'z', label: 'Scale' },\n  { value: 'blur', label: 'Blur' },\n  // { value: \"\", label: 'Opacity' },\n];\n\nexport const TextVerticalDemo = () => {\n  const [animation, setAnimation] = useState<AnimationT>();\n  const animationVariants = useAnimationVariants(animation);\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <Select onValueChange={(value) => setAnimation(value as AnimationT)}>\n        <SelectTrigger className=\"w-[180px]\">\n          <SelectValue placeholder=\"Choose your animation\" />\n        </SelectTrigger>\n        <SelectContent className=\"relative z-40\">\n          {animations.map((animation) => (\n            <SelectItem\n              key={animation.value ?? animation.label}\n              value={animation.value ?? ''}\n            >\n              {animation.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Choose your animation, simple as that !!\n      </motion.h2>\n    </div>\n  );\n};",
+          "'use client';\n\nimport {\n  AnimationConfigProvider,\n  AnimationSelector,\n  useSetAnimationConfig,\n} from '@/components/systaliko-ui/animation-config';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\nexport const AnimationVariantsDemo = () => {\n  return (\n    <AnimationConfigProvider>\n      <AnimationVariantsDemoContent />\n    </AnimationConfigProvider>\n  );\n};\n\nconst AnimationVariantsDemoContent = () => {\n  const { animation } = useSetAnimationConfig();\n  const animationVariants = useAnimationVariants(animation);\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <AnimationSelector />\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Animation variants demo\n      </motion.h2>\n    </div>\n  );\n};",
       },
     ],
     component: (function () {
@@ -441,7 +548,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/utils/use-animation-variants.tsx',
         content:
-          "'use client';\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\nimport { useState } from 'react';\n\nconst animations: { value: AnimationT; label: string }[] = [\n  { value: 'left', label: 'Slide from Left' },\n  { value: 'right', label: 'Slide from Right' },\n  { value: 'top', label: 'Slide from Top' },\n  { value: 'bottom', label: 'Slide from Bottom' },\n  { value: 'z', label: 'Scale' },\n  { value: 'blur', label: 'Blur' },\n  // { value: \"\", label: 'Opacity' },\n];\n\nexport const TextVerticalDemo = () => {\n  const [animation, setAnimation] = useState<AnimationT>();\n  const animationVariants = useAnimationVariants(animation);\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <Select onValueChange={(value) => setAnimation(value as AnimationT)}>\n        <SelectTrigger className=\"w-[180px]\">\n          <SelectValue placeholder=\"Choose your animation\" />\n        </SelectTrigger>\n        <SelectContent className=\"relative z-40\">\n          {animations.map((animation) => (\n            <SelectItem\n              key={animation.value ?? animation.label}\n              value={animation.value ?? ''}\n            >\n              {animation.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Choose your animation, simple as that !!\n      </motion.h2>\n    </div>\n  );\n};",
+          "'use client';\n\nimport {\n  AnimationConfigProvider,\n  AnimationSelector,\n  useSetAnimationConfig,\n} from '@/components/systaliko-ui/animation-config';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\nexport const AnimationVariantsDemo = () => {\n  return (\n    <AnimationConfigProvider>\n      <AnimationVariantsDemoContent />\n    </AnimationConfigProvider>\n  );\n};\n\nconst AnimationVariantsDemoContent = () => {\n  const { animation } = useSetAnimationConfig();\n  const animationVariants = useAnimationVariants(animation);\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <AnimationSelector />\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Animation variants demo\n      </motion.h2>\n    </div>\n  );\n};",
       },
     ],
     component: (function () {
@@ -463,6 +570,111 @@ export const index: Record<string, any> = {
     command:
       'https://animate-ui.com/r/shadcn-new-york-use-animation-variants-demo',
   },
+  'default-text-stagger-hover': {
+    name: 'default-text-stagger-hover',
+    description:
+      'Splitted text animation with staggered effect triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition with default style.',
+    type: 'registry:ui',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/text/text-stagger-hover/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/text/text-stagger-hover.tsx',
+        content: '',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/text/text-stagger-hover/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-text-stagger-hover';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-text-stagger-hover',
+  },
+  'shadcn-default-text-stagger-hover': {
+    name: 'shadcn-default-text-stagger-hover',
+    description:
+      'Splitted text animation with staggered effect triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/text/text-stagger-hover/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/text/text-stagger-hover.tsx',
+        content: '',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/text/text-stagger-hover/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-text-stagger-hover';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-text-stagger-hover',
+  },
+  'shadcn-new-york-text-stagger-hover': {
+    name: 'shadcn-new-york-text-stagger-hover',
+    description:
+      'Splitted text animation with staggered effect triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/text/text-stagger-hover/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/text/text-stagger-hover.tsx',
+        content: '',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/text/text-stagger-hover/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-text-stagger-hover';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-text-stagger-hover',
+  },
   'default-text-stagger-inview': {
     name: 'default-text-stagger-inview',
     description:
@@ -478,7 +690,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
         content:
-          "'use client';\n\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport * as React from 'react';\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  animation?: AnimationT;\n}\nconst TRANSITION_CONFIG = { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] };\n\nexport function Word({ children, animation, ...props }: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className=\"inline-block text-nowrap\" {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n          transition={TRANSITION_CONFIG}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  animation,\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  return (\n    <motion.span\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{ staggerChildren: stagger, ...transition }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <Word animation={animation}>{word}</Word>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </motion.span>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  animation?: AnimationT;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  animation,\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  return (\n    <motion.span\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{ staggerChildren: stagger, ...transition }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <WordStagger animation={animation}>{word}</WordStagger>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </motion.span>\n  );\n}",
       },
     ],
     component: (function () {
@@ -514,7 +726,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
         content:
-          "'use client';\n\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport * as React from 'react';\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  animation?: AnimationT;\n}\nconst TRANSITION_CONFIG = { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] };\n\nexport function Word({ children, animation, ...props }: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className=\"inline-block text-nowrap\" {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n          transition={TRANSITION_CONFIG}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  animation,\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  return (\n    <motion.span\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{ staggerChildren: stagger, ...transition }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <Word animation={animation}>{word}</Word>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </motion.span>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  animation?: AnimationT;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  animation,\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  return (\n    <motion.span\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{ staggerChildren: stagger, ...transition }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <WordStagger animation={animation}>{word}</WordStagger>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </motion.span>\n  );\n}",
       },
     ],
     component: (function () {
@@ -550,7 +762,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
         content:
-          "'use client';\n\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport * as React from 'react';\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  animation?: AnimationT;\n}\nconst TRANSITION_CONFIG = { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] };\n\nexport function Word({ children, animation, ...props }: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className=\"inline-block text-nowrap\" {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n          transition={TRANSITION_CONFIG}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  animation,\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  return (\n    <motion.span\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{ staggerChildren: stagger, ...transition }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <Word animation={animation}>{word}</Word>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </motion.span>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  animation?: AnimationT;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  animation,\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  return (\n    <motion.span\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{ staggerChildren: stagger, ...transition }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <WordStagger animation={animation}>{word}</WordStagger>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </motion.span>\n  );\n}",
       },
     ],
     component: (function () {
@@ -678,6 +890,222 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: 'https://animate-ui.com/r/shadcn-new-york-text-vertical',
+  },
+  'default-word-stagger': {
+    name: 'default-word-stagger',
+    description:
+      'Alternative to text-stagger-inview and text-stagger-hover, in case you have one word or you want more custom text animations, use this component, it is used in the same way as text-stagger-inview and text-stagger-hover with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/text/word-stagger/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/text/word-stagger.tsx',
+        content:
+          "import { cn } from '@/lib/utils';\nimport { GsapTransitions } from '@/components/systaliko-ui/utils/gsap-transitions';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n          transition={{\n            duration: 0.3,\n            ease: GsapTransitions['power1.out'],\n          }}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/text/word-stagger/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-word-stagger';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-word-stagger',
+  },
+  'shadcn-default-word-stagger': {
+    name: 'shadcn-default-word-stagger',
+    description:
+      'Alternative to text-stagger-inview and text-stagger-hover, in case you have one word or you want more custom text animations, use this component, it is used in the same way as text-stagger-inview and text-stagger-hover with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/text/word-stagger/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/text/word-stagger.tsx',
+        content:
+          "import { cn } from '@/lib/utils';\nimport { GsapTransitions } from '@/components/systaliko-ui/utils/gsap-transitions';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n          transition={{\n            duration: 0.3,\n            ease: GsapTransitions['power1.out'],\n          }}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/text/word-stagger/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-word-stagger';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-word-stagger',
+  },
+  'shadcn-new-york-word-stagger': {
+    name: 'shadcn-new-york-word-stagger',
+    description:
+      'Alternative to text-stagger-inview and text-stagger-hover, in case you have one word or you want more custom text animations, use this component, it is used in the same way as text-stagger-inview and text-stagger-hover with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/text/word-stagger/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/text/word-stagger.tsx',
+        content:
+          "import { cn } from '@/lib/utils';\nimport { GsapTransitions } from '@/components/systaliko-ui/utils/gsap-transitions';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n          transition={{\n            duration: 0.3,\n            ease: GsapTransitions['power1.out'],\n          }}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/text/word-stagger/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-word-stagger';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-word-stagger',
+  },
+  'default-gsap-transitions': {
+    name: 'default-gsap-transitions',
+    description:
+      'GSAP custom easing functions, get the smooth gsap transitions withou using the whole library with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/utils/gsap-transitions/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/utils/gsap-transitions.tsx',
+        content:
+          "export const GsapTransitions = {\n  'power1.in': [0.55, 0.085, 0.68, 0.53],\n  'power1.out': [0.25, 0.46, 0.45, 0.94],\n  'power1.inOut': [0.455, 0.03, 0.515, 0.955],\n\n  'power2.in': [0.55, 0.085, 0.68, 0.53],\n  'power2.out': [0.25, 0.46, 0.45, 0.94],\n  'power2.inOut': [0.455, 0.03, 0.515, 0.955],\n\n  'power3.in': [0.55, 0.055, 0.675, 0.19],\n  'power3.out': [0.215, 0.61, 0.355, 1],\n  'power3.inOut': [0.645, 0.045, 0.355, 1],\n\n  'power4.in': [0.895, 0.03, 0.685, 0.22],\n  'power4.out': [0.165, 0.84, 0.44, 1],\n  'power4.inOut': [0.77, 0, 0.175, 1],\n\n  'sine.in': [0.47, 0, 0.745, 0.715],\n  'sine.out': [0.39, 0.575, 0.565, 1],\n  'sine.inOut': [0.445, 0.05, 0.55, 0.95],\n\n  'expo.in': [0.95, 0.05, 0.795, 0.035],\n  'expo.out': [0.19, 1, 0.22, 1],\n  'expo.inOut': [1, 0, 0, 1],\n\n  'circ.in': [0.6, 0.04, 0.98, 0.335],\n  'circ.out': [0.075, 0.82, 0.165, 1],\n  'circ.inOut': [0.785, 0.135, 0.15, 0.86],\n\n  'back.in': [0.6, -0.28, 0.735, 0.045],\n  'back.out': [0.175, 0.885, 0.32, 1.275],\n  'back.inOut': [0.68, -0.55, 0.265, 1.55],\n} as const;",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/utils/gsap-transitions/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-gsap-transitions';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-gsap-transitions',
+  },
+  'shadcn-default-gsap-transitions': {
+    name: 'shadcn-default-gsap-transitions',
+    description:
+      'GSAP custom easing functions, get the smooth gsap transitions withou using the whole library with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/utils/gsap-transitions/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/utils/gsap-transitions.tsx',
+        content:
+          "export const GsapTransitions = {\n  'power1.in': [0.55, 0.085, 0.68, 0.53],\n  'power1.out': [0.25, 0.46, 0.45, 0.94],\n  'power1.inOut': [0.455, 0.03, 0.515, 0.955],\n\n  'power2.in': [0.55, 0.085, 0.68, 0.53],\n  'power2.out': [0.25, 0.46, 0.45, 0.94],\n  'power2.inOut': [0.455, 0.03, 0.515, 0.955],\n\n  'power3.in': [0.55, 0.055, 0.675, 0.19],\n  'power3.out': [0.215, 0.61, 0.355, 1],\n  'power3.inOut': [0.645, 0.045, 0.355, 1],\n\n  'power4.in': [0.895, 0.03, 0.685, 0.22],\n  'power4.out': [0.165, 0.84, 0.44, 1],\n  'power4.inOut': [0.77, 0, 0.175, 1],\n\n  'sine.in': [0.47, 0, 0.745, 0.715],\n  'sine.out': [0.39, 0.575, 0.565, 1],\n  'sine.inOut': [0.445, 0.05, 0.55, 0.95],\n\n  'expo.in': [0.95, 0.05, 0.795, 0.035],\n  'expo.out': [0.19, 1, 0.22, 1],\n  'expo.inOut': [1, 0, 0, 1],\n\n  'circ.in': [0.6, 0.04, 0.98, 0.335],\n  'circ.out': [0.075, 0.82, 0.165, 1],\n  'circ.inOut': [0.785, 0.135, 0.15, 0.86],\n\n  'back.in': [0.6, -0.28, 0.735, 0.045],\n  'back.out': [0.175, 0.885, 0.32, 1.275],\n  'back.inOut': [0.68, -0.55, 0.265, 1.55],\n} as const;",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/utils/gsap-transitions/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-gsap-transitions';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-gsap-transitions',
+  },
+  'shadcn-new-york-gsap-transitions': {
+    name: 'shadcn-new-york-gsap-transitions',
+    description:
+      'GSAP custom easing functions, get the smooth gsap transitions withou using the whole library with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/utils/gsap-transitions/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/utils/gsap-transitions.tsx',
+        content:
+          "export const GsapTransitions = {\n  'power1.in': [0.55, 0.085, 0.68, 0.53],\n  'power1.out': [0.25, 0.46, 0.45, 0.94],\n  'power1.inOut': [0.455, 0.03, 0.515, 0.955],\n\n  'power2.in': [0.55, 0.085, 0.68, 0.53],\n  'power2.out': [0.25, 0.46, 0.45, 0.94],\n  'power2.inOut': [0.455, 0.03, 0.515, 0.955],\n\n  'power3.in': [0.55, 0.055, 0.675, 0.19],\n  'power3.out': [0.215, 0.61, 0.355, 1],\n  'power3.inOut': [0.645, 0.045, 0.355, 1],\n\n  'power4.in': [0.895, 0.03, 0.685, 0.22],\n  'power4.out': [0.165, 0.84, 0.44, 1],\n  'power4.inOut': [0.77, 0, 0.175, 1],\n\n  'sine.in': [0.47, 0, 0.745, 0.715],\n  'sine.out': [0.39, 0.575, 0.565, 1],\n  'sine.inOut': [0.445, 0.05, 0.55, 0.95],\n\n  'expo.in': [0.95, 0.05, 0.795, 0.035],\n  'expo.out': [0.19, 1, 0.22, 1],\n  'expo.inOut': [1, 0, 0, 1],\n\n  'circ.in': [0.6, 0.04, 0.98, 0.335],\n  'circ.out': [0.075, 0.82, 0.165, 1],\n  'circ.inOut': [0.785, 0.135, 0.15, 0.86],\n\n  'back.in': [0.6, -0.28, 0.735, 0.045],\n  'back.out': [0.175, 0.885, 0.32, 1.275],\n  'back.inOut': [0.68, -0.55, 0.265, 1.55],\n} as const;",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/utils/gsap-transitions/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-gsap-transitions';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-gsap-transitions',
   },
   'default-use-animation-variants': {
     name: 'default-use-animation-variants',

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animation-config",
+  "type": "registry:ui",
+  "title": "Animation Config",
+  "description": "Animation configuration for animations.",
+  "files": [
+    {
+      "path": "registry/animation-config/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/text/animation-config.tsx"
+    }
+  ]
+}

@@ -3,7 +3,7 @@ import { TextVertical } from '@/__registry__/text/text-vertical/shadcn-default';
 export const TextVerticalDemo = () => {
   return (
     <TextVertical
-      className="uppercase text-sm tracking-wider font-medium"
+      className="uppercase text-2xl tracking-wider font-bold"
       as="h4"
     >
       our summer collection

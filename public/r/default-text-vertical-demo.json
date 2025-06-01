@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "__registry__/demo/text/text-vertical/default/index.tsx",
-      "content": "import { TextVertical } from '@/components/systaliko-ui/text/text-vertical';\n\nexport const TextVerticalDemo = () => {\n  return (\n    <TextVertical\n      className=\"uppercase text-sm tracking-wider font-medium\"\n      as=\"h4\"\n    >\n      our summer collection\n    </TextVertical>\n  );\n};\n",
+      "content": "import { TextVertical } from '@/components/systaliko-ui/text/text-vertical';\n\nexport const TextVerticalDemo = () => {\n  return (\n    <TextVertical\n      className=\"uppercase text-2xl tracking-wider font-bold\"\n      as=\"h4\"\n    >\n      our summer collection\n    </TextVertical>\n  );\n};\n",
       "type": "registry:ui",
       "target": "components/systaliko-ui/demo/text/text-vertical.tsx"
     }

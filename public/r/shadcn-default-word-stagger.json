@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-default-word-stagger",
+  "type": "registry:ui",
+  "title": "Word Stagger",
+  "description": "Alternative to text-stagger-inview and text-stagger-hover, in case you have one word or you want more custom text animations, use this component, it is used in the same way as text-stagger-inview and text-stagger-hover with shadcn-default style.",
+  "files": [
+    {
+      "path": "__registry__/text/word-stagger/shadcn-default/index.tsx",
+      "content": "import { cn } from '@/lib/utils';\nimport { GsapTransitions } from '@/components/systaliko-ui/utils/gsap-transitions';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n          transition={{\n            duration: 0.3,\n            ease: GsapTransitions['power1.out'],\n          }}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/text/word-stagger.tsx"
+    }
+  ]
+}

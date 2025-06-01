@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-new-york-text-stagger-hover",
+  "type": "registry:ui",
+  "title": "Text Stagger Hover",
+  "description": "Splitted text animation with staggered effect triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition with shadcn-new-york style.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "__registry__/text/text-stagger-hover/shadcn-new-york/index.tsx",
+      "content": "",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/text/text-stagger-hover.tsx"
+    }
+  ]
+}
