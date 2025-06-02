@@ -3,7 +3,7 @@
   "name": "text-stagger-hover",
   "type": "registry:ui",
   "title": "Text Stagger Hover",
-  "description": "Splitted text animation with staggered effect triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition.",
+  "description": "Splitted text animation with staggered effect triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur), the stagger value, and the transition.",
   "dependencies": ["motion"],
   "files": [
     {

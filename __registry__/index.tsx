@@ -36,7 +36,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/animation-config.tsx',
         content:
-          "import { Input } from '@/components/ui/input';\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select';\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { createContext, useContext, useState } from 'react';\n\nconst animations: { value: AnimationT; label: string }[] = [\n  { value: 'left', label: 'Slide from Left' },\n  { value: 'right', label: 'Slide from Right' },\n  { value: 'top', label: 'Slide from Top' },\n  { value: 'bottom', label: 'Slide from Bottom' },\n  { value: 'z', label: 'Scale' },\n  { value: 'blur', label: 'Blur' },\n];\n\ntype AnimationConfigContextType = {\n  animation: AnimationT | undefined;\n  staggerValue: number;\n  setAnimation: (value: AnimationT) => void;\n  setStaggerValue: (value: number) => void;\n};\n\nconst AnimationConfigContext = createContext<\n  AnimationConfigContextType | undefined\n>(undefined);\n\nexport function AnimationConfigProvider({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  const [animation, setAnimation] = useState<AnimationT>();\n  const [staggerValue, setStaggerValue] = useState<number>(0.02);\n\n  return (\n    <AnimationConfigContext.Provider\n      value={{\n        animation,\n        staggerValue,\n        setAnimation,\n        setStaggerValue,\n      }}\n    >\n      {children}\n    </AnimationConfigContext.Provider>\n  );\n}\n\nexport function useSetAnimationConfig() {\n  const context = useContext(AnimationConfigContext);\n  if (!context) {\n    throw new Error(\n      'useSetAnimationConfig must be used within an AnimationConfigProvider',\n    );\n  }\n  return context;\n}\n\nexport function AnimationSelector() {\n  const { setAnimation } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"animation-select\">\n        Select Animation\n      </label>\n      <Select onValueChange={(value) => setAnimation(value as AnimationT)}>\n        <SelectTrigger id=\"animation-select\" className=\"w-[180px]\">\n          <SelectValue placeholder=\"Choose your animation\" />\n        </SelectTrigger>\n        <SelectContent className=\"relative z-40\">\n          {animations.map((animation) => (\n            <SelectItem\n              key={animation.value ?? animation.label}\n              value={animation.value ?? ''}\n            >\n              {animation.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n    </div>\n  );\n}\n\nexport function StaggerInput() {\n  const { staggerValue, setStaggerValue } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"stagger-input\">\n        Set Stagger Value\n      </label>\n      <Input\n        id=\"stagger-input\"\n        className=\"max-w-fit\"\n        type=\"number\"\n        step={0.01}\n        min={0}\n        value={staggerValue}\n        onChange={(e) => setStaggerValue(Number(e.target.value))}\n      />\n    </div>\n  );\n}\n\nexport function AnimationConfig() {\n  return (\n    <div className=\"flex flex-col gap-4 items-start\">\n      <AnimationSelector />\n      <StaggerInput />\n    </div>\n  );\n}",
+          "import { Input } from '@/components/ui/input';\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select';\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { createContext, useContext, useState } from 'react';\nimport { StaggerDirection } from '@/components/systaliko-ui/utils/set-stagger-direction';\n\nconst animations: { value: AnimationT; label: string }[] = [\n  { value: 'left', label: 'Slide from Left' },\n  { value: 'right', label: 'Slide from Right' },\n  { value: 'top', label: 'Slide from Top' },\n  { value: 'bottom', label: 'Slide from Bottom' },\n  { value: 'z', label: 'Scale' },\n  { value: 'blur', label: 'Blur' },\n];\n\nconst staggerDirections: { value: StaggerDirection; label: string }[] = [\n  { value: 'start', label: 'Start' },\n  { value: 'middle', label: 'Middle' },\n  { value: 'end', label: 'End' },\n];\n\ntype AnimationConfigContextType = {\n  animation: AnimationT | undefined;\n  staggerValue: number;\n  staggerDirection: StaggerDirection;\n  setAnimation: (value: AnimationT) => void;\n  setStaggerValue: (value: number) => void;\n  setStaggerDirection: (value: StaggerDirection) => void;\n};\n\nconst AnimationConfigContext = createContext<\n  AnimationConfigContextType | undefined\n>(undefined);\n\nexport function AnimationConfig({ children }: { children: React.ReactNode }) {\n  const [animation, setAnimation] = useState<AnimationT>();\n  const [staggerValue, setStaggerValue] = useState<number>(0.02);\n  const [staggerDirection, setStaggerDirection] =\n    useState<StaggerDirection>('start');\n  return (\n    <AnimationConfigContext.Provider\n      value={{\n        animation,\n        staggerValue,\n        setAnimation,\n        setStaggerValue,\n        staggerDirection,\n        setStaggerDirection,\n      }}\n    >\n      {children}\n    </AnimationConfigContext.Provider>\n  );\n}\n\nexport function useSetAnimationConfig() {\n  const context = useContext(AnimationConfigContext);\n  if (!context) {\n    throw new Error(\n      'useSetAnimationConfig must be used within an AnimationConfigProvider',\n    );\n  }\n  return context;\n}\n\nexport function AnimationSelector() {\n  const { setAnimation } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"animation-select\">\n        Select Animation\n      </label>\n      <Select onValueChange={(value) => setAnimation(value as AnimationT)}>\n        <SelectTrigger id=\"animation-select\" className=\"w-[180px]\">\n          <SelectValue placeholder={'Opacity'} />\n        </SelectTrigger>\n        <SelectContent className=\"relative z-40\">\n          {animations.map((animation) => (\n            <SelectItem\n              key={animation.value ?? animation.label}\n              value={animation.value ?? ''}\n            >\n              {animation.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n    </div>\n  );\n}\n\nexport function StaggerInput() {\n  const { staggerValue, setStaggerValue } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"stagger-input\">\n        Set Stagger Value\n      </label>\n      <Input\n        id=\"stagger-input\"\n        className=\"max-w-fit\"\n        type=\"number\"\n        step={0.01}\n        min={0}\n        value={staggerValue}\n        onChange={(e) => setStaggerValue(Number(e.target.value))}\n      />\n    </div>\n  );\n}\n\nexport function StaggerSelector() {\n  const { setStaggerDirection } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"animation-select\">\n        Select Stagger Direction\n      </label>\n      <Select\n        onValueChange={(value) =>\n          setStaggerDirection(value as StaggerDirection)\n        }\n      >\n        <SelectTrigger id=\"stagger-select\" className=\"w-[180px]\">\n          <SelectValue placeholder=\"Stagger Direction\" />\n        </SelectTrigger>\n        <SelectContent className=\"relative z-40\">\n          {staggerDirections.map((staggerDirection) => (\n            <SelectItem\n              key={staggerDirection.value ?? staggerDirection.label}\n              value={staggerDirection.value ?? ''}\n            >\n              {staggerDirection.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n    </div>\n  );\n}",
       },
     ],
     component: (function () {
@@ -72,7 +72,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/animation-config.tsx',
         content:
-          "import { Input } from '@/components/ui/input';\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select';\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { createContext, useContext, useState } from 'react';\n\nconst animations: { value: AnimationT; label: string }[] = [\n  { value: 'left', label: 'Slide from Left' },\n  { value: 'right', label: 'Slide from Right' },\n  { value: 'top', label: 'Slide from Top' },\n  { value: 'bottom', label: 'Slide from Bottom' },\n  { value: 'z', label: 'Scale' },\n  { value: 'blur', label: 'Blur' },\n];\n\ntype AnimationConfigContextType = {\n  animation: AnimationT | undefined;\n  staggerValue: number;\n  setAnimation: (value: AnimationT) => void;\n  setStaggerValue: (value: number) => void;\n};\n\nconst AnimationConfigContext = createContext<\n  AnimationConfigContextType | undefined\n>(undefined);\n\nexport function AnimationConfigProvider({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  const [animation, setAnimation] = useState<AnimationT>();\n  const [staggerValue, setStaggerValue] = useState<number>(0.02);\n\n  return (\n    <AnimationConfigContext.Provider\n      value={{\n        animation,\n        staggerValue,\n        setAnimation,\n        setStaggerValue,\n      }}\n    >\n      {children}\n    </AnimationConfigContext.Provider>\n  );\n}\n\nexport function useSetAnimationConfig() {\n  const context = useContext(AnimationConfigContext);\n  if (!context) {\n    throw new Error(\n      'useSetAnimationConfig must be used within an AnimationConfigProvider',\n    );\n  }\n  return context;\n}\n\nexport function AnimationSelector() {\n  const { setAnimation } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"animation-select\">\n        Select Animation\n      </label>\n      <Select onValueChange={(value) => setAnimation(value as AnimationT)}>\n        <SelectTrigger id=\"animation-select\" className=\"w-[180px]\">\n          <SelectValue placeholder=\"Choose your animation\" />\n        </SelectTrigger>\n        <SelectContent className=\"relative z-40\">\n          {animations.map((animation) => (\n            <SelectItem\n              key={animation.value ?? animation.label}\n              value={animation.value ?? ''}\n            >\n              {animation.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n    </div>\n  );\n}\n\nexport function StaggerInput() {\n  const { staggerValue, setStaggerValue } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"stagger-input\">\n        Set Stagger Value\n      </label>\n      <Input\n        id=\"stagger-input\"\n        className=\"max-w-fit\"\n        type=\"number\"\n        step={0.01}\n        min={0}\n        value={staggerValue}\n        onChange={(e) => setStaggerValue(Number(e.target.value))}\n      />\n    </div>\n  );\n}\n\nexport function AnimationConfig() {\n  return (\n    <div className=\"flex flex-col gap-4 items-start\">\n      <AnimationSelector />\n      <StaggerInput />\n    </div>\n  );\n}",
+          "import { Input } from '@/components/ui/input';\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select';\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { createContext, useContext, useState } from 'react';\nimport { StaggerDirection } from '@/components/systaliko-ui/utils/set-stagger-direction';\n\nconst animations: { value: AnimationT; label: string }[] = [\n  { value: 'left', label: 'Slide from Left' },\n  { value: 'right', label: 'Slide from Right' },\n  { value: 'top', label: 'Slide from Top' },\n  { value: 'bottom', label: 'Slide from Bottom' },\n  { value: 'z', label: 'Scale' },\n  { value: 'blur', label: 'Blur' },\n];\n\nconst staggerDirections: { value: StaggerDirection; label: string }[] = [\n  { value: 'start', label: 'Start' },\n  { value: 'middle', label: 'Middle' },\n  { value: 'end', label: 'End' },\n];\n\ntype AnimationConfigContextType = {\n  animation: AnimationT | undefined;\n  staggerValue: number;\n  staggerDirection: StaggerDirection;\n  setAnimation: (value: AnimationT) => void;\n  setStaggerValue: (value: number) => void;\n  setStaggerDirection: (value: StaggerDirection) => void;\n};\n\nconst AnimationConfigContext = createContext<\n  AnimationConfigContextType | undefined\n>(undefined);\n\nexport function AnimationConfig({ children }: { children: React.ReactNode }) {\n  const [animation, setAnimation] = useState<AnimationT>();\n  const [staggerValue, setStaggerValue] = useState<number>(0.02);\n  const [staggerDirection, setStaggerDirection] =\n    useState<StaggerDirection>('start');\n  return (\n    <AnimationConfigContext.Provider\n      value={{\n        animation,\n        staggerValue,\n        setAnimation,\n        setStaggerValue,\n        staggerDirection,\n        setStaggerDirection,\n      }}\n    >\n      {children}\n    </AnimationConfigContext.Provider>\n  );\n}\n\nexport function useSetAnimationConfig() {\n  const context = useContext(AnimationConfigContext);\n  if (!context) {\n    throw new Error(\n      'useSetAnimationConfig must be used within an AnimationConfigProvider',\n    );\n  }\n  return context;\n}\n\nexport function AnimationSelector() {\n  const { setAnimation } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"animation-select\">\n        Select Animation\n      </label>\n      <Select onValueChange={(value) => setAnimation(value as AnimationT)}>\n        <SelectTrigger id=\"animation-select\" className=\"w-[180px]\">\n          <SelectValue placeholder={'Opacity'} />\n        </SelectTrigger>\n        <SelectContent className=\"relative z-40\">\n          {animations.map((animation) => (\n            <SelectItem\n              key={animation.value ?? animation.label}\n              value={animation.value ?? ''}\n            >\n              {animation.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n    </div>\n  );\n}\n\nexport function StaggerInput() {\n  const { staggerValue, setStaggerValue } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"stagger-input\">\n        Set Stagger Value\n      </label>\n      <Input\n        id=\"stagger-input\"\n        className=\"max-w-fit\"\n        type=\"number\"\n        step={0.01}\n        min={0}\n        value={staggerValue}\n        onChange={(e) => setStaggerValue(Number(e.target.value))}\n      />\n    </div>\n  );\n}\n\nexport function StaggerSelector() {\n  const { setStaggerDirection } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"animation-select\">\n        Select Stagger Direction\n      </label>\n      <Select\n        onValueChange={(value) =>\n          setStaggerDirection(value as StaggerDirection)\n        }\n      >\n        <SelectTrigger id=\"stagger-select\" className=\"w-[180px]\">\n          <SelectValue placeholder=\"Stagger Direction\" />\n        </SelectTrigger>\n        <SelectContent className=\"relative z-40\">\n          {staggerDirections.map((staggerDirection) => (\n            <SelectItem\n              key={staggerDirection.value ?? staggerDirection.label}\n              value={staggerDirection.value ?? ''}\n            >\n              {staggerDirection.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n    </div>\n  );\n}",
       },
     ],
     component: (function () {
@@ -108,7 +108,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/animation-config.tsx',
         content:
-          "import { Input } from '@/components/ui/input';\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select';\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { createContext, useContext, useState } from 'react';\n\nconst animations: { value: AnimationT; label: string }[] = [\n  { value: 'left', label: 'Slide from Left' },\n  { value: 'right', label: 'Slide from Right' },\n  { value: 'top', label: 'Slide from Top' },\n  { value: 'bottom', label: 'Slide from Bottom' },\n  { value: 'z', label: 'Scale' },\n  { value: 'blur', label: 'Blur' },\n];\n\ntype AnimationConfigContextType = {\n  animation: AnimationT | undefined;\n  staggerValue: number;\n  setAnimation: (value: AnimationT) => void;\n  setStaggerValue: (value: number) => void;\n};\n\nconst AnimationConfigContext = createContext<\n  AnimationConfigContextType | undefined\n>(undefined);\n\nexport function AnimationConfigProvider({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  const [animation, setAnimation] = useState<AnimationT>();\n  const [staggerValue, setStaggerValue] = useState<number>(0.02);\n\n  return (\n    <AnimationConfigContext.Provider\n      value={{\n        animation,\n        staggerValue,\n        setAnimation,\n        setStaggerValue,\n      }}\n    >\n      {children}\n    </AnimationConfigContext.Provider>\n  );\n}\n\nexport function useSetAnimationConfig() {\n  const context = useContext(AnimationConfigContext);\n  if (!context) {\n    throw new Error(\n      'useSetAnimationConfig must be used within an AnimationConfigProvider',\n    );\n  }\n  return context;\n}\n\nexport function AnimationSelector() {\n  const { setAnimation } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"animation-select\">\n        Select Animation\n      </label>\n      <Select onValueChange={(value) => setAnimation(value as AnimationT)}>\n        <SelectTrigger id=\"animation-select\" className=\"w-[180px]\">\n          <SelectValue placeholder=\"Choose your animation\" />\n        </SelectTrigger>\n        <SelectContent className=\"relative z-40\">\n          {animations.map((animation) => (\n            <SelectItem\n              key={animation.value ?? animation.label}\n              value={animation.value ?? ''}\n            >\n              {animation.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n    </div>\n  );\n}\n\nexport function StaggerInput() {\n  const { staggerValue, setStaggerValue } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"stagger-input\">\n        Set Stagger Value\n      </label>\n      <Input\n        id=\"stagger-input\"\n        className=\"max-w-fit\"\n        type=\"number\"\n        step={0.01}\n        min={0}\n        value={staggerValue}\n        onChange={(e) => setStaggerValue(Number(e.target.value))}\n      />\n    </div>\n  );\n}\n\nexport function AnimationConfig() {\n  return (\n    <div className=\"flex flex-col gap-4 items-start\">\n      <AnimationSelector />\n      <StaggerInput />\n    </div>\n  );\n}",
+          "import { Input } from '@/components/ui/input';\nimport {\n  Select,\n  SelectContent,\n  SelectItem,\n  SelectTrigger,\n  SelectValue,\n} from '@/components/ui/select';\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { createContext, useContext, useState } from 'react';\nimport { StaggerDirection } from '@/components/systaliko-ui/utils/set-stagger-direction';\n\nconst animations: { value: AnimationT; label: string }[] = [\n  { value: 'left', label: 'Slide from Left' },\n  { value: 'right', label: 'Slide from Right' },\n  { value: 'top', label: 'Slide from Top' },\n  { value: 'bottom', label: 'Slide from Bottom' },\n  { value: 'z', label: 'Scale' },\n  { value: 'blur', label: 'Blur' },\n];\n\nconst staggerDirections: { value: StaggerDirection; label: string }[] = [\n  { value: 'start', label: 'Start' },\n  { value: 'middle', label: 'Middle' },\n  { value: 'end', label: 'End' },\n];\n\ntype AnimationConfigContextType = {\n  animation: AnimationT | undefined;\n  staggerValue: number;\n  staggerDirection: StaggerDirection;\n  setAnimation: (value: AnimationT) => void;\n  setStaggerValue: (value: number) => void;\n  setStaggerDirection: (value: StaggerDirection) => void;\n};\n\nconst AnimationConfigContext = createContext<\n  AnimationConfigContextType | undefined\n>(undefined);\n\nexport function AnimationConfig({ children }: { children: React.ReactNode }) {\n  const [animation, setAnimation] = useState<AnimationT>();\n  const [staggerValue, setStaggerValue] = useState<number>(0.02);\n  const [staggerDirection, setStaggerDirection] =\n    useState<StaggerDirection>('start');\n  return (\n    <AnimationConfigContext.Provider\n      value={{\n        animation,\n        staggerValue,\n        setAnimation,\n        setStaggerValue,\n        staggerDirection,\n        setStaggerDirection,\n      }}\n    >\n      {children}\n    </AnimationConfigContext.Provider>\n  );\n}\n\nexport function useSetAnimationConfig() {\n  const context = useContext(AnimationConfigContext);\n  if (!context) {\n    throw new Error(\n      'useSetAnimationConfig must be used within an AnimationConfigProvider',\n    );\n  }\n  return context;\n}\n\nexport function AnimationSelector() {\n  const { setAnimation } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"animation-select\">\n        Select Animation\n      </label>\n      <Select onValueChange={(value) => setAnimation(value as AnimationT)}>\n        <SelectTrigger id=\"animation-select\" className=\"w-[180px]\">\n          <SelectValue placeholder={'Opacity'} />\n        </SelectTrigger>\n        <SelectContent className=\"relative z-40\">\n          {animations.map((animation) => (\n            <SelectItem\n              key={animation.value ?? animation.label}\n              value={animation.value ?? ''}\n            >\n              {animation.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n    </div>\n  );\n}\n\nexport function StaggerInput() {\n  const { staggerValue, setStaggerValue } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"stagger-input\">\n        Set Stagger Value\n      </label>\n      <Input\n        id=\"stagger-input\"\n        className=\"max-w-fit\"\n        type=\"number\"\n        step={0.01}\n        min={0}\n        value={staggerValue}\n        onChange={(e) => setStaggerValue(Number(e.target.value))}\n      />\n    </div>\n  );\n}\n\nexport function StaggerSelector() {\n  const { setStaggerDirection } = useSetAnimationConfig();\n\n  return (\n    <div className=\"flex flex-col gap-2\">\n      <label className=\"font-medium text-sm\" htmlFor=\"animation-select\">\n        Select Stagger Direction\n      </label>\n      <Select\n        onValueChange={(value) =>\n          setStaggerDirection(value as StaggerDirection)\n        }\n      >\n        <SelectTrigger id=\"stagger-select\" className=\"w-[180px]\">\n          <SelectValue placeholder=\"Stagger Direction\" />\n        </SelectTrigger>\n        <SelectContent className=\"relative z-40\">\n          {staggerDirections.map((staggerDirection) => (\n            <SelectItem\n              key={staggerDirection.value ?? staggerDirection.label}\n              value={staggerDirection.value ?? ''}\n            >\n              {staggerDirection.label}\n            </SelectItem>\n          ))}\n        </SelectContent>\n      </Select>\n    </div>\n  );\n}",
       },
     ],
     component: (function () {
@@ -237,6 +237,554 @@ export const index: Record<string, any> = {
     })(),
     command: 'https://animate-ui.com/r/shadcn-new-york-copy-button',
   },
+  'default-container-infinite-scroll': {
+    name: 'default-container-infinite-scroll',
+    description:
+      'Infinite scroll container for optimizing the loading of large data sets, with a customizable threshold and a configurable loading indicator with default style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/containers/container-infinite-scroll/default/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/containers/container-infinite-scroll.tsx',
+        content:
+          "'use client';\nimport * as React from 'react';\nimport { motion, useInView } from 'motion/react';\nimport { Skeleton } from '@/components/ui/skeleton';\nimport { cn } from '@/lib/utils';\n\nfunction SkeltonWrapper() {\n  return (\n    <div className=\" space-y-5 p-4\">\n      <Skeleton className=\"size-12 rounded-full\" />\n      <Skeleton className=\"h-10 w-2/3\" />\n      <Skeleton className=\"h-48 w-full\" />\n    </div>\n  );\n}\nfunction Spinner() {\n  return (\n    <div className=\"inline-block size-6 animate-spin rounded-full border-2 border-gray-200 border-t-gray-900\" />\n  );\n}\ninterface CellInfiniteScrollProps extends React.HTMLAttributes<HTMLDivElement> {\n  isPending: boolean;\n  SkeltonComp?: React.ComponentType | React.ReactElement;\n}\nexport function CellInfiniteScroll({\n  isPending,\n  SkeltonComp = SkeltonWrapper,\n  children,\n  className,\n}: CellInfiniteScrollProps) {\n  const revealRef = React.useRef<HTMLDivElement | null>(null);\n\n  const isInView = useInView(revealRef, {\n    once: true,\n    amount: 0.2,\n  });\n\n  return (\n    <div className={cn('relative', className)}>\n      {isPending || !isInView ? (\n        <motion.div\n          initial=\"visible\"\n          animate={\n            !isInView || isPending\n              ? { opacity: 1, display: 'block' }\n              : { opacity: 0, display: 'none' }\n          }\n        >\n          {/* <div className=\" space-y-5 p-4\">\n            <Skeleton className=\"size-12 rounded-full\" />\n            <Skeleton className=\"h-10 w-2/3\" />\n            <Skeleton className=\"h-48 w-full\" />\n          </div> */}\n          {typeof SkeltonComp === 'function' ? <SkeltonComp /> : SkeltonComp}\n        </motion.div>\n      ) : (\n        <motion.div initial=\"hidden\" animate={isInView ? 'visible' : 'hidden'}>\n          {children}\n        </motion.div>\n      )}\n      <div ref={revealRef} />\n    </div>\n  );\n}\n\ninterface ContainerInfiniteScrollProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  items: unknown[];\n  isPending: boolean;\n  itemsCount: number | null | undefined;\n  loadMore: () => void;\n  Loader?: React.ComponentType | React.ReactElement;\n}\nexport function ContainerInfiniteScroll({\n  items,\n  isPending,\n  itemsCount,\n  loadMore,\n  Loader = Spinner,\n  children,\n  className,\n}: ContainerInfiniteScrollProps) {\n  const observerRef = React.useRef<HTMLDivElement | null>(null);\n  const allLoaded = items.length === itemsCount;\n  const hasMore = isPending && !allLoaded && items.length > 0;\n  React.useEffect(() => {\n    const { current } = observerRef;\n    const observer = new IntersectionObserver(\n      (entries) => {\n        if (entries[0].isIntersecting && !allLoaded && items.length > 0) {\n          loadMore();\n        }\n      },\n      { threshold: 1 },\n    );\n\n    if (current) {\n      observer.observe(current);\n    }\n\n    return () => {\n      if (current) {\n        observer.unobserve(current);\n      }\n    };\n  });\n\n  return (\n    <div className={className}>\n      {children}\n      {hasMore && (typeof Loader === 'function' ? <Loader /> : Loader)}\n      {items.length > 0 && itemsCount && items.length < itemsCount && (\n        <div ref={observerRef} />\n      )}\n    </div>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/containers/container-infinite-scroll/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-container-infinite-scroll';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-container-infinite-scroll',
+  },
+  'shadcn-default-container-infinite-scroll': {
+    name: 'shadcn-default-container-infinite-scroll',
+    description:
+      'Infinite scroll container for optimizing the loading of large data sets, with a customizable threshold and a configurable loading indicator with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/containers/container-infinite-scroll/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/containers/container-infinite-scroll.tsx',
+        content:
+          "'use client';\nimport * as React from 'react';\nimport { motion, useInView } from 'motion/react';\nimport { Skeleton } from '@/components/ui/skeleton';\nimport { cn } from '@/lib/utils';\n\nfunction SkeltonWrapper() {\n  return (\n    <div className=\" space-y-5 p-4\">\n      <Skeleton className=\"size-12 rounded-full\" />\n      <Skeleton className=\"h-10 w-2/3\" />\n      <Skeleton className=\"h-48 w-full\" />\n    </div>\n  );\n}\nfunction Spinner() {\n  return (\n    <div className=\"inline-block size-6 animate-spin rounded-full border-2 border-gray-200 border-t-gray-900\" />\n  );\n}\ninterface CellInfiniteScrollProps extends React.HTMLAttributes<HTMLDivElement> {\n  isPending: boolean;\n  SkeltonComp?: React.ComponentType | React.ReactElement;\n}\nexport function CellInfiniteScroll({\n  isPending,\n  SkeltonComp = SkeltonWrapper,\n  children,\n  className,\n}: CellInfiniteScrollProps) {\n  const revealRef = React.useRef<HTMLDivElement | null>(null);\n\n  const isInView = useInView(revealRef, {\n    once: true,\n    amount: 0.2,\n  });\n\n  return (\n    <div className={cn('relative', className)}>\n      {isPending || !isInView ? (\n        <motion.div\n          initial=\"visible\"\n          animate={\n            !isInView || isPending\n              ? { opacity: 1, display: 'block' }\n              : { opacity: 0, display: 'none' }\n          }\n        >\n          {/* <div className=\" space-y-5 p-4\">\n            <Skeleton className=\"size-12 rounded-full\" />\n            <Skeleton className=\"h-10 w-2/3\" />\n            <Skeleton className=\"h-48 w-full\" />\n          </div> */}\n          {typeof SkeltonComp === 'function' ? <SkeltonComp /> : SkeltonComp}\n        </motion.div>\n      ) : (\n        <motion.div initial=\"hidden\" animate={isInView ? 'visible' : 'hidden'}>\n          {children}\n        </motion.div>\n      )}\n      <div ref={revealRef} />\n    </div>\n  );\n}\n\ninterface ContainerInfiniteScrollProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  items: unknown[];\n  isPending: boolean;\n  itemsCount: number | null | undefined;\n  loadMore: () => void;\n  Loader?: React.ComponentType | React.ReactElement;\n}\nexport function ContainerInfiniteScroll({\n  items,\n  isPending,\n  itemsCount,\n  loadMore,\n  Loader = Spinner,\n  children,\n  className,\n}: ContainerInfiniteScrollProps) {\n  const observerRef = React.useRef<HTMLDivElement | null>(null);\n  const allLoaded = items.length === itemsCount;\n  const hasMore = isPending && !allLoaded && items.length > 0;\n  React.useEffect(() => {\n    const { current } = observerRef;\n    const observer = new IntersectionObserver(\n      (entries) => {\n        if (entries[0].isIntersecting && !allLoaded && items.length > 0) {\n          loadMore();\n        }\n      },\n      { threshold: 1 },\n    );\n\n    if (current) {\n      observer.observe(current);\n    }\n\n    return () => {\n      if (current) {\n        observer.unobserve(current);\n      }\n    };\n  });\n\n  return (\n    <div className={className}>\n      {children}\n      {hasMore && (typeof Loader === 'function' ? <Loader /> : Loader)}\n      {items.length > 0 && itemsCount && items.length < itemsCount && (\n        <div ref={observerRef} />\n      )}\n    </div>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/containers/container-infinite-scroll/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-container-infinite-scroll';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://animate-ui.com/r/shadcn-default-container-infinite-scroll',
+  },
+  'shadcn-new-york-container-infinite-scroll': {
+    name: 'shadcn-new-york-container-infinite-scroll',
+    description:
+      'Infinite scroll container for optimizing the loading of large data sets, with a customizable threshold and a configurable loading indicator with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/containers/container-infinite-scroll/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/containers/container-infinite-scroll.tsx',
+        content:
+          "'use client';\nimport * as React from 'react';\nimport { motion, useInView } from 'motion/react';\nimport { Skeleton } from '@/components/ui/skeleton';\nimport { cn } from '@/lib/utils';\n\nfunction SkeltonWrapper() {\n  return (\n    <div className=\" space-y-5 p-4\">\n      <Skeleton className=\"size-12 rounded-full\" />\n      <Skeleton className=\"h-10 w-2/3\" />\n      <Skeleton className=\"h-48 w-full\" />\n    </div>\n  );\n}\nfunction Spinner() {\n  return (\n    <div className=\"inline-block size-6 animate-spin rounded-full border-2 border-gray-200 border-t-gray-900\" />\n  );\n}\ninterface CellInfiniteScrollProps extends React.HTMLAttributes<HTMLDivElement> {\n  isPending: boolean;\n  SkeltonComp?: React.ComponentType | React.ReactElement;\n}\nexport function CellInfiniteScroll({\n  isPending,\n  SkeltonComp = SkeltonWrapper,\n  children,\n  className,\n}: CellInfiniteScrollProps) {\n  const revealRef = React.useRef<HTMLDivElement | null>(null);\n\n  const isInView = useInView(revealRef, {\n    once: true,\n    amount: 0.2,\n  });\n\n  return (\n    <div className={cn('relative', className)}>\n      {isPending || !isInView ? (\n        <motion.div\n          initial=\"visible\"\n          animate={\n            !isInView || isPending\n              ? { opacity: 1, display: 'block' }\n              : { opacity: 0, display: 'none' }\n          }\n        >\n          {/* <div className=\" space-y-5 p-4\">\n            <Skeleton className=\"size-12 rounded-full\" />\n            <Skeleton className=\"h-10 w-2/3\" />\n            <Skeleton className=\"h-48 w-full\" />\n          </div> */}\n          {typeof SkeltonComp === 'function' ? <SkeltonComp /> : SkeltonComp}\n        </motion.div>\n      ) : (\n        <motion.div initial=\"hidden\" animate={isInView ? 'visible' : 'hidden'}>\n          {children}\n        </motion.div>\n      )}\n      <div ref={revealRef} />\n    </div>\n  );\n}\n\ninterface ContainerInfiniteScrollProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  items: unknown[];\n  isPending: boolean;\n  itemsCount: number | null | undefined;\n  loadMore: () => void;\n  Loader?: React.ComponentType | React.ReactElement;\n}\nexport function ContainerInfiniteScroll({\n  items,\n  isPending,\n  itemsCount,\n  loadMore,\n  Loader = Spinner,\n  children,\n  className,\n}: ContainerInfiniteScrollProps) {\n  const observerRef = React.useRef<HTMLDivElement | null>(null);\n  const allLoaded = items.length === itemsCount;\n  const hasMore = isPending && !allLoaded && items.length > 0;\n  React.useEffect(() => {\n    const { current } = observerRef;\n    const observer = new IntersectionObserver(\n      (entries) => {\n        if (entries[0].isIntersecting && !allLoaded && items.length > 0) {\n          loadMore();\n        }\n      },\n      { threshold: 1 },\n    );\n\n    if (current) {\n      observer.observe(current);\n    }\n\n    return () => {\n      if (current) {\n        observer.unobserve(current);\n      }\n    };\n  });\n\n  return (\n    <div className={className}>\n      {children}\n      {hasMore && (typeof Loader === 'function' ? <Loader /> : Loader)}\n      {items.length > 0 && itemsCount && items.length < itemsCount && (\n        <div ref={observerRef} />\n      )}\n    </div>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/containers/container-infinite-scroll/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-container-infinite-scroll';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://animate-ui.com/r/shadcn-new-york-container-infinite-scroll',
+  },
+  'default-grid-bento': {
+    name: 'default-grid-bento',
+    description:
+      'Bento Grid, container with multiple variants and displays with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/containers/grid-bento/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/containers/grid-bento.tsx',
+        content:
+          "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport { cva, VariantProps } from 'class-variance-authority';\n\nconst bentoGridVariants = cva(\n  'relative grid gap-4 [&>*:first-child]:origin-top-right [&>*:nth-child(3)]:origin-bottom-right [&>*:nth-child(4)]:origin-top-right',\n  {\n    variants: {\n      variant: {\n        default: `\n            grid-cols-8 grid-rows-[1fr_0.5fr_0.5fr_1fr]\n            [&>*:first-child]:col-span-8 md:[&>*:first-child]:col-span-6 [&>*:first-child]:row-span-3\n            [&>*:nth-child(2)]:col-span-2 md:[&>*:nth-child(2)]:row-span-2 [&>*:nth-child(2)]:hidden md:[&>*:nth-child(2)]:block\n            [&>*:nth-child(3)]:col-span-2 md:[&>*:nth-child(3)]:row-span-2 [&>*:nth-child(3)]:hidden md:[&>*:nth-child(3)]:block\n            [&>*:nth-child(4)]:col-span-4 md:[&>*:nth-child(4)]:col-span-3\n            [&>*:nth-child(5)]:col-span-4 md:[&>*:nth-child(5)]:col-span-3\n          `,\n        threeCells: `\n            grid-cols-2 grid-rows-2 [&>*:nth-child(4)]:hidden [&>*:nth-child(5)]:hidden\n            [&>*:first-child]:col-span-2\n        `,\n        fourCells: `\n          grid-cols-3 grid-rows-2\n          [&>*:first-child]:col-span-1\n          [&>*:nth-child(2)]:col-span-2\n          [&>*:nth-child(3)]:col-span-2\n          [&>*:nth-child(5)]:hidden\n        `,\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\n\nexport const GridBento = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof bentoGridVariants>\n>(({ variant, className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(bentoGridVariants({ variant }), className)}\n      {...props}\n    />\n  );\n});\nGridBento.displayName = 'GridBento';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/containers/grid-bento/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-grid-bento';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-grid-bento',
+  },
+  'shadcn-default-grid-bento': {
+    name: 'shadcn-default-grid-bento',
+    description:
+      'Bento Grid, container with multiple variants and displays with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/containers/grid-bento/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/containers/grid-bento.tsx',
+        content:
+          "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport { cva, VariantProps } from 'class-variance-authority';\n\nconst bentoGridVariants = cva(\n  'relative grid gap-4 [&>*:first-child]:origin-top-right [&>*:nth-child(3)]:origin-bottom-right [&>*:nth-child(4)]:origin-top-right',\n  {\n    variants: {\n      variant: {\n        default: `\n            grid-cols-8 grid-rows-[1fr_0.5fr_0.5fr_1fr]\n            [&>*:first-child]:col-span-8 md:[&>*:first-child]:col-span-6 [&>*:first-child]:row-span-3\n            [&>*:nth-child(2)]:col-span-2 md:[&>*:nth-child(2)]:row-span-2 [&>*:nth-child(2)]:hidden md:[&>*:nth-child(2)]:block\n            [&>*:nth-child(3)]:col-span-2 md:[&>*:nth-child(3)]:row-span-2 [&>*:nth-child(3)]:hidden md:[&>*:nth-child(3)]:block\n            [&>*:nth-child(4)]:col-span-4 md:[&>*:nth-child(4)]:col-span-3\n            [&>*:nth-child(5)]:col-span-4 md:[&>*:nth-child(5)]:col-span-3\n          `,\n        threeCells: `\n            grid-cols-2 grid-rows-2 [&>*:nth-child(4)]:hidden [&>*:nth-child(5)]:hidden\n            [&>*:first-child]:col-span-2\n        `,\n        fourCells: `\n          grid-cols-3 grid-rows-2\n          [&>*:first-child]:col-span-1\n          [&>*:nth-child(2)]:col-span-2\n          [&>*:nth-child(3)]:col-span-2\n          [&>*:nth-child(5)]:hidden\n        `,\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\n\nexport const GridBento = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof bentoGridVariants>\n>(({ variant, className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(bentoGridVariants({ variant }), className)}\n      {...props}\n    />\n  );\n});\nGridBento.displayName = 'GridBento';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/containers/grid-bento/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-grid-bento';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-grid-bento',
+  },
+  'shadcn-new-york-grid-bento': {
+    name: 'shadcn-new-york-grid-bento',
+    description:
+      'Bento Grid, container with multiple variants and displays with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/containers/grid-bento/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/containers/grid-bento.tsx',
+        content:
+          "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport { cva, VariantProps } from 'class-variance-authority';\n\nconst bentoGridVariants = cva(\n  'relative grid gap-4 [&>*:first-child]:origin-top-right [&>*:nth-child(3)]:origin-bottom-right [&>*:nth-child(4)]:origin-top-right',\n  {\n    variants: {\n      variant: {\n        default: `\n            grid-cols-8 grid-rows-[1fr_0.5fr_0.5fr_1fr]\n            [&>*:first-child]:col-span-8 md:[&>*:first-child]:col-span-6 [&>*:first-child]:row-span-3\n            [&>*:nth-child(2)]:col-span-2 md:[&>*:nth-child(2)]:row-span-2 [&>*:nth-child(2)]:hidden md:[&>*:nth-child(2)]:block\n            [&>*:nth-child(3)]:col-span-2 md:[&>*:nth-child(3)]:row-span-2 [&>*:nth-child(3)]:hidden md:[&>*:nth-child(3)]:block\n            [&>*:nth-child(4)]:col-span-4 md:[&>*:nth-child(4)]:col-span-3\n            [&>*:nth-child(5)]:col-span-4 md:[&>*:nth-child(5)]:col-span-3\n          `,\n        threeCells: `\n            grid-cols-2 grid-rows-2 [&>*:nth-child(4)]:hidden [&>*:nth-child(5)]:hidden\n            [&>*:first-child]:col-span-2\n        `,\n        fourCells: `\n          grid-cols-3 grid-rows-2\n          [&>*:first-child]:col-span-1\n          [&>*:nth-child(2)]:col-span-2\n          [&>*:nth-child(3)]:col-span-2\n          [&>*:nth-child(5)]:hidden\n        `,\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\n\nexport const GridBento = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof bentoGridVariants>\n>(({ variant, className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(bentoGridVariants({ variant }), className)}\n      {...props}\n    />\n  );\n});\nGridBento.displayName = 'GridBento';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/containers/grid-bento/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-grid-bento';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-grid-bento',
+  },
+  'default-container-infinite-scroll-demo': {
+    name: 'default-container-infinite-scroll-demo',
+    description: 'Demo showing container infinite scroll with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/container-infinite-scroll'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/container-infinite-scroll/default/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/containers/container-infinite-scroll.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\n\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\nimport {\n  CellInfiniteScroll,\n  ContainerInfiniteScroll,\n} from '@/components/systaliko-ui/containers/container-infinite-scroll';\nimport { ScrollArea } from '@/components/ui/scroll-area';\ninterface Post {\n  id: number;\n  userId: number;\n  title: string;\n  body: string;\n}\n\nconst BASE_URL = 'https://jsonplaceholder.typicode.com/posts';\nconst LIMIT = 10;\n\nexport function ContainerInfiniteScrollDemo() {\n  const [posts, setPosts] = React.useState<Post[]>([]);\n  const [page, setPage] = React.useState<number>(0);\n  const [totalCount, setTotalCount] = React.useState<number | null>();\n  const [isLoading, setIsLoading] = React.useState<boolean>(false);\n\n  async function fetchData() {\n    setIsLoading(true);\n    const start = page * LIMIT;\n    try {\n      const response = await fetch(\n        `${BASE_URL}?_start=${start}&_limit=${LIMIT}`,\n      );\n      const totalItems = response.headers.get('x-total-count');\n      const data = await response.json();\n\n      setTotalCount(Number(totalItems));\n      setPosts((prevPosts) => [...prevPosts, ...data]);\n      setPage((prevPage) => prevPage + 1);\n    } catch (error) {\n      console.error('Error fetching data:', error);\n    } finally {\n      setIsLoading(false);\n    }\n  }\n\n  React.useEffect(() => {\n    fetchData();\n  }, []);\n\n  return (\n    <ScrollArea className=\"w-full h-80\">\n      <ContainerInfiniteScroll\n        items={posts}\n        isPending={isLoading}\n        itemsCount={totalCount}\n        loadMore={fetchData}\n        className=\"container mx-auto grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-2 p-12\"\n      >\n        {posts.map((post, index) => (\n          <CellInfiniteScroll isPending={isLoading} key={`${post.id}-${index}`}>\n            <Card className=\" bg-fd-card\">\n              <CardHeader>\n                <CardTitle className=\"text-primary\">#{post.id}</CardTitle>\n                <CardDescription className=\"text-xs\">\n                  {post.title}\n                </CardDescription>\n              </CardHeader>\n\n              <CardContent className=\"text-sm text-foreground\">\n                <p>{post.body}</p>\n              </CardContent>\n            </Card>\n          </CellInfiniteScroll>\n        ))}\n      </ContainerInfiniteScroll>\n    </ScrollArea>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/container-infinite-scroll/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-container-infinite-scroll-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-container-infinite-scroll-demo',
+  },
+  'shadcn-default-container-infinite-scroll-demo': {
+    name: 'shadcn-default-container-infinite-scroll-demo',
+    description:
+      'Demo showing container infinite scroll with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/container-infinite-scroll'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/container-infinite-scroll/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/containers/container-infinite-scroll.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\n\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\nimport {\n  CellInfiniteScroll,\n  ContainerInfiniteScroll,\n} from '@/components/systaliko-ui/containers/container-infinite-scroll';\nimport { ScrollArea } from '@/components/ui/scroll-area';\ninterface Post {\n  id: number;\n  userId: number;\n  title: string;\n  body: string;\n}\n\nconst BASE_URL = 'https://jsonplaceholder.typicode.com/posts';\nconst LIMIT = 10;\n\nexport function ContainerInfiniteScrollDemo() {\n  const [posts, setPosts] = React.useState<Post[]>([]);\n  const [page, setPage] = React.useState<number>(0);\n  const [totalCount, setTotalCount] = React.useState<number | null>();\n  const [isLoading, setIsLoading] = React.useState<boolean>(false);\n\n  async function fetchData() {\n    setIsLoading(true);\n    const start = page * LIMIT;\n    try {\n      const response = await fetch(\n        `${BASE_URL}?_start=${start}&_limit=${LIMIT}`,\n      );\n      const totalItems = response.headers.get('x-total-count');\n      const data = await response.json();\n\n      setTotalCount(Number(totalItems));\n      setPosts((prevPosts) => [...prevPosts, ...data]);\n      setPage((prevPage) => prevPage + 1);\n    } catch (error) {\n      console.error('Error fetching data:', error);\n    } finally {\n      setIsLoading(false);\n    }\n  }\n\n  React.useEffect(() => {\n    fetchData();\n  }, []);\n\n  return (\n    <ScrollArea className=\"w-full h-80\">\n      <ContainerInfiniteScroll\n        items={posts}\n        isPending={isLoading}\n        itemsCount={totalCount}\n        loadMore={fetchData}\n        className=\"container mx-auto grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-2 p-12\"\n      >\n        {posts.map((post, index) => (\n          <CellInfiniteScroll isPending={isLoading} key={`${post.id}-${index}`}>\n            <Card className=\" bg-fd-card\">\n              <CardHeader>\n                <CardTitle className=\"text-primary\">#{post.id}</CardTitle>\n                <CardDescription className=\"text-xs\">\n                  {post.title}\n                </CardDescription>\n              </CardHeader>\n\n              <CardContent className=\"text-sm text-foreground\">\n                <p>{post.body}</p>\n              </CardContent>\n            </Card>\n          </CellInfiniteScroll>\n        ))}\n      </ContainerInfiniteScroll>\n    </ScrollArea>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/container-infinite-scroll/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-container-infinite-scroll-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://animate-ui.com/r/shadcn-default-container-infinite-scroll-demo',
+  },
+  'shadcn-new-york-container-infinite-scroll-demo': {
+    name: 'shadcn-new-york-container-infinite-scroll-demo',
+    description:
+      'Demo showing container infinite scroll with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/container-infinite-scroll'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/container-infinite-scroll/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/containers/container-infinite-scroll.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\n\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\nimport {\n  CellInfiniteScroll,\n  ContainerInfiniteScroll,\n} from '@/components/systaliko-ui/containers/container-infinite-scroll';\nimport { ScrollArea } from '@/components/ui/scroll-area';\ninterface Post {\n  id: number;\n  userId: number;\n  title: string;\n  body: string;\n}\n\nconst BASE_URL = 'https://jsonplaceholder.typicode.com/posts';\nconst LIMIT = 10;\n\nexport function ContainerInfiniteScrollDemo() {\n  const [posts, setPosts] = React.useState<Post[]>([]);\n  const [page, setPage] = React.useState<number>(0);\n  const [totalCount, setTotalCount] = React.useState<number | null>();\n  const [isLoading, setIsLoading] = React.useState<boolean>(false);\n\n  async function fetchData() {\n    setIsLoading(true);\n    const start = page * LIMIT;\n    try {\n      const response = await fetch(\n        `${BASE_URL}?_start=${start}&_limit=${LIMIT}`,\n      );\n      const totalItems = response.headers.get('x-total-count');\n      const data = await response.json();\n\n      setTotalCount(Number(totalItems));\n      setPosts((prevPosts) => [...prevPosts, ...data]);\n      setPage((prevPage) => prevPage + 1);\n    } catch (error) {\n      console.error('Error fetching data:', error);\n    } finally {\n      setIsLoading(false);\n    }\n  }\n\n  React.useEffect(() => {\n    fetchData();\n  }, []);\n\n  return (\n    <ScrollArea className=\"w-full h-80\">\n      <ContainerInfiniteScroll\n        items={posts}\n        isPending={isLoading}\n        itemsCount={totalCount}\n        loadMore={fetchData}\n        className=\"container mx-auto grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-2 p-12\"\n      >\n        {posts.map((post, index) => (\n          <CellInfiniteScroll isPending={isLoading} key={`${post.id}-${index}`}>\n            <Card className=\" bg-fd-card\">\n              <CardHeader>\n                <CardTitle className=\"text-primary\">#{post.id}</CardTitle>\n                <CardDescription className=\"text-xs\">\n                  {post.title}\n                </CardDescription>\n              </CardHeader>\n\n              <CardContent className=\"text-sm text-foreground\">\n                <p>{post.body}</p>\n              </CardContent>\n            </Card>\n          </CellInfiniteScroll>\n        ))}\n      </ContainerInfiniteScroll>\n    </ScrollArea>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/container-infinite-scroll/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-container-infinite-scroll-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://animate-ui.com/r/shadcn-new-york-container-infinite-scroll-demo',
+  },
+  'default-grid-bento-demo': {
+    name: 'default-grid-bento-demo',
+    description: 'Grid Bento Demo with multiple variants with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/grid-bento'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/grid-bento/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/containers/grid-bento.tsx',
+        content:
+          "import { GridBento } from '@/components/systaliko-ui/containers/grid-bento';\n\nconst IMAGES = [\n  'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=2368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D',\n  'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww',\n];\n\nexport function GridBentoDemo() {\n  return (\n    <GridBento className=\"h-screen py-12 px-6 w-full place-content-center place-items-center\">\n      {IMAGES.map((imageUrl, index) => (\n        <div\n          key={index}\n          className=\"overflow-hidden size-full rounded-xl shadow-xl\"\n        >\n          <img className=\"size-full object-cover\" src={imageUrl} alt=\"tokyo\" />\n        </div>\n      ))}\n    </GridBento>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/grid-bento/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-grid-bento-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-grid-bento-demo',
+  },
+  'shadcn-default-grid-bento-demo': {
+    name: 'shadcn-default-grid-bento-demo',
+    description:
+      'Grid Bento Demo with multiple variants with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/grid-bento'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/grid-bento/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/containers/grid-bento.tsx',
+        content:
+          "import { GridBento } from '@/components/systaliko-ui/containers/grid-bento';\n\nconst IMAGES = [\n  'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=2368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D',\n  'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww',\n];\n\nexport function GridBentoDemo() {\n  return (\n    <GridBento className=\"h-screen py-12 px-6 w-full place-content-center place-items-center\">\n      {IMAGES.map((imageUrl, index) => (\n        <div\n          key={index}\n          className=\"overflow-hidden size-full rounded-xl shadow-xl\"\n        >\n          <img className=\"size-full object-cover\" src={imageUrl} alt=\"tokyo\" />\n        </div>\n      ))}\n    </GridBento>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/grid-bento/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-grid-bento-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-grid-bento-demo',
+  },
+  'shadcn-new-york-grid-bento-demo': {
+    name: 'shadcn-new-york-grid-bento-demo',
+    description:
+      'Grid Bento Demo with multiple variants with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/grid-bento'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/grid-bento/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/containers/grid-bento.tsx',
+        content:
+          "import { GridBento } from '@/components/systaliko-ui/containers/grid-bento';\n\nconst IMAGES = [\n  'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=2368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D',\n  'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww',\n];\n\nexport function GridBentoDemo() {\n  return (\n    <GridBento className=\"h-screen py-12 px-6 w-full place-content-center place-items-center\">\n      {IMAGES.map((imageUrl, index) => (\n        <div\n          key={index}\n          className=\"overflow-hidden size-full rounded-xl shadow-xl\"\n        >\n          <img className=\"size-full object-cover\" src={imageUrl} alt=\"tokyo\" />\n        </div>\n      ))}\n    </GridBento>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/grid-bento/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-grid-bento-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-grid-bento-demo',
+  },
+  'default-text-stagger-hover-demo': {
+    name: 'default-text-stagger-hover-demo',
+    description:
+      'Demo showing a split text with stagger animation on hover with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/text-stagger-hover'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/text/text-stagger-hover/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/text/text-stagger-hover.tsx',
+        content:
+          "'use client';\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  StaggerSelector,\n  useSetAnimationConfig,\n} from '@/components/systaliko-ui/animation-config';\nimport {\n  TextStaggerHover,\n  TextStaggerHoverActive,\n  TextStaggerHoverHidden,\n} from '@/components/systaliko-ui/text/text-stagger-hover';\nimport * as React from 'react';\n\nconst TextStaggerHoverDemoContent = () => {\n  const { animation, staggerDirection } = useSetAnimationConfig();\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <div className=\"flex flex-col gap-4 items-start\">\n        <AnimationSelector />\n        <StaggerSelector />\n      </div>\n\n      <TextStaggerHover\n        as={'h2'}\n        className=\"cursor-pointer text-4xl font-bold uppercase tracking-tighter\"\n      >\n        <TextStaggerHoverActive\n          key={`${animation}-${staggerDirection}`}\n          className=\"opacity-20\"\n          animation={animation}\n          staggerDirection={staggerDirection}\n        >\n          Text Stagger Hover Demo\n        </TextStaggerHoverActive>\n\n        <TextStaggerHoverHidden\n          key={`${animation}-${staggerDirection}-2`}\n          animation={animation}\n          staggerDirection={staggerDirection}\n        >\n          Text Stagger Hover Demo\n        </TextStaggerHoverHidden>\n      </TextStaggerHover>\n    </div>\n  );\n};\n\nexport const TextStaggerHoverDemo = () => {\n  return (\n    <AnimationConfig>\n      <TextStaggerHoverDemoContent />\n    </AnimationConfig>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/text/text-stagger-hover/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-text-stagger-hover-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-text-stagger-hover-demo',
+  },
+  'shadcn-default-text-stagger-hover-demo': {
+    name: 'shadcn-default-text-stagger-hover-demo',
+    description:
+      'Demo showing a split text with stagger animation on hover with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/text-stagger-hover'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/text/text-stagger-hover/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/text/text-stagger-hover.tsx',
+        content:
+          "'use client';\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  StaggerSelector,\n  useSetAnimationConfig,\n} from '@/components/systaliko-ui/animation-config';\nimport {\n  TextStaggerHover,\n  TextStaggerHoverActive,\n  TextStaggerHoverHidden,\n} from '@/components/systaliko-ui/text/text-stagger-hover';\nimport * as React from 'react';\n\nconst TextStaggerHoverDemoContent = () => {\n  const { animation, staggerDirection } = useSetAnimationConfig();\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <div className=\"flex flex-col gap-4 items-start\">\n        <AnimationSelector />\n        <StaggerSelector />\n      </div>\n\n      <TextStaggerHover\n        as={'h2'}\n        className=\"cursor-pointer text-4xl font-bold uppercase tracking-tighter\"\n      >\n        <TextStaggerHoverActive\n          key={`${animation}-${staggerDirection}`}\n          className=\"opacity-20\"\n          animation={animation}\n          staggerDirection={staggerDirection}\n        >\n          Text Stagger Hover Demo\n        </TextStaggerHoverActive>\n\n        <TextStaggerHoverHidden\n          key={`${animation}-${staggerDirection}-2`}\n          animation={animation}\n          staggerDirection={staggerDirection}\n        >\n          Text Stagger Hover Demo\n        </TextStaggerHoverHidden>\n      </TextStaggerHover>\n    </div>\n  );\n};\n\nexport const TextStaggerHoverDemo = () => {\n  return (\n    <AnimationConfig>\n      <TextStaggerHoverDemoContent />\n    </AnimationConfig>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/text/text-stagger-hover/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-text-stagger-hover-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-text-stagger-hover-demo',
+  },
+  'shadcn-new-york-text-stagger-hover-demo': {
+    name: 'shadcn-new-york-text-stagger-hover-demo',
+    description:
+      'Demo showing a split text with stagger animation on hover with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/text-stagger-hover'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/text/text-stagger-hover/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/text/text-stagger-hover.tsx',
+        content:
+          "'use client';\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  StaggerSelector,\n  useSetAnimationConfig,\n} from '@/components/systaliko-ui/animation-config';\nimport {\n  TextStaggerHover,\n  TextStaggerHoverActive,\n  TextStaggerHoverHidden,\n} from '@/components/systaliko-ui/text/text-stagger-hover';\nimport * as React from 'react';\n\nconst TextStaggerHoverDemoContent = () => {\n  const { animation, staggerDirection } = useSetAnimationConfig();\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <div className=\"flex flex-col gap-4 items-start\">\n        <AnimationSelector />\n        <StaggerSelector />\n      </div>\n\n      <TextStaggerHover\n        as={'h2'}\n        className=\"cursor-pointer text-4xl font-bold uppercase tracking-tighter\"\n      >\n        <TextStaggerHoverActive\n          key={`${animation}-${staggerDirection}`}\n          className=\"opacity-20\"\n          animation={animation}\n          staggerDirection={staggerDirection}\n        >\n          Text Stagger Hover Demo\n        </TextStaggerHoverActive>\n\n        <TextStaggerHoverHidden\n          key={`${animation}-${staggerDirection}-2`}\n          animation={animation}\n          staggerDirection={staggerDirection}\n        >\n          Text Stagger Hover Demo\n        </TextStaggerHoverHidden>\n      </TextStaggerHover>\n    </div>\n  );\n};\n\nexport const TextStaggerHoverDemo = () => {\n  return (\n    <AnimationConfig>\n      <TextStaggerHoverDemoContent />\n    </AnimationConfig>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/text/text-stagger-hover/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-text-stagger-hover-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-text-stagger-hover-demo',
+  },
   'default-text-stagger-inview-demo': {
     name: 'default-text-stagger-inview-demo',
     description:
@@ -252,7 +800,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/text/text-stagger-inview.tsx',
         content:
-          '\'use client\';\n\nimport {\n  AnimationConfigProvider,\n  AnimationSelector,\n  StaggerInput,\n  useSetAnimationConfig,\n} from \'@/components/systaliko-ui/animation-config\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\n\nexport const TextStaggerInviewDemo = () => {\n  return (\n    <AnimationConfigProvider>\n      <TextStaggerInviewDemoContent />\n    </AnimationConfigProvider>\n  );\n};\n\nconst TextStaggerInviewDemoContent = () => {\n  const { animation, staggerValue } = useSetAnimationConfig();\n  return (\n    <div className="flex h-80 flex-col justify-between gap-8">\n      <div className="flex flex-col gap-4 items-start">\n        <AnimationSelector />\n        <StaggerInput />\n      </div>\n      <TextStaggerInview\n        key={`${animation}-${staggerValue}`}\n        animation={animation}\n        className="overflow-hidden text-4xl tracking-tight font-bold"\n        stagger={staggerValue}\n      >\n        Stagger Text Inview Demo\n      </TextStaggerInview>\n    </div>\n  );\n};',
+          '\'use client\';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  StaggerInput,\n  useSetAnimationConfig,\n} from \'@/components/systaliko-ui/animation-config\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\n\nexport const TextStaggerInviewDemo = () => {\n  return (\n    <AnimationConfig>\n      <TextStaggerInviewDemoContent />\n    </AnimationConfig>\n  );\n};\n\nconst TextStaggerInviewDemoContent = () => {\n  const { animation, staggerValue } = useSetAnimationConfig();\n  return (\n    <div className="flex h-80 flex-col justify-between gap-8">\n      <div className="flex flex-col gap-4 items-start">\n        <AnimationSelector />\n        <StaggerInput />\n      </div>\n      <TextStaggerInview\n        key={`${animation}-${staggerValue}`}\n        animation={animation}\n        className="overflow-hidden text-4xl tracking-tight font-bold"\n        stagger={staggerValue}\n      >\n        Stagger Text Inview Demo\n      </TextStaggerInview>\n    </div>\n  );\n};',
       },
     ],
     component: (function () {
@@ -288,7 +836,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/text/text-stagger-inview.tsx',
         content:
-          '\'use client\';\n\nimport {\n  AnimationConfigProvider,\n  AnimationSelector,\n  StaggerInput,\n  useSetAnimationConfig,\n} from \'@/components/systaliko-ui/animation-config\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\n\nexport const TextStaggerInviewDemo = () => {\n  return (\n    <AnimationConfigProvider>\n      <TextStaggerInviewDemoContent />\n    </AnimationConfigProvider>\n  );\n};\n\nconst TextStaggerInviewDemoContent = () => {\n  const { animation, staggerValue } = useSetAnimationConfig();\n  return (\n    <div className="flex h-80 flex-col justify-between gap-8">\n      <div className="flex flex-col gap-4 items-start">\n        <AnimationSelector />\n        <StaggerInput />\n      </div>\n      <TextStaggerInview\n        key={`${animation}-${staggerValue}`}\n        animation={animation}\n        className="overflow-hidden text-4xl tracking-tight font-bold"\n        stagger={staggerValue}\n      >\n        Stagger Text Inview Demo\n      </TextStaggerInview>\n    </div>\n  );\n};',
+          '\'use client\';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  StaggerInput,\n  useSetAnimationConfig,\n} from \'@/components/systaliko-ui/animation-config\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\n\nexport const TextStaggerInviewDemo = () => {\n  return (\n    <AnimationConfig>\n      <TextStaggerInviewDemoContent />\n    </AnimationConfig>\n  );\n};\n\nconst TextStaggerInviewDemoContent = () => {\n  const { animation, staggerValue } = useSetAnimationConfig();\n  return (\n    <div className="flex h-80 flex-col justify-between gap-8">\n      <div className="flex flex-col gap-4 items-start">\n        <AnimationSelector />\n        <StaggerInput />\n      </div>\n      <TextStaggerInview\n        key={`${animation}-${staggerValue}`}\n        animation={animation}\n        className="overflow-hidden text-4xl tracking-tight font-bold"\n        stagger={staggerValue}\n      >\n        Stagger Text Inview Demo\n      </TextStaggerInview>\n    </div>\n  );\n};',
       },
     ],
     component: (function () {
@@ -324,7 +872,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/text/text-stagger-inview.tsx',
         content:
-          '\'use client\';\n\nimport {\n  AnimationConfigProvider,\n  AnimationSelector,\n  StaggerInput,\n  useSetAnimationConfig,\n} from \'@/components/systaliko-ui/animation-config\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\n\nexport const TextStaggerInviewDemo = () => {\n  return (\n    <AnimationConfigProvider>\n      <TextStaggerInviewDemoContent />\n    </AnimationConfigProvider>\n  );\n};\n\nconst TextStaggerInviewDemoContent = () => {\n  const { animation, staggerValue } = useSetAnimationConfig();\n  return (\n    <div className="flex h-80 flex-col justify-between gap-8">\n      <div className="flex flex-col gap-4 items-start">\n        <AnimationSelector />\n        <StaggerInput />\n      </div>\n      <TextStaggerInview\n        key={`${animation}-${staggerValue}`}\n        animation={animation}\n        className="overflow-hidden text-4xl tracking-tight font-bold"\n        stagger={staggerValue}\n      >\n        Stagger Text Inview Demo\n      </TextStaggerInview>\n    </div>\n  );\n};',
+          '\'use client\';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  StaggerInput,\n  useSetAnimationConfig,\n} from \'@/components/systaliko-ui/animation-config\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\n\nexport const TextStaggerInviewDemo = () => {\n  return (\n    <AnimationConfig>\n      <TextStaggerInviewDemoContent />\n    </AnimationConfig>\n  );\n};\n\nconst TextStaggerInviewDemoContent = () => {\n  const { animation, staggerValue } = useSetAnimationConfig();\n  return (\n    <div className="flex h-80 flex-col justify-between gap-8">\n      <div className="flex flex-col gap-4 items-start">\n        <AnimationSelector />\n        <StaggerInput />\n      </div>\n      <TextStaggerInview\n        key={`${animation}-${staggerValue}`}\n        animation={animation}\n        className="overflow-hidden text-4xl tracking-tight font-bold"\n        stagger={staggerValue}\n      >\n        Stagger Text Inview Demo\n      </TextStaggerInview>\n    </div>\n  );\n};',
       },
     ],
     component: (function () {
@@ -469,7 +1017,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/utils/use-animation-variants.tsx',
         content:
-          "'use client';\n\nimport {\n  AnimationConfigProvider,\n  AnimationSelector,\n  useSetAnimationConfig,\n} from '@/components/systaliko-ui/animation-config';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\nexport const AnimationVariantsDemo = () => {\n  return (\n    <AnimationConfigProvider>\n      <AnimationVariantsDemoContent />\n    </AnimationConfigProvider>\n  );\n};\n\nconst AnimationVariantsDemoContent = () => {\n  const { animation } = useSetAnimationConfig();\n  const animationVariants = useAnimationVariants(animation);\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <AnimationSelector />\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Animation variants demo\n      </motion.h2>\n    </div>\n  );\n};",
+          "'use client';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  useSetAnimationConfig,\n} from '@/components/systaliko-ui/animation-config';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\nexport const AnimationVariantsDemo = () => {\n  return (\n    <AnimationConfig>\n      <AnimationVariantsDemoContent />\n    </AnimationConfig>\n  );\n};\n\nconst AnimationVariantsDemoContent = () => {\n  const { animation } = useSetAnimationConfig();\n  const animationVariants = useAnimationVariants(animation);\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <AnimationSelector />\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Animation variants demo\n      </motion.h2>\n    </div>\n  );\n};",
       },
     ],
     component: (function () {
@@ -508,7 +1056,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/utils/use-animation-variants.tsx',
         content:
-          "'use client';\n\nimport {\n  AnimationConfigProvider,\n  AnimationSelector,\n  useSetAnimationConfig,\n} from '@/components/systaliko-ui/animation-config';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\nexport const AnimationVariantsDemo = () => {\n  return (\n    <AnimationConfigProvider>\n      <AnimationVariantsDemoContent />\n    </AnimationConfigProvider>\n  );\n};\n\nconst AnimationVariantsDemoContent = () => {\n  const { animation } = useSetAnimationConfig();\n  const animationVariants = useAnimationVariants(animation);\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <AnimationSelector />\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Animation variants demo\n      </motion.h2>\n    </div>\n  );\n};",
+          "'use client';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  useSetAnimationConfig,\n} from '@/components/systaliko-ui/animation-config';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\nexport const AnimationVariantsDemo = () => {\n  return (\n    <AnimationConfig>\n      <AnimationVariantsDemoContent />\n    </AnimationConfig>\n  );\n};\n\nconst AnimationVariantsDemoContent = () => {\n  const { animation } = useSetAnimationConfig();\n  const animationVariants = useAnimationVariants(animation);\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <AnimationSelector />\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Animation variants demo\n      </motion.h2>\n    </div>\n  );\n};",
       },
     ],
     component: (function () {
@@ -548,7 +1096,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/utils/use-animation-variants.tsx',
         content:
-          "'use client';\n\nimport {\n  AnimationConfigProvider,\n  AnimationSelector,\n  useSetAnimationConfig,\n} from '@/components/systaliko-ui/animation-config';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\nexport const AnimationVariantsDemo = () => {\n  return (\n    <AnimationConfigProvider>\n      <AnimationVariantsDemoContent />\n    </AnimationConfigProvider>\n  );\n};\n\nconst AnimationVariantsDemoContent = () => {\n  const { animation } = useSetAnimationConfig();\n  const animationVariants = useAnimationVariants(animation);\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <AnimationSelector />\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Animation variants demo\n      </motion.h2>\n    </div>\n  );\n};",
+          "'use client';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  useSetAnimationConfig,\n} from '@/components/systaliko-ui/animation-config';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\nexport const AnimationVariantsDemo = () => {\n  return (\n    <AnimationConfig>\n      <AnimationVariantsDemoContent />\n    </AnimationConfig>\n  );\n};\n\nconst AnimationVariantsDemoContent = () => {\n  const { animation } = useSetAnimationConfig();\n  const animationVariants = useAnimationVariants(animation);\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <AnimationSelector />\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Animation variants demo\n      </motion.h2>\n    </div>\n  );\n};",
       },
     ],
     component: (function () {
@@ -573,7 +1121,7 @@ export const index: Record<string, any> = {
   'default-text-stagger-hover': {
     name: 'default-text-stagger-hover',
     description:
-      'Splitted text animation with staggered effect triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition with default style.',
+      'Splitted text animation with staggered effect triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur), the stagger value, and the transition with default style.',
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
@@ -584,7 +1132,8 @@ export const index: Record<string, any> = {
         path: '__registry__/text/text-stagger-hover/default/index.tsx',
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-hover.tsx',
-        content: '',
+        content:
+          "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  StaggerDirection,\n  setStaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\nimport { GsapTransitions } from '@/components/systaliko-ui/utils/gsap-transitions';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\n\ninterface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n}\n\ninterface TextStaggerHoverContextValue {\n  isMouseIn: boolean;\n}\nconst TextStaggerHoverContext = React.createContext<\n  TextStaggerHoverContextValue | undefined\n>(undefined);\nfunction useTextStaggerHoverContext() {\n  const context = React.useContext(TextStaggerHoverContext);\n  if (!context) {\n    throw new Error(\n      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const TextStaggerHover = ({\n  as: Component = 'span',\n  children,\n  className,\n  ...props\n}: TextStaggerHoverProps) => {\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  const handleMouse = () => setIsMouseIn((prevState) => !prevState);\n\n  return (\n    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>\n      <Component\n        className={cn('relative inline-block overflow-hidden', className)}\n        {...props}\n        onMouseEnter={handleMouse}\n        onMouseLeave={handleMouse}\n      >\n        {children}\n      </Component>\n    </TextStaggerHoverContext.Provider>\n  );\n};\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport const TextStaggerHoverActive = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block text-nowrap\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'hidden' : 'visible'}\n            transition={{\n              delay: staggerDelay,\n              ease: GsapTransitions['power1.out'],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};\n\nexport const TextStaggerHoverHidden = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'visible' : 'hidden'}\n            transition={{\n              delay: staggerDelay,\n              ease: GsapTransitions['power1.out'],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};",
       },
     ],
     component: (function () {
@@ -608,7 +1157,7 @@ export const index: Record<string, any> = {
   'shadcn-default-text-stagger-hover': {
     name: 'shadcn-default-text-stagger-hover',
     description:
-      'Splitted text animation with staggered effect triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition with shadcn-default style.',
+      'Splitted text animation with staggered effect triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur), the stagger value, and the transition with shadcn-default style.',
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
@@ -619,7 +1168,8 @@ export const index: Record<string, any> = {
         path: '__registry__/text/text-stagger-hover/shadcn-default/index.tsx',
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-hover.tsx',
-        content: '',
+        content:
+          "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  StaggerDirection,\n  setStaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\nimport { GsapTransitions } from '@/components/systaliko-ui/utils/gsap-transitions';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\n\ninterface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n}\n\ninterface TextStaggerHoverContextValue {\n  isMouseIn: boolean;\n}\nconst TextStaggerHoverContext = React.createContext<\n  TextStaggerHoverContextValue | undefined\n>(undefined);\nfunction useTextStaggerHoverContext() {\n  const context = React.useContext(TextStaggerHoverContext);\n  if (!context) {\n    throw new Error(\n      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const TextStaggerHover = ({\n  as: Component = 'span',\n  children,\n  className,\n  ...props\n}: TextStaggerHoverProps) => {\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  const handleMouse = () => setIsMouseIn((prevState) => !prevState);\n\n  return (\n    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>\n      <Component\n        className={cn('relative inline-block overflow-hidden', className)}\n        {...props}\n        onMouseEnter={handleMouse}\n        onMouseLeave={handleMouse}\n      >\n        {children}\n      </Component>\n    </TextStaggerHoverContext.Provider>\n  );\n};\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport const TextStaggerHoverActive = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block text-nowrap\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'hidden' : 'visible'}\n            transition={{\n              delay: staggerDelay,\n              ease: GsapTransitions['power1.out'],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};\n\nexport const TextStaggerHoverHidden = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'visible' : 'hidden'}\n            transition={{\n              delay: staggerDelay,\n              ease: GsapTransitions['power1.out'],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};",
       },
     ],
     component: (function () {
@@ -643,7 +1193,7 @@ export const index: Record<string, any> = {
   'shadcn-new-york-text-stagger-hover': {
     name: 'shadcn-new-york-text-stagger-hover',
     description:
-      'Splitted text animation with staggered effect triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition with shadcn-new-york style.',
+      'Splitted text animation with staggered effect triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur), the stagger value, and the transition with shadcn-new-york style.',
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
@@ -654,7 +1204,8 @@ export const index: Record<string, any> = {
         path: '__registry__/text/text-stagger-hover/shadcn-new-york/index.tsx',
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-hover.tsx',
-        content: '',
+        content:
+          "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  StaggerDirection,\n  setStaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\nimport { GsapTransitions } from '@/components/systaliko-ui/utils/gsap-transitions';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\n\ninterface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n}\n\ninterface TextStaggerHoverContextValue {\n  isMouseIn: boolean;\n}\nconst TextStaggerHoverContext = React.createContext<\n  TextStaggerHoverContextValue | undefined\n>(undefined);\nfunction useTextStaggerHoverContext() {\n  const context = React.useContext(TextStaggerHoverContext);\n  if (!context) {\n    throw new Error(\n      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const TextStaggerHover = ({\n  as: Component = 'span',\n  children,\n  className,\n  ...props\n}: TextStaggerHoverProps) => {\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  const handleMouse = () => setIsMouseIn((prevState) => !prevState);\n\n  return (\n    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>\n      <Component\n        className={cn('relative inline-block overflow-hidden', className)}\n        {...props}\n        onMouseEnter={handleMouse}\n        onMouseLeave={handleMouse}\n      >\n        {children}\n      </Component>\n    </TextStaggerHoverContext.Provider>\n  );\n};\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport const TextStaggerHoverActive = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block text-nowrap\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'hidden' : 'visible'}\n            transition={{\n              delay: staggerDelay,\n              ease: GsapTransitions['power1.out'],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};\n\nexport const TextStaggerHoverHidden = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'visible' : 'hidden'}\n            transition={{\n              delay: staggerDelay,\n              ease: GsapTransitions['power1.out'],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};",
       },
     ],
     component: (function () {
@@ -690,7 +1241,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  animation?: AnimationT;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  animation,\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  return (\n    <motion.span\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{ staggerChildren: stagger, ...transition }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <WordStagger animation={animation}>{word}</WordStagger>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </motion.span>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  animation?: AnimationT;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  animation,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion.create(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{ staggerChildren: stagger, ...transition }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <WordStagger animation={animation}>{word}</WordStagger>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
       },
     ],
     component: (function () {
@@ -726,7 +1277,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  animation?: AnimationT;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  animation,\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  return (\n    <motion.span\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{ staggerChildren: stagger, ...transition }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <WordStagger animation={animation}>{word}</WordStagger>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </motion.span>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  animation?: AnimationT;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  animation,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion.create(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{ staggerChildren: stagger, ...transition }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <WordStagger animation={animation}>{word}</WordStagger>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
       },
     ],
     component: (function () {
@@ -762,7 +1313,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  animation?: AnimationT;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  animation,\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  return (\n    <motion.span\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{ staggerChildren: stagger, ...transition }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <WordStagger animation={animation}>{word}</WordStagger>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </motion.span>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  animation?: AnimationT;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  animation,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion.create(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{ staggerChildren: stagger, ...transition }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <WordStagger animation={animation}>{word}</WordStagger>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
       },
     ],
     component: (function () {
@@ -1106,6 +1657,222 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: 'https://animate-ui.com/r/shadcn-new-york-gsap-transitions',
+  },
+  'default-set-stagger-direction': {
+    name: 'default-set-stagger-direction',
+    description:
+      'Set stagger direction, Allow to animate the stagger direction, from start, middle, end with default style.',
+    type: 'registry:lib',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/utils/set-stagger-direction/default/index.ts',
+        type: 'registry:lib',
+        target: 'components/systaliko-ui/utils/set-stagger-direction.ts',
+        content:
+          "export type StaggerDirection = 'start' | 'middle' | 'end';\n\nexport interface StaggerOptions {\n  direction?: StaggerDirection;\n  staggerValue?: number;\n  totalItems: number;\n  index: number;\n}\n\n/**\n * Calculates stagger delay based on the direction and pattern\n * @param options - Stagger configuration options\n * @returns number - The calculated stagger delay\n */\nexport function setStaggerDirection({\n  direction = 'start',\n  staggerValue = 0.02,\n  totalItems,\n  index,\n}: StaggerOptions): number {\n  switch (direction) {\n    case 'start':\n      // Linear progression from start\n      return index * staggerValue;\n\n    case 'middle':\n      // Stagger from the middle outward\n      const middleIndex = Math.floor(totalItems / 2);\n      return Math.abs(index - middleIndex) * staggerValue;\n\n    case 'end':\n      // Linear progression from end\n      return (totalItems - 1 - index) * staggerValue;\n\n    default:\n      return 0;\n  }\n}\n\n/**\n * Example usage:\n *\n * // Start stagger (default)\n * const startDelay = useStaggerDirection({\n *   totalItems: 10,\n *   index: 5\n * }); // Returns 0.1 (5 * 0.02)\n *\n * // Middle stagger\n * const middleDelay = useStaggerDirection({\n *   direction: 'middle',\n *   totalItems: 10,\n *   index: 5\n * }); // Returns delay based on distance from middle\n *\n * // End stagger\n * const endDelay = useStaggerDirection({\n *   direction: 'end',\n *   totalItems: 10,\n *   index: 5\n * }); // Returns 0.08 ((10-1-5) * 0.02)\n */",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/utils/set-stagger-direction/default/index.ts'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-set-stagger-direction';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-set-stagger-direction',
+  },
+  'shadcn-default-set-stagger-direction': {
+    name: 'shadcn-default-set-stagger-direction',
+    description:
+      'Set stagger direction, Allow to animate the stagger direction, from start, middle, end with shadcn-default style.',
+    type: 'registry:lib',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/utils/set-stagger-direction/shadcn-default/index.ts',
+        type: 'registry:lib',
+        target: 'components/systaliko-ui/utils/set-stagger-direction.ts',
+        content:
+          "export type StaggerDirection = 'start' | 'middle' | 'end';\n\nexport interface StaggerOptions {\n  direction?: StaggerDirection;\n  staggerValue?: number;\n  totalItems: number;\n  index: number;\n}\n\n/**\n * Calculates stagger delay based on the direction and pattern\n * @param options - Stagger configuration options\n * @returns number - The calculated stagger delay\n */\nexport function setStaggerDirection({\n  direction = 'start',\n  staggerValue = 0.02,\n  totalItems,\n  index,\n}: StaggerOptions): number {\n  switch (direction) {\n    case 'start':\n      // Linear progression from start\n      return index * staggerValue;\n\n    case 'middle':\n      // Stagger from the middle outward\n      const middleIndex = Math.floor(totalItems / 2);\n      return Math.abs(index - middleIndex) * staggerValue;\n\n    case 'end':\n      // Linear progression from end\n      return (totalItems - 1 - index) * staggerValue;\n\n    default:\n      return 0;\n  }\n}\n\n/**\n * Example usage:\n *\n * // Start stagger (default)\n * const startDelay = useStaggerDirection({\n *   totalItems: 10,\n *   index: 5\n * }); // Returns 0.1 (5 * 0.02)\n *\n * // Middle stagger\n * const middleDelay = useStaggerDirection({\n *   direction: 'middle',\n *   totalItems: 10,\n *   index: 5\n * }); // Returns delay based on distance from middle\n *\n * // End stagger\n * const endDelay = useStaggerDirection({\n *   direction: 'end',\n *   totalItems: 10,\n *   index: 5\n * }); // Returns 0.08 ((10-1-5) * 0.02)\n */",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/utils/set-stagger-direction/shadcn-default/index.ts'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-set-stagger-direction';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-set-stagger-direction',
+  },
+  'shadcn-new-york-set-stagger-direction': {
+    name: 'shadcn-new-york-set-stagger-direction',
+    description:
+      'Set stagger direction, Allow to animate the stagger direction, from start, middle, end with shadcn-new-york style.',
+    type: 'registry:lib',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/utils/set-stagger-direction/shadcn-new-york/index.ts',
+        type: 'registry:lib',
+        target: 'components/systaliko-ui/utils/set-stagger-direction.ts',
+        content:
+          "export type StaggerDirection = 'start' | 'middle' | 'end';\n\nexport interface StaggerOptions {\n  direction?: StaggerDirection;\n  staggerValue?: number;\n  totalItems: number;\n  index: number;\n}\n\n/**\n * Calculates stagger delay based on the direction and pattern\n * @param options - Stagger configuration options\n * @returns number - The calculated stagger delay\n */\nexport function setStaggerDirection({\n  direction = 'start',\n  staggerValue = 0.02,\n  totalItems,\n  index,\n}: StaggerOptions): number {\n  switch (direction) {\n    case 'start':\n      // Linear progression from start\n      return index * staggerValue;\n\n    case 'middle':\n      // Stagger from the middle outward\n      const middleIndex = Math.floor(totalItems / 2);\n      return Math.abs(index - middleIndex) * staggerValue;\n\n    case 'end':\n      // Linear progression from end\n      return (totalItems - 1 - index) * staggerValue;\n\n    default:\n      return 0;\n  }\n}\n\n/**\n * Example usage:\n *\n * // Start stagger (default)\n * const startDelay = useStaggerDirection({\n *   totalItems: 10,\n *   index: 5\n * }); // Returns 0.1 (5 * 0.02)\n *\n * // Middle stagger\n * const middleDelay = useStaggerDirection({\n *   direction: 'middle',\n *   totalItems: 10,\n *   index: 5\n * }); // Returns delay based on distance from middle\n *\n * // End stagger\n * const endDelay = useStaggerDirection({\n *   direction: 'end',\n *   totalItems: 10,\n *   index: 5\n * }); // Returns 0.08 ((10-1-5) * 0.02)\n */",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/utils/set-stagger-direction/shadcn-new-york/index.ts'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-set-stagger-direction';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-set-stagger-direction',
+  },
+  'default-split-text': {
+    name: 'default-split-text',
+    description:
+      'split text utility function, allows to split text into characters, words, returns (characters, words, characterCount, wordCount) with default style.',
+    type: 'registry:lib',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/utils/split-text/default/index.ts',
+        type: 'registry:lib',
+        target: 'components/systaliko-ui/utils/split-text.ts',
+        content:
+          'interface SplitTextResult {\n  words: string[];\n  characters: string[];\n  wordCount: number;\n  characterCount: number;\n}\n\n/**\n * Splits text into words and characters while preserving spaces\n * @param text - The text to split\n * @returns Object containing words array, characters array, and counts\n * @example\n * const result = splitText("Hello World");\n * // result = {\n * //   words: ["Hello ", "World "],\n * //   characters: ["H", "e", "l", "l", "o", " ", "W", "o", "r", "l", "d", " "],\n * //   wordCount: 2,\n * //   characterCount: 12\n * // }\n */\nexport function splitText(text: string): SplitTextResult {\n  // Handle empty or whitespace-only strings\n  if (!text?.trim()) {\n    return {\n      words: [],\n      characters: [],\n      wordCount: 0,\n      characterCount: 0,\n    };\n  }\n\n  // Split into words and preserve spaces\n  const words = text.split(\' \').map((word) => word.concat(\' \'));\n\n  // Split into characters\n  const characters = words.map((word) => word.split(\'\')).flat(1);\n\n  return {\n    words,\n    characters,\n    wordCount: words.length,\n    characterCount: characters.length,\n  };\n}',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/utils/split-text/default/index.ts'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-split-text';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-split-text',
+  },
+  'shadcn-default-split-text': {
+    name: 'shadcn-default-split-text',
+    description:
+      'split text utility function, allows to split text into characters, words, returns (characters, words, characterCount, wordCount) with shadcn-default style.',
+    type: 'registry:lib',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/utils/split-text/shadcn-default/index.ts',
+        type: 'registry:lib',
+        target: 'components/systaliko-ui/utils/split-text.ts',
+        content:
+          'interface SplitTextResult {\n  words: string[];\n  characters: string[];\n  wordCount: number;\n  characterCount: number;\n}\n\n/**\n * Splits text into words and characters while preserving spaces\n * @param text - The text to split\n * @returns Object containing words array, characters array, and counts\n * @example\n * const result = splitText("Hello World");\n * // result = {\n * //   words: ["Hello ", "World "],\n * //   characters: ["H", "e", "l", "l", "o", " ", "W", "o", "r", "l", "d", " "],\n * //   wordCount: 2,\n * //   characterCount: 12\n * // }\n */\nexport function splitText(text: string): SplitTextResult {\n  // Handle empty or whitespace-only strings\n  if (!text?.trim()) {\n    return {\n      words: [],\n      characters: [],\n      wordCount: 0,\n      characterCount: 0,\n    };\n  }\n\n  // Split into words and preserve spaces\n  const words = text.split(\' \').map((word) => word.concat(\' \'));\n\n  // Split into characters\n  const characters = words.map((word) => word.split(\'\')).flat(1);\n\n  return {\n    words,\n    characters,\n    wordCount: words.length,\n    characterCount: characters.length,\n  };\n}',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/utils/split-text/shadcn-default/index.ts'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-split-text';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-split-text',
+  },
+  'shadcn-new-york-split-text': {
+    name: 'shadcn-new-york-split-text',
+    description:
+      'split text utility function, allows to split text into characters, words, returns (characters, words, characterCount, wordCount) with shadcn-new-york style.',
+    type: 'registry:lib',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/utils/split-text/shadcn-new-york/index.ts',
+        type: 'registry:lib',
+        target: 'components/systaliko-ui/utils/split-text.ts',
+        content:
+          'interface SplitTextResult {\n  words: string[];\n  characters: string[];\n  wordCount: number;\n  characterCount: number;\n}\n\n/**\n * Splits text into words and characters while preserving spaces\n * @param text - The text to split\n * @returns Object containing words array, characters array, and counts\n * @example\n * const result = splitText("Hello World");\n * // result = {\n * //   words: ["Hello ", "World "],\n * //   characters: ["H", "e", "l", "l", "o", " ", "W", "o", "r", "l", "d", " "],\n * //   wordCount: 2,\n * //   characterCount: 12\n * // }\n */\nexport function splitText(text: string): SplitTextResult {\n  // Handle empty or whitespace-only strings\n  if (!text?.trim()) {\n    return {\n      words: [],\n      characters: [],\n      wordCount: 0,\n      characterCount: 0,\n    };\n  }\n\n  // Split into words and preserve spaces\n  const words = text.split(\' \').map((word) => word.concat(\' \'));\n\n  // Split into characters\n  const characters = words.map((word) => word.split(\'\')).flat(1);\n\n  return {\n    words,\n    characters,\n    wordCount: words.length,\n    characterCount: characters.length,\n  };\n}',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/utils/split-text/shadcn-new-york/index.ts'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-split-text';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-split-text',
   },
   'default-use-animation-variants': {
     name: 'default-use-animation-variants',

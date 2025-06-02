@@ -1,7 +1,7 @@
 'use client';
 
 import {
-  AnimationConfigProvider,
+  AnimationConfig,
   AnimationSelector,
   useSetAnimationConfig,
 } from '@/__registry__/animation-config/shadcn-default';
@@ -10,9 +10,9 @@ import { motion } from 'motion/react';
 
 export const AnimationVariantsDemo = () => {
   return (
-    <AnimationConfigProvider>
+    <AnimationConfig>
       <AnimationVariantsDemoContent />
-    </AnimationConfigProvider>
+    </AnimationConfig>
   );
 };
 

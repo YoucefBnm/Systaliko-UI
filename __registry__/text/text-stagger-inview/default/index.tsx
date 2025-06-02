@@ -8,6 +8,7 @@ import { WordStagger } from '@/__registry__/text/word-stagger/default';
 interface TextStaggerProps extends HTMLMotionProps<'span'> {
   stagger?: number;
   animation?: AnimationT;
+  as?: React.ElementType;
 }
 
 export function TextStaggerInview({
@@ -16,11 +17,13 @@ export function TextStaggerInview({
   className,
   stagger = 0.02,
   animation,
+  as: Component = 'span',
   ...props
 }: TextStaggerProps) {
   const words = String(children).split(' ');
+  const MotionComponent = motion.create(Component);
   return (
-    <motion.span
+    <MotionComponent
       initial="hidden"
       whileInView={'visible'}
       viewport={{ once: true }}
@@ -34,6 +37,6 @@ export function TextStaggerInview({
           {index < words.length - 1 && ' '}
         </React.Fragment>
       ))}
-    </motion.span>
+    </MotionComponent>
   );
 }

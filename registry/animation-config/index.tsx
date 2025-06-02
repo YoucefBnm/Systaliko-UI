@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/select';
 import { AnimationT } from '@/registry/utils/use-animation-variants';
 import { createContext, useContext, useState } from 'react';
+import { StaggerDirection } from '@/registry/utils/set-stagger-direction';
 
 const animations: { value: AnimationT; label: string }[] = [
   { value: 'left', label: 'Slide from Left' },
@@ -18,25 +19,30 @@ const animations: { value: AnimationT; label: string }[] = [
   { value: 'blur', label: 'Blur' },
 ];
 
+const staggerDirections: { value: StaggerDirection; label: string }[] = [
+  { value: 'start', label: 'Start' },
+  { value: 'middle', label: 'Middle' },
+  { value: 'end', label: 'End' },
+];
+
 type AnimationConfigContextType = {
   animation: AnimationT | undefined;
   staggerValue: number;
+  staggerDirection: StaggerDirection;
   setAnimation: (value: AnimationT) => void;
   setStaggerValue: (value: number) => void;
+  setStaggerDirection: (value: StaggerDirection) => void;
 };
 
 const AnimationConfigContext = createContext<
   AnimationConfigContextType | undefined
 >(undefined);
 
-export function AnimationConfigProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function AnimationConfig({ children }: { children: React.ReactNode }) {
   const [animation, setAnimation] = useState<AnimationT>();
   const [staggerValue, setStaggerValue] = useState<number>(0.02);
-
+  const [staggerDirection, setStaggerDirection] =
+    useState<StaggerDirection>('start');
   return (
     <AnimationConfigContext.Provider
       value={{
@@ -44,6 +50,8 @@ export function AnimationConfigProvider({
         staggerValue,
         setAnimation,
         setStaggerValue,
+        staggerDirection,
+        setStaggerDirection,
       }}
     >
       {children}
@@ -71,7 +79,7 @@ export function AnimationSelector() {
       </label>
       <Select onValueChange={(value) => setAnimation(value as AnimationT)}>
         <SelectTrigger id="animation-select" className="w-[180px]">
-          <SelectValue placeholder="Choose your animation" />
+          <SelectValue placeholder={'Opacity'} />
         </SelectTrigger>
         <SelectContent className="relative z-40">
           {animations.map((animation) => (
@@ -109,11 +117,33 @@ export function StaggerInput() {
   );
 }
 
-export function AnimationConfig() {
+export function StaggerSelector() {
+  const { setStaggerDirection } = useSetAnimationConfig();
+
   return (
-    <div className="flex flex-col gap-4 items-start">
-      <AnimationSelector />
-      <StaggerInput />
+    <div className="flex flex-col gap-2">
+      <label className="font-medium text-sm" htmlFor="animation-select">
+        Select Stagger Direction
+      </label>
+      <Select
+        onValueChange={(value) =>
+          setStaggerDirection(value as StaggerDirection)
+        }
+      >
+        <SelectTrigger id="stagger-select" className="w-[180px]">
+          <SelectValue placeholder="Stagger Direction" />
+        </SelectTrigger>
+        <SelectContent className="relative z-40">
+          {staggerDirections.map((staggerDirection) => (
+            <SelectItem
+              key={staggerDirection.value ?? staggerDirection.label}
+              value={staggerDirection.value ?? ''}
+            >
+              {staggerDirection.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
     </div>
   );
 }

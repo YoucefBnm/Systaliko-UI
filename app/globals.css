@@ -1,6 +1,10 @@
 @import 'tailwindcss';
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
+
+@source '../node_modules/fumadocs-ui/dist/**/*.js';
+@source '../__registry__/**/*.tsx';
+
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.2686 0 0);
@@ -166,4 +170,34 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    overscroll-behavior: none;
+  }
+
+  a[href^='/docs/installation'] > svg[data-icon='true'] {
+    @apply !hidden;
+  }
+
+  #nd-docs-layout {
+    @apply relative;
+  }
+  figure.shiki {
+    @apply !bg-muted;
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0.6;
+    }
+  }
 }

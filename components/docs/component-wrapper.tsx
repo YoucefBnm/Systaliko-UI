@@ -45,7 +45,7 @@ export const ComponentWrapper = ({
   return (
     <motion.div
       className={cn(
-        'max-w-screen relative rounded-xl border bg-background flex flex-col md:flex-row',
+        'max-w-screen relative rounded-xl border bg-fd-popover flex flex-col md:flex-row',
         bigScreen && 'overflow-hidden',
         className,
       )}

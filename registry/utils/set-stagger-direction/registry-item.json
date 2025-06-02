@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "set-stagger-direction",
+  "type": "registry:lib",
+  "title": "set stagger direction",
+  "description": "Set stagger direction, Allow to animate the stagger direction, from start, middle, end.",
+  "files": [
+    {
+      "path": "registry/utils/set-stagger-direction/index.ts",
+      "type": "registry:lib",
+      "target": "components/systaliko-ui/utils/set-stagger-direction.ts"
+    }
+  ]
+}

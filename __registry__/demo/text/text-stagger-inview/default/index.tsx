@@ -1,7 +1,7 @@
 'use client';
 
 import {
-  AnimationConfigProvider,
+  AnimationConfig,
   AnimationSelector,
   StaggerInput,
   useSetAnimationConfig,
@@ -10,9 +10,9 @@ import { TextStaggerInview } from '@/__registry__/text/text-stagger-inview/defau
 
 export const TextStaggerInviewDemo = () => {
   return (
-    <AnimationConfigProvider>
+    <AnimationConfig>
       <TextStaggerInviewDemoContent />
-    </AnimationConfigProvider>
+    </AnimationConfig>
   );
 };
 

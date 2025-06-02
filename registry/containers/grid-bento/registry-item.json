@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "grid-bento",
+  "type": "registry:block",
+  "title": "Grid Bento",
+  "description": "Bento Grid, container with multiple variants and displays.",
+  "files": [
+    {
+      "path": "registry/containers/grid-bento/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/containers/grid-bento.tsx"
+    }
+  ]
+}

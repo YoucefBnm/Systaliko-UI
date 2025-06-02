@@ -5,7 +5,7 @@
 import { index } from '@/__registry__';
 import { ComponentWrapper } from '@/components/docs/component-wrapper';
 import { cn } from '@/lib/utils';
-import { Loader } from 'lucide-react';
+import { CodeIcon, ImageIcon, Loader } from 'lucide-react';
 import { Suspense, useEffect, useMemo, useState } from 'react';
 import { DynamicCodeBlock } from '@/components/docs/dynamic-codeblock';
 import ReactIcon from '../icons/react-icon';
@@ -58,7 +58,8 @@ export function ComponentPreview({
   const styleName = `${style}-${name}`;
 
   const code = useMemo(() => {
-    const code = index[styleName]?.files?.[0]?.content;
+    const componentSourceKey = styleName.replace('-demo', '');
+    const code = index[componentSourceKey]?.files?.[0]?.content;
 
     if (!code) {
       console.error(
@@ -113,32 +114,27 @@ export function ComponentPreview({
       <Tabs defaultValue="preview" className="relative mr-auto w-full">
         <div className="flex items-center justify-between pb-2">
           <TabsList
-            className="justify-start rounded-xl h-10 bg-transparent p-0"
+            className=" bg-fd-muted"
+            // className="justify-start rounded-xl h-10 bg-transparent p-0"
             // activeClassName="bg-neutral-100 dark:bg-neutral-800 shadow-none rounded-lg"
           >
             <TabsTrigger
               value="preview"
-              className="relative border-none rounded-lg px-4 py-2 h-full font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:text-foreground data-[state=active]:shadow-none"
+              // className="relative border-none rounded-lg px-4 py-2 h-full font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:text-foreground data-[state=active]:shadow-none"
             >
+              <ImageIcon />
               Preview
             </TabsTrigger>
             <TabsTrigger
               value="code"
-              className="relative border-none rounded-lg px-4 py-2 h-full font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:text-foreground data-[state=active]:shadow-none"
+              // className="relative border-none rounded-lg px-4 py-2 h-full font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:text-foreground data-[state=active]:shadow-none"
             >
-              Code
+              <CodeIcon /> Code
             </TabsTrigger>
           </TabsList>
         </div>
 
-        {/* <TabsContents> */}
-        <TabsContent
-          value="preview"
-          className="relative rounded-md h-full"
-          // initial={{ opacity: 0, y: -10 }}
-          // animate={{ opacity: 1, y: 0 }}
-          // exit={{ opacity: 0, y: 10 }}
-        >
+        <TabsContent value="preview" className="relative rounded-md h-full">
           <ComponentWrapper
             name={name}
             iframe={iframe}
@@ -165,12 +161,7 @@ export function ComponentPreview({
             </Suspense>
           </ComponentWrapper>
         </TabsContent>
-        <TabsContent
-          value="code"
-          // initial={{ opacity: 0, y: -10 }}
-          // animate={{ opacity: 1, y: 0 }}
-          // exit={{ opacity: 0, y: 10 }}
-        >
+        <TabsContent value="code">
           <div className="flex flex-col space-y-4">
             <div className="w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[400px] [&_pre]:overflow-auto">
               <DynamicCodeBlock
@@ -182,7 +173,6 @@ export function ComponentPreview({
             </div>
           </div>
         </TabsContent>
-        {/* </TabsContents> */}
       </Tabs>
     </div>
   );

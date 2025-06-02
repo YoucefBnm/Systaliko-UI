@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "split-text",
+  "type": "registry:lib",
+  "title": "split text",
+  "description": "split text utility function, allows to split text into characters, words, returns (characters, words, characterCount, wordCount).",
+  "files": [
+    {
+      "path": "registry/utils/split-text/index.ts",
+      "type": "registry:lib",
+      "target": "components/systaliko-ui/utils/split-text.ts"
+    }
+  ]
+}

@@ -39,6 +39,7 @@
     "react-dom": "^19.0.0",
     "rimraf": "^6.0.1",
     "shadcn": "^2.6.0-canary.2",
+    "shiki": "^3.4.2",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.24.2"
