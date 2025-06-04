@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-testimonial",
+  "type": "registry:ui",
+  "title": "Card Testimonial",
+  "description": "Card Testimonial, with rating, block quote, and author's informations.",
+  "files": [
+    {
+      "path": "registry/cards/card-testimonial/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/cards/card-testimonial.tsx"
+    }
+  ]
+}

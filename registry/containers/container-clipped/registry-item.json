@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "container-clipped",
+  "type": "registry:block",
+  "title": "Container Clipped",
+  "description": "Clipped container.",
+  "files": [
+    {
+      "path": "registry/containers/container-clipped/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/containers/container-clipped.tsx"
+    }
+  ]
+}

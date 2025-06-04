@@ -111,6 +111,201 @@
       ]
     },
     {
+      "name": "default-card-curtain-reveal",
+      "type": "registry:ui",
+      "title": "Card Curtain Reveal",
+      "description": "Interactive card component with open curtain to see content on hover with default style.",
+      "files": [
+        {
+          "path": "__registry__/cards/card-curtain-reveal/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/cards/card-curtain-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-card-curtain-reveal",
+      "type": "registry:ui",
+      "title": "Card Curtain Reveal",
+      "description": "Interactive card component with open curtain to see content on hover with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/cards/card-curtain-reveal/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/cards/card-curtain-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-card-curtain-reveal",
+      "type": "registry:ui",
+      "title": "Card Curtain Reveal",
+      "description": "Interactive card component with open curtain to see content on hover with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/cards/card-curtain-reveal/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/cards/card-curtain-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-card-flip",
+      "type": "registry:ui",
+      "title": "Card Flip",
+      "description": "An interactive card component that flips on hover with smooth 3D transitions with default style.",
+      "files": [
+        {
+          "path": "__registry__/cards/card-flip/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/cards/card-flip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-card-flip",
+      "type": "registry:ui",
+      "title": "Card Flip",
+      "description": "An interactive card component that flips on hover with smooth 3D transitions with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/cards/card-flip/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/cards/card-flip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-card-flip",
+      "type": "registry:ui",
+      "title": "Card Flip",
+      "description": "An interactive card component that flips on hover with smooth 3D transitions with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/cards/card-flip/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/cards/card-flip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-card-hover-reveal",
+      "type": "registry:ui",
+      "title": "Card Hover Reveal",
+      "description": "Animated card with gesture animations,  Reveals hidden content and scale main image on hover with default style.",
+      "files": [
+        {
+          "path": "__registry__/cards/card-hover-reveal/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/cards/card-hover-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-card-hover-reveal",
+      "type": "registry:ui",
+      "title": "Card Hover Reveal",
+      "description": "Animated card with gesture animations,  Reveals hidden content and scale main image on hover with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/cards/card-hover-reveal/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/cards/card-hover-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-card-hover-reveal",
+      "type": "registry:ui",
+      "title": "Card Hover Reveal",
+      "description": "Animated card with gesture animations,  Reveals hidden content and scale main image on hover with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/cards/card-hover-reveal/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/cards/card-hover-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-card-testimonial",
+      "type": "registry:ui",
+      "title": "Card Testimonial",
+      "description": "Card Testimonial, with rating, block quote, and author's informations with default style.",
+      "files": [
+        {
+          "path": "__registry__/cards/card-testimonial/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/cards/card-testimonial.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-card-testimonial",
+      "type": "registry:ui",
+      "title": "Card Testimonial",
+      "description": "Card Testimonial, with rating, block quote, and author's informations with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/cards/card-testimonial/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/cards/card-testimonial.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-card-testimonial",
+      "type": "registry:ui",
+      "title": "Card Testimonial",
+      "description": "Card Testimonial, with rating, block quote, and author's informations with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/cards/card-testimonial/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/cards/card-testimonial.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-container-clipped",
+      "type": "registry:block",
+      "title": "Container Clipped",
+      "description": "Clipped container with default style.",
+      "files": [
+        {
+          "path": "__registry__/containers/container-clipped/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/containers/container-clipped.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-container-clipped",
+      "type": "registry:block",
+      "title": "Container Clipped",
+      "description": "Clipped container with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/containers/container-clipped/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/containers/container-clipped.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-container-clipped",
+      "type": "registry:block",
+      "title": "Container Clipped",
+      "description": "Clipped container with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/containers/container-clipped/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/containers/container-clipped.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-container-infinite-scroll",
       "type": "registry:block",
       "title": "Container Infinite Scroll",
@@ -194,6 +389,246 @@
           "path": "__registry__/containers/grid-bento/shadcn-new-york/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/containers/grid-bento.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-card-curtain-reveal-demo",
+      "type": "registry:ui",
+      "title": "Card Curtain Reveal Demo",
+      "description": "Demo showing Card Curtain Reveal Component with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/card-curtain-reveal"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/card-curtain-reveal/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/cards/card-curtain-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-card-curtain-reveal-demo",
+      "type": "registry:ui",
+      "title": "Card Curtain Reveal Demo",
+      "description": "Demo showing Card Curtain Reveal Component with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/card-curtain-reveal"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/card-curtain-reveal/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/cards/card-curtain-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-card-curtain-reveal-demo",
+      "type": "registry:ui",
+      "title": "Card Curtain Reveal Demo",
+      "description": "Demo showing Card Curtain Reveal Component with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/card-curtain-reveal"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/card-curtain-reveal/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/cards/card-curtain-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-card-flip-demo",
+      "type": "registry:ui",
+      "title": "Flip Card Demo",
+      "description": "Demo showing Flip Card Component with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/card-flip"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/card-flip/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/cards/card-flip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-card-flip-demo",
+      "type": "registry:ui",
+      "title": "Flip Card Demo",
+      "description": "Demo showing Flip Card Component with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/card-flip"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/card-flip/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/cards/card-flip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-card-flip-demo",
+      "type": "registry:ui",
+      "title": "Flip Card Demo",
+      "description": "Demo showing Flip Card Component with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/card-flip"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/card-flip/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/cards/card-flip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-card-hover-reveal-demo",
+      "type": "registry:ui",
+      "title": "Card Hover Reveal Demo",
+      "description": "Demo showing Card Hover Reveal Component with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/card-hover-reveal"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/card-hover-reveal/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/cards/card-hover-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-card-hover-reveal-demo",
+      "type": "registry:ui",
+      "title": "Card Hover Reveal Demo",
+      "description": "Demo showing Card Hover Reveal Component with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/card-hover-reveal"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/card-hover-reveal/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/cards/card-hover-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-card-hover-reveal-demo",
+      "type": "registry:ui",
+      "title": "Card Hover Reveal Demo",
+      "description": "Demo showing Card Hover Reveal Component with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/card-hover-reveal"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/card-hover-reveal/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/cards/card-hover-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-card-testimonial-demo",
+      "type": "registry:ui",
+      "title": "Card Testimonial Demo",
+      "description": "Demo showing Card Testimonial Component with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/card-testimonial"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/card-testimonial/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/cards/card-testimonial.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-card-testimonial-demo",
+      "type": "registry:ui",
+      "title": "Card Testimonial Demo",
+      "description": "Demo showing Card Testimonial Component with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/card-testimonial"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/card-testimonial/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/cards/card-testimonial.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-card-testimonial-demo",
+      "type": "registry:ui",
+      "title": "Card Testimonial Demo",
+      "description": "Demo showing Card Testimonial Component with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/card-testimonial"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/card-testimonial/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/cards/card-testimonial.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-container-clipped-demo",
+      "type": "registry:block",
+      "title": "Container Clipped Demo",
+      "description": "Demo showing container Clipped Component with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-clipped"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-clipped/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-clipped.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-container-clipped-demo",
+      "type": "registry:block",
+      "title": "Container Clipped Demo",
+      "description": "Demo showing container Clipped Component with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-clipped"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-clipped/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-clipped.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-container-clipped-demo",
+      "type": "registry:block",
+      "title": "Container Clipped Demo",
+      "description": "Demo showing container Clipped Component with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-clipped"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-clipped/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-clipped.tsx"
         }
       ]
     },
@@ -290,6 +725,54 @@
           "path": "__registry__/demo/containers/grid-bento/shadcn-new-york/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/containers/grid-bento.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-rating-stars-demo",
+      "type": "registry:ui",
+      "title": "Rating stars Demo",
+      "description": "Demo showing Rating stars component with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/rating-stars"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/rating-stars/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/rating-stars.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-rating-stars-demo",
+      "type": "registry:ui",
+      "title": "Rating stars Demo",
+      "description": "Demo showing Rating stars component with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/rating-stars"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/rating-stars/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/rating-stars.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-rating-stars-demo",
+      "type": "registry:ui",
+      "title": "Rating stars Demo",
+      "description": "Demo showing Rating stars component with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/rating-stars"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/rating-stars/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/rating-stars.tsx"
         }
       ]
     },
@@ -485,6 +968,45 @@
           "path": "__registry__/demo/utils/use-animation-variants/shadcn-new-york/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/utils/use-animation-variants.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-rating-stars",
+      "type": "registry:ui",
+      "title": "Rating Stars",
+      "description": "Stars rating component with customizable color, size depending on average rating with default style.",
+      "files": [
+        {
+          "path": "__registry__/rating-stars/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/rating-stars.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-rating-stars",
+      "type": "registry:ui",
+      "title": "Rating Stars",
+      "description": "Stars rating component with customizable color, size depending on average rating with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/rating-stars/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/rating-stars.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-rating-stars",
+      "type": "registry:ui",
+      "title": "Rating Stars",
+      "description": "Stars rating component with customizable color, size depending on average rating with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/rating-stars/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/rating-stars.tsx"
         }
       ]
     },

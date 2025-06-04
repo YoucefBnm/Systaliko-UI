@@ -61,7 +61,7 @@ export function ContainerInfiniteScrollDemo() {
         isPending={isLoading}
         itemsCount={totalCount}
         loadMore={fetchData}
-        className="container mx-auto grid gap-4 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]"
+        className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]"
       >
         {posts.map((post, index) => (
           <CellInfiniteScroll isPending={isLoading} key={`${post.id}-${index}`}>

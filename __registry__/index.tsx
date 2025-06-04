@@ -237,6 +237,543 @@ export const index: Record<string, any> = {
     })(),
     command: 'https://animate-ui.com/r/shadcn-new-york-copy-button',
   },
+  'default-card-curtain-reveal': {
+    name: 'default-card-curtain-reveal',
+    description:
+      'Interactive card component with open curtain to see content on hover with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/cards/card-curtain-reveal/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/cards/card-curtain-reveal.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport { HTMLMotionProps, Variants, motion } from 'motion/react';\n\nimport { cn } from '@/lib/utils';\n\nconst curtainVriants: Variants = {\n  visible: {\n    clipPath: 'polygon(0 0,100% 0,100% 100%,0 100%)',\n    transition: {\n      duration: 0.4,\n      ease: ['easeOut', [0.25, 1.5, 0.5, 1]],\n    },\n  },\n\n  hidden: {\n    clipPath: 'polygon(50% 0,50% 0,50% 100%,50% 100%)',\n    transition: {\n      duration: 0.3,\n      ease: ['easeOut', [0.25, 1.5, 0.5, 1]],\n    },\n  },\n};\n\ninterface CardCurtainRevealContextValue {\n  isMouseIn: boolean;\n}\nconst CardCurtainRevealContext = React.createContext<\n  CardCurtainRevealContextValue | undefined\n>(undefined);\nfunction useCardCurtainRevealContext() {\n  const context = React.useContext(CardCurtainRevealContext);\n  if (!context) {\n    throw new Error(\n      'useCardCurtainRevealContext must be used within a CardCurtainReveal Component',\n    );\n  }\n  return context;\n}\n\nconst CardCurtainReveal = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ children, className, ...props }, ref) => {\n  const [isMouseIn, setIsMouseIn] = React.useState(false);\n  const handleMouseEnter = React.useCallback(() => setIsMouseIn(true), []);\n  const handleMouseLeave = React.useCallback(() => setIsMouseIn(false), []);\n\n  return (\n    <CardCurtainRevealContext.Provider value={{ isMouseIn }}>\n      <div\n        ref={ref}\n        className={cn(\n          'relative flex flex-col gap-2 overflow-hidden',\n          className,\n        )}\n        onMouseEnter={handleMouseEnter}\n        onMouseLeave={handleMouseLeave}\n        {...props}\n      >\n        {children}\n      </div>\n    </CardCurtainRevealContext.Provider>\n  );\n});\nCardCurtainReveal.displayName = 'CardCurtainReveal';\n\nconst CardCurtainRevealFooter = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'>\n>(({ className, ...props }, ref) => {\n  const { isMouseIn } = useCardCurtainRevealContext();\n\n  return (\n    <motion.div\n      ref={ref}\n      className={className}\n      variants={curtainVriants}\n      animate={isMouseIn ? 'visible' : 'hidden'}\n      {...props}\n    />\n  );\n});\nCardCurtainRevealFooter.displayName = 'CardCurtainReveal';\n\nconst CardCurtainRevealBody = React.forwardRef<\n  HTMLDivElement,\n  React.HtmlHTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return <div ref={ref} className={cn('flex-1 p-6', className)} {...props} />;\n});\nCardCurtainRevealBody.displayName = 'CardCurtainRevealBody';\n\nconst CardCurtainRevealTitle = React.forwardRef<\n  HTMLHeadingElement,\n  HTMLMotionProps<'h2'>\n>(({ className, ...props }, ref) => {\n  const { isMouseIn } = useCardCurtainRevealContext();\n\n  return (\n    <motion.h2\n      ref={ref}\n      className={className}\n      animate={isMouseIn ? { y: 0 } : { y: 170 }}\n      transition={{ duration: 0.3, ease: 'easeOut' }}\n      {...props}\n    />\n  );\n});\nCardCurtainRevealTitle.displayName = 'CardCurtainRevealTitle';\n\nconst CardCurtain = React.forwardRef<HTMLDivElement, HTMLMotionProps<'div'>>(\n  ({ className, ...props }, ref) => {\n    const { isMouseIn } = useCardCurtainRevealContext();\n\n    return (\n      <motion.div\n        ref={ref}\n        className={cn(\n          'pointer-events-none absolute inset-0 size-full mix-blend-difference',\n          className,\n        )}\n        variants={curtainVriants}\n        animate={isMouseIn ? 'visible' : 'hidden'}\n        {...props}\n      />\n    );\n  },\n);\nCardCurtain.displayName = 'CardCurtain';\n\nconst CardCurtainRevealDescription = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'>\n>(({ className, ...props }, ref) => {\n  const { isMouseIn } = useCardCurtainRevealContext();\n\n  return (\n    <motion.div\n      ref={ref}\n      className={className}\n      variants={curtainVriants}\n      animate={isMouseIn ? 'visible' : 'hidden'}\n      {...props}\n    />\n  );\n});\nCardCurtainRevealDescription.displayName = 'CardCurtainRevealDescription';\n\nexport {\n  CardCurtainReveal,\n  CardCurtainRevealBody,\n  CardCurtainRevealFooter,\n  CardCurtainRevealDescription,\n  CardCurtainRevealTitle,\n  CardCurtain,\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/cards/card-curtain-reveal/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-card-curtain-reveal';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-card-curtain-reveal',
+  },
+  'shadcn-default-card-curtain-reveal': {
+    name: 'shadcn-default-card-curtain-reveal',
+    description:
+      'Interactive card component with open curtain to see content on hover with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/cards/card-curtain-reveal/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/cards/card-curtain-reveal.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport { HTMLMotionProps, Variants, motion } from 'motion/react';\n\nimport { cn } from '@/lib/utils';\n\nconst curtainVriants: Variants = {\n  visible: {\n    clipPath: 'polygon(0 0,100% 0,100% 100%,0 100%)',\n    transition: {\n      duration: 0.4,\n      ease: ['easeOut', [0.25, 1.5, 0.5, 1]],\n    },\n  },\n\n  hidden: {\n    clipPath: 'polygon(50% 0,50% 0,50% 100%,50% 100%)',\n    transition: {\n      duration: 0.3,\n      ease: ['easeOut', [0.25, 1.5, 0.5, 1]],\n    },\n  },\n};\n\ninterface CardCurtainRevealContextValue {\n  isMouseIn: boolean;\n}\nconst CardCurtainRevealContext = React.createContext<\n  CardCurtainRevealContextValue | undefined\n>(undefined);\nfunction useCardCurtainRevealContext() {\n  const context = React.useContext(CardCurtainRevealContext);\n  if (!context) {\n    throw new Error(\n      'useCardCurtainRevealContext must be used within a CardCurtainReveal Component',\n    );\n  }\n  return context;\n}\n\nconst CardCurtainReveal = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ children, className, ...props }, ref) => {\n  const [isMouseIn, setIsMouseIn] = React.useState(false);\n  const handleMouseEnter = React.useCallback(() => setIsMouseIn(true), []);\n  const handleMouseLeave = React.useCallback(() => setIsMouseIn(false), []);\n\n  return (\n    <CardCurtainRevealContext.Provider value={{ isMouseIn }}>\n      <div\n        ref={ref}\n        className={cn(\n          'relative flex flex-col gap-2 overflow-hidden',\n          className,\n        )}\n        onMouseEnter={handleMouseEnter}\n        onMouseLeave={handleMouseLeave}\n        {...props}\n      >\n        {children}\n      </div>\n    </CardCurtainRevealContext.Provider>\n  );\n});\nCardCurtainReveal.displayName = 'CardCurtainReveal';\n\nconst CardCurtainRevealFooter = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'>\n>(({ className, ...props }, ref) => {\n  const { isMouseIn } = useCardCurtainRevealContext();\n\n  return (\n    <motion.div\n      ref={ref}\n      className={className}\n      variants={curtainVriants}\n      animate={isMouseIn ? 'visible' : 'hidden'}\n      {...props}\n    />\n  );\n});\nCardCurtainRevealFooter.displayName = 'CardCurtainReveal';\n\nconst CardCurtainRevealBody = React.forwardRef<\n  HTMLDivElement,\n  React.HtmlHTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return <div ref={ref} className={cn('flex-1 p-6', className)} {...props} />;\n});\nCardCurtainRevealBody.displayName = 'CardCurtainRevealBody';\n\nconst CardCurtainRevealTitle = React.forwardRef<\n  HTMLHeadingElement,\n  HTMLMotionProps<'h2'>\n>(({ className, ...props }, ref) => {\n  const { isMouseIn } = useCardCurtainRevealContext();\n\n  return (\n    <motion.h2\n      ref={ref}\n      className={className}\n      animate={isMouseIn ? { y: 0 } : { y: 170 }}\n      transition={{ duration: 0.3, ease: 'easeOut' }}\n      {...props}\n    />\n  );\n});\nCardCurtainRevealTitle.displayName = 'CardCurtainRevealTitle';\n\nconst CardCurtain = React.forwardRef<HTMLDivElement, HTMLMotionProps<'div'>>(\n  ({ className, ...props }, ref) => {\n    const { isMouseIn } = useCardCurtainRevealContext();\n\n    return (\n      <motion.div\n        ref={ref}\n        className={cn(\n          'pointer-events-none absolute inset-0 size-full mix-blend-difference',\n          className,\n        )}\n        variants={curtainVriants}\n        animate={isMouseIn ? 'visible' : 'hidden'}\n        {...props}\n      />\n    );\n  },\n);\nCardCurtain.displayName = 'CardCurtain';\n\nconst CardCurtainRevealDescription = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'>\n>(({ className, ...props }, ref) => {\n  const { isMouseIn } = useCardCurtainRevealContext();\n\n  return (\n    <motion.div\n      ref={ref}\n      className={className}\n      variants={curtainVriants}\n      animate={isMouseIn ? 'visible' : 'hidden'}\n      {...props}\n    />\n  );\n});\nCardCurtainRevealDescription.displayName = 'CardCurtainRevealDescription';\n\nexport {\n  CardCurtainReveal,\n  CardCurtainRevealBody,\n  CardCurtainRevealFooter,\n  CardCurtainRevealDescription,\n  CardCurtainRevealTitle,\n  CardCurtain,\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/cards/card-curtain-reveal/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-card-curtain-reveal';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-card-curtain-reveal',
+  },
+  'shadcn-new-york-card-curtain-reveal': {
+    name: 'shadcn-new-york-card-curtain-reveal',
+    description:
+      'Interactive card component with open curtain to see content on hover with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/cards/card-curtain-reveal/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/cards/card-curtain-reveal.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport { HTMLMotionProps, Variants, motion } from 'motion/react';\n\nimport { cn } from '@/lib/utils';\n\nconst curtainVriants: Variants = {\n  visible: {\n    clipPath: 'polygon(0 0,100% 0,100% 100%,0 100%)',\n    transition: {\n      duration: 0.4,\n      ease: ['easeOut', [0.25, 1.5, 0.5, 1]],\n    },\n  },\n\n  hidden: {\n    clipPath: 'polygon(50% 0,50% 0,50% 100%,50% 100%)',\n    transition: {\n      duration: 0.3,\n      ease: ['easeOut', [0.25, 1.5, 0.5, 1]],\n    },\n  },\n};\n\ninterface CardCurtainRevealContextValue {\n  isMouseIn: boolean;\n}\nconst CardCurtainRevealContext = React.createContext<\n  CardCurtainRevealContextValue | undefined\n>(undefined);\nfunction useCardCurtainRevealContext() {\n  const context = React.useContext(CardCurtainRevealContext);\n  if (!context) {\n    throw new Error(\n      'useCardCurtainRevealContext must be used within a CardCurtainReveal Component',\n    );\n  }\n  return context;\n}\n\nconst CardCurtainReveal = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ children, className, ...props }, ref) => {\n  const [isMouseIn, setIsMouseIn] = React.useState(false);\n  const handleMouseEnter = React.useCallback(() => setIsMouseIn(true), []);\n  const handleMouseLeave = React.useCallback(() => setIsMouseIn(false), []);\n\n  return (\n    <CardCurtainRevealContext.Provider value={{ isMouseIn }}>\n      <div\n        ref={ref}\n        className={cn(\n          'relative flex flex-col gap-2 overflow-hidden',\n          className,\n        )}\n        onMouseEnter={handleMouseEnter}\n        onMouseLeave={handleMouseLeave}\n        {...props}\n      >\n        {children}\n      </div>\n    </CardCurtainRevealContext.Provider>\n  );\n});\nCardCurtainReveal.displayName = 'CardCurtainReveal';\n\nconst CardCurtainRevealFooter = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'>\n>(({ className, ...props }, ref) => {\n  const { isMouseIn } = useCardCurtainRevealContext();\n\n  return (\n    <motion.div\n      ref={ref}\n      className={className}\n      variants={curtainVriants}\n      animate={isMouseIn ? 'visible' : 'hidden'}\n      {...props}\n    />\n  );\n});\nCardCurtainRevealFooter.displayName = 'CardCurtainReveal';\n\nconst CardCurtainRevealBody = React.forwardRef<\n  HTMLDivElement,\n  React.HtmlHTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return <div ref={ref} className={cn('flex-1 p-6', className)} {...props} />;\n});\nCardCurtainRevealBody.displayName = 'CardCurtainRevealBody';\n\nconst CardCurtainRevealTitle = React.forwardRef<\n  HTMLHeadingElement,\n  HTMLMotionProps<'h2'>\n>(({ className, ...props }, ref) => {\n  const { isMouseIn } = useCardCurtainRevealContext();\n\n  return (\n    <motion.h2\n      ref={ref}\n      className={className}\n      animate={isMouseIn ? { y: 0 } : { y: 170 }}\n      transition={{ duration: 0.3, ease: 'easeOut' }}\n      {...props}\n    />\n  );\n});\nCardCurtainRevealTitle.displayName = 'CardCurtainRevealTitle';\n\nconst CardCurtain = React.forwardRef<HTMLDivElement, HTMLMotionProps<'div'>>(\n  ({ className, ...props }, ref) => {\n    const { isMouseIn } = useCardCurtainRevealContext();\n\n    return (\n      <motion.div\n        ref={ref}\n        className={cn(\n          'pointer-events-none absolute inset-0 size-full mix-blend-difference',\n          className,\n        )}\n        variants={curtainVriants}\n        animate={isMouseIn ? 'visible' : 'hidden'}\n        {...props}\n      />\n    );\n  },\n);\nCardCurtain.displayName = 'CardCurtain';\n\nconst CardCurtainRevealDescription = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'>\n>(({ className, ...props }, ref) => {\n  const { isMouseIn } = useCardCurtainRevealContext();\n\n  return (\n    <motion.div\n      ref={ref}\n      className={className}\n      variants={curtainVriants}\n      animate={isMouseIn ? 'visible' : 'hidden'}\n      {...props}\n    />\n  );\n});\nCardCurtainRevealDescription.displayName = 'CardCurtainRevealDescription';\n\nexport {\n  CardCurtainReveal,\n  CardCurtainRevealBody,\n  CardCurtainRevealFooter,\n  CardCurtainRevealDescription,\n  CardCurtainRevealTitle,\n  CardCurtain,\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/cards/card-curtain-reveal/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-card-curtain-reveal';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-card-curtain-reveal',
+  },
+  'default-card-flip': {
+    name: 'default-card-flip',
+    description:
+      'An interactive card component that flips on hover with smooth 3D transitions with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/cards/card-flip/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/cards/card-flip.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport { HTMLMotionProps, motion } from 'motion/react';\n\nimport { cn } from '@/lib/utils';\n\nconst TRANSITION_CONFIG = {\n  duration: 0.7,\n  ease: [0.4, 0.2, 0.2, 1],\n} as const;\n\nconst TRANSFORM_STYLES: React.CSSProperties = {\n  transformStyle: 'preserve-3d',\n  perspective: '1000px',\n  backfaceVisibility: 'hidden',\n};\n\ntype FlipDirection = 'horizontal' | 'vertical';\ninterface CardFlipProps extends React.HTMLAttributes<HTMLDivElement> {\n  flipDirection?: FlipDirection;\n  initialFlipped?: boolean;\n  onFlip?: (isFlipped: boolean) => void;\n  disabled?: boolean;\n}\ninterface CardFlipContextValue {\n  isFlipped: boolean;\n  flipDirection: FlipDirection;\n  disabled?: boolean;\n}\n\nconst CardFlipContext = React.createContext<CardFlipContextValue | undefined>(\n  undefined,\n);\nfunction useCardFlipContext() {\n  const context = React.useContext(CardFlipContext);\n  if (!context) {\n    throw new Error('useCardFlipContext must be used within a CardFlip');\n  }\n  return context;\n}\n\nconst CardFlip = React.memo(\n  React.forwardRef<HTMLDivElement, CardFlipProps>(\n    (\n      {\n        className,\n        flipDirection = 'horizontal',\n        initialFlipped = false,\n        onFlip,\n        disabled,\n        ...props\n      },\n      ref,\n    ) => {\n      const [isFlipped, setIsFlipped] = React.useState(initialFlipped);\n\n      const handleMouseEnter = React.useCallback(() => {\n        if (!disabled) {\n          setIsFlipped(true);\n          onFlip?.(true);\n        }\n      }, [disabled, onFlip]);\n\n      const handleMouseLeave = React.useCallback(() => {\n        if (!disabled) {\n          setIsFlipped(false);\n          onFlip?.(false);\n        }\n      }, [disabled, onFlip]);\n\n      const contextValue = React.useMemo(\n        () => ({ isFlipped, flipDirection, disabled }),\n        [isFlipped, flipDirection, disabled],\n      );\n\n      return (\n        <CardFlipContext.Provider value={contextValue}>\n          <div\n            ref={ref}\n            className={cn(\n              'relative border-none bg-none shadow-none',\n              disabled && 'pointer-events-none',\n              className,\n            )}\n            style={{\n              ...TRANSFORM_STYLES,\n              ...props.style,\n            }}\n            onMouseEnter={handleMouseEnter}\n            onMouseLeave={handleMouseLeave}\n            role=\"button\"\n            tabIndex={disabled ? -1 : 0}\n            aria-pressed={isFlipped}\n            {...props}\n          />\n        </CardFlipContext.Provider>\n      );\n    },\n  ),\n);\nCardFlip.displayName = 'CardFlip';\n\nconst CardFlipFront = React.memo(\n  React.forwardRef<HTMLDivElement, HTMLMotionProps<'div'>>(\n    ({ className, ...props }, ref) => {\n      const { isFlipped, flipDirection } = useCardFlipContext();\n\n      const rotation = React.useMemo(() => {\n        if (!isFlipped) return { rotateX: 0, rotateY: 0 };\n        return flipDirection === 'horizontal'\n          ? { rotateY: -180, rotateX: 0 }\n          : { rotateX: -180, rotateY: 0 };\n      }, [isFlipped, flipDirection]);\n\n      return (\n        <motion.div\n          ref={ref}\n          className={cn(\n            'absolute inset-0 z-20 size-full overflow-hidden',\n            className,\n          )}\n          initial={false}\n          animate={rotation}\n          transition={TRANSITION_CONFIG}\n          style={{\n            ...TRANSFORM_STYLES,\n            ...props.style,\n          }}\n          {...props}\n        />\n      );\n    },\n  ),\n);\nCardFlipFront.displayName = 'CardFlipFront';\n\nconst CardFlipBack = React.memo(\n  React.forwardRef<HTMLDivElement, HTMLMotionProps<'div'>>(\n    ({ className, ...props }, ref) => {\n      const { isFlipped, flipDirection } = useCardFlipContext();\n\n      const rotation = React.useMemo(() => {\n        if (isFlipped) return { rotateX: 0, rotateY: 0 };\n        return flipDirection === 'horizontal'\n          ? { rotateY: 180, rotateX: 0 }\n          : { rotateX: 180, rotateY: 0 };\n      }, [isFlipped, flipDirection]);\n\n      return (\n        <motion.div\n          ref={ref}\n          className={cn('absolute inset-0 z-10 size-full', className)}\n          initial={false}\n          animate={rotation}\n          transition={TRANSITION_CONFIG}\n          style={{\n            ...TRANSFORM_STYLES,\n            ...props.style,\n          }}\n          {...props}\n        />\n      );\n    },\n  ),\n);\nCardFlipBack.displayName = 'CardFlipBack';\n\nexport { CardFlip, CardFlipFront, CardFlipBack };",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/cards/card-flip/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-card-flip';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-card-flip',
+  },
+  'shadcn-default-card-flip': {
+    name: 'shadcn-default-card-flip',
+    description:
+      'An interactive card component that flips on hover with smooth 3D transitions with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/cards/card-flip/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/cards/card-flip.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport { HTMLMotionProps, motion } from 'motion/react';\n\nimport { cn } from '@/lib/utils';\n\nconst TRANSITION_CONFIG = {\n  duration: 0.7,\n  ease: [0.4, 0.2, 0.2, 1],\n} as const;\n\nconst TRANSFORM_STYLES: React.CSSProperties = {\n  transformStyle: 'preserve-3d',\n  perspective: '1000px',\n  backfaceVisibility: 'hidden',\n};\n\ntype FlipDirection = 'horizontal' | 'vertical';\ninterface CardFlipProps extends React.HTMLAttributes<HTMLDivElement> {\n  flipDirection?: FlipDirection;\n  initialFlipped?: boolean;\n  onFlip?: (isFlipped: boolean) => void;\n  disabled?: boolean;\n}\ninterface CardFlipContextValue {\n  isFlipped: boolean;\n  flipDirection: FlipDirection;\n  disabled?: boolean;\n}\n\nconst CardFlipContext = React.createContext<CardFlipContextValue | undefined>(\n  undefined,\n);\nfunction useCardFlipContext() {\n  const context = React.useContext(CardFlipContext);\n  if (!context) {\n    throw new Error('useCardFlipContext must be used within a CardFlip');\n  }\n  return context;\n}\n\nconst CardFlip = React.memo(\n  React.forwardRef<HTMLDivElement, CardFlipProps>(\n    (\n      {\n        className,\n        flipDirection = 'horizontal',\n        initialFlipped = false,\n        onFlip,\n        disabled,\n        ...props\n      },\n      ref,\n    ) => {\n      const [isFlipped, setIsFlipped] = React.useState(initialFlipped);\n\n      const handleMouseEnter = React.useCallback(() => {\n        if (!disabled) {\n          setIsFlipped(true);\n          onFlip?.(true);\n        }\n      }, [disabled, onFlip]);\n\n      const handleMouseLeave = React.useCallback(() => {\n        if (!disabled) {\n          setIsFlipped(false);\n          onFlip?.(false);\n        }\n      }, [disabled, onFlip]);\n\n      const contextValue = React.useMemo(\n        () => ({ isFlipped, flipDirection, disabled }),\n        [isFlipped, flipDirection, disabled],\n      );\n\n      return (\n        <CardFlipContext.Provider value={contextValue}>\n          <div\n            ref={ref}\n            className={cn(\n              'relative border-none bg-none shadow-none',\n              disabled && 'pointer-events-none',\n              className,\n            )}\n            style={{\n              ...TRANSFORM_STYLES,\n              ...props.style,\n            }}\n            onMouseEnter={handleMouseEnter}\n            onMouseLeave={handleMouseLeave}\n            role=\"button\"\n            tabIndex={disabled ? -1 : 0}\n            aria-pressed={isFlipped}\n            {...props}\n          />\n        </CardFlipContext.Provider>\n      );\n    },\n  ),\n);\nCardFlip.displayName = 'CardFlip';\n\nconst CardFlipFront = React.memo(\n  React.forwardRef<HTMLDivElement, HTMLMotionProps<'div'>>(\n    ({ className, ...props }, ref) => {\n      const { isFlipped, flipDirection } = useCardFlipContext();\n\n      const rotation = React.useMemo(() => {\n        if (!isFlipped) return { rotateX: 0, rotateY: 0 };\n        return flipDirection === 'horizontal'\n          ? { rotateY: -180, rotateX: 0 }\n          : { rotateX: -180, rotateY: 0 };\n      }, [isFlipped, flipDirection]);\n\n      return (\n        <motion.div\n          ref={ref}\n          className={cn(\n            'absolute inset-0 z-20 size-full overflow-hidden',\n            className,\n          )}\n          initial={false}\n          animate={rotation}\n          transition={TRANSITION_CONFIG}\n          style={{\n            ...TRANSFORM_STYLES,\n            ...props.style,\n          }}\n          {...props}\n        />\n      );\n    },\n  ),\n);\nCardFlipFront.displayName = 'CardFlipFront';\n\nconst CardFlipBack = React.memo(\n  React.forwardRef<HTMLDivElement, HTMLMotionProps<'div'>>(\n    ({ className, ...props }, ref) => {\n      const { isFlipped, flipDirection } = useCardFlipContext();\n\n      const rotation = React.useMemo(() => {\n        if (isFlipped) return { rotateX: 0, rotateY: 0 };\n        return flipDirection === 'horizontal'\n          ? { rotateY: 180, rotateX: 0 }\n          : { rotateX: 180, rotateY: 0 };\n      }, [isFlipped, flipDirection]);\n\n      return (\n        <motion.div\n          ref={ref}\n          className={cn('absolute inset-0 z-10 size-full', className)}\n          initial={false}\n          animate={rotation}\n          transition={TRANSITION_CONFIG}\n          style={{\n            ...TRANSFORM_STYLES,\n            ...props.style,\n          }}\n          {...props}\n        />\n      );\n    },\n  ),\n);\nCardFlipBack.displayName = 'CardFlipBack';\n\nexport { CardFlip, CardFlipFront, CardFlipBack };",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/cards/card-flip/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-card-flip';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-card-flip',
+  },
+  'shadcn-new-york-card-flip': {
+    name: 'shadcn-new-york-card-flip',
+    description:
+      'An interactive card component that flips on hover with smooth 3D transitions with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/cards/card-flip/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/cards/card-flip.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport { HTMLMotionProps, motion } from 'motion/react';\n\nimport { cn } from '@/lib/utils';\n\nconst TRANSITION_CONFIG = {\n  duration: 0.7,\n  ease: [0.4, 0.2, 0.2, 1],\n} as const;\n\nconst TRANSFORM_STYLES: React.CSSProperties = {\n  transformStyle: 'preserve-3d',\n  perspective: '1000px',\n  backfaceVisibility: 'hidden',\n};\n\ntype FlipDirection = 'horizontal' | 'vertical';\ninterface CardFlipProps extends React.HTMLAttributes<HTMLDivElement> {\n  flipDirection?: FlipDirection;\n  initialFlipped?: boolean;\n  onFlip?: (isFlipped: boolean) => void;\n  disabled?: boolean;\n}\ninterface CardFlipContextValue {\n  isFlipped: boolean;\n  flipDirection: FlipDirection;\n  disabled?: boolean;\n}\n\nconst CardFlipContext = React.createContext<CardFlipContextValue | undefined>(\n  undefined,\n);\nfunction useCardFlipContext() {\n  const context = React.useContext(CardFlipContext);\n  if (!context) {\n    throw new Error('useCardFlipContext must be used within a CardFlip');\n  }\n  return context;\n}\n\nconst CardFlip = React.memo(\n  React.forwardRef<HTMLDivElement, CardFlipProps>(\n    (\n      {\n        className,\n        flipDirection = 'horizontal',\n        initialFlipped = false,\n        onFlip,\n        disabled,\n        ...props\n      },\n      ref,\n    ) => {\n      const [isFlipped, setIsFlipped] = React.useState(initialFlipped);\n\n      const handleMouseEnter = React.useCallback(() => {\n        if (!disabled) {\n          setIsFlipped(true);\n          onFlip?.(true);\n        }\n      }, [disabled, onFlip]);\n\n      const handleMouseLeave = React.useCallback(() => {\n        if (!disabled) {\n          setIsFlipped(false);\n          onFlip?.(false);\n        }\n      }, [disabled, onFlip]);\n\n      const contextValue = React.useMemo(\n        () => ({ isFlipped, flipDirection, disabled }),\n        [isFlipped, flipDirection, disabled],\n      );\n\n      return (\n        <CardFlipContext.Provider value={contextValue}>\n          <div\n            ref={ref}\n            className={cn(\n              'relative border-none bg-none shadow-none',\n              disabled && 'pointer-events-none',\n              className,\n            )}\n            style={{\n              ...TRANSFORM_STYLES,\n              ...props.style,\n            }}\n            onMouseEnter={handleMouseEnter}\n            onMouseLeave={handleMouseLeave}\n            role=\"button\"\n            tabIndex={disabled ? -1 : 0}\n            aria-pressed={isFlipped}\n            {...props}\n          />\n        </CardFlipContext.Provider>\n      );\n    },\n  ),\n);\nCardFlip.displayName = 'CardFlip';\n\nconst CardFlipFront = React.memo(\n  React.forwardRef<HTMLDivElement, HTMLMotionProps<'div'>>(\n    ({ className, ...props }, ref) => {\n      const { isFlipped, flipDirection } = useCardFlipContext();\n\n      const rotation = React.useMemo(() => {\n        if (!isFlipped) return { rotateX: 0, rotateY: 0 };\n        return flipDirection === 'horizontal'\n          ? { rotateY: -180, rotateX: 0 }\n          : { rotateX: -180, rotateY: 0 };\n      }, [isFlipped, flipDirection]);\n\n      return (\n        <motion.div\n          ref={ref}\n          className={cn(\n            'absolute inset-0 z-20 size-full overflow-hidden',\n            className,\n          )}\n          initial={false}\n          animate={rotation}\n          transition={TRANSITION_CONFIG}\n          style={{\n            ...TRANSFORM_STYLES,\n            ...props.style,\n          }}\n          {...props}\n        />\n      );\n    },\n  ),\n);\nCardFlipFront.displayName = 'CardFlipFront';\n\nconst CardFlipBack = React.memo(\n  React.forwardRef<HTMLDivElement, HTMLMotionProps<'div'>>(\n    ({ className, ...props }, ref) => {\n      const { isFlipped, flipDirection } = useCardFlipContext();\n\n      const rotation = React.useMemo(() => {\n        if (isFlipped) return { rotateX: 0, rotateY: 0 };\n        return flipDirection === 'horizontal'\n          ? { rotateY: 180, rotateX: 0 }\n          : { rotateX: 180, rotateY: 0 };\n      }, [isFlipped, flipDirection]);\n\n      return (\n        <motion.div\n          ref={ref}\n          className={cn('absolute inset-0 z-10 size-full', className)}\n          initial={false}\n          animate={rotation}\n          transition={TRANSITION_CONFIG}\n          style={{\n            ...TRANSFORM_STYLES,\n            ...props.style,\n          }}\n          {...props}\n        />\n      );\n    },\n  ),\n);\nCardFlipBack.displayName = 'CardFlipBack';\n\nexport { CardFlip, CardFlipFront, CardFlipBack };",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/cards/card-flip/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-card-flip';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-card-flip',
+  },
+  'default-card-hover-reveal': {
+    name: 'default-card-hover-reveal',
+    description:
+      'Animated card with gesture animations,  Reveals hidden content and scale main image on hover with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/cards/card-hover-reveal/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/cards/card-hover-reveal.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\n\ninterface CardHoverRevealContextValue {\n  isHovered: boolean;\n  setIsHovered: React.Dispatch<React.SetStateAction<boolean>>;\n}\nconst CardHoverRevealContext = React.createContext<CardHoverRevealContextValue>(\n  {} as CardHoverRevealContextValue,\n);\nconst useCardHoverRevealContext = () => {\n  const context = React.useContext(CardHoverRevealContext);\n  if (!context) {\n    throw new Error(\n      'useCardHoverRevealContext must be used within a CardHoverRevealProvider',\n    );\n  }\n  return context;\n};\nconst CardHoverReveal = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  const [isHovered, setIsHovered] = React.useState<boolean>(false);\n\n  const handleMouseEnter = () => setIsHovered(true);\n  const handleMouseLeave = () => setIsHovered(false);\n\n  return (\n    <CardHoverRevealContext.Provider\n      value={{\n        isHovered,\n        setIsHovered,\n      }}\n    >\n      <div\n        ref={ref}\n        className={cn('relative overflow-hidden', className)}\n        onMouseEnter={handleMouseEnter}\n        onMouseLeave={handleMouseLeave}\n        {...props}\n      />\n    </CardHoverRevealContext.Provider>\n  );\n});\nCardHoverReveal.displayName = 'CardHoverReveal';\n\ninterface CardHoverRevealMainProps {\n  initialScale?: number;\n  hoverScale?: number;\n}\nconst CardHoverRevealMain = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & CardHoverRevealMainProps\n>(({ className, initialScale = 1, hoverScale = 1.05, ...props }, ref) => {\n  const { isHovered } = useCardHoverRevealContext();\n  return (\n    <div\n      ref={ref}\n      className={cn('size-full transition-transform duration-300 ', className)}\n      style={\n        isHovered\n          ? { transform: `scale(${hoverScale})`, ...props.style }\n          : { transform: `scale(${initialScale})`, ...props.style }\n      }\n      {...props}\n    />\n  );\n});\nCardHoverRevealMain.displayName = 'CardHoverRevealMain';\n\nconst CardHoverRevealContent = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  const { isHovered } = useCardHoverRevealContext();\n  return (\n    <div\n      ref={ref}\n      className={cn(\n        'absolute inset-[auto_1.5rem_1.5rem] p-6 backdrop-blur-lg transition-all duration-500 ease-in-out',\n        className,\n      )}\n      style={\n        isHovered\n          ? { translate: '0%', opacity: 1, ...props.style }\n          : { translate: '0% 120%', opacity: 0, ...props.style }\n      }\n      {...props}\n    />\n  );\n});\nCardHoverRevealContent.displayName = 'CardHoverRevealContent';\n\nexport { CardHoverReveal, CardHoverRevealMain, CardHoverRevealContent };",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/cards/card-hover-reveal/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-card-hover-reveal';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-card-hover-reveal',
+  },
+  'shadcn-default-card-hover-reveal': {
+    name: 'shadcn-default-card-hover-reveal',
+    description:
+      'Animated card with gesture animations,  Reveals hidden content and scale main image on hover with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/cards/card-hover-reveal/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/cards/card-hover-reveal.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\n\ninterface CardHoverRevealContextValue {\n  isHovered: boolean;\n  setIsHovered: React.Dispatch<React.SetStateAction<boolean>>;\n}\nconst CardHoverRevealContext = React.createContext<CardHoverRevealContextValue>(\n  {} as CardHoverRevealContextValue,\n);\nconst useCardHoverRevealContext = () => {\n  const context = React.useContext(CardHoverRevealContext);\n  if (!context) {\n    throw new Error(\n      'useCardHoverRevealContext must be used within a CardHoverRevealProvider',\n    );\n  }\n  return context;\n};\nconst CardHoverReveal = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  const [isHovered, setIsHovered] = React.useState<boolean>(false);\n\n  const handleMouseEnter = () => setIsHovered(true);\n  const handleMouseLeave = () => setIsHovered(false);\n\n  return (\n    <CardHoverRevealContext.Provider\n      value={{\n        isHovered,\n        setIsHovered,\n      }}\n    >\n      <div\n        ref={ref}\n        className={cn('relative overflow-hidden', className)}\n        onMouseEnter={handleMouseEnter}\n        onMouseLeave={handleMouseLeave}\n        {...props}\n      />\n    </CardHoverRevealContext.Provider>\n  );\n});\nCardHoverReveal.displayName = 'CardHoverReveal';\n\ninterface CardHoverRevealMainProps {\n  initialScale?: number;\n  hoverScale?: number;\n}\nconst CardHoverRevealMain = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & CardHoverRevealMainProps\n>(({ className, initialScale = 1, hoverScale = 1.05, ...props }, ref) => {\n  const { isHovered } = useCardHoverRevealContext();\n  return (\n    <div\n      ref={ref}\n      className={cn('size-full transition-transform duration-300 ', className)}\n      style={\n        isHovered\n          ? { transform: `scale(${hoverScale})`, ...props.style }\n          : { transform: `scale(${initialScale})`, ...props.style }\n      }\n      {...props}\n    />\n  );\n});\nCardHoverRevealMain.displayName = 'CardHoverRevealMain';\n\nconst CardHoverRevealContent = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  const { isHovered } = useCardHoverRevealContext();\n  return (\n    <div\n      ref={ref}\n      className={cn(\n        'absolute inset-[auto_1.5rem_1.5rem] p-6 backdrop-blur-lg transition-all duration-500 ease-in-out',\n        className,\n      )}\n      style={\n        isHovered\n          ? { translate: '0%', opacity: 1, ...props.style }\n          : { translate: '0% 120%', opacity: 0, ...props.style }\n      }\n      {...props}\n    />\n  );\n});\nCardHoverRevealContent.displayName = 'CardHoverRevealContent';\n\nexport { CardHoverReveal, CardHoverRevealMain, CardHoverRevealContent };",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/cards/card-hover-reveal/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-card-hover-reveal';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-card-hover-reveal',
+  },
+  'shadcn-new-york-card-hover-reveal': {
+    name: 'shadcn-new-york-card-hover-reveal',
+    description:
+      'Animated card with gesture animations,  Reveals hidden content and scale main image on hover with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/cards/card-hover-reveal/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/cards/card-hover-reveal.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\n\ninterface CardHoverRevealContextValue {\n  isHovered: boolean;\n  setIsHovered: React.Dispatch<React.SetStateAction<boolean>>;\n}\nconst CardHoverRevealContext = React.createContext<CardHoverRevealContextValue>(\n  {} as CardHoverRevealContextValue,\n);\nconst useCardHoverRevealContext = () => {\n  const context = React.useContext(CardHoverRevealContext);\n  if (!context) {\n    throw new Error(\n      'useCardHoverRevealContext must be used within a CardHoverRevealProvider',\n    );\n  }\n  return context;\n};\nconst CardHoverReveal = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  const [isHovered, setIsHovered] = React.useState<boolean>(false);\n\n  const handleMouseEnter = () => setIsHovered(true);\n  const handleMouseLeave = () => setIsHovered(false);\n\n  return (\n    <CardHoverRevealContext.Provider\n      value={{\n        isHovered,\n        setIsHovered,\n      }}\n    >\n      <div\n        ref={ref}\n        className={cn('relative overflow-hidden', className)}\n        onMouseEnter={handleMouseEnter}\n        onMouseLeave={handleMouseLeave}\n        {...props}\n      />\n    </CardHoverRevealContext.Provider>\n  );\n});\nCardHoverReveal.displayName = 'CardHoverReveal';\n\ninterface CardHoverRevealMainProps {\n  initialScale?: number;\n  hoverScale?: number;\n}\nconst CardHoverRevealMain = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & CardHoverRevealMainProps\n>(({ className, initialScale = 1, hoverScale = 1.05, ...props }, ref) => {\n  const { isHovered } = useCardHoverRevealContext();\n  return (\n    <div\n      ref={ref}\n      className={cn('size-full transition-transform duration-300 ', className)}\n      style={\n        isHovered\n          ? { transform: `scale(${hoverScale})`, ...props.style }\n          : { transform: `scale(${initialScale})`, ...props.style }\n      }\n      {...props}\n    />\n  );\n});\nCardHoverRevealMain.displayName = 'CardHoverRevealMain';\n\nconst CardHoverRevealContent = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  const { isHovered } = useCardHoverRevealContext();\n  return (\n    <div\n      ref={ref}\n      className={cn(\n        'absolute inset-[auto_1.5rem_1.5rem] p-6 backdrop-blur-lg transition-all duration-500 ease-in-out',\n        className,\n      )}\n      style={\n        isHovered\n          ? { translate: '0%', opacity: 1, ...props.style }\n          : { translate: '0% 120%', opacity: 0, ...props.style }\n      }\n      {...props}\n    />\n  );\n});\nCardHoverRevealContent.displayName = 'CardHoverRevealContent';\n\nexport { CardHoverReveal, CardHoverRevealMain, CardHoverRevealContent };",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/cards/card-hover-reveal/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-card-hover-reveal';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-card-hover-reveal',
+  },
+  'default-card-testimonial': {
+    name: 'default-card-testimonial',
+    description:
+      "Card Testimonial, with rating, block quote, and author's informations with default style.",
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/cards/card-testimonial/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/cards/card-testimonial.tsx',
+        content:
+          "'use client';\n\nimport { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';\nimport { cn } from '@/lib/utils';\nimport { RatingStars } from '@/components/systaliko-ui/rating-stars';\nimport { cva, VariantProps } from 'class-variance-authority';\nimport * as React from 'react';\n\ninterface AuthorProps extends React.HTMLAttributes<HTMLDivElement> {\n  authorName: string;\n  avatarUrl?: string;\n  description?: string;\n}\ninterface CardTestimonialProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof cardTestimonialVariants> {\n  testimonialQuote: string;\n  testimonialAuthor: AuthorProps;\n  testimonialRating?: number;\n}\ninterface TestimonialContextValue {\n  testimonialQuote: string;\n  testimonialAuthor: AuthorProps;\n  testimonialRating?: number;\n}\n\nconst cardTestimonialVariants = cva('', {\n  variants: {\n    variant: {\n      default:\n        'flex size-full flex-col items-center justify-center gap-6 rounded-2xl border  bg-accent bg-background/80 p-6 backdrop-blur-md',\n    },\n  },\n  defaultVariants: {\n    variant: 'default',\n  },\n});\n\nconst CardTestimonialContext = React.createContext<\n  TestimonialContextValue | undefined\n>(undefined);\n\nfunction useCardTestimonialContext() {\n  const context = React.useContext(CardTestimonialContext);\n  if (context === undefined) {\n    throw new Error(\n      'useCardTestimonialContext must be used within a CardTestimonialProvider',\n    );\n  }\n  return context;\n}\n\nexport const CardTestimonial = ({\n  testimonialQuote,\n  testimonialAuthor,\n  testimonialRating,\n  className,\n  children,\n  variant,\n  ...props\n}: CardTestimonialProps) => {\n  return (\n    <CardTestimonialContext.Provider\n      value={{ testimonialQuote, testimonialAuthor, testimonialRating }}\n    >\n      <div\n        className={cn(cardTestimonialVariants({ variant, className }))}\n        {...props}\n      >\n        {children}\n      </div>\n    </CardTestimonialContext.Provider>\n  );\n};\n\nexport const TestimonialAuthor = ({\n  className,\n  children,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => {\n  const { testimonialAuthor } = useCardTestimonialContext();\n  const { authorName, avatarUrl, description } = testimonialAuthor;\n  return (\n    <div className={className} {...props}>\n      <Avatar className=\"size-10\">\n        <AvatarImage src={avatarUrl} alt={`Portrait of ${authorName}`} />\n        <AvatarFallback>\n          {authorName\n            .split(' ')\n            .map((n) => n[0])\n            .join('')}\n        </AvatarFallback>\n      </Avatar>\n      <div>\n        <span className=\"block text-lg font-semibold tracking-tight md:text-xl\">\n          {authorName}\n        </span>\n        <span className=\"block text-sm text-muted-foreground \">\n          {description}\n        </span>\n      </div>\n      {children}\n    </div>\n  );\n};\n\nexport const TestimonialRating = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => {\n  const { testimonialRating } = useCardTestimonialContext();\n  return (\n    <RatingStars\n      className={className}\n      rating={testimonialRating ?? 0}\n      {...props}\n    />\n  );\n};\n\nexport const TestimonialQuote = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLQuoteElement>) => {\n  const { testimonialQuote } = useCardTestimonialContext();\n  return (\n    <blockquote className={className} {...props}>\n      {testimonialQuote}\n    </blockquote>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/cards/card-testimonial/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-card-testimonial';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-card-testimonial',
+  },
+  'shadcn-default-card-testimonial': {
+    name: 'shadcn-default-card-testimonial',
+    description:
+      "Card Testimonial, with rating, block quote, and author's informations with shadcn-default style.",
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/cards/card-testimonial/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/cards/card-testimonial.tsx',
+        content:
+          "'use client';\n\nimport { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';\nimport { cn } from '@/lib/utils';\nimport { RatingStars } from '@/components/systaliko-ui/rating-stars';\nimport { cva, VariantProps } from 'class-variance-authority';\nimport * as React from 'react';\n\ninterface AuthorProps extends React.HTMLAttributes<HTMLDivElement> {\n  authorName: string;\n  avatarUrl?: string;\n  description?: string;\n}\ninterface CardTestimonialProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof cardTestimonialVariants> {\n  testimonialQuote: string;\n  testimonialAuthor: AuthorProps;\n  testimonialRating?: number;\n}\ninterface TestimonialContextValue {\n  testimonialQuote: string;\n  testimonialAuthor: AuthorProps;\n  testimonialRating?: number;\n}\n\nconst cardTestimonialVariants = cva('', {\n  variants: {\n    variant: {\n      default:\n        'flex size-full flex-col items-center justify-center gap-6 rounded-2xl border  bg-accent bg-background/80 p-6 backdrop-blur-md',\n    },\n  },\n  defaultVariants: {\n    variant: 'default',\n  },\n});\n\nconst CardTestimonialContext = React.createContext<\n  TestimonialContextValue | undefined\n>(undefined);\n\nfunction useCardTestimonialContext() {\n  const context = React.useContext(CardTestimonialContext);\n  if (context === undefined) {\n    throw new Error(\n      'useCardTestimonialContext must be used within a CardTestimonialProvider',\n    );\n  }\n  return context;\n}\n\nexport const CardTestimonial = ({\n  testimonialQuote,\n  testimonialAuthor,\n  testimonialRating,\n  className,\n  children,\n  variant,\n  ...props\n}: CardTestimonialProps) => {\n  return (\n    <CardTestimonialContext.Provider\n      value={{ testimonialQuote, testimonialAuthor, testimonialRating }}\n    >\n      <div\n        className={cn(cardTestimonialVariants({ variant, className }))}\n        {...props}\n      >\n        {children}\n      </div>\n    </CardTestimonialContext.Provider>\n  );\n};\n\nexport const TestimonialAuthor = ({\n  className,\n  children,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => {\n  const { testimonialAuthor } = useCardTestimonialContext();\n  const { authorName, avatarUrl, description } = testimonialAuthor;\n  return (\n    <div className={className} {...props}>\n      <Avatar className=\"size-10\">\n        <AvatarImage src={avatarUrl} alt={`Portrait of ${authorName}`} />\n        <AvatarFallback>\n          {authorName\n            .split(' ')\n            .map((n) => n[0])\n            .join('')}\n        </AvatarFallback>\n      </Avatar>\n      <div>\n        <span className=\"block text-lg font-semibold tracking-tight md:text-xl\">\n          {authorName}\n        </span>\n        <span className=\"block text-sm text-muted-foreground \">\n          {description}\n        </span>\n      </div>\n      {children}\n    </div>\n  );\n};\n\nexport const TestimonialRating = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => {\n  const { testimonialRating } = useCardTestimonialContext();\n  return (\n    <RatingStars\n      className={className}\n      rating={testimonialRating ?? 0}\n      {...props}\n    />\n  );\n};\n\nexport const TestimonialQuote = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLQuoteElement>) => {\n  const { testimonialQuote } = useCardTestimonialContext();\n  return (\n    <blockquote className={className} {...props}>\n      {testimonialQuote}\n    </blockquote>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/cards/card-testimonial/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-card-testimonial';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-card-testimonial',
+  },
+  'shadcn-new-york-card-testimonial': {
+    name: 'shadcn-new-york-card-testimonial',
+    description:
+      "Card Testimonial, with rating, block quote, and author's informations with shadcn-new-york style.",
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/cards/card-testimonial/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/cards/card-testimonial.tsx',
+        content:
+          "'use client';\n\nimport { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';\nimport { cn } from '@/lib/utils';\nimport { RatingStars } from '@/components/systaliko-ui/rating-stars';\nimport { cva, VariantProps } from 'class-variance-authority';\nimport * as React from 'react';\n\ninterface AuthorProps extends React.HTMLAttributes<HTMLDivElement> {\n  authorName: string;\n  avatarUrl?: string;\n  description?: string;\n}\ninterface CardTestimonialProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof cardTestimonialVariants> {\n  testimonialQuote: string;\n  testimonialAuthor: AuthorProps;\n  testimonialRating?: number;\n}\ninterface TestimonialContextValue {\n  testimonialQuote: string;\n  testimonialAuthor: AuthorProps;\n  testimonialRating?: number;\n}\n\nconst cardTestimonialVariants = cva('', {\n  variants: {\n    variant: {\n      default:\n        'flex size-full flex-col items-center justify-center gap-6 rounded-2xl border  bg-accent bg-background/80 p-6 backdrop-blur-md',\n    },\n  },\n  defaultVariants: {\n    variant: 'default',\n  },\n});\n\nconst CardTestimonialContext = React.createContext<\n  TestimonialContextValue | undefined\n>(undefined);\n\nfunction useCardTestimonialContext() {\n  const context = React.useContext(CardTestimonialContext);\n  if (context === undefined) {\n    throw new Error(\n      'useCardTestimonialContext must be used within a CardTestimonialProvider',\n    );\n  }\n  return context;\n}\n\nexport const CardTestimonial = ({\n  testimonialQuote,\n  testimonialAuthor,\n  testimonialRating,\n  className,\n  children,\n  variant,\n  ...props\n}: CardTestimonialProps) => {\n  return (\n    <CardTestimonialContext.Provider\n      value={{ testimonialQuote, testimonialAuthor, testimonialRating }}\n    >\n      <div\n        className={cn(cardTestimonialVariants({ variant, className }))}\n        {...props}\n      >\n        {children}\n      </div>\n    </CardTestimonialContext.Provider>\n  );\n};\n\nexport const TestimonialAuthor = ({\n  className,\n  children,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => {\n  const { testimonialAuthor } = useCardTestimonialContext();\n  const { authorName, avatarUrl, description } = testimonialAuthor;\n  return (\n    <div className={className} {...props}>\n      <Avatar className=\"size-10\">\n        <AvatarImage src={avatarUrl} alt={`Portrait of ${authorName}`} />\n        <AvatarFallback>\n          {authorName\n            .split(' ')\n            .map((n) => n[0])\n            .join('')}\n        </AvatarFallback>\n      </Avatar>\n      <div>\n        <span className=\"block text-lg font-semibold tracking-tight md:text-xl\">\n          {authorName}\n        </span>\n        <span className=\"block text-sm text-muted-foreground \">\n          {description}\n        </span>\n      </div>\n      {children}\n    </div>\n  );\n};\n\nexport const TestimonialRating = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => {\n  const { testimonialRating } = useCardTestimonialContext();\n  return (\n    <RatingStars\n      className={className}\n      rating={testimonialRating ?? 0}\n      {...props}\n    />\n  );\n};\n\nexport const TestimonialQuote = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLQuoteElement>) => {\n  const { testimonialQuote } = useCardTestimonialContext();\n  return (\n    <blockquote className={className} {...props}>\n      {testimonialQuote}\n    </blockquote>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/cards/card-testimonial/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-card-testimonial';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-card-testimonial',
+  },
+  'default-container-clipped': {
+    name: 'default-container-clipped',
+    description: 'Clipped container with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/containers/container-clipped/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/containers/container-clipped.tsx',
+        content:
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport * as React from 'react';\n\nexport const clipPathVariants = {\n  default: 'polygon(60% 0, 100% 40%, 100% 100%, 0 100%, 0 0)',\n  reversed: 'polygon(0 0, 100% 0, 100% 100%, 40% 100%, 0 60%)',\n} as const;\n\nexport const ContainerClipped = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return (\n    <div\n      className={cn(\n        'flex relative h-full flex-col md:grid md:grid-cols-12 md:grid-rows-[10%_80%_10%]',\n        className,\n      )}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nContainerClipped.displayName = 'ContainerClipped';\n\nexport const ContainerClippedColLg = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return (\n    <div\n      className={cn(\n        'md:col-span-9 md:row-span-3 md:col-start-1 md:row-start-1 relative',\n        className,\n      )}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nContainerClippedColLg.displayName = 'ContainerClippedColLg';\n\nexport const ContainerClippedColMd = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return (\n    <div\n      className={cn(\n        'relative md:row-start-2 md:row-end-3 md:col-start-7 md:col-end-13',\n        className,\n      )}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nContainerClippedColMd.displayName = 'ContainerClippedColMd';\n\nexport const ContainerClippedBg = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & {\n    variant?: keyof typeof clipPathVariants;\n  }\n>(({ variant = 'default', className, style, ...props }, ref) => {\n  return (\n    <div\n      className={className}\n      ref={ref}\n      style={{\n        clipPath: clipPathVariants[variant],\n        ...style,\n      }}\n      {...props}\n    />\n  );\n});\nContainerClippedBg.displayName = 'ContainerClippedBg';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/containers/container-clipped/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-container-clipped';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-container-clipped',
+  },
+  'shadcn-default-container-clipped': {
+    name: 'shadcn-default-container-clipped',
+    description: 'Clipped container with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/containers/container-clipped/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/containers/container-clipped.tsx',
+        content:
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport * as React from 'react';\n\nexport const clipPathVariants = {\n  default: 'polygon(60% 0, 100% 40%, 100% 100%, 0 100%, 0 0)',\n  reversed: 'polygon(0 0, 100% 0, 100% 100%, 40% 100%, 0 60%)',\n} as const;\n\nexport const ContainerClipped = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return (\n    <div\n      className={cn(\n        'flex relative h-full flex-col md:grid md:grid-cols-12 md:grid-rows-[10%_80%_10%]',\n        className,\n      )}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nContainerClipped.displayName = 'ContainerClipped';\n\nexport const ContainerClippedColLg = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return (\n    <div\n      className={cn(\n        'md:col-span-9 md:row-span-3 md:col-start-1 md:row-start-1 relative',\n        className,\n      )}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nContainerClippedColLg.displayName = 'ContainerClippedColLg';\n\nexport const ContainerClippedColMd = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return (\n    <div\n      className={cn(\n        'relative md:row-start-2 md:row-end-3 md:col-start-7 md:col-end-13',\n        className,\n      )}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nContainerClippedColMd.displayName = 'ContainerClippedColMd';\n\nexport const ContainerClippedBg = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & {\n    variant?: keyof typeof clipPathVariants;\n  }\n>(({ variant = 'default', className, style, ...props }, ref) => {\n  return (\n    <div\n      className={className}\n      ref={ref}\n      style={{\n        clipPath: clipPathVariants[variant],\n        ...style,\n      }}\n      {...props}\n    />\n  );\n});\nContainerClippedBg.displayName = 'ContainerClippedBg';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/containers/container-clipped/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-container-clipped';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-container-clipped',
+  },
+  'shadcn-new-york-container-clipped': {
+    name: 'shadcn-new-york-container-clipped',
+    description: 'Clipped container with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/containers/container-clipped/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/containers/container-clipped.tsx',
+        content:
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport * as React from 'react';\n\nexport const clipPathVariants = {\n  default: 'polygon(60% 0, 100% 40%, 100% 100%, 0 100%, 0 0)',\n  reversed: 'polygon(0 0, 100% 0, 100% 100%, 40% 100%, 0 60%)',\n} as const;\n\nexport const ContainerClipped = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return (\n    <div\n      className={cn(\n        'flex relative h-full flex-col md:grid md:grid-cols-12 md:grid-rows-[10%_80%_10%]',\n        className,\n      )}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nContainerClipped.displayName = 'ContainerClipped';\n\nexport const ContainerClippedColLg = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return (\n    <div\n      className={cn(\n        'md:col-span-9 md:row-span-3 md:col-start-1 md:row-start-1 relative',\n        className,\n      )}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nContainerClippedColLg.displayName = 'ContainerClippedColLg';\n\nexport const ContainerClippedColMd = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return (\n    <div\n      className={cn(\n        'relative md:row-start-2 md:row-end-3 md:col-start-7 md:col-end-13',\n        className,\n      )}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nContainerClippedColMd.displayName = 'ContainerClippedColMd';\n\nexport const ContainerClippedBg = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & {\n    variant?: keyof typeof clipPathVariants;\n  }\n>(({ variant = 'default', className, style, ...props }, ref) => {\n  return (\n    <div\n      className={className}\n      ref={ref}\n      style={{\n        clipPath: clipPathVariants[variant],\n        ...style,\n      }}\n      {...props}\n    />\n  );\n});\nContainerClippedBg.displayName = 'ContainerClippedBg';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/containers/container-clipped/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-container-clipped';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-container-clipped',
+  },
   'default-container-infinite-scroll': {
     name: 'default-container-infinite-scroll',
     description:
@@ -253,7 +790,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/containers/container-infinite-scroll.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\nimport { motion, useInView } from 'motion/react';\nimport { Skeleton } from '@/components/ui/skeleton';\nimport { cn } from '@/lib/utils';\n\nfunction SkeltonWrapper() {\n  return (\n    <div className=\" space-y-5 p-4\">\n      <Skeleton className=\"size-12 rounded-full\" />\n      <Skeleton className=\"h-10 w-2/3\" />\n      <Skeleton className=\"h-48 w-full\" />\n    </div>\n  );\n}\nfunction Spinner() {\n  return (\n    <div className=\"inline-block size-6 animate-spin rounded-full border-2 border-gray-200 border-t-gray-900\" />\n  );\n}\ninterface CellInfiniteScrollProps extends React.HTMLAttributes<HTMLDivElement> {\n  isPending: boolean;\n  SkeltonComp?: React.ComponentType | React.ReactElement;\n}\nexport function CellInfiniteScroll({\n  isPending,\n  SkeltonComp = SkeltonWrapper,\n  children,\n  className,\n}: CellInfiniteScrollProps) {\n  const revealRef = React.useRef<HTMLDivElement | null>(null);\n\n  const isInView = useInView(revealRef, {\n    once: true,\n    amount: 0.2,\n  });\n\n  return (\n    <div className={cn('relative', className)}>\n      {isPending || !isInView ? (\n        <motion.div\n          initial=\"visible\"\n          animate={\n            !isInView || isPending\n              ? { opacity: 1, display: 'block' }\n              : { opacity: 0, display: 'none' }\n          }\n        >\n          {/* <div className=\" space-y-5 p-4\">\n            <Skeleton className=\"size-12 rounded-full\" />\n            <Skeleton className=\"h-10 w-2/3\" />\n            <Skeleton className=\"h-48 w-full\" />\n          </div> */}\n          {typeof SkeltonComp === 'function' ? <SkeltonComp /> : SkeltonComp}\n        </motion.div>\n      ) : (\n        <motion.div initial=\"hidden\" animate={isInView ? 'visible' : 'hidden'}>\n          {children}\n        </motion.div>\n      )}\n      <div ref={revealRef} />\n    </div>\n  );\n}\n\ninterface ContainerInfiniteScrollProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  items: unknown[];\n  isPending: boolean;\n  itemsCount: number | null | undefined;\n  loadMore: () => void;\n  Loader?: React.ComponentType | React.ReactElement;\n}\nexport function ContainerInfiniteScroll({\n  items,\n  isPending,\n  itemsCount,\n  loadMore,\n  Loader = Spinner,\n  children,\n  className,\n}: ContainerInfiniteScrollProps) {\n  const observerRef = React.useRef<HTMLDivElement | null>(null);\n  const allLoaded = items.length === itemsCount;\n  const hasMore = isPending && !allLoaded && items.length > 0;\n  React.useEffect(() => {\n    const { current } = observerRef;\n    const observer = new IntersectionObserver(\n      (entries) => {\n        if (entries[0].isIntersecting && !allLoaded && items.length > 0) {\n          loadMore();\n        }\n      },\n      { threshold: 1 },\n    );\n\n    if (current) {\n      observer.observe(current);\n    }\n\n    return () => {\n      if (current) {\n        observer.unobserve(current);\n      }\n    };\n  });\n\n  return (\n    <div className={className}>\n      {children}\n      {hasMore && (typeof Loader === 'function' ? <Loader /> : Loader)}\n      {items.length > 0 && itemsCount && items.length < itemsCount && (\n        <div ref={observerRef} />\n      )}\n    </div>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\nimport { motion, useInView } from 'motion/react';\nimport { Skeleton } from '@/components/ui/skeleton';\nimport { cn } from '@/lib/utils';\n\nfunction SkeltonWrapper() {\n  return (\n    <div className=\" space-y-5 p-4\">\n      <Skeleton className=\"size-12 rounded-full\" />\n      <Skeleton className=\"h-10 w-2/3\" />\n      <Skeleton className=\"h-48 w-full\" />\n    </div>\n  );\n}\nfunction Spinner() {\n  return (\n    <div className=\"inline-block size-6 animate-spin rounded-full border-2 border-gray-200 border-t-gray-900\" />\n  );\n}\ninterface CellInfiniteScrollProps extends React.HTMLAttributes<HTMLDivElement> {\n  isPending: boolean;\n  SkeltonComp?: React.ComponentType | React.ReactElement;\n}\nexport function CellInfiniteScroll({\n  isPending,\n  SkeltonComp = SkeltonWrapper,\n  children,\n  className,\n}: CellInfiniteScrollProps) {\n  const revealRef = React.useRef<HTMLDivElement | null>(null);\n\n  const isInView = useInView(revealRef, {\n    once: true,\n    amount: 0.2,\n  });\n\n  return (\n    <div className={cn('relative', className)}>\n      {isPending || !isInView ? (\n        <motion.div\n          initial=\"visible\"\n          animate={\n            !isInView || isPending\n              ? { opacity: 1, display: 'block' }\n              : { opacity: 0, display: 'none' }\n          }\n        >\n          {typeof SkeltonComp === 'function' ? <SkeltonComp /> : SkeltonComp}\n        </motion.div>\n      ) : (\n        <motion.div initial=\"hidden\" animate={isInView ? 'visible' : 'hidden'}>\n          {children}\n        </motion.div>\n      )}\n      <div ref={revealRef} />\n    </div>\n  );\n}\n\ninterface ContainerInfiniteScrollProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  items: unknown[];\n  isPending: boolean;\n  itemsCount: number | null | undefined;\n  loadMore: () => void;\n  Loader?: React.ComponentType | React.ReactElement;\n}\nexport function ContainerInfiniteScroll({\n  items,\n  isPending,\n  itemsCount,\n  loadMore,\n  Loader = Spinner,\n  children,\n  className,\n}: ContainerInfiniteScrollProps) {\n  const observerRef = React.useRef<HTMLDivElement | null>(null);\n  const allLoaded = items.length === itemsCount;\n  const hasMore = isPending && !allLoaded && items.length > 0;\n  React.useEffect(() => {\n    const { current } = observerRef;\n    const observer = new IntersectionObserver(\n      (entries) => {\n        if (entries[0].isIntersecting && !allLoaded && items.length > 0) {\n          loadMore();\n        }\n      },\n      { threshold: 1 },\n    );\n\n    if (current) {\n      observer.observe(current);\n    }\n\n    return () => {\n      if (current) {\n        observer.unobserve(current);\n      }\n    };\n  });\n\n  return (\n    <div className={className}>\n      {children}\n      {hasMore && (typeof Loader === 'function' ? <Loader /> : Loader)}\n      {items.length > 0 && itemsCount && items.length < itemsCount && (\n        <div ref={observerRef} />\n      )}\n    </div>\n  );\n}",
       },
     ],
     component: (function () {
@@ -290,7 +827,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/containers/container-infinite-scroll.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\nimport { motion, useInView } from 'motion/react';\nimport { Skeleton } from '@/components/ui/skeleton';\nimport { cn } from '@/lib/utils';\n\nfunction SkeltonWrapper() {\n  return (\n    <div className=\" space-y-5 p-4\">\n      <Skeleton className=\"size-12 rounded-full\" />\n      <Skeleton className=\"h-10 w-2/3\" />\n      <Skeleton className=\"h-48 w-full\" />\n    </div>\n  );\n}\nfunction Spinner() {\n  return (\n    <div className=\"inline-block size-6 animate-spin rounded-full border-2 border-gray-200 border-t-gray-900\" />\n  );\n}\ninterface CellInfiniteScrollProps extends React.HTMLAttributes<HTMLDivElement> {\n  isPending: boolean;\n  SkeltonComp?: React.ComponentType | React.ReactElement;\n}\nexport function CellInfiniteScroll({\n  isPending,\n  SkeltonComp = SkeltonWrapper,\n  children,\n  className,\n}: CellInfiniteScrollProps) {\n  const revealRef = React.useRef<HTMLDivElement | null>(null);\n\n  const isInView = useInView(revealRef, {\n    once: true,\n    amount: 0.2,\n  });\n\n  return (\n    <div className={cn('relative', className)}>\n      {isPending || !isInView ? (\n        <motion.div\n          initial=\"visible\"\n          animate={\n            !isInView || isPending\n              ? { opacity: 1, display: 'block' }\n              : { opacity: 0, display: 'none' }\n          }\n        >\n          {/* <div className=\" space-y-5 p-4\">\n            <Skeleton className=\"size-12 rounded-full\" />\n            <Skeleton className=\"h-10 w-2/3\" />\n            <Skeleton className=\"h-48 w-full\" />\n          </div> */}\n          {typeof SkeltonComp === 'function' ? <SkeltonComp /> : SkeltonComp}\n        </motion.div>\n      ) : (\n        <motion.div initial=\"hidden\" animate={isInView ? 'visible' : 'hidden'}>\n          {children}\n        </motion.div>\n      )}\n      <div ref={revealRef} />\n    </div>\n  );\n}\n\ninterface ContainerInfiniteScrollProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  items: unknown[];\n  isPending: boolean;\n  itemsCount: number | null | undefined;\n  loadMore: () => void;\n  Loader?: React.ComponentType | React.ReactElement;\n}\nexport function ContainerInfiniteScroll({\n  items,\n  isPending,\n  itemsCount,\n  loadMore,\n  Loader = Spinner,\n  children,\n  className,\n}: ContainerInfiniteScrollProps) {\n  const observerRef = React.useRef<HTMLDivElement | null>(null);\n  const allLoaded = items.length === itemsCount;\n  const hasMore = isPending && !allLoaded && items.length > 0;\n  React.useEffect(() => {\n    const { current } = observerRef;\n    const observer = new IntersectionObserver(\n      (entries) => {\n        if (entries[0].isIntersecting && !allLoaded && items.length > 0) {\n          loadMore();\n        }\n      },\n      { threshold: 1 },\n    );\n\n    if (current) {\n      observer.observe(current);\n    }\n\n    return () => {\n      if (current) {\n        observer.unobserve(current);\n      }\n    };\n  });\n\n  return (\n    <div className={className}>\n      {children}\n      {hasMore && (typeof Loader === 'function' ? <Loader /> : Loader)}\n      {items.length > 0 && itemsCount && items.length < itemsCount && (\n        <div ref={observerRef} />\n      )}\n    </div>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\nimport { motion, useInView } from 'motion/react';\nimport { Skeleton } from '@/components/ui/skeleton';\nimport { cn } from '@/lib/utils';\n\nfunction SkeltonWrapper() {\n  return (\n    <div className=\" space-y-5 p-4\">\n      <Skeleton className=\"size-12 rounded-full\" />\n      <Skeleton className=\"h-10 w-2/3\" />\n      <Skeleton className=\"h-48 w-full\" />\n    </div>\n  );\n}\nfunction Spinner() {\n  return (\n    <div className=\"inline-block size-6 animate-spin rounded-full border-2 border-gray-200 border-t-gray-900\" />\n  );\n}\ninterface CellInfiniteScrollProps extends React.HTMLAttributes<HTMLDivElement> {\n  isPending: boolean;\n  SkeltonComp?: React.ComponentType | React.ReactElement;\n}\nexport function CellInfiniteScroll({\n  isPending,\n  SkeltonComp = SkeltonWrapper,\n  children,\n  className,\n}: CellInfiniteScrollProps) {\n  const revealRef = React.useRef<HTMLDivElement | null>(null);\n\n  const isInView = useInView(revealRef, {\n    once: true,\n    amount: 0.2,\n  });\n\n  return (\n    <div className={cn('relative', className)}>\n      {isPending || !isInView ? (\n        <motion.div\n          initial=\"visible\"\n          animate={\n            !isInView || isPending\n              ? { opacity: 1, display: 'block' }\n              : { opacity: 0, display: 'none' }\n          }\n        >\n          {typeof SkeltonComp === 'function' ? <SkeltonComp /> : SkeltonComp}\n        </motion.div>\n      ) : (\n        <motion.div initial=\"hidden\" animate={isInView ? 'visible' : 'hidden'}>\n          {children}\n        </motion.div>\n      )}\n      <div ref={revealRef} />\n    </div>\n  );\n}\n\ninterface ContainerInfiniteScrollProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  items: unknown[];\n  isPending: boolean;\n  itemsCount: number | null | undefined;\n  loadMore: () => void;\n  Loader?: React.ComponentType | React.ReactElement;\n}\nexport function ContainerInfiniteScroll({\n  items,\n  isPending,\n  itemsCount,\n  loadMore,\n  Loader = Spinner,\n  children,\n  className,\n}: ContainerInfiniteScrollProps) {\n  const observerRef = React.useRef<HTMLDivElement | null>(null);\n  const allLoaded = items.length === itemsCount;\n  const hasMore = isPending && !allLoaded && items.length > 0;\n  React.useEffect(() => {\n    const { current } = observerRef;\n    const observer = new IntersectionObserver(\n      (entries) => {\n        if (entries[0].isIntersecting && !allLoaded && items.length > 0) {\n          loadMore();\n        }\n      },\n      { threshold: 1 },\n    );\n\n    if (current) {\n      observer.observe(current);\n    }\n\n    return () => {\n      if (current) {\n        observer.unobserve(current);\n      }\n    };\n  });\n\n  return (\n    <div className={className}>\n      {children}\n      {hasMore && (typeof Loader === 'function' ? <Loader /> : Loader)}\n      {items.length > 0 && itemsCount && items.length < itemsCount && (\n        <div ref={observerRef} />\n      )}\n    </div>\n  );\n}",
       },
     ],
     component: (function () {
@@ -328,7 +865,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/containers/container-infinite-scroll.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\nimport { motion, useInView } from 'motion/react';\nimport { Skeleton } from '@/components/ui/skeleton';\nimport { cn } from '@/lib/utils';\n\nfunction SkeltonWrapper() {\n  return (\n    <div className=\" space-y-5 p-4\">\n      <Skeleton className=\"size-12 rounded-full\" />\n      <Skeleton className=\"h-10 w-2/3\" />\n      <Skeleton className=\"h-48 w-full\" />\n    </div>\n  );\n}\nfunction Spinner() {\n  return (\n    <div className=\"inline-block size-6 animate-spin rounded-full border-2 border-gray-200 border-t-gray-900\" />\n  );\n}\ninterface CellInfiniteScrollProps extends React.HTMLAttributes<HTMLDivElement> {\n  isPending: boolean;\n  SkeltonComp?: React.ComponentType | React.ReactElement;\n}\nexport function CellInfiniteScroll({\n  isPending,\n  SkeltonComp = SkeltonWrapper,\n  children,\n  className,\n}: CellInfiniteScrollProps) {\n  const revealRef = React.useRef<HTMLDivElement | null>(null);\n\n  const isInView = useInView(revealRef, {\n    once: true,\n    amount: 0.2,\n  });\n\n  return (\n    <div className={cn('relative', className)}>\n      {isPending || !isInView ? (\n        <motion.div\n          initial=\"visible\"\n          animate={\n            !isInView || isPending\n              ? { opacity: 1, display: 'block' }\n              : { opacity: 0, display: 'none' }\n          }\n        >\n          {/* <div className=\" space-y-5 p-4\">\n            <Skeleton className=\"size-12 rounded-full\" />\n            <Skeleton className=\"h-10 w-2/3\" />\n            <Skeleton className=\"h-48 w-full\" />\n          </div> */}\n          {typeof SkeltonComp === 'function' ? <SkeltonComp /> : SkeltonComp}\n        </motion.div>\n      ) : (\n        <motion.div initial=\"hidden\" animate={isInView ? 'visible' : 'hidden'}>\n          {children}\n        </motion.div>\n      )}\n      <div ref={revealRef} />\n    </div>\n  );\n}\n\ninterface ContainerInfiniteScrollProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  items: unknown[];\n  isPending: boolean;\n  itemsCount: number | null | undefined;\n  loadMore: () => void;\n  Loader?: React.ComponentType | React.ReactElement;\n}\nexport function ContainerInfiniteScroll({\n  items,\n  isPending,\n  itemsCount,\n  loadMore,\n  Loader = Spinner,\n  children,\n  className,\n}: ContainerInfiniteScrollProps) {\n  const observerRef = React.useRef<HTMLDivElement | null>(null);\n  const allLoaded = items.length === itemsCount;\n  const hasMore = isPending && !allLoaded && items.length > 0;\n  React.useEffect(() => {\n    const { current } = observerRef;\n    const observer = new IntersectionObserver(\n      (entries) => {\n        if (entries[0].isIntersecting && !allLoaded && items.length > 0) {\n          loadMore();\n        }\n      },\n      { threshold: 1 },\n    );\n\n    if (current) {\n      observer.observe(current);\n    }\n\n    return () => {\n      if (current) {\n        observer.unobserve(current);\n      }\n    };\n  });\n\n  return (\n    <div className={className}>\n      {children}\n      {hasMore && (typeof Loader === 'function' ? <Loader /> : Loader)}\n      {items.length > 0 && itemsCount && items.length < itemsCount && (\n        <div ref={observerRef} />\n      )}\n    </div>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\nimport { motion, useInView } from 'motion/react';\nimport { Skeleton } from '@/components/ui/skeleton';\nimport { cn } from '@/lib/utils';\n\nfunction SkeltonWrapper() {\n  return (\n    <div className=\" space-y-5 p-4\">\n      <Skeleton className=\"size-12 rounded-full\" />\n      <Skeleton className=\"h-10 w-2/3\" />\n      <Skeleton className=\"h-48 w-full\" />\n    </div>\n  );\n}\nfunction Spinner() {\n  return (\n    <div className=\"inline-block size-6 animate-spin rounded-full border-2 border-gray-200 border-t-gray-900\" />\n  );\n}\ninterface CellInfiniteScrollProps extends React.HTMLAttributes<HTMLDivElement> {\n  isPending: boolean;\n  SkeltonComp?: React.ComponentType | React.ReactElement;\n}\nexport function CellInfiniteScroll({\n  isPending,\n  SkeltonComp = SkeltonWrapper,\n  children,\n  className,\n}: CellInfiniteScrollProps) {\n  const revealRef = React.useRef<HTMLDivElement | null>(null);\n\n  const isInView = useInView(revealRef, {\n    once: true,\n    amount: 0.2,\n  });\n\n  return (\n    <div className={cn('relative', className)}>\n      {isPending || !isInView ? (\n        <motion.div\n          initial=\"visible\"\n          animate={\n            !isInView || isPending\n              ? { opacity: 1, display: 'block' }\n              : { opacity: 0, display: 'none' }\n          }\n        >\n          {typeof SkeltonComp === 'function' ? <SkeltonComp /> : SkeltonComp}\n        </motion.div>\n      ) : (\n        <motion.div initial=\"hidden\" animate={isInView ? 'visible' : 'hidden'}>\n          {children}\n        </motion.div>\n      )}\n      <div ref={revealRef} />\n    </div>\n  );\n}\n\ninterface ContainerInfiniteScrollProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  items: unknown[];\n  isPending: boolean;\n  itemsCount: number | null | undefined;\n  loadMore: () => void;\n  Loader?: React.ComponentType | React.ReactElement;\n}\nexport function ContainerInfiniteScroll({\n  items,\n  isPending,\n  itemsCount,\n  loadMore,\n  Loader = Spinner,\n  children,\n  className,\n}: ContainerInfiniteScrollProps) {\n  const observerRef = React.useRef<HTMLDivElement | null>(null);\n  const allLoaded = items.length === itemsCount;\n  const hasMore = isPending && !allLoaded && items.length > 0;\n  React.useEffect(() => {\n    const { current } = observerRef;\n    const observer = new IntersectionObserver(\n      (entries) => {\n        if (entries[0].isIntersecting && !allLoaded && items.length > 0) {\n          loadMore();\n        }\n      },\n      { threshold: 1 },\n    );\n\n    if (current) {\n      observer.observe(current);\n    }\n\n    return () => {\n      if (current) {\n        observer.unobserve(current);\n      }\n    };\n  });\n\n  return (\n    <div className={className}>\n      {children}\n      {hasMore && (typeof Loader === 'function' ? <Loader /> : Loader)}\n      {items.length > 0 && itemsCount && items.length < itemsCount && (\n        <div ref={observerRef} />\n      )}\n    </div>\n  );\n}",
       },
     ],
     component: (function () {
@@ -458,6 +995,541 @@ export const index: Record<string, any> = {
     })(),
     command: 'https://animate-ui.com/r/shadcn-new-york-grid-bento',
   },
+  'default-card-curtain-reveal-demo': {
+    name: 'default-card-curtain-reveal-demo',
+    description:
+      'Demo showing Card Curtain Reveal Component with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/card-curtain-reveal'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/card-curtain-reveal/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/cards/card-curtain-reveal.tsx',
+        content:
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  CardCurtain,\n  CardCurtainReveal,\n  CardCurtainRevealBody,\n  CardCurtainRevealDescription,\n  CardCurtainRevealFooter,\n  CardCurtainRevealTitle,\n} from \'@/components/systaliko-ui/cards/card-curtain-reveal\';\nimport { ArrowUpRight } from \'lucide-react\';\n\nexport const CardCurtainRevealDemo = () => {\n  return (\n    <CardCurtainReveal className=" h-[540px] w-96 border bg-fd-accent-foreground text-fd-accent shadow">\n      <CardCurtainRevealBody>\n        <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">\n          Behind <br />\n          the Curtain\n        </CardCurtainRevealTitle>\n        <CardCurtainRevealDescription className="my-4 ">\n          <p>\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium\n            voluptate, eum quia temporibus fugiat rerum nobis modi dolor,\n            delectus laboriosam, quae adipisci reprehenderit officiis quidem\n            iure ducimus incidunt officia. Magni, eligendi repellendus. Fugiat,\n            natus aut?\n          </p>\n        </CardCurtainRevealDescription>\n        <Button\n          variant={\'secondary\'}\n          size={\'icon\'}\n          className="aspect-square rounded-full"\n        >\n          <ArrowUpRight />\n        </Button>\n\n        <CardCurtain className=" bg-secondary" />\n      </CardCurtainRevealBody>\n\n      <CardCurtainRevealFooter className="mt-auto">\n        {/* eslint-disable-next-line @next/next/no-img-element */}\n        <img\n          width="100%"\n          height="100%"\n          alt="street"\n          className="size-full"\n          src="https://images.unsplash.com/photo-1628468033761-125b565aaac7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        />\n      </CardCurtainRevealFooter>\n    </CardCurtainReveal>\n  );\n};',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/card-curtain-reveal/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-card-curtain-reveal-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-card-curtain-reveal-demo',
+  },
+  'shadcn-default-card-curtain-reveal-demo': {
+    name: 'shadcn-default-card-curtain-reveal-demo',
+    description:
+      'Demo showing Card Curtain Reveal Component with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/card-curtain-reveal'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/card-curtain-reveal/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/cards/card-curtain-reveal.tsx',
+        content:
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  CardCurtain,\n  CardCurtainReveal,\n  CardCurtainRevealBody,\n  CardCurtainRevealDescription,\n  CardCurtainRevealFooter,\n  CardCurtainRevealTitle,\n} from \'@/components/systaliko-ui/cards/card-curtain-reveal\';\nimport { ArrowUpRight } from \'lucide-react\';\n\nexport const CardCurtainRevealDemo = () => {\n  return (\n    <CardCurtainReveal className=" h-[540px] w-96 border bg-fd-accent-foreground text-fd-accent shadow">\n      <CardCurtainRevealBody>\n        <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">\n          Behind <br />\n          the Curtain\n        </CardCurtainRevealTitle>\n        <CardCurtainRevealDescription className="my-4 ">\n          <p>\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium\n            voluptate, eum quia temporibus fugiat rerum nobis modi dolor,\n            delectus laboriosam, quae adipisci reprehenderit officiis quidem\n            iure ducimus incidunt officia. Magni, eligendi repellendus. Fugiat,\n            natus aut?\n          </p>\n        </CardCurtainRevealDescription>\n        <Button\n          variant={\'secondary\'}\n          size={\'icon\'}\n          className="aspect-square rounded-full"\n        >\n          <ArrowUpRight />\n        </Button>\n\n        <CardCurtain className=" bg-secondary" />\n      </CardCurtainRevealBody>\n\n      <CardCurtainRevealFooter className="mt-auto">\n        {/* eslint-disable-next-line @next/next/no-img-element */}\n        <img\n          width="100%"\n          height="100%"\n          alt="street"\n          className="size-full"\n          src="https://images.unsplash.com/photo-1628468033761-125b565aaac7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        />\n      </CardCurtainRevealFooter>\n    </CardCurtainReveal>\n  );\n};',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/card-curtain-reveal/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-card-curtain-reveal-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-card-curtain-reveal-demo',
+  },
+  'shadcn-new-york-card-curtain-reveal-demo': {
+    name: 'shadcn-new-york-card-curtain-reveal-demo',
+    description:
+      'Demo showing Card Curtain Reveal Component with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/card-curtain-reveal'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/card-curtain-reveal/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/cards/card-curtain-reveal.tsx',
+        content:
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  CardCurtain,\n  CardCurtainReveal,\n  CardCurtainRevealBody,\n  CardCurtainRevealDescription,\n  CardCurtainRevealFooter,\n  CardCurtainRevealTitle,\n} from \'@/components/systaliko-ui/cards/card-curtain-reveal\';\nimport { ArrowUpRight } from \'lucide-react\';\n\nexport const CardCurtainRevealDemo = () => {\n  return (\n    <CardCurtainReveal className=" h-[540px] w-96 border bg-fd-accent-foreground text-fd-accent shadow">\n      <CardCurtainRevealBody>\n        <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">\n          Behind <br />\n          the Curtain\n        </CardCurtainRevealTitle>\n        <CardCurtainRevealDescription className="my-4 ">\n          <p>\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium\n            voluptate, eum quia temporibus fugiat rerum nobis modi dolor,\n            delectus laboriosam, quae adipisci reprehenderit officiis quidem\n            iure ducimus incidunt officia. Magni, eligendi repellendus. Fugiat,\n            natus aut?\n          </p>\n        </CardCurtainRevealDescription>\n        <Button\n          variant={\'secondary\'}\n          size={\'icon\'}\n          className="aspect-square rounded-full"\n        >\n          <ArrowUpRight />\n        </Button>\n\n        <CardCurtain className=" bg-secondary" />\n      </CardCurtainRevealBody>\n\n      <CardCurtainRevealFooter className="mt-auto">\n        {/* eslint-disable-next-line @next/next/no-img-element */}\n        <img\n          width="100%"\n          height="100%"\n          alt="street"\n          className="size-full"\n          src="https://images.unsplash.com/photo-1628468033761-125b565aaac7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        />\n      </CardCurtainRevealFooter>\n    </CardCurtainReveal>\n  );\n};',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/card-curtain-reveal/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-card-curtain-reveal-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://animate-ui.com/r/shadcn-new-york-card-curtain-reveal-demo',
+  },
+  'default-card-flip-demo': {
+    name: 'default-card-flip-demo',
+    description: 'Demo showing Flip Card Component with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/card-flip'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/card-flip/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/cards/card-flip.tsx',
+        content:
+          '\'use client\';\nimport * as React from \'react\';\nimport {\n  CardFlip,\n  CardFlipBack,\n  CardFlipFront,\n} from \'@/components/systaliko-ui/cards/card-flip\';\nexport function CardFlipDemo() {\n  return (\n    <div className="container py-12">\n      <div className="flex flex-wrap justify-center gap-4">\n        <CardFlip className="h-96 w-2/6">\n          <CardFlipFront className="rounded-xl">\n            <img\n              width={1015}\n              height={678}\n              src="https://images.unsplash.com/photo-1655853548169-646b6e0f15ca?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n              alt="nike air jordan"\n              className="size-full object-cover"\n            />\n          </CardFlipFront>\n          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-fd-accent-foreground px-4 py-6 text-center text-white">\n            <h2 className="text-xl font-bold">Nike Air Jordan</h2>\n            <h4 className="mb-4">€ 1,299.00</h4>\n            <button className="rounded-full py-2 px-4 bg-primary text-zinc-900">\n              Add to cart\n            </button>\n          </CardFlipBack>\n        </CardFlip>\n\n        <CardFlip flipDirection="vertical" className="h-96 w-2/6">\n          <CardFlipFront className="rounded-xl">\n            <img\n              width={542}\n              height={678}\n              src="https://images.unsplash.com/photo-1656944227425-5646be300a14?q=80&w=2527&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n              alt="nike air jordan"\n              className="size-full object-cover"\n            />\n          </CardFlipFront>\n          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-fd-accent-foreground px-4 py-6 text-center text-white">\n            <h2 className="text-xl font-bold">Nike Air Jordan</h2>\n            <h4 className="mb-4">€ 1,299.00</h4>\n            <button className="rounded-full py-2 px-4 bg-primary text-zinc-900">\n              Add to cart\n            </button>\n          </CardFlipBack>\n        </CardFlip>\n      </div>\n    </div>\n  );\n}',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/card-flip/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-card-flip-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-card-flip-demo',
+  },
+  'shadcn-default-card-flip-demo': {
+    name: 'shadcn-default-card-flip-demo',
+    description: 'Demo showing Flip Card Component with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/card-flip'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/card-flip/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/cards/card-flip.tsx',
+        content:
+          '\'use client\';\nimport * as React from \'react\';\nimport {\n  CardFlip,\n  CardFlipBack,\n  CardFlipFront,\n} from \'@/components/systaliko-ui/cards/card-flip\';\nexport function CardFlipDemo() {\n  return (\n    <div className="container py-12">\n      <div className="flex flex-wrap justify-center gap-4">\n        <CardFlip className="h-96 w-2/6">\n          <CardFlipFront className="rounded-xl">\n            <img\n              width={1015}\n              height={678}\n              src="https://images.unsplash.com/photo-1655853548169-646b6e0f15ca?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n              alt="nike air jordan"\n              className="size-full object-cover"\n            />\n          </CardFlipFront>\n          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-fd-accent-foreground px-4 py-6 text-center text-white">\n            <h2 className="text-xl font-bold">Nike Air Jordan</h2>\n            <h4 className="mb-4">€ 1,299.00</h4>\n            <button className="rounded-full py-2 px-4 bg-primary text-zinc-900">\n              Add to cart\n            </button>\n          </CardFlipBack>\n        </CardFlip>\n\n        <CardFlip flipDirection="vertical" className="h-96 w-2/6">\n          <CardFlipFront className="rounded-xl">\n            <img\n              width={542}\n              height={678}\n              src="https://images.unsplash.com/photo-1656944227425-5646be300a14?q=80&w=2527&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n              alt="nike air jordan"\n              className="size-full object-cover"\n            />\n          </CardFlipFront>\n          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-fd-accent-foreground px-4 py-6 text-center text-white">\n            <h2 className="text-xl font-bold">Nike Air Jordan</h2>\n            <h4 className="mb-4">€ 1,299.00</h4>\n            <button className="rounded-full py-2 px-4 bg-primary text-zinc-900">\n              Add to cart\n            </button>\n          </CardFlipBack>\n        </CardFlip>\n      </div>\n    </div>\n  );\n}',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/card-flip/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-card-flip-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-card-flip-demo',
+  },
+  'shadcn-new-york-card-flip-demo': {
+    name: 'shadcn-new-york-card-flip-demo',
+    description: 'Demo showing Flip Card Component with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/card-flip'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/card-flip/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/cards/card-flip.tsx',
+        content:
+          '\'use client\';\nimport * as React from \'react\';\nimport {\n  CardFlip,\n  CardFlipBack,\n  CardFlipFront,\n} from \'@/components/systaliko-ui/cards/card-flip\';\nexport function CardFlipDemo() {\n  return (\n    <div className="container py-12">\n      <div className="flex flex-wrap justify-center gap-4">\n        <CardFlip className="h-96 w-2/6">\n          <CardFlipFront className="rounded-xl">\n            <img\n              width={1015}\n              height={678}\n              src="https://images.unsplash.com/photo-1655853548169-646b6e0f15ca?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n              alt="nike air jordan"\n              className="size-full object-cover"\n            />\n          </CardFlipFront>\n          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-fd-accent-foreground px-4 py-6 text-center text-white">\n            <h2 className="text-xl font-bold">Nike Air Jordan</h2>\n            <h4 className="mb-4">€ 1,299.00</h4>\n            <button className="rounded-full py-2 px-4 bg-primary text-zinc-900">\n              Add to cart\n            </button>\n          </CardFlipBack>\n        </CardFlip>\n\n        <CardFlip flipDirection="vertical" className="h-96 w-2/6">\n          <CardFlipFront className="rounded-xl">\n            <img\n              width={542}\n              height={678}\n              src="https://images.unsplash.com/photo-1656944227425-5646be300a14?q=80&w=2527&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n              alt="nike air jordan"\n              className="size-full object-cover"\n            />\n          </CardFlipFront>\n          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-fd-accent-foreground px-4 py-6 text-center text-white">\n            <h2 className="text-xl font-bold">Nike Air Jordan</h2>\n            <h4 className="mb-4">€ 1,299.00</h4>\n            <button className="rounded-full py-2 px-4 bg-primary text-zinc-900">\n              Add to cart\n            </button>\n          </CardFlipBack>\n        </CardFlip>\n      </div>\n    </div>\n  );\n}',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/card-flip/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-card-flip-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-card-flip-demo',
+  },
+  'default-card-hover-reveal-demo': {
+    name: 'default-card-hover-reveal-demo',
+    description: 'Demo showing Card Hover Reveal Component with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/card-hover-reveal'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/card-hover-reveal/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/cards/card-hover-reveal.tsx',
+        content:
+          'import {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from \'@/components/systaliko-ui/cards/card-hover-reveal\';\n\nexport const CardHoverRevealDemo = () => (\n  <CardHoverReveal className="h-[512px] w-[385px] rounded-xl">\n    <CardHoverRevealMain hoverScale={1.2}>\n      <img\n        width={1077}\n        height={606}\n        alt="product image"\n        src="https://images.unsplash.com/photo-1619551734325-81aaf323686c?q=80&w=2549&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        className="inline-block size-full max-h-full max-w-full object-cover align-middle"\n      />\n    </CardHoverRevealMain>\n\n    <CardHoverRevealContent className="space-y-4 rounded-2xl bg-fd-foreground/70 text-zinc-50">\n      <div className="space-y-2">\n        <h3 className="text-sm text-opacity-60">Services</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-fd-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">Branding</p>\n          </div>\n          <div className=" rounded-full bg-fd-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">UI UX</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className=" text-sm text-opacity-60">Stack</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Figma</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Webflow</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className="text-sm text-opacity-60">Profile</h3>\n        {/* tag */}\n        <div className="flex flex-wrap gap-2 ">\n          <p className="text-sm text-card">\n            Comprehensive platform designed for an agency, Creating professional\n            and business-oriented brand.\n          </p>\n        </div>\n      </div>\n    </CardHoverRevealContent>\n  </CardHoverReveal>\n);',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/card-hover-reveal/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-card-hover-reveal-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-card-hover-reveal-demo',
+  },
+  'shadcn-default-card-hover-reveal-demo': {
+    name: 'shadcn-default-card-hover-reveal-demo',
+    description:
+      'Demo showing Card Hover Reveal Component with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/card-hover-reveal'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/card-hover-reveal/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/cards/card-hover-reveal.tsx',
+        content:
+          'import {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from \'@/components/systaliko-ui/cards/card-hover-reveal\';\n\nexport const CardHoverRevealDemo = () => (\n  <CardHoverReveal className="h-[512px] w-[385px] rounded-xl">\n    <CardHoverRevealMain hoverScale={1.2}>\n      <img\n        width={1077}\n        height={606}\n        alt="product image"\n        src="https://images.unsplash.com/photo-1619551734325-81aaf323686c?q=80&w=2549&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        className="inline-block size-full max-h-full max-w-full object-cover align-middle"\n      />\n    </CardHoverRevealMain>\n\n    <CardHoverRevealContent className="space-y-4 rounded-2xl bg-fd-foreground/70 text-zinc-50">\n      <div className="space-y-2">\n        <h3 className="text-sm text-opacity-60">Services</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-fd-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">Branding</p>\n          </div>\n          <div className=" rounded-full bg-fd-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">UI UX</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className=" text-sm text-opacity-60">Stack</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Figma</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Webflow</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className="text-sm text-opacity-60">Profile</h3>\n        {/* tag */}\n        <div className="flex flex-wrap gap-2 ">\n          <p className="text-sm text-card">\n            Comprehensive platform designed for an agency, Creating professional\n            and business-oriented brand.\n          </p>\n        </div>\n      </div>\n    </CardHoverRevealContent>\n  </CardHoverReveal>\n);',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/card-hover-reveal/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-card-hover-reveal-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-card-hover-reveal-demo',
+  },
+  'shadcn-new-york-card-hover-reveal-demo': {
+    name: 'shadcn-new-york-card-hover-reveal-demo',
+    description:
+      'Demo showing Card Hover Reveal Component with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/card-hover-reveal'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/card-hover-reveal/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/cards/card-hover-reveal.tsx',
+        content:
+          'import {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from \'@/components/systaliko-ui/cards/card-hover-reveal\';\n\nexport const CardHoverRevealDemo = () => (\n  <CardHoverReveal className="h-[512px] w-[385px] rounded-xl">\n    <CardHoverRevealMain hoverScale={1.2}>\n      <img\n        width={1077}\n        height={606}\n        alt="product image"\n        src="https://images.unsplash.com/photo-1619551734325-81aaf323686c?q=80&w=2549&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        className="inline-block size-full max-h-full max-w-full object-cover align-middle"\n      />\n    </CardHoverRevealMain>\n\n    <CardHoverRevealContent className="space-y-4 rounded-2xl bg-fd-foreground/70 text-zinc-50">\n      <div className="space-y-2">\n        <h3 className="text-sm text-opacity-60">Services</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-fd-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">Branding</p>\n          </div>\n          <div className=" rounded-full bg-fd-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">UI UX</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className=" text-sm text-opacity-60">Stack</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Figma</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Webflow</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className="text-sm text-opacity-60">Profile</h3>\n        {/* tag */}\n        <div className="flex flex-wrap gap-2 ">\n          <p className="text-sm text-card">\n            Comprehensive platform designed for an agency, Creating professional\n            and business-oriented brand.\n          </p>\n        </div>\n      </div>\n    </CardHoverRevealContent>\n  </CardHoverReveal>\n);',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/card-hover-reveal/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-card-hover-reveal-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-card-hover-reveal-demo',
+  },
+  'default-card-testimonial-demo': {
+    name: 'default-card-testimonial-demo',
+    description: 'Demo showing Card Testimonial Component with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/card-testimonial'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/card-testimonial/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/cards/card-testimonial.tsx',
+        content:
+          "import {\n  CardTestimonial,\n  TestimonialAuthor,\n  TestimonialQuote,\n  TestimonialRating,\n} from '@/components/systaliko-ui/cards/card-testimonial';\n\nconst TESTIMONIAL = {\n  id: 'testimonial-2',\n  name: 'Lisa M.',\n  profession: 'UX Designer',\n  rating: 4.5,\n  quote:\n    'Working with them was a game-changer for our project. Their expertise and professionalism exceeded our expectations.',\n  avatarUrl:\n    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D',\n};\n\nexport const CardTestimonialDemo = () => {\n  return (\n    <CardTestimonial\n      testimonialQuote={TESTIMONIAL.quote}\n      testimonialRating={TESTIMONIAL.rating}\n      testimonialAuthor={{\n        authorName: TESTIMONIAL.name,\n        avatarUrl: TESTIMONIAL.avatarUrl,\n        description: TESTIMONIAL.profession,\n      }}\n      role=\"article\"\n      aria-labelledby={`card-${TESTIMONIAL.id}-title`}\n      aria-describedby={`card-${TESTIMONIAL.id}-content`}\n      className=\"h-[450px] w-[350px] shadow\"\n    >\n      <TestimonialRating className=\"text-primary\" />\n      <div className=\"relative text-center mx-auto w-4/5 text-lg\">\n        <TestimonialQuote>{TESTIMONIAL.quote}</TestimonialQuote>\n      </div>\n\n      <TestimonialAuthor className=\"flex items-center gap-4\" />\n    </CardTestimonial>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/card-testimonial/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-card-testimonial-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-card-testimonial-demo',
+  },
+  'shadcn-default-card-testimonial-demo': {
+    name: 'shadcn-default-card-testimonial-demo',
+    description:
+      'Demo showing Card Testimonial Component with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/card-testimonial'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/card-testimonial/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/cards/card-testimonial.tsx',
+        content:
+          "import {\n  CardTestimonial,\n  TestimonialAuthor,\n  TestimonialQuote,\n  TestimonialRating,\n} from '@/components/systaliko-ui/cards/card-testimonial';\n\nconst TESTIMONIAL = {\n  id: 'testimonial-2',\n  name: 'Lisa M.',\n  profession: 'UX Designer',\n  rating: 4.5,\n  quote:\n    'Working with them was a game-changer for our project. Their expertise and professionalism exceeded our expectations.',\n  avatarUrl:\n    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D',\n};\n\nexport const CardTestimonialDemo = () => {\n  return (\n    <CardTestimonial\n      testimonialQuote={TESTIMONIAL.quote}\n      testimonialRating={TESTIMONIAL.rating}\n      testimonialAuthor={{\n        authorName: TESTIMONIAL.name,\n        avatarUrl: TESTIMONIAL.avatarUrl,\n        description: TESTIMONIAL.profession,\n      }}\n      role=\"article\"\n      aria-labelledby={`card-${TESTIMONIAL.id}-title`}\n      aria-describedby={`card-${TESTIMONIAL.id}-content`}\n      className=\"h-[450px] w-[350px] shadow\"\n    >\n      <TestimonialRating className=\"text-primary\" />\n      <div className=\"relative text-center mx-auto w-4/5 text-lg\">\n        <TestimonialQuote>{TESTIMONIAL.quote}</TestimonialQuote>\n      </div>\n\n      <TestimonialAuthor className=\"flex items-center gap-4\" />\n    </CardTestimonial>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/card-testimonial/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-card-testimonial-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-card-testimonial-demo',
+  },
+  'shadcn-new-york-card-testimonial-demo': {
+    name: 'shadcn-new-york-card-testimonial-demo',
+    description:
+      'Demo showing Card Testimonial Component with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/card-testimonial'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/card-testimonial/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/cards/card-testimonial.tsx',
+        content:
+          "import {\n  CardTestimonial,\n  TestimonialAuthor,\n  TestimonialQuote,\n  TestimonialRating,\n} from '@/components/systaliko-ui/cards/card-testimonial';\n\nconst TESTIMONIAL = {\n  id: 'testimonial-2',\n  name: 'Lisa M.',\n  profession: 'UX Designer',\n  rating: 4.5,\n  quote:\n    'Working with them was a game-changer for our project. Their expertise and professionalism exceeded our expectations.',\n  avatarUrl:\n    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D',\n};\n\nexport const CardTestimonialDemo = () => {\n  return (\n    <CardTestimonial\n      testimonialQuote={TESTIMONIAL.quote}\n      testimonialRating={TESTIMONIAL.rating}\n      testimonialAuthor={{\n        authorName: TESTIMONIAL.name,\n        avatarUrl: TESTIMONIAL.avatarUrl,\n        description: TESTIMONIAL.profession,\n      }}\n      role=\"article\"\n      aria-labelledby={`card-${TESTIMONIAL.id}-title`}\n      aria-describedby={`card-${TESTIMONIAL.id}-content`}\n      className=\"h-[450px] w-[350px] shadow\"\n    >\n      <TestimonialRating className=\"text-primary\" />\n      <div className=\"relative text-center mx-auto w-4/5 text-lg\">\n        <TestimonialQuote>{TESTIMONIAL.quote}</TestimonialQuote>\n      </div>\n\n      <TestimonialAuthor className=\"flex items-center gap-4\" />\n    </CardTestimonial>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/card-testimonial/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-card-testimonial-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-card-testimonial-demo',
+  },
+  'default-container-clipped-demo': {
+    name: 'default-container-clipped-demo',
+    description: 'Demo showing container Clipped Component with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/container-clipped'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/container-clipped/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/containers/container-clipped.tsx',
+        content:
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  clipPathVariants,\n  ContainerClipped,\n  ContainerClippedBg,\n  ContainerClippedColLg,\n  ContainerClippedColMd,\n} from \'@/components/systaliko-ui/containers/container-clipped\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\n\nexport const ContainerClippedDemo = () => {\n  return (\n    <ContainerClipped className="min-h-dvh">\n      <ContainerClippedColLg>\n        <ContainerClippedBg className="absolute bg-slate-200 hidden md:block inset-0 size-full" />\n        <div className="p-8 md:pl-12 md:pr-0 h-full gap-8 flex flex-col items-start justify-center relative z-50">\n          <TextStaggerInview\n            as="h1"\n            className="font-serif text-6xl xl:text-7xl tracking-tight"\n            animation="top"\n            staggerDirection={-1}\n          >\n            Crafting Timeless Architectural Spaces\n          </TextStaggerInview>\n          <p className="opacity-80">\n            We are a visionary design collective that transforms spaces <br />\n            into living art. Our expertise spans from architectural <br />\n            innovation to bespoke interior solutions, creating <br />\n            environments that inspire and endure.\n          </p>\n          <Button\n            className="rounded-none bg-slate-400 text-slate-200"\n            size={\'lg\'}\n            variant={\'secondary\'}\n          >\n            Discover more\n          </Button>\n        </div>\n      </ContainerClippedColLg>\n\n      <ContainerClippedColMd style={{ clipPath: clipPathVariants[\'reversed\'] }}>\n        <img\n          src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n          alt="modern architecture"\n          className="size-full object-cover"\n        />\n      </ContainerClippedColMd>\n    </ContainerClipped>\n  );\n};\n\nexport const ContainerClippedDemo2 = () => {\n  return (\n    <ContainerClipped className="mb-12 min-h-dvh">\n      <ContainerClippedColLg>\n        <ContainerClippedBg className="absolute  bg-blue-900 hidden md:block inset-0 size-full" />\n        <div className="p-8 text-secondary md:pl-12 md:pr-0 h-full gap-8 flex flex-col items-start justify-center relative z-50">\n          <TextStaggerInview\n            as="h1"\n            className="font-semibold   text-6xl xl:text-7xl tracking-tight"\n            animation="top"\n            staggerDirection={-1}\n          >\n            Quality Textiles Crafted with Precision\n          </TextStaggerInview>\n          <p className="text-lg">\n            We are a leading textile manufacturer that transforms <br />\n            raw materials into premium fabrics. Our expertise\n            <br /> spans from innovative weaving techniques to\n            <br /> sustainable production methods.\n          </p>\n          <Button className="rounded-none  " size={\'lg\'}>\n            Request a Quote\n          </Button>\n        </div>\n      </ContainerClippedColLg>\n\n      <ContainerClippedColMd>\n        <img\n          src="https://images.unsplash.com/photo-1589793463357-5fb813435467?q=80&w=2456&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n          alt="Textile factory"\n          className="size-full object-cover"\n        />\n      </ContainerClippedColMd>\n    </ContainerClipped>\n  );\n};\n\nexport const ContainerClippedDemo3 = () => {\n  return (\n    <ContainerClipped className="mb-12 min-h-dvh">\n      <ContainerClippedColLg>\n        <ContainerClippedBg className="absolute rounded-br-4xl bg-fd-primary hidden md:block inset-0 size-full" />\n        <div className="p-8 text-secondary md:pl-12 md:pr-0 h-full gap-8 flex flex-col items-start justify-center relative z-50">\n          <TextStaggerInview\n            as="h1"\n            className="font-medium text-5xl xl:text-7xl tracking-tight"\n            // animation="top"\n            // staggerDirection={-1}\n          >\n            Elevate Your Productivity in Our Modern Workspaces\n          </TextStaggerInview>\n          <TextStaggerInview\n            stagger={0.01}\n            as="p"\n            className="text-sm max-w-[45ch]"\n          >\n            At Nexus Hub, we offer flexible, fully furnished workspaces designed\n            to inspire collaboration and fuel creativity. Enjoy high-speed\n            internet, ergonomic seating, and vibrant communal areas—all backed\n            by 24/7 access and premium amenities. Whether you’re a solo\n            freelancer or a growing team, our tailored plans ensure you have\n            everything you need to work smarter and connect with professionals.\n          </TextStaggerInview>\n          <Button size={\'lg\'}>Book a Free Tour</Button>\n        </div>\n      </ContainerClippedColLg>\n\n      <ContainerClippedColMd className="flex justify-center items-end">\n        <div className=" size-3/4 aspect-square overflow-hidden rounded-xl">\n          <img\n            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="Textile factory"\n            className="size-full object-cover"\n          />\n        </div>\n      </ContainerClippedColMd>\n    </ContainerClipped>\n  );\n};',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/container-clipped/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-container-clipped-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-container-clipped-demo',
+  },
+  'shadcn-default-container-clipped-demo': {
+    name: 'shadcn-default-container-clipped-demo',
+    description:
+      'Demo showing container Clipped Component with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/container-clipped'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/container-clipped/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/containers/container-clipped.tsx',
+        content:
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  clipPathVariants,\n  ContainerClipped,\n  ContainerClippedBg,\n  ContainerClippedColLg,\n  ContainerClippedColMd,\n} from \'@/components/systaliko-ui/containers/container-clipped\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\n\nexport const ContainerClippedDemo = () => {\n  return (\n    <ContainerClipped className="min-h-dvh">\n      <ContainerClippedColLg>\n        <ContainerClippedBg className="absolute bg-slate-200 hidden md:block inset-0 size-full" />\n        <div className="p-8 md:pl-12 md:pr-0 h-full gap-8 flex flex-col items-start justify-center relative z-50">\n          <TextStaggerInview\n            as="h1"\n            className="font-serif text-6xl xl:text-7xl tracking-tight"\n            animation="top"\n            staggerDirection={-1}\n          >\n            Crafting Timeless Architectural Spaces\n          </TextStaggerInview>\n          <p className="opacity-80">\n            We are a visionary design collective that transforms spaces <br />\n            into living art. Our expertise spans from architectural <br />\n            innovation to bespoke interior solutions, creating <br />\n            environments that inspire and endure.\n          </p>\n          <Button\n            className="rounded-none bg-slate-400 text-slate-200"\n            size={\'lg\'}\n            variant={\'secondary\'}\n          >\n            Discover more\n          </Button>\n        </div>\n      </ContainerClippedColLg>\n\n      <ContainerClippedColMd style={{ clipPath: clipPathVariants[\'reversed\'] }}>\n        <img\n          src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n          alt="modern architecture"\n          className="size-full object-cover"\n        />\n      </ContainerClippedColMd>\n    </ContainerClipped>\n  );\n};\n\nexport const ContainerClippedDemo2 = () => {\n  return (\n    <ContainerClipped className="mb-12 min-h-dvh">\n      <ContainerClippedColLg>\n        <ContainerClippedBg className="absolute  bg-blue-900 hidden md:block inset-0 size-full" />\n        <div className="p-8 text-secondary md:pl-12 md:pr-0 h-full gap-8 flex flex-col items-start justify-center relative z-50">\n          <TextStaggerInview\n            as="h1"\n            className="font-semibold   text-6xl xl:text-7xl tracking-tight"\n            animation="top"\n            staggerDirection={-1}\n          >\n            Quality Textiles Crafted with Precision\n          </TextStaggerInview>\n          <p className="text-lg">\n            We are a leading textile manufacturer that transforms <br />\n            raw materials into premium fabrics. Our expertise\n            <br /> spans from innovative weaving techniques to\n            <br /> sustainable production methods.\n          </p>\n          <Button className="rounded-none  " size={\'lg\'}>\n            Request a Quote\n          </Button>\n        </div>\n      </ContainerClippedColLg>\n\n      <ContainerClippedColMd>\n        <img\n          src="https://images.unsplash.com/photo-1589793463357-5fb813435467?q=80&w=2456&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n          alt="Textile factory"\n          className="size-full object-cover"\n        />\n      </ContainerClippedColMd>\n    </ContainerClipped>\n  );\n};\n\nexport const ContainerClippedDemo3 = () => {\n  return (\n    <ContainerClipped className="mb-12 min-h-dvh">\n      <ContainerClippedColLg>\n        <ContainerClippedBg className="absolute rounded-br-4xl bg-fd-primary hidden md:block inset-0 size-full" />\n        <div className="p-8 text-secondary md:pl-12 md:pr-0 h-full gap-8 flex flex-col items-start justify-center relative z-50">\n          <TextStaggerInview\n            as="h1"\n            className="font-medium text-5xl xl:text-7xl tracking-tight"\n            // animation="top"\n            // staggerDirection={-1}\n          >\n            Elevate Your Productivity in Our Modern Workspaces\n          </TextStaggerInview>\n          <TextStaggerInview\n            stagger={0.01}\n            as="p"\n            className="text-sm max-w-[45ch]"\n          >\n            At Nexus Hub, we offer flexible, fully furnished workspaces designed\n            to inspire collaboration and fuel creativity. Enjoy high-speed\n            internet, ergonomic seating, and vibrant communal areas—all backed\n            by 24/7 access and premium amenities. Whether you’re a solo\n            freelancer or a growing team, our tailored plans ensure you have\n            everything you need to work smarter and connect with professionals.\n          </TextStaggerInview>\n          <Button size={\'lg\'}>Book a Free Tour</Button>\n        </div>\n      </ContainerClippedColLg>\n\n      <ContainerClippedColMd className="flex justify-center items-end">\n        <div className=" size-3/4 aspect-square overflow-hidden rounded-xl">\n          <img\n            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="Textile factory"\n            className="size-full object-cover"\n          />\n        </div>\n      </ContainerClippedColMd>\n    </ContainerClipped>\n  );\n};',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/container-clipped/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-container-clipped-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-container-clipped-demo',
+  },
+  'shadcn-new-york-container-clipped-demo': {
+    name: 'shadcn-new-york-container-clipped-demo',
+    description:
+      'Demo showing container Clipped Component with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/container-clipped'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/container-clipped/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/containers/container-clipped.tsx',
+        content:
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  clipPathVariants,\n  ContainerClipped,\n  ContainerClippedBg,\n  ContainerClippedColLg,\n  ContainerClippedColMd,\n} from \'@/components/systaliko-ui/containers/container-clipped\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\n\nexport const ContainerClippedDemo = () => {\n  return (\n    <ContainerClipped className="min-h-dvh">\n      <ContainerClippedColLg>\n        <ContainerClippedBg className="absolute bg-slate-200 hidden md:block inset-0 size-full" />\n        <div className="p-8 md:pl-12 md:pr-0 h-full gap-8 flex flex-col items-start justify-center relative z-50">\n          <TextStaggerInview\n            as="h1"\n            className="font-serif text-6xl xl:text-7xl tracking-tight"\n            animation="top"\n            staggerDirection={-1}\n          >\n            Crafting Timeless Architectural Spaces\n          </TextStaggerInview>\n          <p className="opacity-80">\n            We are a visionary design collective that transforms spaces <br />\n            into living art. Our expertise spans from architectural <br />\n            innovation to bespoke interior solutions, creating <br />\n            environments that inspire and endure.\n          </p>\n          <Button\n            className="rounded-none bg-slate-400 text-slate-200"\n            size={\'lg\'}\n            variant={\'secondary\'}\n          >\n            Discover more\n          </Button>\n        </div>\n      </ContainerClippedColLg>\n\n      <ContainerClippedColMd style={{ clipPath: clipPathVariants[\'reversed\'] }}>\n        <img\n          src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n          alt="modern architecture"\n          className="size-full object-cover"\n        />\n      </ContainerClippedColMd>\n    </ContainerClipped>\n  );\n};\n\nexport const ContainerClippedDemo2 = () => {\n  return (\n    <ContainerClipped className="mb-12 min-h-dvh">\n      <ContainerClippedColLg>\n        <ContainerClippedBg className="absolute  bg-blue-900 hidden md:block inset-0 size-full" />\n        <div className="p-8 text-secondary md:pl-12 md:pr-0 h-full gap-8 flex flex-col items-start justify-center relative z-50">\n          <TextStaggerInview\n            as="h1"\n            className="font-semibold   text-6xl xl:text-7xl tracking-tight"\n            animation="top"\n            staggerDirection={-1}\n          >\n            Quality Textiles Crafted with Precision\n          </TextStaggerInview>\n          <p className="text-lg">\n            We are a leading textile manufacturer that transforms <br />\n            raw materials into premium fabrics. Our expertise\n            <br /> spans from innovative weaving techniques to\n            <br /> sustainable production methods.\n          </p>\n          <Button className="rounded-none  " size={\'lg\'}>\n            Request a Quote\n          </Button>\n        </div>\n      </ContainerClippedColLg>\n\n      <ContainerClippedColMd>\n        <img\n          src="https://images.unsplash.com/photo-1589793463357-5fb813435467?q=80&w=2456&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n          alt="Textile factory"\n          className="size-full object-cover"\n        />\n      </ContainerClippedColMd>\n    </ContainerClipped>\n  );\n};\n\nexport const ContainerClippedDemo3 = () => {\n  return (\n    <ContainerClipped className="mb-12 min-h-dvh">\n      <ContainerClippedColLg>\n        <ContainerClippedBg className="absolute rounded-br-4xl bg-fd-primary hidden md:block inset-0 size-full" />\n        <div className="p-8 text-secondary md:pl-12 md:pr-0 h-full gap-8 flex flex-col items-start justify-center relative z-50">\n          <TextStaggerInview\n            as="h1"\n            className="font-medium text-5xl xl:text-7xl tracking-tight"\n            // animation="top"\n            // staggerDirection={-1}\n          >\n            Elevate Your Productivity in Our Modern Workspaces\n          </TextStaggerInview>\n          <TextStaggerInview\n            stagger={0.01}\n            as="p"\n            className="text-sm max-w-[45ch]"\n          >\n            At Nexus Hub, we offer flexible, fully furnished workspaces designed\n            to inspire collaboration and fuel creativity. Enjoy high-speed\n            internet, ergonomic seating, and vibrant communal areas—all backed\n            by 24/7 access and premium amenities. Whether you’re a solo\n            freelancer or a growing team, our tailored plans ensure you have\n            everything you need to work smarter and connect with professionals.\n          </TextStaggerInview>\n          <Button size={\'lg\'}>Book a Free Tour</Button>\n        </div>\n      </ContainerClippedColLg>\n\n      <ContainerClippedColMd className="flex justify-center items-end">\n        <div className=" size-3/4 aspect-square overflow-hidden rounded-xl">\n          <img\n            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="Textile factory"\n            className="size-full object-cover"\n          />\n        </div>\n      </ContainerClippedColMd>\n    </ContainerClipped>\n  );\n};',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/container-clipped/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-container-clipped-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-container-clipped-demo',
+  },
   'default-container-infinite-scroll-demo': {
     name: 'default-container-infinite-scroll-demo',
     description: 'Demo showing container infinite scroll with default style.',
@@ -473,7 +1545,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/demo/containers/container-infinite-scroll.tsx',
         content:
-          "'use client';\n\nimport * as React from 'react';\n\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\nimport {\n  CellInfiniteScroll,\n  ContainerInfiniteScroll,\n} from '@/components/systaliko-ui/containers/container-infinite-scroll';\nimport { ScrollArea } from '@/components/ui/scroll-area';\ninterface Post {\n  id: number;\n  userId: number;\n  title: string;\n  body: string;\n}\n\nconst BASE_URL = 'https://jsonplaceholder.typicode.com/posts';\nconst LIMIT = 10;\n\nexport function ContainerInfiniteScrollDemo() {\n  const [posts, setPosts] = React.useState<Post[]>([]);\n  const [page, setPage] = React.useState<number>(0);\n  const [totalCount, setTotalCount] = React.useState<number | null>();\n  const [isLoading, setIsLoading] = React.useState<boolean>(false);\n\n  async function fetchData() {\n    setIsLoading(true);\n    const start = page * LIMIT;\n    try {\n      const response = await fetch(\n        `${BASE_URL}?_start=${start}&_limit=${LIMIT}`,\n      );\n      const totalItems = response.headers.get('x-total-count');\n      const data = await response.json();\n\n      setTotalCount(Number(totalItems));\n      setPosts((prevPosts) => [...prevPosts, ...data]);\n      setPage((prevPage) => prevPage + 1);\n    } catch (error) {\n      console.error('Error fetching data:', error);\n    } finally {\n      setIsLoading(false);\n    }\n  }\n\n  React.useEffect(() => {\n    fetchData();\n  }, []);\n\n  return (\n    <ScrollArea className=\"w-full h-80\">\n      <ContainerInfiniteScroll\n        items={posts}\n        isPending={isLoading}\n        itemsCount={totalCount}\n        loadMore={fetchData}\n        className=\"container mx-auto grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-2 p-12\"\n      >\n        {posts.map((post, index) => (\n          <CellInfiniteScroll isPending={isLoading} key={`${post.id}-${index}`}>\n            <Card className=\" bg-fd-card\">\n              <CardHeader>\n                <CardTitle className=\"text-primary\">#{post.id}</CardTitle>\n                <CardDescription className=\"text-xs\">\n                  {post.title}\n                </CardDescription>\n              </CardHeader>\n\n              <CardContent className=\"text-sm text-foreground\">\n                <p>{post.body}</p>\n              </CardContent>\n            </Card>\n          </CellInfiniteScroll>\n        ))}\n      </ContainerInfiniteScroll>\n    </ScrollArea>\n  );\n}",
+          "'use client';\n\nimport * as React from 'react';\n\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\nimport {\n  CellInfiniteScroll,\n  ContainerInfiniteScroll,\n} from '@/components/systaliko-ui/containers/container-infinite-scroll';\nimport { ScrollArea } from '@/components/ui/scroll-area';\ninterface Post {\n  id: number;\n  userId: number;\n  title: string;\n  body: string;\n}\n\nconst BASE_URL = 'https://jsonplaceholder.typicode.com/posts';\nconst LIMIT = 10;\n\nexport function ContainerInfiniteScrollDemo() {\n  const [posts, setPosts] = React.useState<Post[]>([]);\n  const [page, setPage] = React.useState<number>(0);\n  const [totalCount, setTotalCount] = React.useState<number | null>();\n  const [isLoading, setIsLoading] = React.useState<boolean>(false);\n\n  async function fetchData() {\n    setIsLoading(true);\n    const start = page * LIMIT;\n    try {\n      const response = await fetch(\n        `${BASE_URL}?_start=${start}&_limit=${LIMIT}`,\n      );\n      const totalItems = response.headers.get('x-total-count');\n      const data = await response.json();\n\n      setTotalCount(Number(totalItems));\n      setPosts((prevPosts) => [...prevPosts, ...data]);\n      setPage((prevPage) => prevPage + 1);\n    } catch (error) {\n      console.error('Error fetching data:', error);\n    } finally {\n      setIsLoading(false);\n    }\n  }\n\n  React.useEffect(() => {\n    fetchData();\n  }, []);\n\n  return (\n    <ScrollArea className=\"w-full h-80 p-6\">\n      <ContainerInfiniteScroll\n        items={posts}\n        isPending={isLoading}\n        itemsCount={totalCount}\n        loadMore={fetchData}\n        className=\"grid gap-4 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]\"\n      >\n        {posts.map((post, index) => (\n          <CellInfiniteScroll isPending={isLoading} key={`${post.id}-${index}`}>\n            <Card className=\" bg-fd-card\">\n              <CardHeader>\n                <CardTitle className=\"text-primary\">#{post.id}</CardTitle>\n                <CardDescription className=\"text-xs\">\n                  {post.title}\n                </CardDescription>\n              </CardHeader>\n\n              <CardContent className=\"text-sm text-foreground\">\n                <p>{post.body}</p>\n              </CardContent>\n            </Card>\n          </CellInfiniteScroll>\n        ))}\n      </ContainerInfiniteScroll>\n    </ScrollArea>\n  );\n}",
       },
     ],
     component: (function () {
@@ -510,7 +1582,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/demo/containers/container-infinite-scroll.tsx',
         content:
-          "'use client';\n\nimport * as React from 'react';\n\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\nimport {\n  CellInfiniteScroll,\n  ContainerInfiniteScroll,\n} from '@/components/systaliko-ui/containers/container-infinite-scroll';\nimport { ScrollArea } from '@/components/ui/scroll-area';\ninterface Post {\n  id: number;\n  userId: number;\n  title: string;\n  body: string;\n}\n\nconst BASE_URL = 'https://jsonplaceholder.typicode.com/posts';\nconst LIMIT = 10;\n\nexport function ContainerInfiniteScrollDemo() {\n  const [posts, setPosts] = React.useState<Post[]>([]);\n  const [page, setPage] = React.useState<number>(0);\n  const [totalCount, setTotalCount] = React.useState<number | null>();\n  const [isLoading, setIsLoading] = React.useState<boolean>(false);\n\n  async function fetchData() {\n    setIsLoading(true);\n    const start = page * LIMIT;\n    try {\n      const response = await fetch(\n        `${BASE_URL}?_start=${start}&_limit=${LIMIT}`,\n      );\n      const totalItems = response.headers.get('x-total-count');\n      const data = await response.json();\n\n      setTotalCount(Number(totalItems));\n      setPosts((prevPosts) => [...prevPosts, ...data]);\n      setPage((prevPage) => prevPage + 1);\n    } catch (error) {\n      console.error('Error fetching data:', error);\n    } finally {\n      setIsLoading(false);\n    }\n  }\n\n  React.useEffect(() => {\n    fetchData();\n  }, []);\n\n  return (\n    <ScrollArea className=\"w-full h-80\">\n      <ContainerInfiniteScroll\n        items={posts}\n        isPending={isLoading}\n        itemsCount={totalCount}\n        loadMore={fetchData}\n        className=\"container mx-auto grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-2 p-12\"\n      >\n        {posts.map((post, index) => (\n          <CellInfiniteScroll isPending={isLoading} key={`${post.id}-${index}`}>\n            <Card className=\" bg-fd-card\">\n              <CardHeader>\n                <CardTitle className=\"text-primary\">#{post.id}</CardTitle>\n                <CardDescription className=\"text-xs\">\n                  {post.title}\n                </CardDescription>\n              </CardHeader>\n\n              <CardContent className=\"text-sm text-foreground\">\n                <p>{post.body}</p>\n              </CardContent>\n            </Card>\n          </CellInfiniteScroll>\n        ))}\n      </ContainerInfiniteScroll>\n    </ScrollArea>\n  );\n}",
+          "'use client';\n\nimport * as React from 'react';\n\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\nimport {\n  CellInfiniteScroll,\n  ContainerInfiniteScroll,\n} from '@/components/systaliko-ui/containers/container-infinite-scroll';\nimport { ScrollArea } from '@/components/ui/scroll-area';\ninterface Post {\n  id: number;\n  userId: number;\n  title: string;\n  body: string;\n}\n\nconst BASE_URL = 'https://jsonplaceholder.typicode.com/posts';\nconst LIMIT = 10;\n\nexport function ContainerInfiniteScrollDemo() {\n  const [posts, setPosts] = React.useState<Post[]>([]);\n  const [page, setPage] = React.useState<number>(0);\n  const [totalCount, setTotalCount] = React.useState<number | null>();\n  const [isLoading, setIsLoading] = React.useState<boolean>(false);\n\n  async function fetchData() {\n    setIsLoading(true);\n    const start = page * LIMIT;\n    try {\n      const response = await fetch(\n        `${BASE_URL}?_start=${start}&_limit=${LIMIT}`,\n      );\n      const totalItems = response.headers.get('x-total-count');\n      const data = await response.json();\n\n      setTotalCount(Number(totalItems));\n      setPosts((prevPosts) => [...prevPosts, ...data]);\n      setPage((prevPage) => prevPage + 1);\n    } catch (error) {\n      console.error('Error fetching data:', error);\n    } finally {\n      setIsLoading(false);\n    }\n  }\n\n  React.useEffect(() => {\n    fetchData();\n  }, []);\n\n  return (\n    <ScrollArea className=\"w-full h-80 p-6\">\n      <ContainerInfiniteScroll\n        items={posts}\n        isPending={isLoading}\n        itemsCount={totalCount}\n        loadMore={fetchData}\n        className=\"grid gap-4 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]\"\n      >\n        {posts.map((post, index) => (\n          <CellInfiniteScroll isPending={isLoading} key={`${post.id}-${index}`}>\n            <Card className=\" bg-fd-card\">\n              <CardHeader>\n                <CardTitle className=\"text-primary\">#{post.id}</CardTitle>\n                <CardDescription className=\"text-xs\">\n                  {post.title}\n                </CardDescription>\n              </CardHeader>\n\n              <CardContent className=\"text-sm text-foreground\">\n                <p>{post.body}</p>\n              </CardContent>\n            </Card>\n          </CellInfiniteScroll>\n        ))}\n      </ContainerInfiniteScroll>\n    </ScrollArea>\n  );\n}",
       },
     ],
     component: (function () {
@@ -548,7 +1620,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/demo/containers/container-infinite-scroll.tsx',
         content:
-          "'use client';\n\nimport * as React from 'react';\n\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\nimport {\n  CellInfiniteScroll,\n  ContainerInfiniteScroll,\n} from '@/components/systaliko-ui/containers/container-infinite-scroll';\nimport { ScrollArea } from '@/components/ui/scroll-area';\ninterface Post {\n  id: number;\n  userId: number;\n  title: string;\n  body: string;\n}\n\nconst BASE_URL = 'https://jsonplaceholder.typicode.com/posts';\nconst LIMIT = 10;\n\nexport function ContainerInfiniteScrollDemo() {\n  const [posts, setPosts] = React.useState<Post[]>([]);\n  const [page, setPage] = React.useState<number>(0);\n  const [totalCount, setTotalCount] = React.useState<number | null>();\n  const [isLoading, setIsLoading] = React.useState<boolean>(false);\n\n  async function fetchData() {\n    setIsLoading(true);\n    const start = page * LIMIT;\n    try {\n      const response = await fetch(\n        `${BASE_URL}?_start=${start}&_limit=${LIMIT}`,\n      );\n      const totalItems = response.headers.get('x-total-count');\n      const data = await response.json();\n\n      setTotalCount(Number(totalItems));\n      setPosts((prevPosts) => [...prevPosts, ...data]);\n      setPage((prevPage) => prevPage + 1);\n    } catch (error) {\n      console.error('Error fetching data:', error);\n    } finally {\n      setIsLoading(false);\n    }\n  }\n\n  React.useEffect(() => {\n    fetchData();\n  }, []);\n\n  return (\n    <ScrollArea className=\"w-full h-80\">\n      <ContainerInfiniteScroll\n        items={posts}\n        isPending={isLoading}\n        itemsCount={totalCount}\n        loadMore={fetchData}\n        className=\"container mx-auto grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-2 p-12\"\n      >\n        {posts.map((post, index) => (\n          <CellInfiniteScroll isPending={isLoading} key={`${post.id}-${index}`}>\n            <Card className=\" bg-fd-card\">\n              <CardHeader>\n                <CardTitle className=\"text-primary\">#{post.id}</CardTitle>\n                <CardDescription className=\"text-xs\">\n                  {post.title}\n                </CardDescription>\n              </CardHeader>\n\n              <CardContent className=\"text-sm text-foreground\">\n                <p>{post.body}</p>\n              </CardContent>\n            </Card>\n          </CellInfiniteScroll>\n        ))}\n      </ContainerInfiniteScroll>\n    </ScrollArea>\n  );\n}",
+          "'use client';\n\nimport * as React from 'react';\n\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\nimport {\n  CellInfiniteScroll,\n  ContainerInfiniteScroll,\n} from '@/components/systaliko-ui/containers/container-infinite-scroll';\nimport { ScrollArea } from '@/components/ui/scroll-area';\ninterface Post {\n  id: number;\n  userId: number;\n  title: string;\n  body: string;\n}\n\nconst BASE_URL = 'https://jsonplaceholder.typicode.com/posts';\nconst LIMIT = 10;\n\nexport function ContainerInfiniteScrollDemo() {\n  const [posts, setPosts] = React.useState<Post[]>([]);\n  const [page, setPage] = React.useState<number>(0);\n  const [totalCount, setTotalCount] = React.useState<number | null>();\n  const [isLoading, setIsLoading] = React.useState<boolean>(false);\n\n  async function fetchData() {\n    setIsLoading(true);\n    const start = page * LIMIT;\n    try {\n      const response = await fetch(\n        `${BASE_URL}?_start=${start}&_limit=${LIMIT}`,\n      );\n      const totalItems = response.headers.get('x-total-count');\n      const data = await response.json();\n\n      setTotalCount(Number(totalItems));\n      setPosts((prevPosts) => [...prevPosts, ...data]);\n      setPage((prevPage) => prevPage + 1);\n    } catch (error) {\n      console.error('Error fetching data:', error);\n    } finally {\n      setIsLoading(false);\n    }\n  }\n\n  React.useEffect(() => {\n    fetchData();\n  }, []);\n\n  return (\n    <ScrollArea className=\"w-full h-80 p-6\">\n      <ContainerInfiniteScroll\n        items={posts}\n        isPending={isLoading}\n        itemsCount={totalCount}\n        loadMore={fetchData}\n        className=\"grid gap-4 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]\"\n      >\n        {posts.map((post, index) => (\n          <CellInfiniteScroll isPending={isLoading} key={`${post.id}-${index}`}>\n            <Card className=\" bg-fd-card\">\n              <CardHeader>\n                <CardTitle className=\"text-primary\">#{post.id}</CardTitle>\n                <CardDescription className=\"text-xs\">\n                  {post.title}\n                </CardDescription>\n              </CardHeader>\n\n              <CardContent className=\"text-sm text-foreground\">\n                <p>{post.body}</p>\n              </CardContent>\n            </Card>\n          </CellInfiniteScroll>\n        ))}\n      </ContainerInfiniteScroll>\n    </ScrollArea>\n  );\n}",
       },
     ],
     component: (function () {
@@ -676,6 +1748,113 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: 'https://animate-ui.com/r/shadcn-new-york-grid-bento-demo',
+  },
+  'default-rating-stars-demo': {
+    name: 'default-rating-stars-demo',
+    description: 'Demo showing Rating stars component with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/rating-stars'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/rating-stars/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/rating-stars.tsx',
+        content:
+          'import { RatingStars } from \'@/components/systaliko-ui/rating-stars\';\n\nexport const RatingStarsDemo = () => {\n  return <RatingStars className="text-primary" rating={4.5} />;\n};',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/rating-stars/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-rating-stars-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-rating-stars-demo',
+  },
+  'shadcn-default-rating-stars-demo': {
+    name: 'shadcn-default-rating-stars-demo',
+    description:
+      'Demo showing Rating stars component with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/rating-stars'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/rating-stars/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/rating-stars.tsx',
+        content:
+          'import { RatingStars } from \'@/components/systaliko-ui/rating-stars\';\n\nexport const RatingStarsDemo = () => {\n  return <RatingStars className="text-primary" rating={4.5} />;\n};',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/rating-stars/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-rating-stars-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-rating-stars-demo',
+  },
+  'shadcn-new-york-rating-stars-demo': {
+    name: 'shadcn-new-york-rating-stars-demo',
+    description:
+      'Demo showing Rating stars component with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/rating-stars'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/rating-stars/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/rating-stars.tsx',
+        content:
+          'import { RatingStars } from \'@/components/systaliko-ui/rating-stars\';\n\nexport const RatingStarsDemo = () => {\n  return <RatingStars className="text-primary" rating={4.5} />;\n};',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/rating-stars/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-rating-stars-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-rating-stars-demo',
   },
   'default-text-stagger-hover-demo': {
     name: 'default-text-stagger-hover-demo',
@@ -1118,6 +2297,114 @@ export const index: Record<string, any> = {
     command:
       'https://animate-ui.com/r/shadcn-new-york-use-animation-variants-demo',
   },
+  'default-rating-stars': {
+    name: 'default-rating-stars',
+    description:
+      'Stars rating component with customizable color, size depending on average rating with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/rating-stars/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/rating-stars.tsx',
+        content:
+          '\'use client\';\n\nimport * as React from \'react\';\n\nimport { cn } from \'@/lib/utils\';\n\ninterface RatingStarsProps extends React.HTMLAttributes<HTMLDivElement> {\n  rating: number;\n  maxRating?: number;\n}\n\nexport const RatingStars = React.forwardRef<HTMLDivElement, RatingStarsProps>(\n  ({ rating, maxRating = 5, className, ...props }, ref) => {\n    const filledStars = Math.floor(rating);\n    const fractionalPart = rating - filledStars;\n    const emptyStars = maxRating - filledStars - (fractionalPart > 0 ? 1 : 0);\n\n    return (\n      <div\n        className={cn(\'flex items-center gap-2\', className)}\n        ref={ref}\n        {...props}\n      >\n        <div className="flex items-center">\n          {[...Array(filledStars)].map((_, index) => (\n            <svg\n              key={`filled-${index}`}\n              className="size-4 text-inherit"\n              fill="currentColor"\n              viewBox="0 0 20 20"\n            >\n              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.175 0l-3.37 2.448c-.784.57-1.838-.197-1.54-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.05 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z" />\n            </svg>\n          ))}\n          {fractionalPart > 0 && (\n            <svg\n              className="size-4 text-inherit"\n              fill="currentColor"\n              viewBox="0 0 20 20"\n            >\n              <defs>\n                <linearGradient id="half">\n                  <stop\n                    offset={`${fractionalPart * 100}%`}\n                    stopColor="currentColor"\n                  />\n                  <stop\n                    offset={`${fractionalPart * 100}%`}\n                    stopColor="rgb(209 213 219)"\n                  />\n                </linearGradient>\n              </defs>\n              <path\n                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.175 0l-3.37 2.448c-.784.57-1.838-.197-1.54-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.05 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z"\n                fill="url(#half)"\n              />\n            </svg>\n          )}\n          {[...Array(emptyStars)].map((_, index) => (\n            <svg\n              key={`empty-${index}`}\n              className="size-4 text-gray-300"\n              fill="currentColor"\n              viewBox="0 0 20 20"\n            >\n              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.175 0l-3.37 2.448c-.784.57-1.838-.197-1.54-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.05 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z" />\n            </svg>\n          ))}\n        </div>\n        <p className="sr-only">{rating}</p>\n      </div>\n    );\n  },\n);\nRatingStars.displayName = \'RatingStars\';',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/rating-stars/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-rating-stars';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-rating-stars',
+  },
+  'shadcn-default-rating-stars': {
+    name: 'shadcn-default-rating-stars',
+    description:
+      'Stars rating component with customizable color, size depending on average rating with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/rating-stars/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/rating-stars.tsx',
+        content:
+          '\'use client\';\n\nimport * as React from \'react\';\n\nimport { cn } from \'@/lib/utils\';\n\ninterface RatingStarsProps extends React.HTMLAttributes<HTMLDivElement> {\n  rating: number;\n  maxRating?: number;\n}\n\nexport const RatingStars = React.forwardRef<HTMLDivElement, RatingStarsProps>(\n  ({ rating, maxRating = 5, className, ...props }, ref) => {\n    const filledStars = Math.floor(rating);\n    const fractionalPart = rating - filledStars;\n    const emptyStars = maxRating - filledStars - (fractionalPart > 0 ? 1 : 0);\n\n    return (\n      <div\n        className={cn(\'flex items-center gap-2\', className)}\n        ref={ref}\n        {...props}\n      >\n        <div className="flex items-center">\n          {[...Array(filledStars)].map((_, index) => (\n            <svg\n              key={`filled-${index}`}\n              className="size-4 text-inherit"\n              fill="currentColor"\n              viewBox="0 0 20 20"\n            >\n              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.175 0l-3.37 2.448c-.784.57-1.838-.197-1.54-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.05 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z" />\n            </svg>\n          ))}\n          {fractionalPart > 0 && (\n            <svg\n              className="size-4 text-inherit"\n              fill="currentColor"\n              viewBox="0 0 20 20"\n            >\n              <defs>\n                <linearGradient id="half">\n                  <stop\n                    offset={`${fractionalPart * 100}%`}\n                    stopColor="currentColor"\n                  />\n                  <stop\n                    offset={`${fractionalPart * 100}%`}\n                    stopColor="rgb(209 213 219)"\n                  />\n                </linearGradient>\n              </defs>\n              <path\n                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.175 0l-3.37 2.448c-.784.57-1.838-.197-1.54-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.05 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z"\n                fill="url(#half)"\n              />\n            </svg>\n          )}\n          {[...Array(emptyStars)].map((_, index) => (\n            <svg\n              key={`empty-${index}`}\n              className="size-4 text-gray-300"\n              fill="currentColor"\n              viewBox="0 0 20 20"\n            >\n              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.175 0l-3.37 2.448c-.784.57-1.838-.197-1.54-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.05 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z" />\n            </svg>\n          ))}\n        </div>\n        <p className="sr-only">{rating}</p>\n      </div>\n    );\n  },\n);\nRatingStars.displayName = \'RatingStars\';',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/rating-stars/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-rating-stars';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-rating-stars',
+  },
+  'shadcn-new-york-rating-stars': {
+    name: 'shadcn-new-york-rating-stars',
+    description:
+      'Stars rating component with customizable color, size depending on average rating with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/rating-stars/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/rating-stars.tsx',
+        content:
+          '\'use client\';\n\nimport * as React from \'react\';\n\nimport { cn } from \'@/lib/utils\';\n\ninterface RatingStarsProps extends React.HTMLAttributes<HTMLDivElement> {\n  rating: number;\n  maxRating?: number;\n}\n\nexport const RatingStars = React.forwardRef<HTMLDivElement, RatingStarsProps>(\n  ({ rating, maxRating = 5, className, ...props }, ref) => {\n    const filledStars = Math.floor(rating);\n    const fractionalPart = rating - filledStars;\n    const emptyStars = maxRating - filledStars - (fractionalPart > 0 ? 1 : 0);\n\n    return (\n      <div\n        className={cn(\'flex items-center gap-2\', className)}\n        ref={ref}\n        {...props}\n      >\n        <div className="flex items-center">\n          {[...Array(filledStars)].map((_, index) => (\n            <svg\n              key={`filled-${index}`}\n              className="size-4 text-inherit"\n              fill="currentColor"\n              viewBox="0 0 20 20"\n            >\n              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.175 0l-3.37 2.448c-.784.57-1.838-.197-1.54-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.05 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z" />\n            </svg>\n          ))}\n          {fractionalPart > 0 && (\n            <svg\n              className="size-4 text-inherit"\n              fill="currentColor"\n              viewBox="0 0 20 20"\n            >\n              <defs>\n                <linearGradient id="half">\n                  <stop\n                    offset={`${fractionalPart * 100}%`}\n                    stopColor="currentColor"\n                  />\n                  <stop\n                    offset={`${fractionalPart * 100}%`}\n                    stopColor="rgb(209 213 219)"\n                  />\n                </linearGradient>\n              </defs>\n              <path\n                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.175 0l-3.37 2.448c-.784.57-1.838-.197-1.54-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.05 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z"\n                fill="url(#half)"\n              />\n            </svg>\n          )}\n          {[...Array(emptyStars)].map((_, index) => (\n            <svg\n              key={`empty-${index}`}\n              className="size-4 text-gray-300"\n              fill="currentColor"\n              viewBox="0 0 20 20"\n            >\n              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.37-2.448a1 1 0 00-1.175 0l-3.37 2.448c-.784.57-1.838-.197-1.54-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.05 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z" />\n            </svg>\n          ))}\n        </div>\n        <p className="sr-only">{rating}</p>\n      </div>\n    );\n  },\n);\nRatingStars.displayName = \'RatingStars\';',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/rating-stars/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-rating-stars';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-rating-stars',
+  },
   'default-text-stagger-hover': {
     name: 'default-text-stagger-hover',
     description:
@@ -1133,7 +2420,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-hover.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  StaggerDirection,\n  setStaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\nimport { GsapTransitions } from '@/components/systaliko-ui/utils/gsap-transitions';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\n\ninterface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n}\n\ninterface TextStaggerHoverContextValue {\n  isMouseIn: boolean;\n}\nconst TextStaggerHoverContext = React.createContext<\n  TextStaggerHoverContextValue | undefined\n>(undefined);\nfunction useTextStaggerHoverContext() {\n  const context = React.useContext(TextStaggerHoverContext);\n  if (!context) {\n    throw new Error(\n      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const TextStaggerHover = ({\n  as: Component = 'span',\n  children,\n  className,\n  ...props\n}: TextStaggerHoverProps) => {\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  const handleMouse = () => setIsMouseIn((prevState) => !prevState);\n\n  return (\n    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>\n      <Component\n        className={cn('relative inline-block overflow-hidden', className)}\n        {...props}\n        onMouseEnter={handleMouse}\n        onMouseLeave={handleMouse}\n      >\n        {children}\n      </Component>\n    </TextStaggerHoverContext.Provider>\n  );\n};\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport const TextStaggerHoverActive = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block text-nowrap\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'hidden' : 'visible'}\n            transition={{\n              delay: staggerDelay,\n              ease: GsapTransitions['power1.out'],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};\n\nexport const TextStaggerHoverHidden = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'visible' : 'hidden'}\n            transition={{\n              delay: staggerDelay,\n              ease: GsapTransitions['power1.out'],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};",
+          "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  StaggerDirection,\n  setStaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\nimport { GSAP_TRANSITIONS } from '@/components/systaliko-ui/utils/gsap-transitions';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\n\ninterface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n}\n\ninterface TextStaggerHoverContextValue {\n  isMouseIn: boolean;\n}\nconst TextStaggerHoverContext = React.createContext<\n  TextStaggerHoverContextValue | undefined\n>(undefined);\nfunction useTextStaggerHoverContext() {\n  const context = React.useContext(TextStaggerHoverContext);\n  if (!context) {\n    throw new Error(\n      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const TextStaggerHover = ({\n  as: Component = 'span',\n  children,\n  className,\n  ...props\n}: TextStaggerHoverProps) => {\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  const handleMouse = () => setIsMouseIn((prevState) => !prevState);\n\n  return (\n    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>\n      <Component\n        className={cn('relative inline-block overflow-hidden', className)}\n        {...props}\n        onMouseEnter={handleMouse}\n        onMouseLeave={handleMouse}\n      >\n        {children}\n      </Component>\n    </TextStaggerHoverContext.Provider>\n  );\n};\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport const TextStaggerHoverActive = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block text-nowrap\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'hidden' : 'visible'}\n            transition={{\n              delay: staggerDelay,\n              ease: GSAP_TRANSITIONS['power1.out'],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};\n\nexport const TextStaggerHoverHidden = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'visible' : 'hidden'}\n            transition={{\n              delay: staggerDelay,\n              ease: GSAP_TRANSITIONS['power1.out'],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};",
       },
     ],
     component: (function () {
@@ -1169,7 +2456,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-hover.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  StaggerDirection,\n  setStaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\nimport { GsapTransitions } from '@/components/systaliko-ui/utils/gsap-transitions';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\n\ninterface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n}\n\ninterface TextStaggerHoverContextValue {\n  isMouseIn: boolean;\n}\nconst TextStaggerHoverContext = React.createContext<\n  TextStaggerHoverContextValue | undefined\n>(undefined);\nfunction useTextStaggerHoverContext() {\n  const context = React.useContext(TextStaggerHoverContext);\n  if (!context) {\n    throw new Error(\n      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const TextStaggerHover = ({\n  as: Component = 'span',\n  children,\n  className,\n  ...props\n}: TextStaggerHoverProps) => {\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  const handleMouse = () => setIsMouseIn((prevState) => !prevState);\n\n  return (\n    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>\n      <Component\n        className={cn('relative inline-block overflow-hidden', className)}\n        {...props}\n        onMouseEnter={handleMouse}\n        onMouseLeave={handleMouse}\n      >\n        {children}\n      </Component>\n    </TextStaggerHoverContext.Provider>\n  );\n};\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport const TextStaggerHoverActive = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block text-nowrap\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'hidden' : 'visible'}\n            transition={{\n              delay: staggerDelay,\n              ease: GsapTransitions['power1.out'],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};\n\nexport const TextStaggerHoverHidden = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'visible' : 'hidden'}\n            transition={{\n              delay: staggerDelay,\n              ease: GsapTransitions['power1.out'],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};",
+          "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  StaggerDirection,\n  setStaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\nimport { GSAP_TRANSITIONS } from '@/components/systaliko-ui/utils/gsap-transitions';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\n\ninterface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n}\n\ninterface TextStaggerHoverContextValue {\n  isMouseIn: boolean;\n}\nconst TextStaggerHoverContext = React.createContext<\n  TextStaggerHoverContextValue | undefined\n>(undefined);\nfunction useTextStaggerHoverContext() {\n  const context = React.useContext(TextStaggerHoverContext);\n  if (!context) {\n    throw new Error(\n      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const TextStaggerHover = ({\n  as: Component = 'span',\n  children,\n  className,\n  ...props\n}: TextStaggerHoverProps) => {\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  const handleMouse = () => setIsMouseIn((prevState) => !prevState);\n\n  return (\n    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>\n      <Component\n        className={cn('relative inline-block overflow-hidden', className)}\n        {...props}\n        onMouseEnter={handleMouse}\n        onMouseLeave={handleMouse}\n      >\n        {children}\n      </Component>\n    </TextStaggerHoverContext.Provider>\n  );\n};\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport const TextStaggerHoverActive = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block text-nowrap\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'hidden' : 'visible'}\n            transition={{\n              delay: staggerDelay,\n              ease: GSAP_TRANSITIONS['power1.out'],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};\n\nexport const TextStaggerHoverHidden = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'visible' : 'hidden'}\n            transition={{\n              delay: staggerDelay,\n              ease: GSAP_TRANSITIONS['power1.out'],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};",
       },
     ],
     component: (function () {
@@ -1205,7 +2492,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-hover.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  StaggerDirection,\n  setStaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\nimport { GsapTransitions } from '@/components/systaliko-ui/utils/gsap-transitions';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\n\ninterface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n}\n\ninterface TextStaggerHoverContextValue {\n  isMouseIn: boolean;\n}\nconst TextStaggerHoverContext = React.createContext<\n  TextStaggerHoverContextValue | undefined\n>(undefined);\nfunction useTextStaggerHoverContext() {\n  const context = React.useContext(TextStaggerHoverContext);\n  if (!context) {\n    throw new Error(\n      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const TextStaggerHover = ({\n  as: Component = 'span',\n  children,\n  className,\n  ...props\n}: TextStaggerHoverProps) => {\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  const handleMouse = () => setIsMouseIn((prevState) => !prevState);\n\n  return (\n    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>\n      <Component\n        className={cn('relative inline-block overflow-hidden', className)}\n        {...props}\n        onMouseEnter={handleMouse}\n        onMouseLeave={handleMouse}\n      >\n        {children}\n      </Component>\n    </TextStaggerHoverContext.Provider>\n  );\n};\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport const TextStaggerHoverActive = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block text-nowrap\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'hidden' : 'visible'}\n            transition={{\n              delay: staggerDelay,\n              ease: GsapTransitions['power1.out'],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};\n\nexport const TextStaggerHoverHidden = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'visible' : 'hidden'}\n            transition={{\n              delay: staggerDelay,\n              ease: GsapTransitions['power1.out'],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};",
+          "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  StaggerDirection,\n  setStaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\nimport { GSAP_TRANSITIONS } from '@/components/systaliko-ui/utils/gsap-transitions';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\n\ninterface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n}\n\ninterface TextStaggerHoverContextValue {\n  isMouseIn: boolean;\n}\nconst TextStaggerHoverContext = React.createContext<\n  TextStaggerHoverContextValue | undefined\n>(undefined);\nfunction useTextStaggerHoverContext() {\n  const context = React.useContext(TextStaggerHoverContext);\n  if (!context) {\n    throw new Error(\n      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const TextStaggerHover = ({\n  as: Component = 'span',\n  children,\n  className,\n  ...props\n}: TextStaggerHoverProps) => {\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  const handleMouse = () => setIsMouseIn((prevState) => !prevState);\n\n  return (\n    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>\n      <Component\n        className={cn('relative inline-block overflow-hidden', className)}\n        {...props}\n        onMouseEnter={handleMouse}\n        onMouseLeave={handleMouse}\n      >\n        {children}\n      </Component>\n    </TextStaggerHoverContext.Provider>\n  );\n};\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport const TextStaggerHoverActive = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block text-nowrap\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'hidden' : 'visible'}\n            transition={{\n              delay: staggerDelay,\n              ease: GSAP_TRANSITIONS['power1.out'],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};\n\nexport const TextStaggerHoverHidden = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'visible' : 'hidden'}\n            transition={{\n              delay: staggerDelay,\n              ease: GSAP_TRANSITIONS['power1.out'],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};",
       },
     ],
     component: (function () {
@@ -1241,7 +2528,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  animation?: AnimationT;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  animation,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion.create(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{ staggerChildren: stagger, ...transition }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <WordStagger animation={animation}>{word}</WordStagger>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  staggerDirection?: 1 | -1;\n  animation?: AnimationT;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  staggerDirection,\n  animation,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion.create(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{\n        staggerChildren: stagger,\n        staggerDirection: staggerDirection,\n        ...transition,\n      }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <WordStagger animation={animation}>{word}</WordStagger>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
       },
     ],
     component: (function () {
@@ -1277,7 +2564,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  animation?: AnimationT;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  animation,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion.create(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{ staggerChildren: stagger, ...transition }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <WordStagger animation={animation}>{word}</WordStagger>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  staggerDirection?: 1 | -1;\n  animation?: AnimationT;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  staggerDirection,\n  animation,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion.create(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{\n        staggerChildren: stagger,\n        staggerDirection: staggerDirection,\n        ...transition,\n      }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <WordStagger animation={animation}>{word}</WordStagger>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
       },
     ],
     component: (function () {
@@ -1313,7 +2600,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  animation?: AnimationT;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  animation,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion.create(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{ staggerChildren: stagger, ...transition }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <WordStagger animation={animation}>{word}</WordStagger>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  staggerDirection?: 1 | -1;\n  animation?: AnimationT;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  staggerDirection,\n  animation,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion.create(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{\n        staggerChildren: stagger,\n        staggerDirection: staggerDirection,\n        ...transition,\n      }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <WordStagger animation={animation}>{word}</WordStagger>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
       },
     ],
     component: (function () {
@@ -1457,7 +2744,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/word-stagger.tsx',
         content:
-          "import { cn } from '@/lib/utils';\nimport { GsapTransitions } from '@/components/systaliko-ui/utils/gsap-transitions';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n          transition={{\n            duration: 0.3,\n            ease: GsapTransitions['power1.out'],\n          }}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}",
+          "import { cn } from '@/lib/utils';\nimport { GSAP_TRANSITIONS } from '@/components/systaliko-ui/utils/gsap-transitions';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n          transition={{\n            duration: 0.3,\n            ease: GSAP_TRANSITIONS['power1.out'],\n          }}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}",
       },
     ],
     component: (function () {
@@ -1493,7 +2780,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/word-stagger.tsx',
         content:
-          "import { cn } from '@/lib/utils';\nimport { GsapTransitions } from '@/components/systaliko-ui/utils/gsap-transitions';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n          transition={{\n            duration: 0.3,\n            ease: GsapTransitions['power1.out'],\n          }}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}",
+          "import { cn } from '@/lib/utils';\nimport { GSAP_TRANSITIONS } from '@/components/systaliko-ui/utils/gsap-transitions';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n          transition={{\n            duration: 0.3,\n            ease: GSAP_TRANSITIONS['power1.out'],\n          }}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}",
       },
     ],
     component: (function () {
@@ -1529,7 +2816,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/word-stagger.tsx',
         content:
-          "import { cn } from '@/lib/utils';\nimport { GsapTransitions } from '@/components/systaliko-ui/utils/gsap-transitions';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n          transition={{\n            duration: 0.3,\n            ease: GsapTransitions['power1.out'],\n          }}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}",
+          "import { cn } from '@/lib/utils';\nimport { GSAP_TRANSITIONS } from '@/components/systaliko-ui/utils/gsap-transitions';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n          transition={{\n            duration: 0.3,\n            ease: GSAP_TRANSITIONS['power1.out'],\n          }}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}",
       },
     ],
     component: (function () {
@@ -1565,7 +2852,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/utils/gsap-transitions.tsx',
         content:
-          "export const GsapTransitions = {\n  'power1.in': [0.55, 0.085, 0.68, 0.53],\n  'power1.out': [0.25, 0.46, 0.45, 0.94],\n  'power1.inOut': [0.455, 0.03, 0.515, 0.955],\n\n  'power2.in': [0.55, 0.085, 0.68, 0.53],\n  'power2.out': [0.25, 0.46, 0.45, 0.94],\n  'power2.inOut': [0.455, 0.03, 0.515, 0.955],\n\n  'power3.in': [0.55, 0.055, 0.675, 0.19],\n  'power3.out': [0.215, 0.61, 0.355, 1],\n  'power3.inOut': [0.645, 0.045, 0.355, 1],\n\n  'power4.in': [0.895, 0.03, 0.685, 0.22],\n  'power4.out': [0.165, 0.84, 0.44, 1],\n  'power4.inOut': [0.77, 0, 0.175, 1],\n\n  'sine.in': [0.47, 0, 0.745, 0.715],\n  'sine.out': [0.39, 0.575, 0.565, 1],\n  'sine.inOut': [0.445, 0.05, 0.55, 0.95],\n\n  'expo.in': [0.95, 0.05, 0.795, 0.035],\n  'expo.out': [0.19, 1, 0.22, 1],\n  'expo.inOut': [1, 0, 0, 1],\n\n  'circ.in': [0.6, 0.04, 0.98, 0.335],\n  'circ.out': [0.075, 0.82, 0.165, 1],\n  'circ.inOut': [0.785, 0.135, 0.15, 0.86],\n\n  'back.in': [0.6, -0.28, 0.735, 0.045],\n  'back.out': [0.175, 0.885, 0.32, 1.275],\n  'back.inOut': [0.68, -0.55, 0.265, 1.55],\n} as const;",
+          "export const GSAP_TRANSITIONS = {\n  'power1.in': [0.55, 0.085, 0.68, 0.53],\n  'power1.out': [0.25, 0.46, 0.45, 0.94],\n  'power1.inOut': [0.455, 0.03, 0.515, 0.955],\n\n  'power2.in': [0.55, 0.085, 0.68, 0.53],\n  'power2.out': [0.25, 0.46, 0.45, 0.94],\n  'power2.inOut': [0.455, 0.03, 0.515, 0.955],\n\n  'power3.in': [0.55, 0.055, 0.675, 0.19],\n  'power3.out': [0.215, 0.61, 0.355, 1],\n  'power3.inOut': [0.645, 0.045, 0.355, 1],\n\n  'power4.in': [0.895, 0.03, 0.685, 0.22],\n  'power4.out': [0.165, 0.84, 0.44, 1],\n  'power4.inOut': [0.77, 0, 0.175, 1],\n\n  'sine.in': [0.47, 0, 0.745, 0.715],\n  'sine.out': [0.39, 0.575, 0.565, 1],\n  'sine.inOut': [0.445, 0.05, 0.55, 0.95],\n\n  'expo.in': [0.95, 0.05, 0.795, 0.035],\n  'expo.out': [0.19, 1, 0.22, 1],\n  'expo.inOut': [1, 0, 0, 1],\n\n  'circ.in': [0.6, 0.04, 0.98, 0.335],\n  'circ.out': [0.075, 0.82, 0.165, 1],\n  'circ.inOut': [0.785, 0.135, 0.15, 0.86],\n\n  'back.in': [0.6, -0.28, 0.735, 0.045],\n  'back.out': [0.175, 0.885, 0.32, 1.275],\n  'back.inOut': [0.68, -0.55, 0.265, 1.55],\n} as const;",
       },
     ],
     component: (function () {
@@ -1601,7 +2888,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/utils/gsap-transitions.tsx',
         content:
-          "export const GsapTransitions = {\n  'power1.in': [0.55, 0.085, 0.68, 0.53],\n  'power1.out': [0.25, 0.46, 0.45, 0.94],\n  'power1.inOut': [0.455, 0.03, 0.515, 0.955],\n\n  'power2.in': [0.55, 0.085, 0.68, 0.53],\n  'power2.out': [0.25, 0.46, 0.45, 0.94],\n  'power2.inOut': [0.455, 0.03, 0.515, 0.955],\n\n  'power3.in': [0.55, 0.055, 0.675, 0.19],\n  'power3.out': [0.215, 0.61, 0.355, 1],\n  'power3.inOut': [0.645, 0.045, 0.355, 1],\n\n  'power4.in': [0.895, 0.03, 0.685, 0.22],\n  'power4.out': [0.165, 0.84, 0.44, 1],\n  'power4.inOut': [0.77, 0, 0.175, 1],\n\n  'sine.in': [0.47, 0, 0.745, 0.715],\n  'sine.out': [0.39, 0.575, 0.565, 1],\n  'sine.inOut': [0.445, 0.05, 0.55, 0.95],\n\n  'expo.in': [0.95, 0.05, 0.795, 0.035],\n  'expo.out': [0.19, 1, 0.22, 1],\n  'expo.inOut': [1, 0, 0, 1],\n\n  'circ.in': [0.6, 0.04, 0.98, 0.335],\n  'circ.out': [0.075, 0.82, 0.165, 1],\n  'circ.inOut': [0.785, 0.135, 0.15, 0.86],\n\n  'back.in': [0.6, -0.28, 0.735, 0.045],\n  'back.out': [0.175, 0.885, 0.32, 1.275],\n  'back.inOut': [0.68, -0.55, 0.265, 1.55],\n} as const;",
+          "export const GSAP_TRANSITIONS = {\n  'power1.in': [0.55, 0.085, 0.68, 0.53],\n  'power1.out': [0.25, 0.46, 0.45, 0.94],\n  'power1.inOut': [0.455, 0.03, 0.515, 0.955],\n\n  'power2.in': [0.55, 0.085, 0.68, 0.53],\n  'power2.out': [0.25, 0.46, 0.45, 0.94],\n  'power2.inOut': [0.455, 0.03, 0.515, 0.955],\n\n  'power3.in': [0.55, 0.055, 0.675, 0.19],\n  'power3.out': [0.215, 0.61, 0.355, 1],\n  'power3.inOut': [0.645, 0.045, 0.355, 1],\n\n  'power4.in': [0.895, 0.03, 0.685, 0.22],\n  'power4.out': [0.165, 0.84, 0.44, 1],\n  'power4.inOut': [0.77, 0, 0.175, 1],\n\n  'sine.in': [0.47, 0, 0.745, 0.715],\n  'sine.out': [0.39, 0.575, 0.565, 1],\n  'sine.inOut': [0.445, 0.05, 0.55, 0.95],\n\n  'expo.in': [0.95, 0.05, 0.795, 0.035],\n  'expo.out': [0.19, 1, 0.22, 1],\n  'expo.inOut': [1, 0, 0, 1],\n\n  'circ.in': [0.6, 0.04, 0.98, 0.335],\n  'circ.out': [0.075, 0.82, 0.165, 1],\n  'circ.inOut': [0.785, 0.135, 0.15, 0.86],\n\n  'back.in': [0.6, -0.28, 0.735, 0.045],\n  'back.out': [0.175, 0.885, 0.32, 1.275],\n  'back.inOut': [0.68, -0.55, 0.265, 1.55],\n} as const;",
       },
     ],
     component: (function () {
@@ -1637,7 +2924,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/utils/gsap-transitions.tsx',
         content:
-          "export const GsapTransitions = {\n  'power1.in': [0.55, 0.085, 0.68, 0.53],\n  'power1.out': [0.25, 0.46, 0.45, 0.94],\n  'power1.inOut': [0.455, 0.03, 0.515, 0.955],\n\n  'power2.in': [0.55, 0.085, 0.68, 0.53],\n  'power2.out': [0.25, 0.46, 0.45, 0.94],\n  'power2.inOut': [0.455, 0.03, 0.515, 0.955],\n\n  'power3.in': [0.55, 0.055, 0.675, 0.19],\n  'power3.out': [0.215, 0.61, 0.355, 1],\n  'power3.inOut': [0.645, 0.045, 0.355, 1],\n\n  'power4.in': [0.895, 0.03, 0.685, 0.22],\n  'power4.out': [0.165, 0.84, 0.44, 1],\n  'power4.inOut': [0.77, 0, 0.175, 1],\n\n  'sine.in': [0.47, 0, 0.745, 0.715],\n  'sine.out': [0.39, 0.575, 0.565, 1],\n  'sine.inOut': [0.445, 0.05, 0.55, 0.95],\n\n  'expo.in': [0.95, 0.05, 0.795, 0.035],\n  'expo.out': [0.19, 1, 0.22, 1],\n  'expo.inOut': [1, 0, 0, 1],\n\n  'circ.in': [0.6, 0.04, 0.98, 0.335],\n  'circ.out': [0.075, 0.82, 0.165, 1],\n  'circ.inOut': [0.785, 0.135, 0.15, 0.86],\n\n  'back.in': [0.6, -0.28, 0.735, 0.045],\n  'back.out': [0.175, 0.885, 0.32, 1.275],\n  'back.inOut': [0.68, -0.55, 0.265, 1.55],\n} as const;",
+          "export const GSAP_TRANSITIONS = {\n  'power1.in': [0.55, 0.085, 0.68, 0.53],\n  'power1.out': [0.25, 0.46, 0.45, 0.94],\n  'power1.inOut': [0.455, 0.03, 0.515, 0.955],\n\n  'power2.in': [0.55, 0.085, 0.68, 0.53],\n  'power2.out': [0.25, 0.46, 0.45, 0.94],\n  'power2.inOut': [0.455, 0.03, 0.515, 0.955],\n\n  'power3.in': [0.55, 0.055, 0.675, 0.19],\n  'power3.out': [0.215, 0.61, 0.355, 1],\n  'power3.inOut': [0.645, 0.045, 0.355, 1],\n\n  'power4.in': [0.895, 0.03, 0.685, 0.22],\n  'power4.out': [0.165, 0.84, 0.44, 1],\n  'power4.inOut': [0.77, 0, 0.175, 1],\n\n  'sine.in': [0.47, 0, 0.745, 0.715],\n  'sine.out': [0.39, 0.575, 0.565, 1],\n  'sine.inOut': [0.445, 0.05, 0.55, 0.95],\n\n  'expo.in': [0.95, 0.05, 0.795, 0.035],\n  'expo.out': [0.19, 1, 0.22, 1],\n  'expo.inOut': [1, 0, 0, 1],\n\n  'circ.in': [0.6, 0.04, 0.98, 0.335],\n  'circ.out': [0.075, 0.82, 0.165, 1],\n  'circ.inOut': [0.785, 0.135, 0.15, 0.86],\n\n  'back.in': [0.6, -0.28, 0.735, 0.045],\n  'back.out': [0.175, 0.885, 0.32, 1.275],\n  'back.inOut': [0.68, -0.55, 0.265, 1.55],\n} as const;",
       },
     ],
     component: (function () {

@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { GsapTransitions } from '@/__registry__/utils/gsap-transitions/shadcn-new-york';
+import { GSAP_TRANSITIONS } from '@/__registry__/utils/gsap-transitions/shadcn-new-york';
 import {
   AnimationT,
   useAnimationVariants,
@@ -27,7 +27,7 @@ export function WordStagger({
           key={`${char}-${index}`}
           transition={{
             duration: 0.3,
-            ease: GsapTransitions['power1.out'],
+            ease: GSAP_TRANSITIONS['power1.out'],
           }}
         >
           {char}

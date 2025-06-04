@@ -8,7 +8,7 @@ import {
 } from '@/__registry__/utils/set-stagger-direction/default';
 import { HTMLMotionProps, motion } from 'motion/react';
 import { splitText } from '@/__registry__/utils/split-text/default';
-import { GsapTransitions } from '@/__registry__/utils/gsap-transitions/default';
+import { GSAP_TRANSITIONS } from '@/__registry__/utils/gsap-transitions/default';
 import {
   AnimationT,
   useAnimationVariants,
@@ -87,7 +87,7 @@ export const TextStaggerHoverActive = ({
             animate={isMouseIn ? 'hidden' : 'visible'}
             transition={{
               delay: staggerDelay,
-              ease: GsapTransitions['power1.out'],
+              ease: GSAP_TRANSITIONS['power1.out'],
               duration: 0.3,
               ...transition,
             }}
@@ -129,7 +129,7 @@ export const TextStaggerHoverHidden = ({
             animate={isMouseIn ? 'visible' : 'hidden'}
             transition={{
               delay: staggerDelay,
-              ease: GsapTransitions['power1.out'],
+              ease: GSAP_TRANSITIONS['power1.out'],
               duration: 0.3,
               ...transition,
             }}

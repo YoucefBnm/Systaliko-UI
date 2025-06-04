@@ -7,6 +7,7 @@ import { WordStagger } from '@/__registry__/text/word-stagger/shadcn-new-york';
 
 interface TextStaggerProps extends HTMLMotionProps<'span'> {
   stagger?: number;
+  staggerDirection?: 1 | -1;
   animation?: AnimationT;
   as?: React.ElementType;
 }
@@ -16,6 +17,7 @@ export function TextStaggerInview({
   transition,
   className,
   stagger = 0.02,
+  staggerDirection,
   animation,
   as: Component = 'span',
   ...props
@@ -28,7 +30,11 @@ export function TextStaggerInview({
       whileInView={'visible'}
       viewport={{ once: true }}
       className={className}
-      transition={{ staggerChildren: stagger, ...transition }}
+      transition={{
+        staggerChildren: stagger,
+        staggerDirection: staggerDirection,
+        ...transition,
+      }}
       {...props}
     >
       {words.map((word, index) => (

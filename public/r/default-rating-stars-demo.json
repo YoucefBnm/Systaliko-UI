@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "default-rating-stars-demo",
+  "type": "registry:ui",
+  "title": "Rating stars Demo",
+  "description": "Demo showing Rating stars component with default style.",
+  "registryDependencies": [
+    "http://localhost:3000/r/rating-stars"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/rating-stars/default/index.tsx",
+      "content": "import { RatingStars } from '@/components/systaliko-ui/rating-stars';\n\nexport const RatingStarsDemo = () => {\n  return <RatingStars className=\"text-primary\" rating={4.5} />;\n};\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/rating-stars.tsx"
+    }
+  ]
+}

@@ -55,13 +55,13 @@ export function ContainerInfiniteScrollDemo() {
   }, []);
 
   return (
-    <ScrollArea className="w-full h-80">
+    <ScrollArea className="w-full h-80 p-6">
       <ContainerInfiniteScroll
         items={posts}
         isPending={isLoading}
         itemsCount={totalCount}
         loadMore={fetchData}
-        className="container mx-auto grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-2 p-12"
+        className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]"
       >
         {posts.map((post, index) => (
           <CellInfiniteScroll isPending={isLoading} key={`${post.id}-${index}`}>

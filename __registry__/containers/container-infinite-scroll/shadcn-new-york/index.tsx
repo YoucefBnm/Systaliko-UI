@@ -46,11 +46,6 @@ export function CellInfiniteScroll({
               : { opacity: 0, display: 'none' }
           }
         >
-          {/* <div className=" space-y-5 p-4">
-            <Skeleton className="size-12 rounded-full" />
-            <Skeleton className="h-10 w-2/3" />
-            <Skeleton className="h-48 w-full" />
-          </div> */}
           {typeof SkeltonComp === 'function' ? <SkeltonComp /> : SkeltonComp}
         </motion.div>
       ) : (

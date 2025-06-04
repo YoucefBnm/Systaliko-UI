@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-new-york-card-flip-demo",
+  "type": "registry:ui",
+  "title": "Flip Card Demo",
+  "description": "Demo showing Flip Card Component with shadcn-new-york style.",
+  "registryDependencies": [
+    "http://localhost:3000/r/card-flip"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/cards/card-flip/shadcn-new-york/index.tsx",
+      "content": "'use client';\nimport * as React from 'react';\nimport {\n  CardFlip,\n  CardFlipBack,\n  CardFlipFront,\n} from '@/components/systaliko-ui/cards/card-flip';\nexport function CardFlipDemo() {\n  return (\n    <div className=\"container py-12\">\n      <div className=\"flex flex-wrap justify-center gap-4\">\n        <CardFlip className=\"h-96 w-2/6\">\n          <CardFlipFront className=\"rounded-xl\">\n            <img\n              width={1015}\n              height={678}\n              src=\"https://images.unsplash.com/photo-1655853548169-646b6e0f15ca?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n              alt=\"nike air jordan\"\n              className=\"size-full object-cover\"\n            />\n          </CardFlipFront>\n          <CardFlipBack className=\"flex flex-col items-center justify-center rounded-xl bg-fd-accent-foreground px-4 py-6 text-center text-white\">\n            <h2 className=\"text-xl font-bold\">Nike Air Jordan</h2>\n            <h4 className=\"mb-4\">€ 1,299.00</h4>\n            <button className=\"rounded-full py-2 px-4 bg-primary text-zinc-900\">\n              Add to cart\n            </button>\n          </CardFlipBack>\n        </CardFlip>\n\n        <CardFlip flipDirection=\"vertical\" className=\"h-96 w-2/6\">\n          <CardFlipFront className=\"rounded-xl\">\n            <img\n              width={542}\n              height={678}\n              src=\"https://images.unsplash.com/photo-1656944227425-5646be300a14?q=80&w=2527&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n              alt=\"nike air jordan\"\n              className=\"size-full object-cover\"\n            />\n          </CardFlipFront>\n          <CardFlipBack className=\"flex flex-col items-center justify-center rounded-xl bg-fd-accent-foreground px-4 py-6 text-center text-white\">\n            <h2 className=\"text-xl font-bold\">Nike Air Jordan</h2>\n            <h4 className=\"mb-4\">€ 1,299.00</h4>\n            <button className=\"rounded-full py-2 px-4 bg-primary text-zinc-900\">\n              Add to cart\n            </button>\n          </CardFlipBack>\n        </CardFlip>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/cards/card-flip.tsx"
+    }
+  ]
+}

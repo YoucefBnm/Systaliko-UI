@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "container-clipped-demo",
+  "type": "registry:block",
+  "title": "Container Clipped Demo",
+  "description": "Demo showing container Clipped Component.",
+  "registryDependencies": ["http://localhost:3000/r/container-clipped"],
+  "files": [
+    {
+      "path": "registry/demo/containers/container-clipped/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/containers/container-clipped.tsx"
+    }
+  ]
+}

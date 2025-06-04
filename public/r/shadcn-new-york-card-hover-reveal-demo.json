@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-new-york-card-hover-reveal-demo",
+  "type": "registry:ui",
+  "title": "Card Hover Reveal Demo",
+  "description": "Demo showing Card Hover Reveal Component with shadcn-new-york style.",
+  "registryDependencies": [
+    "http://localhost:3000/r/card-hover-reveal"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/cards/card-hover-reveal/shadcn-new-york/index.tsx",
+      "content": "import {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from '@/components/systaliko-ui/cards/card-hover-reveal';\n\nexport const CardHoverRevealDemo = () => (\n  <CardHoverReveal className=\"h-[512px] w-[385px] rounded-xl\">\n    <CardHoverRevealMain hoverScale={1.2}>\n      <img\n        width={1077}\n        height={606}\n        alt=\"product image\"\n        src=\"https://images.unsplash.com/photo-1619551734325-81aaf323686c?q=80&w=2549&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n        className=\"inline-block size-full max-h-full max-w-full object-cover align-middle\"\n      />\n    </CardHoverRevealMain>\n\n    <CardHoverRevealContent className=\"space-y-4 rounded-2xl bg-fd-foreground/70 text-zinc-50\">\n      <div className=\"space-y-2\">\n        <h3 className=\"text-sm text-opacity-60\">Services</h3>\n        <div className=\"flex flex-wrap gap-2 \">\n          <div className=\" rounded-full bg-fd-foreground px-2 py-1\">\n            <p className=\" text-xs leading-normal\">Branding</p>\n          </div>\n          <div className=\" rounded-full bg-fd-foreground px-2 py-1\">\n            <p className=\" text-xs leading-normal\">UI UX</p>\n          </div>\n        </div>\n      </div>\n\n      <div className=\"space-y-2\">\n        <h3 className=\" text-sm text-opacity-60\">Stack</h3>\n        <div className=\"flex flex-wrap gap-2 \">\n          <div className=\" rounded-full bg-primary px-2 py-1\">\n            <p className=\" text-xs leading-normal\">Figma</p>\n          </div>\n          <div className=\" rounded-full bg-primary px-2 py-1\">\n            <p className=\" text-xs leading-normal\">Webflow</p>\n          </div>\n        </div>\n      </div>\n\n      <div className=\"space-y-2\">\n        <h3 className=\"text-sm text-opacity-60\">Profile</h3>\n        {/* tag */}\n        <div className=\"flex flex-wrap gap-2 \">\n          <p className=\"text-sm text-card\">\n            Comprehensive platform designed for an agency, Creating professional\n            and business-oriented brand.\n          </p>\n        </div>\n      </div>\n    </CardHoverRevealContent>\n  </CardHoverReveal>\n);\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/cards/card-hover-reveal.tsx"
+    }
+  ]
+}

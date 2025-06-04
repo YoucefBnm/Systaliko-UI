@@ -1,0 +1,33 @@
+---
+title: Card Testimonial
+description: Testimonial card with rating, block quote, and author's informations.
+---
+
+<ComponentPreview name="card-testimonial-demo" />
+
+## Usage
+
+```tsx
+<CardTestimonial
+  testimonialQuote={TESTIMONIAL.quote}
+  testimonialRating={TESTIMONIAL.rating}
+  testimonialAuthor={{
+    authorName: TESTIMONIAL.name,
+    avatarUrl: TESTIMONIAL.avatarUrl,
+    description: TESTIMONIAL.profession,
+  }}
+  role="article"
+  aria-labelledby={`card-${TESTIMONIAL.id}-title`}
+  aria-describedby={`card-${TESTIMONIAL.id}-content`}
+  className="h-[450px] w-[350px] shadow"
+>
+  <TestimonialRating className="text-primary" />
+  <div className="relative text-center mx-auto w-4/5 text-lg">
+    <TestimonialQuote>{TESTIMONIAL.quote}</TestimonialQuote>
+  </div>
+
+  <TestimonialAuthor className="flex items-center gap-4" />
+</CardTestimonial>
+```
+
+## Props

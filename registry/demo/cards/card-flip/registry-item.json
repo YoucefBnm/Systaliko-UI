@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card-flip-demo",
+  "type": "registry:ui",
+  "title": "Flip Card Demo",
+  "description": "Demo showing Flip Card Component.",
+  "registryDependencies": ["http://localhost:3000/r/card-flip"],
+  "files": [
+    {
+      "path": "registry/demo/cards/card-flip/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/cards/card-flip.tsx"
+    }
+  ]
+}

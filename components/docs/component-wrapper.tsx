@@ -45,7 +45,7 @@ export const ComponentWrapper = ({
   return (
     <motion.div
       className={cn(
-        'max-w-screen relative rounded-xl border bg-fd-popover flex flex-col md:flex-row',
+        'max-w-screen relative rounded-xl border  flex flex-col md:flex-row',
         bigScreen && 'overflow-hidden',
         className,
       )}
@@ -54,7 +54,7 @@ export const ComponentWrapper = ({
         {!iframe && (
           <>
             {hasStyles && Object.keys(STYLES_INFO).length > 1 && (
-              <div className="absolute top-3 left-3 z-[9] bg-background flex items-center justify-start gap-2 p-1 rounded-[11px]">
+              <div className="absolute top-3 left-3 z-[9]  flex items-center justify-start gap-2 p-1 rounded-[11px]">
                 <Select value={style} onValueChange={setStyle}>
                   <SelectTrigger className="sm:w-[200px] w-[145px] pl-2.5">
                     <SelectValue placeholder="Select a style" />
@@ -75,7 +75,7 @@ export const ComponentWrapper = ({
               </div>
             )}
 
-            <div className="absolute top-3 right-3 z-[9] bg-background flex items-center justify-end gap-2 p-1 rounded-[11px]">
+            <div className="absolute top-3 right-3 z-[9]  flex items-center justify-end gap-2 p-1 rounded-[11px]">
               <Button
                 onClick={() => setKey((prev) => prev + 1)}
                 className="flex items-center rounded-lg"
@@ -100,7 +100,7 @@ export const ComponentWrapper = ({
                   // variant="neutral"
                   // size="icon-sm"
                   size="icon"
-                  variant={'secondary'}
+                  // variant={'secondary'}
                   asChild
                 >
                   <motion.button
