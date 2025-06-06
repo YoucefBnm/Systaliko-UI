@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "default-use-follow-mouse-demo",
+  "type": "registry:hook",
+  "title": "Use Follow Mouse Utility Demo",
+  "description": "Demo showing how to use use-follow-mouse utility with default style.",
+  "registryDependencies": [
+    "http://localhost:3000/r/use-follow-mouse",
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/utils/use-follow-mouse/default/index.tsx",
+      "content": "'use client';\nimport * as React from 'react';\nimport { useFollowMouse } from '@/components/systaliko-ui/utils/use-follow-mouse';\nimport { motion } from 'motion/react';\n\nexport const UseFollowMouseDemo = () => {\n  const { cursorXSpring, cursroYSpring } = useFollowMouse({ duration: 0.3 });\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  return (\n    <div\n      className=\"relative w-full h-80\"\n      onMouseEnter={() => setIsMouseIn(true)}\n      onMouseLeave={() => setIsMouseIn(false)}\n    >\n      <motion.h2\n        className=\"inline-block absolute\"\n        style={{\n          x: isMouseIn ? cursorXSpring : 0,\n          y: isMouseIn ? cursroYSpring : 0,\n        }}\n      >\n        Follow the mouse\n      </motion.h2>\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/utils/use-follow-mouse.ts"
+    }
+  ]
+}

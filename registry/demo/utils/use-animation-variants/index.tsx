@@ -4,7 +4,7 @@ import {
   AnimationConfig,
   AnimationSelector,
   useSetAnimationConfig,
-} from '@/registry/animation-config';
+} from '@/components/docs/animation-config';
 import { useAnimationVariants } from '@/registry/utils/use-animation-variants';
 import { motion } from 'motion/react';
 

@@ -3,7 +3,7 @@
   "name": "shadcn-default-custom-cursor-demo",
   "type": "registry:ui",
   "title": "Custom Cursor Demo",
-  "description": "Demo showing How to use custom cursor component with shadcn-default style.",
+  "description": "Demo showing Custom Cursor component with shadcn-default style.",
   "registryDependencies": [
     "http://localhost:3000/r/custom-cursor"
   ],

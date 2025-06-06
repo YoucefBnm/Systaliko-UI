@@ -6,7 +6,7 @@ import {
   StaggerInput,
   StaggerSelector,
   useSetAnimationConfig,
-} from '@/__registry__/animation-config/shadcn-new-york';
+} from '@/components/docs/animation-config';
 import { setStaggerDirection } from '@/__registry__/utils/set-stagger-direction/shadcn-new-york';
 import { useAnimationVariants } from '@/__registry__/utils/use-animation-variants/shadcn-new-york';
 import { motion } from 'motion/react';

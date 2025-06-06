@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cards-stack-rotated",
+  "type": "registry:block",
+  "title": "Cards Stack Rotated",
+  "description": "Stack of rotated cards show, rotate one element at a time depending on scroll position.",
+  "files": [
+    {
+      "path": "registry/cards/cards-stack-rotated/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/cards/cards-stack-rotated.tsx"
+    }
+  ]
+}

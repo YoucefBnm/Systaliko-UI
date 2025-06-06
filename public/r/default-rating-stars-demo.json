@@ -10,7 +10,7 @@
   "files": [
     {
       "path": "__registry__/demo/rating-stars/default/index.tsx",
-      "content": "",
+      "content": "'use client';\n\nimport { RatingStars } from '@/components/systaliko-ui/rating-stars';\n\nexport const RatingStarsDemo = () => {\n  return <RatingStars rating={4.5} className=\"text-primary\" />;\n};\n\nexport default RatingStarsDemo;\n",
       "type": "registry:ui",
       "target": "components/systaliko-ui/demo/rating-stars.tsx"
     }

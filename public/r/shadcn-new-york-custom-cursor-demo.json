@@ -3,7 +3,7 @@
   "name": "shadcn-new-york-custom-cursor-demo",
   "type": "registry:ui",
   "title": "Custom Cursor Demo",
-  "description": "Demo showing How to use custom cursor component with shadcn-new-york style.",
+  "description": "Demo showing Custom Cursor component with shadcn-new-york style.",
   "registryDependencies": [
     "http://localhost:3000/r/custom-cursor"
   ],

@@ -6,7 +6,7 @@ import {
   StaggerInput,
   StaggerSelector,
   useSetAnimationConfig,
-} from '@/__registry__/animation-config/shadcn-default';
+} from '@/components/docs/animation-config';
 import { setStaggerDirection } from '@/__registry__/utils/set-stagger-direction/shadcn-default';
 import { useAnimationVariants } from '@/__registry__/utils/use-animation-variants/shadcn-default';
 import { motion } from 'motion/react';

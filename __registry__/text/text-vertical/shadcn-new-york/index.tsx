@@ -7,6 +7,8 @@ interface TextVerticalProps extends React.HTMLAttributes<HTMLElement> {
   as?: ElementType;
 }
 
+export const textVerticalStyle = 'size-min -rotate-180 whitespace-nowrap';
+
 export function TextVertical({
   as: Component = 'div',
   className,
@@ -15,7 +17,7 @@ export function TextVertical({
 }: TextVerticalProps) {
   return (
     <Component
-      className={cn('size-min -rotate-180 whitespace-nowrap', className)}
+      className={cn(textVerticalStyle, className)}
       style={{
         writingMode: 'vertical-rl',
         ...style,

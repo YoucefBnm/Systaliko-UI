@@ -5,7 +5,7 @@ import {
   AnimationSelector,
   StaggerInput,
   useSetAnimationConfig,
-} from '@/__registry__/animation-config/shadcn-new-york';
+} from '@/components/docs/animation-config';
 import { TextStaggerInview } from '@/__registry__/text/text-stagger-inview/shadcn-new-york';
 
 export const TextStaggerInviewDemo = () => {

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-new-york-slideshow-demo",
+  "type": "registry:ui",
+  "title": "Slideshow Demo",
+  "description": "Demo showing how to use slideshow component with shadcn-new-york style.",
+  "registryDependencies": [
+    "http://localhost:3000/r/slideshow"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/slideshow/shadcn-new-york/index.tsx",
+      "content": "import {\n  Slideshow,\n  SlideshowImageContainer,\n  SlideshowImageWrap,\n  SlideshowIndicator,\n} from '@/components/systaliko-ui/slideshow';\n\nconst SLIDES = [\n  {\n    id: 'slide-6',\n    title: 'UI UX design',\n    imageUrl:\n      'https://images.unsplash.com/photo-1688733720228-4f7a18681c4f?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-1',\n    title: 'frontend dev',\n    imageUrl:\n      'https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?q=80&w=2486&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-2',\n    title: 'backend dev',\n    imageUrl:\n      'https://images.unsplash.com/photo-1624996752380-8ec242e0f85d?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-3',\n    title: 'video editing',\n    imageUrl:\n      'https://images.unsplash.com/photo-1574717025058-2f8737d2e2b7?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-4',\n    title: 'SEO optimization',\n    imageUrl:\n      'https://images.unsplash.com/photo-1726066012698-bb7a3abce786?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n];\n\nexport function SlideshowDemo() {\n  return (\n    <Slideshow className=\"min-h-svh place-content-center p-6 md:px-12\">\n      <h3 className=\"mb-6 text-primary text-xs font-medium capitalize tracking-wide\">\n        / our services\n      </h3>\n      <div className=\"flex flex-wrap items-center justify-evenly gap-6 md:gap-12\">\n        <div className=\"flex  flex-col space-y-2 md:space-y-4   \">\n          {SLIDES.map((slide, index) => (\n            <SlideshowIndicator\n              key={slide.title}\n              index={index}\n              className=\"cursor-pointer text-4xl font-bold uppercase tracking-tighter\"\n            >\n              {slide.title}\n            </SlideshowIndicator>\n          ))}\n        </div>\n        <SlideshowImageContainer>\n          {SLIDES.map((slide, index) => (\n            <div key={slide.id} className=\"  \">\n              <SlideshowImageWrap\n                index={index}\n                className=\"size-full max-h-96 object-cover\"\n              >\n                <img\n                  src={slide.imageUrl}\n                  alt={slide.title}\n                  loading=\"eager\"\n                  decoding=\"async\"\n                  className=\"size-full object-cover\"\n                />\n              </SlideshowImageWrap>\n            </div>\n          ))}\n        </SlideshowImageContainer>\n      </div>\n    </Slideshow>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/slideshow.tsx"
+    }
+  ]
+}

@@ -4,7 +4,7 @@ import {
   AnimationConfig,
   AnimationSelector,
   useSetAnimationConfig,
-} from '@/__registry__/animation-config/shadcn-new-york';
+} from '@/components/docs/animation-config';
 import { useAnimationVariants } from '@/__registry__/utils/use-animation-variants/shadcn-new-york';
 import { motion } from 'motion/react';
 

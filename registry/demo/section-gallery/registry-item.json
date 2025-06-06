@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "section-gallery-demo",
+  "type": "registry:block",
+  "title": "Gallery Section Demo",
+  "description": "Demo showing Gallery Section.",
+  "registryDependencies": ["http://localhost:3000/r/section-gallery"],
+  "files": [
+    {
+      "path": "registry/demo/section-gallery/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/section-gallery.tsx"
+    }
+  ]
+}

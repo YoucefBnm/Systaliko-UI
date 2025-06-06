@@ -5,7 +5,7 @@ import {
   AnimationSelector,
   StaggerInput,
   useSetAnimationConfig,
-} from '@/__registry__/animation-config/default';
+} from '@/components/docs/animation-config';
 import { TextStaggerInview } from '@/__registry__/text/text-stagger-inview/default';
 
 export const TextStaggerInviewDemo = () => {

@@ -25,6 +25,12 @@ import {
 import { SetStaggerDirectionDemo } from '@/registry/demo/utils/set-stagger-direction';
 import { CustomCursorDemo } from '@/registry/demo/custom-cursor';
 import { GridStaggeredDemo } from '@/registry/demo/containers/grid-staggered';
+import { GridStaggered } from '@/registry/containers/grid-staggered';
+import { SectionGalleryDemo } from '@/registry/demo/section-gallery';
+import { UseFollowMouseDemo } from '@/registry/demo/utils/use-follow-mouse';
+import { CardsStackDemo } from '@/registry/demo/cards/cards-stack';
+import { CardsStackRotatedDemo } from '@/registry/demo/cards/cards-stack-rotated';
+import { SlideshowDemo } from '@/registry/demo/slideshow';
 
 export default function Home() {
   const ref = React.useRef(null);
@@ -59,6 +65,11 @@ export default function Home() {
 
   return (
     <main className="relative">
+      <SlideshowDemo />
+      <CardsStackRotatedDemo />
+      <CardsStackDemo />
+      <UseFollowMouseDemo />
+      <SectionGalleryDemo />
       <GridStaggeredDemo />
       <CustomCursorDemo />
       <SetStaggerDirectionDemo />

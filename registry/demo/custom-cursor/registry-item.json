@@ -3,7 +3,7 @@
   "name": "custom-cursor-demo",
   "type": "registry:ui",
   "title": "Custom Cursor Demo",
-  "description": "Demo showing How to use custom cursor component.",
+  "description": "Demo showing Custom Cursor component.",
   "registryDependencies": ["http://localhost:3000/r/custom-cursor"],
   "files": [
     {

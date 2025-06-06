@@ -4,7 +4,7 @@ import {
   AnimationSelector,
   StaggerSelector,
   useSetAnimationConfig,
-} from '@/__registry__/animation-config/default';
+} from '@/components/docs/animation-config';
 import {
   TextStaggerHover,
   TextStaggerHoverActive,

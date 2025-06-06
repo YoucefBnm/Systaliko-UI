@@ -2,7 +2,7 @@ import * as React from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
-const gridStaggerdVariants = cva('grid grid-cols-12 ', {
+export const gridStaggerdVariants = cva('grid grid-cols-12 ', {
   variants: {
     variant: {
       default: `
@@ -37,7 +37,7 @@ export const GridStaggered = React.forwardRef<
 >(({ variant, className, ...props }, ref) => {
   return (
     <div
-      className={cn(gridStaggerdVariants({ variant }), '', className)}
+      className={cn(gridStaggerdVariants({ variant }), className)}
       {...props}
       ref={ref}
     />

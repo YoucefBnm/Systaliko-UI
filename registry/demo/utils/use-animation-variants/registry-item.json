@@ -12,7 +12,7 @@
     {
       "path": "registry/demo/utils/use-animation-variants/index.tsx",
       "type": "registry:ui",
-      "target": "components/systaliko-ui/demo/utils/use-animation-variants.tsx"
+      "target": "components/systaliko-ui/demo/utils/use-animation-variants.ts"
     }
   ]
 }
