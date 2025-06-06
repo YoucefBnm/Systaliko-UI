@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-stagger-hover",
+  "type": "registry:ui",
+  "title": "Custom Cursor",
+  "description": "Custom Cursor component with multiple animations variants, You an also set the cursor children.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "registry/custom-cursor/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/custom-cursor.tsx"
+    }
+  ]
+}

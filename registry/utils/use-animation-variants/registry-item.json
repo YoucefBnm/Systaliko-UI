@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "registry/utils/use-animation-variants/index.tsx",
-      "type": "registry:ui",
+      "type": "registry:hook",
       "target": "components/systaliko-ui/utils/use-animation-variants.tsx"
     }
   ]

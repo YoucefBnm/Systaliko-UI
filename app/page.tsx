@@ -22,6 +22,9 @@ import {
   ContainerClippedDemo2,
   ContainerClippedDemo3,
 } from '@/registry/demo/containers/container-clipped';
+import { SetStaggerDirectionDemo } from '@/registry/demo/utils/set-stagger-direction';
+import { CustomCursorDemo } from '@/registry/demo/custom-cursor';
+import { GridStaggeredDemo } from '@/registry/demo/containers/grid-staggered';
 
 export default function Home() {
   const ref = React.useRef(null);
@@ -56,6 +59,9 @@ export default function Home() {
 
   return (
     <main className="relative">
+      <GridStaggeredDemo />
+      <CustomCursorDemo />
+      <SetStaggerDirectionDemo />
       <ContainerClippedDemo3 />
       <ContainerClippedDemo2 />
       <ContainerClippedDemo />

@@ -393,6 +393,93 @@
       ]
     },
     {
+      "name": "default-grid-staggered",
+      "type": "registry:block",
+      "title": "Staggered Grid",
+      "description": "Staggered layout component with customizable gap and stagger with default style.",
+      "files": [
+        {
+          "path": "__registry__/containers/grid-staggered/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/containers/grid-staggered.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-grid-staggered",
+      "type": "registry:block",
+      "title": "Staggered Grid",
+      "description": "Staggered layout component with customizable gap and stagger with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/containers/grid-staggered/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/containers/grid-staggered.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-grid-staggered",
+      "type": "registry:block",
+      "title": "Staggered Grid",
+      "description": "Staggered layout component with customizable gap and stagger with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/containers/grid-staggered/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/containers/grid-staggered.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-text-stagger-hover",
+      "type": "registry:ui",
+      "title": "Custom Cursor",
+      "description": "Custom Cursor component with multiple animations variants, You an also set the cursor children with default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/custom-cursor/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/custom-cursor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-text-stagger-hover",
+      "type": "registry:ui",
+      "title": "Custom Cursor",
+      "description": "Custom Cursor component with multiple animations variants, You an also set the cursor children with shadcn-default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/custom-cursor/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/custom-cursor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-text-stagger-hover",
+      "type": "registry:ui",
+      "title": "Custom Cursor",
+      "description": "Custom Cursor component with multiple animations variants, You an also set the cursor children with shadcn-new-york style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/custom-cursor/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/custom-cursor.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-card-curtain-reveal-demo",
       "type": "registry:ui",
       "title": "Card Curtain Reveal Demo",
@@ -729,6 +816,102 @@
       ]
     },
     {
+      "name": "default-grid-staggered-demo",
+      "type": "registry:block",
+      "title": "Grid Staggered Demos",
+      "description": "Grid Staggered Demo with multiple variants with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/grid-staggered"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/grid-staggered/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/grid-staggered.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-grid-staggered-demo",
+      "type": "registry:block",
+      "title": "Grid Staggered Demos",
+      "description": "Grid Staggered Demo with multiple variants with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/grid-staggered"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/grid-staggered/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/grid-staggered.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-grid-staggered-demo",
+      "type": "registry:block",
+      "title": "Grid Staggered Demos",
+      "description": "Grid Staggered Demo with multiple variants with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/grid-staggered"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/grid-staggered/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/grid-staggered.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-custom-cursor-demo",
+      "type": "registry:ui",
+      "title": "Custom Cursor Demo",
+      "description": "Demo showing How to use custom cursor component with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/custom-cursor"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/custom-cursor/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/custom-cursor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-custom-cursor-demo",
+      "type": "registry:ui",
+      "title": "Custom Cursor Demo",
+      "description": "Demo showing How to use custom cursor component with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/custom-cursor"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/custom-cursor/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/custom-cursor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-custom-cursor-demo",
+      "type": "registry:ui",
+      "title": "Custom Cursor Demo",
+      "description": "Demo showing How to use custom cursor component with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/custom-cursor"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/custom-cursor/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/custom-cursor.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-rating-stars-demo",
       "type": "registry:ui",
       "title": "Rating stars Demo",
@@ -917,6 +1100,57 @@
           "path": "__registry__/demo/text/text-vertical/shadcn-new-york/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/text/text-vertical.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-set-stagger-direction-demo",
+      "type": "registry:hook",
+      "title": "Set Stagger Direction Demo",
+      "description": "Demo showing how to use set-stagger-direction utility with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/set-stagger-direction",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/utils/set-stagger-direction/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/utils/set-stagger-direction.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-set-stagger-direction-demo",
+      "type": "registry:hook",
+      "title": "Set Stagger Direction Demo",
+      "description": "Demo showing how to use set-stagger-direction utility with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/set-stagger-direction",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/utils/set-stagger-direction/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/utils/set-stagger-direction.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-set-stagger-direction-demo",
+      "type": "registry:hook",
+      "title": "Set Stagger Direction Demo",
+      "description": "Demo showing how to use set-stagger-direction utility with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/set-stagger-direction",
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/utils/set-stagger-direction/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/utils/set-stagger-direction.tsx"
         }
       ]
     },
@@ -1227,7 +1461,7 @@
       "name": "default-set-stagger-direction",
       "type": "registry:lib",
       "title": "set stagger direction",
-      "description": "Set stagger direction, Allow to animate the stagger direction, from start, middle, end with default style.",
+      "description": "Set stagger direction, Allow to animate in orchestrated order depending on the order, can animate from the start item, middle item, last item with default style.",
       "files": [
         {
           "path": "__registry__/utils/set-stagger-direction/default/index.ts",
@@ -1240,7 +1474,7 @@
       "name": "shadcn-default-set-stagger-direction",
       "type": "registry:lib",
       "title": "set stagger direction",
-      "description": "Set stagger direction, Allow to animate the stagger direction, from start, middle, end with shadcn-default style.",
+      "description": "Set stagger direction, Allow to animate in orchestrated order depending on the order, can animate from the start item, middle item, last item with shadcn-default style.",
       "files": [
         {
           "path": "__registry__/utils/set-stagger-direction/shadcn-default/index.ts",
@@ -1253,7 +1487,7 @@
       "name": "shadcn-new-york-set-stagger-direction",
       "type": "registry:lib",
       "title": "set stagger direction",
-      "description": "Set stagger direction, Allow to animate the stagger direction, from start, middle, end with shadcn-new-york style.",
+      "description": "Set stagger direction, Allow to animate in orchestrated order depending on the order, can animate from the start item, middle item, last item with shadcn-new-york style.",
       "files": [
         {
           "path": "__registry__/utils/set-stagger-direction/shadcn-new-york/index.ts",
@@ -1309,7 +1543,7 @@
       "files": [
         {
           "path": "__registry__/utils/use-animation-variants/default/index.tsx",
-          "type": "registry:ui",
+          "type": "registry:hook",
           "target": "components/systaliko-ui/utils/use-animation-variants.tsx"
         }
       ]
@@ -1322,7 +1556,7 @@
       "files": [
         {
           "path": "__registry__/utils/use-animation-variants/shadcn-default/index.tsx",
-          "type": "registry:ui",
+          "type": "registry:hook",
           "target": "components/systaliko-ui/utils/use-animation-variants.tsx"
         }
       ]
@@ -1335,8 +1569,47 @@
       "files": [
         {
           "path": "__registry__/utils/use-animation-variants/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
+          "type": "registry:hook",
           "target": "components/systaliko-ui/utils/use-animation-variants.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-use-follow-mouse",
+      "type": "registry:hook",
+      "title": "Use Follow Mouse Hook",
+      "description": "As the name suggests, this hook will follow the mouse position with default style.",
+      "files": [
+        {
+          "path": "__registry__/utils/use-follow-mouse/default/index.ts",
+          "type": "registry:hook",
+          "target": "components/systaliko-ui/utils/use-follow-mouse.ts"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-use-follow-mouse",
+      "type": "registry:hook",
+      "title": "Use Follow Mouse Hook",
+      "description": "As the name suggests, this hook will follow the mouse position with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/utils/use-follow-mouse/shadcn-default/index.ts",
+          "type": "registry:hook",
+          "target": "components/systaliko-ui/utils/use-follow-mouse.ts"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-use-follow-mouse",
+      "type": "registry:hook",
+      "title": "Use Follow Mouse Hook",
+      "description": "As the name suggests, this hook will follow the mouse position with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/utils/use-follow-mouse/shadcn-new-york/index.ts",
+          "type": "registry:hook",
+          "target": "components/systaliko-ui/utils/use-follow-mouse.ts"
         }
       ]
     }

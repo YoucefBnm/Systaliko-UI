@@ -9,7 +9,7 @@ import { CodeIcon, ImageIcon, Loader } from 'lucide-react';
 import { Suspense, useEffect, useMemo, useState } from 'react';
 import { DynamicCodeBlock } from '@/components/docs/dynamic-codeblock';
 import ReactIcon from '../icons/react-icon';
-import { type Binds, Tweakpane } from '../systaliko-ui/tweakpane';
+import { type Binds } from '../systaliko-ui/tweakpane';
 import { useStyle } from '@/providers/style-provider';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 
@@ -139,15 +139,15 @@ export function ComponentPreview({
             name={name}
             iframe={iframe}
             bigScreen={bigScreen}
-            tweakpane={
-              binds && (
-                <Tweakpane
-                  binds={binds}
-                  onBindsChange={setBinds}
-                  currentStyle={style}
-                />
-              )
-            }
+            // tweakpane={
+            //   binds && (
+            //     <Tweakpane
+            //       binds={binds}
+            //       onBindsChange={setBinds}
+            //       currentStyle={style}
+            //     />
+            //   )
+            // }
           >
             <Suspense
               fallback={
