@@ -432,6 +432,54 @@
       ]
     },
     {
+      "name": "default-container-stagger",
+      "type": "registry:block",
+      "title": "Container Stagger",
+      "description": "Animated Block with orchestrated stagger animations, for your motion components with default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/containers/container-stagger/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/containers/container-stagger.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-container-stagger",
+      "type": "registry:block",
+      "title": "Container Stagger",
+      "description": "Animated Block with orchestrated stagger animations, for your motion components with shadcn-default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/containers/container-stagger/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/containers/container-stagger.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-container-stagger",
+      "type": "registry:block",
+      "title": "Container Stagger",
+      "description": "Animated Block with orchestrated stagger animations, for your motion components with shadcn-new-york style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/containers/container-stagger/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/containers/container-stagger.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-gallery-rotated-scroll",
       "type": "registry:block",
       "title": "Gallery Rotated Scroll",
@@ -1029,6 +1077,54 @@
       ]
     },
     {
+      "name": "default-container-stagger-demo",
+      "type": "registry:block",
+      "title": "Container Stagger Demo",
+      "description": "Demo showing how to use container stagger with your motion components with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-stagger"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-stagger/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-stagger.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-container-stagger-demo",
+      "type": "registry:block",
+      "title": "Container Stagger Demo",
+      "description": "Demo showing how to use container stagger with your motion components with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-stagger"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-stagger/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-stagger.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-container-stagger-demo",
+      "type": "registry:block",
+      "title": "Container Stagger Demo",
+      "description": "Demo showing how to use container stagger with your motion components with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-stagger"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-stagger/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-stagger.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-gallery-rotated-scroll-demo",
       "type": "registry:block",
       "title": "Gallery Rotated Scroll Demo",
@@ -1263,6 +1359,54 @@
       "files": [
         {
           "path": "__registry__/demo/heros/hero-gradient/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/heros/hero-gradient.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-hero-rotated-gallery-demo",
+      "type": "registry:block",
+      "title": "Hero with animated Gallery and staggered reveal text Demo",
+      "description": "Demo showing how to use Hero rotated gallery with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/hero-rotated-gallery"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/heros/hero-rotated-gallery/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/heros/hero-gradient.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-hero-rotated-gallery-demo",
+      "type": "registry:block",
+      "title": "Hero with animated Gallery and staggered reveal text Demo",
+      "description": "Demo showing how to use Hero rotated gallery with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/hero-rotated-gallery"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/heros/hero-rotated-gallery/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/heros/hero-gradient.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-hero-rotated-gallery-demo",
+      "type": "registry:block",
+      "title": "Hero with animated Gallery and staggered reveal text Demo",
+      "description": "Demo showing how to use Hero rotated gallery with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/hero-rotated-gallery"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/heros/hero-rotated-gallery/shadcn-new-york/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/heros/hero-gradient.tsx"
         }
@@ -1659,57 +1803,6 @@
       ]
     },
     {
-      "name": "default-use-smooth-scroll-demo",
-      "type": "registry:hook",
-      "title": "Use Follow Mouse Utility Demo",
-      "description": "Demo showing how to use use-smooth-scroll hook with default style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/use-smooth-scroll",
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/utils/use-smooth-scroll/default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/utils/use-smooth-scroll.ts"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-default-use-smooth-scroll-demo",
-      "type": "registry:hook",
-      "title": "Use Follow Mouse Utility Demo",
-      "description": "Demo showing how to use use-smooth-scroll hook with shadcn-default style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/use-smooth-scroll",
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/utils/use-smooth-scroll/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/utils/use-smooth-scroll.ts"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-use-smooth-scroll-demo",
-      "type": "registry:hook",
-      "title": "Use Follow Mouse Utility Demo",
-      "description": "Demo showing how to use use-smooth-scroll hook with shadcn-new-york style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/use-smooth-scroll",
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/utils/use-smooth-scroll/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/utils/use-smooth-scroll.ts"
-        }
-      ]
-    },
-    {
       "name": "default-hero-gradient",
       "type": "registry:block",
       "title": "Hero Gradient",
@@ -1745,6 +1838,45 @@
           "path": "__registry__/heros/hero-gradient/shadcn-new-york/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/heros/hero-gradient.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-hero-rotated-gallery",
+      "type": "registry:block",
+      "title": "Hero with Rotated Gallery",
+      "description": "Hero section with animated staggered content triggered by view, and animated gallery with scroll trigger animations with default style.",
+      "files": [
+        {
+          "path": "__registry__/heros/hero-rotated-gallery/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/heros/hero-rotated-gallery.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-hero-rotated-gallery",
+      "type": "registry:block",
+      "title": "Hero with Rotated Gallery",
+      "description": "Hero section with animated staggered content triggered by view, and animated gallery with scroll trigger animations with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/heros/hero-rotated-gallery/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/heros/hero-rotated-gallery.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-hero-rotated-gallery",
+      "type": "registry:block",
+      "title": "Hero with Rotated Gallery",
+      "description": "Hero section with animated staggered content triggered by view, and animated gallery with scroll trigger animations with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/heros/hero-rotated-gallery/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/heros/hero-rotated-gallery.tsx"
         }
       ]
     },

@@ -20,12 +20,14 @@ import { SlideshowDemo } from '@/registry/demo/slideshow';
 import { BackgroundGradientDemo } from '@/registry/demo/backgrounds/background-gradient';
 import { HeroGradientDemo } from '@/registry/demo/heros/hero-gradient';
 import { GalleryRotatedScrollDemo } from '@/registry/demo/containers/gallery-rotated-scroll';
-import { UseSmoothScrollDemo } from '@/registry/demo/utils/use-smooth-scroll';
+import { ContainerStaggerDemo } from '@/registry/demo/containers/container-stagger';
+import { HeroRotatedGalleryDemo } from '@/registry/demo/heros/hero-rotated-gallery';
 
 export default function Home() {
   return (
     <main className="relative">
-      <UseSmoothScrollDemo />
+      <HeroRotatedGalleryDemo />
+      <ContainerStaggerDemo />
       <GalleryRotatedScrollDemo />
       <HeroGradientDemo />
       <BackgroundGradientDemo />

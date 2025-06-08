@@ -1104,6 +1104,114 @@ export const index: Record<string, any> = {
     command:
       'https://animate-ui.com/r/shadcn-new-york-container-infinite-scroll',
   },
+  'default-container-stagger': {
+    name: 'default-container-stagger',
+    description:
+      'Animated Block with orchestrated stagger animations, for your motion components with default style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/containers/container-stagger/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/containers/container-stagger.tsx',
+        content:
+          "'use client';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport * as React from 'react';\n\ninterface ContainerStaggerProps extends HTMLMotionProps<'div'> {\n  staggerChildren?: number;\n  delayChildren?: number;\n  duration?: number;\n}\n\nexport const ContainerStagger = React.forwardRef<\n  HTMLDivElement,\n  ContainerStaggerProps\n>(\n  (\n    {\n      staggerChildren = 0.2,\n      delayChildren = 0.2,\n      duration = 0.3,\n      className,\n      transition,\n      ...props\n    },\n    ref,\n  ) => {\n    return (\n      <motion.div\n        ref={ref}\n        className={className}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: true }}\n        transition={{\n          duration: duration,\n          staggerChildren: staggerChildren,\n          delayChildren: delayChildren,\n          ...transition,\n        }}\n        {...props}\n      />\n    );\n  },\n);\nContainerStagger.displayName = 'ContainerStagger';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/containers/container-stagger/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-container-stagger';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-container-stagger',
+  },
+  'shadcn-default-container-stagger': {
+    name: 'shadcn-default-container-stagger',
+    description:
+      'Animated Block with orchestrated stagger animations, for your motion components with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/containers/container-stagger/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/containers/container-stagger.tsx',
+        content:
+          "'use client';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport * as React from 'react';\n\ninterface ContainerStaggerProps extends HTMLMotionProps<'div'> {\n  staggerChildren?: number;\n  delayChildren?: number;\n  duration?: number;\n}\n\nexport const ContainerStagger = React.forwardRef<\n  HTMLDivElement,\n  ContainerStaggerProps\n>(\n  (\n    {\n      staggerChildren = 0.2,\n      delayChildren = 0.2,\n      duration = 0.3,\n      className,\n      transition,\n      ...props\n    },\n    ref,\n  ) => {\n    return (\n      <motion.div\n        ref={ref}\n        className={className}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: true }}\n        transition={{\n          duration: duration,\n          staggerChildren: staggerChildren,\n          delayChildren: delayChildren,\n          ...transition,\n        }}\n        {...props}\n      />\n    );\n  },\n);\nContainerStagger.displayName = 'ContainerStagger';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/containers/container-stagger/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-container-stagger';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-container-stagger',
+  },
+  'shadcn-new-york-container-stagger': {
+    name: 'shadcn-new-york-container-stagger',
+    description:
+      'Animated Block with orchestrated stagger animations, for your motion components with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/containers/container-stagger/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/containers/container-stagger.tsx',
+        content:
+          "'use client';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport * as React from 'react';\n\ninterface ContainerStaggerProps extends HTMLMotionProps<'div'> {\n  staggerChildren?: number;\n  delayChildren?: number;\n  duration?: number;\n}\n\nexport const ContainerStagger = React.forwardRef<\n  HTMLDivElement,\n  ContainerStaggerProps\n>(\n  (\n    {\n      staggerChildren = 0.2,\n      delayChildren = 0.2,\n      duration = 0.3,\n      className,\n      transition,\n      ...props\n    },\n    ref,\n  ) => {\n    return (\n      <motion.div\n        ref={ref}\n        className={className}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: true }}\n        transition={{\n          duration: duration,\n          staggerChildren: staggerChildren,\n          delayChildren: delayChildren,\n          ...transition,\n        }}\n        {...props}\n      />\n    );\n  },\n);\nContainerStagger.displayName = 'ContainerStagger';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/containers/container-stagger/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-container-stagger';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-container-stagger',
+  },
   'default-gallery-rotated-scroll': {
     name: 'default-gallery-rotated-scroll',
     description:
@@ -1663,7 +1771,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/cards/card-curtain-reveal.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport {\n  CardCurtain,\n  CardCurtainReveal,\n  CardCurtainRevealBody,\n  CardCurtainRevealDescription,\n  CardCurtainRevealFooter,\n  CardCurtainRevealTitle,\n} from \'@/components/systaliko-ui/cards/card-curtain-reveal\';\nimport { ArrowUpRight } from \'lucide-react\';\n\nexport const CardCurtainRevealDemo = () => {\n  return (\n    <CardCurtainReveal className=" h-[540px] w-96 border bg-fd-accent-foreground text-fd-accent shadow">\n      <CardCurtainRevealBody>\n        <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">\n          Behind <br />\n          the Curtain\n        </CardCurtainRevealTitle>\n        <CardCurtainRevealDescription className="my-4 ">\n          <p>\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium\n            voluptate, eum quia temporibus fugiat rerum nobis modi dolor,\n            delectus laboriosam, quae adipisci reprehenderit officiis quidem\n            iure ducimus incidunt officia. Magni, eligendi repellendus. Fugiat,\n            natus aut?\n          </p>\n        </CardCurtainRevealDescription>\n        <Button\n          variant={\'secondary\'}\n          size={\'icon\'}\n          className="aspect-square rounded-full"\n        >\n          <ArrowUpRight />\n        </Button>\n\n        <CardCurtain className=" bg-secondary" />\n      </CardCurtainRevealBody>\n\n      <CardCurtainRevealFooter className="mt-auto">\n        {/* eslint-disable-next-line @next/next/no-img-element */}\n        <img\n          width="100%"\n          height="100%"\n          alt="street"\n          className="size-full"\n          src="https://images.unsplash.com/photo-1628468033761-125b565aaac7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        />\n      </CardCurtainRevealFooter>\n    </CardCurtainReveal>\n  );\n};',
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  CardCurtain,\n  CardCurtainReveal,\n  CardCurtainRevealBody,\n  CardCurtainRevealDescription,\n  CardCurtainRevealFooter,\n  CardCurtainRevealTitle,\n} from \'@/components/systaliko-ui/cards/card-curtain-reveal\';\nimport { ArrowUpRight } from \'lucide-react\';\n\nexport const CardCurtainRevealDemo = () => {\n  return (\n    <CardCurtainReveal className=" h-[540px] w-96 border bg-black dark:bg-white text-fd-accent shadow">\n      <CardCurtainRevealBody>\n        <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">\n          Behind <br />\n          the Curtain\n        </CardCurtainRevealTitle>\n        <CardCurtainRevealDescription className="my-4 ">\n          <p>\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium\n            voluptate, eum quia temporibus fugiat rerum nobis modi dolor,\n            delectus laboriosam, quae adipisci reprehenderit officiis quidem\n            iure ducimus incidunt officia. Magni, eligendi repellendus. Fugiat,\n            natus aut?\n          </p>\n        </CardCurtainRevealDescription>\n        <Button\n          variant={\'secondary\'}\n          size={\'icon\'}\n          className="aspect-square rounded-full"\n        >\n          <ArrowUpRight />\n        </Button>\n\n        <CardCurtain className="bg-background" />\n      </CardCurtainRevealBody>\n\n      <CardCurtainRevealFooter className="mt-auto">\n        {/* eslint-disable-next-line @next/next/no-img-element */}\n        <img\n          width="100%"\n          height="100%"\n          alt="street"\n          className="size-full"\n          src="https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"\n        />\n      </CardCurtainRevealFooter>\n    </CardCurtainReveal>\n  );\n};',
       },
     ],
     component: (function () {
@@ -1699,7 +1807,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/cards/card-curtain-reveal.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport {\n  CardCurtain,\n  CardCurtainReveal,\n  CardCurtainRevealBody,\n  CardCurtainRevealDescription,\n  CardCurtainRevealFooter,\n  CardCurtainRevealTitle,\n} from \'@/components/systaliko-ui/cards/card-curtain-reveal\';\nimport { ArrowUpRight } from \'lucide-react\';\n\nexport const CardCurtainRevealDemo = () => {\n  return (\n    <CardCurtainReveal className=" h-[540px] w-96 border bg-fd-accent-foreground text-fd-accent shadow">\n      <CardCurtainRevealBody>\n        <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">\n          Behind <br />\n          the Curtain\n        </CardCurtainRevealTitle>\n        <CardCurtainRevealDescription className="my-4 ">\n          <p>\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium\n            voluptate, eum quia temporibus fugiat rerum nobis modi dolor,\n            delectus laboriosam, quae adipisci reprehenderit officiis quidem\n            iure ducimus incidunt officia. Magni, eligendi repellendus. Fugiat,\n            natus aut?\n          </p>\n        </CardCurtainRevealDescription>\n        <Button\n          variant={\'secondary\'}\n          size={\'icon\'}\n          className="aspect-square rounded-full"\n        >\n          <ArrowUpRight />\n        </Button>\n\n        <CardCurtain className=" bg-secondary" />\n      </CardCurtainRevealBody>\n\n      <CardCurtainRevealFooter className="mt-auto">\n        {/* eslint-disable-next-line @next/next/no-img-element */}\n        <img\n          width="100%"\n          height="100%"\n          alt="street"\n          className="size-full"\n          src="https://images.unsplash.com/photo-1628468033761-125b565aaac7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        />\n      </CardCurtainRevealFooter>\n    </CardCurtainReveal>\n  );\n};',
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  CardCurtain,\n  CardCurtainReveal,\n  CardCurtainRevealBody,\n  CardCurtainRevealDescription,\n  CardCurtainRevealFooter,\n  CardCurtainRevealTitle,\n} from \'@/components/systaliko-ui/cards/card-curtain-reveal\';\nimport { ArrowUpRight } from \'lucide-react\';\n\nexport const CardCurtainRevealDemo = () => {\n  return (\n    <CardCurtainReveal className=" h-[540px] w-96 border bg-black dark:bg-white text-fd-accent shadow">\n      <CardCurtainRevealBody>\n        <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">\n          Behind <br />\n          the Curtain\n        </CardCurtainRevealTitle>\n        <CardCurtainRevealDescription className="my-4 ">\n          <p>\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium\n            voluptate, eum quia temporibus fugiat rerum nobis modi dolor,\n            delectus laboriosam, quae adipisci reprehenderit officiis quidem\n            iure ducimus incidunt officia. Magni, eligendi repellendus. Fugiat,\n            natus aut?\n          </p>\n        </CardCurtainRevealDescription>\n        <Button\n          variant={\'secondary\'}\n          size={\'icon\'}\n          className="aspect-square rounded-full"\n        >\n          <ArrowUpRight />\n        </Button>\n\n        <CardCurtain className="bg-background" />\n      </CardCurtainRevealBody>\n\n      <CardCurtainRevealFooter className="mt-auto">\n        {/* eslint-disable-next-line @next/next/no-img-element */}\n        <img\n          width="100%"\n          height="100%"\n          alt="street"\n          className="size-full"\n          src="https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"\n        />\n      </CardCurtainRevealFooter>\n    </CardCurtainReveal>\n  );\n};',
       },
     ],
     component: (function () {
@@ -1735,7 +1843,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/cards/card-curtain-reveal.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport {\n  CardCurtain,\n  CardCurtainReveal,\n  CardCurtainRevealBody,\n  CardCurtainRevealDescription,\n  CardCurtainRevealFooter,\n  CardCurtainRevealTitle,\n} from \'@/components/systaliko-ui/cards/card-curtain-reveal\';\nimport { ArrowUpRight } from \'lucide-react\';\n\nexport const CardCurtainRevealDemo = () => {\n  return (\n    <CardCurtainReveal className=" h-[540px] w-96 border bg-fd-accent-foreground text-fd-accent shadow">\n      <CardCurtainRevealBody>\n        <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">\n          Behind <br />\n          the Curtain\n        </CardCurtainRevealTitle>\n        <CardCurtainRevealDescription className="my-4 ">\n          <p>\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium\n            voluptate, eum quia temporibus fugiat rerum nobis modi dolor,\n            delectus laboriosam, quae adipisci reprehenderit officiis quidem\n            iure ducimus incidunt officia. Magni, eligendi repellendus. Fugiat,\n            natus aut?\n          </p>\n        </CardCurtainRevealDescription>\n        <Button\n          variant={\'secondary\'}\n          size={\'icon\'}\n          className="aspect-square rounded-full"\n        >\n          <ArrowUpRight />\n        </Button>\n\n        <CardCurtain className=" bg-secondary" />\n      </CardCurtainRevealBody>\n\n      <CardCurtainRevealFooter className="mt-auto">\n        {/* eslint-disable-next-line @next/next/no-img-element */}\n        <img\n          width="100%"\n          height="100%"\n          alt="street"\n          className="size-full"\n          src="https://images.unsplash.com/photo-1628468033761-125b565aaac7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        />\n      </CardCurtainRevealFooter>\n    </CardCurtainReveal>\n  );\n};',
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  CardCurtain,\n  CardCurtainReveal,\n  CardCurtainRevealBody,\n  CardCurtainRevealDescription,\n  CardCurtainRevealFooter,\n  CardCurtainRevealTitle,\n} from \'@/components/systaliko-ui/cards/card-curtain-reveal\';\nimport { ArrowUpRight } from \'lucide-react\';\n\nexport const CardCurtainRevealDemo = () => {\n  return (\n    <CardCurtainReveal className=" h-[540px] w-96 border bg-black dark:bg-white text-fd-accent shadow">\n      <CardCurtainRevealBody>\n        <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">\n          Behind <br />\n          the Curtain\n        </CardCurtainRevealTitle>\n        <CardCurtainRevealDescription className="my-4 ">\n          <p>\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium\n            voluptate, eum quia temporibus fugiat rerum nobis modi dolor,\n            delectus laboriosam, quae adipisci reprehenderit officiis quidem\n            iure ducimus incidunt officia. Magni, eligendi repellendus. Fugiat,\n            natus aut?\n          </p>\n        </CardCurtainRevealDescription>\n        <Button\n          variant={\'secondary\'}\n          size={\'icon\'}\n          className="aspect-square rounded-full"\n        >\n          <ArrowUpRight />\n        </Button>\n\n        <CardCurtain className="bg-background" />\n      </CardCurtainRevealBody>\n\n      <CardCurtainRevealFooter className="mt-auto">\n        {/* eslint-disable-next-line @next/next/no-img-element */}\n        <img\n          width="100%"\n          height="100%"\n          alt="street"\n          className="size-full"\n          src="https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"\n        />\n      </CardCurtainRevealFooter>\n    </CardCurtainReveal>\n  );\n};',
       },
     ],
     component: (function () {
@@ -2511,6 +2619,114 @@ export const index: Record<string, any> = {
     command:
       'https://animate-ui.com/r/shadcn-new-york-container-infinite-scroll-demo',
   },
+  'default-container-stagger-demo': {
+    name: 'default-container-stagger-demo',
+    description:
+      'Demo showing how to use container stagger with your motion components with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/container-stagger'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/container-stagger/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/containers/container-stagger.tsx',
+        content:
+          "'use client';\nimport { Button } from '@/components/ui/button';\nimport { ContainerStagger } from '@/components/systaliko-ui/containers/container-stagger';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { VideoIcon } from 'lucide-react';\nimport { motion } from 'motion/react';\n\nexport function ContainerStaggerDemo() {\n  const MotionButton = motion.create(Button);\n  const animationVariants = useAnimationVariants('blur');\n  return (\n    <ContainerStagger className=\"flex flex-col text-center items-center space-y-5 p-6\">\n      <motion.h1\n        className=\"font-serif text-5xl font-extralight\"\n        variants={animationVariants}\n      >\n        Your{' '}\n        <span className=\" font-serif font-extralight text-primary\">\n          animated & reusuble\n        </span>{' '}\n        <br />\n        blocks for your designs\n      </motion.h1>\n\n      <motion.p\n        variants={animationVariants}\n        className=\"leading-normal tracking-tight text-muted-foreground\"\n      >\n        Crafting exceptional digital experiences through innovative design\n        solutions.\n        <br /> From concept to creation, we transform your vision into reality.\n      </motion.p>\n\n      <MotionButton size=\"sm\" variants={animationVariants}>\n        Book free call <VideoIcon className=\"size-4  \" />\n      </MotionButton>\n    </ContainerStagger>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/container-stagger/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-container-stagger-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-container-stagger-demo',
+  },
+  'shadcn-default-container-stagger-demo': {
+    name: 'shadcn-default-container-stagger-demo',
+    description:
+      'Demo showing how to use container stagger with your motion components with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/container-stagger'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/container-stagger/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/containers/container-stagger.tsx',
+        content:
+          "'use client';\nimport { Button } from '@/components/ui/button';\nimport { ContainerStagger } from '@/components/systaliko-ui/containers/container-stagger';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { VideoIcon } from 'lucide-react';\nimport { motion } from 'motion/react';\n\nexport function ContainerStaggerDemo() {\n  const MotionButton = motion.create(Button);\n  const animationVariants = useAnimationVariants('blur');\n  return (\n    <ContainerStagger className=\"flex flex-col text-center items-center space-y-5 p-6\">\n      <motion.h1\n        className=\"font-serif text-5xl font-extralight\"\n        variants={animationVariants}\n      >\n        Your{' '}\n        <span className=\" font-serif font-extralight text-primary\">\n          animated & reusuble\n        </span>{' '}\n        <br />\n        blocks for your designs\n      </motion.h1>\n\n      <motion.p\n        variants={animationVariants}\n        className=\"leading-normal tracking-tight text-muted-foreground\"\n      >\n        Crafting exceptional digital experiences through innovative design\n        solutions.\n        <br /> From concept to creation, we transform your vision into reality.\n      </motion.p>\n\n      <MotionButton size=\"sm\" variants={animationVariants}>\n        Book free call <VideoIcon className=\"size-4  \" />\n      </MotionButton>\n    </ContainerStagger>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/container-stagger/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-container-stagger-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-container-stagger-demo',
+  },
+  'shadcn-new-york-container-stagger-demo': {
+    name: 'shadcn-new-york-container-stagger-demo',
+    description:
+      'Demo showing how to use container stagger with your motion components with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/container-stagger'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/container-stagger/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/containers/container-stagger.tsx',
+        content:
+          "'use client';\nimport { Button } from '@/components/ui/button';\nimport { ContainerStagger } from '@/components/systaliko-ui/containers/container-stagger';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { VideoIcon } from 'lucide-react';\nimport { motion } from 'motion/react';\n\nexport function ContainerStaggerDemo() {\n  const MotionButton = motion.create(Button);\n  const animationVariants = useAnimationVariants('blur');\n  return (\n    <ContainerStagger className=\"flex flex-col text-center items-center space-y-5 p-6\">\n      <motion.h1\n        className=\"font-serif text-5xl font-extralight\"\n        variants={animationVariants}\n      >\n        Your{' '}\n        <span className=\" font-serif font-extralight text-primary\">\n          animated & reusuble\n        </span>{' '}\n        <br />\n        blocks for your designs\n      </motion.h1>\n\n      <motion.p\n        variants={animationVariants}\n        className=\"leading-normal tracking-tight text-muted-foreground\"\n      >\n        Crafting exceptional digital experiences through innovative design\n        solutions.\n        <br /> From concept to creation, we transform your vision into reality.\n      </motion.p>\n\n      <MotionButton size=\"sm\" variants={animationVariants}>\n        Book free call <VideoIcon className=\"size-4  \" />\n      </MotionButton>\n    </ContainerStagger>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/container-stagger/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-container-stagger-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-container-stagger-demo',
+  },
   'default-gallery-rotated-scroll-demo': {
     name: 'default-gallery-rotated-scroll-demo',
     description:
@@ -2527,7 +2743,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/demo/containers/gallery-rotated-scroll.tsx',
         content:
-          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1564284369929-026ba231f89b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1532236204992-f5e85c024202?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const GalleryRotatedScrollDemo = () => {\n  return (\n    <GalleryRotatedScroll spacerClass=\"h-96\">\n      <div\n        className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n        style={{\n          background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n          filter: 'blur(84px)',\n          mixBlendMode: 'screen',\n        }}\n      />\n\n      <GalleryContainer className=\"h-dvh  gap-2\">\n        <GalleryCol className=\"-mt-2 gap-2\">\n          {IMAGES_1.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n          {IMAGES_2.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 -mt-2\">\n          {IMAGES_3.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};",
+          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const GalleryRotatedScrollDemo = () => {\n  return (\n    <GalleryRotatedScroll spacerClass=\"h-96\">\n      <div\n        className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n        style={{\n          background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n          filter: 'blur(84px)',\n          mixBlendMode: 'screen',\n        }}\n      />\n\n      <GalleryContainer className=\"h-dvh  gap-2\">\n        <GalleryCol className=\"-mt-2 gap-2\">\n          {IMAGES_1.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n          {IMAGES_2.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 -mt-2\">\n          {IMAGES_3.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};",
       },
     ],
     component: (function () {
@@ -2564,7 +2780,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/demo/containers/gallery-rotated-scroll.tsx',
         content:
-          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1564284369929-026ba231f89b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1532236204992-f5e85c024202?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const GalleryRotatedScrollDemo = () => {\n  return (\n    <GalleryRotatedScroll spacerClass=\"h-96\">\n      <div\n        className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n        style={{\n          background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n          filter: 'blur(84px)',\n          mixBlendMode: 'screen',\n        }}\n      />\n\n      <GalleryContainer className=\"h-dvh  gap-2\">\n        <GalleryCol className=\"-mt-2 gap-2\">\n          {IMAGES_1.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n          {IMAGES_2.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 -mt-2\">\n          {IMAGES_3.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};",
+          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const GalleryRotatedScrollDemo = () => {\n  return (\n    <GalleryRotatedScroll spacerClass=\"h-96\">\n      <div\n        className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n        style={{\n          background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n          filter: 'blur(84px)',\n          mixBlendMode: 'screen',\n        }}\n      />\n\n      <GalleryContainer className=\"h-dvh  gap-2\">\n        <GalleryCol className=\"-mt-2 gap-2\">\n          {IMAGES_1.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n          {IMAGES_2.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 -mt-2\">\n          {IMAGES_3.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};",
       },
     ],
     component: (function () {
@@ -2602,7 +2818,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/demo/containers/gallery-rotated-scroll.tsx',
         content:
-          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1564284369929-026ba231f89b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1532236204992-f5e85c024202?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const GalleryRotatedScrollDemo = () => {\n  return (\n    <GalleryRotatedScroll spacerClass=\"h-96\">\n      <div\n        className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n        style={{\n          background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n          filter: 'blur(84px)',\n          mixBlendMode: 'screen',\n        }}\n      />\n\n      <GalleryContainer className=\"h-dvh  gap-2\">\n        <GalleryCol className=\"-mt-2 gap-2\">\n          {IMAGES_1.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n          {IMAGES_2.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 -mt-2\">\n          {IMAGES_3.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};",
+          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const GalleryRotatedScrollDemo = () => {\n  return (\n    <GalleryRotatedScroll spacerClass=\"h-96\">\n      <div\n        className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n        style={{\n          background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n          filter: 'blur(84px)',\n          mixBlendMode: 'screen',\n        }}\n      />\n\n      <GalleryContainer className=\"h-dvh  gap-2\">\n        <GalleryCol className=\"-mt-2 gap-2\">\n          {IMAGES_1.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n          {IMAGES_2.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 -mt-2\">\n          {IMAGES_3.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};",
       },
     ],
     component: (function () {
@@ -2960,7 +3176,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/heros/hero-gradient.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport {\n  HeroDescription,\n  HeroGradient,\n  HeroGradientCta,\n  HeroGradientText,\n  HeroHeading,\n  HeroTextBadge,\n} from \'@/components/systaliko-ui/heros/hero-gradient\';\nimport { PhoneCallIcon } from \'lucide-react\';\n\nexport function HeroGradientDemo() {\n  return (\n    <HeroGradient\n      gradientColors={[\n        {\n          color: \'var(--color-primary)\',\n          start: \'-100%\',\n        },\n        {\n          color: \'var(--background)\',\n          start: \'100%\',\n        },\n      ]}\n      gradientPosition={{ x: \'50%\', y: \'0%\' }}\n      className="min-h-screen w-full place-content-center place-items-center text-center"\n    >\n      <HeroGradientText className="flex flex-col items-center space-y-5">\n        <HeroTextBadge className="text-primary" animation="blur">\n          <span className="inline-block text-xs">\n            Get started with us &rarr;\n          </span>\n        </HeroTextBadge>\n\n        <HeroHeading\n          className="text-4xl font-semibold max-w-[22ch]"\n          animation="blur"\n        >\n          Get into the future of web development\n        </HeroHeading>\n        <HeroDescription\n          animation="blur"\n          className="max-w-[50ch] text-muted-foreground mx-auto"\n        >\n          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum nisi\n          sunt necessitatibus, quas, facere iste molestiae alias vel optio\n          delectus architecto enim tenetur mollitia? Soluta.\n        </HeroDescription>\n\n        <HeroGradientCta animation="blur">\n          <Button className="relative flex w-fit items-center rounded-full border border-primary bg-secondary-foreground/20 text-secondary-foreground px-4 py-2 shadow-[0px_4px_24px_var(--primary)] transition-colors hover:bg-primary/80 hover:text-background dark:text-primary">\n            Book a free call <PhoneCallIcon />\n          </Button>\n        </HeroGradientCta>\n      </HeroGradientText>\n    </HeroGradient>\n  );\n}',
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  HeroDescription,\n  HeroGradient,\n  HeroGradientCta,\n  HeroGradientText,\n  HeroHeading,\n  HeroTextBadge,\n} from \'@/components/systaliko-ui/heros/hero-gradient\';\nimport { PhoneCallIcon } from \'lucide-react\';\n\nexport function HeroGradientDemo() {\n  return (\n    <HeroGradient\n      gradientColors={[\n        {\n          color: \'var(--color-primary)\',\n          start: \'-100%\',\n        },\n        {\n          color: \'var(--background)\',\n          start: \'100%\',\n        },\n      ]}\n      gradientPosition={{ x: \'50%\', y: \'0%\' }}\n      className="min-h-screen w-full place-content-center place-items-center text-center"\n    >\n      <HeroGradientText className="flex flex-col items-center space-y-5">\n        <HeroTextBadge className="text-primary" animation="blur">\n          <span className="inline-block text-xs">\n            Get started with us &rarr;\n          </span>\n        </HeroTextBadge>\n\n        <HeroHeading\n          className="text-4xl font-semibold max-w-[22ch]"\n          animation="blur"\n        >\n          Get into the future of web development\n        </HeroHeading>\n        <HeroDescription\n          animation="blur"\n          className="max-w-[50ch] text-muted-foreground mx-auto"\n        >\n          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum nisi\n          sunt necessitatibus, quas, facere iste molestiae alias vel optio\n          delectus architecto enim tenetur mollitia? Soluta.\n        </HeroDescription>\n\n        <HeroGradientCta animation="blur">\n          <Button\n            variant={\'outline\'}\n            className="relative flex w-fit items-center rounded-full border border-primary text-primary px-4 py-2 shadow-[0px_4px_24px_var(--primary)] transition-colors hover:bg-primary"\n          >\n            Book a free call <PhoneCallIcon />\n          </Button>\n        </HeroGradientCta>\n      </HeroGradientText>\n    </HeroGradient>\n  );\n}',
       },
     ],
     component: (function () {
@@ -2996,7 +3212,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/heros/hero-gradient.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport {\n  HeroDescription,\n  HeroGradient,\n  HeroGradientCta,\n  HeroGradientText,\n  HeroHeading,\n  HeroTextBadge,\n} from \'@/components/systaliko-ui/heros/hero-gradient\';\nimport { PhoneCallIcon } from \'lucide-react\';\n\nexport function HeroGradientDemo() {\n  return (\n    <HeroGradient\n      gradientColors={[\n        {\n          color: \'var(--color-primary)\',\n          start: \'-100%\',\n        },\n        {\n          color: \'var(--background)\',\n          start: \'100%\',\n        },\n      ]}\n      gradientPosition={{ x: \'50%\', y: \'0%\' }}\n      className="min-h-screen w-full place-content-center place-items-center text-center"\n    >\n      <HeroGradientText className="flex flex-col items-center space-y-5">\n        <HeroTextBadge className="text-primary" animation="blur">\n          <span className="inline-block text-xs">\n            Get started with us &rarr;\n          </span>\n        </HeroTextBadge>\n\n        <HeroHeading\n          className="text-4xl font-semibold max-w-[22ch]"\n          animation="blur"\n        >\n          Get into the future of web development\n        </HeroHeading>\n        <HeroDescription\n          animation="blur"\n          className="max-w-[50ch] text-muted-foreground mx-auto"\n        >\n          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum nisi\n          sunt necessitatibus, quas, facere iste molestiae alias vel optio\n          delectus architecto enim tenetur mollitia? Soluta.\n        </HeroDescription>\n\n        <HeroGradientCta animation="blur">\n          <Button className="relative flex w-fit items-center rounded-full border border-primary bg-secondary-foreground/20 text-secondary-foreground px-4 py-2 shadow-[0px_4px_24px_var(--primary)] transition-colors hover:bg-primary/80 hover:text-background dark:text-primary">\n            Book a free call <PhoneCallIcon />\n          </Button>\n        </HeroGradientCta>\n      </HeroGradientText>\n    </HeroGradient>\n  );\n}',
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  HeroDescription,\n  HeroGradient,\n  HeroGradientCta,\n  HeroGradientText,\n  HeroHeading,\n  HeroTextBadge,\n} from \'@/components/systaliko-ui/heros/hero-gradient\';\nimport { PhoneCallIcon } from \'lucide-react\';\n\nexport function HeroGradientDemo() {\n  return (\n    <HeroGradient\n      gradientColors={[\n        {\n          color: \'var(--color-primary)\',\n          start: \'-100%\',\n        },\n        {\n          color: \'var(--background)\',\n          start: \'100%\',\n        },\n      ]}\n      gradientPosition={{ x: \'50%\', y: \'0%\' }}\n      className="min-h-screen w-full place-content-center place-items-center text-center"\n    >\n      <HeroGradientText className="flex flex-col items-center space-y-5">\n        <HeroTextBadge className="text-primary" animation="blur">\n          <span className="inline-block text-xs">\n            Get started with us &rarr;\n          </span>\n        </HeroTextBadge>\n\n        <HeroHeading\n          className="text-4xl font-semibold max-w-[22ch]"\n          animation="blur"\n        >\n          Get into the future of web development\n        </HeroHeading>\n        <HeroDescription\n          animation="blur"\n          className="max-w-[50ch] text-muted-foreground mx-auto"\n        >\n          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum nisi\n          sunt necessitatibus, quas, facere iste molestiae alias vel optio\n          delectus architecto enim tenetur mollitia? Soluta.\n        </HeroDescription>\n\n        <HeroGradientCta animation="blur">\n          <Button\n            variant={\'outline\'}\n            className="relative flex w-fit items-center rounded-full border border-primary text-primary px-4 py-2 shadow-[0px_4px_24px_var(--primary)] transition-colors hover:bg-primary"\n          >\n            Book a free call <PhoneCallIcon />\n          </Button>\n        </HeroGradientCta>\n      </HeroGradientText>\n    </HeroGradient>\n  );\n}',
       },
     ],
     component: (function () {
@@ -3032,7 +3248,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/heros/hero-gradient.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport {\n  HeroDescription,\n  HeroGradient,\n  HeroGradientCta,\n  HeroGradientText,\n  HeroHeading,\n  HeroTextBadge,\n} from \'@/components/systaliko-ui/heros/hero-gradient\';\nimport { PhoneCallIcon } from \'lucide-react\';\n\nexport function HeroGradientDemo() {\n  return (\n    <HeroGradient\n      gradientColors={[\n        {\n          color: \'var(--color-primary)\',\n          start: \'-100%\',\n        },\n        {\n          color: \'var(--background)\',\n          start: \'100%\',\n        },\n      ]}\n      gradientPosition={{ x: \'50%\', y: \'0%\' }}\n      className="min-h-screen w-full place-content-center place-items-center text-center"\n    >\n      <HeroGradientText className="flex flex-col items-center space-y-5">\n        <HeroTextBadge className="text-primary" animation="blur">\n          <span className="inline-block text-xs">\n            Get started with us &rarr;\n          </span>\n        </HeroTextBadge>\n\n        <HeroHeading\n          className="text-4xl font-semibold max-w-[22ch]"\n          animation="blur"\n        >\n          Get into the future of web development\n        </HeroHeading>\n        <HeroDescription\n          animation="blur"\n          className="max-w-[50ch] text-muted-foreground mx-auto"\n        >\n          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum nisi\n          sunt necessitatibus, quas, facere iste molestiae alias vel optio\n          delectus architecto enim tenetur mollitia? Soluta.\n        </HeroDescription>\n\n        <HeroGradientCta animation="blur">\n          <Button className="relative flex w-fit items-center rounded-full border border-primary bg-secondary-foreground/20 text-secondary-foreground px-4 py-2 shadow-[0px_4px_24px_var(--primary)] transition-colors hover:bg-primary/80 hover:text-background dark:text-primary">\n            Book a free call <PhoneCallIcon />\n          </Button>\n        </HeroGradientCta>\n      </HeroGradientText>\n    </HeroGradient>\n  );\n}',
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  HeroDescription,\n  HeroGradient,\n  HeroGradientCta,\n  HeroGradientText,\n  HeroHeading,\n  HeroTextBadge,\n} from \'@/components/systaliko-ui/heros/hero-gradient\';\nimport { PhoneCallIcon } from \'lucide-react\';\n\nexport function HeroGradientDemo() {\n  return (\n    <HeroGradient\n      gradientColors={[\n        {\n          color: \'var(--color-primary)\',\n          start: \'-100%\',\n        },\n        {\n          color: \'var(--background)\',\n          start: \'100%\',\n        },\n      ]}\n      gradientPosition={{ x: \'50%\', y: \'0%\' }}\n      className="min-h-screen w-full place-content-center place-items-center text-center"\n    >\n      <HeroGradientText className="flex flex-col items-center space-y-5">\n        <HeroTextBadge className="text-primary" animation="blur">\n          <span className="inline-block text-xs">\n            Get started with us &rarr;\n          </span>\n        </HeroTextBadge>\n\n        <HeroHeading\n          className="text-4xl font-semibold max-w-[22ch]"\n          animation="blur"\n        >\n          Get into the future of web development\n        </HeroHeading>\n        <HeroDescription\n          animation="blur"\n          className="max-w-[50ch] text-muted-foreground mx-auto"\n        >\n          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum nisi\n          sunt necessitatibus, quas, facere iste molestiae alias vel optio\n          delectus architecto enim tenetur mollitia? Soluta.\n        </HeroDescription>\n\n        <HeroGradientCta animation="blur">\n          <Button\n            variant={\'outline\'}\n            className="relative flex w-fit items-center rounded-full border border-primary text-primary px-4 py-2 shadow-[0px_4px_24px_var(--primary)] transition-colors hover:bg-primary"\n          >\n            Book a free call <PhoneCallIcon />\n          </Button>\n        </HeroGradientCta>\n      </HeroGradientText>\n    </HeroGradient>\n  );\n}',
       },
     ],
     component: (function () {
@@ -3052,6 +3268,116 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: 'https://animate-ui.com/r/shadcn-new-york-hero-gradient-demo',
+  },
+  'default-hero-rotated-gallery-demo': {
+    name: 'default-hero-rotated-gallery-demo',
+    description:
+      'Demo showing how to use Hero rotated gallery with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/hero-rotated-gallery'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/heros/hero-rotated-gallery/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/heros/hero-gradient.tsx',
+        content:
+          "import { HeroRotatedGallery } from '@/components/systaliko-ui/heros/hero-rotated-gallery';\n\nexport const HeroRotatedGalleryDemo = () => {\n  return <HeroRotatedGallery />;\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/heros/hero-rotated-gallery/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-hero-rotated-gallery-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-hero-rotated-gallery-demo',
+  },
+  'shadcn-default-hero-rotated-gallery-demo': {
+    name: 'shadcn-default-hero-rotated-gallery-demo',
+    description:
+      'Demo showing how to use Hero rotated gallery with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/hero-rotated-gallery'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/heros/hero-rotated-gallery/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/heros/hero-gradient.tsx',
+        content:
+          "import { HeroRotatedGallery } from '@/components/systaliko-ui/heros/hero-rotated-gallery';\n\nexport const HeroRotatedGalleryDemo = () => {\n  return <HeroRotatedGallery />;\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/heros/hero-rotated-gallery/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-hero-rotated-gallery-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://animate-ui.com/r/shadcn-default-hero-rotated-gallery-demo',
+  },
+  'shadcn-new-york-hero-rotated-gallery-demo': {
+    name: 'shadcn-new-york-hero-rotated-gallery-demo',
+    description:
+      'Demo showing how to use Hero rotated gallery with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/hero-rotated-gallery'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/heros/hero-rotated-gallery/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/heros/hero-gradient.tsx',
+        content:
+          "import { HeroRotatedGallery } from '@/components/systaliko-ui/heros/hero-rotated-gallery';\n\nexport const HeroRotatedGalleryDemo = () => {\n  return <HeroRotatedGallery />;\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/heros/hero-rotated-gallery/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-hero-rotated-gallery-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://animate-ui.com/r/shadcn-new-york-hero-rotated-gallery-demo',
   },
   'default-rating-stars-demo': {
     name: 'default-rating-stars-demo',
@@ -3933,123 +4259,6 @@ export const index: Record<string, any> = {
     command:
       'https://animate-ui.com/r/shadcn-new-york-use-animation-variants-demo',
   },
-  'default-use-smooth-scroll-demo': {
-    name: 'default-use-smooth-scroll-demo',
-    description:
-      'Demo showing how to use use-smooth-scroll hook with default style.',
-    type: 'registry:hook',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'http://localhost:3000/r/use-smooth-scroll',
-      'motion',
-    ],
-    styles: undefined,
-    files: [
-      {
-        path: '__registry__/demo/utils/use-smooth-scroll/default/index.tsx',
-        type: 'registry:ui',
-        target: 'components/systaliko-ui/demo/utils/use-smooth-scroll.ts',
-        content:
-          'export const UseSmoothScrollDemo = () => {\n  return (\n    <div className="h-[300vh] w-full p-6">\n      <p>\n        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,\n        explicabo nemo, ex voluptates eius impedit excepturi quam iusto natus\n        odio, accusantium ratione similique ducimus tempore laboriosam aperiam\n        nobis? Natus neque, illum ut obcaecati consequuntur adipisci minima\n        voluptatum magni rem aut eius maxime. Assumenda officiis eius tempore\n        et. Eius reprehenderit nemo, est nihil impedit laborum delectus\n        consequatur reiciendis tenetur doloremque repudiandae sequi, vitae,\n        temporibus eligendi tempore maiores sunt odio sint obcaecati aut. Labore\n        rem impedit enim laudantium aperiam nostrum nesciunt doloribus optio\n        reprehenderit, molestias quis et deleniti quas dolor delectus voluptate\n        ad perferendis quidem esse? Porro illum quo dolore error repellendus\n        placeat beatae velit sapiente. Molestias, optio temporibus, eveniet\n        cumque animi quo voluptatum nam libero totam iste perferendis sequi\n        doloribus eius excepturi vero deleniti odio quibusdam a odit obcaecati.\n        Voluptate, neque quas fugiat exercitationem laudantium fugit\n        accusantium, at eos ipsam laboriosam saepe voluptas ipsum libero\n        doloribus ut sint amet, harum explicabo quibusdam rem sapiente rerum\n        velit magni? Illo quidem itaque fuga dolorem dolorum tenetur quisquam\n        praesentium distinctio beatae nobis omnis dolores, unde aperiam nisi\n        ipsum magni, facilis obcaecati illum veritatis explicabo natus. Numquam\n        ratione rerum, debitis mollitia nulla laborum quibusdam cupiditate animi\n        ea incidunt ex, architecto voluptas quae, inventore nisi expedita\n        exercitationem porro. Tenetur consequuntur nihil optio. Voluptates\n        reprehenderit tempore illum voluptate obcaecati rerum est placeat quam?\n        Reiciendis repudiandae dolore officiis laborum numquam sequi non maxime,\n        quae modi, quibusdam voluptatem laboriosam reprehenderit quis, fugiat\n        nemo eos. Quo quibusdam quam perferendis reprehenderit. Quaerat,\n        officiis ad est maiores corporis veniam, fugit ut nulla voluptatibus\n        cumque natus laudantium. Omnis quas hic quo provident, ipsa itaque\n        dolorem fuga cum aliquid sed harum! Nihil at consequatur vero obcaecati\n        quidem tempora, vel modi itaque nobis impedit, harum error eaque quam\n        culpa delectus sapiente ipsum libero perferendis saepe optio laudantium\n        ratione? Vitae asperiores adipisci quos rem. Sed at magnam quidem,\n        deserunt enim commodi molestiae aut cum praesentium aliquam minima\n        corporis consectetur quae porro dolorum velit veritatis aliquid? Eveniet\n        velit quibusdam, ex repellendus sit mollitia ratione repudiandae vitae\n        illo perspiciatis, eius officia. Molestias, non voluptate cupiditate\n        fugiat natus omnis eaque eos minus quasi modi beatae. Sed quam repellat\n        dicta illo dignissimos illum aut ipsa, ullam deserunt veritatis\n        consectetur optio error soluta distinctio magnam expedita similique\n        sapiente! Rem cum officiis odio numquam, officia esse animi tempore,\n        eius quidem in mollitia incidunt molestias dolore repellat, sunt natus\n        fugit vero?\n      </p>\n    </div>\n  );\n};',
-      },
-    ],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/__registry__/demo/utils/use-smooth-scroll/default/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'default-use-smooth-scroll-demo';
-        const Comp = mod.default || mod[exportName];
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: 'https://animate-ui.com/r/default-use-smooth-scroll-demo',
-  },
-  'shadcn-default-use-smooth-scroll-demo': {
-    name: 'shadcn-default-use-smooth-scroll-demo',
-    description:
-      'Demo showing how to use use-smooth-scroll hook with shadcn-default style.',
-    type: 'registry:hook',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'http://localhost:3000/r/use-smooth-scroll',
-      'motion',
-    ],
-    styles: undefined,
-    files: [
-      {
-        path: '__registry__/demo/utils/use-smooth-scroll/shadcn-default/index.tsx',
-        type: 'registry:ui',
-        target: 'components/systaliko-ui/demo/utils/use-smooth-scroll.ts',
-        content:
-          'export const UseSmoothScrollDemo = () => {\n  return (\n    <div className="h-[300vh] w-full p-6">\n      <p>\n        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,\n        explicabo nemo, ex voluptates eius impedit excepturi quam iusto natus\n        odio, accusantium ratione similique ducimus tempore laboriosam aperiam\n        nobis? Natus neque, illum ut obcaecati consequuntur adipisci minima\n        voluptatum magni rem aut eius maxime. Assumenda officiis eius tempore\n        et. Eius reprehenderit nemo, est nihil impedit laborum delectus\n        consequatur reiciendis tenetur doloremque repudiandae sequi, vitae,\n        temporibus eligendi tempore maiores sunt odio sint obcaecati aut. Labore\n        rem impedit enim laudantium aperiam nostrum nesciunt doloribus optio\n        reprehenderit, molestias quis et deleniti quas dolor delectus voluptate\n        ad perferendis quidem esse? Porro illum quo dolore error repellendus\n        placeat beatae velit sapiente. Molestias, optio temporibus, eveniet\n        cumque animi quo voluptatum nam libero totam iste perferendis sequi\n        doloribus eius excepturi vero deleniti odio quibusdam a odit obcaecati.\n        Voluptate, neque quas fugiat exercitationem laudantium fugit\n        accusantium, at eos ipsam laboriosam saepe voluptas ipsum libero\n        doloribus ut sint amet, harum explicabo quibusdam rem sapiente rerum\n        velit magni? Illo quidem itaque fuga dolorem dolorum tenetur quisquam\n        praesentium distinctio beatae nobis omnis dolores, unde aperiam nisi\n        ipsum magni, facilis obcaecati illum veritatis explicabo natus. Numquam\n        ratione rerum, debitis mollitia nulla laborum quibusdam cupiditate animi\n        ea incidunt ex, architecto voluptas quae, inventore nisi expedita\n        exercitationem porro. Tenetur consequuntur nihil optio. Voluptates\n        reprehenderit tempore illum voluptate obcaecati rerum est placeat quam?\n        Reiciendis repudiandae dolore officiis laborum numquam sequi non maxime,\n        quae modi, quibusdam voluptatem laboriosam reprehenderit quis, fugiat\n        nemo eos. Quo quibusdam quam perferendis reprehenderit. Quaerat,\n        officiis ad est maiores corporis veniam, fugit ut nulla voluptatibus\n        cumque natus laudantium. Omnis quas hic quo provident, ipsa itaque\n        dolorem fuga cum aliquid sed harum! Nihil at consequatur vero obcaecati\n        quidem tempora, vel modi itaque nobis impedit, harum error eaque quam\n        culpa delectus sapiente ipsum libero perferendis saepe optio laudantium\n        ratione? Vitae asperiores adipisci quos rem. Sed at magnam quidem,\n        deserunt enim commodi molestiae aut cum praesentium aliquam minima\n        corporis consectetur quae porro dolorum velit veritatis aliquid? Eveniet\n        velit quibusdam, ex repellendus sit mollitia ratione repudiandae vitae\n        illo perspiciatis, eius officia. Molestias, non voluptate cupiditate\n        fugiat natus omnis eaque eos minus quasi modi beatae. Sed quam repellat\n        dicta illo dignissimos illum aut ipsa, ullam deserunt veritatis\n        consectetur optio error soluta distinctio magnam expedita similique\n        sapiente! Rem cum officiis odio numquam, officia esse animi tempore,\n        eius quidem in mollitia incidunt molestias dolore repellat, sunt natus\n        fugit vero?\n      </p>\n    </div>\n  );\n};',
-      },
-    ],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/__registry__/demo/utils/use-smooth-scroll/shadcn-default/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'shadcn-default-use-smooth-scroll-demo';
-        const Comp = mod.default || mod[exportName];
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: 'https://animate-ui.com/r/shadcn-default-use-smooth-scroll-demo',
-  },
-  'shadcn-new-york-use-smooth-scroll-demo': {
-    name: 'shadcn-new-york-use-smooth-scroll-demo',
-    description:
-      'Demo showing how to use use-smooth-scroll hook with shadcn-new-york style.',
-    type: 'registry:hook',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'http://localhost:3000/r/use-smooth-scroll',
-      'motion',
-    ],
-    styles: undefined,
-    files: [
-      {
-        path: '__registry__/demo/utils/use-smooth-scroll/shadcn-new-york/index.tsx',
-        type: 'registry:ui',
-        target: 'components/systaliko-ui/demo/utils/use-smooth-scroll.ts',
-        content:
-          'export const UseSmoothScrollDemo = () => {\n  return (\n    <div className="h-[300vh] w-full p-6">\n      <p>\n        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,\n        explicabo nemo, ex voluptates eius impedit excepturi quam iusto natus\n        odio, accusantium ratione similique ducimus tempore laboriosam aperiam\n        nobis? Natus neque, illum ut obcaecati consequuntur adipisci minima\n        voluptatum magni rem aut eius maxime. Assumenda officiis eius tempore\n        et. Eius reprehenderit nemo, est nihil impedit laborum delectus\n        consequatur reiciendis tenetur doloremque repudiandae sequi, vitae,\n        temporibus eligendi tempore maiores sunt odio sint obcaecati aut. Labore\n        rem impedit enim laudantium aperiam nostrum nesciunt doloribus optio\n        reprehenderit, molestias quis et deleniti quas dolor delectus voluptate\n        ad perferendis quidem esse? Porro illum quo dolore error repellendus\n        placeat beatae velit sapiente. Molestias, optio temporibus, eveniet\n        cumque animi quo voluptatum nam libero totam iste perferendis sequi\n        doloribus eius excepturi vero deleniti odio quibusdam a odit obcaecati.\n        Voluptate, neque quas fugiat exercitationem laudantium fugit\n        accusantium, at eos ipsam laboriosam saepe voluptas ipsum libero\n        doloribus ut sint amet, harum explicabo quibusdam rem sapiente rerum\n        velit magni? Illo quidem itaque fuga dolorem dolorum tenetur quisquam\n        praesentium distinctio beatae nobis omnis dolores, unde aperiam nisi\n        ipsum magni, facilis obcaecati illum veritatis explicabo natus. Numquam\n        ratione rerum, debitis mollitia nulla laborum quibusdam cupiditate animi\n        ea incidunt ex, architecto voluptas quae, inventore nisi expedita\n        exercitationem porro. Tenetur consequuntur nihil optio. Voluptates\n        reprehenderit tempore illum voluptate obcaecati rerum est placeat quam?\n        Reiciendis repudiandae dolore officiis laborum numquam sequi non maxime,\n        quae modi, quibusdam voluptatem laboriosam reprehenderit quis, fugiat\n        nemo eos. Quo quibusdam quam perferendis reprehenderit. Quaerat,\n        officiis ad est maiores corporis veniam, fugit ut nulla voluptatibus\n        cumque natus laudantium. Omnis quas hic quo provident, ipsa itaque\n        dolorem fuga cum aliquid sed harum! Nihil at consequatur vero obcaecati\n        quidem tempora, vel modi itaque nobis impedit, harum error eaque quam\n        culpa delectus sapiente ipsum libero perferendis saepe optio laudantium\n        ratione? Vitae asperiores adipisci quos rem. Sed at magnam quidem,\n        deserunt enim commodi molestiae aut cum praesentium aliquam minima\n        corporis consectetur quae porro dolorum velit veritatis aliquid? Eveniet\n        velit quibusdam, ex repellendus sit mollitia ratione repudiandae vitae\n        illo perspiciatis, eius officia. Molestias, non voluptate cupiditate\n        fugiat natus omnis eaque eos minus quasi modi beatae. Sed quam repellat\n        dicta illo dignissimos illum aut ipsa, ullam deserunt veritatis\n        consectetur optio error soluta distinctio magnam expedita similique\n        sapiente! Rem cum officiis odio numquam, officia esse animi tempore,\n        eius quidem in mollitia incidunt molestias dolore repellat, sunt natus\n        fugit vero?\n      </p>\n    </div>\n  );\n};',
-      },
-    ],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/__registry__/demo/utils/use-smooth-scroll/shadcn-new-york/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'shadcn-new-york-use-smooth-scroll-demo';
-        const Comp = mod.default || mod[exportName];
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: 'https://animate-ui.com/r/shadcn-new-york-use-smooth-scroll-demo',
-  },
   'default-hero-gradient': {
     name: 'default-hero-gradient',
     description: 'Hero with gradient background and text with default style.',
@@ -4156,6 +4365,114 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: 'https://animate-ui.com/r/shadcn-new-york-hero-gradient',
+  },
+  'default-hero-rotated-gallery': {
+    name: 'default-hero-rotated-gallery',
+    description:
+      'Hero section with animated staggered content triggered by view, and animated gallery with scroll trigger animations with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/heros/hero-rotated-gallery/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/heros/hero-rotated-gallery.tsx',
+        content:
+          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\nimport { ContainerStaggerDemo } from '@/components/systaliko-ui/demo/containers/container-stagger';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const HeroRotatedGallery = () => {\n  return (\n    <section>\n      <GalleryRotatedScroll spacerClass=\"h-96\">\n        <ContainerStaggerDemo />\n        <div\n          className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n          style={{\n            background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n            filter: 'blur(84px)',\n            mixBlendMode: 'screen',\n          }}\n        />\n\n        <GalleryContainer yRange={[-100, 400]} className=\"h-dvh  gap-2\">\n          <GalleryCol className=\"gap-2 mt-[-10%]\">\n            {IMAGES_1.map((imageUrl, index) => (\n              // eslint-disable-next-line @next/next/no-img-element\n              <img\n                key={index}\n                className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n                src={imageUrl}\n                alt=\"gallery item\"\n              />\n            ))}\n          </GalleryCol>\n          <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n            {IMAGES_2.map((imageUrl, index) => (\n              // eslint-disable-next-line @next/next/no-img-element\n              <img\n                key={index}\n                className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n                src={imageUrl}\n                alt=\"gallery item\"\n              />\n            ))}\n          </GalleryCol>\n          <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 mt-[-10%]\">\n            {IMAGES_3.map((imageUrl, index) => (\n              // eslint-disable-next-line @next/next/no-img-element\n              <img\n                key={index}\n                className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n                src={imageUrl}\n                alt=\"gallery item\"\n              />\n            ))}\n          </GalleryCol>\n        </GalleryContainer>\n      </GalleryRotatedScroll>\n    </section>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/heros/hero-rotated-gallery/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-hero-rotated-gallery';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-hero-rotated-gallery',
+  },
+  'shadcn-default-hero-rotated-gallery': {
+    name: 'shadcn-default-hero-rotated-gallery',
+    description:
+      'Hero section with animated staggered content triggered by view, and animated gallery with scroll trigger animations with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/heros/hero-rotated-gallery/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/heros/hero-rotated-gallery.tsx',
+        content:
+          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\nimport { ContainerStaggerDemo } from '@/components/systaliko-ui/demo/containers/container-stagger';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const HeroRotatedGallery = () => {\n  return (\n    <section>\n      <GalleryRotatedScroll spacerClass=\"h-96\">\n        <ContainerStaggerDemo />\n        <div\n          className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n          style={{\n            background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n            filter: 'blur(84px)',\n            mixBlendMode: 'screen',\n          }}\n        />\n\n        <GalleryContainer yRange={[-100, 400]} className=\"h-dvh  gap-2\">\n          <GalleryCol className=\"gap-2 mt-[-10%]\">\n            {IMAGES_1.map((imageUrl, index) => (\n              // eslint-disable-next-line @next/next/no-img-element\n              <img\n                key={index}\n                className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n                src={imageUrl}\n                alt=\"gallery item\"\n              />\n            ))}\n          </GalleryCol>\n          <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n            {IMAGES_2.map((imageUrl, index) => (\n              // eslint-disable-next-line @next/next/no-img-element\n              <img\n                key={index}\n                className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n                src={imageUrl}\n                alt=\"gallery item\"\n              />\n            ))}\n          </GalleryCol>\n          <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 mt-[-10%]\">\n            {IMAGES_3.map((imageUrl, index) => (\n              // eslint-disable-next-line @next/next/no-img-element\n              <img\n                key={index}\n                className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n                src={imageUrl}\n                alt=\"gallery item\"\n              />\n            ))}\n          </GalleryCol>\n        </GalleryContainer>\n      </GalleryRotatedScroll>\n    </section>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/heros/hero-rotated-gallery/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-hero-rotated-gallery';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-hero-rotated-gallery',
+  },
+  'shadcn-new-york-hero-rotated-gallery': {
+    name: 'shadcn-new-york-hero-rotated-gallery',
+    description:
+      'Hero section with animated staggered content triggered by view, and animated gallery with scroll trigger animations with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/heros/hero-rotated-gallery/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/heros/hero-rotated-gallery.tsx',
+        content:
+          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\nimport { ContainerStaggerDemo } from '@/components/systaliko-ui/demo/containers/container-stagger';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const HeroRotatedGallery = () => {\n  return (\n    <section>\n      <GalleryRotatedScroll spacerClass=\"h-96\">\n        <ContainerStaggerDemo />\n        <div\n          className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n          style={{\n            background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n            filter: 'blur(84px)',\n            mixBlendMode: 'screen',\n          }}\n        />\n\n        <GalleryContainer yRange={[-100, 400]} className=\"h-dvh  gap-2\">\n          <GalleryCol className=\"gap-2 mt-[-10%]\">\n            {IMAGES_1.map((imageUrl, index) => (\n              // eslint-disable-next-line @next/next/no-img-element\n              <img\n                key={index}\n                className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n                src={imageUrl}\n                alt=\"gallery item\"\n              />\n            ))}\n          </GalleryCol>\n          <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n            {IMAGES_2.map((imageUrl, index) => (\n              // eslint-disable-next-line @next/next/no-img-element\n              <img\n                key={index}\n                className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n                src={imageUrl}\n                alt=\"gallery item\"\n              />\n            ))}\n          </GalleryCol>\n          <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 mt-[-10%]\">\n            {IMAGES_3.map((imageUrl, index) => (\n              // eslint-disable-next-line @next/next/no-img-element\n              <img\n                key={index}\n                className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n                src={imageUrl}\n                alt=\"gallery item\"\n              />\n            ))}\n          </GalleryCol>\n        </GalleryContainer>\n      </GalleryRotatedScroll>\n    </section>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/heros/hero-rotated-gallery/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-hero-rotated-gallery';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-hero-rotated-gallery',
   },
   'default-rating-stars': {
     name: 'default-rating-stars',

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "container-stagger-demo",
+  "type": "registry:block",
+  "title": "Container Stagger Demo",
+  "description": "Demo showing how to use container stagger with your motion components.",
+  "registryDependencies": ["http://localhost:3000/r/container-stagger"],
+  "files": [
+    {
+      "path": "registry/demo/containers/container-stagger/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/containers/container-stagger.tsx"
+    }
+  ]
+}

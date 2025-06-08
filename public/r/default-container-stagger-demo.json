@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "default-container-stagger-demo",
+  "type": "registry:block",
+  "title": "Container Stagger Demo",
+  "description": "Demo showing how to use container stagger with your motion components with default style.",
+  "registryDependencies": [
+    "http://localhost:3000/r/container-stagger"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/containers/container-stagger/default/index.tsx",
+      "content": "'use client';\nimport { Button } from '@/components/ui/button';\nimport { ContainerStagger } from '@/components/systaliko-ui/containers/container-stagger';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { VideoIcon } from 'lucide-react';\nimport { motion } from 'motion/react';\n\nexport function ContainerStaggerDemo() {\n  const MotionButton = motion.create(Button);\n  const animationVariants = useAnimationVariants('blur');\n  return (\n    <ContainerStagger className=\"flex flex-col text-center items-center space-y-5 p-6\">\n      <motion.h1\n        className=\"font-serif text-5xl font-extralight\"\n        variants={animationVariants}\n      >\n        Your{' '}\n        <span className=\" font-serif font-extralight text-primary\">\n          animated & reusuble\n        </span>{' '}\n        <br />\n        blocks for your designs\n      </motion.h1>\n\n      <motion.p\n        variants={animationVariants}\n        className=\"leading-normal tracking-tight text-muted-foreground\"\n      >\n        Crafting exceptional digital experiences through innovative design\n        solutions.\n        <br /> From concept to creation, we transform your vision into reality.\n      </motion.p>\n\n      <MotionButton size=\"sm\" variants={animationVariants}>\n        Book free call <VideoIcon className=\"size-4  \" />\n      </MotionButton>\n    </ContainerStagger>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/containers/container-stagger.tsx"
+    }
+  ]
+}

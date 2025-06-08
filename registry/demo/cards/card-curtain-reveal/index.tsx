@@ -11,7 +11,7 @@ import { ArrowUpRight } from 'lucide-react';
 
 export const CardCurtainRevealDemo = () => {
   return (
-    <CardCurtainReveal className=" h-[540px] w-96 border bg-fd-accent-foreground text-fd-accent shadow">
+    <CardCurtainReveal className=" h-[540px] w-96 border bg-black dark:bg-white text-fd-accent shadow">
       <CardCurtainRevealBody>
         <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">
           Behind <br />
@@ -34,7 +34,7 @@ export const CardCurtainRevealDemo = () => {
           <ArrowUpRight />
         </Button>
 
-        <CardCurtain className=" bg-secondary" />
+        <CardCurtain className="bg-background" />
       </CardCurtainRevealBody>
 
       <CardCurtainRevealFooter className="mt-auto">
@@ -44,7 +44,7 @@ export const CardCurtainRevealDemo = () => {
           height="100%"
           alt="street"
           className="size-full"
-          src="https://images.unsplash.com/photo-1628468033761-125b565aaac7?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
         />
       </CardCurtainRevealFooter>
     </CardCurtainReveal>

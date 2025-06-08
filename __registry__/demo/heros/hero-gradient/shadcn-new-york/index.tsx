@@ -48,7 +48,10 @@ export function HeroGradientDemo() {
         </HeroDescription>
 
         <HeroGradientCta animation="blur">
-          <Button className="relative flex w-fit items-center rounded-full border border-primary bg-secondary-foreground/20 text-secondary-foreground px-4 py-2 shadow-[0px_4px_24px_var(--primary)] transition-colors hover:bg-primary/80 hover:text-background dark:text-primary">
+          <Button
+            variant={'outline'}
+            className="relative flex w-fit items-center rounded-full border border-primary text-primary px-4 py-2 shadow-[0px_4px_24px_var(--primary)] transition-colors hover:bg-primary"
+          >
             Book a free call <PhoneCallIcon />
           </Button>
         </HeroGradientCta>
