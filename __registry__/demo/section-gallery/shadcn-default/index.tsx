@@ -25,16 +25,11 @@ export const SectionGalleryDemo = () => {
       description="We are a team of experts with a passion for innovation and growth. We believe in the power of technology to transform the way businesses operate and thrive."
     >
       <SectionGalleryAnimationContainer className="flex flex-1/2 flex-col gap-4 items-start">
-        <SectionGalleryTitle
-          className="text-fd-diff-remove-symbol"
-          animation="top"
-        />
+        <SectionGalleryTitle className="text-primary" animation="top" />
         <SectionGalleryHeading animation="bottom" className="" />
         <SectionGalleryDescription />
         <SectionGalleryCta className="flex gap-2">
-          <Button className=" bg-fd-diff-remove-symbol text-background">
-            Learn More
-          </Button>
+          <Button className=" bg-primary text-background">Learn More</Button>
         </SectionGalleryCta>
       </SectionGalleryAnimationContainer>
 

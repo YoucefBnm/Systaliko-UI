@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-new-york-hero-gradient-demo",
+  "type": "registry:block",
+  "title": "Hero Gradient Demo",
+  "description": "Demo showing Hero Gradient Component with shadcn-new-york style.",
+  "registryDependencies": [
+    "http://localhost:3000/r/hero-gradient"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/heros/hero-gradient/shadcn-new-york/index.tsx",
+      "content": "import { Button } from '@/components/ui/button';\nimport {\n  HeroDescription,\n  HeroGradient,\n  HeroGradientCta,\n  HeroGradientText,\n  HeroHeading,\n  HeroTextBadge,\n} from '@/components/systaliko-ui/heros/hero-gradient';\nimport { PhoneCallIcon } from 'lucide-react';\n\nexport function HeroGradientDemo() {\n  return (\n    <HeroGradient\n      gradientColors={[\n        {\n          color: 'var(--color-primary)',\n          start: '-100%',\n        },\n        {\n          color: 'var(--background)',\n          start: '100%',\n        },\n      ]}\n      gradientPosition={{ x: '50%', y: '0%' }}\n      className=\"min-h-screen w-full place-content-center place-items-center text-center\"\n    >\n      <HeroGradientText className=\"flex flex-col items-center space-y-5\">\n        <HeroTextBadge className=\"text-primary\" animation=\"blur\">\n          <span className=\"inline-block text-xs\">\n            Get started with us &rarr;\n          </span>\n        </HeroTextBadge>\n\n        <HeroHeading\n          className=\"text-4xl font-semibold max-w-[22ch]\"\n          animation=\"blur\"\n        >\n          Get into the future of web development\n        </HeroHeading>\n        <HeroDescription\n          animation=\"blur\"\n          className=\"max-w-[50ch] text-muted-foreground mx-auto\"\n        >\n          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum nisi\n          sunt necessitatibus, quas, facere iste molestiae alias vel optio\n          delectus architecto enim tenetur mollitia? Soluta.\n        </HeroDescription>\n\n        <HeroGradientCta animation=\"blur\">\n          <Button className=\"relative flex w-fit items-center rounded-full border border-primary bg-secondary-foreground/20 text-secondary-foreground px-4 py-2 shadow-[0px_4px_24px_var(--primary)] transition-colors hover:bg-primary/80 hover:text-background dark:text-primary\">\n            Book a free call <PhoneCallIcon />\n          </Button>\n        </HeroGradientCta>\n      </HeroGradientText>\n    </HeroGradient>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/heros/hero-gradient.tsx"
+    }
+  ]
+}

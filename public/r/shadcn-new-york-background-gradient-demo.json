@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-new-york-background-gradient-demo",
+  "type": "registry:ui",
+  "title": "Background Gradient Demo",
+  "description": "Demo showing how to set background gradient with shadcn-new-york style.",
+  "registryDependencies": [
+    "http://localhost:3000/r/background-gradient"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/backgrounds/background-gradient/shadcn-new-york/index.tsx",
+      "content": "'use client';\n\nimport * as React from 'react';\nimport { gradientStyle } from '@/components/systaliko-ui/backgrounds/background-gradient';\nimport {\n  BackgroundConfig,\n  GradientControls,\n  useSetBackgroundConfig,\n} from '@/components/docs/background-config';\n\nfunction GradientDemoContent() {\n  const { gradientColors, gradientSize, gradientPosition } =\n    useSetBackgroundConfig();\n  const { gradientBg } = gradientStyle({\n    gradientColors,\n    gradientSize,\n    gradientPosition,\n  });\n\n  return (\n    <section\n      className=\"bg-background relative h-dvh w-full px-6 py-12 place-content-center\"\n      style={{\n        backgroundImage: gradientBg,\n      }}\n    >\n      <div className=\"absolute top-4 right-4 bg-background/80 backdrop-blur-sm p-4 rounded-lg shadow-lg\">\n        <GradientControls />\n      </div>\n      <div className=\"text-center\">\n        <h1 className=\"text-4xl font-bold mb-4\">Gradient Background Demo</h1>\n        <p className=\"text-lg\">Adjust the controls to customize the gradient</p>\n      </div>\n    </section>\n  );\n}\n\nexport function BackgroundGradientDemo() {\n  return (\n    <BackgroundConfig>\n      <GradientDemoContent />\n    </BackgroundConfig>\n  );\n}\n\nexport default BackgroundGradientDemo;\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/backgrounds/background-gradient/index.tsx"
+    }
+  ]
+}

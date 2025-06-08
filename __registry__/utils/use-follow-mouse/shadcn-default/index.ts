@@ -2,7 +2,7 @@
 import { SpringOptions, useMotionValue, useSpring } from 'motion/react';
 import { useEffect } from 'react';
 
-export function useFollowMouse(springConfig: SpringOptions) {
+export function useFollowMouse(springConfig?: SpringOptions) {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 

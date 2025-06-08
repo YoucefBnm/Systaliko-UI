@@ -5,6 +5,7 @@ import {
   CardFlipBack,
   CardFlipFront,
 } from '@/__registry__/cards/card-flip/shadcn-new-york';
+import { Button } from '@/components/ui/button';
 export function CardFlipDemo() {
   return (
     <div className="container py-12">
@@ -19,12 +20,10 @@ export function CardFlipDemo() {
               className="size-full object-cover"
             />
           </CardFlipFront>
-          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-fd-accent-foreground px-4 py-6 text-center text-white">
+          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-secondary-foreground px-4 py-6 text-center text-secondary">
             <h2 className="text-xl font-bold">Nike Air Jordan</h2>
             <h4 className="mb-4">€ 1,299.00</h4>
-            <button className="rounded-full py-2 px-4 bg-primary text-zinc-900">
-              Add to cart
-            </button>
+            <Button>Add to cart</Button>
           </CardFlipBack>
         </CardFlip>
 
@@ -38,12 +37,10 @@ export function CardFlipDemo() {
               className="size-full object-cover"
             />
           </CardFlipFront>
-          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-fd-accent-foreground px-4 py-6 text-center text-white">
+          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-secondary-foreground px-4 py-6 text-center text-secondary">
             <h2 className="text-xl font-bold">Nike Air Jordan</h2>
             <h4 className="mb-4">€ 1,299.00</h4>
-            <button className="rounded-full py-2 px-4 bg-primary text-zinc-900">
-              Add to cart
-            </button>
+            <Button>Add to cart</Button>
           </CardFlipBack>
         </CardFlip>
       </div>

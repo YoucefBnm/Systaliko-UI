@@ -22,6 +22,114 @@ export const index: Record<string, any> = {
     component: null,
     command: 'https://animate-ui.com/r/index',
   },
+  'default-background-gradient': {
+    name: 'default-background-gradient',
+    description:
+      'background gradient style fully customizable with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/backgrounds/background-gradient/default/index.ts',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/backgrounds/background-gradient.ts',
+        content:
+          "export interface GradientStyleT {\n  gradientColors: { color: string; start: string }[];\n  gradientSize: { width: string; height: string };\n  gradientPosition: { x: string; y: string };\n}\n\nexport const gradientStyle = (params: GradientStyleT) => {\n  const { gradientColors, gradientSize, gradientPosition } = params;\n\n  const gradientString = gradientColors\n    .map(({ color, start }) => `${color} ${start}`)\n    .join(', ');\n\n  const gradientBg = `radial-gradient(${gradientSize.width} ${gradientSize.height} at ${gradientPosition.x} ${gradientPosition.y}, ${gradientString})`;\n\n  return {\n    gradientString,\n    gradientBg,\n  };\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/backgrounds/background-gradient/default/index.ts'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-background-gradient';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-background-gradient',
+  },
+  'shadcn-default-background-gradient': {
+    name: 'shadcn-default-background-gradient',
+    description:
+      'background gradient style fully customizable with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/backgrounds/background-gradient/shadcn-default/index.ts',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/backgrounds/background-gradient.ts',
+        content:
+          "export interface GradientStyleT {\n  gradientColors: { color: string; start: string }[];\n  gradientSize: { width: string; height: string };\n  gradientPosition: { x: string; y: string };\n}\n\nexport const gradientStyle = (params: GradientStyleT) => {\n  const { gradientColors, gradientSize, gradientPosition } = params;\n\n  const gradientString = gradientColors\n    .map(({ color, start }) => `${color} ${start}`)\n    .join(', ');\n\n  const gradientBg = `radial-gradient(${gradientSize.width} ${gradientSize.height} at ${gradientPosition.x} ${gradientPosition.y}, ${gradientString})`;\n\n  return {\n    gradientString,\n    gradientBg,\n  };\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/backgrounds/background-gradient/shadcn-default/index.ts'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-background-gradient';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-background-gradient',
+  },
+  'shadcn-new-york-background-gradient': {
+    name: 'shadcn-new-york-background-gradient',
+    description:
+      'background gradient style fully customizable with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/backgrounds/background-gradient/shadcn-new-york/index.ts',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/backgrounds/background-gradient.ts',
+        content:
+          "export interface GradientStyleT {\n  gradientColors: { color: string; start: string }[];\n  gradientSize: { width: string; height: string };\n  gradientPosition: { x: string; y: string };\n}\n\nexport const gradientStyle = (params: GradientStyleT) => {\n  const { gradientColors, gradientSize, gradientPosition } = params;\n\n  const gradientString = gradientColors\n    .map(({ color, start }) => `${color} ${start}`)\n    .join(', ');\n\n  const gradientBg = `radial-gradient(${gradientSize.width} ${gradientSize.height} at ${gradientPosition.x} ${gradientPosition.y}, ${gradientString})`;\n\n  return {\n    gradientString,\n    gradientBg,\n  };\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/backgrounds/background-gradient/shadcn-new-york/index.ts'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-background-gradient';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-background-gradient',
+  },
   'default-copy-button': {
     name: 'default-copy-button',
     description:
@@ -996,6 +1104,114 @@ export const index: Record<string, any> = {
     command:
       'https://animate-ui.com/r/shadcn-new-york-container-infinite-scroll',
   },
+  'default-gallery-rotated-scroll': {
+    name: 'default-gallery-rotated-scroll',
+    description:
+      'Animated gallery images, with scroll triggered animations, rotates and translates on the Y axis on scroll with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/containers/gallery-rotated-scroll/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/containers/gallery-rotated-scroll.tsx',
+        content:
+          "import { cn } from '@/lib/utils';\nimport { useSmoothScroll } from '@/components/systaliko-ui/utils/use-smooth-scroll';\nimport {\n  motion,\n  HTMLMotionProps,\n  MotionValue,\n  useScroll,\n  useTransform,\n  easeInOut,\n} from 'motion/react';\nimport * as React from 'react';\n\ninterface GalleryRotatedScrollContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst GalleryRotatedScrollContext = React.createContext<\n  GalleryRotatedScrollContextValue | undefined\n>(undefined);\nexport function useGalleryRotatedScrollContext() {\n  const context = React.useContext(GalleryRotatedScrollContext);\n  if (!context) {\n    throw new Error(\n      'useGalleryRotatedScrollContext must be used within a GalleryRotatedScrollContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const GalleryRotatedScroll = ({\n  spacerClass,\n  children,\n  className,\n  style,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { spacerClass?: string }) => {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n  });\n\n  useSmoothScroll();\n\n  return (\n    <GalleryRotatedScrollContext.Provider value={{ scrollYProgress }}>\n      <div\n        ref={scrollRef}\n        className={cn('relative overflow-hidden', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n        <div className={cn('w-full', spacerClass)} />\n      </div>\n    </GalleryRotatedScrollContext.Provider>\n  );\n};\n\nGalleryRotatedScroll.displayName = 'GalleryRotatedScroll';\n\ninterface GalleryContainerProps extends HTMLMotionProps<'div'> {\n  yRange?: [number, number];\n  rotateXRange?: [number, number];\n  scaleRange?: [number, number];\n}\n\nexport const GalleryContainer = React.forwardRef<\n  HTMLDivElement,\n  GalleryContainerProps\n>(\n  (\n    {\n      yRange = [0, 300],\n      rotateXRange = [80, 0],\n      scaleRange = [1.1, 1],\n      children,\n      className,\n      style,\n      ...props\n    },\n    ref,\n  ) => {\n    const { scrollYProgress } = useGalleryRotatedScrollContext();\n\n    const y = useTransform(scrollYProgress, [0, 1], yRange, {\n      ease: easeInOut,\n    });\n\n    const rotateX = useTransform(scrollYProgress, [0, 0.5], rotateXRange, {\n      ease: easeInOut,\n    });\n\n    const scale = useTransform(scrollYProgress, [0.5, 0.9], scaleRange, {\n      ease: easeInOut,\n    });\n\n    return (\n      <motion.div\n        ref={ref}\n        className={cn('flex relative', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          willChange: 'transform',\n          backfaceVisibility: 'hidden',\n          position: 'sticky',\n          top: 0,\n          y,\n          rotateX,\n          scale,\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n      </motion.div>\n    );\n  },\n);\nGalleryContainer.displayName = 'GalleryContainer';\n\nexport const GalleryCol = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { yRange?: [string, string] }\n>(({ yRange = ['-5%', '1%'], className, style, ...props }, ref) => {\n  const { scrollYProgress } = useGalleryRotatedScrollContext();\n\n  const y = useTransform(scrollYProgress, [0.4, 0.8], yRange, {\n    ease: easeInOut,\n  });\n\n  return (\n    <motion.div\n      ref={ref}\n      className={cn('relative flex flex-col w-full', className)}\n      style={{\n        y,\n        backfaceVisibility: 'hidden',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n});\nGalleryCol.displayName = 'GalleryCol';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/containers/gallery-rotated-scroll/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-gallery-rotated-scroll';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-gallery-rotated-scroll',
+  },
+  'shadcn-default-gallery-rotated-scroll': {
+    name: 'shadcn-default-gallery-rotated-scroll',
+    description:
+      'Animated gallery images, with scroll triggered animations, rotates and translates on the Y axis on scroll with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/containers/gallery-rotated-scroll/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/containers/gallery-rotated-scroll.tsx',
+        content:
+          "import { cn } from '@/lib/utils';\nimport { useSmoothScroll } from '@/components/systaliko-ui/utils/use-smooth-scroll';\nimport {\n  motion,\n  HTMLMotionProps,\n  MotionValue,\n  useScroll,\n  useTransform,\n  easeInOut,\n} from 'motion/react';\nimport * as React from 'react';\n\ninterface GalleryRotatedScrollContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst GalleryRotatedScrollContext = React.createContext<\n  GalleryRotatedScrollContextValue | undefined\n>(undefined);\nexport function useGalleryRotatedScrollContext() {\n  const context = React.useContext(GalleryRotatedScrollContext);\n  if (!context) {\n    throw new Error(\n      'useGalleryRotatedScrollContext must be used within a GalleryRotatedScrollContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const GalleryRotatedScroll = ({\n  spacerClass,\n  children,\n  className,\n  style,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { spacerClass?: string }) => {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n  });\n\n  useSmoothScroll();\n\n  return (\n    <GalleryRotatedScrollContext.Provider value={{ scrollYProgress }}>\n      <div\n        ref={scrollRef}\n        className={cn('relative overflow-hidden', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n        <div className={cn('w-full', spacerClass)} />\n      </div>\n    </GalleryRotatedScrollContext.Provider>\n  );\n};\n\nGalleryRotatedScroll.displayName = 'GalleryRotatedScroll';\n\ninterface GalleryContainerProps extends HTMLMotionProps<'div'> {\n  yRange?: [number, number];\n  rotateXRange?: [number, number];\n  scaleRange?: [number, number];\n}\n\nexport const GalleryContainer = React.forwardRef<\n  HTMLDivElement,\n  GalleryContainerProps\n>(\n  (\n    {\n      yRange = [0, 300],\n      rotateXRange = [80, 0],\n      scaleRange = [1.1, 1],\n      children,\n      className,\n      style,\n      ...props\n    },\n    ref,\n  ) => {\n    const { scrollYProgress } = useGalleryRotatedScrollContext();\n\n    const y = useTransform(scrollYProgress, [0, 1], yRange, {\n      ease: easeInOut,\n    });\n\n    const rotateX = useTransform(scrollYProgress, [0, 0.5], rotateXRange, {\n      ease: easeInOut,\n    });\n\n    const scale = useTransform(scrollYProgress, [0.5, 0.9], scaleRange, {\n      ease: easeInOut,\n    });\n\n    return (\n      <motion.div\n        ref={ref}\n        className={cn('flex relative', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          willChange: 'transform',\n          backfaceVisibility: 'hidden',\n          position: 'sticky',\n          top: 0,\n          y,\n          rotateX,\n          scale,\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n      </motion.div>\n    );\n  },\n);\nGalleryContainer.displayName = 'GalleryContainer';\n\nexport const GalleryCol = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { yRange?: [string, string] }\n>(({ yRange = ['-5%', '1%'], className, style, ...props }, ref) => {\n  const { scrollYProgress } = useGalleryRotatedScrollContext();\n\n  const y = useTransform(scrollYProgress, [0.4, 0.8], yRange, {\n    ease: easeInOut,\n  });\n\n  return (\n    <motion.div\n      ref={ref}\n      className={cn('relative flex flex-col w-full', className)}\n      style={{\n        y,\n        backfaceVisibility: 'hidden',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n});\nGalleryCol.displayName = 'GalleryCol';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/containers/gallery-rotated-scroll/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-gallery-rotated-scroll';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-gallery-rotated-scroll',
+  },
+  'shadcn-new-york-gallery-rotated-scroll': {
+    name: 'shadcn-new-york-gallery-rotated-scroll',
+    description:
+      'Animated gallery images, with scroll triggered animations, rotates and translates on the Y axis on scroll with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/containers/gallery-rotated-scroll/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/containers/gallery-rotated-scroll.tsx',
+        content:
+          "import { cn } from '@/lib/utils';\nimport { useSmoothScroll } from '@/components/systaliko-ui/utils/use-smooth-scroll';\nimport {\n  motion,\n  HTMLMotionProps,\n  MotionValue,\n  useScroll,\n  useTransform,\n  easeInOut,\n} from 'motion/react';\nimport * as React from 'react';\n\ninterface GalleryRotatedScrollContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst GalleryRotatedScrollContext = React.createContext<\n  GalleryRotatedScrollContextValue | undefined\n>(undefined);\nexport function useGalleryRotatedScrollContext() {\n  const context = React.useContext(GalleryRotatedScrollContext);\n  if (!context) {\n    throw new Error(\n      'useGalleryRotatedScrollContext must be used within a GalleryRotatedScrollContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const GalleryRotatedScroll = ({\n  spacerClass,\n  children,\n  className,\n  style,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { spacerClass?: string }) => {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n  });\n\n  useSmoothScroll();\n\n  return (\n    <GalleryRotatedScrollContext.Provider value={{ scrollYProgress }}>\n      <div\n        ref={scrollRef}\n        className={cn('relative overflow-hidden', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n        <div className={cn('w-full', spacerClass)} />\n      </div>\n    </GalleryRotatedScrollContext.Provider>\n  );\n};\n\nGalleryRotatedScroll.displayName = 'GalleryRotatedScroll';\n\ninterface GalleryContainerProps extends HTMLMotionProps<'div'> {\n  yRange?: [number, number];\n  rotateXRange?: [number, number];\n  scaleRange?: [number, number];\n}\n\nexport const GalleryContainer = React.forwardRef<\n  HTMLDivElement,\n  GalleryContainerProps\n>(\n  (\n    {\n      yRange = [0, 300],\n      rotateXRange = [80, 0],\n      scaleRange = [1.1, 1],\n      children,\n      className,\n      style,\n      ...props\n    },\n    ref,\n  ) => {\n    const { scrollYProgress } = useGalleryRotatedScrollContext();\n\n    const y = useTransform(scrollYProgress, [0, 1], yRange, {\n      ease: easeInOut,\n    });\n\n    const rotateX = useTransform(scrollYProgress, [0, 0.5], rotateXRange, {\n      ease: easeInOut,\n    });\n\n    const scale = useTransform(scrollYProgress, [0.5, 0.9], scaleRange, {\n      ease: easeInOut,\n    });\n\n    return (\n      <motion.div\n        ref={ref}\n        className={cn('flex relative', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          willChange: 'transform',\n          backfaceVisibility: 'hidden',\n          position: 'sticky',\n          top: 0,\n          y,\n          rotateX,\n          scale,\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n      </motion.div>\n    );\n  },\n);\nGalleryContainer.displayName = 'GalleryContainer';\n\nexport const GalleryCol = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { yRange?: [string, string] }\n>(({ yRange = ['-5%', '1%'], className, style, ...props }, ref) => {\n  const { scrollYProgress } = useGalleryRotatedScrollContext();\n\n  const y = useTransform(scrollYProgress, [0.4, 0.8], yRange, {\n    ease: easeInOut,\n  });\n\n  return (\n    <motion.div\n      ref={ref}\n      className={cn('relative flex flex-col w-full', className)}\n      style={{\n        y,\n        backfaceVisibility: 'hidden',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n});\nGalleryCol.displayName = 'GalleryCol';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/containers/gallery-rotated-scroll/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-gallery-rotated-scroll';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-gallery-rotated-scroll',
+  },
   'default-grid-bento': {
     name: 'default-grid-bento',
     description:
@@ -1320,6 +1536,118 @@ export const index: Record<string, any> = {
     })(),
     command: 'https://animate-ui.com/r/shadcn-new-york-text-stagger-hover',
   },
+  'default-background-gradient-demo': {
+    name: 'default-background-gradient-demo',
+    description:
+      'Demo showing how to set background gradient with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/background-gradient'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/backgrounds/background-gradient/default/index.tsx',
+        type: 'registry:ui',
+        target:
+          'components/systaliko-ui/demo/backgrounds/background-gradient/index.tsx',
+        content:
+          '\'use client\';\n\nimport * as React from \'react\';\nimport { gradientStyle } from \'@/components/systaliko-ui/backgrounds/background-gradient\';\nimport {\n  BackgroundConfig,\n  GradientControls,\n  useSetBackgroundConfig,\n} from \'@/components/docs/background-config\';\n\nfunction GradientDemoContent() {\n  const { gradientColors, gradientSize, gradientPosition } =\n    useSetBackgroundConfig();\n  const { gradientBg } = gradientStyle({\n    gradientColors,\n    gradientSize,\n    gradientPosition,\n  });\n\n  return (\n    <section\n      className="bg-background relative h-dvh w-full px-6 py-12 place-content-center"\n      style={{\n        backgroundImage: gradientBg,\n      }}\n    >\n      <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm p-4 rounded-lg shadow-lg">\n        <GradientControls />\n      </div>\n      <div className="text-center">\n        <h1 className="text-4xl font-bold mb-4">Gradient Background Demo</h1>\n        <p className="text-lg">Adjust the controls to customize the gradient</p>\n      </div>\n    </section>\n  );\n}\n\nexport function BackgroundGradientDemo() {\n  return (\n    <BackgroundConfig>\n      <GradientDemoContent />\n    </BackgroundConfig>\n  );\n}\n\nexport default BackgroundGradientDemo;',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/backgrounds/background-gradient/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-background-gradient-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-background-gradient-demo',
+  },
+  'shadcn-default-background-gradient-demo': {
+    name: 'shadcn-default-background-gradient-demo',
+    description:
+      'Demo showing how to set background gradient with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/background-gradient'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/backgrounds/background-gradient/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target:
+          'components/systaliko-ui/demo/backgrounds/background-gradient/index.tsx',
+        content:
+          '\'use client\';\n\nimport * as React from \'react\';\nimport { gradientStyle } from \'@/components/systaliko-ui/backgrounds/background-gradient\';\nimport {\n  BackgroundConfig,\n  GradientControls,\n  useSetBackgroundConfig,\n} from \'@/components/docs/background-config\';\n\nfunction GradientDemoContent() {\n  const { gradientColors, gradientSize, gradientPosition } =\n    useSetBackgroundConfig();\n  const { gradientBg } = gradientStyle({\n    gradientColors,\n    gradientSize,\n    gradientPosition,\n  });\n\n  return (\n    <section\n      className="bg-background relative h-dvh w-full px-6 py-12 place-content-center"\n      style={{\n        backgroundImage: gradientBg,\n      }}\n    >\n      <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm p-4 rounded-lg shadow-lg">\n        <GradientControls />\n      </div>\n      <div className="text-center">\n        <h1 className="text-4xl font-bold mb-4">Gradient Background Demo</h1>\n        <p className="text-lg">Adjust the controls to customize the gradient</p>\n      </div>\n    </section>\n  );\n}\n\nexport function BackgroundGradientDemo() {\n  return (\n    <BackgroundConfig>\n      <GradientDemoContent />\n    </BackgroundConfig>\n  );\n}\n\nexport default BackgroundGradientDemo;',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/backgrounds/background-gradient/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-background-gradient-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-background-gradient-demo',
+  },
+  'shadcn-new-york-background-gradient-demo': {
+    name: 'shadcn-new-york-background-gradient-demo',
+    description:
+      'Demo showing how to set background gradient with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/background-gradient'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/backgrounds/background-gradient/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target:
+          'components/systaliko-ui/demo/backgrounds/background-gradient/index.tsx',
+        content:
+          '\'use client\';\n\nimport * as React from \'react\';\nimport { gradientStyle } from \'@/components/systaliko-ui/backgrounds/background-gradient\';\nimport {\n  BackgroundConfig,\n  GradientControls,\n  useSetBackgroundConfig,\n} from \'@/components/docs/background-config\';\n\nfunction GradientDemoContent() {\n  const { gradientColors, gradientSize, gradientPosition } =\n    useSetBackgroundConfig();\n  const { gradientBg } = gradientStyle({\n    gradientColors,\n    gradientSize,\n    gradientPosition,\n  });\n\n  return (\n    <section\n      className="bg-background relative h-dvh w-full px-6 py-12 place-content-center"\n      style={{\n        backgroundImage: gradientBg,\n      }}\n    >\n      <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm p-4 rounded-lg shadow-lg">\n        <GradientControls />\n      </div>\n      <div className="text-center">\n        <h1 className="text-4xl font-bold mb-4">Gradient Background Demo</h1>\n        <p className="text-lg">Adjust the controls to customize the gradient</p>\n      </div>\n    </section>\n  );\n}\n\nexport function BackgroundGradientDemo() {\n  return (\n    <BackgroundConfig>\n      <GradientDemoContent />\n    </BackgroundConfig>\n  );\n}\n\nexport default BackgroundGradientDemo;',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/backgrounds/background-gradient/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-background-gradient-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://animate-ui.com/r/shadcn-new-york-background-gradient-demo',
+  },
   'default-card-curtain-reveal-demo': {
     name: 'default-card-curtain-reveal-demo',
     description:
@@ -1443,7 +1771,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/cards/card-flip.tsx',
         content:
-          '\'use client\';\nimport * as React from \'react\';\nimport {\n  CardFlip,\n  CardFlipBack,\n  CardFlipFront,\n} from \'@/components/systaliko-ui/cards/card-flip\';\nexport function CardFlipDemo() {\n  return (\n    <div className="container py-12">\n      <div className="flex flex-wrap justify-center gap-4">\n        <CardFlip className="h-96 w-2/6">\n          <CardFlipFront className="rounded-xl">\n            <img\n              width={1015}\n              height={678}\n              src="https://images.unsplash.com/photo-1655853548169-646b6e0f15ca?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n              alt="nike air jordan"\n              className="size-full object-cover"\n            />\n          </CardFlipFront>\n          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-fd-accent-foreground px-4 py-6 text-center text-white">\n            <h2 className="text-xl font-bold">Nike Air Jordan</h2>\n            <h4 className="mb-4">€ 1,299.00</h4>\n            <button className="rounded-full py-2 px-4 bg-primary text-zinc-900">\n              Add to cart\n            </button>\n          </CardFlipBack>\n        </CardFlip>\n\n        <CardFlip flipDirection="vertical" className="h-96 w-2/6">\n          <CardFlipFront className="rounded-xl">\n            <img\n              width={542}\n              height={678}\n              src="https://images.unsplash.com/photo-1656944227425-5646be300a14?q=80&w=2527&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n              alt="nike air jordan"\n              className="size-full object-cover"\n            />\n          </CardFlipFront>\n          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-fd-accent-foreground px-4 py-6 text-center text-white">\n            <h2 className="text-xl font-bold">Nike Air Jordan</h2>\n            <h4 className="mb-4">€ 1,299.00</h4>\n            <button className="rounded-full py-2 px-4 bg-primary text-zinc-900">\n              Add to cart\n            </button>\n          </CardFlipBack>\n        </CardFlip>\n      </div>\n    </div>\n  );\n}',
+          '\'use client\';\nimport * as React from \'react\';\nimport {\n  CardFlip,\n  CardFlipBack,\n  CardFlipFront,\n} from \'@/components/systaliko-ui/cards/card-flip\';\nimport { Button } from \'@/components/ui/button\';\nexport function CardFlipDemo() {\n  return (\n    <div className="container py-12">\n      <div className="flex flex-wrap justify-center gap-4">\n        <CardFlip className="h-96 w-2/6">\n          <CardFlipFront className="rounded-xl">\n            <img\n              width={1015}\n              height={678}\n              src="https://images.unsplash.com/photo-1655853548169-646b6e0f15ca?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n              alt="nike air jordan"\n              className="size-full object-cover"\n            />\n          </CardFlipFront>\n          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-secondary-foreground px-4 py-6 text-center text-secondary">\n            <h2 className="text-xl font-bold">Nike Air Jordan</h2>\n            <h4 className="mb-4">€ 1,299.00</h4>\n            <Button>Add to cart</Button>\n          </CardFlipBack>\n        </CardFlip>\n\n        <CardFlip flipDirection="vertical" className="h-96 w-2/6">\n          <CardFlipFront className="rounded-xl">\n            <img\n              width={542}\n              height={678}\n              src="https://images.unsplash.com/photo-1656944227425-5646be300a14?q=80&w=2527&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n              alt="nike air jordan"\n              className="size-full object-cover"\n            />\n          </CardFlipFront>\n          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-secondary-foreground px-4 py-6 text-center text-secondary">\n            <h2 className="text-xl font-bold">Nike Air Jordan</h2>\n            <h4 className="mb-4">€ 1,299.00</h4>\n            <Button>Add to cart</Button>\n          </CardFlipBack>\n        </CardFlip>\n      </div>\n    </div>\n  );\n}',
       },
     ],
     component: (function () {
@@ -1478,7 +1806,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/cards/card-flip.tsx',
         content:
-          '\'use client\';\nimport * as React from \'react\';\nimport {\n  CardFlip,\n  CardFlipBack,\n  CardFlipFront,\n} from \'@/components/systaliko-ui/cards/card-flip\';\nexport function CardFlipDemo() {\n  return (\n    <div className="container py-12">\n      <div className="flex flex-wrap justify-center gap-4">\n        <CardFlip className="h-96 w-2/6">\n          <CardFlipFront className="rounded-xl">\n            <img\n              width={1015}\n              height={678}\n              src="https://images.unsplash.com/photo-1655853548169-646b6e0f15ca?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n              alt="nike air jordan"\n              className="size-full object-cover"\n            />\n          </CardFlipFront>\n          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-fd-accent-foreground px-4 py-6 text-center text-white">\n            <h2 className="text-xl font-bold">Nike Air Jordan</h2>\n            <h4 className="mb-4">€ 1,299.00</h4>\n            <button className="rounded-full py-2 px-4 bg-primary text-zinc-900">\n              Add to cart\n            </button>\n          </CardFlipBack>\n        </CardFlip>\n\n        <CardFlip flipDirection="vertical" className="h-96 w-2/6">\n          <CardFlipFront className="rounded-xl">\n            <img\n              width={542}\n              height={678}\n              src="https://images.unsplash.com/photo-1656944227425-5646be300a14?q=80&w=2527&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n              alt="nike air jordan"\n              className="size-full object-cover"\n            />\n          </CardFlipFront>\n          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-fd-accent-foreground px-4 py-6 text-center text-white">\n            <h2 className="text-xl font-bold">Nike Air Jordan</h2>\n            <h4 className="mb-4">€ 1,299.00</h4>\n            <button className="rounded-full py-2 px-4 bg-primary text-zinc-900">\n              Add to cart\n            </button>\n          </CardFlipBack>\n        </CardFlip>\n      </div>\n    </div>\n  );\n}',
+          '\'use client\';\nimport * as React from \'react\';\nimport {\n  CardFlip,\n  CardFlipBack,\n  CardFlipFront,\n} from \'@/components/systaliko-ui/cards/card-flip\';\nimport { Button } from \'@/components/ui/button\';\nexport function CardFlipDemo() {\n  return (\n    <div className="container py-12">\n      <div className="flex flex-wrap justify-center gap-4">\n        <CardFlip className="h-96 w-2/6">\n          <CardFlipFront className="rounded-xl">\n            <img\n              width={1015}\n              height={678}\n              src="https://images.unsplash.com/photo-1655853548169-646b6e0f15ca?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n              alt="nike air jordan"\n              className="size-full object-cover"\n            />\n          </CardFlipFront>\n          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-secondary-foreground px-4 py-6 text-center text-secondary">\n            <h2 className="text-xl font-bold">Nike Air Jordan</h2>\n            <h4 className="mb-4">€ 1,299.00</h4>\n            <Button>Add to cart</Button>\n          </CardFlipBack>\n        </CardFlip>\n\n        <CardFlip flipDirection="vertical" className="h-96 w-2/6">\n          <CardFlipFront className="rounded-xl">\n            <img\n              width={542}\n              height={678}\n              src="https://images.unsplash.com/photo-1656944227425-5646be300a14?q=80&w=2527&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n              alt="nike air jordan"\n              className="size-full object-cover"\n            />\n          </CardFlipFront>\n          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-secondary-foreground px-4 py-6 text-center text-secondary">\n            <h2 className="text-xl font-bold">Nike Air Jordan</h2>\n            <h4 className="mb-4">€ 1,299.00</h4>\n            <Button>Add to cart</Button>\n          </CardFlipBack>\n        </CardFlip>\n      </div>\n    </div>\n  );\n}',
       },
     ],
     component: (function () {
@@ -1513,7 +1841,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/cards/card-flip.tsx',
         content:
-          '\'use client\';\nimport * as React from \'react\';\nimport {\n  CardFlip,\n  CardFlipBack,\n  CardFlipFront,\n} from \'@/components/systaliko-ui/cards/card-flip\';\nexport function CardFlipDemo() {\n  return (\n    <div className="container py-12">\n      <div className="flex flex-wrap justify-center gap-4">\n        <CardFlip className="h-96 w-2/6">\n          <CardFlipFront className="rounded-xl">\n            <img\n              width={1015}\n              height={678}\n              src="https://images.unsplash.com/photo-1655853548169-646b6e0f15ca?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n              alt="nike air jordan"\n              className="size-full object-cover"\n            />\n          </CardFlipFront>\n          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-fd-accent-foreground px-4 py-6 text-center text-white">\n            <h2 className="text-xl font-bold">Nike Air Jordan</h2>\n            <h4 className="mb-4">€ 1,299.00</h4>\n            <button className="rounded-full py-2 px-4 bg-primary text-zinc-900">\n              Add to cart\n            </button>\n          </CardFlipBack>\n        </CardFlip>\n\n        <CardFlip flipDirection="vertical" className="h-96 w-2/6">\n          <CardFlipFront className="rounded-xl">\n            <img\n              width={542}\n              height={678}\n              src="https://images.unsplash.com/photo-1656944227425-5646be300a14?q=80&w=2527&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n              alt="nike air jordan"\n              className="size-full object-cover"\n            />\n          </CardFlipFront>\n          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-fd-accent-foreground px-4 py-6 text-center text-white">\n            <h2 className="text-xl font-bold">Nike Air Jordan</h2>\n            <h4 className="mb-4">€ 1,299.00</h4>\n            <button className="rounded-full py-2 px-4 bg-primary text-zinc-900">\n              Add to cart\n            </button>\n          </CardFlipBack>\n        </CardFlip>\n      </div>\n    </div>\n  );\n}',
+          '\'use client\';\nimport * as React from \'react\';\nimport {\n  CardFlip,\n  CardFlipBack,\n  CardFlipFront,\n} from \'@/components/systaliko-ui/cards/card-flip\';\nimport { Button } from \'@/components/ui/button\';\nexport function CardFlipDemo() {\n  return (\n    <div className="container py-12">\n      <div className="flex flex-wrap justify-center gap-4">\n        <CardFlip className="h-96 w-2/6">\n          <CardFlipFront className="rounded-xl">\n            <img\n              width={1015}\n              height={678}\n              src="https://images.unsplash.com/photo-1655853548169-646b6e0f15ca?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n              alt="nike air jordan"\n              className="size-full object-cover"\n            />\n          </CardFlipFront>\n          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-secondary-foreground px-4 py-6 text-center text-secondary">\n            <h2 className="text-xl font-bold">Nike Air Jordan</h2>\n            <h4 className="mb-4">€ 1,299.00</h4>\n            <Button>Add to cart</Button>\n          </CardFlipBack>\n        </CardFlip>\n\n        <CardFlip flipDirection="vertical" className="h-96 w-2/6">\n          <CardFlipFront className="rounded-xl">\n            <img\n              width={542}\n              height={678}\n              src="https://images.unsplash.com/photo-1656944227425-5646be300a14?q=80&w=2527&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n              alt="nike air jordan"\n              className="size-full object-cover"\n            />\n          </CardFlipFront>\n          <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-secondary-foreground px-4 py-6 text-center text-secondary">\n            <h2 className="text-xl font-bold">Nike Air Jordan</h2>\n            <h4 className="mb-4">€ 1,299.00</h4>\n            <Button>Add to cart</Button>\n          </CardFlipBack>\n        </CardFlip>\n      </div>\n    </div>\n  );\n}',
       },
     ],
     component: (function () {
@@ -1548,7 +1876,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/cards/card-hover-reveal.tsx',
         content:
-          'import {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from \'@/components/systaliko-ui/cards/card-hover-reveal\';\n\nexport const CardHoverRevealDemo = () => (\n  <CardHoverReveal className="h-[512px] w-[385px] rounded-xl">\n    <CardHoverRevealMain hoverScale={1.2}>\n      <img\n        width={1077}\n        height={606}\n        alt="product image"\n        src="https://images.unsplash.com/photo-1619551734325-81aaf323686c?q=80&w=2549&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        className="inline-block size-full max-h-full max-w-full object-cover align-middle"\n      />\n    </CardHoverRevealMain>\n\n    <CardHoverRevealContent className="space-y-4 rounded-2xl bg-fd-foreground/70 text-zinc-50">\n      <div className="space-y-2">\n        <h3 className="text-sm text-opacity-60">Services</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-fd-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">Branding</p>\n          </div>\n          <div className=" rounded-full bg-fd-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">UI UX</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className=" text-sm text-opacity-60">Stack</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Figma</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Webflow</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className="text-sm text-opacity-60">Profile</h3>\n        {/* tag */}\n        <div className="flex flex-wrap gap-2 ">\n          <p className="text-sm text-card">\n            Comprehensive platform designed for an agency, Creating professional\n            and business-oriented brand.\n          </p>\n        </div>\n      </div>\n    </CardHoverRevealContent>\n  </CardHoverReveal>\n);',
+          'import {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from \'@/components/systaliko-ui/cards/card-hover-reveal\';\n\nexport const CardHoverRevealDemo = () => (\n  <CardHoverReveal className="h-[512px] w-[385px] rounded-xl">\n    <CardHoverRevealMain hoverScale={1.2}>\n      <img\n        width={1077}\n        height={606}\n        alt="product image"\n        src="https://images.unsplash.com/photo-1619551734325-81aaf323686c?q=80&w=2549&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        className="inline-block size-full max-h-full max-w-full object-cover align-middle"\n      />\n    </CardHoverRevealMain>\n\n    <CardHoverRevealContent className="space-y-4 rounded-2xl bg-black/80 text-secondary/80 p-4">\n      <div className="space-y-2">\n        <h3 className="text-sm ">Services</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-secondary-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">Branding</p>\n          </div>\n          <div className=" rounded-full bg-secondary-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">3D Modeling</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className=" text-sm ">Stack</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Auto CAD</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Key Shot</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">In Design</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className="text-sm ">Profile</h3>\n        {/* tag */}\n        <div className="flex flex-wrap gap-2 ">\n          <p className="text-sm text-secondary">\n            Comprehensive platform designed for an agency, Creating professional\n            and business-oriented brand.\n          </p>\n        </div>\n      </div>\n    </CardHoverRevealContent>\n  </CardHoverReveal>\n);',
       },
     ],
     component: (function () {
@@ -1584,7 +1912,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/cards/card-hover-reveal.tsx',
         content:
-          'import {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from \'@/components/systaliko-ui/cards/card-hover-reveal\';\n\nexport const CardHoverRevealDemo = () => (\n  <CardHoverReveal className="h-[512px] w-[385px] rounded-xl">\n    <CardHoverRevealMain hoverScale={1.2}>\n      <img\n        width={1077}\n        height={606}\n        alt="product image"\n        src="https://images.unsplash.com/photo-1619551734325-81aaf323686c?q=80&w=2549&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        className="inline-block size-full max-h-full max-w-full object-cover align-middle"\n      />\n    </CardHoverRevealMain>\n\n    <CardHoverRevealContent className="space-y-4 rounded-2xl bg-fd-foreground/70 text-zinc-50">\n      <div className="space-y-2">\n        <h3 className="text-sm text-opacity-60">Services</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-fd-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">Branding</p>\n          </div>\n          <div className=" rounded-full bg-fd-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">UI UX</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className=" text-sm text-opacity-60">Stack</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Figma</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Webflow</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className="text-sm text-opacity-60">Profile</h3>\n        {/* tag */}\n        <div className="flex flex-wrap gap-2 ">\n          <p className="text-sm text-card">\n            Comprehensive platform designed for an agency, Creating professional\n            and business-oriented brand.\n          </p>\n        </div>\n      </div>\n    </CardHoverRevealContent>\n  </CardHoverReveal>\n);',
+          'import {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from \'@/components/systaliko-ui/cards/card-hover-reveal\';\n\nexport const CardHoverRevealDemo = () => (\n  <CardHoverReveal className="h-[512px] w-[385px] rounded-xl">\n    <CardHoverRevealMain hoverScale={1.2}>\n      <img\n        width={1077}\n        height={606}\n        alt="product image"\n        src="https://images.unsplash.com/photo-1619551734325-81aaf323686c?q=80&w=2549&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        className="inline-block size-full max-h-full max-w-full object-cover align-middle"\n      />\n    </CardHoverRevealMain>\n\n    <CardHoverRevealContent className="space-y-4 rounded-2xl bg-black/80 text-secondary/80 p-4">\n      <div className="space-y-2">\n        <h3 className="text-sm ">Services</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-secondary-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">Branding</p>\n          </div>\n          <div className=" rounded-full bg-secondary-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">3D Modeling</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className=" text-sm ">Stack</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Auto CAD</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Key Shot</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">In Design</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className="text-sm ">Profile</h3>\n        {/* tag */}\n        <div className="flex flex-wrap gap-2 ">\n          <p className="text-sm text-secondary">\n            Comprehensive platform designed for an agency, Creating professional\n            and business-oriented brand.\n          </p>\n        </div>\n      </div>\n    </CardHoverRevealContent>\n  </CardHoverReveal>\n);',
       },
     ],
     component: (function () {
@@ -1620,7 +1948,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/cards/card-hover-reveal.tsx',
         content:
-          'import {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from \'@/components/systaliko-ui/cards/card-hover-reveal\';\n\nexport const CardHoverRevealDemo = () => (\n  <CardHoverReveal className="h-[512px] w-[385px] rounded-xl">\n    <CardHoverRevealMain hoverScale={1.2}>\n      <img\n        width={1077}\n        height={606}\n        alt="product image"\n        src="https://images.unsplash.com/photo-1619551734325-81aaf323686c?q=80&w=2549&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        className="inline-block size-full max-h-full max-w-full object-cover align-middle"\n      />\n    </CardHoverRevealMain>\n\n    <CardHoverRevealContent className="space-y-4 rounded-2xl bg-fd-foreground/70 text-zinc-50">\n      <div className="space-y-2">\n        <h3 className="text-sm text-opacity-60">Services</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-fd-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">Branding</p>\n          </div>\n          <div className=" rounded-full bg-fd-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">UI UX</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className=" text-sm text-opacity-60">Stack</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Figma</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Webflow</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className="text-sm text-opacity-60">Profile</h3>\n        {/* tag */}\n        <div className="flex flex-wrap gap-2 ">\n          <p className="text-sm text-card">\n            Comprehensive platform designed for an agency, Creating professional\n            and business-oriented brand.\n          </p>\n        </div>\n      </div>\n    </CardHoverRevealContent>\n  </CardHoverReveal>\n);',
+          'import {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from \'@/components/systaliko-ui/cards/card-hover-reveal\';\n\nexport const CardHoverRevealDemo = () => (\n  <CardHoverReveal className="h-[512px] w-[385px] rounded-xl">\n    <CardHoverRevealMain hoverScale={1.2}>\n      <img\n        width={1077}\n        height={606}\n        alt="product image"\n        src="https://images.unsplash.com/photo-1619551734325-81aaf323686c?q=80&w=2549&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        className="inline-block size-full max-h-full max-w-full object-cover align-middle"\n      />\n    </CardHoverRevealMain>\n\n    <CardHoverRevealContent className="space-y-4 rounded-2xl bg-black/80 text-secondary/80 p-4">\n      <div className="space-y-2">\n        <h3 className="text-sm ">Services</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-secondary-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">Branding</p>\n          </div>\n          <div className=" rounded-full bg-secondary-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">3D Modeling</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className=" text-sm ">Stack</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Auto CAD</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Key Shot</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">In Design</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className="text-sm ">Profile</h3>\n        {/* tag */}\n        <div className="flex flex-wrap gap-2 ">\n          <p className="text-sm text-secondary">\n            Comprehensive platform designed for an agency, Creating professional\n            and business-oriented brand.\n          </p>\n        </div>\n      </div>\n    </CardHoverRevealContent>\n  </CardHoverReveal>\n);',
       },
     ],
     component: (function () {
@@ -2183,6 +2511,119 @@ export const index: Record<string, any> = {
     command:
       'https://animate-ui.com/r/shadcn-new-york-container-infinite-scroll-demo',
   },
+  'default-gallery-rotated-scroll-demo': {
+    name: 'default-gallery-rotated-scroll-demo',
+    description:
+      'Demo showing how to use GalleryRotatedScroll component with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/gallery-rotated-scroll'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/gallery-rotated-scroll/default/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/containers/gallery-rotated-scroll.tsx',
+        content:
+          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1564284369929-026ba231f89b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1532236204992-f5e85c024202?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const GalleryRotatedScrollDemo = () => {\n  return (\n    <GalleryRotatedScroll spacerClass=\"h-96\">\n      <div\n        className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n        style={{\n          background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n          filter: 'blur(84px)',\n          mixBlendMode: 'screen',\n        }}\n      />\n\n      <GalleryContainer className=\"h-dvh  gap-2\">\n        <GalleryCol className=\"-mt-2 gap-2\">\n          {IMAGES_1.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n          {IMAGES_2.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 -mt-2\">\n          {IMAGES_3.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/gallery-rotated-scroll/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-gallery-rotated-scroll-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-gallery-rotated-scroll-demo',
+  },
+  'shadcn-default-gallery-rotated-scroll-demo': {
+    name: 'shadcn-default-gallery-rotated-scroll-demo',
+    description:
+      'Demo showing how to use GalleryRotatedScroll component with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/gallery-rotated-scroll'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/gallery-rotated-scroll/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/containers/gallery-rotated-scroll.tsx',
+        content:
+          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1564284369929-026ba231f89b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1532236204992-f5e85c024202?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const GalleryRotatedScrollDemo = () => {\n  return (\n    <GalleryRotatedScroll spacerClass=\"h-96\">\n      <div\n        className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n        style={{\n          background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n          filter: 'blur(84px)',\n          mixBlendMode: 'screen',\n        }}\n      />\n\n      <GalleryContainer className=\"h-dvh  gap-2\">\n        <GalleryCol className=\"-mt-2 gap-2\">\n          {IMAGES_1.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n          {IMAGES_2.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 -mt-2\">\n          {IMAGES_3.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/gallery-rotated-scroll/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-gallery-rotated-scroll-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://animate-ui.com/r/shadcn-default-gallery-rotated-scroll-demo',
+  },
+  'shadcn-new-york-gallery-rotated-scroll-demo': {
+    name: 'shadcn-new-york-gallery-rotated-scroll-demo',
+    description:
+      'Demo showing how to use GalleryRotatedScroll component with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/gallery-rotated-scroll'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/gallery-rotated-scroll/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/containers/gallery-rotated-scroll.tsx',
+        content:
+          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1564284369929-026ba231f89b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1532236204992-f5e85c024202?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const GalleryRotatedScrollDemo = () => {\n  return (\n    <GalleryRotatedScroll spacerClass=\"h-96\">\n      <div\n        className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n        style={{\n          background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n          filter: 'blur(84px)',\n          mixBlendMode: 'screen',\n        }}\n      />\n\n      <GalleryContainer className=\"h-dvh  gap-2\">\n        <GalleryCol className=\"-mt-2 gap-2\">\n          {IMAGES_1.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n          {IMAGES_2.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 -mt-2\">\n          {IMAGES_3.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/gallery-rotated-scroll/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-gallery-rotated-scroll-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://animate-ui.com/r/shadcn-new-york-gallery-rotated-scroll-demo',
+  },
   'default-grid-bento-demo': {
     name: 'default-grid-bento-demo',
     description: 'Grid Bento Demo with multiple variants with default style.',
@@ -2412,7 +2853,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/custom-cursor.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport { CustomCursor, useSetCursorVariant } from \'@/components/systaliko-ui/custom-cursor\';\nimport { MapPinIcon } from \'lucide-react\';\n\nexport function CustomCursorDemo() {\n  const {\n    handleCustomStyle,\n    setCursorVariant,\n    cursorChildren,\n    cursorVariant,\n    setCursorChildren,\n    resetCursorChildren,\n    resetStyle,\n  } = useSetCursorVariant();\n\n  return (\n    <div className="container flex justify-between gap-12 flex-wrap items-center py-12 px-6 min-h-svh">\n      <CustomCursor variant={cursorVariant} cursorChildren={cursorChildren} />\n      <div className="flex flex-1 flex-col gap-4 items-start">\n        <h1\n          className="text-5xl tracking-tight font-semibold"\n          onMouseEnter={() => {\n            setCursorChildren(null);\n            setCursorVariant({\n              mixBlendMode: \'difference\',\n              backgroundColor: \'red\',\n              scale: 5,\n              borderRadius: \'50%\',\n            });\n          }}\n          onMouseLeave={() => {\n            resetCursorChildren();\n            resetStyle();\n          }}\n        >\n          Custom Cursor with multiple{\' \'}\n          <span className="text-indigo-500">animation variants</span>.\n        </h1>\n        <p className="text-sm max-w-prose">\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia\n          doloremque, ipsam excepturi ratione aliquid assumenda, esse, in\n          inventore quos nihil possimus reprehenderit. Facere nihil, qui illo\n          corrupti corporis commodi animi excepturi? Neque amet a ipsam?\n        </p>\n\n        <div className="flex gap-4">\n          <Button\n            onMouseEnter={() => handleCustomStyle({ scale: 0.4 })}\n            onMouseLeave={resetStyle}\n            className="bg-indigo-500 text-white"\n            size="lg"\n          >\n            Hover Me\n          </Button>\n          <Button\n            variant={\'link\'}\n            onMouseEnter={() => {\n              setCursorVariant(\'reset\');\n              setCursorChildren(\n                <div className="w-40 h-60 relative pointer-events-none">\n                  <img\n                    src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n                    alt="tokyo"\n                    className="rounded-md object-cover"\n                  />\n                </div>,\n              );\n            }}\n            onMouseLeave={() => {\n              setCursorVariant({});\n              resetCursorChildren();\n            }}\n            className="text-indigo-500"\n            size="lg"\n          >\n            Visit Tokyo\n          </Button>\n        </div>\n      </div>\n\n      <div\n        className="relative w-2/3 md:w-1/3"\n        onMouseLeave={() => {\n          setCursorChildren(<div className="rounded-full bg-black size-5" />);\n          setCursorVariant({});\n        }}\n        onMouseEnter={() => {\n          setCursorVariant({});\n          setCursorChildren(\n            <Button className="text-white" variant={\'link\'} size="lg">\n              <MapPinIcon />\n              Visit Tokyo\n            </Button>,\n          );\n        }}\n      >\n        <img\n          src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n          alt="tokyo"\n          className="rounded-md size-full object-cover"\n        />\n      </div>\n    </div>\n  );\n}',
+          'import { Button } from \'@/components/ui/button\';\nimport { CustomCursor, useSetCursorVariant } from \'@/components/systaliko-ui/custom-cursor\';\nimport { MapPinIcon } from \'lucide-react\';\n\nexport function CustomCursorDemo() {\n  const {\n    handleCustomStyle,\n    setCursorVariant,\n    cursorChildren,\n    cursorVariant,\n    setCursorChildren,\n    resetCursorChildren,\n    resetStyle,\n  } = useSetCursorVariant();\n\n  return (\n    <div className="container flex justify-between gap-12 flex-wrap items-center py-12 px-6 min-h-svh">\n      <CustomCursor variant={cursorVariant} cursorChildren={cursorChildren} />\n      <div className="flex flex-1 flex-col gap-4 items-start">\n        <h1\n          className="text-5xl tracking-tight font-semibold"\n          onMouseEnter={() => {\n            setCursorChildren(null);\n            setCursorVariant({\n              mixBlendMode: \'difference\',\n              backgroundColor: \'red\',\n              scale: 5,\n              borderRadius: \'50%\',\n            });\n          }}\n          onMouseLeave={() => {\n            resetCursorChildren();\n            resetStyle();\n          }}\n        >\n          Custom Cursor with multiple{\' \'}\n          <span className="text-primary">animation variants</span>.\n        </h1>\n        <p className="text-sm max-w-prose">\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia\n          doloremque, ipsam excepturi ratione aliquid assumenda, esse, in\n          inventore quos nihil possimus reprehenderit. Facere nihil, qui illo\n          corrupti corporis commodi animi excepturi? Neque amet a ipsam?\n        </p>\n\n        <div className="flex gap-4">\n          <Button\n            onMouseEnter={() => handleCustomStyle({ scale: 0.4 })}\n            onMouseLeave={resetStyle}\n            className="bg-primary text-white"\n            size="lg"\n          >\n            Hover Me\n          </Button>\n          <Button\n            variant={\'link\'}\n            onMouseEnter={() => {\n              setCursorVariant(\'reset\');\n              setCursorChildren(\n                <div className="w-40 h-60 relative pointer-events-none">\n                  <img\n                    src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n                    alt="tokyo"\n                    className="rounded-md object-cover"\n                  />\n                </div>,\n              );\n            }}\n            onMouseLeave={() => {\n              setCursorVariant({});\n              resetCursorChildren();\n            }}\n            className="text-primary"\n            size="lg"\n          >\n            Visit Tokyo\n          </Button>\n        </div>\n      </div>\n\n      <div\n        className="relative w-2/3 md:w-1/3"\n        onMouseLeave={() => {\n          setCursorChildren(<div className="rounded-full bg-black size-5" />);\n          setCursorVariant({});\n        }}\n        onMouseEnter={() => {\n          setCursorVariant({});\n          setCursorChildren(\n            <Button className="text-white" variant={\'link\'} size="lg">\n              <MapPinIcon />\n              Visit Tokyo\n            </Button>,\n          );\n        }}\n      >\n        <img\n          src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n          alt="tokyo"\n          className="rounded-md size-full object-cover"\n        />\n      </div>\n    </div>\n  );\n}',
       },
     ],
     component: (function () {
@@ -2448,7 +2889,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/custom-cursor.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport { CustomCursor, useSetCursorVariant } from \'@/components/systaliko-ui/custom-cursor\';\nimport { MapPinIcon } from \'lucide-react\';\n\nexport function CustomCursorDemo() {\n  const {\n    handleCustomStyle,\n    setCursorVariant,\n    cursorChildren,\n    cursorVariant,\n    setCursorChildren,\n    resetCursorChildren,\n    resetStyle,\n  } = useSetCursorVariant();\n\n  return (\n    <div className="container flex justify-between gap-12 flex-wrap items-center py-12 px-6 min-h-svh">\n      <CustomCursor variant={cursorVariant} cursorChildren={cursorChildren} />\n      <div className="flex flex-1 flex-col gap-4 items-start">\n        <h1\n          className="text-5xl tracking-tight font-semibold"\n          onMouseEnter={() => {\n            setCursorChildren(null);\n            setCursorVariant({\n              mixBlendMode: \'difference\',\n              backgroundColor: \'red\',\n              scale: 5,\n              borderRadius: \'50%\',\n            });\n          }}\n          onMouseLeave={() => {\n            resetCursorChildren();\n            resetStyle();\n          }}\n        >\n          Custom Cursor with multiple{\' \'}\n          <span className="text-indigo-500">animation variants</span>.\n        </h1>\n        <p className="text-sm max-w-prose">\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia\n          doloremque, ipsam excepturi ratione aliquid assumenda, esse, in\n          inventore quos nihil possimus reprehenderit. Facere nihil, qui illo\n          corrupti corporis commodi animi excepturi? Neque amet a ipsam?\n        </p>\n\n        <div className="flex gap-4">\n          <Button\n            onMouseEnter={() => handleCustomStyle({ scale: 0.4 })}\n            onMouseLeave={resetStyle}\n            className="bg-indigo-500 text-white"\n            size="lg"\n          >\n            Hover Me\n          </Button>\n          <Button\n            variant={\'link\'}\n            onMouseEnter={() => {\n              setCursorVariant(\'reset\');\n              setCursorChildren(\n                <div className="w-40 h-60 relative pointer-events-none">\n                  <img\n                    src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n                    alt="tokyo"\n                    className="rounded-md object-cover"\n                  />\n                </div>,\n              );\n            }}\n            onMouseLeave={() => {\n              setCursorVariant({});\n              resetCursorChildren();\n            }}\n            className="text-indigo-500"\n            size="lg"\n          >\n            Visit Tokyo\n          </Button>\n        </div>\n      </div>\n\n      <div\n        className="relative w-2/3 md:w-1/3"\n        onMouseLeave={() => {\n          setCursorChildren(<div className="rounded-full bg-black size-5" />);\n          setCursorVariant({});\n        }}\n        onMouseEnter={() => {\n          setCursorVariant({});\n          setCursorChildren(\n            <Button className="text-white" variant={\'link\'} size="lg">\n              <MapPinIcon />\n              Visit Tokyo\n            </Button>,\n          );\n        }}\n      >\n        <img\n          src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n          alt="tokyo"\n          className="rounded-md size-full object-cover"\n        />\n      </div>\n    </div>\n  );\n}',
+          'import { Button } from \'@/components/ui/button\';\nimport { CustomCursor, useSetCursorVariant } from \'@/components/systaliko-ui/custom-cursor\';\nimport { MapPinIcon } from \'lucide-react\';\n\nexport function CustomCursorDemo() {\n  const {\n    handleCustomStyle,\n    setCursorVariant,\n    cursorChildren,\n    cursorVariant,\n    setCursorChildren,\n    resetCursorChildren,\n    resetStyle,\n  } = useSetCursorVariant();\n\n  return (\n    <div className="container flex justify-between gap-12 flex-wrap items-center py-12 px-6 min-h-svh">\n      <CustomCursor variant={cursorVariant} cursorChildren={cursorChildren} />\n      <div className="flex flex-1 flex-col gap-4 items-start">\n        <h1\n          className="text-5xl tracking-tight font-semibold"\n          onMouseEnter={() => {\n            setCursorChildren(null);\n            setCursorVariant({\n              mixBlendMode: \'difference\',\n              backgroundColor: \'red\',\n              scale: 5,\n              borderRadius: \'50%\',\n            });\n          }}\n          onMouseLeave={() => {\n            resetCursorChildren();\n            resetStyle();\n          }}\n        >\n          Custom Cursor with multiple{\' \'}\n          <span className="text-primary">animation variants</span>.\n        </h1>\n        <p className="text-sm max-w-prose">\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia\n          doloremque, ipsam excepturi ratione aliquid assumenda, esse, in\n          inventore quos nihil possimus reprehenderit. Facere nihil, qui illo\n          corrupti corporis commodi animi excepturi? Neque amet a ipsam?\n        </p>\n\n        <div className="flex gap-4">\n          <Button\n            onMouseEnter={() => handleCustomStyle({ scale: 0.4 })}\n            onMouseLeave={resetStyle}\n            className="bg-primary text-white"\n            size="lg"\n          >\n            Hover Me\n          </Button>\n          <Button\n            variant={\'link\'}\n            onMouseEnter={() => {\n              setCursorVariant(\'reset\');\n              setCursorChildren(\n                <div className="w-40 h-60 relative pointer-events-none">\n                  <img\n                    src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n                    alt="tokyo"\n                    className="rounded-md object-cover"\n                  />\n                </div>,\n              );\n            }}\n            onMouseLeave={() => {\n              setCursorVariant({});\n              resetCursorChildren();\n            }}\n            className="text-primary"\n            size="lg"\n          >\n            Visit Tokyo\n          </Button>\n        </div>\n      </div>\n\n      <div\n        className="relative w-2/3 md:w-1/3"\n        onMouseLeave={() => {\n          setCursorChildren(<div className="rounded-full bg-black size-5" />);\n          setCursorVariant({});\n        }}\n        onMouseEnter={() => {\n          setCursorVariant({});\n          setCursorChildren(\n            <Button className="text-white" variant={\'link\'} size="lg">\n              <MapPinIcon />\n              Visit Tokyo\n            </Button>,\n          );\n        }}\n      >\n        <img\n          src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n          alt="tokyo"\n          className="rounded-md size-full object-cover"\n        />\n      </div>\n    </div>\n  );\n}',
       },
     ],
     component: (function () {
@@ -2484,7 +2925,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/custom-cursor.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport { CustomCursor, useSetCursorVariant } from \'@/components/systaliko-ui/custom-cursor\';\nimport { MapPinIcon } from \'lucide-react\';\n\nexport function CustomCursorDemo() {\n  const {\n    handleCustomStyle,\n    setCursorVariant,\n    cursorChildren,\n    cursorVariant,\n    setCursorChildren,\n    resetCursorChildren,\n    resetStyle,\n  } = useSetCursorVariant();\n\n  return (\n    <div className="container flex justify-between gap-12 flex-wrap items-center py-12 px-6 min-h-svh">\n      <CustomCursor variant={cursorVariant} cursorChildren={cursorChildren} />\n      <div className="flex flex-1 flex-col gap-4 items-start">\n        <h1\n          className="text-5xl tracking-tight font-semibold"\n          onMouseEnter={() => {\n            setCursorChildren(null);\n            setCursorVariant({\n              mixBlendMode: \'difference\',\n              backgroundColor: \'red\',\n              scale: 5,\n              borderRadius: \'50%\',\n            });\n          }}\n          onMouseLeave={() => {\n            resetCursorChildren();\n            resetStyle();\n          }}\n        >\n          Custom Cursor with multiple{\' \'}\n          <span className="text-indigo-500">animation variants</span>.\n        </h1>\n        <p className="text-sm max-w-prose">\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia\n          doloremque, ipsam excepturi ratione aliquid assumenda, esse, in\n          inventore quos nihil possimus reprehenderit. Facere nihil, qui illo\n          corrupti corporis commodi animi excepturi? Neque amet a ipsam?\n        </p>\n\n        <div className="flex gap-4">\n          <Button\n            onMouseEnter={() => handleCustomStyle({ scale: 0.4 })}\n            onMouseLeave={resetStyle}\n            className="bg-indigo-500 text-white"\n            size="lg"\n          >\n            Hover Me\n          </Button>\n          <Button\n            variant={\'link\'}\n            onMouseEnter={() => {\n              setCursorVariant(\'reset\');\n              setCursorChildren(\n                <div className="w-40 h-60 relative pointer-events-none">\n                  <img\n                    src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n                    alt="tokyo"\n                    className="rounded-md object-cover"\n                  />\n                </div>,\n              );\n            }}\n            onMouseLeave={() => {\n              setCursorVariant({});\n              resetCursorChildren();\n            }}\n            className="text-indigo-500"\n            size="lg"\n          >\n            Visit Tokyo\n          </Button>\n        </div>\n      </div>\n\n      <div\n        className="relative w-2/3 md:w-1/3"\n        onMouseLeave={() => {\n          setCursorChildren(<div className="rounded-full bg-black size-5" />);\n          setCursorVariant({});\n        }}\n        onMouseEnter={() => {\n          setCursorVariant({});\n          setCursorChildren(\n            <Button className="text-white" variant={\'link\'} size="lg">\n              <MapPinIcon />\n              Visit Tokyo\n            </Button>,\n          );\n        }}\n      >\n        <img\n          src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n          alt="tokyo"\n          className="rounded-md size-full object-cover"\n        />\n      </div>\n    </div>\n  );\n}',
+          'import { Button } from \'@/components/ui/button\';\nimport { CustomCursor, useSetCursorVariant } from \'@/components/systaliko-ui/custom-cursor\';\nimport { MapPinIcon } from \'lucide-react\';\n\nexport function CustomCursorDemo() {\n  const {\n    handleCustomStyle,\n    setCursorVariant,\n    cursorChildren,\n    cursorVariant,\n    setCursorChildren,\n    resetCursorChildren,\n    resetStyle,\n  } = useSetCursorVariant();\n\n  return (\n    <div className="container flex justify-between gap-12 flex-wrap items-center py-12 px-6 min-h-svh">\n      <CustomCursor variant={cursorVariant} cursorChildren={cursorChildren} />\n      <div className="flex flex-1 flex-col gap-4 items-start">\n        <h1\n          className="text-5xl tracking-tight font-semibold"\n          onMouseEnter={() => {\n            setCursorChildren(null);\n            setCursorVariant({\n              mixBlendMode: \'difference\',\n              backgroundColor: \'red\',\n              scale: 5,\n              borderRadius: \'50%\',\n            });\n          }}\n          onMouseLeave={() => {\n            resetCursorChildren();\n            resetStyle();\n          }}\n        >\n          Custom Cursor with multiple{\' \'}\n          <span className="text-primary">animation variants</span>.\n        </h1>\n        <p className="text-sm max-w-prose">\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia\n          doloremque, ipsam excepturi ratione aliquid assumenda, esse, in\n          inventore quos nihil possimus reprehenderit. Facere nihil, qui illo\n          corrupti corporis commodi animi excepturi? Neque amet a ipsam?\n        </p>\n\n        <div className="flex gap-4">\n          <Button\n            onMouseEnter={() => handleCustomStyle({ scale: 0.4 })}\n            onMouseLeave={resetStyle}\n            className="bg-primary text-white"\n            size="lg"\n          >\n            Hover Me\n          </Button>\n          <Button\n            variant={\'link\'}\n            onMouseEnter={() => {\n              setCursorVariant(\'reset\');\n              setCursorChildren(\n                <div className="w-40 h-60 relative pointer-events-none">\n                  <img\n                    src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n                    alt="tokyo"\n                    className="rounded-md object-cover"\n                  />\n                </div>,\n              );\n            }}\n            onMouseLeave={() => {\n              setCursorVariant({});\n              resetCursorChildren();\n            }}\n            className="text-primary"\n            size="lg"\n          >\n            Visit Tokyo\n          </Button>\n        </div>\n      </div>\n\n      <div\n        className="relative w-2/3 md:w-1/3"\n        onMouseLeave={() => {\n          setCursorChildren(<div className="rounded-full bg-black size-5" />);\n          setCursorVariant({});\n        }}\n        onMouseEnter={() => {\n          setCursorVariant({});\n          setCursorChildren(\n            <Button className="text-white" variant={\'link\'} size="lg">\n              <MapPinIcon />\n              Visit Tokyo\n            </Button>,\n          );\n        }}\n      >\n        <img\n          src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n          alt="tokyo"\n          className="rounded-md size-full object-cover"\n        />\n      </div>\n    </div>\n  );\n}',
       },
     ],
     component: (function () {
@@ -2504,6 +2945,113 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: 'https://animate-ui.com/r/shadcn-new-york-custom-cursor-demo',
+  },
+  'default-hero-gradient-demo': {
+    name: 'default-hero-gradient-demo',
+    description: 'Demo showing Hero Gradient Component with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/hero-gradient'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/heros/hero-gradient/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/heros/hero-gradient.tsx',
+        content:
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  HeroDescription,\n  HeroGradient,\n  HeroGradientCta,\n  HeroGradientText,\n  HeroHeading,\n  HeroTextBadge,\n} from \'@/components/systaliko-ui/heros/hero-gradient\';\nimport { PhoneCallIcon } from \'lucide-react\';\n\nexport function HeroGradientDemo() {\n  return (\n    <HeroGradient\n      gradientColors={[\n        {\n          color: \'var(--color-primary)\',\n          start: \'-100%\',\n        },\n        {\n          color: \'var(--background)\',\n          start: \'100%\',\n        },\n      ]}\n      gradientPosition={{ x: \'50%\', y: \'0%\' }}\n      className="min-h-screen w-full place-content-center place-items-center text-center"\n    >\n      <HeroGradientText className="flex flex-col items-center space-y-5">\n        <HeroTextBadge className="text-primary" animation="blur">\n          <span className="inline-block text-xs">\n            Get started with us &rarr;\n          </span>\n        </HeroTextBadge>\n\n        <HeroHeading\n          className="text-4xl font-semibold max-w-[22ch]"\n          animation="blur"\n        >\n          Get into the future of web development\n        </HeroHeading>\n        <HeroDescription\n          animation="blur"\n          className="max-w-[50ch] text-muted-foreground mx-auto"\n        >\n          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum nisi\n          sunt necessitatibus, quas, facere iste molestiae alias vel optio\n          delectus architecto enim tenetur mollitia? Soluta.\n        </HeroDescription>\n\n        <HeroGradientCta animation="blur">\n          <Button className="relative flex w-fit items-center rounded-full border border-primary bg-secondary-foreground/20 text-secondary-foreground px-4 py-2 shadow-[0px_4px_24px_var(--primary)] transition-colors hover:bg-primary/80 hover:text-background dark:text-primary">\n            Book a free call <PhoneCallIcon />\n          </Button>\n        </HeroGradientCta>\n      </HeroGradientText>\n    </HeroGradient>\n  );\n}',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/heros/hero-gradient/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-hero-gradient-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-hero-gradient-demo',
+  },
+  'shadcn-default-hero-gradient-demo': {
+    name: 'shadcn-default-hero-gradient-demo',
+    description:
+      'Demo showing Hero Gradient Component with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/hero-gradient'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/heros/hero-gradient/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/heros/hero-gradient.tsx',
+        content:
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  HeroDescription,\n  HeroGradient,\n  HeroGradientCta,\n  HeroGradientText,\n  HeroHeading,\n  HeroTextBadge,\n} from \'@/components/systaliko-ui/heros/hero-gradient\';\nimport { PhoneCallIcon } from \'lucide-react\';\n\nexport function HeroGradientDemo() {\n  return (\n    <HeroGradient\n      gradientColors={[\n        {\n          color: \'var(--color-primary)\',\n          start: \'-100%\',\n        },\n        {\n          color: \'var(--background)\',\n          start: \'100%\',\n        },\n      ]}\n      gradientPosition={{ x: \'50%\', y: \'0%\' }}\n      className="min-h-screen w-full place-content-center place-items-center text-center"\n    >\n      <HeroGradientText className="flex flex-col items-center space-y-5">\n        <HeroTextBadge className="text-primary" animation="blur">\n          <span className="inline-block text-xs">\n            Get started with us &rarr;\n          </span>\n        </HeroTextBadge>\n\n        <HeroHeading\n          className="text-4xl font-semibold max-w-[22ch]"\n          animation="blur"\n        >\n          Get into the future of web development\n        </HeroHeading>\n        <HeroDescription\n          animation="blur"\n          className="max-w-[50ch] text-muted-foreground mx-auto"\n        >\n          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum nisi\n          sunt necessitatibus, quas, facere iste molestiae alias vel optio\n          delectus architecto enim tenetur mollitia? Soluta.\n        </HeroDescription>\n\n        <HeroGradientCta animation="blur">\n          <Button className="relative flex w-fit items-center rounded-full border border-primary bg-secondary-foreground/20 text-secondary-foreground px-4 py-2 shadow-[0px_4px_24px_var(--primary)] transition-colors hover:bg-primary/80 hover:text-background dark:text-primary">\n            Book a free call <PhoneCallIcon />\n          </Button>\n        </HeroGradientCta>\n      </HeroGradientText>\n    </HeroGradient>\n  );\n}',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/heros/hero-gradient/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-hero-gradient-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-hero-gradient-demo',
+  },
+  'shadcn-new-york-hero-gradient-demo': {
+    name: 'shadcn-new-york-hero-gradient-demo',
+    description:
+      'Demo showing Hero Gradient Component with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/hero-gradient'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/heros/hero-gradient/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/heros/hero-gradient.tsx',
+        content:
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  HeroDescription,\n  HeroGradient,\n  HeroGradientCta,\n  HeroGradientText,\n  HeroHeading,\n  HeroTextBadge,\n} from \'@/components/systaliko-ui/heros/hero-gradient\';\nimport { PhoneCallIcon } from \'lucide-react\';\n\nexport function HeroGradientDemo() {\n  return (\n    <HeroGradient\n      gradientColors={[\n        {\n          color: \'var(--color-primary)\',\n          start: \'-100%\',\n        },\n        {\n          color: \'var(--background)\',\n          start: \'100%\',\n        },\n      ]}\n      gradientPosition={{ x: \'50%\', y: \'0%\' }}\n      className="min-h-screen w-full place-content-center place-items-center text-center"\n    >\n      <HeroGradientText className="flex flex-col items-center space-y-5">\n        <HeroTextBadge className="text-primary" animation="blur">\n          <span className="inline-block text-xs">\n            Get started with us &rarr;\n          </span>\n        </HeroTextBadge>\n\n        <HeroHeading\n          className="text-4xl font-semibold max-w-[22ch]"\n          animation="blur"\n        >\n          Get into the future of web development\n        </HeroHeading>\n        <HeroDescription\n          animation="blur"\n          className="max-w-[50ch] text-muted-foreground mx-auto"\n        >\n          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum nisi\n          sunt necessitatibus, quas, facere iste molestiae alias vel optio\n          delectus architecto enim tenetur mollitia? Soluta.\n        </HeroDescription>\n\n        <HeroGradientCta animation="blur">\n          <Button className="relative flex w-fit items-center rounded-full border border-primary bg-secondary-foreground/20 text-secondary-foreground px-4 py-2 shadow-[0px_4px_24px_var(--primary)] transition-colors hover:bg-primary/80 hover:text-background dark:text-primary">\n            Book a free call <PhoneCallIcon />\n          </Button>\n        </HeroGradientCta>\n      </HeroGradientText>\n    </HeroGradient>\n  );\n}',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/heros/hero-gradient/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-hero-gradient-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-hero-gradient-demo',
   },
   'default-rating-stars-demo': {
     name: 'default-rating-stars-demo',
@@ -2626,7 +3174,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/section-gallery.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport { GridStaggered } from \'@/components/systaliko-ui/containers/grid-staggered\';\nimport {\n  SectionGallery,\n  SectionGalleryAnimationContainer,\n  SectionGalleryCta,\n  SectionGalleryDescription,\n  SectionGalleryHeading,\n  SectionGalleryTitle,\n} from \'@/components/systaliko-ui/section-gallery\';\n\nconst IMAGES = [\n  \'https://images.unsplash.com/photo-1455849318743-b2233052fcff?q=80&w=2338&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1703622377707-29bc9409aaf2?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1733680958774-39a0e8a64a54?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1548783307-f63adc3f200b?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n];\n\nexport const SectionGalleryDemo = () => {\n  return (\n    <SectionGallery\n      className="min-h-dvh place-content-center flex gap-8 p-8 flex-wrap md:flex-nowrap"\n      title="innovate & grow"\n      heading="Scale your business with our visionary solutions"\n      description="We are a team of experts with a passion for innovation and growth. We believe in the power of technology to transform the way businesses operate and thrive."\n    >\n      <SectionGalleryAnimationContainer className="flex flex-1/2 flex-col gap-4 items-start">\n        <SectionGalleryTitle\n          className="text-fd-diff-remove-symbol"\n          animation="top"\n        />\n        <SectionGalleryHeading animation="bottom" className="" />\n        <SectionGalleryDescription />\n        <SectionGalleryCta className="flex gap-2">\n          <Button className=" bg-fd-diff-remove-symbol text-background">\n            Learn More\n          </Button>\n        </SectionGalleryCta>\n      </SectionGalleryAnimationContainer>\n\n      <GridStaggered className="flex-1/2">\n        {IMAGES.map((imageUrl, index) => (\n          <img\n            key={index}\n            className="inline-block align-middle size-full object-cover"\n            src={imageUrl}\n            alt="startup"\n          />\n        ))}\n      </GridStaggered>\n    </SectionGallery>\n  );\n};',
+          'import { Button } from \'@/components/ui/button\';\nimport { GridStaggered } from \'@/components/systaliko-ui/containers/grid-staggered\';\nimport {\n  SectionGallery,\n  SectionGalleryAnimationContainer,\n  SectionGalleryCta,\n  SectionGalleryDescription,\n  SectionGalleryHeading,\n  SectionGalleryTitle,\n} from \'@/components/systaliko-ui/section-gallery\';\n\nconst IMAGES = [\n  \'https://images.unsplash.com/photo-1455849318743-b2233052fcff?q=80&w=2338&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1703622377707-29bc9409aaf2?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1733680958774-39a0e8a64a54?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1548783307-f63adc3f200b?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n];\n\nexport const SectionGalleryDemo = () => {\n  return (\n    <SectionGallery\n      className="min-h-dvh place-content-center flex gap-8 p-8 flex-wrap md:flex-nowrap"\n      title="innovate & grow"\n      heading="Scale your business with our visionary solutions"\n      description="We are a team of experts with a passion for innovation and growth. We believe in the power of technology to transform the way businesses operate and thrive."\n    >\n      <SectionGalleryAnimationContainer className="flex flex-1/2 flex-col gap-4 items-start">\n        <SectionGalleryTitle className="text-primary" animation="top" />\n        <SectionGalleryHeading animation="bottom" className="" />\n        <SectionGalleryDescription />\n        <SectionGalleryCta className="flex gap-2">\n          <Button className=" bg-primary text-background">Learn More</Button>\n        </SectionGalleryCta>\n      </SectionGalleryAnimationContainer>\n\n      <GridStaggered className="flex-1/2">\n        {IMAGES.map((imageUrl, index) => (\n          <img\n            key={index}\n            className="inline-block align-middle size-full object-cover"\n            src={imageUrl}\n            alt="startup"\n          />\n        ))}\n      </GridStaggered>\n    </SectionGallery>\n  );\n};',
       },
     ],
     component: (function () {
@@ -2661,7 +3209,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/section-gallery.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport { GridStaggered } from \'@/components/systaliko-ui/containers/grid-staggered\';\nimport {\n  SectionGallery,\n  SectionGalleryAnimationContainer,\n  SectionGalleryCta,\n  SectionGalleryDescription,\n  SectionGalleryHeading,\n  SectionGalleryTitle,\n} from \'@/components/systaliko-ui/section-gallery\';\n\nconst IMAGES = [\n  \'https://images.unsplash.com/photo-1455849318743-b2233052fcff?q=80&w=2338&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1703622377707-29bc9409aaf2?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1733680958774-39a0e8a64a54?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1548783307-f63adc3f200b?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n];\n\nexport const SectionGalleryDemo = () => {\n  return (\n    <SectionGallery\n      className="min-h-dvh place-content-center flex gap-8 p-8 flex-wrap md:flex-nowrap"\n      title="innovate & grow"\n      heading="Scale your business with our visionary solutions"\n      description="We are a team of experts with a passion for innovation and growth. We believe in the power of technology to transform the way businesses operate and thrive."\n    >\n      <SectionGalleryAnimationContainer className="flex flex-1/2 flex-col gap-4 items-start">\n        <SectionGalleryTitle\n          className="text-fd-diff-remove-symbol"\n          animation="top"\n        />\n        <SectionGalleryHeading animation="bottom" className="" />\n        <SectionGalleryDescription />\n        <SectionGalleryCta className="flex gap-2">\n          <Button className=" bg-fd-diff-remove-symbol text-background">\n            Learn More\n          </Button>\n        </SectionGalleryCta>\n      </SectionGalleryAnimationContainer>\n\n      <GridStaggered className="flex-1/2">\n        {IMAGES.map((imageUrl, index) => (\n          <img\n            key={index}\n            className="inline-block align-middle size-full object-cover"\n            src={imageUrl}\n            alt="startup"\n          />\n        ))}\n      </GridStaggered>\n    </SectionGallery>\n  );\n};',
+          'import { Button } from \'@/components/ui/button\';\nimport { GridStaggered } from \'@/components/systaliko-ui/containers/grid-staggered\';\nimport {\n  SectionGallery,\n  SectionGalleryAnimationContainer,\n  SectionGalleryCta,\n  SectionGalleryDescription,\n  SectionGalleryHeading,\n  SectionGalleryTitle,\n} from \'@/components/systaliko-ui/section-gallery\';\n\nconst IMAGES = [\n  \'https://images.unsplash.com/photo-1455849318743-b2233052fcff?q=80&w=2338&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1703622377707-29bc9409aaf2?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1733680958774-39a0e8a64a54?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1548783307-f63adc3f200b?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n];\n\nexport const SectionGalleryDemo = () => {\n  return (\n    <SectionGallery\n      className="min-h-dvh place-content-center flex gap-8 p-8 flex-wrap md:flex-nowrap"\n      title="innovate & grow"\n      heading="Scale your business with our visionary solutions"\n      description="We are a team of experts with a passion for innovation and growth. We believe in the power of technology to transform the way businesses operate and thrive."\n    >\n      <SectionGalleryAnimationContainer className="flex flex-1/2 flex-col gap-4 items-start">\n        <SectionGalleryTitle className="text-primary" animation="top" />\n        <SectionGalleryHeading animation="bottom" className="" />\n        <SectionGalleryDescription />\n        <SectionGalleryCta className="flex gap-2">\n          <Button className=" bg-primary text-background">Learn More</Button>\n        </SectionGalleryCta>\n      </SectionGalleryAnimationContainer>\n\n      <GridStaggered className="flex-1/2">\n        {IMAGES.map((imageUrl, index) => (\n          <img\n            key={index}\n            className="inline-block align-middle size-full object-cover"\n            src={imageUrl}\n            alt="startup"\n          />\n        ))}\n      </GridStaggered>\n    </SectionGallery>\n  );\n};',
       },
     ],
     component: (function () {
@@ -2696,7 +3244,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/section-gallery.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport { GridStaggered } from \'@/components/systaliko-ui/containers/grid-staggered\';\nimport {\n  SectionGallery,\n  SectionGalleryAnimationContainer,\n  SectionGalleryCta,\n  SectionGalleryDescription,\n  SectionGalleryHeading,\n  SectionGalleryTitle,\n} from \'@/components/systaliko-ui/section-gallery\';\n\nconst IMAGES = [\n  \'https://images.unsplash.com/photo-1455849318743-b2233052fcff?q=80&w=2338&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1703622377707-29bc9409aaf2?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1733680958774-39a0e8a64a54?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1548783307-f63adc3f200b?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n];\n\nexport const SectionGalleryDemo = () => {\n  return (\n    <SectionGallery\n      className="min-h-dvh place-content-center flex gap-8 p-8 flex-wrap md:flex-nowrap"\n      title="innovate & grow"\n      heading="Scale your business with our visionary solutions"\n      description="We are a team of experts with a passion for innovation and growth. We believe in the power of technology to transform the way businesses operate and thrive."\n    >\n      <SectionGalleryAnimationContainer className="flex flex-1/2 flex-col gap-4 items-start">\n        <SectionGalleryTitle\n          className="text-fd-diff-remove-symbol"\n          animation="top"\n        />\n        <SectionGalleryHeading animation="bottom" className="" />\n        <SectionGalleryDescription />\n        <SectionGalleryCta className="flex gap-2">\n          <Button className=" bg-fd-diff-remove-symbol text-background">\n            Learn More\n          </Button>\n        </SectionGalleryCta>\n      </SectionGalleryAnimationContainer>\n\n      <GridStaggered className="flex-1/2">\n        {IMAGES.map((imageUrl, index) => (\n          <img\n            key={index}\n            className="inline-block align-middle size-full object-cover"\n            src={imageUrl}\n            alt="startup"\n          />\n        ))}\n      </GridStaggered>\n    </SectionGallery>\n  );\n};',
+          'import { Button } from \'@/components/ui/button\';\nimport { GridStaggered } from \'@/components/systaliko-ui/containers/grid-staggered\';\nimport {\n  SectionGallery,\n  SectionGalleryAnimationContainer,\n  SectionGalleryCta,\n  SectionGalleryDescription,\n  SectionGalleryHeading,\n  SectionGalleryTitle,\n} from \'@/components/systaliko-ui/section-gallery\';\n\nconst IMAGES = [\n  \'https://images.unsplash.com/photo-1455849318743-b2233052fcff?q=80&w=2338&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1703622377707-29bc9409aaf2?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1733680958774-39a0e8a64a54?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1548783307-f63adc3f200b?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n];\n\nexport const SectionGalleryDemo = () => {\n  return (\n    <SectionGallery\n      className="min-h-dvh place-content-center flex gap-8 p-8 flex-wrap md:flex-nowrap"\n      title="innovate & grow"\n      heading="Scale your business with our visionary solutions"\n      description="We are a team of experts with a passion for innovation and growth. We believe in the power of technology to transform the way businesses operate and thrive."\n    >\n      <SectionGalleryAnimationContainer className="flex flex-1/2 flex-col gap-4 items-start">\n        <SectionGalleryTitle className="text-primary" animation="top" />\n        <SectionGalleryHeading animation="bottom" className="" />\n        <SectionGalleryDescription />\n        <SectionGalleryCta className="flex gap-2">\n          <Button className=" bg-primary text-background">Learn More</Button>\n        </SectionGalleryCta>\n      </SectionGalleryAnimationContainer>\n\n      <GridStaggered className="flex-1/2">\n        {IMAGES.map((imageUrl, index) => (\n          <img\n            key={index}\n            className="inline-block align-middle size-full object-cover"\n            src={imageUrl}\n            alt="startup"\n          />\n        ))}\n      </GridStaggered>\n    </SectionGallery>\n  );\n};',
       },
     ],
     component: (function () {
@@ -3385,122 +3933,229 @@ export const index: Record<string, any> = {
     command:
       'https://animate-ui.com/r/shadcn-new-york-use-animation-variants-demo',
   },
-  'default-use-follow-mouse-demo': {
-    name: 'default-use-follow-mouse-demo',
+  'default-use-smooth-scroll-demo': {
+    name: 'default-use-smooth-scroll-demo',
     description:
-      'Demo showing how to use use-follow-mouse utility with default style.',
+      'Demo showing how to use use-smooth-scroll hook with default style.',
     type: 'registry:hook',
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'http://localhost:3000/r/use-follow-mouse',
+      'http://localhost:3000/r/use-smooth-scroll',
       'motion',
     ],
     styles: undefined,
     files: [
       {
-        path: '__registry__/demo/utils/use-follow-mouse/default/index.tsx',
+        path: '__registry__/demo/utils/use-smooth-scroll/default/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/demo/utils/use-follow-mouse.ts',
+        target: 'components/systaliko-ui/demo/utils/use-smooth-scroll.ts',
         content:
-          "'use client';\nimport * as React from 'react';\nimport { useFollowMouse } from '@/components/systaliko-ui/utils/use-follow-mouse';\nimport { motion } from 'motion/react';\n\nexport const UseFollowMouseDemo = () => {\n  const { cursorXSpring, cursroYSpring } = useFollowMouse({ duration: 0.3 });\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  return (\n    <div\n      className=\"relative w-full h-80\"\n      onMouseEnter={() => setIsMouseIn(true)}\n      onMouseLeave={() => setIsMouseIn(false)}\n    >\n      <motion.h2\n        className=\"inline-block absolute\"\n        style={{\n          x: isMouseIn ? cursorXSpring : 0,\n          y: isMouseIn ? cursroYSpring : 0,\n        }}\n      >\n        Follow the mouse\n      </motion.h2>\n    </div>\n  );\n};",
+          'export const UseSmoothScrollDemo = () => {\n  return (\n    <div className="h-[300vh] w-full p-6">\n      <p>\n        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,\n        explicabo nemo, ex voluptates eius impedit excepturi quam iusto natus\n        odio, accusantium ratione similique ducimus tempore laboriosam aperiam\n        nobis? Natus neque, illum ut obcaecati consequuntur adipisci minima\n        voluptatum magni rem aut eius maxime. Assumenda officiis eius tempore\n        et. Eius reprehenderit nemo, est nihil impedit laborum delectus\n        consequatur reiciendis tenetur doloremque repudiandae sequi, vitae,\n        temporibus eligendi tempore maiores sunt odio sint obcaecati aut. Labore\n        rem impedit enim laudantium aperiam nostrum nesciunt doloribus optio\n        reprehenderit, molestias quis et deleniti quas dolor delectus voluptate\n        ad perferendis quidem esse? Porro illum quo dolore error repellendus\n        placeat beatae velit sapiente. Molestias, optio temporibus, eveniet\n        cumque animi quo voluptatum nam libero totam iste perferendis sequi\n        doloribus eius excepturi vero deleniti odio quibusdam a odit obcaecati.\n        Voluptate, neque quas fugiat exercitationem laudantium fugit\n        accusantium, at eos ipsam laboriosam saepe voluptas ipsum libero\n        doloribus ut sint amet, harum explicabo quibusdam rem sapiente rerum\n        velit magni? Illo quidem itaque fuga dolorem dolorum tenetur quisquam\n        praesentium distinctio beatae nobis omnis dolores, unde aperiam nisi\n        ipsum magni, facilis obcaecati illum veritatis explicabo natus. Numquam\n        ratione rerum, debitis mollitia nulla laborum quibusdam cupiditate animi\n        ea incidunt ex, architecto voluptas quae, inventore nisi expedita\n        exercitationem porro. Tenetur consequuntur nihil optio. Voluptates\n        reprehenderit tempore illum voluptate obcaecati rerum est placeat quam?\n        Reiciendis repudiandae dolore officiis laborum numquam sequi non maxime,\n        quae modi, quibusdam voluptatem laboriosam reprehenderit quis, fugiat\n        nemo eos. Quo quibusdam quam perferendis reprehenderit. Quaerat,\n        officiis ad est maiores corporis veniam, fugit ut nulla voluptatibus\n        cumque natus laudantium. Omnis quas hic quo provident, ipsa itaque\n        dolorem fuga cum aliquid sed harum! Nihil at consequatur vero obcaecati\n        quidem tempora, vel modi itaque nobis impedit, harum error eaque quam\n        culpa delectus sapiente ipsum libero perferendis saepe optio laudantium\n        ratione? Vitae asperiores adipisci quos rem. Sed at magnam quidem,\n        deserunt enim commodi molestiae aut cum praesentium aliquam minima\n        corporis consectetur quae porro dolorum velit veritatis aliquid? Eveniet\n        velit quibusdam, ex repellendus sit mollitia ratione repudiandae vitae\n        illo perspiciatis, eius officia. Molestias, non voluptate cupiditate\n        fugiat natus omnis eaque eos minus quasi modi beatae. Sed quam repellat\n        dicta illo dignissimos illum aut ipsa, ullam deserunt veritatis\n        consectetur optio error soluta distinctio magnam expedita similique\n        sapiente! Rem cum officiis odio numquam, officia esse animi tempore,\n        eius quidem in mollitia incidunt molestias dolore repellat, sunt natus\n        fugit vero?\n      </p>\n    </div>\n  );\n};',
       },
     ],
     component: (function () {
       const LazyComp = React.lazy(async () => {
         const mod = await import(
-          '@/__registry__/demo/utils/use-follow-mouse/default/index.tsx'
+          '@/__registry__/demo/utils/use-smooth-scroll/default/index.tsx'
         );
         const exportName =
           Object.keys(mod).find(
             (key) =>
               typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'default-use-follow-mouse-demo';
+          ) || 'default-use-smooth-scroll-demo';
         const Comp = mod.default || mod[exportName];
         return { default: Comp };
       });
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://animate-ui.com/r/default-use-follow-mouse-demo',
+    command: 'https://animate-ui.com/r/default-use-smooth-scroll-demo',
   },
-  'shadcn-default-use-follow-mouse-demo': {
-    name: 'shadcn-default-use-follow-mouse-demo',
+  'shadcn-default-use-smooth-scroll-demo': {
+    name: 'shadcn-default-use-smooth-scroll-demo',
     description:
-      'Demo showing how to use use-follow-mouse utility with shadcn-default style.',
+      'Demo showing how to use use-smooth-scroll hook with shadcn-default style.',
     type: 'registry:hook',
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'http://localhost:3000/r/use-follow-mouse',
+      'http://localhost:3000/r/use-smooth-scroll',
       'motion',
     ],
     styles: undefined,
     files: [
       {
-        path: '__registry__/demo/utils/use-follow-mouse/shadcn-default/index.tsx',
+        path: '__registry__/demo/utils/use-smooth-scroll/shadcn-default/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/demo/utils/use-follow-mouse.ts',
+        target: 'components/systaliko-ui/demo/utils/use-smooth-scroll.ts',
         content:
-          "'use client';\nimport * as React from 'react';\nimport { useFollowMouse } from '@/components/systaliko-ui/utils/use-follow-mouse';\nimport { motion } from 'motion/react';\n\nexport const UseFollowMouseDemo = () => {\n  const { cursorXSpring, cursroYSpring } = useFollowMouse({ duration: 0.3 });\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  return (\n    <div\n      className=\"relative w-full h-80\"\n      onMouseEnter={() => setIsMouseIn(true)}\n      onMouseLeave={() => setIsMouseIn(false)}\n    >\n      <motion.h2\n        className=\"inline-block absolute\"\n        style={{\n          x: isMouseIn ? cursorXSpring : 0,\n          y: isMouseIn ? cursroYSpring : 0,\n        }}\n      >\n        Follow the mouse\n      </motion.h2>\n    </div>\n  );\n};",
+          'export const UseSmoothScrollDemo = () => {\n  return (\n    <div className="h-[300vh] w-full p-6">\n      <p>\n        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,\n        explicabo nemo, ex voluptates eius impedit excepturi quam iusto natus\n        odio, accusantium ratione similique ducimus tempore laboriosam aperiam\n        nobis? Natus neque, illum ut obcaecati consequuntur adipisci minima\n        voluptatum magni rem aut eius maxime. Assumenda officiis eius tempore\n        et. Eius reprehenderit nemo, est nihil impedit laborum delectus\n        consequatur reiciendis tenetur doloremque repudiandae sequi, vitae,\n        temporibus eligendi tempore maiores sunt odio sint obcaecati aut. Labore\n        rem impedit enim laudantium aperiam nostrum nesciunt doloribus optio\n        reprehenderit, molestias quis et deleniti quas dolor delectus voluptate\n        ad perferendis quidem esse? Porro illum quo dolore error repellendus\n        placeat beatae velit sapiente. Molestias, optio temporibus, eveniet\n        cumque animi quo voluptatum nam libero totam iste perferendis sequi\n        doloribus eius excepturi vero deleniti odio quibusdam a odit obcaecati.\n        Voluptate, neque quas fugiat exercitationem laudantium fugit\n        accusantium, at eos ipsam laboriosam saepe voluptas ipsum libero\n        doloribus ut sint amet, harum explicabo quibusdam rem sapiente rerum\n        velit magni? Illo quidem itaque fuga dolorem dolorum tenetur quisquam\n        praesentium distinctio beatae nobis omnis dolores, unde aperiam nisi\n        ipsum magni, facilis obcaecati illum veritatis explicabo natus. Numquam\n        ratione rerum, debitis mollitia nulla laborum quibusdam cupiditate animi\n        ea incidunt ex, architecto voluptas quae, inventore nisi expedita\n        exercitationem porro. Tenetur consequuntur nihil optio. Voluptates\n        reprehenderit tempore illum voluptate obcaecati rerum est placeat quam?\n        Reiciendis repudiandae dolore officiis laborum numquam sequi non maxime,\n        quae modi, quibusdam voluptatem laboriosam reprehenderit quis, fugiat\n        nemo eos. Quo quibusdam quam perferendis reprehenderit. Quaerat,\n        officiis ad est maiores corporis veniam, fugit ut nulla voluptatibus\n        cumque natus laudantium. Omnis quas hic quo provident, ipsa itaque\n        dolorem fuga cum aliquid sed harum! Nihil at consequatur vero obcaecati\n        quidem tempora, vel modi itaque nobis impedit, harum error eaque quam\n        culpa delectus sapiente ipsum libero perferendis saepe optio laudantium\n        ratione? Vitae asperiores adipisci quos rem. Sed at magnam quidem,\n        deserunt enim commodi molestiae aut cum praesentium aliquam minima\n        corporis consectetur quae porro dolorum velit veritatis aliquid? Eveniet\n        velit quibusdam, ex repellendus sit mollitia ratione repudiandae vitae\n        illo perspiciatis, eius officia. Molestias, non voluptate cupiditate\n        fugiat natus omnis eaque eos minus quasi modi beatae. Sed quam repellat\n        dicta illo dignissimos illum aut ipsa, ullam deserunt veritatis\n        consectetur optio error soluta distinctio magnam expedita similique\n        sapiente! Rem cum officiis odio numquam, officia esse animi tempore,\n        eius quidem in mollitia incidunt molestias dolore repellat, sunt natus\n        fugit vero?\n      </p>\n    </div>\n  );\n};',
       },
     ],
     component: (function () {
       const LazyComp = React.lazy(async () => {
         const mod = await import(
-          '@/__registry__/demo/utils/use-follow-mouse/shadcn-default/index.tsx'
+          '@/__registry__/demo/utils/use-smooth-scroll/shadcn-default/index.tsx'
         );
         const exportName =
           Object.keys(mod).find(
             (key) =>
               typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'shadcn-default-use-follow-mouse-demo';
+          ) || 'shadcn-default-use-smooth-scroll-demo';
         const Comp = mod.default || mod[exportName];
         return { default: Comp };
       });
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://animate-ui.com/r/shadcn-default-use-follow-mouse-demo',
+    command: 'https://animate-ui.com/r/shadcn-default-use-smooth-scroll-demo',
   },
-  'shadcn-new-york-use-follow-mouse-demo': {
-    name: 'shadcn-new-york-use-follow-mouse-demo',
+  'shadcn-new-york-use-smooth-scroll-demo': {
+    name: 'shadcn-new-york-use-smooth-scroll-demo',
     description:
-      'Demo showing how to use use-follow-mouse utility with shadcn-new-york style.',
+      'Demo showing how to use use-smooth-scroll hook with shadcn-new-york style.',
     type: 'registry:hook',
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'http://localhost:3000/r/use-follow-mouse',
+      'http://localhost:3000/r/use-smooth-scroll',
       'motion',
     ],
     styles: undefined,
     files: [
       {
-        path: '__registry__/demo/utils/use-follow-mouse/shadcn-new-york/index.tsx',
+        path: '__registry__/demo/utils/use-smooth-scroll/shadcn-new-york/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/demo/utils/use-follow-mouse.ts',
+        target: 'components/systaliko-ui/demo/utils/use-smooth-scroll.ts',
         content:
-          "'use client';\nimport * as React from 'react';\nimport { useFollowMouse } from '@/components/systaliko-ui/utils/use-follow-mouse';\nimport { motion } from 'motion/react';\n\nexport const UseFollowMouseDemo = () => {\n  const { cursorXSpring, cursroYSpring } = useFollowMouse({ duration: 0.3 });\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  return (\n    <div\n      className=\"relative w-full h-80\"\n      onMouseEnter={() => setIsMouseIn(true)}\n      onMouseLeave={() => setIsMouseIn(false)}\n    >\n      <motion.h2\n        className=\"inline-block absolute\"\n        style={{\n          x: isMouseIn ? cursorXSpring : 0,\n          y: isMouseIn ? cursroYSpring : 0,\n        }}\n      >\n        Follow the mouse\n      </motion.h2>\n    </div>\n  );\n};",
+          'export const UseSmoothScrollDemo = () => {\n  return (\n    <div className="h-[300vh] w-full p-6">\n      <p>\n        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,\n        explicabo nemo, ex voluptates eius impedit excepturi quam iusto natus\n        odio, accusantium ratione similique ducimus tempore laboriosam aperiam\n        nobis? Natus neque, illum ut obcaecati consequuntur adipisci minima\n        voluptatum magni rem aut eius maxime. Assumenda officiis eius tempore\n        et. Eius reprehenderit nemo, est nihil impedit laborum delectus\n        consequatur reiciendis tenetur doloremque repudiandae sequi, vitae,\n        temporibus eligendi tempore maiores sunt odio sint obcaecati aut. Labore\n        rem impedit enim laudantium aperiam nostrum nesciunt doloribus optio\n        reprehenderit, molestias quis et deleniti quas dolor delectus voluptate\n        ad perferendis quidem esse? Porro illum quo dolore error repellendus\n        placeat beatae velit sapiente. Molestias, optio temporibus, eveniet\n        cumque animi quo voluptatum nam libero totam iste perferendis sequi\n        doloribus eius excepturi vero deleniti odio quibusdam a odit obcaecati.\n        Voluptate, neque quas fugiat exercitationem laudantium fugit\n        accusantium, at eos ipsam laboriosam saepe voluptas ipsum libero\n        doloribus ut sint amet, harum explicabo quibusdam rem sapiente rerum\n        velit magni? Illo quidem itaque fuga dolorem dolorum tenetur quisquam\n        praesentium distinctio beatae nobis omnis dolores, unde aperiam nisi\n        ipsum magni, facilis obcaecati illum veritatis explicabo natus. Numquam\n        ratione rerum, debitis mollitia nulla laborum quibusdam cupiditate animi\n        ea incidunt ex, architecto voluptas quae, inventore nisi expedita\n        exercitationem porro. Tenetur consequuntur nihil optio. Voluptates\n        reprehenderit tempore illum voluptate obcaecati rerum est placeat quam?\n        Reiciendis repudiandae dolore officiis laborum numquam sequi non maxime,\n        quae modi, quibusdam voluptatem laboriosam reprehenderit quis, fugiat\n        nemo eos. Quo quibusdam quam perferendis reprehenderit. Quaerat,\n        officiis ad est maiores corporis veniam, fugit ut nulla voluptatibus\n        cumque natus laudantium. Omnis quas hic quo provident, ipsa itaque\n        dolorem fuga cum aliquid sed harum! Nihil at consequatur vero obcaecati\n        quidem tempora, vel modi itaque nobis impedit, harum error eaque quam\n        culpa delectus sapiente ipsum libero perferendis saepe optio laudantium\n        ratione? Vitae asperiores adipisci quos rem. Sed at magnam quidem,\n        deserunt enim commodi molestiae aut cum praesentium aliquam minima\n        corporis consectetur quae porro dolorum velit veritatis aliquid? Eveniet\n        velit quibusdam, ex repellendus sit mollitia ratione repudiandae vitae\n        illo perspiciatis, eius officia. Molestias, non voluptate cupiditate\n        fugiat natus omnis eaque eos minus quasi modi beatae. Sed quam repellat\n        dicta illo dignissimos illum aut ipsa, ullam deserunt veritatis\n        consectetur optio error soluta distinctio magnam expedita similique\n        sapiente! Rem cum officiis odio numquam, officia esse animi tempore,\n        eius quidem in mollitia incidunt molestias dolore repellat, sunt natus\n        fugit vero?\n      </p>\n    </div>\n  );\n};',
       },
     ],
     component: (function () {
       const LazyComp = React.lazy(async () => {
         const mod = await import(
-          '@/__registry__/demo/utils/use-follow-mouse/shadcn-new-york/index.tsx'
+          '@/__registry__/demo/utils/use-smooth-scroll/shadcn-new-york/index.tsx'
         );
         const exportName =
           Object.keys(mod).find(
             (key) =>
               typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'shadcn-new-york-use-follow-mouse-demo';
+          ) || 'shadcn-new-york-use-smooth-scroll-demo';
         const Comp = mod.default || mod[exportName];
         return { default: Comp };
       });
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://animate-ui.com/r/shadcn-new-york-use-follow-mouse-demo',
+    command: 'https://animate-ui.com/r/shadcn-new-york-use-smooth-scroll-demo',
+  },
+  'default-hero-gradient': {
+    name: 'default-hero-gradient',
+    description: 'Hero with gradient background and text with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/heros/hero-gradient/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/heros/hero-gradient.tsx',
+        content:
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport { gradientStyle } from '@/components/systaliko-ui/backgrounds/background-gradient';\nimport { TextStaggerInview } from '@/components/systaliko-ui/text/text-stagger-inview';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion, HTMLMotionProps } from 'motion/react';\nimport * as React from 'react';\n\nexport const GRADIENT_COLORS = {\n  blue: [\n    { color: 'rgb(180, 176, 254)', start: '0%' },\n    { color: 'rgb(54, 50, 133)', start: '22.92%' },\n    { color: 'rgb(17, 13, 91)', start: '42.71%' },\n    { color: 'rgb(5, 3, 39)', start: '88.54%' },\n  ],\n  black: [\n    { color: '#333333', start: '0%' },\n    { color: '#292929', start: '22.92%' },\n    { color: '#1F1F1F', start: '42.71%' },\n    { color: '#0A0A0A', start: '88.54%' },\n  ],\n  purple: [\n    { color: '#342456', start: '0%' },\n    { color: '#2B1E48', start: '22.92%' },\n    { color: '#22183A', start: '42.71%' },\n    { color: '#110C1D', start: '88.54%' },\n  ],\n  green: [\n    { color: '#116A67', start: '0%' },\n    { color: '#0E5856', start: '22.92%' },\n    { color: '#0B4745', start: '42.71%' },\n    { color: '#062726', start: '88.54%' },\n  ],\n  skyblue: [\n    { color: '#70D9FF', start: '0%' },\n    { color: '#5CD3FF', start: '22.92%' },\n    { color: '#47CEFF', start: '42.71%' },\n    { color: '#0096CC', start: '88.54%' },\n  ],\n  red: [\n    { color: '#931020', start: '0%' },\n    { color: '#810E1C', start: '22.92%' },\n    { color: '#6E0C18', start: '42.71%' },\n    { color: '#37060C', start: '88.54%' },\n  ],\n  orange: [\n    { color: '#B04007', start: '0%' },\n    { color: '#893206', start: '22.92%' },\n    { color: '#622304', start: '42.71%' },\n    { color: '#3B1502', start: '88.54%' },\n  ],\n};\nconst GRADIENT_SIZES = {\n  default: { width: '70%', height: '55%' },\n  sm: { width: '50%', height: '35%' },\n  lg: { width: '85%', height: '70%' },\n};\nconst GRADIENT_POSITIONS = {\n  top: { x: '50%', y: '-10%' },\n  center: { x: '50%', y: '50%' },\n  bottom: { x: '50%', y: '110%' },\n  left: { x: '-10%', y: '0%' },\n  right: { x: '110%', y: '0%' },\n};\n\nexport const HeroTextBadge = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { animation?: AnimationT }\n>(({ animation, className, ...props }, ref) => {\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <motion.div\n      className={cn(\n        'text-sm flex justify-center items-center px-4 py-2 rounded',\n        className,\n      )}\n      variants={animationVariants}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nHeroTextBadge.displayName = 'HeroTextBadge';\n\nexport const HeroHeading = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { animation?: AnimationT }\n>(({ children, animation, className, ...props }, ref) => {\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <TextStaggerInview\n      className={className}\n      as=\"h1\"\n      variants={animationVariants}\n      ref={ref}\n      {...props}\n    >\n      {children}\n    </TextStaggerInview>\n  );\n});\nHeroHeading.displayName = 'HeroHeading';\n\nexport const HeroDescription = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'p'> & { animation?: AnimationT }\n>(({ animation, className, ...props }, ref) => {\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <motion.p\n      className={className}\n      variants={animationVariants}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nHeroDescription.displayName = 'HeroDescription';\nexport const HeroGradientCta = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { animation?: AnimationT }\n>(({ animation, className, ...props }, ref) => {\n  const variants = useAnimationVariants(animation);\n  return (\n    <motion.div\n      ref={ref}\n      className={cn('flex gap-4 items-center', className)}\n      variants={variants}\n      {...props}\n    />\n  );\n});\nHeroGradientCta.displayName = 'HeroGradientCta';\n\nexport const HeroGradientText = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'>\n>(({ className, transition, ...props }, ref) => {\n  return (\n    <motion.div\n      ref={ref}\n      className={className}\n      initial=\"hidden\"\n      whileInView=\"visible\"\n      viewport={{ once: true }}\n      transition={{\n        duration: 0.3,\n        staggerChildren: 0.2,\n        delayChildren: 0.2,\n        ...transition,\n      }}\n      {...props}\n    />\n  );\n});\nHeroGradientText.displayName = 'HeroGradientText';\ninterface HeroGradientBgProps {\n  gradientColors?:\n    | { color: string; start: string }[]\n    | keyof typeof GRADIENT_COLORS;\n  gradientSize?: { width: string; height: string };\n  gradientPosition?: { x: string; y: string };\n}\nexport const HeroGradient = React.forwardRef<\n  HTMLDivElement,\n  React.HtmlHTMLAttributes<HTMLDivElement> & HeroGradientBgProps\n>(\n  (\n    {\n      gradientColors = GRADIENT_COLORS['blue'],\n      gradientSize = GRADIENT_SIZES['default'],\n      gradientPosition = GRADIENT_POSITIONS['center'],\n      className,\n      style,\n      ...props\n    },\n    ref,\n  ) => {\n    const { gradientBg } = gradientStyle({\n      gradientColors:\n        typeof gradientColors === 'string'\n          ? GRADIENT_COLORS[gradientColors as keyof typeof GRADIENT_COLORS]\n          : gradientColors,\n      gradientSize,\n      gradientPosition,\n    });\n\n    return (\n      <section\n        style={{ backgroundImage: gradientBg, ...style }}\n        className={cn('relative', className)}\n        ref={ref}\n        {...props}\n      />\n    );\n  },\n);\nHeroGradient.displayName = 'HeroGradient';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/heros/hero-gradient/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-hero-gradient';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-hero-gradient',
+  },
+  'shadcn-default-hero-gradient': {
+    name: 'shadcn-default-hero-gradient',
+    description:
+      'Hero with gradient background and text with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/heros/hero-gradient/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/heros/hero-gradient.tsx',
+        content:
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport { gradientStyle } from '@/components/systaliko-ui/backgrounds/background-gradient';\nimport { TextStaggerInview } from '@/components/systaliko-ui/text/text-stagger-inview';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion, HTMLMotionProps } from 'motion/react';\nimport * as React from 'react';\n\nexport const GRADIENT_COLORS = {\n  blue: [\n    { color: 'rgb(180, 176, 254)', start: '0%' },\n    { color: 'rgb(54, 50, 133)', start: '22.92%' },\n    { color: 'rgb(17, 13, 91)', start: '42.71%' },\n    { color: 'rgb(5, 3, 39)', start: '88.54%' },\n  ],\n  black: [\n    { color: '#333333', start: '0%' },\n    { color: '#292929', start: '22.92%' },\n    { color: '#1F1F1F', start: '42.71%' },\n    { color: '#0A0A0A', start: '88.54%' },\n  ],\n  purple: [\n    { color: '#342456', start: '0%' },\n    { color: '#2B1E48', start: '22.92%' },\n    { color: '#22183A', start: '42.71%' },\n    { color: '#110C1D', start: '88.54%' },\n  ],\n  green: [\n    { color: '#116A67', start: '0%' },\n    { color: '#0E5856', start: '22.92%' },\n    { color: '#0B4745', start: '42.71%' },\n    { color: '#062726', start: '88.54%' },\n  ],\n  skyblue: [\n    { color: '#70D9FF', start: '0%' },\n    { color: '#5CD3FF', start: '22.92%' },\n    { color: '#47CEFF', start: '42.71%' },\n    { color: '#0096CC', start: '88.54%' },\n  ],\n  red: [\n    { color: '#931020', start: '0%' },\n    { color: '#810E1C', start: '22.92%' },\n    { color: '#6E0C18', start: '42.71%' },\n    { color: '#37060C', start: '88.54%' },\n  ],\n  orange: [\n    { color: '#B04007', start: '0%' },\n    { color: '#893206', start: '22.92%' },\n    { color: '#622304', start: '42.71%' },\n    { color: '#3B1502', start: '88.54%' },\n  ],\n};\nconst GRADIENT_SIZES = {\n  default: { width: '70%', height: '55%' },\n  sm: { width: '50%', height: '35%' },\n  lg: { width: '85%', height: '70%' },\n};\nconst GRADIENT_POSITIONS = {\n  top: { x: '50%', y: '-10%' },\n  center: { x: '50%', y: '50%' },\n  bottom: { x: '50%', y: '110%' },\n  left: { x: '-10%', y: '0%' },\n  right: { x: '110%', y: '0%' },\n};\n\nexport const HeroTextBadge = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { animation?: AnimationT }\n>(({ animation, className, ...props }, ref) => {\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <motion.div\n      className={cn(\n        'text-sm flex justify-center items-center px-4 py-2 rounded',\n        className,\n      )}\n      variants={animationVariants}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nHeroTextBadge.displayName = 'HeroTextBadge';\n\nexport const HeroHeading = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { animation?: AnimationT }\n>(({ children, animation, className, ...props }, ref) => {\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <TextStaggerInview\n      className={className}\n      as=\"h1\"\n      variants={animationVariants}\n      ref={ref}\n      {...props}\n    >\n      {children}\n    </TextStaggerInview>\n  );\n});\nHeroHeading.displayName = 'HeroHeading';\n\nexport const HeroDescription = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'p'> & { animation?: AnimationT }\n>(({ animation, className, ...props }, ref) => {\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <motion.p\n      className={className}\n      variants={animationVariants}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nHeroDescription.displayName = 'HeroDescription';\nexport const HeroGradientCta = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { animation?: AnimationT }\n>(({ animation, className, ...props }, ref) => {\n  const variants = useAnimationVariants(animation);\n  return (\n    <motion.div\n      ref={ref}\n      className={cn('flex gap-4 items-center', className)}\n      variants={variants}\n      {...props}\n    />\n  );\n});\nHeroGradientCta.displayName = 'HeroGradientCta';\n\nexport const HeroGradientText = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'>\n>(({ className, transition, ...props }, ref) => {\n  return (\n    <motion.div\n      ref={ref}\n      className={className}\n      initial=\"hidden\"\n      whileInView=\"visible\"\n      viewport={{ once: true }}\n      transition={{\n        duration: 0.3,\n        staggerChildren: 0.2,\n        delayChildren: 0.2,\n        ...transition,\n      }}\n      {...props}\n    />\n  );\n});\nHeroGradientText.displayName = 'HeroGradientText';\ninterface HeroGradientBgProps {\n  gradientColors?:\n    | { color: string; start: string }[]\n    | keyof typeof GRADIENT_COLORS;\n  gradientSize?: { width: string; height: string };\n  gradientPosition?: { x: string; y: string };\n}\nexport const HeroGradient = React.forwardRef<\n  HTMLDivElement,\n  React.HtmlHTMLAttributes<HTMLDivElement> & HeroGradientBgProps\n>(\n  (\n    {\n      gradientColors = GRADIENT_COLORS['blue'],\n      gradientSize = GRADIENT_SIZES['default'],\n      gradientPosition = GRADIENT_POSITIONS['center'],\n      className,\n      style,\n      ...props\n    },\n    ref,\n  ) => {\n    const { gradientBg } = gradientStyle({\n      gradientColors:\n        typeof gradientColors === 'string'\n          ? GRADIENT_COLORS[gradientColors as keyof typeof GRADIENT_COLORS]\n          : gradientColors,\n      gradientSize,\n      gradientPosition,\n    });\n\n    return (\n      <section\n        style={{ backgroundImage: gradientBg, ...style }}\n        className={cn('relative', className)}\n        ref={ref}\n        {...props}\n      />\n    );\n  },\n);\nHeroGradient.displayName = 'HeroGradient';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/heros/hero-gradient/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-hero-gradient';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-hero-gradient',
+  },
+  'shadcn-new-york-hero-gradient': {
+    name: 'shadcn-new-york-hero-gradient',
+    description:
+      'Hero with gradient background and text with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/heros/hero-gradient/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/heros/hero-gradient.tsx',
+        content:
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport { gradientStyle } from '@/components/systaliko-ui/backgrounds/background-gradient';\nimport { TextStaggerInview } from '@/components/systaliko-ui/text/text-stagger-inview';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion, HTMLMotionProps } from 'motion/react';\nimport * as React from 'react';\n\nexport const GRADIENT_COLORS = {\n  blue: [\n    { color: 'rgb(180, 176, 254)', start: '0%' },\n    { color: 'rgb(54, 50, 133)', start: '22.92%' },\n    { color: 'rgb(17, 13, 91)', start: '42.71%' },\n    { color: 'rgb(5, 3, 39)', start: '88.54%' },\n  ],\n  black: [\n    { color: '#333333', start: '0%' },\n    { color: '#292929', start: '22.92%' },\n    { color: '#1F1F1F', start: '42.71%' },\n    { color: '#0A0A0A', start: '88.54%' },\n  ],\n  purple: [\n    { color: '#342456', start: '0%' },\n    { color: '#2B1E48', start: '22.92%' },\n    { color: '#22183A', start: '42.71%' },\n    { color: '#110C1D', start: '88.54%' },\n  ],\n  green: [\n    { color: '#116A67', start: '0%' },\n    { color: '#0E5856', start: '22.92%' },\n    { color: '#0B4745', start: '42.71%' },\n    { color: '#062726', start: '88.54%' },\n  ],\n  skyblue: [\n    { color: '#70D9FF', start: '0%' },\n    { color: '#5CD3FF', start: '22.92%' },\n    { color: '#47CEFF', start: '42.71%' },\n    { color: '#0096CC', start: '88.54%' },\n  ],\n  red: [\n    { color: '#931020', start: '0%' },\n    { color: '#810E1C', start: '22.92%' },\n    { color: '#6E0C18', start: '42.71%' },\n    { color: '#37060C', start: '88.54%' },\n  ],\n  orange: [\n    { color: '#B04007', start: '0%' },\n    { color: '#893206', start: '22.92%' },\n    { color: '#622304', start: '42.71%' },\n    { color: '#3B1502', start: '88.54%' },\n  ],\n};\nconst GRADIENT_SIZES = {\n  default: { width: '70%', height: '55%' },\n  sm: { width: '50%', height: '35%' },\n  lg: { width: '85%', height: '70%' },\n};\nconst GRADIENT_POSITIONS = {\n  top: { x: '50%', y: '-10%' },\n  center: { x: '50%', y: '50%' },\n  bottom: { x: '50%', y: '110%' },\n  left: { x: '-10%', y: '0%' },\n  right: { x: '110%', y: '0%' },\n};\n\nexport const HeroTextBadge = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { animation?: AnimationT }\n>(({ animation, className, ...props }, ref) => {\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <motion.div\n      className={cn(\n        'text-sm flex justify-center items-center px-4 py-2 rounded',\n        className,\n      )}\n      variants={animationVariants}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nHeroTextBadge.displayName = 'HeroTextBadge';\n\nexport const HeroHeading = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { animation?: AnimationT }\n>(({ children, animation, className, ...props }, ref) => {\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <TextStaggerInview\n      className={className}\n      as=\"h1\"\n      variants={animationVariants}\n      ref={ref}\n      {...props}\n    >\n      {children}\n    </TextStaggerInview>\n  );\n});\nHeroHeading.displayName = 'HeroHeading';\n\nexport const HeroDescription = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'p'> & { animation?: AnimationT }\n>(({ animation, className, ...props }, ref) => {\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <motion.p\n      className={className}\n      variants={animationVariants}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nHeroDescription.displayName = 'HeroDescription';\nexport const HeroGradientCta = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { animation?: AnimationT }\n>(({ animation, className, ...props }, ref) => {\n  const variants = useAnimationVariants(animation);\n  return (\n    <motion.div\n      ref={ref}\n      className={cn('flex gap-4 items-center', className)}\n      variants={variants}\n      {...props}\n    />\n  );\n});\nHeroGradientCta.displayName = 'HeroGradientCta';\n\nexport const HeroGradientText = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'>\n>(({ className, transition, ...props }, ref) => {\n  return (\n    <motion.div\n      ref={ref}\n      className={className}\n      initial=\"hidden\"\n      whileInView=\"visible\"\n      viewport={{ once: true }}\n      transition={{\n        duration: 0.3,\n        staggerChildren: 0.2,\n        delayChildren: 0.2,\n        ...transition,\n      }}\n      {...props}\n    />\n  );\n});\nHeroGradientText.displayName = 'HeroGradientText';\ninterface HeroGradientBgProps {\n  gradientColors?:\n    | { color: string; start: string }[]\n    | keyof typeof GRADIENT_COLORS;\n  gradientSize?: { width: string; height: string };\n  gradientPosition?: { x: string; y: string };\n}\nexport const HeroGradient = React.forwardRef<\n  HTMLDivElement,\n  React.HtmlHTMLAttributes<HTMLDivElement> & HeroGradientBgProps\n>(\n  (\n    {\n      gradientColors = GRADIENT_COLORS['blue'],\n      gradientSize = GRADIENT_SIZES['default'],\n      gradientPosition = GRADIENT_POSITIONS['center'],\n      className,\n      style,\n      ...props\n    },\n    ref,\n  ) => {\n    const { gradientBg } = gradientStyle({\n      gradientColors:\n        typeof gradientColors === 'string'\n          ? GRADIENT_COLORS[gradientColors as keyof typeof GRADIENT_COLORS]\n          : gradientColors,\n      gradientSize,\n      gradientPosition,\n    });\n\n    return (\n      <section\n        style={{ backgroundImage: gradientBg, ...style }}\n        className={cn('relative', className)}\n        ref={ref}\n        {...props}\n      />\n    );\n  },\n);\nHeroGradient.displayName = 'HeroGradient';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/heros/hero-gradient/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-hero-gradient';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-hero-gradient',
   },
   'default-rating-stars': {
     name: 'default-rating-stars',
@@ -4595,7 +5250,7 @@ export const index: Record<string, any> = {
         type: 'registry:hook',
         target: 'components/systaliko-ui/utils/use-follow-mouse.ts',
         content:
-          "'use client';\nimport { SpringOptions, useMotionValue, useSpring } from 'motion/react';\nimport { useEffect } from 'react';\n\nexport function useFollowMouse(springConfig: SpringOptions) {\n  const cursorX = useMotionValue(-100);\n  const cursorY = useMotionValue(-100);\n\n  const cursorXSpring = useSpring(cursorX, springConfig);\n  const cursroYSpring = useSpring(cursorY, springConfig);\n\n  useEffect(() => {\n    const followMouse = (e: MouseEvent) => {\n      cursorX.set(e.clientX - 10);\n      cursorY.set(e.clientY - 10);\n    };\n    window.addEventListener('mousemove', followMouse);\n\n    return () => {\n      window.removeEventListener('mousemove', followMouse);\n    };\n  }, []);\n\n  return {\n    cursorXSpring,\n    cursroYSpring,\n  };\n}",
+          "'use client';\nimport { SpringOptions, useMotionValue, useSpring } from 'motion/react';\nimport { useEffect } from 'react';\n\nexport function useFollowMouse(springConfig?: SpringOptions) {\n  const cursorX = useMotionValue(-100);\n  const cursorY = useMotionValue(-100);\n\n  const cursorXSpring = useSpring(cursorX, springConfig);\n  const cursroYSpring = useSpring(cursorY, springConfig);\n\n  useEffect(() => {\n    const followMouse = (e: MouseEvent) => {\n      cursorX.set(e.clientX - 10);\n      cursorY.set(e.clientY - 10);\n    };\n    window.addEventListener('mousemove', followMouse);\n\n    return () => {\n      window.removeEventListener('mousemove', followMouse);\n    };\n  }, []);\n\n  return {\n    cursorXSpring,\n    cursroYSpring,\n  };\n}",
       },
     ],
     component: (function () {
@@ -4631,7 +5286,7 @@ export const index: Record<string, any> = {
         type: 'registry:hook',
         target: 'components/systaliko-ui/utils/use-follow-mouse.ts',
         content:
-          "'use client';\nimport { SpringOptions, useMotionValue, useSpring } from 'motion/react';\nimport { useEffect } from 'react';\n\nexport function useFollowMouse(springConfig: SpringOptions) {\n  const cursorX = useMotionValue(-100);\n  const cursorY = useMotionValue(-100);\n\n  const cursorXSpring = useSpring(cursorX, springConfig);\n  const cursroYSpring = useSpring(cursorY, springConfig);\n\n  useEffect(() => {\n    const followMouse = (e: MouseEvent) => {\n      cursorX.set(e.clientX - 10);\n      cursorY.set(e.clientY - 10);\n    };\n    window.addEventListener('mousemove', followMouse);\n\n    return () => {\n      window.removeEventListener('mousemove', followMouse);\n    };\n  }, []);\n\n  return {\n    cursorXSpring,\n    cursroYSpring,\n  };\n}",
+          "'use client';\nimport { SpringOptions, useMotionValue, useSpring } from 'motion/react';\nimport { useEffect } from 'react';\n\nexport function useFollowMouse(springConfig?: SpringOptions) {\n  const cursorX = useMotionValue(-100);\n  const cursorY = useMotionValue(-100);\n\n  const cursorXSpring = useSpring(cursorX, springConfig);\n  const cursroYSpring = useSpring(cursorY, springConfig);\n\n  useEffect(() => {\n    const followMouse = (e: MouseEvent) => {\n      cursorX.set(e.clientX - 10);\n      cursorY.set(e.clientY - 10);\n    };\n    window.addEventListener('mousemove', followMouse);\n\n    return () => {\n      window.removeEventListener('mousemove', followMouse);\n    };\n  }, []);\n\n  return {\n    cursorXSpring,\n    cursroYSpring,\n  };\n}",
       },
     ],
     component: (function () {
@@ -4667,7 +5322,7 @@ export const index: Record<string, any> = {
         type: 'registry:hook',
         target: 'components/systaliko-ui/utils/use-follow-mouse.ts',
         content:
-          "'use client';\nimport { SpringOptions, useMotionValue, useSpring } from 'motion/react';\nimport { useEffect } from 'react';\n\nexport function useFollowMouse(springConfig: SpringOptions) {\n  const cursorX = useMotionValue(-100);\n  const cursorY = useMotionValue(-100);\n\n  const cursorXSpring = useSpring(cursorX, springConfig);\n  const cursroYSpring = useSpring(cursorY, springConfig);\n\n  useEffect(() => {\n    const followMouse = (e: MouseEvent) => {\n      cursorX.set(e.clientX - 10);\n      cursorY.set(e.clientY - 10);\n    };\n    window.addEventListener('mousemove', followMouse);\n\n    return () => {\n      window.removeEventListener('mousemove', followMouse);\n    };\n  }, []);\n\n  return {\n    cursorXSpring,\n    cursroYSpring,\n  };\n}",
+          "'use client';\nimport { SpringOptions, useMotionValue, useSpring } from 'motion/react';\nimport { useEffect } from 'react';\n\nexport function useFollowMouse(springConfig?: SpringOptions) {\n  const cursorX = useMotionValue(-100);\n  const cursorY = useMotionValue(-100);\n\n  const cursorXSpring = useSpring(cursorX, springConfig);\n  const cursroYSpring = useSpring(cursorY, springConfig);\n\n  useEffect(() => {\n    const followMouse = (e: MouseEvent) => {\n      cursorX.set(e.clientX - 10);\n      cursorY.set(e.clientY - 10);\n    };\n    window.addEventListener('mousemove', followMouse);\n\n    return () => {\n      window.removeEventListener('mousemove', followMouse);\n    };\n  }, []);\n\n  return {\n    cursorXSpring,\n    cursroYSpring,\n  };\n}",
       },
     ],
     component: (function () {
@@ -4687,5 +5342,113 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: 'https://animate-ui.com/r/shadcn-new-york-use-follow-mouse',
+  },
+  'default-use-smooth-scroll': {
+    name: 'default-use-smooth-scroll',
+    description:
+      'Add lenis smooth scrolling to your website with default style.',
+    type: 'registry:hook',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/utils/use-smooth-scroll/default/index.ts',
+        type: 'registry:hook',
+        target: 'components/systaliko-ui/utils/use-smooth-scroll.ts',
+        content:
+          "import { useEffect, useRef } from 'react';\nimport Lenis from 'lenis';\n\ninterface UseSmoothScrollOptions {\n  duration?: number;\n  lerp?: number;\n  smoothWheel?: boolean;\n  touchMultiplier?: number;\n  infinite?: boolean;\n  orientation?: 'vertical' | 'horizontal';\n  gestureOrientation?: 'vertical' | 'horizontal';\n  easing?: (t: number) => number;\n}\nconst defaultOptions: UseSmoothScrollOptions = {\n  duration: 1.8,\n  lerp: 0.1,\n  smoothWheel: true,\n  touchMultiplier: 2,\n  infinite: false,\n  orientation: 'vertical',\n  gestureOrientation: 'vertical',\n  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),\n};\n\nexport function useSmoothScroll(options: UseSmoothScrollOptions = {}) {\n  const lenisRef = useRef<Lenis | null>(null);\n\n  useEffect(() => {\n    const mergedOptions = { ...defaultOptions, ...options };\n\n    lenisRef.current = new Lenis({\n      duration: mergedOptions.duration,\n      lerp: mergedOptions.lerp,\n      smoothWheel: mergedOptions.smoothWheel,\n      touchMultiplier: mergedOptions.touchMultiplier,\n      infinite: mergedOptions.infinite,\n      orientation: mergedOptions.orientation,\n      gestureOrientation: mergedOptions.gestureOrientation,\n      easing: mergedOptions.easing,\n    });\n\n    function raf(time: number) {\n      lenisRef.current?.raf(time);\n      requestAnimationFrame(raf);\n    }\n\n    requestAnimationFrame(raf);\n\n    return () => {\n      lenisRef.current?.destroy();\n      lenisRef.current = null;\n    };\n  }, [options]);\n\n  return {\n    lenis: lenisRef.current,\n  };\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/utils/use-smooth-scroll/default/index.ts'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-use-smooth-scroll';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-use-smooth-scroll',
+  },
+  'shadcn-default-use-smooth-scroll': {
+    name: 'shadcn-default-use-smooth-scroll',
+    description:
+      'Add lenis smooth scrolling to your website with shadcn-default style.',
+    type: 'registry:hook',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/utils/use-smooth-scroll/shadcn-default/index.ts',
+        type: 'registry:hook',
+        target: 'components/systaliko-ui/utils/use-smooth-scroll.ts',
+        content:
+          "import { useEffect, useRef } from 'react';\nimport Lenis from 'lenis';\n\ninterface UseSmoothScrollOptions {\n  duration?: number;\n  lerp?: number;\n  smoothWheel?: boolean;\n  touchMultiplier?: number;\n  infinite?: boolean;\n  orientation?: 'vertical' | 'horizontal';\n  gestureOrientation?: 'vertical' | 'horizontal';\n  easing?: (t: number) => number;\n}\nconst defaultOptions: UseSmoothScrollOptions = {\n  duration: 1.8,\n  lerp: 0.1,\n  smoothWheel: true,\n  touchMultiplier: 2,\n  infinite: false,\n  orientation: 'vertical',\n  gestureOrientation: 'vertical',\n  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),\n};\n\nexport function useSmoothScroll(options: UseSmoothScrollOptions = {}) {\n  const lenisRef = useRef<Lenis | null>(null);\n\n  useEffect(() => {\n    const mergedOptions = { ...defaultOptions, ...options };\n\n    lenisRef.current = new Lenis({\n      duration: mergedOptions.duration,\n      lerp: mergedOptions.lerp,\n      smoothWheel: mergedOptions.smoothWheel,\n      touchMultiplier: mergedOptions.touchMultiplier,\n      infinite: mergedOptions.infinite,\n      orientation: mergedOptions.orientation,\n      gestureOrientation: mergedOptions.gestureOrientation,\n      easing: mergedOptions.easing,\n    });\n\n    function raf(time: number) {\n      lenisRef.current?.raf(time);\n      requestAnimationFrame(raf);\n    }\n\n    requestAnimationFrame(raf);\n\n    return () => {\n      lenisRef.current?.destroy();\n      lenisRef.current = null;\n    };\n  }, [options]);\n\n  return {\n    lenis: lenisRef.current,\n  };\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/utils/use-smooth-scroll/shadcn-default/index.ts'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-use-smooth-scroll';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-use-smooth-scroll',
+  },
+  'shadcn-new-york-use-smooth-scroll': {
+    name: 'shadcn-new-york-use-smooth-scroll',
+    description:
+      'Add lenis smooth scrolling to your website with shadcn-new-york style.',
+    type: 'registry:hook',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/utils/use-smooth-scroll/shadcn-new-york/index.ts',
+        type: 'registry:hook',
+        target: 'components/systaliko-ui/utils/use-smooth-scroll.ts',
+        content:
+          "import { useEffect, useRef } from 'react';\nimport Lenis from 'lenis';\n\ninterface UseSmoothScrollOptions {\n  duration?: number;\n  lerp?: number;\n  smoothWheel?: boolean;\n  touchMultiplier?: number;\n  infinite?: boolean;\n  orientation?: 'vertical' | 'horizontal';\n  gestureOrientation?: 'vertical' | 'horizontal';\n  easing?: (t: number) => number;\n}\nconst defaultOptions: UseSmoothScrollOptions = {\n  duration: 1.8,\n  lerp: 0.1,\n  smoothWheel: true,\n  touchMultiplier: 2,\n  infinite: false,\n  orientation: 'vertical',\n  gestureOrientation: 'vertical',\n  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),\n};\n\nexport function useSmoothScroll(options: UseSmoothScrollOptions = {}) {\n  const lenisRef = useRef<Lenis | null>(null);\n\n  useEffect(() => {\n    const mergedOptions = { ...defaultOptions, ...options };\n\n    lenisRef.current = new Lenis({\n      duration: mergedOptions.duration,\n      lerp: mergedOptions.lerp,\n      smoothWheel: mergedOptions.smoothWheel,\n      touchMultiplier: mergedOptions.touchMultiplier,\n      infinite: mergedOptions.infinite,\n      orientation: mergedOptions.orientation,\n      gestureOrientation: mergedOptions.gestureOrientation,\n      easing: mergedOptions.easing,\n    });\n\n    function raf(time: number) {\n      lenisRef.current?.raf(time);\n      requestAnimationFrame(raf);\n    }\n\n    requestAnimationFrame(raf);\n\n    return () => {\n      lenisRef.current?.destroy();\n      lenisRef.current = null;\n    };\n  }, [options]);\n\n  return {\n    lenis: lenisRef.current,\n  };\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/utils/use-smooth-scroll/shadcn-new-york/index.ts'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-use-smooth-scroll';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-use-smooth-scroll',
   },
 };

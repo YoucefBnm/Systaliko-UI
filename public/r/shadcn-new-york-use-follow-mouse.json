@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "__registry__/utils/use-follow-mouse/shadcn-new-york/index.ts",
-      "content": "'use client';\nimport { SpringOptions, useMotionValue, useSpring } from 'motion/react';\nimport { useEffect } from 'react';\n\nexport function useFollowMouse(springConfig: SpringOptions) {\n  const cursorX = useMotionValue(-100);\n  const cursorY = useMotionValue(-100);\n\n  const cursorXSpring = useSpring(cursorX, springConfig);\n  const cursroYSpring = useSpring(cursorY, springConfig);\n\n  useEffect(() => {\n    const followMouse = (e: MouseEvent) => {\n      cursorX.set(e.clientX - 10);\n      cursorY.set(e.clientY - 10);\n    };\n    window.addEventListener('mousemove', followMouse);\n\n    return () => {\n      window.removeEventListener('mousemove', followMouse);\n    };\n  }, []);\n\n  return {\n    cursorXSpring,\n    cursroYSpring,\n  };\n}\n",
+      "content": "'use client';\nimport { SpringOptions, useMotionValue, useSpring } from 'motion/react';\nimport { useEffect } from 'react';\n\nexport function useFollowMouse(springConfig?: SpringOptions) {\n  const cursorX = useMotionValue(-100);\n  const cursorY = useMotionValue(-100);\n\n  const cursorXSpring = useSpring(cursorX, springConfig);\n  const cursroYSpring = useSpring(cursorY, springConfig);\n\n  useEffect(() => {\n    const followMouse = (e: MouseEvent) => {\n      cursorX.set(e.clientX - 10);\n      cursorY.set(e.clientY - 10);\n    };\n    window.addEventListener('mousemove', followMouse);\n\n    return () => {\n      window.removeEventListener('mousemove', followMouse);\n    };\n  }, []);\n\n  return {\n    cursorXSpring,\n    cursroYSpring,\n  };\n}\n",
       "type": "registry:hook",
       "target": "components/systaliko-ui/utils/use-follow-mouse.ts"
     }

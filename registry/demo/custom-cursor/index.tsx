@@ -34,7 +34,7 @@ export function CustomCursorDemo() {
           }}
         >
           Custom Cursor with multiple{' '}
-          <span className="text-indigo-500">animation variants</span>.
+          <span className="text-primary">animation variants</span>.
         </h1>
         <p className="text-sm max-w-prose">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia
@@ -47,7 +47,7 @@ export function CustomCursorDemo() {
           <Button
             onMouseEnter={() => handleCustomStyle({ scale: 0.4 })}
             onMouseLeave={resetStyle}
-            className="bg-indigo-500 text-white"
+            className="bg-primary text-white"
             size="lg"
           >
             Hover Me
@@ -70,7 +70,7 @@ export function CustomCursorDemo() {
               setCursorVariant({});
               resetCursorChildren();
             }}
-            className="text-indigo-500"
+            className="text-primary"
             size="lg"
           >
             Visit Tokyo

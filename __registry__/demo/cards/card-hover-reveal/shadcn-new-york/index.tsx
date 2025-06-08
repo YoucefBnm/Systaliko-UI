@@ -16,36 +16,39 @@ export const CardHoverRevealDemo = () => (
       />
     </CardHoverRevealMain>
 
-    <CardHoverRevealContent className="space-y-4 rounded-2xl bg-fd-foreground/70 text-zinc-50">
+    <CardHoverRevealContent className="space-y-4 rounded-2xl bg-black/80 text-secondary/80 p-4">
       <div className="space-y-2">
-        <h3 className="text-sm text-opacity-60">Services</h3>
+        <h3 className="text-sm ">Services</h3>
         <div className="flex flex-wrap gap-2 ">
-          <div className=" rounded-full bg-fd-foreground px-2 py-1">
+          <div className=" rounded-full bg-secondary-foreground px-2 py-1">
             <p className=" text-xs leading-normal">Branding</p>
           </div>
-          <div className=" rounded-full bg-fd-foreground px-2 py-1">
-            <p className=" text-xs leading-normal">UI UX</p>
+          <div className=" rounded-full bg-secondary-foreground px-2 py-1">
+            <p className=" text-xs leading-normal">3D Modeling</p>
           </div>
         </div>
       </div>
 
       <div className="space-y-2">
-        <h3 className=" text-sm text-opacity-60">Stack</h3>
+        <h3 className=" text-sm ">Stack</h3>
         <div className="flex flex-wrap gap-2 ">
           <div className=" rounded-full bg-primary px-2 py-1">
-            <p className=" text-xs leading-normal">Figma</p>
+            <p className=" text-xs leading-normal">Auto CAD</p>
           </div>
           <div className=" rounded-full bg-primary px-2 py-1">
-            <p className=" text-xs leading-normal">Webflow</p>
+            <p className=" text-xs leading-normal">Key Shot</p>
+          </div>
+          <div className=" rounded-full bg-primary px-2 py-1">
+            <p className=" text-xs leading-normal">In Design</p>
           </div>
         </div>
       </div>
 
       <div className="space-y-2">
-        <h3 className="text-sm text-opacity-60">Profile</h3>
+        <h3 className="text-sm ">Profile</h3>
         {/* tag */}
         <div className="flex flex-wrap gap-2 ">
-          <p className="text-sm text-card">
+          <p className="text-sm text-secondary">
             Comprehensive platform designed for an agency, Creating professional
             and business-oriented brand.
           </p>

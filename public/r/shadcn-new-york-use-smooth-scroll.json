@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-new-york-use-smooth-scroll",
+  "type": "registry:hook",
+  "title": "Use Follow Mouse Hook",
+  "description": "Add lenis smooth scrolling to your website with shadcn-new-york style.",
+  "files": [
+    {
+      "path": "__registry__/utils/use-smooth-scroll/shadcn-new-york/index.ts",
+      "content": "import { useEffect, useRef } from 'react';\nimport Lenis from 'lenis';\n\ninterface UseSmoothScrollOptions {\n  duration?: number;\n  lerp?: number;\n  smoothWheel?: boolean;\n  touchMultiplier?: number;\n  infinite?: boolean;\n  orientation?: 'vertical' | 'horizontal';\n  gestureOrientation?: 'vertical' | 'horizontal';\n  easing?: (t: number) => number;\n}\nconst defaultOptions: UseSmoothScrollOptions = {\n  duration: 1.8,\n  lerp: 0.1,\n  smoothWheel: true,\n  touchMultiplier: 2,\n  infinite: false,\n  orientation: 'vertical',\n  gestureOrientation: 'vertical',\n  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),\n};\n\nexport function useSmoothScroll(options: UseSmoothScrollOptions = {}) {\n  const lenisRef = useRef<Lenis | null>(null);\n\n  useEffect(() => {\n    const mergedOptions = { ...defaultOptions, ...options };\n\n    lenisRef.current = new Lenis({\n      duration: mergedOptions.duration,\n      lerp: mergedOptions.lerp,\n      smoothWheel: mergedOptions.smoothWheel,\n      touchMultiplier: mergedOptions.touchMultiplier,\n      infinite: mergedOptions.infinite,\n      orientation: mergedOptions.orientation,\n      gestureOrientation: mergedOptions.gestureOrientation,\n      easing: mergedOptions.easing,\n    });\n\n    function raf(time: number) {\n      lenisRef.current?.raf(time);\n      requestAnimationFrame(raf);\n    }\n\n    requestAnimationFrame(raf);\n\n    return () => {\n      lenisRef.current?.destroy();\n      lenisRef.current = null;\n    };\n  }, [options]);\n\n  return {\n    lenis: lenisRef.current,\n  };\n}\n",
+      "type": "registry:hook",
+      "target": "components/systaliko-ui/utils/use-smooth-scroll.ts"
+    }
+  ]
+}

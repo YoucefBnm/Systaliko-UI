@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "background-gradient",
+  "type": "registry:ui",
+  "title": "Card Curtain Reveal",
+  "description": "background gradient style fully customizable.",
+  "files": [
+    {
+      "path": "registry/backgrounds/background-gradient/index.ts",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/backgrounds/background-gradient.ts"
+    }
+  ]
+}

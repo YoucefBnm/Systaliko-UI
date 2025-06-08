@@ -18,6 +18,45 @@
       "cssVars": {}
     },
     {
+      "name": "default-background-gradient",
+      "type": "registry:ui",
+      "title": "Card Curtain Reveal",
+      "description": "background gradient style fully customizable with default style.",
+      "files": [
+        {
+          "path": "__registry__/backgrounds/background-gradient/default/index.ts",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/backgrounds/background-gradient.ts"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-background-gradient",
+      "type": "registry:ui",
+      "title": "Card Curtain Reveal",
+      "description": "background gradient style fully customizable with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/backgrounds/background-gradient/shadcn-default/index.ts",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/backgrounds/background-gradient.ts"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-background-gradient",
+      "type": "registry:ui",
+      "title": "Card Curtain Reveal",
+      "description": "background gradient style fully customizable with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/backgrounds/background-gradient/shadcn-new-york/index.ts",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/backgrounds/background-gradient.ts"
+        }
+      ]
+    },
+    {
       "name": "default-copy-button",
       "type": "registry:ui",
       "title": "Copy Button",
@@ -393,6 +432,45 @@
       ]
     },
     {
+      "name": "default-gallery-rotated-scroll",
+      "type": "registry:block",
+      "title": "Gallery Rotated Scroll",
+      "description": "Animated gallery images, with scroll triggered animations, rotates and translates on the Y axis on scroll with default style.",
+      "files": [
+        {
+          "path": "__registry__/containers/gallery-rotated-scroll/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/containers/gallery-rotated-scroll.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-gallery-rotated-scroll",
+      "type": "registry:block",
+      "title": "Gallery Rotated Scroll",
+      "description": "Animated gallery images, with scroll triggered animations, rotates and translates on the Y axis on scroll with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/containers/gallery-rotated-scroll/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/containers/gallery-rotated-scroll.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-gallery-rotated-scroll",
+      "type": "registry:block",
+      "title": "Gallery Rotated Scroll",
+      "description": "Animated gallery images, with scroll triggered animations, rotates and translates on the Y axis on scroll with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/containers/gallery-rotated-scroll/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/containers/gallery-rotated-scroll.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-grid-bento",
       "type": "registry:block",
       "title": "Grid Bento",
@@ -515,6 +593,54 @@
           "path": "__registry__/custom-cursor/shadcn-new-york/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/custom-cursor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-background-gradient-demo",
+      "type": "registry:ui",
+      "title": "Background Gradient Demo",
+      "description": "Demo showing how to set background gradient with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/background-gradient"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/backgrounds/background-gradient/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/backgrounds/background-gradient/index.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-background-gradient-demo",
+      "type": "registry:ui",
+      "title": "Background Gradient Demo",
+      "description": "Demo showing how to set background gradient with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/background-gradient"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/backgrounds/background-gradient/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/backgrounds/background-gradient/index.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-background-gradient-demo",
+      "type": "registry:ui",
+      "title": "Background Gradient Demo",
+      "description": "Demo showing how to set background gradient with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/background-gradient"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/backgrounds/background-gradient/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/backgrounds/background-gradient/index.tsx"
         }
       ]
     },
@@ -903,6 +1029,54 @@
       ]
     },
     {
+      "name": "default-gallery-rotated-scroll-demo",
+      "type": "registry:block",
+      "title": "Gallery Rotated Scroll Demo",
+      "description": "Demo showing how to use GalleryRotatedScroll component with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/gallery-rotated-scroll"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/gallery-rotated-scroll/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/gallery-rotated-scroll.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-gallery-rotated-scroll-demo",
+      "type": "registry:block",
+      "title": "Gallery Rotated Scroll Demo",
+      "description": "Demo showing how to use GalleryRotatedScroll component with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/gallery-rotated-scroll"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/gallery-rotated-scroll/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/gallery-rotated-scroll.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-gallery-rotated-scroll-demo",
+      "type": "registry:block",
+      "title": "Gallery Rotated Scroll Demo",
+      "description": "Demo showing how to use GalleryRotatedScroll component with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/gallery-rotated-scroll"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/gallery-rotated-scroll/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/gallery-rotated-scroll.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-grid-bento-demo",
       "type": "registry:block",
       "title": "Grid Bento Demos",
@@ -1043,6 +1217,54 @@
           "path": "__registry__/demo/custom-cursor/shadcn-new-york/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/custom-cursor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-hero-gradient-demo",
+      "type": "registry:block",
+      "title": "Hero Gradient Demo",
+      "description": "Demo showing Hero Gradient Component with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/hero-gradient"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/heros/hero-gradient/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/heros/hero-gradient.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-hero-gradient-demo",
+      "type": "registry:block",
+      "title": "Hero Gradient Demo",
+      "description": "Demo showing Hero Gradient Component with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/hero-gradient"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/heros/hero-gradient/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/heros/hero-gradient.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-hero-gradient-demo",
+      "type": "registry:block",
+      "title": "Hero Gradient Demo",
+      "description": "Demo showing Hero Gradient Component with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/hero-gradient"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/heros/hero-gradient/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/heros/hero-gradient.tsx"
         }
       ]
     },
@@ -1437,53 +1659,92 @@
       ]
     },
     {
-      "name": "default-use-follow-mouse-demo",
+      "name": "default-use-smooth-scroll-demo",
       "type": "registry:hook",
       "title": "Use Follow Mouse Utility Demo",
-      "description": "Demo showing how to use use-follow-mouse utility with default style.",
+      "description": "Demo showing how to use use-smooth-scroll hook with default style.",
       "registryDependencies": [
-        "http://localhost:3000/r/use-follow-mouse",
+        "http://localhost:3000/r/use-smooth-scroll",
         "motion"
       ],
       "files": [
         {
-          "path": "__registry__/demo/utils/use-follow-mouse/default/index.tsx",
+          "path": "__registry__/demo/utils/use-smooth-scroll/default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/utils/use-follow-mouse.ts"
+          "target": "components/systaliko-ui/demo/utils/use-smooth-scroll.ts"
         }
       ]
     },
     {
-      "name": "shadcn-default-use-follow-mouse-demo",
+      "name": "shadcn-default-use-smooth-scroll-demo",
       "type": "registry:hook",
       "title": "Use Follow Mouse Utility Demo",
-      "description": "Demo showing how to use use-follow-mouse utility with shadcn-default style.",
+      "description": "Demo showing how to use use-smooth-scroll hook with shadcn-default style.",
       "registryDependencies": [
-        "http://localhost:3000/r/use-follow-mouse",
+        "http://localhost:3000/r/use-smooth-scroll",
         "motion"
       ],
       "files": [
         {
-          "path": "__registry__/demo/utils/use-follow-mouse/shadcn-default/index.tsx",
+          "path": "__registry__/demo/utils/use-smooth-scroll/shadcn-default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/utils/use-follow-mouse.ts"
+          "target": "components/systaliko-ui/demo/utils/use-smooth-scroll.ts"
         }
       ]
     },
     {
-      "name": "shadcn-new-york-use-follow-mouse-demo",
+      "name": "shadcn-new-york-use-smooth-scroll-demo",
       "type": "registry:hook",
       "title": "Use Follow Mouse Utility Demo",
-      "description": "Demo showing how to use use-follow-mouse utility with shadcn-new-york style.",
+      "description": "Demo showing how to use use-smooth-scroll hook with shadcn-new-york style.",
       "registryDependencies": [
-        "http://localhost:3000/r/use-follow-mouse",
+        "http://localhost:3000/r/use-smooth-scroll",
         "motion"
       ],
       "files": [
         {
-          "path": "__registry__/demo/utils/use-follow-mouse/shadcn-new-york/index.tsx",
+          "path": "__registry__/demo/utils/use-smooth-scroll/shadcn-new-york/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/utils/use-follow-mouse.ts"
+          "target": "components/systaliko-ui/demo/utils/use-smooth-scroll.ts"
+        }
+      ]
+    },
+    {
+      "name": "default-hero-gradient",
+      "type": "registry:block",
+      "title": "Hero Gradient",
+      "description": "Hero with gradient background and text with default style.",
+      "files": [
+        {
+          "path": "__registry__/heros/hero-gradient/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/heros/hero-gradient.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-hero-gradient",
+      "type": "registry:block",
+      "title": "Hero Gradient",
+      "description": "Hero with gradient background and text with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/heros/hero-gradient/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/heros/hero-gradient.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-hero-gradient",
+      "type": "registry:block",
+      "title": "Hero Gradient",
+      "description": "Hero with gradient background and text with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/heros/hero-gradient/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/heros/hero-gradient.tsx"
         }
       ]
     },
@@ -1979,6 +2240,45 @@
           "path": "__registry__/utils/use-follow-mouse/shadcn-new-york/index.ts",
           "type": "registry:hook",
           "target": "components/systaliko-ui/utils/use-follow-mouse.ts"
+        }
+      ]
+    },
+    {
+      "name": "default-use-smooth-scroll",
+      "type": "registry:hook",
+      "title": "Use Follow Mouse Hook",
+      "description": "Add lenis smooth scrolling to your website with default style.",
+      "files": [
+        {
+          "path": "__registry__/utils/use-smooth-scroll/default/index.ts",
+          "type": "registry:hook",
+          "target": "components/systaliko-ui/utils/use-smooth-scroll.ts"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-use-smooth-scroll",
+      "type": "registry:hook",
+      "title": "Use Follow Mouse Hook",
+      "description": "Add lenis smooth scrolling to your website with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/utils/use-smooth-scroll/shadcn-default/index.ts",
+          "type": "registry:hook",
+          "target": "components/systaliko-ui/utils/use-smooth-scroll.ts"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-use-smooth-scroll",
+      "type": "registry:hook",
+      "title": "Use Follow Mouse Hook",
+      "description": "Add lenis smooth scrolling to your website with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/utils/use-smooth-scroll/shadcn-new-york/index.ts",
+          "type": "registry:hook",
+          "target": "components/systaliko-ui/utils/use-smooth-scroll.ts"
         }
       ]
     }

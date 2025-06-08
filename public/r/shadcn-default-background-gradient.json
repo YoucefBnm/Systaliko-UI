@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-default-background-gradient",
+  "type": "registry:ui",
+  "title": "Card Curtain Reveal",
+  "description": "background gradient style fully customizable with shadcn-default style.",
+  "files": [
+    {
+      "path": "__registry__/backgrounds/background-gradient/shadcn-default/index.ts",
+      "content": "export interface GradientStyleT {\n  gradientColors: { color: string; start: string }[];\n  gradientSize: { width: string; height: string };\n  gradientPosition: { x: string; y: string };\n}\n\nexport const gradientStyle = (params: GradientStyleT) => {\n  const { gradientColors, gradientSize, gradientPosition } = params;\n\n  const gradientString = gradientColors\n    .map(({ color, start }) => `${color} ${start}`)\n    .join(', ');\n\n  const gradientBg = `radial-gradient(${gradientSize.width} ${gradientSize.height} at ${gradientPosition.x} ${gradientPosition.y}, ${gradientString})`;\n\n  return {\n    gradientString,\n    gradientBg,\n  };\n};\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/backgrounds/background-gradient.ts"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hero-gradient-demo",
+  "type": "registry:block",
+  "title": "Hero Gradient Demo",
+  "description": "Demo showing Hero Gradient Component.",
+  "registryDependencies": ["http://localhost:3000/r/hero-gradient"],
+  "files": [
+    {
+      "path": "registry/demo/heros/hero-gradient/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/heros/hero-gradient.tsx"
+    }
+  ]
+}
