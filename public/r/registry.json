@@ -1557,6 +1557,54 @@
       ]
     },
     {
+      "name": "default-story-demo",
+      "type": "registry:ui",
+      "title": "Story Demo",
+      "description": "Demo showing how to use story component with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/story"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/story/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/story.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-story-demo",
+      "type": "registry:ui",
+      "title": "Story Demo",
+      "description": "Demo showing how to use story component with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/story"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/story/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/story.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-story-demo",
+      "type": "registry:ui",
+      "title": "Story Demo",
+      "description": "Demo showing how to use story component with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/story"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/story/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/story.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-text-stagger-hover-demo",
       "type": "registry:ui",
       "title": "Text Stagger Hover Demo",
@@ -2003,6 +2051,54 @@
           "path": "__registry__/slideshow/shadcn-new-york/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/slideshow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-story",
+      "type": "registry:ui",
+      "title": "Story",
+      "description": "Simillar to IG story, Story is a component that allows you to display a collection of components in a single view with default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/story/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/story.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-story",
+      "type": "registry:ui",
+      "title": "Story",
+      "description": "Simillar to IG story, Story is a component that allows you to display a collection of components in a single view with shadcn-default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/story/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/story.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-story",
+      "type": "registry:ui",
+      "title": "Story",
+      "description": "Simillar to IG story, Story is a component that allows you to display a collection of components in a single view with shadcn-new-york style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/story/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/story.tsx"
         }
       ]
     },

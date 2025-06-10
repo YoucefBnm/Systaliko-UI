@@ -22,10 +22,12 @@ import { HeroGradientDemo } from '@/registry/demo/heros/hero-gradient';
 import { GalleryRotatedScrollDemo } from '@/registry/demo/containers/gallery-rotated-scroll';
 import { ContainerStaggerDemo } from '@/registry/demo/containers/container-stagger';
 import { HeroRotatedGalleryDemo } from '@/registry/demo/heros/hero-rotated-gallery';
+import { StoryDemo } from '@/registry/demo/story';
 
 export default function Home() {
   return (
     <main className="relative">
+      <StoryDemo />
       <HeroRotatedGalleryDemo />
       <ContainerStaggerDemo />
       <GalleryRotatedScrollDemo />
