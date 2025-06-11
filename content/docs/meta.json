@@ -42,7 +42,7 @@
     "background/background-gradient",
     "background/clipped-shape",
 
-    "---Hooks / Utils---",
+    "---Utils / Hooks---",
     "utils/set-stagger-direction",
     "utils/use-animation-variants"
   ]
