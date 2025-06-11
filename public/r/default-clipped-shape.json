@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "default-clipped-shape",
+  "type": "registry:ui",
+  "title": "Clipped shape",
+  "description": "Clipped shape background with default style.",
+  "files": [
+    {
+      "path": "__registry__/backgrounds/clipped-shape/default/index.tsx",
+      "content": "import { cn } from '@/lib/utils';\nimport * as React from 'react';\n\ninterface PolygonProps extends React.HTMLAttributes<HTMLDivElement> {\n  withBorder?: boolean;\n  clipHeight?: number;\n  borderColor?: string;\n}\nexport const Polygon = React.forwardRef<HTMLDivElement, PolygonProps>(\n  (\n    {\n      withBorder = false,\n      clipHeight = 50,\n      borderColor,\n      className,\n      children,\n      style,\n      ...props\n    },\n    ref,\n  ) => {\n    const getBorderColor = borderColor && borderColor.substring(6); // returns 'red-500'\n    return (\n      <div\n        className={cn(\n          `${withBorder ? 'border-2' : 'border-none'}`,\n          borderColor,\n          '!rounded-none',\n          className,\n        )}\n        style={{\n          clipPath: `polygon(${clipHeight}px 0%, calc(100% - ${clipHeight}px) 0%, 100% ${clipHeight}px, 100% 100%, calc(100% - ${clipHeight}px) 100%, ${clipHeight}px 100%, 0 100%, 0 0)`,\n          ...style,\n        }}\n        {...props}\n        ref={ref}\n      >\n        {withBorder && (\n          <div\n            className={cn(\n              'absolute rounded-[inherit] origin-top-right h-0.5 rotate-45 object-cover right-[-2px]',\n              `bg${getBorderColor}`,\n            )}\n            style={{\n              top: `${clipHeight - 2}px`,\n              width: `calc(100% + ${clipHeight}px)`,\n            }}\n          />\n        )}\n        {children}\n      </div>\n    );\n  },\n);\nPolygon.displayName = 'ClippedShape';\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/backgrounds/clipped-shape.tsx"
+    }
+  ]
+}

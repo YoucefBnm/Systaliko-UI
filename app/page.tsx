@@ -23,10 +23,12 @@ import { GalleryRotatedScrollDemo } from '@/registry/demo/containers/gallery-rot
 import { ContainerStaggerDemo } from '@/registry/demo/containers/container-stagger';
 import { HeroRotatedGalleryDemo } from '@/registry/demo/heros/hero-rotated-gallery';
 import { StoryDemo } from '@/registry/demo/story';
+import { ClippedShapeDemo } from '@/registry/demo/backgrounds/clipped-shape';
 
 export default function Home() {
   return (
     <main className="relative">
+      <ClippedShapeDemo />
       <StoryDemo />
       <HeroRotatedGalleryDemo />
       <ContainerStaggerDemo />

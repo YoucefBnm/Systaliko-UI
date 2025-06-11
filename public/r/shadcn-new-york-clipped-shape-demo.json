@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-new-york-clipped-shape-demo",
+  "type": "registry:ui",
+  "title": "Clipped Shape Demo",
+  "description": "Demo showing how to use clipped shape background with shadcn-new-york style.",
+  "registryDependencies": [
+    "http://localhost:3000/r/clipped-shape"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/backgrounds/clipped-shape/shadcn-new-york/index.tsx",
+      "content": "import { Polygon } from '@/components/systaliko-ui/backgrounds/clipped-shape';\n\nexport function ClippedShapeDemo() {\n  return (\n    <div className=\"w-full relative p-6  place-content-center\">\n      <Polygon\n        className=\"flex flex-col justify-between bg-primary text-white py-6 px-8 relative w-[450px] h-[280px]\"\n        borderColor=\"border-yellow-500\"\n        clipHeight={40}\n        withBorder\n      >\n        <h1 className=\"text-right text-6xl tracking-tighter text-yellow-500\">\n          +100\n        </h1>\n        <h2 className=\"max-w-[10ch] text-wrap  text-4xl font-semibold capitalize tracking-tight\">\n          Created Websites\n        </h2>\n      </Polygon>\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/clipped-shape/index.tsx"
+    }
+  ]
+}

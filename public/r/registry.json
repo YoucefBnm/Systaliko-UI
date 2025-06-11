@@ -57,6 +57,45 @@
       ]
     },
     {
+      "name": "default-clipped-shape",
+      "type": "registry:ui",
+      "title": "Clipped shape",
+      "description": "Clipped shape background with default style.",
+      "files": [
+        {
+          "path": "__registry__/backgrounds/clipped-shape/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/backgrounds/clipped-shape.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-clipped-shape",
+      "type": "registry:ui",
+      "title": "Clipped shape",
+      "description": "Clipped shape background with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/backgrounds/clipped-shape/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/backgrounds/clipped-shape.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-clipped-shape",
+      "type": "registry:ui",
+      "title": "Clipped shape",
+      "description": "Clipped shape background with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/backgrounds/clipped-shape/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/backgrounds/clipped-shape.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-copy-button",
       "type": "registry:ui",
       "title": "Copy Button",
@@ -689,6 +728,54 @@
           "path": "__registry__/demo/backgrounds/background-gradient/shadcn-new-york/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/backgrounds/background-gradient/index.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-clipped-shape-demo",
+      "type": "registry:ui",
+      "title": "Clipped Shape Demo",
+      "description": "Demo showing how to use clipped shape background with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/clipped-shape"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/backgrounds/clipped-shape/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/clipped-shape/index.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-clipped-shape-demo",
+      "type": "registry:ui",
+      "title": "Clipped Shape Demo",
+      "description": "Demo showing how to use clipped shape background with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/clipped-shape"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/backgrounds/clipped-shape/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/clipped-shape/index.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-clipped-shape-demo",
+      "type": "registry:ui",
+      "title": "Clipped Shape Demo",
+      "description": "Demo showing how to use clipped shape background with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/clipped-shape"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/backgrounds/clipped-shape/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/clipped-shape/index.tsx"
         }
       ]
     },

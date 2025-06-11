@@ -130,6 +130,111 @@ export const index: Record<string, any> = {
     })(),
     command: 'https://animate-ui.com/r/shadcn-new-york-background-gradient',
   },
+  'default-clipped-shape': {
+    name: 'default-clipped-shape',
+    description: 'Clipped shape background with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/backgrounds/clipped-shape/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/backgrounds/clipped-shape.tsx',
+        content:
+          "import { cn } from '@/lib/utils';\nimport * as React from 'react';\n\ninterface PolygonProps extends React.HTMLAttributes<HTMLDivElement> {\n  withBorder?: boolean;\n  clipHeight?: number;\n  borderColor?: string;\n}\nexport const Polygon = React.forwardRef<HTMLDivElement, PolygonProps>(\n  (\n    {\n      withBorder = false,\n      clipHeight = 50,\n      borderColor,\n      className,\n      children,\n      style,\n      ...props\n    },\n    ref,\n  ) => {\n    const getBorderColor = borderColor && borderColor.substring(6); // returns 'red-500'\n    return (\n      <div\n        className={cn(\n          `${withBorder ? 'border-2' : 'border-none'}`,\n          borderColor,\n          '!rounded-none',\n          className,\n        )}\n        style={{\n          clipPath: `polygon(${clipHeight}px 0%, calc(100% - ${clipHeight}px) 0%, 100% ${clipHeight}px, 100% 100%, calc(100% - ${clipHeight}px) 100%, ${clipHeight}px 100%, 0 100%, 0 0)`,\n          ...style,\n        }}\n        {...props}\n        ref={ref}\n      >\n        {withBorder && (\n          <div\n            className={cn(\n              'absolute rounded-[inherit] origin-top-right h-0.5 rotate-45 object-cover right-[-2px]',\n              `bg${getBorderColor}`,\n            )}\n            style={{\n              top: `${clipHeight - 2}px`,\n              width: `calc(100% + ${clipHeight}px)`,\n            }}\n          />\n        )}\n        {children}\n      </div>\n    );\n  },\n);\nPolygon.displayName = 'ClippedShape';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/backgrounds/clipped-shape/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-clipped-shape';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-clipped-shape',
+  },
+  'shadcn-default-clipped-shape': {
+    name: 'shadcn-default-clipped-shape',
+    description: 'Clipped shape background with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/backgrounds/clipped-shape/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/backgrounds/clipped-shape.tsx',
+        content:
+          "import { cn } from '@/lib/utils';\nimport * as React from 'react';\n\ninterface PolygonProps extends React.HTMLAttributes<HTMLDivElement> {\n  withBorder?: boolean;\n  clipHeight?: number;\n  borderColor?: string;\n}\nexport const Polygon = React.forwardRef<HTMLDivElement, PolygonProps>(\n  (\n    {\n      withBorder = false,\n      clipHeight = 50,\n      borderColor,\n      className,\n      children,\n      style,\n      ...props\n    },\n    ref,\n  ) => {\n    const getBorderColor = borderColor && borderColor.substring(6); // returns 'red-500'\n    return (\n      <div\n        className={cn(\n          `${withBorder ? 'border-2' : 'border-none'}`,\n          borderColor,\n          '!rounded-none',\n          className,\n        )}\n        style={{\n          clipPath: `polygon(${clipHeight}px 0%, calc(100% - ${clipHeight}px) 0%, 100% ${clipHeight}px, 100% 100%, calc(100% - ${clipHeight}px) 100%, ${clipHeight}px 100%, 0 100%, 0 0)`,\n          ...style,\n        }}\n        {...props}\n        ref={ref}\n      >\n        {withBorder && (\n          <div\n            className={cn(\n              'absolute rounded-[inherit] origin-top-right h-0.5 rotate-45 object-cover right-[-2px]',\n              `bg${getBorderColor}`,\n            )}\n            style={{\n              top: `${clipHeight - 2}px`,\n              width: `calc(100% + ${clipHeight}px)`,\n            }}\n          />\n        )}\n        {children}\n      </div>\n    );\n  },\n);\nPolygon.displayName = 'ClippedShape';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/backgrounds/clipped-shape/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-clipped-shape';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-clipped-shape',
+  },
+  'shadcn-new-york-clipped-shape': {
+    name: 'shadcn-new-york-clipped-shape',
+    description: 'Clipped shape background with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/backgrounds/clipped-shape/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/backgrounds/clipped-shape.tsx',
+        content:
+          "import { cn } from '@/lib/utils';\nimport * as React from 'react';\n\ninterface PolygonProps extends React.HTMLAttributes<HTMLDivElement> {\n  withBorder?: boolean;\n  clipHeight?: number;\n  borderColor?: string;\n}\nexport const Polygon = React.forwardRef<HTMLDivElement, PolygonProps>(\n  (\n    {\n      withBorder = false,\n      clipHeight = 50,\n      borderColor,\n      className,\n      children,\n      style,\n      ...props\n    },\n    ref,\n  ) => {\n    const getBorderColor = borderColor && borderColor.substring(6); // returns 'red-500'\n    return (\n      <div\n        className={cn(\n          `${withBorder ? 'border-2' : 'border-none'}`,\n          borderColor,\n          '!rounded-none',\n          className,\n        )}\n        style={{\n          clipPath: `polygon(${clipHeight}px 0%, calc(100% - ${clipHeight}px) 0%, 100% ${clipHeight}px, 100% 100%, calc(100% - ${clipHeight}px) 100%, ${clipHeight}px 100%, 0 100%, 0 0)`,\n          ...style,\n        }}\n        {...props}\n        ref={ref}\n      >\n        {withBorder && (\n          <div\n            className={cn(\n              'absolute rounded-[inherit] origin-top-right h-0.5 rotate-45 object-cover right-[-2px]',\n              `bg${getBorderColor}`,\n            )}\n            style={{\n              top: `${clipHeight - 2}px`,\n              width: `calc(100% + ${clipHeight}px)`,\n            }}\n          />\n        )}\n        {children}\n      </div>\n    );\n  },\n);\nPolygon.displayName = 'ClippedShape';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/backgrounds/clipped-shape/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-clipped-shape';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-clipped-shape',
+  },
   'default-copy-button': {
     name: 'default-copy-button',
     description:
@@ -1755,6 +1860,114 @@ export const index: Record<string, any> = {
     })(),
     command:
       'https://animate-ui.com/r/shadcn-new-york-background-gradient-demo',
+  },
+  'default-clipped-shape-demo': {
+    name: 'default-clipped-shape-demo',
+    description:
+      'Demo showing how to use clipped shape background with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/clipped-shape'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/backgrounds/clipped-shape/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/clipped-shape/index.tsx',
+        content:
+          'import { Polygon } from \'@/components/systaliko-ui/backgrounds/clipped-shape\';\n\nexport function ClippedShapeDemo() {\n  return (\n    <div className="w-full relative p-6  place-content-center">\n      <Polygon\n        className="flex flex-col justify-between bg-primary text-white py-6 px-8 relative w-[450px] h-[280px]"\n        borderColor="border-yellow-500"\n        clipHeight={40}\n        withBorder\n      >\n        <h1 className="text-right text-6xl tracking-tighter text-yellow-500">\n          +100\n        </h1>\n        <h2 className="max-w-[10ch] text-wrap  text-4xl font-semibold capitalize tracking-tight">\n          Created Websites\n        </h2>\n      </Polygon>\n    </div>\n  );\n}',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/backgrounds/clipped-shape/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-clipped-shape-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/default-clipped-shape-demo',
+  },
+  'shadcn-default-clipped-shape-demo': {
+    name: 'shadcn-default-clipped-shape-demo',
+    description:
+      'Demo showing how to use clipped shape background with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/clipped-shape'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/backgrounds/clipped-shape/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/clipped-shape/index.tsx',
+        content:
+          'import { Polygon } from \'@/components/systaliko-ui/backgrounds/clipped-shape\';\n\nexport function ClippedShapeDemo() {\n  return (\n    <div className="w-full relative p-6  place-content-center">\n      <Polygon\n        className="flex flex-col justify-between bg-primary text-white py-6 px-8 relative w-[450px] h-[280px]"\n        borderColor="border-yellow-500"\n        clipHeight={40}\n        withBorder\n      >\n        <h1 className="text-right text-6xl tracking-tighter text-yellow-500">\n          +100\n        </h1>\n        <h2 className="max-w-[10ch] text-wrap  text-4xl font-semibold capitalize tracking-tight">\n          Created Websites\n        </h2>\n      </Polygon>\n    </div>\n  );\n}',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/backgrounds/clipped-shape/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-clipped-shape-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-default-clipped-shape-demo',
+  },
+  'shadcn-new-york-clipped-shape-demo': {
+    name: 'shadcn-new-york-clipped-shape-demo',
+    description:
+      'Demo showing how to use clipped shape background with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/clipped-shape'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/backgrounds/clipped-shape/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/clipped-shape/index.tsx',
+        content:
+          'import { Polygon } from \'@/components/systaliko-ui/backgrounds/clipped-shape\';\n\nexport function ClippedShapeDemo() {\n  return (\n    <div className="w-full relative p-6  place-content-center">\n      <Polygon\n        className="flex flex-col justify-between bg-primary text-white py-6 px-8 relative w-[450px] h-[280px]"\n        borderColor="border-yellow-500"\n        clipHeight={40}\n        withBorder\n      >\n        <h1 className="text-right text-6xl tracking-tighter text-yellow-500">\n          +100\n        </h1>\n        <h2 className="max-w-[10ch] text-wrap  text-4xl font-semibold capitalize tracking-tight">\n          Created Websites\n        </h2>\n      </Polygon>\n    </div>\n  );\n}',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/backgrounds/clipped-shape/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-clipped-shape-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://animate-ui.com/r/shadcn-new-york-clipped-shape-demo',
   },
   'default-card-curtain-reveal-demo': {
     name: 'default-card-curtain-reveal-demo',
