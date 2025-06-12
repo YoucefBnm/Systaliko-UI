@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { Fullscreen, RotateCcw, SlidersHorizontal } from 'lucide-react';
+import { Fullscreen, RotateCcw } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { motion } from 'motion/react';
 import Iframe from './iframe';
@@ -15,13 +15,12 @@ import {
 } from '../ui/select';
 import { STYLES_INFO, useStyle } from '@/providers/style-provider';
 import { index } from '@/__registry__';
-import { useIsMobile } from '@/hooks/use-mobile';
+import { OpenIn21stBtn } from './open-in-21st-btn';
 
 interface ComponentWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
   iframe?: boolean;
   bigScreen?: boolean;
-  tweakpane?: React.ReactNode;
 }
 
 export const ComponentWrapper = ({
@@ -30,12 +29,9 @@ export const ComponentWrapper = ({
   name,
   iframe = false,
   bigScreen = false,
-  tweakpane,
 }: ComponentWrapperProps) => {
-  const [tweakMode, setTweakMode] = useState(false);
   const [key, setKey] = useState(0);
 
-  const isMobile = useIsMobile();
   const { style, setStyle } = useStyle();
   const componentName = useMemo(() => name.replace('-demo', ''), [name]);
 
@@ -76,11 +72,10 @@ export const ComponentWrapper = ({
             )}
 
             <div className="absolute top-3 right-3 z-[9]  flex items-center justify-end gap-2 p-1 rounded-[11px]">
+              <OpenIn21stBtn componentName={componentName} />
               <Button
                 onClick={() => setKey((prev) => prev + 1)}
                 className="flex items-center rounded-lg"
-                // variant="neutral"
-                // size="icon-sm"
                 size="icon"
                 variant={'secondary'}
                 asChild
@@ -97,10 +92,7 @@ export const ComponentWrapper = ({
                 <Button
                   onClick={() => window.open(`/examples/${name}`, '_blank')}
                   className="flex items-center rounded-lg"
-                  // variant="neutral"
-                  // size="icon-sm"
                   size="icon"
-                  // variant={'secondary'}
                   asChild
                 >
                   <motion.button
@@ -108,25 +100,6 @@ export const ComponentWrapper = ({
                     whileTap={{ scale: 0.95 }}
                   >
                     <Fullscreen aria-label="fullscreen-btn" size={14} />
-                  </motion.button>
-                </Button>
-              )}
-
-              {tweakpane && (
-                <Button
-                  onClick={() => setTweakMode((prev) => !prev)}
-                  className="flex items-center rounded-lg"
-                  // variant="neutral"
-                  // size="icon-sm"
-                  size="icon"
-                  variant={'secondary'}
-                  asChild
-                >
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <SlidersHorizontal aria-label="tweak-btn" size={14} />
                   </motion.button>
                 </Button>
               )}
@@ -144,24 +117,6 @@ export const ComponentWrapper = ({
             {children}
           </div>
         )}
-      </motion.div>
-
-      <motion.div
-        initial={false}
-        animate={{
-          width: isMobile ? '100%' : tweakMode ? '250px' : '0px',
-          height: isMobile ? (tweakMode ? '250px' : '0px') : 'auto',
-          opacity: tweakMode ? 1 : 0,
-        }}
-        transition={{
-          type: 'spring',
-          stiffness: 300,
-          damping: 30,
-          restDelta: 0.01,
-        }}
-        className="relative"
-      >
-        <div className="absolute inset-0 overflow-y-auto">{tweakpane}</div>
       </motion.div>
     </motion.div>
   );

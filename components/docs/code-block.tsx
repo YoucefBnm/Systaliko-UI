@@ -1,49 +1,37 @@
 'use client';
-
-import {
-  type HTMLAttributes,
-  type ReactNode,
-  forwardRef,
-  useCallback,
-  useRef,
-  useState,
-} from 'react';
 import { cn } from '@/lib/utils';
-import {
-  ScrollArea,
-  ScrollBar,
-  ScrollViewport,
-} from '@/components/ui/scroll-area';
-import type { ScrollAreaViewportProps } from '@radix-ui/react-scroll-area';
 import { CopyButton } from '@/registry/buttons/copy';
+import { ScrollAreaViewportProps } from '@radix-ui/react-scroll-area';
+import * as React from 'react';
+import { ScrollArea, ScrollBar, ScrollViewport } from '../ui/scroll-area';
 
-export type CodeBlockProps = HTMLAttributes<HTMLElement> & {
-  icon?: ReactNode;
+export type CodeBlockProps = React.HTMLAttributes<HTMLElement> & {
+  icon?: React.ReactNode;
   allowCopy?: boolean;
   viewportProps?: ScrollAreaViewportProps;
   onCopy?: () => void;
 };
 
-export const Pre = forwardRef<HTMLPreElement, HTMLAttributes<HTMLPreElement>>(
-  ({ className, ...props }, ref) => {
-    return (
-      <pre
-        ref={ref}
-        className={cn(
-          'p-4 focus-visible:outline-none overflow-x-auto text-sm font-mono',
-          className,
-        )}
-        {...props}
-      >
-        {props.children}
-      </pre>
-    );
-  },
-);
-
+export const Pre = React.forwardRef<
+  HTMLPreElement,
+  React.HTMLAttributes<HTMLPreElement>
+>(({ className, ...props }, ref) => {
+  return (
+    <pre
+      ref={ref}
+      className={cn(
+        'p-4 focus-visible:outline-none overflow-x-auto text-sm font-mono',
+        className,
+      )}
+      {...props}
+    >
+      {props.children}
+    </pre>
+  );
+});
 Pre.displayName = 'Pre';
 
-export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
+export const CodeBlock = React.forwardRef<HTMLElement, CodeBlockProps>(
   (
     {
       title,
@@ -55,10 +43,10 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(
     },
     ref,
   ) => {
-    const [isCopied, setIsCopied] = useState(false);
-    const areaRef = useRef<HTMLDivElement>(null);
+    const [isCopied, setIsCopied] = React.useState(false);
+    const areaRef = React.useRef<HTMLDivElement>(null);
 
-    const onCopy = useCallback(() => {
+    const onCopy = React.useCallback(() => {
       const pre = areaRef.current?.getElementsByTagName('pre').item(0);
 
       if (!pre) return;

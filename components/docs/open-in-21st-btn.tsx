@@ -1,11 +1,11 @@
 import { motion } from 'motion/react';
 import { Button } from '../ui/button';
 
-export function OpenIn21stBtn({ url }: { url: string }) {
+export function OpenIn21stBtn({ componentName }: { componentName: string }) {
   return (
     <Button size={'sm'} aria-label="Open in 21st dev" asChild>
       <motion.a
-        href={`https://21st.dev/youcefbnm/${url}`}
+        href={`https://21st.dev/youcefbnm/${componentName}/default`}
         target="_blank"
         rel="noreferrer"
         className="no-underline"
