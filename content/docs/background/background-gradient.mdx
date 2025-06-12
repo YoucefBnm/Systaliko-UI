@@ -5,6 +5,43 @@ description: background gradient style fully customizable, you can custom via co
 
 <ComponentPreview name="background-gradient-demo" />
 
+## Installation
+
+<ComponentInstallation name="background-gradient" />
+
 ## Usage
 
+```tsx
+const { gradientBg } = gradientStyle();
+return (
+  <div className="h-dvh w-full" style={{ backgroundImage: gradientBg }}>
+    content
+  </div>
+);
+```
+
 ## Props
+
+<TypeTable
+  type={{
+    gradientPosition: {
+      description: 'Position of the gradient, on x and y axis',
+      type: '{ x: string; y: string }',
+      required: false,
+      default: '{ x: "50%", y: "-20%" }',
+    },
+    gradientSize: {
+      description: 'Size of the gradient',
+      type: '{ width: string; height: string }',
+      required: false,
+      default: '{ width: "80%", height: "100%" }',
+    },
+    gradientColors: {
+      description: 'Colors of the gradient',
+      type: '{ color: string; start: string }[]',
+      required: false,
+      default:
+        '[{ color: "var(--color-primary)", start: "0%" }, { color: "var(--background)", start: "100%" }]',
+    },
+  }}
+/>

@@ -6,3 +6,150 @@ description: Autoplay carousel similar to IG story.
 <ComponentPreview name="story-demo" />
 
 ## Installation
+
+<ComponentInstallation name="story" />
+
+## Usage
+
+```tsx
+const SHADCN_STORIES = [
+  {
+    title: 'Easy vibes',
+    caption: 'In the System Prompts.',
+    storyImage:
+      'https://pbs.twimg.com/media/Gr5BeX6WwAAgGH_?format=jpg&name=large',
+  },
+  {
+    title: 'The new calendar.tsx is here',
+    caption: `
+    → Latest react-daypicker
+    → Tailwind v3 and v4
+    → Date, range & time pickers
+    → Persian, Hijri & timezone support
+    → 30+ examples to copy, paste, and build.
+    `,
+    storyImage:
+      'https://pbs.twimg.com/media/GsxdzRfb0AIUBSs?format=jpg&name=large',
+  },
+  {
+    title: '🤣🤣🤣🤣🤣',
+    caption: 'Me walking away after adding min-w-0 and it works.',
+    storyImage:
+      'https://pbs.twimg.com/media/Gsh-UBoasAM_Uin?format=jpg&name=medium',
+  },
+];
+
+<Dialog>
+  <DialogTrigger>
+    <Avatar className="size-12">
+      <AvatarImage
+        src="https://pbs.twimg.com/profile_images/1593304942210478080/TUYae5z7_400x400.jpg"
+        alt="@shadcn"
+      />
+      <AvatarFallback>SC</AvatarFallback>
+    </Avatar>
+  </DialogTrigger>
+  <DialogContent className="aspect-[12/16] w-auto h-[90vh] overflow-hidden p-0">
+    <DialogTitle className="sr-only">Story</DialogTitle>
+
+    <Story
+      className="relative size-full "
+      duration={5000}
+      mediaLength={SHADCN_STORIES.length}
+    >
+      <DialogHeader className="px-4 py-6">
+        <div className="relative z-10 flex items-center gap-2">
+          <Avatar className="size-10">
+            <AvatarImage
+              src="https://pbs.twimg.com/profile_images/1593304942210478080/TUYae5z7_400x400.jpg"
+              alt="@shadcn"
+            />
+            <AvatarFallback>SC</AvatarFallback>
+          </Avatar>
+
+          <StoryProgress
+            className="flex-1"
+            progressWrapClass="h-1.5"
+            progressActiveClass="bg-pink-500"
+          />
+          <StoryControls variant="ghost" className="text-white rounded-full" />
+        </div>
+      </DialogHeader>
+      {SHADCN_STORIES.map((story, idx) => (
+        <StorySlide
+          key={idx}
+          index={idx}
+          className="absolute inset-0 size-full"
+        >
+          <img
+            src={story.storyImage}
+            className="w-full h-auto max-h-auto"
+            alt={story.title}
+          />
+
+          <div className="absolute bottom-4 left-4  z-10 space-y-1 text-white">
+            <a className="text-secondary" href="https://x.com/FabrizioRomano">
+              @Shadcn
+            </a>
+            <h3 className="text-medium tracking-tight text-foreground-muted">
+              {story.title}
+            </h3>
+            <p className="text-sm text-slate-200">{story.caption}</p>
+          </div>
+        </StorySlide>
+      ))}
+      <StoryOverlay />
+    </Story>
+  </DialogContent>
+</Dialog>;
+```
+
+## Props
+
+#### Story
+
+<TypeTable
+  type={{
+    duration: {
+      description:
+        'Interval duration in milliseconds to play each story. Default is 2000.',
+      type: 'number',
+      required: false,
+      default: '2000',
+    },
+    mediaLength: {
+      description: 'Number of slides.',
+      type: 'number',
+      required: true,
+    },
+  }}
+/>
+#### StorySlide
+
+<TypeTable
+  type={{
+    index: {
+      description:
+        'Order of the story, you can set it manually, or when mapping array set it via "index".',
+      type: 'number',
+      required: true,
+    },
+  }}
+/>
+
+#### StoryProgress
+
+<TypeTable
+  type={{
+    progressActiveClass: {
+      description: 'Styling/className for the active progress bar.',
+      type: 'string',
+      required: false,
+    },
+    progressWrapClass: {
+      description: 'Styling/className for the progress bar wrapper.',
+      type: 'string',
+      required: false,
+    },
+  }}
+/>

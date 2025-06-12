@@ -5,6 +5,10 @@ description: Testimonial card with rating, block quote, and author's information
 
 <ComponentPreview name="card-testimonial-demo" />
 
+### Installation
+
+<ComponentInstallation name="card-testimonial" />
+
 ## Usage
 
 ```tsx
@@ -31,3 +35,25 @@ description: Testimonial card with rating, block quote, and author's information
 ```
 
 ## Props
+
+#### CardTestimonial
+
+<TypeTable
+  type={{
+    testimonialRating: {
+      description: 'rating/note of the testimonial.',
+      type: 'number',
+      required: false,
+    },
+    testimonialQuote: {
+      description: 'quote of the testimonial.',
+      type: 'string',
+      required: true,
+    },
+    testimonialAuthor: {
+      description: 'author of the testimonial.',
+      type: '{authorName: string;avatarUrl?: string;description?: string;}',
+      required: true,
+    },
+  }}
+/>

@@ -5,6 +5,41 @@ description: Clipped shape background.
 
 <ComponentPreview name="clipped-shape-demo" />
 
+## Installation
+
+<ComponentInstallation name="clipped-shape" />
+
 ## Usage
 
+```tsx
+<Polygon
+  className="flex flex-col justify-between bg-primary text-white py-6 px-8 relative w-[450px] h-[280px]"
+  borderColor="border-yellow-500"
+  clipHeight={40}
+  withBorder
+/>
+```
+
 ## Props
+
+<TypeTable
+  type={{
+    borderColor: {
+      description: 'if the "withBorder" prop is true, set color of the border',
+      type: 'string',
+      required: false,
+    },
+    withBorder: {
+      description: 'adds border to the clipped shape',
+      type: 'boolean',
+      required: false,
+      default: 'false',
+    },
+    clipHeight: {
+      description: 'height of the clipped area of the shape',
+      type: 'number',
+      required: false,
+      default: '50',
+    },
+  }}
+/>
