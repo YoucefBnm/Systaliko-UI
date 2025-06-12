@@ -40,7 +40,7 @@ export function CardsStackDemo() {
         <CardSticky
           key={phase.id}
           index={index + 2}
-          className="rounded-2xl border p-8 shadow-md backdrop-blur-md w-4/5 md:w-1/2 lg:w-1/3"
+          className="rounded-2xl border p-8 shadow-md backdrop-blur-md max-w-md"
         >
           <div className="flex items-center justify-between gap-4">
             <h2 className="my-6 text-2xl font-bold tracking-tighter">

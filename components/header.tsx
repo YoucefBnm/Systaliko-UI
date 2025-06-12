@@ -18,8 +18,8 @@ export function Header() {
         <Logo className=" w-[124px]" />
       </Link>
 
-      <NavigationMenu>
-        <NavigationMenuItem className="list-none">
+      <NavigationMenu className="[&>li]:list-none">
+        <NavigationMenuItem>
           <NavigationMenuLink
             className={cn(navigationMenuTriggerStyle(), '  bg-transparent')}
             href="/"
@@ -27,7 +27,7 @@ export function Header() {
             Home
           </NavigationMenuLink>
         </NavigationMenuItem>
-        <NavigationMenuItem className="list-none">
+        <NavigationMenuItem>
           <NavigationMenuLink
             className={cn(navigationMenuTriggerStyle(), 'bg-transparent')}
             href="/docs"
@@ -35,33 +35,32 @@ export function Header() {
             Docs
           </NavigationMenuLink>
         </NavigationMenuItem>
-      </NavigationMenu>
 
-      <ul className="flex list-none items-center">
-        <li>
-          <Link
+        <NavigationMenuItem>
+          <NavigationMenuLink
+            className={cn(navigationMenuTriggerStyle(), 'bg-transparent')}
             href="https://github.com/YoucefBnm/Systaliko-UI"
-            rel="noreferrer noopener"
             target="_blank"
-            className={cn(navigationMenuTriggerStyle(), 'bg-transparent p-1.5')}
+            rel="noreferrer noopener"
           >
             <GithubIcon className="size-4" />
-          </Link>
-        </li>
-        <li>
-          <Link
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <NavigationMenuLink
+            className={cn(navigationMenuTriggerStyle(), 'bg-transparent')}
             href="https://github.com/YoucefBnm/Systaliko-UI"
-            rel="noreferrer noopener"
             target="_blank"
-            className={cn(navigationMenuTriggerStyle(), 'bg-transparent p-1.5')}
+            rel="noreferrer noopener"
           >
             <XIcon className="size-4" />
-          </Link>
-        </li>
-        <li className="ml-4">
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem className="ml-6">
           <ModeToggle />
-        </li>
-      </ul>
+        </NavigationMenuItem>
+      </NavigationMenu>
     </header>
   );
 }
