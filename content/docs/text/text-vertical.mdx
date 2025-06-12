@@ -5,10 +5,26 @@ description: Text with vertical display, Can be used as a title or a subtitle.
 
 <ComponentPreview name="text-vertical-demo" />
 
+## Installation
+
+<ComponentInstallation name="text-vertical" />
 ## Usage
 
 ```tsx
-<TextVertical>Vertical Text</TextVertical>
+<TextVertical className="uppercase text-2xl tracking-wider font-bold" as="h2">
+  Vertical Text
+</TextVertical>
 ```
 
 ## Props
+
+<TypeTable
+  type={{
+    as: {
+      description: 'the component to render',
+      type: 'ReactNode',
+      required: false,
+      default: 'div',
+    },
+  }}
+/>

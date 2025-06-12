@@ -6,3 +6,32 @@ description: Bento Grid, container with multiple variants and displays, five cel
 <ComponentPreview name="grid-bento-demo" />
 
 ## Installation
+
+<ComponentInstallation name="grid-bento" />
+
+## Usage
+
+can be used as a component `<GridBento /> ` or as a style via `bentoGridVariants` style object.
+
+```tsx
+<GridBento className="h-screen py-12 px-6 w-full place-content-center place-items-center">
+  {IMAGES.map((imageUrl, index) => (
+    <div key={index} className="overflow-hidden size-full rounded-xl shadow-xl">
+      <img className="size-full object-cover" src={imageUrl} alt="tokyo" />
+    </div>
+  ))}
+</GridBento>
+```
+
+## Props
+
+<TypeTable
+  type={{
+    variant: {
+      description: 'the variant of the grid',
+      type: 'default | threeCells | fourCells',
+      required: false,
+      default: 'default',
+    },
+  }}
+/>

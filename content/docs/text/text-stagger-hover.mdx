@@ -6,3 +6,81 @@ description: Splitted text animation with staggered reveal triggered by hover ge
 <ComponentPreview name="text-stagger-hover-demo" />
 
 ## Installation
+
+<ComponentInstallation name="text-stagger-hover" />
+
+## Usage
+
+```tsx
+<TextStaggerHover
+  as={'h2'}
+  className="cursor-pointer text-4xl font-bold uppercase tracking-tighter"
+>
+  <TextStaggerHoverActive
+    className="opacity-20"
+    animation={'bottom'}
+    staggerDirection={'middle'}
+  >
+    Text Stagger Hover Demo
+  </TextStaggerHoverActive>
+
+  <TextStaggerHoverHidden animation={'bottom'} staggerDirection={'middle'}>
+    Text Stagger Hover Demo
+  </TextStaggerHoverHidden>
+</TextStaggerHover>
+```
+
+## Props
+
+### TextStaggerHover
+
+<TypeTable
+  type={{
+    as: {
+      description: 'the component to render',
+      type: 'ReactNode',
+      required: false,
+      default: 'span',
+    },
+  }}
+/>
+
+### TextStaggerHoverActive
+
+<TypeTable
+  type={{
+    animation: {
+      description:
+        'the animation property, whether animate transform, blur, or opacity if left undefined.',
+      type: 'left | right | top | bottom | z | blur | undefined;',
+      required: false,
+      default: 'transform',
+    },
+    staggerDirection: {
+      description: 'the stagger direction to start animating from.',
+      type: 'start | middle | end',
+      required: false,
+      default: 'start',
+    },
+  }}
+/>
+
+### TextStaggerHoverHidden
+
+<TypeTable
+  type={{
+    animation: {
+      description:
+        'the animation property, whether animate transform, blur, or opacity if left undefined.',
+      type: 'left | right | top | bottom | z | blur | undefined;',
+      required: false,
+      default: 'opacity',
+    },
+    staggerDirection: {
+      description: 'the stagger direction to start animating from.',
+      type: 'start | middle | end',
+      required: false,
+      default: 'start',
+    },
+  }}
+/>

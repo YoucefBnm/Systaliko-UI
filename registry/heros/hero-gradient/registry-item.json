@@ -8,7 +8,7 @@
     {
       "path": "registry/heros/hero-gradient/index.tsx",
       "type": "registry:block",
-      "target": "components/systaliko-ui/heros/hero-gradient.tsx"
+      "target": "components/systaliko-ui/hero-gradient.tsx"
     }
   ]
 }

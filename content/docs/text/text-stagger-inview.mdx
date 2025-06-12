@@ -1,8 +1,55 @@
 ---
 title: Text Stagger Inview
-description: Splitted text animation with staggered reveal triggered by view, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition.
+description: Splitted text animation with staggered reveal animation triggered by view, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition.
 ---
 
 <ComponentPreview name="text-stagger-inview-demo" />
 
 ## Installation
+
+<ComponentInstallation name="text-stagger-inview" />
+
+## Usage
+
+```tsx
+<TextStaggerInview
+  key={`${animation}-${staggerValue}`}
+  animation={animation}
+  className="overflow-hidden text-4xl tracking-tight font-bold"
+  stagger={staggerValue}
+>
+  Stagger Text Inview Demo
+</TextStaggerInview>
+```
+
+## Props
+
+<TypeTable
+  type={{
+    stagger: {
+      description: 'the delay duration value, between each letter.',
+      type: 'number',
+      required: false,
+      default: '0.02',
+    },
+    staggerDirection: {
+      description: 'the stagger direction to start animating from.',
+      type: '1 | -1',
+      required: false,
+      default: '1',
+    },
+    animation: {
+      description:
+        'the animation property, whether animate transform, blur, or opacity if left undefined.',
+      type: 'left | right | top | bottom | z | blur | undefined;',
+      required: false,
+      default: 'opacity',
+    },
+    as: {
+      description: 'the component to render',
+      type: 'ReactNode',
+      required: false,
+      default: 'span',
+    },
+  }}
+/>

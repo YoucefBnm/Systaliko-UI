@@ -6,3 +6,58 @@ description: Gallery section with text, and staggred grid images, and cta button
 <ComponentPreview name="section-gallery-demo" />
 
 ## Installation
+
+<ComponentInstallation name="section-gallery" />
+
+## Usage
+
+```tsx
+<SectionGallery
+  className="min-h-dvh place-content-center flex gap-8 p-8 flex-wrap md:flex-nowrap"
+  title="innovate & grow"
+  heading="Scale your business with our visionary solutions"
+  description="We are a team of experts with a passion for innovation and growth. We believe in the power of technology to transform the way businesses operate and thrive."
+>
+  <SectionGalleryAnimationContainer className="flex flex-1/2 flex-col gap-4 items-start">
+    <SectionGalleryTitle className="text-primary" animation="top" />
+    <SectionGalleryHeading animation="bottom" className="" />
+    <SectionGalleryDescription />
+    <SectionGalleryCta className="flex gap-2">
+      <Button className=" bg-primary text-background">Learn More</Button>
+    </SectionGalleryCta>
+  </SectionGalleryAnimationContainer>
+
+  <GridStaggered className="flex-1/2">
+    {IMAGES.map((imageUrl, index) => (
+      <img
+        key={index}
+        className="inline-block align-middle size-full object-cover"
+        src={imageUrl}
+        alt="startup"
+      />
+    ))}
+  </GridStaggered>
+</SectionGallery>
+```
+
+## Props
+
+<TypeTable
+  type={{
+    title: {
+      description: 'sections title',
+      type: 'string',
+      required: false,
+    },
+    description: {
+      description: 'sections description',
+      type: 'string',
+      required: false,
+    },
+    heading: {
+      description: 'sections main heading',
+      type: 'string',
+      required: true,
+    },
+  }}
+/>

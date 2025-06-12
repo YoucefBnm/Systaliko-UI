@@ -6,3 +6,35 @@ description: Grid Staggered, container with multiple variants and displays, four
 <ComponentPreview name="grid-staggered-demo" />
 
 ## Installation
+
+<ComponentInstallation name="grid-staggered" />
+
+## Usage
+
+can be used as a component `<GridStaggered /> ` or as a style via `staggeredGridVariants` style object.
+
+```tsx
+<GridStaggered className="h-dvh p-8 ">
+  {IMAGES.map((image, index) => (
+    <div className="overflow-hidden rounded-md shadow" key={index}>
+      <img src={image} alt="image" className="size-full object-cover" />
+      <div className="text-center text-sm font-semibold text-gray-500">
+        {index + 1}
+      </div>
+    </div>
+  ))}
+</GridStaggered>
+```
+
+## Props
+
+<TypeTable
+  type={{
+    variant: {
+      description: 'the variant of the grid',
+      type: 'default | threeCells | twoCells',
+      required: false,
+      default: 'default',
+    },
+  }}
+/>

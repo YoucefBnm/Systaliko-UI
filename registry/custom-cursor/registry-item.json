@@ -1,9 +1,9 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "text-stagger-hover",
+  "name": "custom-cursor",
   "type": "registry:ui",
   "title": "Custom Cursor",
-  "description": "Custom Cursor component with multiple animations variants, You an also set the cursor children.",
+  "description": "Custom Cursor component with multiple animation variants, You can also set the cursor children.",
   "dependencies": ["motion"],
   "files": [
     {

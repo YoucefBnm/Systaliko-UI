@@ -6,3 +6,29 @@ description: rating stars component with customizable color, size depending on a
 <ComponentPreview name="rating-stars-demo" />
 
 ## Installation
+
+<ComponentInstallation name="rating-stars" />
+
+## Usage
+
+```tsx
+<RatingStars rating={4.5} className="text-primary" />
+```
+
+## Props
+
+<TypeTable
+  type={{
+    maxRating: {
+      description: 'the maximum rating value, default is 5',
+      type: 'number',
+      required: false,
+      default: '5',
+    },
+    rating: {
+      description: 'the rating value',
+      type: 'number',
+      required: true,
+    },
+  }}
+/>
