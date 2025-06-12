@@ -110,12 +110,10 @@ export function ComponentPreview({
       {...props}
     >
       <Tabs defaultValue="preview" className="relative mr-auto w-full">
-        <div className="flex items-center justify-between pb-2">
-          <TabsList className="">
-            <TabsTrigger value="preview">Preview</TabsTrigger>
-            <TabsTrigger value="code">Code</TabsTrigger>
-          </TabsList>
-        </div>
+        <TabsList>
+          <TabsTrigger value="preview">Preview</TabsTrigger>
+          <TabsTrigger value="code">Code</TabsTrigger>
+        </TabsList>
 
         <TabsContent value="preview" className="relative rounded-md h-full">
           <ComponentWrapper name={name} iframe={iframe} bigScreen={bigScreen}>

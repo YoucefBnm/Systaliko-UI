@@ -116,10 +116,10 @@ async function getRegistryItemsFromFolder(dir: string): Promise<any[]> {
           clone.registryDependencies = item.registryDependencies.map(
             (url: string) => {
               const m = url.match(
-                /^https:\/\/animate-ui\.com\/r\/([^\/]+)\/?$/,
+                /^https:\/\/systaliko-ui\.com\/r\/([^\/]+)\/?$/,
               );
               if (m) {
-                return `https://animate-ui.com/r/${style}-${m[1]}`;
+                return `https://systaliko-ui.com/r/${style}-${m[1]}`;
               }
               return url;
             },
@@ -248,7 +248,7 @@ export const index: Record<string, any> = {`;
     styles: ${JSON.stringify(extractStyleVariants(item.meta))},
     files: ${JSON.stringify(filesWithContent, null, 2)},
     component: ${compSnippet},
-    command: "https://animate-ui.com/r/${item.name}",
+    command: "https://systaliko-ui.com/r/${item.name}",
   },`;
   }
 
