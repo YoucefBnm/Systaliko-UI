@@ -636,10 +636,10 @@
       ]
     },
     {
-      "name": "default-text-stagger-hover",
+      "name": "default-custom-cursor",
       "type": "registry:ui",
       "title": "Custom Cursor",
-      "description": "Custom Cursor component with multiple animations variants, You an also set the cursor children with default style.",
+      "description": "Custom Cursor component with multiple animation variants, You can also set the cursor children with default style.",
       "dependencies": [
         "motion"
       ],
@@ -652,10 +652,10 @@
       ]
     },
     {
-      "name": "shadcn-default-text-stagger-hover",
+      "name": "shadcn-default-custom-cursor",
       "type": "registry:ui",
       "title": "Custom Cursor",
-      "description": "Custom Cursor component with multiple animations variants, You an also set the cursor children with shadcn-default style.",
+      "description": "Custom Cursor component with multiple animation variants, You can also set the cursor children with shadcn-default style.",
       "dependencies": [
         "motion"
       ],
@@ -668,10 +668,10 @@
       ]
     },
     {
-      "name": "shadcn-new-york-text-stagger-hover",
+      "name": "shadcn-new-york-custom-cursor",
       "type": "registry:ui",
       "title": "Custom Cursor",
-      "description": "Custom Cursor component with multiple animations variants, You an also set the cursor children with shadcn-new-york style.",
+      "description": "Custom Cursor component with multiple animation variants, You can also set the cursor children with shadcn-new-york style.",
       "dependencies": [
         "motion"
       ],
@@ -1946,7 +1946,7 @@
         {
           "path": "__registry__/heros/hero-gradient/default/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/heros/hero-gradient.tsx"
+          "target": "components/systaliko-ui/hero-gradient.tsx"
         }
       ]
     },
@@ -1959,7 +1959,7 @@
         {
           "path": "__registry__/heros/hero-gradient/shadcn-default/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/heros/hero-gradient.tsx"
+          "target": "components/systaliko-ui/hero-gradient.tsx"
         }
       ]
     },
@@ -1972,7 +1972,7 @@
         {
           "path": "__registry__/heros/hero-gradient/shadcn-new-york/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/heros/hero-gradient.tsx"
+          "target": "components/systaliko-ui/hero-gradient.tsx"
         }
       ]
     },

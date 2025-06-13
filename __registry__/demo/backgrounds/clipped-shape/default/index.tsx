@@ -1,21 +1,25 @@
-import { Polygon } from '@/__registry__/backgrounds/clipped-shape/default';
+import {
+  ClippedShape,
+  ClippedShapeBg,
+  ClippedShapeBorder,
+} from '@/__registry__/backgrounds/clipped-shape/default';
 
 export function ClippedShapeDemo() {
   return (
     <div className="w-full relative p-6  place-content-center">
-      <Polygon
-        className="flex flex-col justify-between bg-primary text-white py-6 px-8 relative w-[450px] h-[280px]"
-        borderColor="border-yellow-500"
+      <ClippedShape
         clipHeight={40}
-        withBorder
+        className="text-secondary w-96 h-64 flex flex-col justify-between py-4 px-6"
       >
-        <h1 className="text-right text-6xl tracking-tighter text-yellow-500">
+        <ClippedShapeBg className="bg-primary" />
+        <ClippedShapeBorder className="bg-yellow-500" />
+
+        <h2 className="text-4xl block text-right font-semibold tracking-tighter">
           +100
-        </h1>
-        <h2 className="max-w-[10ch] text-wrap  text-4xl font-semibold capitalize tracking-tight">
-          Created Websites
         </h2>
-      </Polygon>
+
+        <h3 className="text-3xl font-semibold max-w-[8ch]">Website Created</h3>
+      </ClippedShape>
     </div>
   );
 }

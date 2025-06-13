@@ -26,7 +26,7 @@ export const SectionGalleryDemo = () => {
     >
       <SectionGalleryAnimationContainer className="flex flex-1/2 flex-col gap-4 items-start">
         <SectionGalleryTitle className="text-primary" animation="top" />
-        <SectionGalleryHeading animation="bottom" className="" />
+        <SectionGalleryHeading animation="blur" className="" />
         <SectionGalleryDescription />
         <SectionGalleryCta className="flex gap-2">
           <Button className=" bg-primary text-background">Learn More</Button>

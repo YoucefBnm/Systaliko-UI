@@ -5,7 +5,6 @@ import * as React from 'react';
 interface ContainerStaggerProps extends HTMLMotionProps<'div'> {
   staggerChildren?: number;
   delayChildren?: number;
-  duration?: number;
 }
 
 export const ContainerStagger = React.forwardRef<
@@ -16,7 +15,6 @@ export const ContainerStagger = React.forwardRef<
     {
       staggerChildren = 0.2,
       delayChildren = 0.2,
-      duration = 0.3,
       className,
       transition,
       ...props
@@ -31,7 +29,6 @@ export const ContainerStagger = React.forwardRef<
         whileInView="visible"
         viewport={{ once: true }}
         transition={{
-          duration: duration,
           staggerChildren: staggerChildren,
           delayChildren: delayChildren,
           ...transition,
