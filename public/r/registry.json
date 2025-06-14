@@ -471,6 +471,54 @@
       ]
     },
     {
+      "name": "default-container-inset-scroll",
+      "type": "registry:block",
+      "title": "Animated Inset Container",
+      "description": "Animate Inset on X axis, triggered by scroll position with default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/containers/container-inset-scroll/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/containers/container-inset-scroll.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-container-inset-scroll",
+      "type": "registry:block",
+      "title": "Animated Inset Container",
+      "description": "Animate Inset on X axis, triggered by scroll position with shadcn-default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/containers/container-inset-scroll/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/containers/container-inset-scroll.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-container-inset-scroll",
+      "type": "registry:block",
+      "title": "Animated Inset Container",
+      "description": "Animate Inset on X axis, triggered by scroll position with shadcn-new-york style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/containers/container-inset-scroll/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/containers/container-inset-scroll.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-container-stagger",
       "type": "registry:block",
       "title": "Container Stagger",
@@ -973,7 +1021,7 @@
     },
     {
       "name": "default-cards-stack-demo",
-      "type": "registry:ui",
+      "type": "registry:block",
       "title": "Card Testimonial Demo",
       "description": "Demo showing Cards Stack component with default style.",
       "registryDependencies": [
@@ -982,14 +1030,14 @@
       "files": [
         {
           "path": "__registry__/demo/cards/cards-stack/default/index.tsx",
-          "type": "registry:ui",
+          "type": "registry:block",
           "target": "components/systaliko-ui/demo/cards/cards-stack.tsx"
         }
       ]
     },
     {
       "name": "shadcn-default-cards-stack-demo",
-      "type": "registry:ui",
+      "type": "registry:block",
       "title": "Card Testimonial Demo",
       "description": "Demo showing Cards Stack component with shadcn-default style.",
       "registryDependencies": [
@@ -998,14 +1046,14 @@
       "files": [
         {
           "path": "__registry__/demo/cards/cards-stack/shadcn-default/index.tsx",
-          "type": "registry:ui",
+          "type": "registry:block",
           "target": "components/systaliko-ui/demo/cards/cards-stack.tsx"
         }
       ]
     },
     {
       "name": "shadcn-new-york-cards-stack-demo",
-      "type": "registry:ui",
+      "type": "registry:block",
       "title": "Card Testimonial Demo",
       "description": "Demo showing Cards Stack component with shadcn-new-york style.",
       "registryDependencies": [
@@ -1014,8 +1062,56 @@
       "files": [
         {
           "path": "__registry__/demo/cards/cards-stack/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
+          "type": "registry:block",
           "target": "components/systaliko-ui/demo/cards/cards-stack.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-cards-stack-full-demo",
+      "type": "registry:block",
+      "title": "Cards stack full screen Demo",
+      "description": "Demo showing different usecase of Cards Stack component with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/cards-stack"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/cards-stack-full/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/animate-ui/demo/cards/cards-stack-full.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-cards-stack-full-demo",
+      "type": "registry:block",
+      "title": "Cards stack full screen Demo",
+      "description": "Demo showing different usecase of Cards Stack component with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/cards-stack"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/cards-stack-full/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/animate-ui/demo/cards/cards-stack-full.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-cards-stack-full-demo",
+      "type": "registry:block",
+      "title": "Cards stack full screen Demo",
+      "description": "Demo showing different usecase of Cards Stack component with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/cards-stack"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/cards-stack-full/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/animate-ui/demo/cards/cards-stack-full.tsx"
         }
       ]
     },
@@ -1064,6 +1160,102 @@
           "path": "__registry__/demo/cards/cards-stack-rotated/shadcn-new-york/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/cards/cards-stack-rotated.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-cards-stack-rotated-recognitions-demo",
+      "type": "registry:block",
+      "title": "Stack small cards Demo",
+      "description": "Demo showing different usecase of Cards Rotated Stack component with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/cards-stack-rotated"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/cards-stack-rotated-recognitions/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/animate-ui/demo/cards/cards-stack-rotated-recognitions.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-cards-stack-rotated-recognitions-demo",
+      "type": "registry:block",
+      "title": "Stack small cards Demo",
+      "description": "Demo showing different usecase of Cards Rotated Stack component with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/cards-stack-rotated"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/cards-stack-rotated-recognitions/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/animate-ui/demo/cards/cards-stack-rotated-recognitions.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-cards-stack-rotated-recognitions-demo",
+      "type": "registry:block",
+      "title": "Stack small cards Demo",
+      "description": "Demo showing different usecase of Cards Rotated Stack component with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/cards-stack-rotated"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/cards-stack-rotated-recognitions/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/animate-ui/demo/cards/cards-stack-rotated-recognitions.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-cards-stack-sm-demo",
+      "type": "registry:block",
+      "title": "Stack small cards Demo",
+      "description": "Demo showing different usecase of Cards Stack component with smaller cards with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/cards-stack"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/cards-stack-sm/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/animate-ui/demo/cards/cards-stack-sm.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-cards-stack-sm-demo",
+      "type": "registry:block",
+      "title": "Stack small cards Demo",
+      "description": "Demo showing different usecase of Cards Stack component with smaller cards with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/cards-stack"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/cards-stack-sm/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/animate-ui/demo/cards/cards-stack-sm.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-cards-stack-sm-demo",
+      "type": "registry:block",
+      "title": "Stack small cards Demo",
+      "description": "Demo showing different usecase of Cards Stack component with smaller cards with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/cards-stack"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/cards-stack-sm/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/animate-ui/demo/cards/cards-stack-sm.tsx"
         }
       ]
     },
@@ -1160,6 +1352,54 @@
           "path": "__registry__/demo/containers/container-infinite-scroll/shadcn-new-york/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/containers/container-infinite-scroll.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-container-inset-scroll-demo",
+      "type": "registry:block",
+      "title": "Gallery Rotated Scroll Demo",
+      "description": "Demo showing how to use ContainerInsetScroll component with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-inset-scroll"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-inset-scroll/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-inset-scroll.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-container-inset-scroll-demo",
+      "type": "registry:block",
+      "title": "Gallery Rotated Scroll Demo",
+      "description": "Demo showing how to use ContainerInsetScroll component with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-inset-scroll"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-inset-scroll/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-inset-scroll.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-container-inset-scroll-demo",
+      "type": "registry:block",
+      "title": "Gallery Rotated Scroll Demo",
+      "description": "Demo showing how to use ContainerInsetScroll component with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-inset-scroll"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-inset-scroll/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-inset-scroll.tsx"
         }
       ]
     },

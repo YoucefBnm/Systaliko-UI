@@ -144,7 +144,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/backgrounds/clipped-shape.tsx',
         content:
-          "'use client';\nimport { cn } from '@/lib/utils';\nimport * as React from 'react';\n\nexport type ClippedShapeType = 'polygon' | 'polygon2' | 'polygon3' | 'polygon4';\n\nexport const clipPathVariants = (clipPathHeight: number) => ({\n  polygon: `polygon(${clipPathHeight || 50}px 0, 100% 0, 100% 100%, 0 100%, 0 ${clipPathHeight || 50}px)`,\n  polygon2: `polygon(calc(100% - ${clipPathHeight || 50}px) 0, 100% ${clipPathHeight || 50}px, 100% 100%, 0 100%, 0 0)`,\n  polygon3: `polygon(100% 0, 100% calc(100% - ${clipPathHeight || 50}px), calc(100% - ${clipPathHeight || 50}px) 100%, 0 100%, 0 0)`,\n  polygon4: `polygon(100% 0, 100% 100%, ${clipPathHeight || 50}px 100%, 0 calc(100% - ${clipPathHeight || 50}px), 0 0)`,\n  triangle: `polygon(50% 0, 100% 100%, 0 100%)`,\n});\n\ninterface ClippedShapeProps extends React.HTMLAttributes<HTMLDivElement> {\n  clipHeight?: number;\n  shape?: ClippedShapeType;\n}\nconst ClippedShapeContext = React.createContext<\n  { clipHeight: number; shape: ClippedShapeType } | undefined\n>(undefined);\nexport function useClippedShapeContext() {\n  const context = React.useContext(ClippedShapeContext);\n  if (!context) {\n    throw new Error(\n      'useClippedShapeContext must be used within a ClippedShapeContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const ClippedShape = React.forwardRef<HTMLDivElement, ClippedShapeProps>(\n  ({ clipHeight = 50, shape = 'polygon2', className, ...props }, ref) => {\n    return (\n      <ClippedShapeContext.Provider value={{ clipHeight, shape }}>\n        <div className={cn('relative', className)} {...props} ref={ref} />\n      </ClippedShapeContext.Provider>\n    );\n  },\n);\nClippedShape.displayName = 'ClippedShapeProps';\n\nexport const ClippedShapeBg = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, style, ...props }, ref) => {\n  const { clipHeight, shape } = useClippedShapeContext();\n  const clipPath = clipPathVariants(clipHeight)[shape];\n  return (\n    <div\n      className={cn('absolute -z-10 inset-0 size-full', className)}\n      style={{\n        clipPath,\n        ...style,\n      }}\n      {...props}\n      ref={ref}\n    />\n  );\n});\nClippedShapeBg.displayName = 'ClippedShapeBg';\n\nexport const ClippedShapeBorder = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & { borderWidth?: number }\n>(({ borderWidth = 2, className, style, ...props }, ref) => {\n  const { clipHeight, shape } = useClippedShapeContext();\n  const clipPath = clipPathVariants(clipHeight)[shape];\n  const borderOffset = String(borderWidth * 2);\n  return (\n    <div\n      className={cn('absolute  size-full -z-20', className)}\n      style={{\n        clipPath,\n        width: `calc(100% + ${borderOffset}px)`,\n        height: `calc(100% + ${borderOffset}px)`,\n        left: `-${borderWidth}px`,\n        top: `-${borderWidth}px`,\n        ...style,\n      }}\n      {...props}\n      ref={ref}\n    />\n  );\n});\nClippedShapeBorder.displayName = 'ClippedShapeBorder';",
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport * as React from 'react';\n\nexport type ClippedShapeType =\n  | 'polygon'\n  | 'polygon2'\n  | 'polygon3'\n  | 'polygon4'\n  | 'triangle';\n\nexport const clipPathVariants = (clipPathHeight: number) => ({\n  polygon: `polygon(${clipPathHeight || 50}px 0, 100% 0, 100% 100%, 0 100%, 0 ${clipPathHeight || 50}px)`,\n  polygon2: `polygon(calc(100% - ${clipPathHeight || 50}px) 0, 100% ${clipPathHeight || 50}px, 100% 100%, 0 100%, 0 0)`,\n  polygon3: `polygon(100% 0, 100% calc(100% - ${clipPathHeight || 50}px), calc(100% - ${clipPathHeight || 50}px) 100%, 0 100%, 0 0)`,\n  polygon4: `polygon(100% 0, 100% 100%, ${clipPathHeight || 50}px 100%, 0 calc(100% - ${clipPathHeight || 50}px), 0 0)`,\n  triangle: `polygon(50% 0, 100% 100%, 0 100%)`,\n});\n\ninterface ClippedShapeProps extends React.HTMLAttributes<HTMLDivElement> {\n  clipHeight?: number;\n  shape?: ClippedShapeType;\n}\nconst ClippedShapeContext = React.createContext<\n  { clipHeight: number; shape: ClippedShapeType } | undefined\n>(undefined);\nexport function useClippedShapeContext() {\n  const context = React.useContext(ClippedShapeContext);\n  if (!context) {\n    throw new Error(\n      'useClippedShapeContext must be used within a ClippedShapeContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const ClippedShape = React.forwardRef<HTMLDivElement, ClippedShapeProps>(\n  ({ clipHeight = 50, shape = 'polygon2', className, ...props }, ref) => {\n    return (\n      <ClippedShapeContext.Provider value={{ clipHeight, shape }}>\n        <div className={cn('relative', className)} {...props} ref={ref} />\n      </ClippedShapeContext.Provider>\n    );\n  },\n);\nClippedShape.displayName = 'ClippedShapeProps';\n\nexport const ClippedShapeBg = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, style, ...props }, ref) => {\n  const { clipHeight, shape } = useClippedShapeContext();\n  const clipPath = clipPathVariants(clipHeight)[shape];\n  return (\n    <div\n      className={cn('absolute -z-10 inset-0 size-full', className)}\n      style={{\n        clipPath,\n        ...style,\n      }}\n      {...props}\n      ref={ref}\n    />\n  );\n});\nClippedShapeBg.displayName = 'ClippedShapeBg';\n\nexport const ClippedShapeBorder = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & { borderWidth?: number }\n>(({ borderWidth = 2, className, style, ...props }, ref) => {\n  const { clipHeight, shape } = useClippedShapeContext();\n  const clipPath = clipPathVariants(clipHeight)[shape];\n  const borderOffset = String(borderWidth * 2);\n  return (\n    <div\n      className={cn('absolute  size-full -z-20', className)}\n      style={{\n        clipPath,\n        width: `calc(100% + ${borderOffset}px)`,\n        height: `calc(100% + ${borderOffset}px)`,\n        left: `-${borderWidth}px`,\n        top: `-${borderWidth}px`,\n        ...style,\n      }}\n      {...props}\n      ref={ref}\n    />\n  );\n});\nClippedShapeBorder.displayName = 'ClippedShapeBorder';",
       },
     ],
     component: (function () {
@@ -179,7 +179,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/backgrounds/clipped-shape.tsx',
         content:
-          "'use client';\nimport { cn } from '@/lib/utils';\nimport * as React from 'react';\n\nexport type ClippedShapeType = 'polygon' | 'polygon2' | 'polygon3' | 'polygon4';\n\nexport const clipPathVariants = (clipPathHeight: number) => ({\n  polygon: `polygon(${clipPathHeight || 50}px 0, 100% 0, 100% 100%, 0 100%, 0 ${clipPathHeight || 50}px)`,\n  polygon2: `polygon(calc(100% - ${clipPathHeight || 50}px) 0, 100% ${clipPathHeight || 50}px, 100% 100%, 0 100%, 0 0)`,\n  polygon3: `polygon(100% 0, 100% calc(100% - ${clipPathHeight || 50}px), calc(100% - ${clipPathHeight || 50}px) 100%, 0 100%, 0 0)`,\n  polygon4: `polygon(100% 0, 100% 100%, ${clipPathHeight || 50}px 100%, 0 calc(100% - ${clipPathHeight || 50}px), 0 0)`,\n  triangle: `polygon(50% 0, 100% 100%, 0 100%)`,\n});\n\ninterface ClippedShapeProps extends React.HTMLAttributes<HTMLDivElement> {\n  clipHeight?: number;\n  shape?: ClippedShapeType;\n}\nconst ClippedShapeContext = React.createContext<\n  { clipHeight: number; shape: ClippedShapeType } | undefined\n>(undefined);\nexport function useClippedShapeContext() {\n  const context = React.useContext(ClippedShapeContext);\n  if (!context) {\n    throw new Error(\n      'useClippedShapeContext must be used within a ClippedShapeContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const ClippedShape = React.forwardRef<HTMLDivElement, ClippedShapeProps>(\n  ({ clipHeight = 50, shape = 'polygon2', className, ...props }, ref) => {\n    return (\n      <ClippedShapeContext.Provider value={{ clipHeight, shape }}>\n        <div className={cn('relative', className)} {...props} ref={ref} />\n      </ClippedShapeContext.Provider>\n    );\n  },\n);\nClippedShape.displayName = 'ClippedShapeProps';\n\nexport const ClippedShapeBg = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, style, ...props }, ref) => {\n  const { clipHeight, shape } = useClippedShapeContext();\n  const clipPath = clipPathVariants(clipHeight)[shape];\n  return (\n    <div\n      className={cn('absolute -z-10 inset-0 size-full', className)}\n      style={{\n        clipPath,\n        ...style,\n      }}\n      {...props}\n      ref={ref}\n    />\n  );\n});\nClippedShapeBg.displayName = 'ClippedShapeBg';\n\nexport const ClippedShapeBorder = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & { borderWidth?: number }\n>(({ borderWidth = 2, className, style, ...props }, ref) => {\n  const { clipHeight, shape } = useClippedShapeContext();\n  const clipPath = clipPathVariants(clipHeight)[shape];\n  const borderOffset = String(borderWidth * 2);\n  return (\n    <div\n      className={cn('absolute  size-full -z-20', className)}\n      style={{\n        clipPath,\n        width: `calc(100% + ${borderOffset}px)`,\n        height: `calc(100% + ${borderOffset}px)`,\n        left: `-${borderWidth}px`,\n        top: `-${borderWidth}px`,\n        ...style,\n      }}\n      {...props}\n      ref={ref}\n    />\n  );\n});\nClippedShapeBorder.displayName = 'ClippedShapeBorder';",
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport * as React from 'react';\n\nexport type ClippedShapeType =\n  | 'polygon'\n  | 'polygon2'\n  | 'polygon3'\n  | 'polygon4'\n  | 'triangle';\n\nexport const clipPathVariants = (clipPathHeight: number) => ({\n  polygon: `polygon(${clipPathHeight || 50}px 0, 100% 0, 100% 100%, 0 100%, 0 ${clipPathHeight || 50}px)`,\n  polygon2: `polygon(calc(100% - ${clipPathHeight || 50}px) 0, 100% ${clipPathHeight || 50}px, 100% 100%, 0 100%, 0 0)`,\n  polygon3: `polygon(100% 0, 100% calc(100% - ${clipPathHeight || 50}px), calc(100% - ${clipPathHeight || 50}px) 100%, 0 100%, 0 0)`,\n  polygon4: `polygon(100% 0, 100% 100%, ${clipPathHeight || 50}px 100%, 0 calc(100% - ${clipPathHeight || 50}px), 0 0)`,\n  triangle: `polygon(50% 0, 100% 100%, 0 100%)`,\n});\n\ninterface ClippedShapeProps extends React.HTMLAttributes<HTMLDivElement> {\n  clipHeight?: number;\n  shape?: ClippedShapeType;\n}\nconst ClippedShapeContext = React.createContext<\n  { clipHeight: number; shape: ClippedShapeType } | undefined\n>(undefined);\nexport function useClippedShapeContext() {\n  const context = React.useContext(ClippedShapeContext);\n  if (!context) {\n    throw new Error(\n      'useClippedShapeContext must be used within a ClippedShapeContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const ClippedShape = React.forwardRef<HTMLDivElement, ClippedShapeProps>(\n  ({ clipHeight = 50, shape = 'polygon2', className, ...props }, ref) => {\n    return (\n      <ClippedShapeContext.Provider value={{ clipHeight, shape }}>\n        <div className={cn('relative', className)} {...props} ref={ref} />\n      </ClippedShapeContext.Provider>\n    );\n  },\n);\nClippedShape.displayName = 'ClippedShapeProps';\n\nexport const ClippedShapeBg = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, style, ...props }, ref) => {\n  const { clipHeight, shape } = useClippedShapeContext();\n  const clipPath = clipPathVariants(clipHeight)[shape];\n  return (\n    <div\n      className={cn('absolute -z-10 inset-0 size-full', className)}\n      style={{\n        clipPath,\n        ...style,\n      }}\n      {...props}\n      ref={ref}\n    />\n  );\n});\nClippedShapeBg.displayName = 'ClippedShapeBg';\n\nexport const ClippedShapeBorder = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & { borderWidth?: number }\n>(({ borderWidth = 2, className, style, ...props }, ref) => {\n  const { clipHeight, shape } = useClippedShapeContext();\n  const clipPath = clipPathVariants(clipHeight)[shape];\n  const borderOffset = String(borderWidth * 2);\n  return (\n    <div\n      className={cn('absolute  size-full -z-20', className)}\n      style={{\n        clipPath,\n        width: `calc(100% + ${borderOffset}px)`,\n        height: `calc(100% + ${borderOffset}px)`,\n        left: `-${borderWidth}px`,\n        top: `-${borderWidth}px`,\n        ...style,\n      }}\n      {...props}\n      ref={ref}\n    />\n  );\n});\nClippedShapeBorder.displayName = 'ClippedShapeBorder';",
       },
     ],
     component: (function () {
@@ -214,7 +214,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/backgrounds/clipped-shape.tsx',
         content:
-          "'use client';\nimport { cn } from '@/lib/utils';\nimport * as React from 'react';\n\nexport type ClippedShapeType = 'polygon' | 'polygon2' | 'polygon3' | 'polygon4';\n\nexport const clipPathVariants = (clipPathHeight: number) => ({\n  polygon: `polygon(${clipPathHeight || 50}px 0, 100% 0, 100% 100%, 0 100%, 0 ${clipPathHeight || 50}px)`,\n  polygon2: `polygon(calc(100% - ${clipPathHeight || 50}px) 0, 100% ${clipPathHeight || 50}px, 100% 100%, 0 100%, 0 0)`,\n  polygon3: `polygon(100% 0, 100% calc(100% - ${clipPathHeight || 50}px), calc(100% - ${clipPathHeight || 50}px) 100%, 0 100%, 0 0)`,\n  polygon4: `polygon(100% 0, 100% 100%, ${clipPathHeight || 50}px 100%, 0 calc(100% - ${clipPathHeight || 50}px), 0 0)`,\n  triangle: `polygon(50% 0, 100% 100%, 0 100%)`,\n});\n\ninterface ClippedShapeProps extends React.HTMLAttributes<HTMLDivElement> {\n  clipHeight?: number;\n  shape?: ClippedShapeType;\n}\nconst ClippedShapeContext = React.createContext<\n  { clipHeight: number; shape: ClippedShapeType } | undefined\n>(undefined);\nexport function useClippedShapeContext() {\n  const context = React.useContext(ClippedShapeContext);\n  if (!context) {\n    throw new Error(\n      'useClippedShapeContext must be used within a ClippedShapeContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const ClippedShape = React.forwardRef<HTMLDivElement, ClippedShapeProps>(\n  ({ clipHeight = 50, shape = 'polygon2', className, ...props }, ref) => {\n    return (\n      <ClippedShapeContext.Provider value={{ clipHeight, shape }}>\n        <div className={cn('relative', className)} {...props} ref={ref} />\n      </ClippedShapeContext.Provider>\n    );\n  },\n);\nClippedShape.displayName = 'ClippedShapeProps';\n\nexport const ClippedShapeBg = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, style, ...props }, ref) => {\n  const { clipHeight, shape } = useClippedShapeContext();\n  const clipPath = clipPathVariants(clipHeight)[shape];\n  return (\n    <div\n      className={cn('absolute -z-10 inset-0 size-full', className)}\n      style={{\n        clipPath,\n        ...style,\n      }}\n      {...props}\n      ref={ref}\n    />\n  );\n});\nClippedShapeBg.displayName = 'ClippedShapeBg';\n\nexport const ClippedShapeBorder = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & { borderWidth?: number }\n>(({ borderWidth = 2, className, style, ...props }, ref) => {\n  const { clipHeight, shape } = useClippedShapeContext();\n  const clipPath = clipPathVariants(clipHeight)[shape];\n  const borderOffset = String(borderWidth * 2);\n  return (\n    <div\n      className={cn('absolute  size-full -z-20', className)}\n      style={{\n        clipPath,\n        width: `calc(100% + ${borderOffset}px)`,\n        height: `calc(100% + ${borderOffset}px)`,\n        left: `-${borderWidth}px`,\n        top: `-${borderWidth}px`,\n        ...style,\n      }}\n      {...props}\n      ref={ref}\n    />\n  );\n});\nClippedShapeBorder.displayName = 'ClippedShapeBorder';",
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport * as React from 'react';\n\nexport type ClippedShapeType =\n  | 'polygon'\n  | 'polygon2'\n  | 'polygon3'\n  | 'polygon4'\n  | 'triangle';\n\nexport const clipPathVariants = (clipPathHeight: number) => ({\n  polygon: `polygon(${clipPathHeight || 50}px 0, 100% 0, 100% 100%, 0 100%, 0 ${clipPathHeight || 50}px)`,\n  polygon2: `polygon(calc(100% - ${clipPathHeight || 50}px) 0, 100% ${clipPathHeight || 50}px, 100% 100%, 0 100%, 0 0)`,\n  polygon3: `polygon(100% 0, 100% calc(100% - ${clipPathHeight || 50}px), calc(100% - ${clipPathHeight || 50}px) 100%, 0 100%, 0 0)`,\n  polygon4: `polygon(100% 0, 100% 100%, ${clipPathHeight || 50}px 100%, 0 calc(100% - ${clipPathHeight || 50}px), 0 0)`,\n  triangle: `polygon(50% 0, 100% 100%, 0 100%)`,\n});\n\ninterface ClippedShapeProps extends React.HTMLAttributes<HTMLDivElement> {\n  clipHeight?: number;\n  shape?: ClippedShapeType;\n}\nconst ClippedShapeContext = React.createContext<\n  { clipHeight: number; shape: ClippedShapeType } | undefined\n>(undefined);\nexport function useClippedShapeContext() {\n  const context = React.useContext(ClippedShapeContext);\n  if (!context) {\n    throw new Error(\n      'useClippedShapeContext must be used within a ClippedShapeContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const ClippedShape = React.forwardRef<HTMLDivElement, ClippedShapeProps>(\n  ({ clipHeight = 50, shape = 'polygon2', className, ...props }, ref) => {\n    return (\n      <ClippedShapeContext.Provider value={{ clipHeight, shape }}>\n        <div className={cn('relative', className)} {...props} ref={ref} />\n      </ClippedShapeContext.Provider>\n    );\n  },\n);\nClippedShape.displayName = 'ClippedShapeProps';\n\nexport const ClippedShapeBg = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, style, ...props }, ref) => {\n  const { clipHeight, shape } = useClippedShapeContext();\n  const clipPath = clipPathVariants(clipHeight)[shape];\n  return (\n    <div\n      className={cn('absolute -z-10 inset-0 size-full', className)}\n      style={{\n        clipPath,\n        ...style,\n      }}\n      {...props}\n      ref={ref}\n    />\n  );\n});\nClippedShapeBg.displayName = 'ClippedShapeBg';\n\nexport const ClippedShapeBorder = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & { borderWidth?: number }\n>(({ borderWidth = 2, className, style, ...props }, ref) => {\n  const { clipHeight, shape } = useClippedShapeContext();\n  const clipPath = clipPathVariants(clipHeight)[shape];\n  const borderOffset = String(borderWidth * 2);\n  return (\n    <div\n      className={cn('absolute  size-full -z-20', className)}\n      style={{\n        clipPath,\n        width: `calc(100% + ${borderOffset}px)`,\n        height: `calc(100% + ${borderOffset}px)`,\n        left: `-${borderWidth}px`,\n        top: `-${borderWidth}px`,\n        ...style,\n      }}\n      {...props}\n      ref={ref}\n    />\n  );\n});\nClippedShapeBorder.displayName = 'ClippedShapeBorder';",
       },
     ],
     component: (function () {
@@ -1112,7 +1112,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/containers/container-infinite-scroll.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\nimport { motion, useInView } from 'motion/react';\nimport { Skeleton } from '@/components/ui/skeleton';\nimport { cn } from '@/lib/utils';\n\nfunction SkeltonWrapper() {\n  return (\n    <div className=\" space-y-5 p-4\">\n      <Skeleton className=\"size-12 rounded-full\" />\n      <Skeleton className=\"h-10 w-2/3\" />\n      <Skeleton className=\"h-48 w-full\" />\n    </div>\n  );\n}\nfunction Spinner() {\n  return (\n    <div className=\"inline-block size-6 animate-spin rounded-full border-2 border-gray-200 border-t-gray-900\" />\n  );\n}\ninterface CellInfiniteScrollProps extends React.HTMLAttributes<HTMLDivElement> {\n  isPending: boolean;\n  SkeltonComp?: React.ComponentType | React.ReactElement;\n}\nexport function CellInfiniteScroll({\n  isPending,\n  SkeltonComp = SkeltonWrapper,\n  children,\n  className,\n}: CellInfiniteScrollProps) {\n  const revealRef = React.useRef<HTMLDivElement | null>(null);\n\n  const isInView = useInView(revealRef, {\n    once: true,\n    amount: 0.2,\n  });\n\n  return (\n    <div className={cn('relative', className)}>\n      {isPending || !isInView ? (\n        <motion.div\n          initial=\"visible\"\n          animate={\n            !isInView || isPending\n              ? { opacity: 1, display: 'block' }\n              : { opacity: 0, display: 'none' }\n          }\n        >\n          {typeof SkeltonComp === 'function' ? <SkeltonComp /> : SkeltonComp}\n        </motion.div>\n      ) : (\n        <motion.div initial=\"hidden\" animate={isInView ? 'visible' : 'hidden'}>\n          {children}\n        </motion.div>\n      )}\n      <div ref={revealRef} />\n    </div>\n  );\n}\n\ninterface ContainerInfiniteScrollProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  items: unknown[];\n  isPending: boolean;\n  itemsCount: number | null | undefined;\n  loadMore: () => void;\n  Loader?: React.ComponentType | React.ReactElement;\n}\nexport function ContainerInfiniteScroll({\n  items,\n  isPending,\n  itemsCount,\n  loadMore,\n  Loader = Spinner,\n  children,\n  className,\n}: ContainerInfiniteScrollProps) {\n  const observerRef = React.useRef<HTMLDivElement | null>(null);\n  const allLoaded = items.length === itemsCount;\n  const hasMore = isPending && !allLoaded && items.length > 0;\n  React.useEffect(() => {\n    const { current } = observerRef;\n    const observer = new IntersectionObserver(\n      (entries) => {\n        if (entries[0].isIntersecting && !allLoaded && items.length > 0) {\n          loadMore();\n        }\n      },\n      { threshold: 1 },\n    );\n\n    if (current) {\n      observer.observe(current);\n    }\n\n    return () => {\n      if (current) {\n        observer.unobserve(current);\n      }\n    };\n  });\n\n  return (\n    <div className={className}>\n      {children}\n      {hasMore && (typeof Loader === 'function' ? <Loader /> : Loader)}\n      {items.length > 0 && itemsCount && items.length < itemsCount && (\n        <div ref={observerRef} />\n      )}\n    </div>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\nimport { motion, useInView } from 'motion/react';\nimport { Skeleton } from '@/components/ui/skeleton';\nimport { cn } from '@/lib/utils';\n\nfunction SkeltonWrapper() {\n  return (\n    <div className=\" space-y-5 p-4\">\n      <Skeleton className=\"size-12 rounded-full\" />\n      <Skeleton className=\"h-10 w-2/3\" />\n      <Skeleton className=\"h-48 w-full\" />\n    </div>\n  );\n}\nfunction Spinner() {\n  return (\n    <div className=\"inline-block size-6 animate-spin rounded-full border-2 border-gray-200 border-t-gray-900\" />\n  );\n}\ninterface CellInfiniteScrollProps extends React.HTMLAttributes<HTMLDivElement> {\n  isPending: boolean;\n  SkeltonComp?: React.ComponentType | React.ReactElement;\n}\nexport function CellInfiniteScroll({\n  isPending,\n  SkeltonComp = SkeltonWrapper,\n  children,\n  className,\n}: CellInfiniteScrollProps) {\n  const revealRef = React.useRef<HTMLDivElement | null>(null);\n\n  const isInView = useInView(revealRef, {\n    once: true,\n    amount: 0.2,\n  });\n\n  return (\n    <div className={cn('relative', className)}>\n      {isPending || !isInView ? (\n        <motion.div\n          initial=\"visible\"\n          animate={\n            !isInView || isPending\n              ? { opacity: 1, display: 'block' }\n              : { opacity: 0, display: 'none' }\n          }\n        >\n          {typeof SkeltonComp === 'function' ? <SkeltonComp /> : SkeltonComp}\n        </motion.div>\n      ) : (\n        <motion.div initial=\"hidden\" animate={isInView ? 'visible' : 'hidden'}>\n          {children}\n        </motion.div>\n      )}\n      <div ref={revealRef} />\n    </div>\n  );\n}\n\ninterface ContainerInfiniteScrollProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  items: unknown[];\n  isPending: boolean;\n  itemsCount: number | null | undefined;\n  loadMore: () => void;\n  Loader?: React.ComponentType | React.ReactElement;\n}\nexport function ContainerInfiniteScroll({\n  items,\n  isPending,\n  itemsCount,\n  loadMore,\n  Loader = Spinner,\n  children,\n  className,\n}: ContainerInfiniteScrollProps) {\n  const observerRef = React.useRef<HTMLDivElement | null>(null);\n  const allLoaded = items.length === itemsCount;\n  const hasMore = isPending && !allLoaded && items.length > 0;\n  React.useEffect(() => {\n    const { current } = observerRef;\n    const observer = new IntersectionObserver(\n      (entries) => {\n        if (entries[0].isIntersecting && !allLoaded && items.length > 0) {\n          loadMore();\n        }\n      },\n      { threshold: 1 },\n    );\n\n    if (current) {\n      observer.observe(current);\n    }\n\n    return () => {\n      if (current) {\n        observer.unobserve(current);\n      }\n    };\n  });\n\n  return (\n    <div className={className}>\n      {children}\n      {items.length > 0 && itemsCount && items.length < itemsCount && (\n        <div ref={observerRef} />\n      )}\n      {hasMore && (typeof Loader === 'function' ? <Loader /> : Loader)}\n    </div>\n  );\n}",
       },
     ],
     component: (function () {
@@ -1149,7 +1149,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/containers/container-infinite-scroll.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\nimport { motion, useInView } from 'motion/react';\nimport { Skeleton } from '@/components/ui/skeleton';\nimport { cn } from '@/lib/utils';\n\nfunction SkeltonWrapper() {\n  return (\n    <div className=\" space-y-5 p-4\">\n      <Skeleton className=\"size-12 rounded-full\" />\n      <Skeleton className=\"h-10 w-2/3\" />\n      <Skeleton className=\"h-48 w-full\" />\n    </div>\n  );\n}\nfunction Spinner() {\n  return (\n    <div className=\"inline-block size-6 animate-spin rounded-full border-2 border-gray-200 border-t-gray-900\" />\n  );\n}\ninterface CellInfiniteScrollProps extends React.HTMLAttributes<HTMLDivElement> {\n  isPending: boolean;\n  SkeltonComp?: React.ComponentType | React.ReactElement;\n}\nexport function CellInfiniteScroll({\n  isPending,\n  SkeltonComp = SkeltonWrapper,\n  children,\n  className,\n}: CellInfiniteScrollProps) {\n  const revealRef = React.useRef<HTMLDivElement | null>(null);\n\n  const isInView = useInView(revealRef, {\n    once: true,\n    amount: 0.2,\n  });\n\n  return (\n    <div className={cn('relative', className)}>\n      {isPending || !isInView ? (\n        <motion.div\n          initial=\"visible\"\n          animate={\n            !isInView || isPending\n              ? { opacity: 1, display: 'block' }\n              : { opacity: 0, display: 'none' }\n          }\n        >\n          {typeof SkeltonComp === 'function' ? <SkeltonComp /> : SkeltonComp}\n        </motion.div>\n      ) : (\n        <motion.div initial=\"hidden\" animate={isInView ? 'visible' : 'hidden'}>\n          {children}\n        </motion.div>\n      )}\n      <div ref={revealRef} />\n    </div>\n  );\n}\n\ninterface ContainerInfiniteScrollProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  items: unknown[];\n  isPending: boolean;\n  itemsCount: number | null | undefined;\n  loadMore: () => void;\n  Loader?: React.ComponentType | React.ReactElement;\n}\nexport function ContainerInfiniteScroll({\n  items,\n  isPending,\n  itemsCount,\n  loadMore,\n  Loader = Spinner,\n  children,\n  className,\n}: ContainerInfiniteScrollProps) {\n  const observerRef = React.useRef<HTMLDivElement | null>(null);\n  const allLoaded = items.length === itemsCount;\n  const hasMore = isPending && !allLoaded && items.length > 0;\n  React.useEffect(() => {\n    const { current } = observerRef;\n    const observer = new IntersectionObserver(\n      (entries) => {\n        if (entries[0].isIntersecting && !allLoaded && items.length > 0) {\n          loadMore();\n        }\n      },\n      { threshold: 1 },\n    );\n\n    if (current) {\n      observer.observe(current);\n    }\n\n    return () => {\n      if (current) {\n        observer.unobserve(current);\n      }\n    };\n  });\n\n  return (\n    <div className={className}>\n      {children}\n      {hasMore && (typeof Loader === 'function' ? <Loader /> : Loader)}\n      {items.length > 0 && itemsCount && items.length < itemsCount && (\n        <div ref={observerRef} />\n      )}\n    </div>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\nimport { motion, useInView } from 'motion/react';\nimport { Skeleton } from '@/components/ui/skeleton';\nimport { cn } from '@/lib/utils';\n\nfunction SkeltonWrapper() {\n  return (\n    <div className=\" space-y-5 p-4\">\n      <Skeleton className=\"size-12 rounded-full\" />\n      <Skeleton className=\"h-10 w-2/3\" />\n      <Skeleton className=\"h-48 w-full\" />\n    </div>\n  );\n}\nfunction Spinner() {\n  return (\n    <div className=\"inline-block size-6 animate-spin rounded-full border-2 border-gray-200 border-t-gray-900\" />\n  );\n}\ninterface CellInfiniteScrollProps extends React.HTMLAttributes<HTMLDivElement> {\n  isPending: boolean;\n  SkeltonComp?: React.ComponentType | React.ReactElement;\n}\nexport function CellInfiniteScroll({\n  isPending,\n  SkeltonComp = SkeltonWrapper,\n  children,\n  className,\n}: CellInfiniteScrollProps) {\n  const revealRef = React.useRef<HTMLDivElement | null>(null);\n\n  const isInView = useInView(revealRef, {\n    once: true,\n    amount: 0.2,\n  });\n\n  return (\n    <div className={cn('relative', className)}>\n      {isPending || !isInView ? (\n        <motion.div\n          initial=\"visible\"\n          animate={\n            !isInView || isPending\n              ? { opacity: 1, display: 'block' }\n              : { opacity: 0, display: 'none' }\n          }\n        >\n          {typeof SkeltonComp === 'function' ? <SkeltonComp /> : SkeltonComp}\n        </motion.div>\n      ) : (\n        <motion.div initial=\"hidden\" animate={isInView ? 'visible' : 'hidden'}>\n          {children}\n        </motion.div>\n      )}\n      <div ref={revealRef} />\n    </div>\n  );\n}\n\ninterface ContainerInfiniteScrollProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  items: unknown[];\n  isPending: boolean;\n  itemsCount: number | null | undefined;\n  loadMore: () => void;\n  Loader?: React.ComponentType | React.ReactElement;\n}\nexport function ContainerInfiniteScroll({\n  items,\n  isPending,\n  itemsCount,\n  loadMore,\n  Loader = Spinner,\n  children,\n  className,\n}: ContainerInfiniteScrollProps) {\n  const observerRef = React.useRef<HTMLDivElement | null>(null);\n  const allLoaded = items.length === itemsCount;\n  const hasMore = isPending && !allLoaded && items.length > 0;\n  React.useEffect(() => {\n    const { current } = observerRef;\n    const observer = new IntersectionObserver(\n      (entries) => {\n        if (entries[0].isIntersecting && !allLoaded && items.length > 0) {\n          loadMore();\n        }\n      },\n      { threshold: 1 },\n    );\n\n    if (current) {\n      observer.observe(current);\n    }\n\n    return () => {\n      if (current) {\n        observer.unobserve(current);\n      }\n    };\n  });\n\n  return (\n    <div className={className}>\n      {children}\n      {items.length > 0 && itemsCount && items.length < itemsCount && (\n        <div ref={observerRef} />\n      )}\n      {hasMore && (typeof Loader === 'function' ? <Loader /> : Loader)}\n    </div>\n  );\n}",
       },
     ],
     component: (function () {
@@ -1187,7 +1187,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/containers/container-infinite-scroll.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\nimport { motion, useInView } from 'motion/react';\nimport { Skeleton } from '@/components/ui/skeleton';\nimport { cn } from '@/lib/utils';\n\nfunction SkeltonWrapper() {\n  return (\n    <div className=\" space-y-5 p-4\">\n      <Skeleton className=\"size-12 rounded-full\" />\n      <Skeleton className=\"h-10 w-2/3\" />\n      <Skeleton className=\"h-48 w-full\" />\n    </div>\n  );\n}\nfunction Spinner() {\n  return (\n    <div className=\"inline-block size-6 animate-spin rounded-full border-2 border-gray-200 border-t-gray-900\" />\n  );\n}\ninterface CellInfiniteScrollProps extends React.HTMLAttributes<HTMLDivElement> {\n  isPending: boolean;\n  SkeltonComp?: React.ComponentType | React.ReactElement;\n}\nexport function CellInfiniteScroll({\n  isPending,\n  SkeltonComp = SkeltonWrapper,\n  children,\n  className,\n}: CellInfiniteScrollProps) {\n  const revealRef = React.useRef<HTMLDivElement | null>(null);\n\n  const isInView = useInView(revealRef, {\n    once: true,\n    amount: 0.2,\n  });\n\n  return (\n    <div className={cn('relative', className)}>\n      {isPending || !isInView ? (\n        <motion.div\n          initial=\"visible\"\n          animate={\n            !isInView || isPending\n              ? { opacity: 1, display: 'block' }\n              : { opacity: 0, display: 'none' }\n          }\n        >\n          {typeof SkeltonComp === 'function' ? <SkeltonComp /> : SkeltonComp}\n        </motion.div>\n      ) : (\n        <motion.div initial=\"hidden\" animate={isInView ? 'visible' : 'hidden'}>\n          {children}\n        </motion.div>\n      )}\n      <div ref={revealRef} />\n    </div>\n  );\n}\n\ninterface ContainerInfiniteScrollProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  items: unknown[];\n  isPending: boolean;\n  itemsCount: number | null | undefined;\n  loadMore: () => void;\n  Loader?: React.ComponentType | React.ReactElement;\n}\nexport function ContainerInfiniteScroll({\n  items,\n  isPending,\n  itemsCount,\n  loadMore,\n  Loader = Spinner,\n  children,\n  className,\n}: ContainerInfiniteScrollProps) {\n  const observerRef = React.useRef<HTMLDivElement | null>(null);\n  const allLoaded = items.length === itemsCount;\n  const hasMore = isPending && !allLoaded && items.length > 0;\n  React.useEffect(() => {\n    const { current } = observerRef;\n    const observer = new IntersectionObserver(\n      (entries) => {\n        if (entries[0].isIntersecting && !allLoaded && items.length > 0) {\n          loadMore();\n        }\n      },\n      { threshold: 1 },\n    );\n\n    if (current) {\n      observer.observe(current);\n    }\n\n    return () => {\n      if (current) {\n        observer.unobserve(current);\n      }\n    };\n  });\n\n  return (\n    <div className={className}>\n      {children}\n      {hasMore && (typeof Loader === 'function' ? <Loader /> : Loader)}\n      {items.length > 0 && itemsCount && items.length < itemsCount && (\n        <div ref={observerRef} />\n      )}\n    </div>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\nimport { motion, useInView } from 'motion/react';\nimport { Skeleton } from '@/components/ui/skeleton';\nimport { cn } from '@/lib/utils';\n\nfunction SkeltonWrapper() {\n  return (\n    <div className=\" space-y-5 p-4\">\n      <Skeleton className=\"size-12 rounded-full\" />\n      <Skeleton className=\"h-10 w-2/3\" />\n      <Skeleton className=\"h-48 w-full\" />\n    </div>\n  );\n}\nfunction Spinner() {\n  return (\n    <div className=\"inline-block size-6 animate-spin rounded-full border-2 border-gray-200 border-t-gray-900\" />\n  );\n}\ninterface CellInfiniteScrollProps extends React.HTMLAttributes<HTMLDivElement> {\n  isPending: boolean;\n  SkeltonComp?: React.ComponentType | React.ReactElement;\n}\nexport function CellInfiniteScroll({\n  isPending,\n  SkeltonComp = SkeltonWrapper,\n  children,\n  className,\n}: CellInfiniteScrollProps) {\n  const revealRef = React.useRef<HTMLDivElement | null>(null);\n\n  const isInView = useInView(revealRef, {\n    once: true,\n    amount: 0.2,\n  });\n\n  return (\n    <div className={cn('relative', className)}>\n      {isPending || !isInView ? (\n        <motion.div\n          initial=\"visible\"\n          animate={\n            !isInView || isPending\n              ? { opacity: 1, display: 'block' }\n              : { opacity: 0, display: 'none' }\n          }\n        >\n          {typeof SkeltonComp === 'function' ? <SkeltonComp /> : SkeltonComp}\n        </motion.div>\n      ) : (\n        <motion.div initial=\"hidden\" animate={isInView ? 'visible' : 'hidden'}>\n          {children}\n        </motion.div>\n      )}\n      <div ref={revealRef} />\n    </div>\n  );\n}\n\ninterface ContainerInfiniteScrollProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  items: unknown[];\n  isPending: boolean;\n  itemsCount: number | null | undefined;\n  loadMore: () => void;\n  Loader?: React.ComponentType | React.ReactElement;\n}\nexport function ContainerInfiniteScroll({\n  items,\n  isPending,\n  itemsCount,\n  loadMore,\n  Loader = Spinner,\n  children,\n  className,\n}: ContainerInfiniteScrollProps) {\n  const observerRef = React.useRef<HTMLDivElement | null>(null);\n  const allLoaded = items.length === itemsCount;\n  const hasMore = isPending && !allLoaded && items.length > 0;\n  React.useEffect(() => {\n    const { current } = observerRef;\n    const observer = new IntersectionObserver(\n      (entries) => {\n        if (entries[0].isIntersecting && !allLoaded && items.length > 0) {\n          loadMore();\n        }\n      },\n      { threshold: 1 },\n    );\n\n    if (current) {\n      observer.observe(current);\n    }\n\n    return () => {\n      if (current) {\n        observer.unobserve(current);\n      }\n    };\n  });\n\n  return (\n    <div className={className}>\n      {children}\n      {items.length > 0 && itemsCount && items.length < itemsCount && (\n        <div ref={observerRef} />\n      )}\n      {hasMore && (typeof Loader === 'function' ? <Loader /> : Loader)}\n    </div>\n  );\n}",
       },
     ],
     component: (function () {
@@ -1208,6 +1208,115 @@ export const index: Record<string, any> = {
     })(),
     command:
       'https://systaliko-ui.com/r/shadcn-new-york-container-infinite-scroll',
+  },
+  'default-container-inset-scroll': {
+    name: 'default-container-inset-scroll',
+    description:
+      'Animate Inset on X axis, triggered by scroll position with default style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/containers/container-inset-scroll/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/containers/container-inset-scroll.tsx',
+        content:
+          "'use client';\nimport * as React from 'react';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useMotionTemplate,\n  useScroll,\n  useTransform,\n} from 'motion/react';\nimport { cn } from '@/lib/utils';\nimport { useSmoothScroll } from '@/components/systaliko-ui/utils/use-smooth-scroll';\n\ninterface ContainerScrollAnimationContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst ContainerScrollAnimationContext = React.createContext<\n  ContainerScrollAnimationContextValue | undefined\n>(undefined);\n\nexport function useContainerScrollAnimationContext() {\n  const context = React.useContext(ContainerScrollAnimationContext);\n  if (!context) {\n    throw new Error(\n      'useContainerScrollAnimationContext must be used within a ContainerScrollAnimationContextProvider',\n    );\n  }\n  return context;\n}\n\nexport function ContainerScrollAnimation({\n  spacerClass,\n  className,\n  children,\n  ...props\n}: React.ComponentProps<'div'> & { spacerClass?: string }) {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n  });\n  useSmoothScroll();\n  return (\n    <ContainerScrollAnimationContext.Provider value={{ scrollYProgress }}>\n      <div ref={scrollRef} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={cn('w-full h-96', spacerClass)} />\n      </div>\n    </ContainerScrollAnimationContext.Provider>\n  );\n}\n\nexport function ContainerScrollInset({\n  insetRange = [48, 0],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { insetRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const xInset = useTransform(scrollYProgress, inputRange, insetRange);\n  const clipPath = useMotionTemplate`inset(0px ${xInset}px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollTranslate({\n  yRange = [0, 384],\n  inputRange = [0, 1],\n  style,\n  className,\n  ...props\n}: HTMLMotionProps<'div'> & { yRange?: unknown[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const y = useTransform(scrollYProgress, inputRange, yRange);\n  return (\n    <motion.div\n      style={{ y, ...style }}\n      className={cn('relative', className)}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollScale({\n  scaleRange = [1.2, 1],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { scaleRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const scale = useTransform(scrollYProgress, inputRange, scaleRange);\n  return (\n    <motion.div className={className} style={{ scale, ...style }} {...props} />\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/containers/container-inset-scroll/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-container-inset-scroll';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.com/r/default-container-inset-scroll',
+  },
+  'shadcn-default-container-inset-scroll': {
+    name: 'shadcn-default-container-inset-scroll',
+    description:
+      'Animate Inset on X axis, triggered by scroll position with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/containers/container-inset-scroll/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/containers/container-inset-scroll.tsx',
+        content:
+          "'use client';\nimport * as React from 'react';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useMotionTemplate,\n  useScroll,\n  useTransform,\n} from 'motion/react';\nimport { cn } from '@/lib/utils';\nimport { useSmoothScroll } from '@/components/systaliko-ui/utils/use-smooth-scroll';\n\ninterface ContainerScrollAnimationContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst ContainerScrollAnimationContext = React.createContext<\n  ContainerScrollAnimationContextValue | undefined\n>(undefined);\n\nexport function useContainerScrollAnimationContext() {\n  const context = React.useContext(ContainerScrollAnimationContext);\n  if (!context) {\n    throw new Error(\n      'useContainerScrollAnimationContext must be used within a ContainerScrollAnimationContextProvider',\n    );\n  }\n  return context;\n}\n\nexport function ContainerScrollAnimation({\n  spacerClass,\n  className,\n  children,\n  ...props\n}: React.ComponentProps<'div'> & { spacerClass?: string }) {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n  });\n  useSmoothScroll();\n  return (\n    <ContainerScrollAnimationContext.Provider value={{ scrollYProgress }}>\n      <div ref={scrollRef} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={cn('w-full h-96', spacerClass)} />\n      </div>\n    </ContainerScrollAnimationContext.Provider>\n  );\n}\n\nexport function ContainerScrollInset({\n  insetRange = [48, 0],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { insetRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const xInset = useTransform(scrollYProgress, inputRange, insetRange);\n  const clipPath = useMotionTemplate`inset(0px ${xInset}px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollTranslate({\n  yRange = [0, 384],\n  inputRange = [0, 1],\n  style,\n  className,\n  ...props\n}: HTMLMotionProps<'div'> & { yRange?: unknown[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const y = useTransform(scrollYProgress, inputRange, yRange);\n  return (\n    <motion.div\n      style={{ y, ...style }}\n      className={cn('relative', className)}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollScale({\n  scaleRange = [1.2, 1],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { scaleRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const scale = useTransform(scrollYProgress, inputRange, scaleRange);\n  return (\n    <motion.div className={className} style={{ scale, ...style }} {...props} />\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/containers/container-inset-scroll/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-container-inset-scroll';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.com/r/shadcn-default-container-inset-scroll',
+  },
+  'shadcn-new-york-container-inset-scroll': {
+    name: 'shadcn-new-york-container-inset-scroll',
+    description:
+      'Animate Inset on X axis, triggered by scroll position with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/containers/container-inset-scroll/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/containers/container-inset-scroll.tsx',
+        content:
+          "'use client';\nimport * as React from 'react';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useMotionTemplate,\n  useScroll,\n  useTransform,\n} from 'motion/react';\nimport { cn } from '@/lib/utils';\nimport { useSmoothScroll } from '@/components/systaliko-ui/utils/use-smooth-scroll';\n\ninterface ContainerScrollAnimationContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst ContainerScrollAnimationContext = React.createContext<\n  ContainerScrollAnimationContextValue | undefined\n>(undefined);\n\nexport function useContainerScrollAnimationContext() {\n  const context = React.useContext(ContainerScrollAnimationContext);\n  if (!context) {\n    throw new Error(\n      'useContainerScrollAnimationContext must be used within a ContainerScrollAnimationContextProvider',\n    );\n  }\n  return context;\n}\n\nexport function ContainerScrollAnimation({\n  spacerClass,\n  className,\n  children,\n  ...props\n}: React.ComponentProps<'div'> & { spacerClass?: string }) {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n  });\n  useSmoothScroll();\n  return (\n    <ContainerScrollAnimationContext.Provider value={{ scrollYProgress }}>\n      <div ref={scrollRef} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={cn('w-full h-96', spacerClass)} />\n      </div>\n    </ContainerScrollAnimationContext.Provider>\n  );\n}\n\nexport function ContainerScrollInset({\n  insetRange = [48, 0],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { insetRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const xInset = useTransform(scrollYProgress, inputRange, insetRange);\n  const clipPath = useMotionTemplate`inset(0px ${xInset}px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollTranslate({\n  yRange = [0, 384],\n  inputRange = [0, 1],\n  style,\n  className,\n  ...props\n}: HTMLMotionProps<'div'> & { yRange?: unknown[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const y = useTransform(scrollYProgress, inputRange, yRange);\n  return (\n    <motion.div\n      style={{ y, ...style }}\n      className={cn('relative', className)}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollScale({\n  scaleRange = [1.2, 1],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { scaleRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const scale = useTransform(scrollYProgress, inputRange, scaleRange);\n  return (\n    <motion.div className={className} style={{ scale, ...style }} {...props} />\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/containers/container-inset-scroll/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-container-inset-scroll';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.com/r/shadcn-new-york-container-inset-scroll',
   },
   'default-container-stagger': {
     name: 'default-container-stagger',
@@ -2404,7 +2513,7 @@ export const index: Record<string, any> = {
   'default-cards-stack-demo': {
     name: 'default-cards-stack-demo',
     description: 'Demo showing Cards Stack component with default style.',
-    type: 'registry:ui',
+    type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['http://localhost:3000/r/cards-stack'],
@@ -2412,7 +2521,7 @@ export const index: Record<string, any> = {
     files: [
       {
         path: '__registry__/demo/cards/cards-stack/default/index.tsx',
-        type: 'registry:ui',
+        type: 'registry:block',
         target: 'components/systaliko-ui/demo/cards/cards-stack.tsx',
         content:
           "import { CardSticky, ContainerScroll } from '@/components/systaliko-ui/cards/cards-stack';\n\nconst PROCESS_PHASES = [\n  {\n    id: 'process-1',\n    title: 'Research and Analysis',\n    description:\n      'With your vision in mind, we enter the Research and Analysis phase. Here, we examine your competitors, industry trends, and user preferences. This informed approach ensures your website stands out and provides an excellent user experience.',\n  },\n  {\n    id: 'process-2',\n    title: 'Wireframing and Prototyping',\n    description:\n      \"We move on to Wireframing and Prototyping, where we create skeletal representations of your website's pages. These visual indigoprints allow us to test and refine the user experience before diving into design.\",\n  },\n  {\n    id: 'process-3',\n    title: 'Design Creation',\n    description:\n      \"Now, it's time for the Design Creation phase. Our talented designers bring your vision to life. We focus on aesthetics, ensuring your website not only looks stunning but also aligns perfectly with your brand identity.\",\n  },\n  {\n    id: 'process-4',\n    title: 'Development and Testing',\n    description:\n      'In the Development and Testing phase, our skilled developers turn designs into a fully functional website. Rigorous testing ensures everything works seamlessly, providing an exceptional user experience.',\n  },\n  {\n    id: 'process-5',\n    title: 'Launch and Support',\n    description:\n      \"Our commitment continues beyond launch. We offer post-launch support to address questions, provide assistance, and ensure your website remains updated and optimized. The Website Design Process isn't just about creating a website; it's about crafting a digital experience that resonates, engages, and converts.\",\n  },\n];\n\nexport function CardsStackDemo() {\n  return (\n    <ContainerScroll className=\"min-h-[400vh] space-y-8 py-12 place-content-center place-items-center\">\n      {PROCESS_PHASES.map((phase, index) => (\n        <CardSticky\n          key={phase.id}\n          index={index + 2}\n          className=\"rounded-2xl border p-8 shadow-md backdrop-blur-md max-w-md\"\n        >\n          <div className=\"flex items-center justify-between gap-4\">\n            <h2 className=\"my-6 text-2xl font-bold tracking-tighter\">\n              {phase.title}\n            </h2>\n            <h3 className=\"text-2xl font-bold text-primary\">\n              {String(index + 1).padStart(2, '0')}\n            </h3>\n          </div>\n\n          <p className=\"text-foreground\">{phase.description}</p>\n        </CardSticky>\n      ))}\n    </ContainerScroll>\n  );\n}",
@@ -2440,7 +2549,7 @@ export const index: Record<string, any> = {
     name: 'shadcn-default-cards-stack-demo',
     description:
       'Demo showing Cards Stack component with shadcn-default style.',
-    type: 'registry:ui',
+    type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['http://localhost:3000/r/cards-stack'],
@@ -2448,7 +2557,7 @@ export const index: Record<string, any> = {
     files: [
       {
         path: '__registry__/demo/cards/cards-stack/shadcn-default/index.tsx',
-        type: 'registry:ui',
+        type: 'registry:block',
         target: 'components/systaliko-ui/demo/cards/cards-stack.tsx',
         content:
           "import { CardSticky, ContainerScroll } from '@/components/systaliko-ui/cards/cards-stack';\n\nconst PROCESS_PHASES = [\n  {\n    id: 'process-1',\n    title: 'Research and Analysis',\n    description:\n      'With your vision in mind, we enter the Research and Analysis phase. Here, we examine your competitors, industry trends, and user preferences. This informed approach ensures your website stands out and provides an excellent user experience.',\n  },\n  {\n    id: 'process-2',\n    title: 'Wireframing and Prototyping',\n    description:\n      \"We move on to Wireframing and Prototyping, where we create skeletal representations of your website's pages. These visual indigoprints allow us to test and refine the user experience before diving into design.\",\n  },\n  {\n    id: 'process-3',\n    title: 'Design Creation',\n    description:\n      \"Now, it's time for the Design Creation phase. Our talented designers bring your vision to life. We focus on aesthetics, ensuring your website not only looks stunning but also aligns perfectly with your brand identity.\",\n  },\n  {\n    id: 'process-4',\n    title: 'Development and Testing',\n    description:\n      'In the Development and Testing phase, our skilled developers turn designs into a fully functional website. Rigorous testing ensures everything works seamlessly, providing an exceptional user experience.',\n  },\n  {\n    id: 'process-5',\n    title: 'Launch and Support',\n    description:\n      \"Our commitment continues beyond launch. We offer post-launch support to address questions, provide assistance, and ensure your website remains updated and optimized. The Website Design Process isn't just about creating a website; it's about crafting a digital experience that resonates, engages, and converts.\",\n  },\n];\n\nexport function CardsStackDemo() {\n  return (\n    <ContainerScroll className=\"min-h-[400vh] space-y-8 py-12 place-content-center place-items-center\">\n      {PROCESS_PHASES.map((phase, index) => (\n        <CardSticky\n          key={phase.id}\n          index={index + 2}\n          className=\"rounded-2xl border p-8 shadow-md backdrop-blur-md max-w-md\"\n        >\n          <div className=\"flex items-center justify-between gap-4\">\n            <h2 className=\"my-6 text-2xl font-bold tracking-tighter\">\n              {phase.title}\n            </h2>\n            <h3 className=\"text-2xl font-bold text-primary\">\n              {String(index + 1).padStart(2, '0')}\n            </h3>\n          </div>\n\n          <p className=\"text-foreground\">{phase.description}</p>\n        </CardSticky>\n      ))}\n    </ContainerScroll>\n  );\n}",
@@ -2476,7 +2585,7 @@ export const index: Record<string, any> = {
     name: 'shadcn-new-york-cards-stack-demo',
     description:
       'Demo showing Cards Stack component with shadcn-new-york style.',
-    type: 'registry:ui',
+    type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: ['http://localhost:3000/r/cards-stack'],
@@ -2484,7 +2593,7 @@ export const index: Record<string, any> = {
     files: [
       {
         path: '__registry__/demo/cards/cards-stack/shadcn-new-york/index.tsx',
-        type: 'registry:ui',
+        type: 'registry:block',
         target: 'components/systaliko-ui/demo/cards/cards-stack.tsx',
         content:
           "import { CardSticky, ContainerScroll } from '@/components/systaliko-ui/cards/cards-stack';\n\nconst PROCESS_PHASES = [\n  {\n    id: 'process-1',\n    title: 'Research and Analysis',\n    description:\n      'With your vision in mind, we enter the Research and Analysis phase. Here, we examine your competitors, industry trends, and user preferences. This informed approach ensures your website stands out and provides an excellent user experience.',\n  },\n  {\n    id: 'process-2',\n    title: 'Wireframing and Prototyping',\n    description:\n      \"We move on to Wireframing and Prototyping, where we create skeletal representations of your website's pages. These visual indigoprints allow us to test and refine the user experience before diving into design.\",\n  },\n  {\n    id: 'process-3',\n    title: 'Design Creation',\n    description:\n      \"Now, it's time for the Design Creation phase. Our talented designers bring your vision to life. We focus on aesthetics, ensuring your website not only looks stunning but also aligns perfectly with your brand identity.\",\n  },\n  {\n    id: 'process-4',\n    title: 'Development and Testing',\n    description:\n      'In the Development and Testing phase, our skilled developers turn designs into a fully functional website. Rigorous testing ensures everything works seamlessly, providing an exceptional user experience.',\n  },\n  {\n    id: 'process-5',\n    title: 'Launch and Support',\n    description:\n      \"Our commitment continues beyond launch. We offer post-launch support to address questions, provide assistance, and ensure your website remains updated and optimized. The Website Design Process isn't just about creating a website; it's about crafting a digital experience that resonates, engages, and converts.\",\n  },\n];\n\nexport function CardsStackDemo() {\n  return (\n    <ContainerScroll className=\"min-h-[400vh] space-y-8 py-12 place-content-center place-items-center\">\n      {PROCESS_PHASES.map((phase, index) => (\n        <CardSticky\n          key={phase.id}\n          index={index + 2}\n          className=\"rounded-2xl border p-8 shadow-md backdrop-blur-md max-w-md\"\n        >\n          <div className=\"flex items-center justify-between gap-4\">\n            <h2 className=\"my-6 text-2xl font-bold tracking-tighter\">\n              {phase.title}\n            </h2>\n            <h3 className=\"text-2xl font-bold text-primary\">\n              {String(index + 1).padStart(2, '0')}\n            </h3>\n          </div>\n\n          <p className=\"text-foreground\">{phase.description}</p>\n        </CardSticky>\n      ))}\n    </ContainerScroll>\n  );\n}",
@@ -2507,6 +2616,114 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: 'https://systaliko-ui.com/r/shadcn-new-york-cards-stack-demo',
+  },
+  'default-cards-stack-full-demo': {
+    name: 'default-cards-stack-full-demo',
+    description:
+      'Demo showing different usecase of Cards Stack component with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/cards-stack'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/cards-stack-full/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/animate-ui/demo/cards/cards-stack-full.tsx',
+        content:
+          "import { Badge } from '@/components/ui/badge';\nimport { CardSticky, ContainerScroll } from '@/components/systaliko-ui/cards/cards-stack';\n\nconst WORK_PROJECTS = [\n  {\n    id: 'work-project-3',\n    title: 'YCF DEV',\n    services: ['Portfolio', 'Partnership', 'UI UX Design'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'work-project-1',\n    title: 'Stridath Ecommerce',\n    services: ['E-Commerce', 'Branding', 'UI UX Design', 'Development'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1688561808434-886a6dd97b8c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'work-project-2',\n    title: 'Marketing Agency',\n    services: ['Partnership', 'UI UX Design', 'Development'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1683803055067-1ca1c17cb2b9?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n];\n\nexport function CardsStackFullDemo() {\n  return (\n    <div className=\"container min-h-svh place-content-center p-12 \">\n      <div className=\"text-center\">\n        <Badge className=\"rounded-full\" variant={'secondary'}>\n          latest projects\n        </Badge>\n        <h2 className=\"mb-4 mt-1 text-4xl font-bold tracking-tight\">\n          Get a glimpse of <span className=\"text-primary\">our work</span>\n        </h2>\n        <p className=\"mx-auto max-w-prose text-sm \">\n          From ecommerce to startup landing pages and singl/multi page websites,\n          building fully responsive and functional website that showcase your\n          product and your unique identity.\n        </p>\n      </div>\n      <ContainerScroll className=\"min-h-[500vh] py-12\">\n        {WORK_PROJECTS.map((project, index) => (\n          <CardSticky\n            key={project.id}\n            index={index}\n            className=\"w-full overflow-hidden rounded-sm  bg-card-foreground border text-muted\"\n            incrementY={60}\n            incrementZ={5}\n          >\n            <div className=\"flex flex-wrap items-center justify-between gap-4 px-6 py-4\">\n              <h2 className=\"text-2xl font-bold tracking-tighter\">\n                {project.title}\n              </h2>\n              <div className=\"flex flex-wrap gap-1\">\n                {project.services.map((service) => (\n                  <Badge key={service} className=\"rounded-full\">\n                    {service}\n                  </Badge>\n                ))}\n              </div>\n            </div>\n            <img\n              className=\"size-full object-cover\"\n              width=\"100%\"\n              height=\"100%\"\n              src={project.imageUrl}\n            />\n          </CardSticky>\n        ))}\n      </ContainerScroll>\n    </div>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/cards-stack-full/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-cards-stack-full-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.com/r/default-cards-stack-full-demo',
+  },
+  'shadcn-default-cards-stack-full-demo': {
+    name: 'shadcn-default-cards-stack-full-demo',
+    description:
+      'Demo showing different usecase of Cards Stack component with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/cards-stack'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/cards-stack-full/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/animate-ui/demo/cards/cards-stack-full.tsx',
+        content:
+          "import { Badge } from '@/components/ui/badge';\nimport { CardSticky, ContainerScroll } from '@/components/systaliko-ui/cards/cards-stack';\n\nconst WORK_PROJECTS = [\n  {\n    id: 'work-project-3',\n    title: 'YCF DEV',\n    services: ['Portfolio', 'Partnership', 'UI UX Design'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'work-project-1',\n    title: 'Stridath Ecommerce',\n    services: ['E-Commerce', 'Branding', 'UI UX Design', 'Development'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1688561808434-886a6dd97b8c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'work-project-2',\n    title: 'Marketing Agency',\n    services: ['Partnership', 'UI UX Design', 'Development'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1683803055067-1ca1c17cb2b9?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n];\n\nexport function CardsStackFullDemo() {\n  return (\n    <div className=\"container min-h-svh place-content-center p-12 \">\n      <div className=\"text-center\">\n        <Badge className=\"rounded-full\" variant={'secondary'}>\n          latest projects\n        </Badge>\n        <h2 className=\"mb-4 mt-1 text-4xl font-bold tracking-tight\">\n          Get a glimpse of <span className=\"text-primary\">our work</span>\n        </h2>\n        <p className=\"mx-auto max-w-prose text-sm \">\n          From ecommerce to startup landing pages and singl/multi page websites,\n          building fully responsive and functional website that showcase your\n          product and your unique identity.\n        </p>\n      </div>\n      <ContainerScroll className=\"min-h-[500vh] py-12\">\n        {WORK_PROJECTS.map((project, index) => (\n          <CardSticky\n            key={project.id}\n            index={index}\n            className=\"w-full overflow-hidden rounded-sm  bg-card-foreground border text-muted\"\n            incrementY={60}\n            incrementZ={5}\n          >\n            <div className=\"flex flex-wrap items-center justify-between gap-4 px-6 py-4\">\n              <h2 className=\"text-2xl font-bold tracking-tighter\">\n                {project.title}\n              </h2>\n              <div className=\"flex flex-wrap gap-1\">\n                {project.services.map((service) => (\n                  <Badge key={service} className=\"rounded-full\">\n                    {service}\n                  </Badge>\n                ))}\n              </div>\n            </div>\n            <img\n              className=\"size-full object-cover\"\n              width=\"100%\"\n              height=\"100%\"\n              src={project.imageUrl}\n            />\n          </CardSticky>\n        ))}\n      </ContainerScroll>\n    </div>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/cards-stack-full/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-cards-stack-full-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.com/r/shadcn-default-cards-stack-full-demo',
+  },
+  'shadcn-new-york-cards-stack-full-demo': {
+    name: 'shadcn-new-york-cards-stack-full-demo',
+    description:
+      'Demo showing different usecase of Cards Stack component with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/cards-stack'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/cards-stack-full/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/animate-ui/demo/cards/cards-stack-full.tsx',
+        content:
+          "import { Badge } from '@/components/ui/badge';\nimport { CardSticky, ContainerScroll } from '@/components/systaliko-ui/cards/cards-stack';\n\nconst WORK_PROJECTS = [\n  {\n    id: 'work-project-3',\n    title: 'YCF DEV',\n    services: ['Portfolio', 'Partnership', 'UI UX Design'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'work-project-1',\n    title: 'Stridath Ecommerce',\n    services: ['E-Commerce', 'Branding', 'UI UX Design', 'Development'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1688561808434-886a6dd97b8c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'work-project-2',\n    title: 'Marketing Agency',\n    services: ['Partnership', 'UI UX Design', 'Development'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1683803055067-1ca1c17cb2b9?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n];\n\nexport function CardsStackFullDemo() {\n  return (\n    <div className=\"container min-h-svh place-content-center p-12 \">\n      <div className=\"text-center\">\n        <Badge className=\"rounded-full\" variant={'secondary'}>\n          latest projects\n        </Badge>\n        <h2 className=\"mb-4 mt-1 text-4xl font-bold tracking-tight\">\n          Get a glimpse of <span className=\"text-primary\">our work</span>\n        </h2>\n        <p className=\"mx-auto max-w-prose text-sm \">\n          From ecommerce to startup landing pages and singl/multi page websites,\n          building fully responsive and functional website that showcase your\n          product and your unique identity.\n        </p>\n      </div>\n      <ContainerScroll className=\"min-h-[500vh] py-12\">\n        {WORK_PROJECTS.map((project, index) => (\n          <CardSticky\n            key={project.id}\n            index={index}\n            className=\"w-full overflow-hidden rounded-sm  bg-card-foreground border text-muted\"\n            incrementY={60}\n            incrementZ={5}\n          >\n            <div className=\"flex flex-wrap items-center justify-between gap-4 px-6 py-4\">\n              <h2 className=\"text-2xl font-bold tracking-tighter\">\n                {project.title}\n              </h2>\n              <div className=\"flex flex-wrap gap-1\">\n                {project.services.map((service) => (\n                  <Badge key={service} className=\"rounded-full\">\n                    {service}\n                  </Badge>\n                ))}\n              </div>\n            </div>\n            <img\n              className=\"size-full object-cover\"\n              width=\"100%\"\n              height=\"100%\"\n              src={project.imageUrl}\n            />\n          </CardSticky>\n        ))}\n      </ContainerScroll>\n    </div>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/cards-stack-full/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-cards-stack-full-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.com/r/shadcn-new-york-cards-stack-full-demo',
   },
   'default-cards-stack-rotated-demo': {
     name: 'default-cards-stack-rotated-demo',
@@ -2617,6 +2834,228 @@ export const index: Record<string, any> = {
     })(),
     command:
       'https://systaliko-ui.com/r/shadcn-new-york-cards-stack-rotated-demo',
+  },
+  'default-cards-stack-rotated-recognitions-demo': {
+    name: 'default-cards-stack-rotated-recognitions-demo',
+    description:
+      'Demo showing different usecase of Cards Rotated Stack component with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/cards-stack-rotated'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/cards-stack-rotated-recognitions/default/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/animate-ui/demo/cards/cards-stack-rotated-recognitions.tsx',
+        content:
+          'import {\n  CardsContainer,\n  CardTransformed,\n  ContainerScroll,\n} from \'@/components/systaliko-ui/cards/cards-stack-rotated\';\n\nexport function CardsStackRotatedRecognitionsDemo() {\n  return (\n    <section className="px-8 py-12">\n      <div>\n        <h2 className="text-center text-4xl font-semibold">Recognitions</h2>\n        <p className="mx-auto mt-2 max-w-lg text-center text-sm">\n          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus\n          consequatur reprehenderit.\n        </p>\n      </div>\n      <ContainerScroll className="container h-[300vh] ">\n        <div className="sticky left-0 top-0 h-svh w-full py-12">\n          <CardsContainer className="mx-auto size-full h-72 w-[440px]">\n            <CardTransformed\n              className="items-start border p-12 rounded-xl overflow-hidden shadow justify-evenly border-none bg-blue-600/80  text-secondary backdrop-blur-md"\n              arrayLength={4}\n              index={1}\n            >\n              <div className="flex flex-col items-start justify-start space-y-4 ">\n                <div className="flex size-16 items-center justify-center  rounded-sm bg-secondary/50 text-2xl">\n                  🏆\n                </div>\n                <div>\n                  <h4 className="text-sm uppercase tracking-wide">Awwwards</h4>\n                  <h3 className="text-2xl font-bold">Site of the Day</h3>\n                </div>\n              </div>\n              <p className=" text-secondary/80">\n                Lorem ipsum dolor sit amet consectetur adipisicing elit.\n                Repellendus consequatur reprehenderit.\n              </p>\n            </CardTransformed>\n\n            <CardTransformed\n              className="items-start border p-12 rounded-xl overflow-hidden shadow justify-evenly border-none bg-orange-600/80 text-secondary backdrop-blur-md"\n              arrayLength={4}\n              index={2}\n            >\n              <div className="flex flex-col items-start justify-start space-y-4 ">\n                <div className="flex size-16 items-center justify-center  rounded-sm bg-secondary/50 text-2xl">\n                  🚀\n                </div>\n                <div>\n                  <h4 className="text-sm uppercase tracking-wide">\n                    Performance\n                  </h4>\n                  <h3 className="text-2xl font-bold">100% Performance Score</h3>\n                </div>\n              </div>\n              <p className=" text-secondary/80">\n                Lorem ipsum dolor sit amet consectetur adipisicing elit.\n                Repellendus consequatur reprehenderit.\n              </p>\n            </CardTransformed>\n            <CardTransformed\n              className="items-start border p-12 rounded-xl overflow-hidden shadow justify-evenly border-none bg-cyan-600/80 text-secondary backdrop-blur-md"\n              arrayLength={4}\n              index={3}\n            >\n              <div className="flex flex-col items-start justify-start space-y-4 ">\n                <div className="flex size-16 items-center justify-center  rounded-sm bg-secondary/50 text-2xl">\n                  🎯\n                </div>\n                <div>\n                  <h4 className="text-sm uppercase tracking-wide">\n                    CSS awaaards\n                  </h4>\n                  <h3 className="text-2xl font-bold">Honorable Mention</h3>\n                </div>\n              </div>\n              <p className=" text-secondary/80">\n                Lorem ipsum dolor sit amet consectetur adipisicing elit.\n                Repellendus consequatur reprehenderit.\n              </p>\n            </CardTransformed>\n            <CardTransformed\n              className="items-start border p-12 rounded-xl overflow-hidden shadow justify-evenly border-none bg-violet-600/80 text-secondary backdrop-blur-md"\n              arrayLength={4}\n              index={4}\n            >\n              <div className="flex flex-col items-start justify-start space-y-4 ">\n                <div className="flex size-16 items-center justify-center  rounded-sm bg-secondary/50 text-2xl">\n                  🎖\n                </div>\n                <div>\n                  <h4 className="text-sm uppercase tracking-wide">awaaards</h4>\n                  <h4 className="text-2xl font-bold">Most Creative Design</h4>\n                </div>\n              </div>\n              <p className=" text-secondary/80">\n                Lorem ipsum dolor sit amet consectetur adipisicing elit.\n                Repellendus consequatur reprehenderit.\n              </p>\n            </CardTransformed>\n          </CardsContainer>\n        </div>\n      </ContainerScroll>\n    </section>\n  );\n}',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/cards-stack-rotated-recognitions/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-cards-stack-rotated-recognitions-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.com/r/default-cards-stack-rotated-recognitions-demo',
+  },
+  'shadcn-default-cards-stack-rotated-recognitions-demo': {
+    name: 'shadcn-default-cards-stack-rotated-recognitions-demo',
+    description:
+      'Demo showing different usecase of Cards Rotated Stack component with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/cards-stack-rotated'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/cards-stack-rotated-recognitions/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/animate-ui/demo/cards/cards-stack-rotated-recognitions.tsx',
+        content:
+          'import {\n  CardsContainer,\n  CardTransformed,\n  ContainerScroll,\n} from \'@/components/systaliko-ui/cards/cards-stack-rotated\';\n\nexport function CardsStackRotatedRecognitionsDemo() {\n  return (\n    <section className="px-8 py-12">\n      <div>\n        <h2 className="text-center text-4xl font-semibold">Recognitions</h2>\n        <p className="mx-auto mt-2 max-w-lg text-center text-sm">\n          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus\n          consequatur reprehenderit.\n        </p>\n      </div>\n      <ContainerScroll className="container h-[300vh] ">\n        <div className="sticky left-0 top-0 h-svh w-full py-12">\n          <CardsContainer className="mx-auto size-full h-72 w-[440px]">\n            <CardTransformed\n              className="items-start border p-12 rounded-xl overflow-hidden shadow justify-evenly border-none bg-blue-600/80  text-secondary backdrop-blur-md"\n              arrayLength={4}\n              index={1}\n            >\n              <div className="flex flex-col items-start justify-start space-y-4 ">\n                <div className="flex size-16 items-center justify-center  rounded-sm bg-secondary/50 text-2xl">\n                  🏆\n                </div>\n                <div>\n                  <h4 className="text-sm uppercase tracking-wide">Awwwards</h4>\n                  <h3 className="text-2xl font-bold">Site of the Day</h3>\n                </div>\n              </div>\n              <p className=" text-secondary/80">\n                Lorem ipsum dolor sit amet consectetur adipisicing elit.\n                Repellendus consequatur reprehenderit.\n              </p>\n            </CardTransformed>\n\n            <CardTransformed\n              className="items-start border p-12 rounded-xl overflow-hidden shadow justify-evenly border-none bg-orange-600/80 text-secondary backdrop-blur-md"\n              arrayLength={4}\n              index={2}\n            >\n              <div className="flex flex-col items-start justify-start space-y-4 ">\n                <div className="flex size-16 items-center justify-center  rounded-sm bg-secondary/50 text-2xl">\n                  🚀\n                </div>\n                <div>\n                  <h4 className="text-sm uppercase tracking-wide">\n                    Performance\n                  </h4>\n                  <h3 className="text-2xl font-bold">100% Performance Score</h3>\n                </div>\n              </div>\n              <p className=" text-secondary/80">\n                Lorem ipsum dolor sit amet consectetur adipisicing elit.\n                Repellendus consequatur reprehenderit.\n              </p>\n            </CardTransformed>\n            <CardTransformed\n              className="items-start border p-12 rounded-xl overflow-hidden shadow justify-evenly border-none bg-cyan-600/80 text-secondary backdrop-blur-md"\n              arrayLength={4}\n              index={3}\n            >\n              <div className="flex flex-col items-start justify-start space-y-4 ">\n                <div className="flex size-16 items-center justify-center  rounded-sm bg-secondary/50 text-2xl">\n                  🎯\n                </div>\n                <div>\n                  <h4 className="text-sm uppercase tracking-wide">\n                    CSS awaaards\n                  </h4>\n                  <h3 className="text-2xl font-bold">Honorable Mention</h3>\n                </div>\n              </div>\n              <p className=" text-secondary/80">\n                Lorem ipsum dolor sit amet consectetur adipisicing elit.\n                Repellendus consequatur reprehenderit.\n              </p>\n            </CardTransformed>\n            <CardTransformed\n              className="items-start border p-12 rounded-xl overflow-hidden shadow justify-evenly border-none bg-violet-600/80 text-secondary backdrop-blur-md"\n              arrayLength={4}\n              index={4}\n            >\n              <div className="flex flex-col items-start justify-start space-y-4 ">\n                <div className="flex size-16 items-center justify-center  rounded-sm bg-secondary/50 text-2xl">\n                  🎖\n                </div>\n                <div>\n                  <h4 className="text-sm uppercase tracking-wide">awaaards</h4>\n                  <h4 className="text-2xl font-bold">Most Creative Design</h4>\n                </div>\n              </div>\n              <p className=" text-secondary/80">\n                Lorem ipsum dolor sit amet consectetur adipisicing elit.\n                Repellendus consequatur reprehenderit.\n              </p>\n            </CardTransformed>\n          </CardsContainer>\n        </div>\n      </ContainerScroll>\n    </section>\n  );\n}',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/cards-stack-rotated-recognitions/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-cards-stack-rotated-recognitions-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.com/r/shadcn-default-cards-stack-rotated-recognitions-demo',
+  },
+  'shadcn-new-york-cards-stack-rotated-recognitions-demo': {
+    name: 'shadcn-new-york-cards-stack-rotated-recognitions-demo',
+    description:
+      'Demo showing different usecase of Cards Rotated Stack component with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/cards-stack-rotated'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/cards-stack-rotated-recognitions/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/animate-ui/demo/cards/cards-stack-rotated-recognitions.tsx',
+        content:
+          'import {\n  CardsContainer,\n  CardTransformed,\n  ContainerScroll,\n} from \'@/components/systaliko-ui/cards/cards-stack-rotated\';\n\nexport function CardsStackRotatedRecognitionsDemo() {\n  return (\n    <section className="px-8 py-12">\n      <div>\n        <h2 className="text-center text-4xl font-semibold">Recognitions</h2>\n        <p className="mx-auto mt-2 max-w-lg text-center text-sm">\n          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus\n          consequatur reprehenderit.\n        </p>\n      </div>\n      <ContainerScroll className="container h-[300vh] ">\n        <div className="sticky left-0 top-0 h-svh w-full py-12">\n          <CardsContainer className="mx-auto size-full h-72 w-[440px]">\n            <CardTransformed\n              className="items-start border p-12 rounded-xl overflow-hidden shadow justify-evenly border-none bg-blue-600/80  text-secondary backdrop-blur-md"\n              arrayLength={4}\n              index={1}\n            >\n              <div className="flex flex-col items-start justify-start space-y-4 ">\n                <div className="flex size-16 items-center justify-center  rounded-sm bg-secondary/50 text-2xl">\n                  🏆\n                </div>\n                <div>\n                  <h4 className="text-sm uppercase tracking-wide">Awwwards</h4>\n                  <h3 className="text-2xl font-bold">Site of the Day</h3>\n                </div>\n              </div>\n              <p className=" text-secondary/80">\n                Lorem ipsum dolor sit amet consectetur adipisicing elit.\n                Repellendus consequatur reprehenderit.\n              </p>\n            </CardTransformed>\n\n            <CardTransformed\n              className="items-start border p-12 rounded-xl overflow-hidden shadow justify-evenly border-none bg-orange-600/80 text-secondary backdrop-blur-md"\n              arrayLength={4}\n              index={2}\n            >\n              <div className="flex flex-col items-start justify-start space-y-4 ">\n                <div className="flex size-16 items-center justify-center  rounded-sm bg-secondary/50 text-2xl">\n                  🚀\n                </div>\n                <div>\n                  <h4 className="text-sm uppercase tracking-wide">\n                    Performance\n                  </h4>\n                  <h3 className="text-2xl font-bold">100% Performance Score</h3>\n                </div>\n              </div>\n              <p className=" text-secondary/80">\n                Lorem ipsum dolor sit amet consectetur adipisicing elit.\n                Repellendus consequatur reprehenderit.\n              </p>\n            </CardTransformed>\n            <CardTransformed\n              className="items-start border p-12 rounded-xl overflow-hidden shadow justify-evenly border-none bg-cyan-600/80 text-secondary backdrop-blur-md"\n              arrayLength={4}\n              index={3}\n            >\n              <div className="flex flex-col items-start justify-start space-y-4 ">\n                <div className="flex size-16 items-center justify-center  rounded-sm bg-secondary/50 text-2xl">\n                  🎯\n                </div>\n                <div>\n                  <h4 className="text-sm uppercase tracking-wide">\n                    CSS awaaards\n                  </h4>\n                  <h3 className="text-2xl font-bold">Honorable Mention</h3>\n                </div>\n              </div>\n              <p className=" text-secondary/80">\n                Lorem ipsum dolor sit amet consectetur adipisicing elit.\n                Repellendus consequatur reprehenderit.\n              </p>\n            </CardTransformed>\n            <CardTransformed\n              className="items-start border p-12 rounded-xl overflow-hidden shadow justify-evenly border-none bg-violet-600/80 text-secondary backdrop-blur-md"\n              arrayLength={4}\n              index={4}\n            >\n              <div className="flex flex-col items-start justify-start space-y-4 ">\n                <div className="flex size-16 items-center justify-center  rounded-sm bg-secondary/50 text-2xl">\n                  🎖\n                </div>\n                <div>\n                  <h4 className="text-sm uppercase tracking-wide">awaaards</h4>\n                  <h4 className="text-2xl font-bold">Most Creative Design</h4>\n                </div>\n              </div>\n              <p className=" text-secondary/80">\n                Lorem ipsum dolor sit amet consectetur adipisicing elit.\n                Repellendus consequatur reprehenderit.\n              </p>\n            </CardTransformed>\n          </CardsContainer>\n        </div>\n      </ContainerScroll>\n    </section>\n  );\n}',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/cards-stack-rotated-recognitions/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-cards-stack-rotated-recognitions-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.com/r/shadcn-new-york-cards-stack-rotated-recognitions-demo',
+  },
+  'default-cards-stack-sm-demo': {
+    name: 'default-cards-stack-sm-demo',
+    description:
+      'Demo showing different usecase of Cards Stack component with smaller cards with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/cards-stack'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/cards-stack-sm/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/animate-ui/demo/cards/cards-stack-sm.tsx',
+        content:
+          "import { CardSticky, ContainerScroll } from '@/components/systaliko-ui/cards/cards-stack';\n\nconst ACHIEVEMENTS = [\n  {\n    id: 'achivement-1',\n    title: '4',\n    description: 'site of the day',\n    bg: 'var(--primary)',\n  },\n  {\n    id: 'achivement-2',\n    title: '60+',\n    description: 'website created',\n    bg: 'var(--chart-2)',\n  },\n  {\n    id: 'achivement-3',\n    title: '5+',\n    description: 'years of experience',\n    bg: 'var(--chart-1)',\n  },\n  {\n    id: 'achivement-4',\n    title: '6+',\n    description: 'component created',\n    bg: 'var(--chart-4)',\n  },\n];\n\nexport function CardsStackSmDemo() {\n  return (\n    <ContainerScroll className=\"min-h-[400vh] place-items-center space-y-8 p-12 text-center \">\n      {ACHIEVEMENTS.map((achievement, index) => (\n        <CardSticky\n          key={achievement.id}\n          incrementY={20}\n          index={index + 2}\n          className=\"flex h-72 w-[420px] flex-col place-content-center justify-evenly rounded-2xl  p-8 shadow-md\"\n          style={{ rotate: index + 2, background: achievement.bg }}\n        >\n          <h1 className=\"text-left text-6xl font-semibold opacity-80\">\n            {achievement.title}\n          </h1>\n          <div className=\"place-items-end text-right\">\n            <h3 className=\"max-w-[10ch] text-wrap  text-4xl font-semibold capitalize tracking-tight\">\n              {achievement.description}\n            </h3>\n          </div>\n        </CardSticky>\n      ))}\n    </ContainerScroll>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/cards-stack-sm/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-cards-stack-sm-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.com/r/default-cards-stack-sm-demo',
+  },
+  'shadcn-default-cards-stack-sm-demo': {
+    name: 'shadcn-default-cards-stack-sm-demo',
+    description:
+      'Demo showing different usecase of Cards Stack component with smaller cards with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/cards-stack'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/cards-stack-sm/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/animate-ui/demo/cards/cards-stack-sm.tsx',
+        content:
+          "import { CardSticky, ContainerScroll } from '@/components/systaliko-ui/cards/cards-stack';\n\nconst ACHIEVEMENTS = [\n  {\n    id: 'achivement-1',\n    title: '4',\n    description: 'site of the day',\n    bg: 'var(--primary)',\n  },\n  {\n    id: 'achivement-2',\n    title: '60+',\n    description: 'website created',\n    bg: 'var(--chart-2)',\n  },\n  {\n    id: 'achivement-3',\n    title: '5+',\n    description: 'years of experience',\n    bg: 'var(--chart-1)',\n  },\n  {\n    id: 'achivement-4',\n    title: '6+',\n    description: 'component created',\n    bg: 'var(--chart-4)',\n  },\n];\n\nexport function CardsStackSmDemo() {\n  return (\n    <ContainerScroll className=\"min-h-[400vh] place-items-center space-y-8 p-12 text-center \">\n      {ACHIEVEMENTS.map((achievement, index) => (\n        <CardSticky\n          key={achievement.id}\n          incrementY={20}\n          index={index + 2}\n          className=\"flex h-72 w-[420px] flex-col place-content-center justify-evenly rounded-2xl  p-8 shadow-md\"\n          style={{ rotate: index + 2, background: achievement.bg }}\n        >\n          <h1 className=\"text-left text-6xl font-semibold opacity-80\">\n            {achievement.title}\n          </h1>\n          <div className=\"place-items-end text-right\">\n            <h3 className=\"max-w-[10ch] text-wrap  text-4xl font-semibold capitalize tracking-tight\">\n              {achievement.description}\n            </h3>\n          </div>\n        </CardSticky>\n      ))}\n    </ContainerScroll>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/cards-stack-sm/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-cards-stack-sm-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.com/r/shadcn-default-cards-stack-sm-demo',
+  },
+  'shadcn-new-york-cards-stack-sm-demo': {
+    name: 'shadcn-new-york-cards-stack-sm-demo',
+    description:
+      'Demo showing different usecase of Cards Stack component with smaller cards with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/cards-stack'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/cards-stack-sm/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/animate-ui/demo/cards/cards-stack-sm.tsx',
+        content:
+          "import { CardSticky, ContainerScroll } from '@/components/systaliko-ui/cards/cards-stack';\n\nconst ACHIEVEMENTS = [\n  {\n    id: 'achivement-1',\n    title: '4',\n    description: 'site of the day',\n    bg: 'var(--primary)',\n  },\n  {\n    id: 'achivement-2',\n    title: '60+',\n    description: 'website created',\n    bg: 'var(--chart-2)',\n  },\n  {\n    id: 'achivement-3',\n    title: '5+',\n    description: 'years of experience',\n    bg: 'var(--chart-1)',\n  },\n  {\n    id: 'achivement-4',\n    title: '6+',\n    description: 'component created',\n    bg: 'var(--chart-4)',\n  },\n];\n\nexport function CardsStackSmDemo() {\n  return (\n    <ContainerScroll className=\"min-h-[400vh] place-items-center space-y-8 p-12 text-center \">\n      {ACHIEVEMENTS.map((achievement, index) => (\n        <CardSticky\n          key={achievement.id}\n          incrementY={20}\n          index={index + 2}\n          className=\"flex h-72 w-[420px] flex-col place-content-center justify-evenly rounded-2xl  p-8 shadow-md\"\n          style={{ rotate: index + 2, background: achievement.bg }}\n        >\n          <h1 className=\"text-left text-6xl font-semibold opacity-80\">\n            {achievement.title}\n          </h1>\n          <div className=\"place-items-end text-right\">\n            <h3 className=\"max-w-[10ch] text-wrap  text-4xl font-semibold capitalize tracking-tight\">\n              {achievement.description}\n            </h3>\n          </div>\n        </CardSticky>\n      ))}\n    </ContainerScroll>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/cards-stack-sm/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-cards-stack-sm-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.com/r/shadcn-new-york-cards-stack-sm-demo',
   },
   'default-container-clipped-demo': {
     name: 'default-container-clipped-demo',
@@ -2741,7 +3180,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/demo/containers/container-infinite-scroll.tsx',
         content:
-          "'use client';\n\nimport * as React from 'react';\n\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\nimport {\n  CellInfiniteScroll,\n  ContainerInfiniteScroll,\n} from '@/components/systaliko-ui/containers/container-infinite-scroll';\nimport { ScrollArea } from '@/components/ui/scroll-area';\ninterface Post {\n  id: number;\n  userId: number;\n  title: string;\n  body: string;\n}\n\nconst BASE_URL = 'https://jsonplaceholder.typicode.com/posts';\nconst LIMIT = 10;\n\nexport function ContainerInfiniteScrollDemo() {\n  const [posts, setPosts] = React.useState<Post[]>([]);\n  const [page, setPage] = React.useState<number>(0);\n  const [totalCount, setTotalCount] = React.useState<number | null>();\n  const [isLoading, setIsLoading] = React.useState<boolean>(false);\n\n  async function fetchData() {\n    setIsLoading(true);\n    const start = page * LIMIT;\n    try {\n      const response = await fetch(\n        `${BASE_URL}?_start=${start}&_limit=${LIMIT}`,\n      );\n      const totalItems = response.headers.get('x-total-count');\n      const data = await response.json();\n\n      setTotalCount(Number(totalItems));\n      setPosts((prevPosts) => [...prevPosts, ...data]);\n      setPage((prevPage) => prevPage + 1);\n    } catch (error) {\n      console.error('Error fetching data:', error);\n    } finally {\n      setIsLoading(false);\n    }\n  }\n\n  React.useEffect(() => {\n    fetchData();\n  }, []);\n\n  return (\n    <ScrollArea className=\"w-full h-80 p-6\">\n      <ContainerInfiniteScroll\n        items={posts}\n        isPending={isLoading}\n        itemsCount={totalCount}\n        loadMore={fetchData}\n        className=\"grid gap-4 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]\"\n      >\n        {posts.map((post, index) => (\n          <CellInfiniteScroll isPending={isLoading} key={`${post.id}-${index}`}>\n            <Card className=\" bg-fd-card\">\n              <CardHeader>\n                <CardTitle className=\"text-primary\">#{post.id}</CardTitle>\n                <CardDescription className=\"text-xs\">\n                  {post.title}\n                </CardDescription>\n              </CardHeader>\n\n              <CardContent className=\"text-sm text-foreground\">\n                <p>{post.body}</p>\n              </CardContent>\n            </Card>\n          </CellInfiniteScroll>\n        ))}\n      </ContainerInfiniteScroll>\n    </ScrollArea>\n  );\n}",
+          "'use client';\n\nimport * as React from 'react';\n\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\nimport {\n  CellInfiniteScroll,\n  ContainerInfiniteScroll,\n} from '@/components/systaliko-ui/containers/container-infinite-scroll';\ninterface Post {\n  id: number;\n  userId: number;\n  title: string;\n  body: string;\n}\n\nconst BASE_URL = 'https://jsonplaceholder.typicode.com/posts';\nconst LIMIT = 10;\n\nexport function ContainerInfiniteScrollDemo() {\n  const [posts, setPosts] = React.useState<Post[]>([]);\n  const [page, setPage] = React.useState<number>(0);\n  const [totalCount, setTotalCount] = React.useState<number | null>();\n  const [isLoading, setIsLoading] = React.useState<boolean>(false);\n\n  async function fetchData() {\n    setIsLoading(true);\n    const start = page * LIMIT;\n    try {\n      const response = await fetch(\n        `${BASE_URL}?_start=${start}&_limit=${LIMIT}`,\n      );\n      const totalItems = response.headers.get('x-total-count');\n      const data = await response.json();\n\n      setTotalCount(Number(totalItems));\n      setPosts((prevPosts) => [...prevPosts, ...data]);\n      setPage((prevPage) => prevPage + 1);\n    } catch (error) {\n      console.error('Error fetching data:', error);\n    } finally {\n      setIsLoading(false);\n    }\n  }\n\n  React.useEffect(() => {\n    fetchData();\n  }, []);\n\n  return (\n    <ContainerInfiniteScroll\n      items={posts}\n      isPending={isLoading}\n      itemsCount={totalCount}\n      loadMore={fetchData}\n      className=\"grid gap-4 p-6 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]\"\n    >\n      {posts.map((post, index) => (\n        <CellInfiniteScroll isPending={isLoading} key={`${post.id}-${index}`}>\n          <Card className=\" bg-fd-card\">\n            <CardHeader>\n              <CardTitle className=\"text-primary\">#{post.id}</CardTitle>\n              <CardDescription className=\"text-xs\">\n                {post.title}\n              </CardDescription>\n            </CardHeader>\n\n            <CardContent className=\"text-sm text-foreground\">\n              <p>{post.body}</p>\n            </CardContent>\n          </Card>\n        </CellInfiniteScroll>\n      ))}\n    </ContainerInfiniteScroll>\n  );\n}",
       },
     ],
     component: (function () {
@@ -2779,7 +3218,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/demo/containers/container-infinite-scroll.tsx',
         content:
-          "'use client';\n\nimport * as React from 'react';\n\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\nimport {\n  CellInfiniteScroll,\n  ContainerInfiniteScroll,\n} from '@/components/systaliko-ui/containers/container-infinite-scroll';\nimport { ScrollArea } from '@/components/ui/scroll-area';\ninterface Post {\n  id: number;\n  userId: number;\n  title: string;\n  body: string;\n}\n\nconst BASE_URL = 'https://jsonplaceholder.typicode.com/posts';\nconst LIMIT = 10;\n\nexport function ContainerInfiniteScrollDemo() {\n  const [posts, setPosts] = React.useState<Post[]>([]);\n  const [page, setPage] = React.useState<number>(0);\n  const [totalCount, setTotalCount] = React.useState<number | null>();\n  const [isLoading, setIsLoading] = React.useState<boolean>(false);\n\n  async function fetchData() {\n    setIsLoading(true);\n    const start = page * LIMIT;\n    try {\n      const response = await fetch(\n        `${BASE_URL}?_start=${start}&_limit=${LIMIT}`,\n      );\n      const totalItems = response.headers.get('x-total-count');\n      const data = await response.json();\n\n      setTotalCount(Number(totalItems));\n      setPosts((prevPosts) => [...prevPosts, ...data]);\n      setPage((prevPage) => prevPage + 1);\n    } catch (error) {\n      console.error('Error fetching data:', error);\n    } finally {\n      setIsLoading(false);\n    }\n  }\n\n  React.useEffect(() => {\n    fetchData();\n  }, []);\n\n  return (\n    <ScrollArea className=\"w-full h-80 p-6\">\n      <ContainerInfiniteScroll\n        items={posts}\n        isPending={isLoading}\n        itemsCount={totalCount}\n        loadMore={fetchData}\n        className=\"grid gap-4 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]\"\n      >\n        {posts.map((post, index) => (\n          <CellInfiniteScroll isPending={isLoading} key={`${post.id}-${index}`}>\n            <Card className=\" bg-fd-card\">\n              <CardHeader>\n                <CardTitle className=\"text-primary\">#{post.id}</CardTitle>\n                <CardDescription className=\"text-xs\">\n                  {post.title}\n                </CardDescription>\n              </CardHeader>\n\n              <CardContent className=\"text-sm text-foreground\">\n                <p>{post.body}</p>\n              </CardContent>\n            </Card>\n          </CellInfiniteScroll>\n        ))}\n      </ContainerInfiniteScroll>\n    </ScrollArea>\n  );\n}",
+          "'use client';\n\nimport * as React from 'react';\n\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\nimport {\n  CellInfiniteScroll,\n  ContainerInfiniteScroll,\n} from '@/components/systaliko-ui/containers/container-infinite-scroll';\ninterface Post {\n  id: number;\n  userId: number;\n  title: string;\n  body: string;\n}\n\nconst BASE_URL = 'https://jsonplaceholder.typicode.com/posts';\nconst LIMIT = 10;\n\nexport function ContainerInfiniteScrollDemo() {\n  const [posts, setPosts] = React.useState<Post[]>([]);\n  const [page, setPage] = React.useState<number>(0);\n  const [totalCount, setTotalCount] = React.useState<number | null>();\n  const [isLoading, setIsLoading] = React.useState<boolean>(false);\n\n  async function fetchData() {\n    setIsLoading(true);\n    const start = page * LIMIT;\n    try {\n      const response = await fetch(\n        `${BASE_URL}?_start=${start}&_limit=${LIMIT}`,\n      );\n      const totalItems = response.headers.get('x-total-count');\n      const data = await response.json();\n\n      setTotalCount(Number(totalItems));\n      setPosts((prevPosts) => [...prevPosts, ...data]);\n      setPage((prevPage) => prevPage + 1);\n    } catch (error) {\n      console.error('Error fetching data:', error);\n    } finally {\n      setIsLoading(false);\n    }\n  }\n\n  React.useEffect(() => {\n    fetchData();\n  }, []);\n\n  return (\n    <ContainerInfiniteScroll\n      items={posts}\n      isPending={isLoading}\n      itemsCount={totalCount}\n      loadMore={fetchData}\n      className=\"grid gap-4 p-6 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]\"\n    >\n      {posts.map((post, index) => (\n        <CellInfiniteScroll isPending={isLoading} key={`${post.id}-${index}`}>\n          <Card className=\" bg-fd-card\">\n            <CardHeader>\n              <CardTitle className=\"text-primary\">#{post.id}</CardTitle>\n              <CardDescription className=\"text-xs\">\n                {post.title}\n              </CardDescription>\n            </CardHeader>\n\n            <CardContent className=\"text-sm text-foreground\">\n              <p>{post.body}</p>\n            </CardContent>\n          </Card>\n        </CellInfiniteScroll>\n      ))}\n    </ContainerInfiniteScroll>\n  );\n}",
       },
     ],
     component: (function () {
@@ -2817,7 +3256,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/demo/containers/container-infinite-scroll.tsx',
         content:
-          "'use client';\n\nimport * as React from 'react';\n\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\nimport {\n  CellInfiniteScroll,\n  ContainerInfiniteScroll,\n} from '@/components/systaliko-ui/containers/container-infinite-scroll';\nimport { ScrollArea } from '@/components/ui/scroll-area';\ninterface Post {\n  id: number;\n  userId: number;\n  title: string;\n  body: string;\n}\n\nconst BASE_URL = 'https://jsonplaceholder.typicode.com/posts';\nconst LIMIT = 10;\n\nexport function ContainerInfiniteScrollDemo() {\n  const [posts, setPosts] = React.useState<Post[]>([]);\n  const [page, setPage] = React.useState<number>(0);\n  const [totalCount, setTotalCount] = React.useState<number | null>();\n  const [isLoading, setIsLoading] = React.useState<boolean>(false);\n\n  async function fetchData() {\n    setIsLoading(true);\n    const start = page * LIMIT;\n    try {\n      const response = await fetch(\n        `${BASE_URL}?_start=${start}&_limit=${LIMIT}`,\n      );\n      const totalItems = response.headers.get('x-total-count');\n      const data = await response.json();\n\n      setTotalCount(Number(totalItems));\n      setPosts((prevPosts) => [...prevPosts, ...data]);\n      setPage((prevPage) => prevPage + 1);\n    } catch (error) {\n      console.error('Error fetching data:', error);\n    } finally {\n      setIsLoading(false);\n    }\n  }\n\n  React.useEffect(() => {\n    fetchData();\n  }, []);\n\n  return (\n    <ScrollArea className=\"w-full h-80 p-6\">\n      <ContainerInfiniteScroll\n        items={posts}\n        isPending={isLoading}\n        itemsCount={totalCount}\n        loadMore={fetchData}\n        className=\"grid gap-4 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]\"\n      >\n        {posts.map((post, index) => (\n          <CellInfiniteScroll isPending={isLoading} key={`${post.id}-${index}`}>\n            <Card className=\" bg-fd-card\">\n              <CardHeader>\n                <CardTitle className=\"text-primary\">#{post.id}</CardTitle>\n                <CardDescription className=\"text-xs\">\n                  {post.title}\n                </CardDescription>\n              </CardHeader>\n\n              <CardContent className=\"text-sm text-foreground\">\n                <p>{post.body}</p>\n              </CardContent>\n            </Card>\n          </CellInfiniteScroll>\n        ))}\n      </ContainerInfiniteScroll>\n    </ScrollArea>\n  );\n}",
+          "'use client';\n\nimport * as React from 'react';\n\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\nimport {\n  CellInfiniteScroll,\n  ContainerInfiniteScroll,\n} from '@/components/systaliko-ui/containers/container-infinite-scroll';\ninterface Post {\n  id: number;\n  userId: number;\n  title: string;\n  body: string;\n}\n\nconst BASE_URL = 'https://jsonplaceholder.typicode.com/posts';\nconst LIMIT = 10;\n\nexport function ContainerInfiniteScrollDemo() {\n  const [posts, setPosts] = React.useState<Post[]>([]);\n  const [page, setPage] = React.useState<number>(0);\n  const [totalCount, setTotalCount] = React.useState<number | null>();\n  const [isLoading, setIsLoading] = React.useState<boolean>(false);\n\n  async function fetchData() {\n    setIsLoading(true);\n    const start = page * LIMIT;\n    try {\n      const response = await fetch(\n        `${BASE_URL}?_start=${start}&_limit=${LIMIT}`,\n      );\n      const totalItems = response.headers.get('x-total-count');\n      const data = await response.json();\n\n      setTotalCount(Number(totalItems));\n      setPosts((prevPosts) => [...prevPosts, ...data]);\n      setPage((prevPage) => prevPage + 1);\n    } catch (error) {\n      console.error('Error fetching data:', error);\n    } finally {\n      setIsLoading(false);\n    }\n  }\n\n  React.useEffect(() => {\n    fetchData();\n  }, []);\n\n  return (\n    <ContainerInfiniteScroll\n      items={posts}\n      isPending={isLoading}\n      itemsCount={totalCount}\n      loadMore={fetchData}\n      className=\"grid gap-4 p-6 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]\"\n    >\n      {posts.map((post, index) => (\n        <CellInfiniteScroll isPending={isLoading} key={`${post.id}-${index}`}>\n          <Card className=\" bg-fd-card\">\n            <CardHeader>\n              <CardTitle className=\"text-primary\">#{post.id}</CardTitle>\n              <CardDescription className=\"text-xs\">\n                {post.title}\n              </CardDescription>\n            </CardHeader>\n\n            <CardContent className=\"text-sm text-foreground\">\n              <p>{post.body}</p>\n            </CardContent>\n          </Card>\n        </CellInfiniteScroll>\n      ))}\n    </ContainerInfiniteScroll>\n  );\n}",
       },
     ],
     component: (function () {
@@ -2838,6 +3277,119 @@ export const index: Record<string, any> = {
     })(),
     command:
       'https://systaliko-ui.com/r/shadcn-new-york-container-infinite-scroll-demo',
+  },
+  'default-container-inset-scroll-demo': {
+    name: 'default-container-inset-scroll-demo',
+    description:
+      'Demo showing how to use ContainerInsetScroll component with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/container-inset-scroll'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/container-inset-scroll/default/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/containers/container-inset-scroll.tsx',
+        content:
+          "import {\n  ContainerScrollAnimation,\n  ContainerScrollInset,\n  ContainerScrollScale,\n  ContainerScrollTranslate,\n} from '@/components/systaliko-ui/containers/container-inset-scroll';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1717008303072-88c8ad26c3ff?q=80&w=2663&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1716855048433-50d4db79ba14?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608501078713-8e445a709b39?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1560360482-d5588f13d530?q=80&w=2687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1687647849698-e54685db9ae3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1658195686058-3b790484ae7e?q=80&w=2452&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1629692905066-d202dad72ebf?q=80&w=2678&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const ContainerInsetScrollDemo = () => {\n  return (\n    <>\n      <ContainerScrollAnimation className=\"overflow-hidden\">\n        <ContainerScrollTranslate className=\"h-dvh relative\">\n          <ContainerScrollInset className=\"h-full relative\">\n            <ContainerScrollScale className=\"flex bg-secondary gap-2 overflow-hidden px-6\">\n              <ContainerScrollTranslate\n                yRange={['0%', '-10%']}\n                className=\"flex flex-col gap-2\"\n              >\n                {IMAGES_1.map((imageUrl, index) => (\n                  // eslint-disable-next-line @next/next/no-img-element\n                  <img\n                    key={index}\n                    className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                    src={imageUrl}\n                    alt=\"gallery item\"\n                  />\n                ))}\n              </ContainerScrollTranslate>\n\n              <ContainerScrollTranslate\n                yRange={['0%', '20%']}\n                className=\"flex mt-[-20%] relative flex-col gap-2\"\n              >\n                {IMAGES_2.map((imageUrl, index) => (\n                  // eslint-disable-next-line @next/next/no-img-element\n                  <img\n                    key={index}\n                    className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                    src={imageUrl}\n                    alt=\"gallery item\"\n                  />\n                ))}\n              </ContainerScrollTranslate>\n\n              <ContainerScrollTranslate\n                yRange={['0%', '-10%']}\n                className=\"hidden md:flex flex-col gap-2\"\n              >\n                {IMAGES_3.map((imageUrl, index) => (\n                  // eslint-disable-next-line @next/next/no-img-element\n                  <img\n                    key={index}\n                    className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                    src={imageUrl}\n                    alt=\"gallery item\"\n                  />\n                ))}\n              </ContainerScrollTranslate>\n            </ContainerScrollScale>\n          </ContainerScrollInset>\n        </ContainerScrollTranslate>\n      </ContainerScrollAnimation>\n    </>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/container-inset-scroll/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-container-inset-scroll-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.com/r/default-container-inset-scroll-demo',
+  },
+  'shadcn-default-container-inset-scroll-demo': {
+    name: 'shadcn-default-container-inset-scroll-demo',
+    description:
+      'Demo showing how to use ContainerInsetScroll component with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/container-inset-scroll'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/container-inset-scroll/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/containers/container-inset-scroll.tsx',
+        content:
+          "import {\n  ContainerScrollAnimation,\n  ContainerScrollInset,\n  ContainerScrollScale,\n  ContainerScrollTranslate,\n} from '@/components/systaliko-ui/containers/container-inset-scroll';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1717008303072-88c8ad26c3ff?q=80&w=2663&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1716855048433-50d4db79ba14?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608501078713-8e445a709b39?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1560360482-d5588f13d530?q=80&w=2687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1687647849698-e54685db9ae3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1658195686058-3b790484ae7e?q=80&w=2452&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1629692905066-d202dad72ebf?q=80&w=2678&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const ContainerInsetScrollDemo = () => {\n  return (\n    <>\n      <ContainerScrollAnimation className=\"overflow-hidden\">\n        <ContainerScrollTranslate className=\"h-dvh relative\">\n          <ContainerScrollInset className=\"h-full relative\">\n            <ContainerScrollScale className=\"flex bg-secondary gap-2 overflow-hidden px-6\">\n              <ContainerScrollTranslate\n                yRange={['0%', '-10%']}\n                className=\"flex flex-col gap-2\"\n              >\n                {IMAGES_1.map((imageUrl, index) => (\n                  // eslint-disable-next-line @next/next/no-img-element\n                  <img\n                    key={index}\n                    className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                    src={imageUrl}\n                    alt=\"gallery item\"\n                  />\n                ))}\n              </ContainerScrollTranslate>\n\n              <ContainerScrollTranslate\n                yRange={['0%', '20%']}\n                className=\"flex mt-[-20%] relative flex-col gap-2\"\n              >\n                {IMAGES_2.map((imageUrl, index) => (\n                  // eslint-disable-next-line @next/next/no-img-element\n                  <img\n                    key={index}\n                    className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                    src={imageUrl}\n                    alt=\"gallery item\"\n                  />\n                ))}\n              </ContainerScrollTranslate>\n\n              <ContainerScrollTranslate\n                yRange={['0%', '-10%']}\n                className=\"hidden md:flex flex-col gap-2\"\n              >\n                {IMAGES_3.map((imageUrl, index) => (\n                  // eslint-disable-next-line @next/next/no-img-element\n                  <img\n                    key={index}\n                    className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                    src={imageUrl}\n                    alt=\"gallery item\"\n                  />\n                ))}\n              </ContainerScrollTranslate>\n            </ContainerScrollScale>\n          </ContainerScrollInset>\n        </ContainerScrollTranslate>\n      </ContainerScrollAnimation>\n    </>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/container-inset-scroll/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-container-inset-scroll-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.com/r/shadcn-default-container-inset-scroll-demo',
+  },
+  'shadcn-new-york-container-inset-scroll-demo': {
+    name: 'shadcn-new-york-container-inset-scroll-demo',
+    description:
+      'Demo showing how to use ContainerInsetScroll component with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/container-inset-scroll'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/container-inset-scroll/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/containers/container-inset-scroll.tsx',
+        content:
+          "import {\n  ContainerScrollAnimation,\n  ContainerScrollInset,\n  ContainerScrollScale,\n  ContainerScrollTranslate,\n} from '@/components/systaliko-ui/containers/container-inset-scroll';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1717008303072-88c8ad26c3ff?q=80&w=2663&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1716855048433-50d4db79ba14?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608501078713-8e445a709b39?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1560360482-d5588f13d530?q=80&w=2687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1687647849698-e54685db9ae3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1658195686058-3b790484ae7e?q=80&w=2452&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1629692905066-d202dad72ebf?q=80&w=2678&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const ContainerInsetScrollDemo = () => {\n  return (\n    <>\n      <ContainerScrollAnimation className=\"overflow-hidden\">\n        <ContainerScrollTranslate className=\"h-dvh relative\">\n          <ContainerScrollInset className=\"h-full relative\">\n            <ContainerScrollScale className=\"flex bg-secondary gap-2 overflow-hidden px-6\">\n              <ContainerScrollTranslate\n                yRange={['0%', '-10%']}\n                className=\"flex flex-col gap-2\"\n              >\n                {IMAGES_1.map((imageUrl, index) => (\n                  // eslint-disable-next-line @next/next/no-img-element\n                  <img\n                    key={index}\n                    className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                    src={imageUrl}\n                    alt=\"gallery item\"\n                  />\n                ))}\n              </ContainerScrollTranslate>\n\n              <ContainerScrollTranslate\n                yRange={['0%', '20%']}\n                className=\"flex mt-[-20%] relative flex-col gap-2\"\n              >\n                {IMAGES_2.map((imageUrl, index) => (\n                  // eslint-disable-next-line @next/next/no-img-element\n                  <img\n                    key={index}\n                    className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                    src={imageUrl}\n                    alt=\"gallery item\"\n                  />\n                ))}\n              </ContainerScrollTranslate>\n\n              <ContainerScrollTranslate\n                yRange={['0%', '-10%']}\n                className=\"hidden md:flex flex-col gap-2\"\n              >\n                {IMAGES_3.map((imageUrl, index) => (\n                  // eslint-disable-next-line @next/next/no-img-element\n                  <img\n                    key={index}\n                    className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                    src={imageUrl}\n                    alt=\"gallery item\"\n                  />\n                ))}\n              </ContainerScrollTranslate>\n            </ContainerScrollScale>\n          </ContainerScrollInset>\n        </ContainerScrollTranslate>\n      </ContainerScrollAnimation>\n    </>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/container-inset-scroll/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-container-inset-scroll-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.com/r/shadcn-new-york-container-inset-scroll-demo',
   },
   'default-container-stagger-demo': {
     name: 'default-container-stagger-demo',

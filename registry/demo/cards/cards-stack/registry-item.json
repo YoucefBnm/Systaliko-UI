@@ -1,14 +1,14 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cards-stack-demo",
-  "type": "registry:ui",
+  "type": "registry:block",
   "title": "Card Testimonial Demo",
   "description": "Demo showing Cards Stack component.",
   "registryDependencies": ["http://localhost:3000/r/cards-stack"],
   "files": [
     {
       "path": "registry/demo/cards/cards-stack/index.tsx",
-      "type": "registry:ui",
+      "type": "registry:block",
       "target": "components/systaliko-ui/demo/cards/cards-stack.tsx"
     }
   ]

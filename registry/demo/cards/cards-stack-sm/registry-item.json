@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cards-stack-sm-demo",
+  "type": "registry:block",
+  "title": "Stack small cards Demo",
+  "description": "Demo showing different usecase of Cards Stack component with smaller cards.",
+  "registryDependencies": ["http://localhost:3000/r/cards-stack"],
+  "files": [
+    {
+      "path": "registry/demo/cards/cards-stack-sm/index.tsx",
+      "type": "registry:block",
+      "target": "components/animate-ui/demo/cards/cards-stack-sm.tsx"
+    }
+  ]
+}

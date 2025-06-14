@@ -13,7 +13,6 @@ import {
   CellInfiniteScroll,
   ContainerInfiniteScroll,
 } from '@/registry/containers/container-infinite-scroll';
-import { ScrollArea } from '@/components/ui/scroll-area';
 interface Post {
   id: number;
   userId: number;
@@ -55,31 +54,29 @@ export function ContainerInfiniteScrollDemo() {
   }, []);
 
   return (
-    <ScrollArea className="w-full h-80 p-6">
-      <ContainerInfiniteScroll
-        items={posts}
-        isPending={isLoading}
-        itemsCount={totalCount}
-        loadMore={fetchData}
-        className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]"
-      >
-        {posts.map((post, index) => (
-          <CellInfiniteScroll isPending={isLoading} key={`${post.id}-${index}`}>
-            <Card className=" bg-fd-card">
-              <CardHeader>
-                <CardTitle className="text-primary">#{post.id}</CardTitle>
-                <CardDescription className="text-xs">
-                  {post.title}
-                </CardDescription>
-              </CardHeader>
+    <ContainerInfiniteScroll
+      items={posts}
+      isPending={isLoading}
+      itemsCount={totalCount}
+      loadMore={fetchData}
+      className="grid gap-4 p-6 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]"
+    >
+      {posts.map((post, index) => (
+        <CellInfiniteScroll isPending={isLoading} key={`${post.id}-${index}`}>
+          <Card className=" bg-fd-card">
+            <CardHeader>
+              <CardTitle className="text-primary">#{post.id}</CardTitle>
+              <CardDescription className="text-xs">
+                {post.title}
+              </CardDescription>
+            </CardHeader>
 
-              <CardContent className="text-sm text-foreground">
-                <p>{post.body}</p>
-              </CardContent>
-            </Card>
-          </CellInfiniteScroll>
-        ))}
-      </ContainerInfiniteScroll>
-    </ScrollArea>
+            <CardContent className="text-sm text-foreground">
+              <p>{post.body}</p>
+            </CardContent>
+          </Card>
+        </CellInfiniteScroll>
+      ))}
+    </ContainerInfiniteScroll>
   );
 }

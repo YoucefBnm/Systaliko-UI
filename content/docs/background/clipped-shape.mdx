@@ -24,22 +24,18 @@ description: Clipped shape background.
 
 <TypeTable
   type={{
-    borderColor: {
-      description: 'if the "withBorder" prop is true, set color of the border',
-      type: 'string',
-      required: false,
-    },
-    withBorder: {
-      description: 'adds border to the clipped shape',
-      type: 'boolean',
-      required: false,
-      default: 'false',
-    },
     clipHeight: {
       description: 'height of the clipped area of the shape',
       type: 'number',
       required: false,
       default: '50',
+    },
+    shape: {
+      description:
+        'defines the shape, there is four types of polygons clipped on all edges, and triangle.',
+      type: 'polygon | polygon2 | polygon3 | polygon4 | triangle',
+      required: false,
+      default: 'polygon2',
     },
   }}
 />

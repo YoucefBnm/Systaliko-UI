@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "shadcn-new-york-cards-stack-demo",
-  "type": "registry:ui",
+  "type": "registry:block",
   "title": "Card Testimonial Demo",
   "description": "Demo showing Cards Stack component with shadcn-new-york style.",
   "registryDependencies": [
@@ -11,7 +11,7 @@
     {
       "path": "__registry__/demo/cards/cards-stack/shadcn-new-york/index.tsx",
       "content": "import { CardSticky, ContainerScroll } from '@/components/systaliko-ui/cards/cards-stack';\n\nconst PROCESS_PHASES = [\n  {\n    id: 'process-1',\n    title: 'Research and Analysis',\n    description:\n      'With your vision in mind, we enter the Research and Analysis phase. Here, we examine your competitors, industry trends, and user preferences. This informed approach ensures your website stands out and provides an excellent user experience.',\n  },\n  {\n    id: 'process-2',\n    title: 'Wireframing and Prototyping',\n    description:\n      \"We move on to Wireframing and Prototyping, where we create skeletal representations of your website's pages. These visual indigoprints allow us to test and refine the user experience before diving into design.\",\n  },\n  {\n    id: 'process-3',\n    title: 'Design Creation',\n    description:\n      \"Now, it's time for the Design Creation phase. Our talented designers bring your vision to life. We focus on aesthetics, ensuring your website not only looks stunning but also aligns perfectly with your brand identity.\",\n  },\n  {\n    id: 'process-4',\n    title: 'Development and Testing',\n    description:\n      'In the Development and Testing phase, our skilled developers turn designs into a fully functional website. Rigorous testing ensures everything works seamlessly, providing an exceptional user experience.',\n  },\n  {\n    id: 'process-5',\n    title: 'Launch and Support',\n    description:\n      \"Our commitment continues beyond launch. We offer post-launch support to address questions, provide assistance, and ensure your website remains updated and optimized. The Website Design Process isn't just about creating a website; it's about crafting a digital experience that resonates, engages, and converts.\",\n  },\n];\n\nexport function CardsStackDemo() {\n  return (\n    <ContainerScroll className=\"min-h-[400vh] space-y-8 py-12 place-content-center place-items-center\">\n      {PROCESS_PHASES.map((phase, index) => (\n        <CardSticky\n          key={phase.id}\n          index={index + 2}\n          className=\"rounded-2xl border p-8 shadow-md backdrop-blur-md max-w-md\"\n        >\n          <div className=\"flex items-center justify-between gap-4\">\n            <h2 className=\"my-6 text-2xl font-bold tracking-tighter\">\n              {phase.title}\n            </h2>\n            <h3 className=\"text-2xl font-bold text-primary\">\n              {String(index + 1).padStart(2, '0')}\n            </h3>\n          </div>\n\n          <p className=\"text-foreground\">{phase.description}</p>\n        </CardSticky>\n      ))}\n    </ContainerScroll>\n  );\n}\n",
-      "type": "registry:ui",
+      "type": "registry:block",
       "target": "components/systaliko-ui/demo/cards/cards-stack.tsx"
     }
   ]

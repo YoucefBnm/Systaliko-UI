@@ -2,7 +2,12 @@
 import { cn } from '@/lib/utils';
 import * as React from 'react';
 
-export type ClippedShapeType = 'polygon' | 'polygon2' | 'polygon3' | 'polygon4';
+export type ClippedShapeType =
+  | 'polygon'
+  | 'polygon2'
+  | 'polygon3'
+  | 'polygon4'
+  | 'triangle';
 
 export const clipPathVariants = (clipPathHeight: number) => ({
   polygon: `polygon(${clipPathHeight || 50}px 0, 100% 0, 100% 100%, 0 100%, 0 ${clipPathHeight || 50}px)`,

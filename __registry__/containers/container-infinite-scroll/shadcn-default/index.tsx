@@ -103,10 +103,10 @@ export function ContainerInfiniteScroll({
   return (
     <div className={className}>
       {children}
-      {hasMore && (typeof Loader === 'function' ? <Loader /> : Loader)}
       {items.length > 0 && itemsCount && items.length < itemsCount && (
         <div ref={observerRef} />
       )}
+      {hasMore && (typeof Loader === 'function' ? <Loader /> : Loader)}
     </div>
   );
 }

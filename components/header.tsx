@@ -13,9 +13,9 @@ import { ModeToggle } from './mode-toggle';
 
 export function Header() {
   return (
-    <header className="fixed w-full flex items-center justify-between z-50 h-14 top-0 left-0 px-8">
+    <header className="fixed w-full flex items-center justify-between z-50 h-14 top-0 left-0 px-6 md:px-12">
       <Link href="/">
-        <Logo className=" w-[124px]" />
+        <Logo className="w-[148px]" />
       </Link>
 
       <NavigationMenu className="[&>li]:list-none">
