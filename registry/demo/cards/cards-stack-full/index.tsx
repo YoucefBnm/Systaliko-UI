@@ -46,7 +46,7 @@ export function CardsStackFullDemo() {
           <CardSticky
             key={project.id}
             index={index}
-            className="w-full overflow-hidden rounded-sm  bg-card-foreground border text-muted"
+            className="w-full overflow-hidden rounded-sm  bg-chart-3 text-secondary border"
             incrementY={60}
             incrementZ={5}
           >

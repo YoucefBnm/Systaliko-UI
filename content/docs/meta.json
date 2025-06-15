@@ -23,7 +23,7 @@
     "heros/hero-rotated-gallery",
 
     "---Containers / Layouts---",
-    "containers/container-inset-scroll",
+    "containers/containers-scroll-animations",
     "containers/container-infinite-scroll",
     "containers/container-stagger",
     "containers/gallery-rotated-scroll",

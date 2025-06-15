@@ -7,7 +7,6 @@ import { useAnimationVariants } from '@/registry/utils/use-animation-variants';
 import { Button } from './ui/button';
 import Link from 'next/link';
 import GithubIcon from './icons/github-icon';
-import { gradientStyle } from '@/registry/backgrounds/background-gradient';
 import ReactIcon from './icons/react-icon';
 import TailwindIcon from './icons/tailwind-icon';
 import ShadcnIcon from './icons/shadcn-icon';
@@ -18,33 +17,10 @@ import { Badge } from './ui/badge';
 
 export const Hero = () => {
   const animationVariants = useAnimationVariants('blur');
-  const gradientColors = [
-    { color: 'var(--color-primary)', start: '0%' },
-
-    { color: 'var(--background)', start: '100%' },
-  ];
-  const gradientSize = {
-    width: '80%',
-    height: '100%',
-  };
-  const gradientPosition = {
-    x: '50%',
-    y: '-20%',
-  };
-  const { gradientBg } = gradientStyle({
-    gradientColors,
-    gradientSize,
-    gradientPosition,
-  });
 
   const MotionLink = motion.create(Link);
   return (
-    <section
-      className="relative max-w-7xl place-content-center min-h-dvh px-6 py-8 w-full"
-      style={{
-        backgroundImage: gradientBg,
-      }}
-    >
+    <section className="relative max-w-7xl place-content-center min-h-dvh px-6 py-8 w-full">
       <ContainerStagger className="flex flex-col items-center text-center justify-center space-y-5">
         <MotionConfig transition={{ duration: 0.3, ease: 'easeIn' }}>
           <MotionLink

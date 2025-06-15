@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "container-scroll-inset-y-demo",
+  "type": "registry:block",
+  "title": "Scroll Trigger X-inset Animations Demo",
+  "description": "Demo showing how to implement scroll triggred animations.",
+  "registryDependencies": ["http://localhost:3000/r/container-scroll-inset-y"],
+  "files": [
+    {
+      "path": "registry/demo/containers/container-scroll-inset-y/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/containers/container-scroll-inset-y.tsx"
+    }
+  ]
+}

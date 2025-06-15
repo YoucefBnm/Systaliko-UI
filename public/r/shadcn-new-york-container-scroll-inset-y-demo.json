@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-new-york-container-scroll-inset-y-demo",
+  "type": "registry:block",
+  "title": "Scroll Trigger X-inset Animations Demo",
+  "description": "Demo showing how to implement scroll triggred animations with shadcn-new-york style.",
+  "registryDependencies": [
+    "http://localhost:3000/r/container-scroll-inset-y"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/containers/container-scroll-inset-y/shadcn-new-york/index.tsx",
+      "content": "import {\n  ContainerScrollAnimation,\n  ContainerScrollInsetY,\n  ContainerScrollTranslate,\n} from '@/components/systaliko-ui/containers/containers-scroll-animations';\n\nexport function ContainerScrollInsetYDemo() {\n  return (\n    <ContainerScrollAnimation>\n      <ContainerScrollTranslate className=\"h-dvh  py-8 px-6 flex justify-center items-center\">\n        <ContainerScrollInsetY\n          className=\"overflow-hidden w-4/5 mx-auto  rounded-md flex justify-center items-center\"\n          insetRange={[150, 0]}\n        >\n          <video\n            className=\"relative z-10  max-h-full max-w-full \"\n            src=\"https://videos.pexels.com/video-files/8086711/8086711-uhd_2560_1440_25fps.mp4\"\n            autoPlay\n            muted\n            loop\n            playsInline\n          />\n        </ContainerScrollInsetY>\n      </ContainerScrollTranslate>\n    </ContainerScrollAnimation>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/containers/container-scroll-inset-y.tsx"
+    }
+  ]
+}

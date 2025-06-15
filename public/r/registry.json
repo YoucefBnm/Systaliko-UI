@@ -471,54 +471,6 @@
       ]
     },
     {
-      "name": "default-container-inset-scroll",
-      "type": "registry:block",
-      "title": "Animated Inset Container",
-      "description": "Animate Inset on X axis, triggered by scroll position with default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/containers/container-inset-scroll/default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/containers/container-inset-scroll.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-default-container-inset-scroll",
-      "type": "registry:block",
-      "title": "Animated Inset Container",
-      "description": "Animate Inset on X axis, triggered by scroll position with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/containers/container-inset-scroll/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/containers/container-inset-scroll.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-container-inset-scroll",
-      "type": "registry:block",
-      "title": "Animated Inset Container",
-      "description": "Animate Inset on X axis, triggered by scroll position with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/containers/container-inset-scroll/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/containers/container-inset-scroll.tsx"
-        }
-      ]
-    },
-    {
       "name": "default-container-stagger",
       "type": "registry:block",
       "title": "Container Stagger",
@@ -563,6 +515,54 @@
           "path": "__registry__/containers/container-stagger/shadcn-new-york/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/containers/container-stagger.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-containers-scroll-animations",
+      "type": "registry:block",
+      "title": "Scroll Trigger Animations.",
+      "description": "Collection of scroll triggred animations containers, most important elements for your scroll triggred animations with default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/containers/containers-scroll-animations/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/containers/containers-scroll-animations.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-containers-scroll-animations",
+      "type": "registry:block",
+      "title": "Scroll Trigger Animations.",
+      "description": "Collection of scroll triggred animations containers, most important elements for your scroll triggred animations with shadcn-default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/containers/containers-scroll-animations/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/containers/containers-scroll-animations.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-containers-scroll-animations",
+      "type": "registry:block",
+      "title": "Scroll Trigger Animations.",
+      "description": "Collection of scroll triggred animations containers, most important elements for your scroll triggred animations with shadcn-new-york style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/containers/containers-scroll-animations/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/containers/containers-scroll-animations.tsx"
         }
       ]
     },
@@ -1356,50 +1356,290 @@
       ]
     },
     {
-      "name": "default-container-inset-scroll-demo",
+      "name": "default-container-scroll-combo-demo",
       "type": "registry:block",
       "title": "Gallery Rotated Scroll Demo",
-      "description": "Demo showing how to use ContainerInsetScroll component with default style.",
+      "description": "Demo showing how to use combination of scroll trigger animations, insetX and scale and translateY with default style.",
       "registryDependencies": [
-        "http://localhost:3000/r/container-inset-scroll"
+        "http://localhost:3000/r/container-scroll-combo"
       ],
       "files": [
         {
-          "path": "__registry__/demo/containers/container-inset-scroll/default/index.tsx",
+          "path": "__registry__/demo/containers/container-scroll-combo/default/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/demo/containers/container-inset-scroll.tsx"
+          "target": "components/systaliko-ui/demo/containers/container-scroll-combo.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-container-inset-scroll-demo",
+      "name": "shadcn-default-container-scroll-combo-demo",
       "type": "registry:block",
       "title": "Gallery Rotated Scroll Demo",
-      "description": "Demo showing how to use ContainerInsetScroll component with shadcn-default style.",
+      "description": "Demo showing how to use combination of scroll trigger animations, insetX and scale and translateY with shadcn-default style.",
       "registryDependencies": [
-        "http://localhost:3000/r/container-inset-scroll"
+        "http://localhost:3000/r/container-scroll-combo"
       ],
       "files": [
         {
-          "path": "__registry__/demo/containers/container-inset-scroll/shadcn-default/index.tsx",
+          "path": "__registry__/demo/containers/container-scroll-combo/shadcn-default/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/demo/containers/container-inset-scroll.tsx"
+          "target": "components/systaliko-ui/demo/containers/container-scroll-combo.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-new-york-container-inset-scroll-demo",
+      "name": "shadcn-new-york-container-scroll-combo-demo",
       "type": "registry:block",
       "title": "Gallery Rotated Scroll Demo",
-      "description": "Demo showing how to use ContainerInsetScroll component with shadcn-new-york style.",
+      "description": "Demo showing how to use combination of scroll trigger animations, insetX and scale and translateY with shadcn-new-york style.",
       "registryDependencies": [
-        "http://localhost:3000/r/container-inset-scroll"
+        "http://localhost:3000/r/container-scroll-combo"
       ],
       "files": [
         {
-          "path": "__registry__/demo/containers/container-inset-scroll/shadcn-new-york/index.tsx",
+          "path": "__registry__/demo/containers/container-scroll-combo/shadcn-new-york/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/demo/containers/container-inset-scroll.tsx"
+          "target": "components/systaliko-ui/demo/containers/container-scroll-combo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-container-scroll-inset-demo",
+      "type": "registry:block",
+      "title": "Scroll Trigger Inset Animations Demo",
+      "description": "Demo showing how to implement scroll triggred animations with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-scroll-inset"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-scroll-inset/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-scroll-inset.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-container-scroll-inset-demo",
+      "type": "registry:block",
+      "title": "Scroll Trigger Inset Animations Demo",
+      "description": "Demo showing how to implement scroll triggred animations with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-scroll-inset"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-scroll-inset/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-scroll-inset.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-container-scroll-inset-demo",
+      "type": "registry:block",
+      "title": "Scroll Trigger Inset Animations Demo",
+      "description": "Demo showing how to implement scroll triggred animations with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-scroll-inset"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-scroll-inset/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-scroll-inset.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-container-scroll-inset-x-demo",
+      "type": "registry:block",
+      "title": "Scroll Trigger Inset-X Animations Demo",
+      "description": "Demo showing how to implement scroll triggred animations with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-scroll-inset-x"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-scroll-inset-x/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-scroll-inset-x.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-container-scroll-inset-x-demo",
+      "type": "registry:block",
+      "title": "Scroll Trigger Inset-X Animations Demo",
+      "description": "Demo showing how to implement scroll triggred animations with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-scroll-inset-x"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-scroll-inset-x/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-scroll-inset-x.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-container-scroll-inset-x-demo",
+      "type": "registry:block",
+      "title": "Scroll Trigger Inset-X Animations Demo",
+      "description": "Demo showing how to implement scroll triggred animations with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-scroll-inset-x"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-scroll-inset-x/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-scroll-inset-x.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-container-scroll-inset-y-demo",
+      "type": "registry:block",
+      "title": "Scroll Trigger X-inset Animations Demo",
+      "description": "Demo showing how to implement scroll triggred animations with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-scroll-inset-y"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-scroll-inset-y/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-scroll-inset-y.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-container-scroll-inset-y-demo",
+      "type": "registry:block",
+      "title": "Scroll Trigger X-inset Animations Demo",
+      "description": "Demo showing how to implement scroll triggred animations with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-scroll-inset-y"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-scroll-inset-y/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-scroll-inset-y.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-container-scroll-inset-y-demo",
+      "type": "registry:block",
+      "title": "Scroll Trigger X-inset Animations Demo",
+      "description": "Demo showing how to implement scroll triggred animations with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-scroll-inset-y"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-scroll-inset-y/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-scroll-inset-y.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-container-scroll-radius-demo",
+      "type": "registry:block",
+      "title": "Container Stagger Demo",
+      "description": "Demo showing how to use container stagger with your motion components with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-scroll-radius"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-scroll-radius/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-scroll-radius.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-container-scroll-radius-demo",
+      "type": "registry:block",
+      "title": "Container Stagger Demo",
+      "description": "Demo showing how to use container stagger with your motion components with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-scroll-radius"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-scroll-radius/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-scroll-radius.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-container-scroll-radius-demo",
+      "type": "registry:block",
+      "title": "Container Stagger Demo",
+      "description": "Demo showing how to use container stagger with your motion components with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-scroll-radius"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-scroll-radius/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-scroll-radius.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-container-scroll-scale-demo",
+      "type": "registry:block",
+      "title": "Scroll Trigger Scale Animations Demo",
+      "description": "Demo showing how to implement scroll triggred animations with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-scroll-scale"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-scroll-scale/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-scroll-scale.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-container-scroll-scale-demo",
+      "type": "registry:block",
+      "title": "Scroll Trigger Scale Animations Demo",
+      "description": "Demo showing how to implement scroll triggred animations with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-scroll-scale"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-scroll-scale/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-scroll-scale.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-container-scroll-scale-demo",
+      "type": "registry:block",
+      "title": "Scroll Trigger Scale Animations Demo",
+      "description": "Demo showing how to implement scroll triggred animations with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/container-scroll-scale"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/container-scroll-scale/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/container-scroll-scale.tsx"
         }
       ]
     },

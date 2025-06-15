@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "container-scroll-combo-demo",
+  "type": "registry:block",
+  "title": "Gallery Rotated Scroll Demo",
+  "description": "Demo showing how to use combination of scroll trigger animations, insetX and scale and translateY.",
+  "registryDependencies": ["http://localhost:3000/r/container-scroll-combo"],
+  "files": [
+    {
+      "path": "registry/demo/containers/container-scroll-combo/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/containers/container-scroll-combo.tsx"
+    }
+  ]
+}
