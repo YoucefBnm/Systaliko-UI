@@ -7,12 +7,15 @@ import { ContainerScrollInsetDemo } from '@/registry/demo/containers/container-s
 import { ContainerScrollInsetXDemo } from '@/registry/demo/containers/container-scroll-inset-x';
 import { ContainerScrollInsetYDemo } from '@/registry/demo/containers/container-scroll-inset-y';
 import { ContainerScrollRadiusDemo } from '@/registry/demo/containers/container-scroll-radius';
+import { HeroGalleryScrollAnimationDemo } from '@/registry/demo/heros/hero-gallery-scroll-animation';
 
 export default function HomePage() {
   return (
     <main className="relative">
       <Header />
       <Hero />
+      <HeroGalleryScrollAnimationDemo />
+
       <ContainerScrollComboDemo />
       <ContainerScrollInsetDemo />
       <ContainerScrollInsetYDemo />

@@ -26,58 +26,56 @@ const IMAGES_3 = [
 
 export const ContainerScrollComboDemo = () => {
   return (
-    <>
-      <ContainerScrollAnimation className="overflow-hidden">
-        <ContainerScrollTranslate className="h-dvh relative">
-          <ContainerScrollInsetX className="h-full relative">
-            <ContainerScrollScale className="flex bg-secondary gap-2 overflow-hidden px-6">
-              <ContainerScrollTranslate
-                yRange={['0%', '-10%']}
-                className="flex flex-col gap-2"
-              >
-                {IMAGES_1.map((imageUrl, index) => (
-                  <img
-                    key={index}
-                    className="aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover"
-                    src={imageUrl}
-                    alt="gallery item"
-                  />
-                ))}
-              </ContainerScrollTranslate>
+    <ContainerScrollAnimation className="overflow-hidden">
+      <ContainerScrollTranslate className="h-dvh relative">
+        <ContainerScrollInsetX className="h-full relative">
+          <ContainerScrollScale className="flex bg-secondary gap-2 overflow-hidden px-6">
+            <ContainerScrollTranslate
+              yRange={['0%', '-10%']}
+              className="flex flex-col gap-2"
+            >
+              {IMAGES_1.map((imageUrl, index) => (
+                <img
+                  key={index}
+                  className="aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover"
+                  src={imageUrl}
+                  alt="gallery item"
+                />
+              ))}
+            </ContainerScrollTranslate>
 
-              <ContainerScrollTranslate
-                yRange={['0%', '20%']}
-                className="flex mt-[-20%] relative flex-col gap-2"
-              >
-                {IMAGES_2.map((imageUrl, index) => (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    key={index}
-                    className="aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover"
-                    src={imageUrl}
-                    alt="gallery item"
-                  />
-                ))}
-              </ContainerScrollTranslate>
+            <ContainerScrollTranslate
+              yRange={['0%', '20%']}
+              className="flex mt-[-20%] relative flex-col gap-2"
+            >
+              {IMAGES_2.map((imageUrl, index) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  key={index}
+                  className="aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover"
+                  src={imageUrl}
+                  alt="gallery item"
+                />
+              ))}
+            </ContainerScrollTranslate>
 
-              <ContainerScrollTranslate
-                yRange={['0%', '-10%']}
-                className="hidden md:flex flex-col gap-2"
-              >
-                {IMAGES_3.map((imageUrl, index) => (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    key={index}
-                    className="aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover"
-                    src={imageUrl}
-                    alt="gallery item"
-                  />
-                ))}
-              </ContainerScrollTranslate>
-            </ContainerScrollScale>
-          </ContainerScrollInsetX>
-        </ContainerScrollTranslate>
-      </ContainerScrollAnimation>
-    </>
+            <ContainerScrollTranslate
+              yRange={['0%', '-10%']}
+              className="hidden md:flex flex-col gap-2"
+            >
+              {IMAGES_3.map((imageUrl, index) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  key={index}
+                  className="aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover"
+                  src={imageUrl}
+                  alt="gallery item"
+                />
+              ))}
+            </ContainerScrollTranslate>
+          </ContainerScrollScale>
+        </ContainerScrollInsetX>
+      </ContainerScrollTranslate>
+    </ContainerScrollAnimation>
   );
 };

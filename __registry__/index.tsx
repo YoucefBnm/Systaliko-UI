@@ -1333,7 +1333,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/containers/containers-scroll-animations.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport { useSmoothScroll } from '@/components/systaliko-ui/utils/use-smooth-scroll';\nimport {\n  HTMLMotionProps,\n  MapInputRange,\n  motion,\n  MotionValue,\n  useMotionTemplate,\n  useScroll,\n  useTransform,\n} from 'motion/react';\n\ninterface ContainerScrollAnimationContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst ContainerScrollAnimationContext = React.createContext<\n  ContainerScrollAnimationContextValue | undefined\n>(undefined);\n\nexport function useContainerScrollAnimationContext() {\n  const context = React.useContext(ContainerScrollAnimationContext);\n  if (!context) {\n    throw new Error(\n      'useContainerScrollAnimationContext must be used within a ContainerScrollAnimationContextProvider',\n    );\n  }\n  return context;\n}\n\nexport function ContainerScrollAnimation({\n  spacerClass,\n  className,\n  children,\n  ...props\n}: React.ComponentProps<'div'> & { spacerClass?: string }) {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n  });\n  useSmoothScroll();\n  return (\n    <ContainerScrollAnimationContext.Provider value={{ scrollYProgress }}>\n      <div ref={scrollRef} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={cn('w-full h-96', spacerClass)} />\n      </div>\n    </ContainerScrollAnimationContext.Provider>\n  );\n}\n\nexport function ContainerScrollInsetX({\n  insetRange = [48, 0],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { insetRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const xInset = useTransform(scrollYProgress, inputRange, insetRange);\n  const clipPath = useMotionTemplate`inset(0px ${xInset}px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\nexport function ContainerScrollInsetY({\n  insetRange = [48, 0],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { insetRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const yInset = useTransform(scrollYProgress, inputRange, insetRange);\n  const clipPath = useMotionTemplate`inset(${yInset}px 0px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollInset({\n  inputRange = [0, 1],\n  insetRangeY = [45, 0],\n  insetXRange = [45, 0],\n  roundednessRange = [16, 16],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  inputRange?: MapInputRange;\n  insetRangeY?: unknown[];\n  insetXRange?: unknown[];\n  roundednessRange?: unknown[];\n}) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const insetY = useTransform(scrollYProgress, inputRange, insetRangeY);\n  const insetX = useTransform(scrollYProgress, inputRange, insetXRange);\n  const roundedness = useTransform(\n    scrollYProgress,\n    inputRange,\n    roundednessRange,\n  );\n\n  const clipPath = useMotionTemplate`inset(${insetY}% ${insetX}% ${insetY}% ${insetX}% round ${roundedness}px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollTranslate({\n  yRange = [0, 384],\n  inputRange = [0, 1],\n  style,\n  className,\n  ...props\n}: HTMLMotionProps<'div'> & { yRange?: unknown[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const y = useTransform(scrollYProgress, inputRange, yRange);\n  return (\n    <motion.div\n      style={{ y, ...style }}\n      className={cn('relative', className)}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollScale({\n  scaleRange = [1.2, 1],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { scaleRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const scale = useTransform(scrollYProgress, inputRange, scaleRange);\n  return (\n    <motion.div className={className} style={{ scale, ...style }} {...props} />\n  );\n}\nexport function ContainerScrollRadius({\n  radiusRange = [9999, 16],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  radiusRange?: unknown[];\n  inputRange?: number[];\n}) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const borderRadius = useTransform(scrollYProgress, inputRange, radiusRange);\n  return (\n    <motion.div\n      layout\n      className={className}\n      style={{ borderRadius, ...style }}\n      {...props}\n    />\n  );\n}",
+          "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport { useSmoothScroll } from '@/components/systaliko-ui/utils/use-smooth-scroll';\nimport {\n  HTMLMotionProps,\n  MapInputRange,\n  motion,\n  MotionValue,\n  useMotionTemplate,\n  useScroll,\n  useTransform,\n} from 'motion/react';\n\ninterface ContainerScrollAnimationContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst ContainerScrollAnimationContext = React.createContext<\n  ContainerScrollAnimationContextValue | undefined\n>(undefined);\n\nexport function useContainerScrollAnimationContext() {\n  const context = React.useContext(ContainerScrollAnimationContext);\n  if (!context) {\n    throw new Error(\n      'useContainerScrollAnimationContext must be used within a ContainerScrollAnimationContextProvider',\n    );\n  }\n  return context;\n}\n\nexport function ContainerScrollAnimation({\n  spacerClass,\n  className,\n  children,\n  ...props\n}: React.ComponentProps<'div'> & { spacerClass?: string }) {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n  });\n  useSmoothScroll();\n  return (\n    <ContainerScrollAnimationContext.Provider value={{ scrollYProgress }}>\n      <div ref={scrollRef} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={cn('w-full h-96', spacerClass)} />\n      </div>\n    </ContainerScrollAnimationContext.Provider>\n  );\n}\n\nexport function ContainerScrollInsetX({\n  insetRange = [48, 0],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { insetRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const xInset = useTransform(scrollYProgress, inputRange, insetRange);\n  const clipPath = useMotionTemplate`inset(0px ${xInset}px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\nexport function ContainerScrollInsetY({\n  insetRange = [48, 0],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { insetRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const yInset = useTransform(scrollYProgress, inputRange, insetRange);\n  const clipPath = useMotionTemplate`inset(${yInset}px 0px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollInset({\n  inputRange = [0, 1],\n  insetRangeY = [45, 0],\n  insetXRange = [45, 0],\n  roundednessRange = [16, 16],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  inputRange?: MapInputRange;\n  insetRangeY?: unknown[];\n  insetXRange?: unknown[];\n  roundednessRange?: unknown[];\n}) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const insetY = useTransform(scrollYProgress, inputRange, insetRangeY);\n  const insetX = useTransform(scrollYProgress, inputRange, insetXRange);\n  const roundedness = useTransform(\n    scrollYProgress,\n    inputRange,\n    roundednessRange,\n  );\n\n  const clipPath = useMotionTemplate`inset(${insetY}% ${insetX}% ${insetY}% ${insetX}% round ${roundedness}px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollTranslate({\n  yRange = [0, 384],\n  inputRange = [0, 1],\n  style,\n  className,\n  ...props\n}: HTMLMotionProps<'div'> & { yRange?: unknown[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const y = useTransform(scrollYProgress, inputRange, yRange);\n  return (\n    <motion.div\n      style={{ y, ...style }}\n      className={cn('relative', className)}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollScale({\n  scaleRange = [1.2, 1],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { scaleRange?: unknown[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const scale = useTransform(scrollYProgress, inputRange, scaleRange);\n  return (\n    <motion.div className={className} style={{ scale, ...style }} {...props} />\n  );\n}\nexport function ContainerScrollRadius({\n  radiusRange = [9999, 16],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  radiusRange?: unknown[];\n  inputRange?: number[];\n}) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const borderRadius = useTransform(scrollYProgress, inputRange, radiusRange);\n  return (\n    <motion.div\n      layout\n      className={className}\n      style={{ borderRadius, ...style }}\n      {...props}\n    />\n  );\n}",
       },
     ],
     component: (function () {
@@ -1370,7 +1370,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/containers/containers-scroll-animations.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport { useSmoothScroll } from '@/components/systaliko-ui/utils/use-smooth-scroll';\nimport {\n  HTMLMotionProps,\n  MapInputRange,\n  motion,\n  MotionValue,\n  useMotionTemplate,\n  useScroll,\n  useTransform,\n} from 'motion/react';\n\ninterface ContainerScrollAnimationContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst ContainerScrollAnimationContext = React.createContext<\n  ContainerScrollAnimationContextValue | undefined\n>(undefined);\n\nexport function useContainerScrollAnimationContext() {\n  const context = React.useContext(ContainerScrollAnimationContext);\n  if (!context) {\n    throw new Error(\n      'useContainerScrollAnimationContext must be used within a ContainerScrollAnimationContextProvider',\n    );\n  }\n  return context;\n}\n\nexport function ContainerScrollAnimation({\n  spacerClass,\n  className,\n  children,\n  ...props\n}: React.ComponentProps<'div'> & { spacerClass?: string }) {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n  });\n  useSmoothScroll();\n  return (\n    <ContainerScrollAnimationContext.Provider value={{ scrollYProgress }}>\n      <div ref={scrollRef} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={cn('w-full h-96', spacerClass)} />\n      </div>\n    </ContainerScrollAnimationContext.Provider>\n  );\n}\n\nexport function ContainerScrollInsetX({\n  insetRange = [48, 0],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { insetRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const xInset = useTransform(scrollYProgress, inputRange, insetRange);\n  const clipPath = useMotionTemplate`inset(0px ${xInset}px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\nexport function ContainerScrollInsetY({\n  insetRange = [48, 0],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { insetRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const yInset = useTransform(scrollYProgress, inputRange, insetRange);\n  const clipPath = useMotionTemplate`inset(${yInset}px 0px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollInset({\n  inputRange = [0, 1],\n  insetRangeY = [45, 0],\n  insetXRange = [45, 0],\n  roundednessRange = [16, 16],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  inputRange?: MapInputRange;\n  insetRangeY?: unknown[];\n  insetXRange?: unknown[];\n  roundednessRange?: unknown[];\n}) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const insetY = useTransform(scrollYProgress, inputRange, insetRangeY);\n  const insetX = useTransform(scrollYProgress, inputRange, insetXRange);\n  const roundedness = useTransform(\n    scrollYProgress,\n    inputRange,\n    roundednessRange,\n  );\n\n  const clipPath = useMotionTemplate`inset(${insetY}% ${insetX}% ${insetY}% ${insetX}% round ${roundedness}px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollTranslate({\n  yRange = [0, 384],\n  inputRange = [0, 1],\n  style,\n  className,\n  ...props\n}: HTMLMotionProps<'div'> & { yRange?: unknown[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const y = useTransform(scrollYProgress, inputRange, yRange);\n  return (\n    <motion.div\n      style={{ y, ...style }}\n      className={cn('relative', className)}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollScale({\n  scaleRange = [1.2, 1],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { scaleRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const scale = useTransform(scrollYProgress, inputRange, scaleRange);\n  return (\n    <motion.div className={className} style={{ scale, ...style }} {...props} />\n  );\n}\nexport function ContainerScrollRadius({\n  radiusRange = [9999, 16],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  radiusRange?: unknown[];\n  inputRange?: number[];\n}) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const borderRadius = useTransform(scrollYProgress, inputRange, radiusRange);\n  return (\n    <motion.div\n      layout\n      className={className}\n      style={{ borderRadius, ...style }}\n      {...props}\n    />\n  );\n}",
+          "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport { useSmoothScroll } from '@/components/systaliko-ui/utils/use-smooth-scroll';\nimport {\n  HTMLMotionProps,\n  MapInputRange,\n  motion,\n  MotionValue,\n  useMotionTemplate,\n  useScroll,\n  useTransform,\n} from 'motion/react';\n\ninterface ContainerScrollAnimationContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst ContainerScrollAnimationContext = React.createContext<\n  ContainerScrollAnimationContextValue | undefined\n>(undefined);\n\nexport function useContainerScrollAnimationContext() {\n  const context = React.useContext(ContainerScrollAnimationContext);\n  if (!context) {\n    throw new Error(\n      'useContainerScrollAnimationContext must be used within a ContainerScrollAnimationContextProvider',\n    );\n  }\n  return context;\n}\n\nexport function ContainerScrollAnimation({\n  spacerClass,\n  className,\n  children,\n  ...props\n}: React.ComponentProps<'div'> & { spacerClass?: string }) {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n  });\n  useSmoothScroll();\n  return (\n    <ContainerScrollAnimationContext.Provider value={{ scrollYProgress }}>\n      <div ref={scrollRef} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={cn('w-full h-96', spacerClass)} />\n      </div>\n    </ContainerScrollAnimationContext.Provider>\n  );\n}\n\nexport function ContainerScrollInsetX({\n  insetRange = [48, 0],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { insetRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const xInset = useTransform(scrollYProgress, inputRange, insetRange);\n  const clipPath = useMotionTemplate`inset(0px ${xInset}px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\nexport function ContainerScrollInsetY({\n  insetRange = [48, 0],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { insetRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const yInset = useTransform(scrollYProgress, inputRange, insetRange);\n  const clipPath = useMotionTemplate`inset(${yInset}px 0px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollInset({\n  inputRange = [0, 1],\n  insetRangeY = [45, 0],\n  insetXRange = [45, 0],\n  roundednessRange = [16, 16],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  inputRange?: MapInputRange;\n  insetRangeY?: unknown[];\n  insetXRange?: unknown[];\n  roundednessRange?: unknown[];\n}) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const insetY = useTransform(scrollYProgress, inputRange, insetRangeY);\n  const insetX = useTransform(scrollYProgress, inputRange, insetXRange);\n  const roundedness = useTransform(\n    scrollYProgress,\n    inputRange,\n    roundednessRange,\n  );\n\n  const clipPath = useMotionTemplate`inset(${insetY}% ${insetX}% ${insetY}% ${insetX}% round ${roundedness}px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollTranslate({\n  yRange = [0, 384],\n  inputRange = [0, 1],\n  style,\n  className,\n  ...props\n}: HTMLMotionProps<'div'> & { yRange?: unknown[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const y = useTransform(scrollYProgress, inputRange, yRange);\n  return (\n    <motion.div\n      style={{ y, ...style }}\n      className={cn('relative', className)}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollScale({\n  scaleRange = [1.2, 1],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { scaleRange?: unknown[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const scale = useTransform(scrollYProgress, inputRange, scaleRange);\n  return (\n    <motion.div className={className} style={{ scale, ...style }} {...props} />\n  );\n}\nexport function ContainerScrollRadius({\n  radiusRange = [9999, 16],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  radiusRange?: unknown[];\n  inputRange?: number[];\n}) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const borderRadius = useTransform(scrollYProgress, inputRange, radiusRange);\n  return (\n    <motion.div\n      layout\n      className={className}\n      style={{ borderRadius, ...style }}\n      {...props}\n    />\n  );\n}",
       },
     ],
     component: (function () {
@@ -1408,7 +1408,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/containers/containers-scroll-animations.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport { useSmoothScroll } from '@/components/systaliko-ui/utils/use-smooth-scroll';\nimport {\n  HTMLMotionProps,\n  MapInputRange,\n  motion,\n  MotionValue,\n  useMotionTemplate,\n  useScroll,\n  useTransform,\n} from 'motion/react';\n\ninterface ContainerScrollAnimationContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst ContainerScrollAnimationContext = React.createContext<\n  ContainerScrollAnimationContextValue | undefined\n>(undefined);\n\nexport function useContainerScrollAnimationContext() {\n  const context = React.useContext(ContainerScrollAnimationContext);\n  if (!context) {\n    throw new Error(\n      'useContainerScrollAnimationContext must be used within a ContainerScrollAnimationContextProvider',\n    );\n  }\n  return context;\n}\n\nexport function ContainerScrollAnimation({\n  spacerClass,\n  className,\n  children,\n  ...props\n}: React.ComponentProps<'div'> & { spacerClass?: string }) {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n  });\n  useSmoothScroll();\n  return (\n    <ContainerScrollAnimationContext.Provider value={{ scrollYProgress }}>\n      <div ref={scrollRef} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={cn('w-full h-96', spacerClass)} />\n      </div>\n    </ContainerScrollAnimationContext.Provider>\n  );\n}\n\nexport function ContainerScrollInsetX({\n  insetRange = [48, 0],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { insetRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const xInset = useTransform(scrollYProgress, inputRange, insetRange);\n  const clipPath = useMotionTemplate`inset(0px ${xInset}px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\nexport function ContainerScrollInsetY({\n  insetRange = [48, 0],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { insetRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const yInset = useTransform(scrollYProgress, inputRange, insetRange);\n  const clipPath = useMotionTemplate`inset(${yInset}px 0px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollInset({\n  inputRange = [0, 1],\n  insetRangeY = [45, 0],\n  insetXRange = [45, 0],\n  roundednessRange = [16, 16],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  inputRange?: MapInputRange;\n  insetRangeY?: unknown[];\n  insetXRange?: unknown[];\n  roundednessRange?: unknown[];\n}) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const insetY = useTransform(scrollYProgress, inputRange, insetRangeY);\n  const insetX = useTransform(scrollYProgress, inputRange, insetXRange);\n  const roundedness = useTransform(\n    scrollYProgress,\n    inputRange,\n    roundednessRange,\n  );\n\n  const clipPath = useMotionTemplate`inset(${insetY}% ${insetX}% ${insetY}% ${insetX}% round ${roundedness}px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollTranslate({\n  yRange = [0, 384],\n  inputRange = [0, 1],\n  style,\n  className,\n  ...props\n}: HTMLMotionProps<'div'> & { yRange?: unknown[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const y = useTransform(scrollYProgress, inputRange, yRange);\n  return (\n    <motion.div\n      style={{ y, ...style }}\n      className={cn('relative', className)}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollScale({\n  scaleRange = [1.2, 1],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { scaleRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const scale = useTransform(scrollYProgress, inputRange, scaleRange);\n  return (\n    <motion.div className={className} style={{ scale, ...style }} {...props} />\n  );\n}\nexport function ContainerScrollRadius({\n  radiusRange = [9999, 16],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  radiusRange?: unknown[];\n  inputRange?: number[];\n}) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const borderRadius = useTransform(scrollYProgress, inputRange, radiusRange);\n  return (\n    <motion.div\n      layout\n      className={className}\n      style={{ borderRadius, ...style }}\n      {...props}\n    />\n  );\n}",
+          "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport { useSmoothScroll } from '@/components/systaliko-ui/utils/use-smooth-scroll';\nimport {\n  HTMLMotionProps,\n  MapInputRange,\n  motion,\n  MotionValue,\n  useMotionTemplate,\n  useScroll,\n  useTransform,\n} from 'motion/react';\n\ninterface ContainerScrollAnimationContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst ContainerScrollAnimationContext = React.createContext<\n  ContainerScrollAnimationContextValue | undefined\n>(undefined);\n\nexport function useContainerScrollAnimationContext() {\n  const context = React.useContext(ContainerScrollAnimationContext);\n  if (!context) {\n    throw new Error(\n      'useContainerScrollAnimationContext must be used within a ContainerScrollAnimationContextProvider',\n    );\n  }\n  return context;\n}\n\nexport function ContainerScrollAnimation({\n  spacerClass,\n  className,\n  children,\n  ...props\n}: React.ComponentProps<'div'> & { spacerClass?: string }) {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n  });\n  useSmoothScroll();\n  return (\n    <ContainerScrollAnimationContext.Provider value={{ scrollYProgress }}>\n      <div ref={scrollRef} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={cn('w-full h-96', spacerClass)} />\n      </div>\n    </ContainerScrollAnimationContext.Provider>\n  );\n}\n\nexport function ContainerScrollInsetX({\n  insetRange = [48, 0],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { insetRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const xInset = useTransform(scrollYProgress, inputRange, insetRange);\n  const clipPath = useMotionTemplate`inset(0px ${xInset}px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\nexport function ContainerScrollInsetY({\n  insetRange = [48, 0],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { insetRange?: number[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const yInset = useTransform(scrollYProgress, inputRange, insetRange);\n  const clipPath = useMotionTemplate`inset(${yInset}px 0px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollInset({\n  inputRange = [0, 1],\n  insetRangeY = [45, 0],\n  insetXRange = [45, 0],\n  roundednessRange = [16, 16],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  inputRange?: MapInputRange;\n  insetRangeY?: unknown[];\n  insetXRange?: unknown[];\n  roundednessRange?: unknown[];\n}) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const insetY = useTransform(scrollYProgress, inputRange, insetRangeY);\n  const insetX = useTransform(scrollYProgress, inputRange, insetXRange);\n  const roundedness = useTransform(\n    scrollYProgress,\n    inputRange,\n    roundednessRange,\n  );\n\n  const clipPath = useMotionTemplate`inset(${insetY}% ${insetX}% ${insetY}% ${insetX}% round ${roundedness}px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollTranslate({\n  yRange = [0, 384],\n  inputRange = [0, 1],\n  style,\n  className,\n  ...props\n}: HTMLMotionProps<'div'> & { yRange?: unknown[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const y = useTransform(scrollYProgress, inputRange, yRange);\n  return (\n    <motion.div\n      style={{ y, ...style }}\n      className={cn('relative', className)}\n      {...props}\n    />\n  );\n}\n\nexport function ContainerScrollScale({\n  scaleRange = [1.2, 1],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { scaleRange?: unknown[]; inputRange?: number[] }) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const scale = useTransform(scrollYProgress, inputRange, scaleRange);\n  return (\n    <motion.div className={className} style={{ scale, ...style }} {...props} />\n  );\n}\nexport function ContainerScrollRadius({\n  radiusRange = [9999, 16],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  radiusRange?: unknown[];\n  inputRange?: number[];\n}) {\n  const { scrollYProgress } = useContainerScrollAnimationContext();\n  const borderRadius = useTransform(scrollYProgress, inputRange, radiusRange);\n  return (\n    <motion.div\n      layout\n      className={className}\n      style={{ borderRadius, ...style }}\n      {...props}\n    />\n  );\n}",
       },
     ],
     component: (function () {
@@ -1554,7 +1554,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/containers/grid-bento.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport { cva, VariantProps } from 'class-variance-authority';\n\nconst bentoGridVariants = cva(\n  'relative grid gap-4 [&>*:first-child]:origin-top-right [&>*:nth-child(3)]:origin-bottom-right [&>*:nth-child(4)]:origin-top-right',\n  {\n    variants: {\n      variant: {\n        default: `\n            grid-cols-8 grid-rows-[1fr_0.5fr_0.5fr_1fr]\n            [&>*:first-child]:col-span-8 md:[&>*:first-child]:col-span-6 [&>*:first-child]:row-span-3\n            [&>*:nth-child(2)]:col-span-2 md:[&>*:nth-child(2)]:row-span-2 [&>*:nth-child(2)]:hidden md:[&>*:nth-child(2)]:block\n            [&>*:nth-child(3)]:col-span-2 md:[&>*:nth-child(3)]:row-span-2 [&>*:nth-child(3)]:hidden md:[&>*:nth-child(3)]:block\n            [&>*:nth-child(4)]:col-span-4 md:[&>*:nth-child(4)]:col-span-3\n            [&>*:nth-child(5)]:col-span-4 md:[&>*:nth-child(5)]:col-span-3\n          `,\n        threeCells: `\n            grid-cols-2 grid-rows-2 [&>*:nth-child(4)]:hidden [&>*:nth-child(5)]:hidden\n            [&>*:first-child]:col-span-2\n        `,\n        fourCells: `\n          grid-cols-3 grid-rows-2\n          [&>*:first-child]:col-span-1\n          [&>*:nth-child(2)]:col-span-2\n          [&>*:nth-child(3)]:col-span-2\n          [&>*:nth-child(5)]:hidden\n        `,\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\n\nexport const GridBento = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof bentoGridVariants>\n>(({ variant, className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(bentoGridVariants({ variant }), className)}\n      {...props}\n    />\n  );\n});\nGridBento.displayName = 'GridBento';",
+          "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport { cva, VariantProps } from 'class-variance-authority';\n\nexport const bentoGridVariants = cva(\n  'relative grid gap-4 [&>*:first-child]:origin-top-right [&>*:nth-child(3)]:origin-bottom-right [&>*:nth-child(4)]:origin-top-right',\n  {\n    variants: {\n      variant: {\n        default: `\n            grid-cols-8 grid-rows-[1fr_0.5fr_0.5fr_1fr]\n            [&>*:first-child]:col-span-8 md:[&>*:first-child]:col-span-6 [&>*:first-child]:row-span-3\n            [&>*:nth-child(2)]:col-span-2 md:[&>*:nth-child(2)]:row-span-2 [&>*:nth-child(2)]:hidden md:[&>*:nth-child(2)]:block\n            [&>*:nth-child(3)]:col-span-2 md:[&>*:nth-child(3)]:row-span-2 [&>*:nth-child(3)]:hidden md:[&>*:nth-child(3)]:block\n            [&>*:nth-child(4)]:col-span-4 md:[&>*:nth-child(4)]:col-span-3\n            [&>*:nth-child(5)]:col-span-4 md:[&>*:nth-child(5)]:col-span-3\n          `,\n        threeCells: `\n            grid-cols-2 grid-rows-2 [&>*:nth-child(4)]:hidden [&>*:nth-child(5)]:hidden\n            [&>*:first-child]:col-span-2\n        `,\n        fourCells: `\n          grid-cols-3 grid-rows-2\n          [&>*:first-child]:col-span-1\n          [&>*:nth-child(2)]:col-span-2\n          [&>*:nth-child(3)]:col-span-2\n          [&>*:nth-child(5)]:hidden\n        `,\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\n\nexport const GridBento = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof bentoGridVariants>\n>(({ variant, className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(bentoGridVariants({ variant }), className)}\n      {...props}\n    />\n  );\n});\nGridBento.displayName = 'GridBento';",
       },
     ],
     component: (function () {
@@ -1590,7 +1590,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/containers/grid-bento.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport { cva, VariantProps } from 'class-variance-authority';\n\nconst bentoGridVariants = cva(\n  'relative grid gap-4 [&>*:first-child]:origin-top-right [&>*:nth-child(3)]:origin-bottom-right [&>*:nth-child(4)]:origin-top-right',\n  {\n    variants: {\n      variant: {\n        default: `\n            grid-cols-8 grid-rows-[1fr_0.5fr_0.5fr_1fr]\n            [&>*:first-child]:col-span-8 md:[&>*:first-child]:col-span-6 [&>*:first-child]:row-span-3\n            [&>*:nth-child(2)]:col-span-2 md:[&>*:nth-child(2)]:row-span-2 [&>*:nth-child(2)]:hidden md:[&>*:nth-child(2)]:block\n            [&>*:nth-child(3)]:col-span-2 md:[&>*:nth-child(3)]:row-span-2 [&>*:nth-child(3)]:hidden md:[&>*:nth-child(3)]:block\n            [&>*:nth-child(4)]:col-span-4 md:[&>*:nth-child(4)]:col-span-3\n            [&>*:nth-child(5)]:col-span-4 md:[&>*:nth-child(5)]:col-span-3\n          `,\n        threeCells: `\n            grid-cols-2 grid-rows-2 [&>*:nth-child(4)]:hidden [&>*:nth-child(5)]:hidden\n            [&>*:first-child]:col-span-2\n        `,\n        fourCells: `\n          grid-cols-3 grid-rows-2\n          [&>*:first-child]:col-span-1\n          [&>*:nth-child(2)]:col-span-2\n          [&>*:nth-child(3)]:col-span-2\n          [&>*:nth-child(5)]:hidden\n        `,\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\n\nexport const GridBento = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof bentoGridVariants>\n>(({ variant, className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(bentoGridVariants({ variant }), className)}\n      {...props}\n    />\n  );\n});\nGridBento.displayName = 'GridBento';",
+          "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport { cva, VariantProps } from 'class-variance-authority';\n\nexport const bentoGridVariants = cva(\n  'relative grid gap-4 [&>*:first-child]:origin-top-right [&>*:nth-child(3)]:origin-bottom-right [&>*:nth-child(4)]:origin-top-right',\n  {\n    variants: {\n      variant: {\n        default: `\n            grid-cols-8 grid-rows-[1fr_0.5fr_0.5fr_1fr]\n            [&>*:first-child]:col-span-8 md:[&>*:first-child]:col-span-6 [&>*:first-child]:row-span-3\n            [&>*:nth-child(2)]:col-span-2 md:[&>*:nth-child(2)]:row-span-2 [&>*:nth-child(2)]:hidden md:[&>*:nth-child(2)]:block\n            [&>*:nth-child(3)]:col-span-2 md:[&>*:nth-child(3)]:row-span-2 [&>*:nth-child(3)]:hidden md:[&>*:nth-child(3)]:block\n            [&>*:nth-child(4)]:col-span-4 md:[&>*:nth-child(4)]:col-span-3\n            [&>*:nth-child(5)]:col-span-4 md:[&>*:nth-child(5)]:col-span-3\n          `,\n        threeCells: `\n            grid-cols-2 grid-rows-2 [&>*:nth-child(4)]:hidden [&>*:nth-child(5)]:hidden\n            [&>*:first-child]:col-span-2\n        `,\n        fourCells: `\n          grid-cols-3 grid-rows-2\n          [&>*:first-child]:col-span-1\n          [&>*:nth-child(2)]:col-span-2\n          [&>*:nth-child(3)]:col-span-2\n          [&>*:nth-child(5)]:hidden\n        `,\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\n\nexport const GridBento = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof bentoGridVariants>\n>(({ variant, className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(bentoGridVariants({ variant }), className)}\n      {...props}\n    />\n  );\n});\nGridBento.displayName = 'GridBento';",
       },
     ],
     component: (function () {
@@ -1626,7 +1626,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/containers/grid-bento.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport { cva, VariantProps } from 'class-variance-authority';\n\nconst bentoGridVariants = cva(\n  'relative grid gap-4 [&>*:first-child]:origin-top-right [&>*:nth-child(3)]:origin-bottom-right [&>*:nth-child(4)]:origin-top-right',\n  {\n    variants: {\n      variant: {\n        default: `\n            grid-cols-8 grid-rows-[1fr_0.5fr_0.5fr_1fr]\n            [&>*:first-child]:col-span-8 md:[&>*:first-child]:col-span-6 [&>*:first-child]:row-span-3\n            [&>*:nth-child(2)]:col-span-2 md:[&>*:nth-child(2)]:row-span-2 [&>*:nth-child(2)]:hidden md:[&>*:nth-child(2)]:block\n            [&>*:nth-child(3)]:col-span-2 md:[&>*:nth-child(3)]:row-span-2 [&>*:nth-child(3)]:hidden md:[&>*:nth-child(3)]:block\n            [&>*:nth-child(4)]:col-span-4 md:[&>*:nth-child(4)]:col-span-3\n            [&>*:nth-child(5)]:col-span-4 md:[&>*:nth-child(5)]:col-span-3\n          `,\n        threeCells: `\n            grid-cols-2 grid-rows-2 [&>*:nth-child(4)]:hidden [&>*:nth-child(5)]:hidden\n            [&>*:first-child]:col-span-2\n        `,\n        fourCells: `\n          grid-cols-3 grid-rows-2\n          [&>*:first-child]:col-span-1\n          [&>*:nth-child(2)]:col-span-2\n          [&>*:nth-child(3)]:col-span-2\n          [&>*:nth-child(5)]:hidden\n        `,\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\n\nexport const GridBento = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof bentoGridVariants>\n>(({ variant, className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(bentoGridVariants({ variant }), className)}\n      {...props}\n    />\n  );\n});\nGridBento.displayName = 'GridBento';",
+          "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport { cva, VariantProps } from 'class-variance-authority';\n\nexport const bentoGridVariants = cva(\n  'relative grid gap-4 [&>*:first-child]:origin-top-right [&>*:nth-child(3)]:origin-bottom-right [&>*:nth-child(4)]:origin-top-right',\n  {\n    variants: {\n      variant: {\n        default: `\n            grid-cols-8 grid-rows-[1fr_0.5fr_0.5fr_1fr]\n            [&>*:first-child]:col-span-8 md:[&>*:first-child]:col-span-6 [&>*:first-child]:row-span-3\n            [&>*:nth-child(2)]:col-span-2 md:[&>*:nth-child(2)]:row-span-2 [&>*:nth-child(2)]:hidden md:[&>*:nth-child(2)]:block\n            [&>*:nth-child(3)]:col-span-2 md:[&>*:nth-child(3)]:row-span-2 [&>*:nth-child(3)]:hidden md:[&>*:nth-child(3)]:block\n            [&>*:nth-child(4)]:col-span-4 md:[&>*:nth-child(4)]:col-span-3\n            [&>*:nth-child(5)]:col-span-4 md:[&>*:nth-child(5)]:col-span-3\n          `,\n        threeCells: `\n            grid-cols-2 grid-rows-2 [&>*:nth-child(4)]:hidden [&>*:nth-child(5)]:hidden\n            [&>*:first-child]:col-span-2\n        `,\n        fourCells: `\n          grid-cols-3 grid-rows-2\n          [&>*:first-child]:col-span-1\n          [&>*:nth-child(2)]:col-span-2\n          [&>*:nth-child(3)]:col-span-2\n          [&>*:nth-child(5)]:hidden\n        `,\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\n\nexport const GridBento = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof bentoGridVariants>\n>(({ variant, className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(bentoGridVariants({ variant }), className)}\n      {...props}\n    />\n  );\n});\nGridBento.displayName = 'GridBento';",
       },
     ],
     component: (function () {
@@ -3298,7 +3298,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/demo/containers/container-scroll-combo.tsx',
         content:
-          "import {\n  ContainerScrollAnimation,\n  ContainerScrollInsetX,\n  ContainerScrollScale,\n  ContainerScrollTranslate,\n} from '@/components/systaliko-ui/containers/containers-scroll-animations';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1717008303072-88c8ad26c3ff?q=80&w=2663&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1716855048433-50d4db79ba14?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608501078713-8e445a709b39?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1560360482-d5588f13d530?q=80&w=2687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1687647849698-e54685db9ae3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1658195686058-3b790484ae7e?q=80&w=2452&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1629692905066-d202dad72ebf?q=80&w=2678&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const ContainerScrollComboDemo = () => {\n  return (\n    <>\n      <ContainerScrollAnimation className=\"overflow-hidden\">\n        <ContainerScrollTranslate className=\"h-dvh relative\">\n          <ContainerScrollInsetX className=\"h-full relative\">\n            <ContainerScrollScale className=\"flex bg-secondary gap-2 overflow-hidden px-6\">\n              <ContainerScrollTranslate\n                yRange={['0%', '-10%']}\n                className=\"flex flex-col gap-2\"\n              >\n                {IMAGES_1.map((imageUrl, index) => (\n                  <img\n                    key={index}\n                    className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                    src={imageUrl}\n                    alt=\"gallery item\"\n                  />\n                ))}\n              </ContainerScrollTranslate>\n\n              <ContainerScrollTranslate\n                yRange={['0%', '20%']}\n                className=\"flex mt-[-20%] relative flex-col gap-2\"\n              >\n                {IMAGES_2.map((imageUrl, index) => (\n                  // eslint-disable-next-line @next/next/no-img-element\n                  <img\n                    key={index}\n                    className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                    src={imageUrl}\n                    alt=\"gallery item\"\n                  />\n                ))}\n              </ContainerScrollTranslate>\n\n              <ContainerScrollTranslate\n                yRange={['0%', '-10%']}\n                className=\"hidden md:flex flex-col gap-2\"\n              >\n                {IMAGES_3.map((imageUrl, index) => (\n                  // eslint-disable-next-line @next/next/no-img-element\n                  <img\n                    key={index}\n                    className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                    src={imageUrl}\n                    alt=\"gallery item\"\n                  />\n                ))}\n              </ContainerScrollTranslate>\n            </ContainerScrollScale>\n          </ContainerScrollInsetX>\n        </ContainerScrollTranslate>\n      </ContainerScrollAnimation>\n    </>\n  );\n};",
+          "import {\n  ContainerScrollAnimation,\n  ContainerScrollInsetX,\n  ContainerScrollScale,\n  ContainerScrollTranslate,\n} from '@/components/systaliko-ui/containers/containers-scroll-animations';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1717008303072-88c8ad26c3ff?q=80&w=2663&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1716855048433-50d4db79ba14?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608501078713-8e445a709b39?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1560360482-d5588f13d530?q=80&w=2687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1687647849698-e54685db9ae3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1658195686058-3b790484ae7e?q=80&w=2452&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1629692905066-d202dad72ebf?q=80&w=2678&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const ContainerScrollComboDemo = () => {\n  return (\n    <ContainerScrollAnimation className=\"overflow-hidden\">\n      <ContainerScrollTranslate className=\"h-dvh relative\">\n        <ContainerScrollInsetX className=\"h-full relative\">\n          <ContainerScrollScale className=\"flex bg-secondary gap-2 overflow-hidden px-6\">\n            <ContainerScrollTranslate\n              yRange={['0%', '-10%']}\n              className=\"flex flex-col gap-2\"\n            >\n              {IMAGES_1.map((imageUrl, index) => (\n                <img\n                  key={index}\n                  className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                  src={imageUrl}\n                  alt=\"gallery item\"\n                />\n              ))}\n            </ContainerScrollTranslate>\n\n            <ContainerScrollTranslate\n              yRange={['0%', '20%']}\n              className=\"flex mt-[-20%] relative flex-col gap-2\"\n            >\n              {IMAGES_2.map((imageUrl, index) => (\n                // eslint-disable-next-line @next/next/no-img-element\n                <img\n                  key={index}\n                  className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                  src={imageUrl}\n                  alt=\"gallery item\"\n                />\n              ))}\n            </ContainerScrollTranslate>\n\n            <ContainerScrollTranslate\n              yRange={['0%', '-10%']}\n              className=\"hidden md:flex flex-col gap-2\"\n            >\n              {IMAGES_3.map((imageUrl, index) => (\n                // eslint-disable-next-line @next/next/no-img-element\n                <img\n                  key={index}\n                  className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                  src={imageUrl}\n                  alt=\"gallery item\"\n                />\n              ))}\n            </ContainerScrollTranslate>\n          </ContainerScrollScale>\n        </ContainerScrollInsetX>\n      </ContainerScrollTranslate>\n    </ContainerScrollAnimation>\n  );\n};",
       },
     ],
     component: (function () {
@@ -3335,7 +3335,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/demo/containers/container-scroll-combo.tsx',
         content:
-          "import {\n  ContainerScrollAnimation,\n  ContainerScrollInsetX,\n  ContainerScrollScale,\n  ContainerScrollTranslate,\n} from '@/components/systaliko-ui/containers/containers-scroll-animations';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1717008303072-88c8ad26c3ff?q=80&w=2663&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1716855048433-50d4db79ba14?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608501078713-8e445a709b39?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1560360482-d5588f13d530?q=80&w=2687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1687647849698-e54685db9ae3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1658195686058-3b790484ae7e?q=80&w=2452&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1629692905066-d202dad72ebf?q=80&w=2678&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const ContainerScrollComboDemo = () => {\n  return (\n    <>\n      <ContainerScrollAnimation className=\"overflow-hidden\">\n        <ContainerScrollTranslate className=\"h-dvh relative\">\n          <ContainerScrollInsetX className=\"h-full relative\">\n            <ContainerScrollScale className=\"flex bg-secondary gap-2 overflow-hidden px-6\">\n              <ContainerScrollTranslate\n                yRange={['0%', '-10%']}\n                className=\"flex flex-col gap-2\"\n              >\n                {IMAGES_1.map((imageUrl, index) => (\n                  <img\n                    key={index}\n                    className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                    src={imageUrl}\n                    alt=\"gallery item\"\n                  />\n                ))}\n              </ContainerScrollTranslate>\n\n              <ContainerScrollTranslate\n                yRange={['0%', '20%']}\n                className=\"flex mt-[-20%] relative flex-col gap-2\"\n              >\n                {IMAGES_2.map((imageUrl, index) => (\n                  // eslint-disable-next-line @next/next/no-img-element\n                  <img\n                    key={index}\n                    className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                    src={imageUrl}\n                    alt=\"gallery item\"\n                  />\n                ))}\n              </ContainerScrollTranslate>\n\n              <ContainerScrollTranslate\n                yRange={['0%', '-10%']}\n                className=\"hidden md:flex flex-col gap-2\"\n              >\n                {IMAGES_3.map((imageUrl, index) => (\n                  // eslint-disable-next-line @next/next/no-img-element\n                  <img\n                    key={index}\n                    className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                    src={imageUrl}\n                    alt=\"gallery item\"\n                  />\n                ))}\n              </ContainerScrollTranslate>\n            </ContainerScrollScale>\n          </ContainerScrollInsetX>\n        </ContainerScrollTranslate>\n      </ContainerScrollAnimation>\n    </>\n  );\n};",
+          "import {\n  ContainerScrollAnimation,\n  ContainerScrollInsetX,\n  ContainerScrollScale,\n  ContainerScrollTranslate,\n} from '@/components/systaliko-ui/containers/containers-scroll-animations';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1717008303072-88c8ad26c3ff?q=80&w=2663&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1716855048433-50d4db79ba14?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608501078713-8e445a709b39?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1560360482-d5588f13d530?q=80&w=2687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1687647849698-e54685db9ae3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1658195686058-3b790484ae7e?q=80&w=2452&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1629692905066-d202dad72ebf?q=80&w=2678&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const ContainerScrollComboDemo = () => {\n  return (\n    <ContainerScrollAnimation className=\"overflow-hidden\">\n      <ContainerScrollTranslate className=\"h-dvh relative\">\n        <ContainerScrollInsetX className=\"h-full relative\">\n          <ContainerScrollScale className=\"flex bg-secondary gap-2 overflow-hidden px-6\">\n            <ContainerScrollTranslate\n              yRange={['0%', '-10%']}\n              className=\"flex flex-col gap-2\"\n            >\n              {IMAGES_1.map((imageUrl, index) => (\n                <img\n                  key={index}\n                  className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                  src={imageUrl}\n                  alt=\"gallery item\"\n                />\n              ))}\n            </ContainerScrollTranslate>\n\n            <ContainerScrollTranslate\n              yRange={['0%', '20%']}\n              className=\"flex mt-[-20%] relative flex-col gap-2\"\n            >\n              {IMAGES_2.map((imageUrl, index) => (\n                // eslint-disable-next-line @next/next/no-img-element\n                <img\n                  key={index}\n                  className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                  src={imageUrl}\n                  alt=\"gallery item\"\n                />\n              ))}\n            </ContainerScrollTranslate>\n\n            <ContainerScrollTranslate\n              yRange={['0%', '-10%']}\n              className=\"hidden md:flex flex-col gap-2\"\n            >\n              {IMAGES_3.map((imageUrl, index) => (\n                // eslint-disable-next-line @next/next/no-img-element\n                <img\n                  key={index}\n                  className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                  src={imageUrl}\n                  alt=\"gallery item\"\n                />\n              ))}\n            </ContainerScrollTranslate>\n          </ContainerScrollScale>\n        </ContainerScrollInsetX>\n      </ContainerScrollTranslate>\n    </ContainerScrollAnimation>\n  );\n};",
       },
     ],
     component: (function () {
@@ -3373,7 +3373,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/demo/containers/container-scroll-combo.tsx',
         content:
-          "import {\n  ContainerScrollAnimation,\n  ContainerScrollInsetX,\n  ContainerScrollScale,\n  ContainerScrollTranslate,\n} from '@/components/systaliko-ui/containers/containers-scroll-animations';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1717008303072-88c8ad26c3ff?q=80&w=2663&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1716855048433-50d4db79ba14?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608501078713-8e445a709b39?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1560360482-d5588f13d530?q=80&w=2687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1687647849698-e54685db9ae3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1658195686058-3b790484ae7e?q=80&w=2452&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1629692905066-d202dad72ebf?q=80&w=2678&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const ContainerScrollComboDemo = () => {\n  return (\n    <>\n      <ContainerScrollAnimation className=\"overflow-hidden\">\n        <ContainerScrollTranslate className=\"h-dvh relative\">\n          <ContainerScrollInsetX className=\"h-full relative\">\n            <ContainerScrollScale className=\"flex bg-secondary gap-2 overflow-hidden px-6\">\n              <ContainerScrollTranslate\n                yRange={['0%', '-10%']}\n                className=\"flex flex-col gap-2\"\n              >\n                {IMAGES_1.map((imageUrl, index) => (\n                  <img\n                    key={index}\n                    className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                    src={imageUrl}\n                    alt=\"gallery item\"\n                  />\n                ))}\n              </ContainerScrollTranslate>\n\n              <ContainerScrollTranslate\n                yRange={['0%', '20%']}\n                className=\"flex mt-[-20%] relative flex-col gap-2\"\n              >\n                {IMAGES_2.map((imageUrl, index) => (\n                  // eslint-disable-next-line @next/next/no-img-element\n                  <img\n                    key={index}\n                    className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                    src={imageUrl}\n                    alt=\"gallery item\"\n                  />\n                ))}\n              </ContainerScrollTranslate>\n\n              <ContainerScrollTranslate\n                yRange={['0%', '-10%']}\n                className=\"hidden md:flex flex-col gap-2\"\n              >\n                {IMAGES_3.map((imageUrl, index) => (\n                  // eslint-disable-next-line @next/next/no-img-element\n                  <img\n                    key={index}\n                    className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                    src={imageUrl}\n                    alt=\"gallery item\"\n                  />\n                ))}\n              </ContainerScrollTranslate>\n            </ContainerScrollScale>\n          </ContainerScrollInsetX>\n        </ContainerScrollTranslate>\n      </ContainerScrollAnimation>\n    </>\n  );\n};",
+          "import {\n  ContainerScrollAnimation,\n  ContainerScrollInsetX,\n  ContainerScrollScale,\n  ContainerScrollTranslate,\n} from '@/components/systaliko-ui/containers/containers-scroll-animations';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1717008303072-88c8ad26c3ff?q=80&w=2663&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1716855048433-50d4db79ba14?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608501078713-8e445a709b39?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1560360482-d5588f13d530?q=80&w=2687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1687647849698-e54685db9ae3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1658195686058-3b790484ae7e?q=80&w=2452&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1629692905066-d202dad72ebf?q=80&w=2678&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const ContainerScrollComboDemo = () => {\n  return (\n    <ContainerScrollAnimation className=\"overflow-hidden\">\n      <ContainerScrollTranslate className=\"h-dvh relative\">\n        <ContainerScrollInsetX className=\"h-full relative\">\n          <ContainerScrollScale className=\"flex bg-secondary gap-2 overflow-hidden px-6\">\n            <ContainerScrollTranslate\n              yRange={['0%', '-10%']}\n              className=\"flex flex-col gap-2\"\n            >\n              {IMAGES_1.map((imageUrl, index) => (\n                <img\n                  key={index}\n                  className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                  src={imageUrl}\n                  alt=\"gallery item\"\n                />\n              ))}\n            </ContainerScrollTranslate>\n\n            <ContainerScrollTranslate\n              yRange={['0%', '20%']}\n              className=\"flex mt-[-20%] relative flex-col gap-2\"\n            >\n              {IMAGES_2.map((imageUrl, index) => (\n                // eslint-disable-next-line @next/next/no-img-element\n                <img\n                  key={index}\n                  className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                  src={imageUrl}\n                  alt=\"gallery item\"\n                />\n              ))}\n            </ContainerScrollTranslate>\n\n            <ContainerScrollTranslate\n              yRange={['0%', '-10%']}\n              className=\"hidden md:flex flex-col gap-2\"\n            >\n              {IMAGES_3.map((imageUrl, index) => (\n                // eslint-disable-next-line @next/next/no-img-element\n                <img\n                  key={index}\n                  className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                  src={imageUrl}\n                  alt=\"gallery item\"\n                />\n              ))}\n            </ContainerScrollTranslate>\n          </ContainerScrollScale>\n        </ContainerScrollInsetX>\n      </ContainerScrollTranslate>\n    </ContainerScrollAnimation>\n  );\n};",
       },
     ],
     component: (function () {
@@ -4289,6 +4289,231 @@ export const index: Record<string, any> = {
     })(),
     command: 'https://systaliko-ui.com/r/shadcn-new-york-grid-bento-demo',
   },
+  'default-grid-bento-four-cells-demo': {
+    name: 'default-grid-bento-four-cells-demo',
+    description: 'Grid Bento Demo with multiple variants with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/grid-bento-four-cells'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/grid-bento-four-cells/default/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/containers/grid-bento-four-cells.tsx',
+        content:
+          "import { GridBento } from '@/components/systaliko-ui/containers/grid-bento';\n\nconst IMAGES = [\n  'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D',\n  'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww',\n];\n\nexport function GridBentoFourCellsDemo() {\n  return (\n    <GridBento\n      variant={'fourCells'}\n      className=\"h-screen py-12 px-6 w-full place-content-center place-items-center\"\n    >\n      {IMAGES.map((imageUrl, index) => (\n        <div\n          key={index}\n          className=\"overflow-hidden size-full rounded-xl shadow-xl\"\n        >\n          <img className=\"size-full object-cover\" src={imageUrl} alt=\"tokyo\" />\n        </div>\n      ))}\n    </GridBento>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/grid-bento-four-cells/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-grid-bento-four-cells-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.com/r/default-grid-bento-four-cells-demo',
+  },
+  'shadcn-default-grid-bento-four-cells-demo': {
+    name: 'shadcn-default-grid-bento-four-cells-demo',
+    description:
+      'Grid Bento Demo with multiple variants with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/grid-bento-four-cells'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/grid-bento-four-cells/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/containers/grid-bento-four-cells.tsx',
+        content:
+          "import { GridBento } from '@/components/systaliko-ui/containers/grid-bento';\n\nconst IMAGES = [\n  'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D',\n  'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww',\n];\n\nexport function GridBentoFourCellsDemo() {\n  return (\n    <GridBento\n      variant={'fourCells'}\n      className=\"h-screen py-12 px-6 w-full place-content-center place-items-center\"\n    >\n      {IMAGES.map((imageUrl, index) => (\n        <div\n          key={index}\n          className=\"overflow-hidden size-full rounded-xl shadow-xl\"\n        >\n          <img className=\"size-full object-cover\" src={imageUrl} alt=\"tokyo\" />\n        </div>\n      ))}\n    </GridBento>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/grid-bento-four-cells/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-grid-bento-four-cells-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.com/r/shadcn-default-grid-bento-four-cells-demo',
+  },
+  'shadcn-new-york-grid-bento-four-cells-demo': {
+    name: 'shadcn-new-york-grid-bento-four-cells-demo',
+    description:
+      'Grid Bento Demo with multiple variants with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/grid-bento-four-cells'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/grid-bento-four-cells/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/containers/grid-bento-four-cells.tsx',
+        content:
+          "import { GridBento } from '@/components/systaliko-ui/containers/grid-bento';\n\nconst IMAGES = [\n  'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D',\n  'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww',\n];\n\nexport function GridBentoFourCellsDemo() {\n  return (\n    <GridBento\n      variant={'fourCells'}\n      className=\"h-screen py-12 px-6 w-full place-content-center place-items-center\"\n    >\n      {IMAGES.map((imageUrl, index) => (\n        <div\n          key={index}\n          className=\"overflow-hidden size-full rounded-xl shadow-xl\"\n        >\n          <img className=\"size-full object-cover\" src={imageUrl} alt=\"tokyo\" />\n        </div>\n      ))}\n    </GridBento>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/grid-bento-four-cells/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-grid-bento-four-cells-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.com/r/shadcn-new-york-grid-bento-four-cells-demo',
+  },
+  'default-grid-bento-three-cells-demo': {
+    name: 'default-grid-bento-three-cells-demo',
+    description:
+      'Demo showing how to implement scroll triggred animations with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/grid-bento-three-cells'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/grid-bento-three-cells/default/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/containers/grid-bento-three-cells.tsx',
+        content:
+          "import { GridBento } from '@/components/systaliko-ui/containers/grid-bento';\n\nconst IMAGES = [\n  'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D',\n  'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww',\n];\n\nexport function GridBentoThreeCellsDemo() {\n  return (\n    <GridBento\n      variant={'threeCells'}\n      className=\"h-screen py-12 px-6 w-full place-content-center place-items-center\"\n    >\n      {IMAGES.map((imageUrl, index) => (\n        <div\n          key={index}\n          className=\"overflow-hidden size-full rounded-xl shadow-xl\"\n        >\n          <img className=\"size-full object-cover\" src={imageUrl} alt=\"tokyo\" />\n        </div>\n      ))}\n    </GridBento>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/grid-bento-three-cells/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-grid-bento-three-cells-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.com/r/default-grid-bento-three-cells-demo',
+  },
+  'shadcn-default-grid-bento-three-cells-demo': {
+    name: 'shadcn-default-grid-bento-three-cells-demo',
+    description:
+      'Demo showing how to implement scroll triggred animations with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/grid-bento-three-cells'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/grid-bento-three-cells/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/containers/grid-bento-three-cells.tsx',
+        content:
+          "import { GridBento } from '@/components/systaliko-ui/containers/grid-bento';\n\nconst IMAGES = [\n  'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D',\n  'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww',\n];\n\nexport function GridBentoThreeCellsDemo() {\n  return (\n    <GridBento\n      variant={'threeCells'}\n      className=\"h-screen py-12 px-6 w-full place-content-center place-items-center\"\n    >\n      {IMAGES.map((imageUrl, index) => (\n        <div\n          key={index}\n          className=\"overflow-hidden size-full rounded-xl shadow-xl\"\n        >\n          <img className=\"size-full object-cover\" src={imageUrl} alt=\"tokyo\" />\n        </div>\n      ))}\n    </GridBento>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/grid-bento-three-cells/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-grid-bento-three-cells-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.com/r/shadcn-default-grid-bento-three-cells-demo',
+  },
+  'shadcn-new-york-grid-bento-three-cells-demo': {
+    name: 'shadcn-new-york-grid-bento-three-cells-demo',
+    description:
+      'Demo showing how to implement scroll triggred animations with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/grid-bento-three-cells'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/grid-bento-three-cells/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/containers/grid-bento-three-cells.tsx',
+        content:
+          "import { GridBento } from '@/components/systaliko-ui/containers/grid-bento';\n\nconst IMAGES = [\n  'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D',\n  'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww',\n];\n\nexport function GridBentoThreeCellsDemo() {\n  return (\n    <GridBento\n      variant={'threeCells'}\n      className=\"h-screen py-12 px-6 w-full place-content-center place-items-center\"\n    >\n      {IMAGES.map((imageUrl, index) => (\n        <div\n          key={index}\n          className=\"overflow-hidden size-full rounded-xl shadow-xl\"\n        >\n          <img className=\"size-full object-cover\" src={imageUrl} alt=\"tokyo\" />\n        </div>\n      ))}\n    </GridBento>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/grid-bento-three-cells/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-grid-bento-three-cells-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.com/r/shadcn-new-york-grid-bento-three-cells-demo',
+  },
   'default-grid-staggered-demo': {
     name: 'default-grid-staggered-demo',
     description:
@@ -4503,6 +4728,123 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: 'https://systaliko-ui.com/r/shadcn-new-york-custom-cursor-demo',
+  },
+  'default-hero-gallery-scroll-animation-demo': {
+    name: 'default-hero-gallery-scroll-animation-demo',
+    description:
+      'Demo of gallery and text scroll scale animations with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'http://localhost:3000/r/hero-gallery-scroll-animation',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/heros/hero-gallery-scroll-animation/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/heros/hero-gradient.tsx',
+        content:
+          "import { HeroGalleryScrollAnimation } from '@/components/systaliko-ui/heros/hero-gallery-scroll-animation';\n\nexport const HeroGalleryScrollAnimationDemo = () => (\n  <HeroGalleryScrollAnimation />\n);",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/heros/hero-gallery-scroll-animation/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-hero-gallery-scroll-animation-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.com/r/default-hero-gallery-scroll-animation-demo',
+  },
+  'shadcn-default-hero-gallery-scroll-animation-demo': {
+    name: 'shadcn-default-hero-gallery-scroll-animation-demo',
+    description:
+      'Demo of gallery and text scroll scale animations with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'http://localhost:3000/r/hero-gallery-scroll-animation',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/heros/hero-gallery-scroll-animation/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/heros/hero-gradient.tsx',
+        content:
+          "import { HeroGalleryScrollAnimation } from '@/components/systaliko-ui/heros/hero-gallery-scroll-animation';\n\nexport const HeroGalleryScrollAnimationDemo = () => (\n  <HeroGalleryScrollAnimation />\n);",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/heros/hero-gallery-scroll-animation/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-hero-gallery-scroll-animation-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.com/r/shadcn-default-hero-gallery-scroll-animation-demo',
+  },
+  'shadcn-new-york-hero-gallery-scroll-animation-demo': {
+    name: 'shadcn-new-york-hero-gallery-scroll-animation-demo',
+    description:
+      'Demo of gallery and text scroll scale animations with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'http://localhost:3000/r/hero-gallery-scroll-animation',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/heros/hero-gallery-scroll-animation/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/heros/hero-gradient.tsx',
+        content:
+          "import { HeroGalleryScrollAnimation } from '@/components/systaliko-ui/heros/hero-gallery-scroll-animation';\n\nexport const HeroGalleryScrollAnimationDemo = () => (\n  <HeroGalleryScrollAnimation />\n);",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/heros/hero-gallery-scroll-animation/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-hero-gallery-scroll-animation-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.com/r/shadcn-new-york-hero-gallery-scroll-animation-demo',
   },
   'default-hero-gradient-demo': {
     name: 'default-hero-gradient-demo',
@@ -5708,6 +6050,116 @@ export const index: Record<string, any> = {
     })(),
     command:
       'https://systaliko-ui.com/r/shadcn-new-york-use-animation-variants-demo',
+  },
+  'default-hero-gallery-scroll-animation': {
+    name: 'default-hero-gallery-scroll-animation',
+    description:
+      'Hero section with scroll trigger animation, that reverse animate both gallery images and text on scroll with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/heros/hero-gallery-scroll-animation/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/hero-gallery-scroll-animation.tsx',
+        content:
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  ContainerScrollAnimation,\n  ContainerScrollScale,\n  ContainerScrollTranslate,\n} from \'@/components/systaliko-ui/containers/containers-scroll-animations\';\nimport { GridBento } from \'@/components/systaliko-ui/containers/grid-bento\';\n\nconst IMAGES = [\n  \'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=2368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D\',\n  \'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww\',\n];\nexport const HeroGalleryScrollAnimation = () => {\n  return (\n    <ContainerScrollAnimation className="p-8">\n      <ContainerScrollTranslate className="h-dvh grid grid-cols-12 grid-rows-1">\n        <ContainerScrollScale\n          className="col-start-2 col-end-12 row-start-1 row-end-2 md:col-start-4 md:col-end-10 flex flex-col justify-center items-center space-y-6 text-center"\n          scaleRange={[1, 0]}\n          inputRange={[0.1, 0.6]}\n        >\n          <h1 className="max-w-xl text-5xl font-bold tracking-tighter">\n            Your Animated Hero\n          </h1>\n          <p className="max-w-xl text-sm md:text-base">\n            Yet another hero section, this time with scroll trigger animations,\n            animating the hero content with motion.\n          </p>\n          <div className="flex items-center justify-center gap-4">\n            <Button className="bg-indigo-500 hover:bg-indigo-300">\n              Get Started\n            </Button>\n            <Button\n              className="text-indigo-500 hover:text-indigo-300"\n              variant="link"\n            >\n              Learn more\n            </Button>\n          </div>\n        </ContainerScrollScale>\n        <GridBento className="col-start-1 row-start-1 pointer-events-none row-end-2 col-end-13">\n          {IMAGES.map((imageUrl, index) => (\n            <ContainerScrollScale\n              key={index}\n              inputRange={[0, 1]}\n              scaleRange={[0.5, 1]}\n              className="overflow-hidden"\n            >\n              <img\n                className="size-full object-cover rounded-xl shadow-xl"\n                src={imageUrl}\n                alt="tokyo city"\n              />\n            </ContainerScrollScale>\n          ))}\n        </GridBento>\n      </ContainerScrollTranslate>\n    </ContainerScrollAnimation>\n  );\n};',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/heros/hero-gallery-scroll-animation/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-hero-gallery-scroll-animation';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.com/r/default-hero-gallery-scroll-animation',
+  },
+  'shadcn-default-hero-gallery-scroll-animation': {
+    name: 'shadcn-default-hero-gallery-scroll-animation',
+    description:
+      'Hero section with scroll trigger animation, that reverse animate both gallery images and text on scroll with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/heros/hero-gallery-scroll-animation/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/hero-gallery-scroll-animation.tsx',
+        content:
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  ContainerScrollAnimation,\n  ContainerScrollScale,\n  ContainerScrollTranslate,\n} from \'@/components/systaliko-ui/containers/containers-scroll-animations\';\nimport { GridBento } from \'@/components/systaliko-ui/containers/grid-bento\';\n\nconst IMAGES = [\n  \'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=2368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D\',\n  \'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww\',\n];\nexport const HeroGalleryScrollAnimation = () => {\n  return (\n    <ContainerScrollAnimation className="p-8">\n      <ContainerScrollTranslate className="h-dvh grid grid-cols-12 grid-rows-1">\n        <ContainerScrollScale\n          className="col-start-2 col-end-12 row-start-1 row-end-2 md:col-start-4 md:col-end-10 flex flex-col justify-center items-center space-y-6 text-center"\n          scaleRange={[1, 0]}\n          inputRange={[0.1, 0.6]}\n        >\n          <h1 className="max-w-xl text-5xl font-bold tracking-tighter">\n            Your Animated Hero\n          </h1>\n          <p className="max-w-xl text-sm md:text-base">\n            Yet another hero section, this time with scroll trigger animations,\n            animating the hero content with motion.\n          </p>\n          <div className="flex items-center justify-center gap-4">\n            <Button className="bg-indigo-500 hover:bg-indigo-300">\n              Get Started\n            </Button>\n            <Button\n              className="text-indigo-500 hover:text-indigo-300"\n              variant="link"\n            >\n              Learn more\n            </Button>\n          </div>\n        </ContainerScrollScale>\n        <GridBento className="col-start-1 row-start-1 pointer-events-none row-end-2 col-end-13">\n          {IMAGES.map((imageUrl, index) => (\n            <ContainerScrollScale\n              key={index}\n              inputRange={[0, 1]}\n              scaleRange={[0.5, 1]}\n              className="overflow-hidden"\n            >\n              <img\n                className="size-full object-cover rounded-xl shadow-xl"\n                src={imageUrl}\n                alt="tokyo city"\n              />\n            </ContainerScrollScale>\n          ))}\n        </GridBento>\n      </ContainerScrollTranslate>\n    </ContainerScrollAnimation>\n  );\n};',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/heros/hero-gallery-scroll-animation/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-hero-gallery-scroll-animation';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.com/r/shadcn-default-hero-gallery-scroll-animation',
+  },
+  'shadcn-new-york-hero-gallery-scroll-animation': {
+    name: 'shadcn-new-york-hero-gallery-scroll-animation',
+    description:
+      'Hero section with scroll trigger animation, that reverse animate both gallery images and text on scroll with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/heros/hero-gallery-scroll-animation/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/hero-gallery-scroll-animation.tsx',
+        content:
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  ContainerScrollAnimation,\n  ContainerScrollScale,\n  ContainerScrollTranslate,\n} from \'@/components/systaliko-ui/containers/containers-scroll-animations\';\nimport { GridBento } from \'@/components/systaliko-ui/containers/grid-bento\';\n\nconst IMAGES = [\n  \'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=2368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D\',\n  \'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww\',\n];\nexport const HeroGalleryScrollAnimation = () => {\n  return (\n    <ContainerScrollAnimation className="p-8">\n      <ContainerScrollTranslate className="h-dvh grid grid-cols-12 grid-rows-1">\n        <ContainerScrollScale\n          className="col-start-2 col-end-12 row-start-1 row-end-2 md:col-start-4 md:col-end-10 flex flex-col justify-center items-center space-y-6 text-center"\n          scaleRange={[1, 0]}\n          inputRange={[0.1, 0.6]}\n        >\n          <h1 className="max-w-xl text-5xl font-bold tracking-tighter">\n            Your Animated Hero\n          </h1>\n          <p className="max-w-xl text-sm md:text-base">\n            Yet another hero section, this time with scroll trigger animations,\n            animating the hero content with motion.\n          </p>\n          <div className="flex items-center justify-center gap-4">\n            <Button className="bg-indigo-500 hover:bg-indigo-300">\n              Get Started\n            </Button>\n            <Button\n              className="text-indigo-500 hover:text-indigo-300"\n              variant="link"\n            >\n              Learn more\n            </Button>\n          </div>\n        </ContainerScrollScale>\n        <GridBento className="col-start-1 row-start-1 pointer-events-none row-end-2 col-end-13">\n          {IMAGES.map((imageUrl, index) => (\n            <ContainerScrollScale\n              key={index}\n              inputRange={[0, 1]}\n              scaleRange={[0.5, 1]}\n              className="overflow-hidden"\n            >\n              <img\n                className="size-full object-cover rounded-xl shadow-xl"\n                src={imageUrl}\n                alt="tokyo city"\n              />\n            </ContainerScrollScale>\n          ))}\n        </GridBento>\n      </ContainerScrollTranslate>\n    </ContainerScrollAnimation>\n  );\n};',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/heros/hero-gallery-scroll-animation/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-hero-gallery-scroll-animation';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.com/r/shadcn-new-york-hero-gallery-scroll-animation',
   },
   'default-hero-gradient': {
     name: 'default-hero-gradient',

@@ -144,7 +144,7 @@ export function ContainerScrollScale({
   className,
   style,
   ...props
-}: HTMLMotionProps<'div'> & { scaleRange?: number[]; inputRange?: number[] }) {
+}: HTMLMotionProps<'div'> & { scaleRange?: unknown[]; inputRange?: number[] }) {
   const { scrollYProgress } = useContainerScrollAnimationContext();
   const scale = useTransform(scrollYProgress, inputRange, scaleRange);
   return (

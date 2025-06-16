@@ -1,0 +1,126 @@
+---
+title: Hero Gallery Scroll Animation
+description: Hero section with scroll trigger animations, reversing the scale of the gallery and the text on scroll.
+---
+
+<ComponentPreview name="hero-gallery-scroll-animation-demo" />
+
+## Installation
+
+<ComponentInstallation name="hero-gallery-scroll-animation" />
+
+## Usage
+
+```tsx
+<ContainerScrollAnimation className="p-8">
+  <ContainerScrollTranslate className="h-dvh grid grid-cols-12 grid-rows-1">
+    <ContainerScrollScale
+      className="col-start-2 col-end-12 row-start-1 row-end-2 md:col-start-4 md:col-end-10 flex flex-col justify-center items-center space-y-6 text-center"
+      scaleRange={[1, 0]}
+      inputRange={[0.1, 0.6]}
+    >
+      <h1 className="max-w-xl text-5xl font-bold tracking-tighter">
+        Your Animated Hero
+      </h1>
+      <p className="max-w-xl text-sm md:text-base">
+        Yet another hero section, this time with scroll trigger animations,
+        animating the hero content with motion.
+      </p>
+      <div className="flex items-center justify-center gap-4">
+        <Button className="bg-indigo-500 hover:bg-indigo-300">
+          Get Started
+        </Button>
+        <Button
+          className="text-indigo-500 hover:text-indigo-300"
+          variant="link"
+        >
+          Learn more
+        </Button>
+      </div>
+    </ContainerScrollScale>
+    <GridBento className="col-start-1 row-start-1 pointer-events-none row-end-2 col-end-13">
+      {IMAGES.map((imageUrl, index) => (
+        <ContainerScrollScale
+          key={index}
+          inputRange={[0, 1]}
+          scaleRange={[0.5, 1]}
+          className="overflow-hidden"
+        >
+          <img
+            className="size-full object-cover rounded-xl shadow-xl"
+            src={imageUrl}
+            alt="tokyo city"
+          />
+        </ContainerScrollScale>
+      ))}
+    </GridBento>
+  </ContainerScrollTranslate>
+</ContainerScrollAnimation>
+```
+
+## Props
+
+#### ContainerScrollAnimation
+
+<TypeTable
+  type={{
+    spacerClass: {
+      description: 'the class to be applied to the spacer element on bottom',
+      type: 'string',
+      required: false,
+    },
+  }}
+/>
+#### ContainerScrollTranslate
+<TypeTable
+  type={{
+    yRange: {
+      description: 'the range of the y-axis',
+      type: 'unknown[]',
+      required: false,
+      default: '[0, 384]',
+    },
+    inputRange: {
+      description:
+        'the range of the of the scroll progress, map it to the "yRange" prop',
+      type: 'number []',
+      required: false,
+      default: '[0, 1]',
+    },
+  }}
+/>
+
+#### ContainerScrollScale
+
+<TypeTable
+  type={{
+    scaleRange: {
+      description: 'the range of the scale animation.',
+      type: 'unknown[]',
+      required: false,
+      default: '[1.2, 1]',
+    },
+    inputRange: {
+      description:
+        'the range of the of the scroll progress, map it to the "scaleRange" prop',
+      type: 'number []',
+      required: false,
+      default: '[0, 1]',
+    },
+  }}
+/>
+
+#### GridBento
+
+Image Gallery wrapper
+
+<TypeTable
+  type={{
+    variant: {
+      description: 'the variant of the grid',
+      type: 'default | threeCells | fourCells',
+      required: false,
+      default: 'default',
+    },
+  }}
+/>

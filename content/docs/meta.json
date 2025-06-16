@@ -12,15 +12,16 @@
     "blocks/slideshow",
     "blocks/story",
 
+    "---Heros---",
+    "heros/hero-gallery-scroll-animation",
+    "heros/hero-gradient",
+    "heros/hero-rotated-gallery",
+
     "---Cards---",
     "cards/card-curtain-reveal",
     "cards/card-flip",
     "cards/card-hover-reveal",
     "cards/card-testimonial",
-
-    "---Heros---",
-    "heros/hero-gradient",
-    "heros/hero-rotated-gallery",
 
     "---Containers / Layouts---",
     "containers/containers-scroll-animations",

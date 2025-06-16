@@ -1788,6 +1788,102 @@
       ]
     },
     {
+      "name": "default-grid-bento-four-cells-demo",
+      "type": "registry:block",
+      "title": "Grid Bento Demos",
+      "description": "Grid Bento Demo with multiple variants with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/grid-bento-four-cells"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/grid-bento-four-cells/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/grid-bento-four-cells.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-grid-bento-four-cells-demo",
+      "type": "registry:block",
+      "title": "Grid Bento Demos",
+      "description": "Grid Bento Demo with multiple variants with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/grid-bento-four-cells"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/grid-bento-four-cells/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/grid-bento-four-cells.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-grid-bento-four-cells-demo",
+      "type": "registry:block",
+      "title": "Grid Bento Demos",
+      "description": "Grid Bento Demo with multiple variants with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/grid-bento-four-cells"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/grid-bento-four-cells/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/grid-bento-four-cells.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-grid-bento-three-cells-demo",
+      "type": "registry:block",
+      "title": "Scroll Trigger Inset-X Animations Demo",
+      "description": "Demo showing how to implement scroll triggred animations with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/grid-bento-three-cells"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/grid-bento-three-cells/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/grid-bento-three-cells.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-grid-bento-three-cells-demo",
+      "type": "registry:block",
+      "title": "Scroll Trigger Inset-X Animations Demo",
+      "description": "Demo showing how to implement scroll triggred animations with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/grid-bento-three-cells"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/grid-bento-three-cells/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/grid-bento-three-cells.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-grid-bento-three-cells-demo",
+      "type": "registry:block",
+      "title": "Scroll Trigger Inset-X Animations Demo",
+      "description": "Demo showing how to implement scroll triggred animations with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/grid-bento-three-cells"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/containers/grid-bento-three-cells/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/containers/grid-bento-three-cells.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-grid-staggered-demo",
       "type": "registry:block",
       "title": "Grid Staggered Demos",
@@ -1880,6 +1976,54 @@
           "path": "__registry__/demo/custom-cursor/shadcn-new-york/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/custom-cursor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-hero-gallery-scroll-animation-demo",
+      "type": "registry:block",
+      "title": "Hero with scroll triggered animations Demo",
+      "description": "Demo of gallery and text scroll scale animations with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/hero-gallery-scroll-animation"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/heros/hero-gallery-scroll-animation/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/heros/hero-gradient.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-hero-gallery-scroll-animation-demo",
+      "type": "registry:block",
+      "title": "Hero with scroll triggered animations Demo",
+      "description": "Demo of gallery and text scroll scale animations with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/hero-gallery-scroll-animation"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/heros/hero-gallery-scroll-animation/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/heros/hero-gradient.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-hero-gallery-scroll-animation-demo",
+      "type": "registry:block",
+      "title": "Hero with scroll triggered animations Demo",
+      "description": "Demo of gallery and text scroll scale animations with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/hero-gallery-scroll-animation"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/heros/hero-gallery-scroll-animation/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/heros/hero-gradient.tsx"
         }
       ]
     },
@@ -2414,6 +2558,45 @@
           "path": "__registry__/demo/utils/use-animation-variants/shadcn-new-york/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/utils/use-animation-variants.ts"
+        }
+      ]
+    },
+    {
+      "name": "default-hero-gallery-scroll-animation",
+      "type": "registry:block",
+      "title": "Hero Gradient",
+      "description": "Hero section with scroll trigger animation, that reverse animate both gallery images and text on scroll with default style.",
+      "files": [
+        {
+          "path": "__registry__/heros/hero-gallery-scroll-animation/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/hero-gallery-scroll-animation.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-hero-gallery-scroll-animation",
+      "type": "registry:block",
+      "title": "Hero Gradient",
+      "description": "Hero section with scroll trigger animation, that reverse animate both gallery images and text on scroll with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/heros/hero-gallery-scroll-animation/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/hero-gallery-scroll-animation.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-hero-gallery-scroll-animation",
+      "type": "registry:block",
+      "title": "Hero Gradient",
+      "description": "Hero section with scroll trigger animation, that reverse animate both gallery images and text on scroll with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/heros/hero-gallery-scroll-animation/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/hero-gallery-scroll-animation.tsx"
         }
       ]
     },
