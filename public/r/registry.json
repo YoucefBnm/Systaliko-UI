@@ -158,7 +158,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "systaliko-ui.vercel.app/r/default-card-curtain-reveal"
+        "systaliko-ui.vercel.app/r/card-curtain-reveal"
       ],
       "files": [
         {
@@ -177,7 +177,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "systaliko-ui.vercel.app/r/default-card-curtain-reveal"
+        "systaliko-ui.vercel.app/r/card-curtain-reveal"
       ],
       "files": [
         {
@@ -196,7 +196,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "systaliko-ui.vercel.app/r/default-card-curtain-reveal"
+        "systaliko-ui.vercel.app/r/card-curtain-reveal"
       ],
       "files": [
         {
@@ -209,8 +209,14 @@
     {
       "name": "default-card-flip",
       "type": "registry:ui",
-      "title": "Card Flip",
+      "title": "3d Flip Card",
       "description": "An interactive card component that flips on hover with smooth 3D transitions with default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "systaliko-ui.vercel.app/r/card-flip"
+      ],
       "files": [
         {
           "path": "__registry__/cards/card-flip/default/index.tsx",
@@ -222,8 +228,14 @@
     {
       "name": "shadcn-default-card-flip",
       "type": "registry:ui",
-      "title": "Card Flip",
+      "title": "3d Flip Card",
       "description": "An interactive card component that flips on hover with smooth 3D transitions with shadcn-default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "systaliko-ui.vercel.app/r/card-flip"
+      ],
       "files": [
         {
           "path": "__registry__/cards/card-flip/shadcn-default/index.tsx",
@@ -235,8 +247,14 @@
     {
       "name": "shadcn-new-york-card-flip",
       "type": "registry:ui",
-      "title": "Card Flip",
+      "title": "3d Flip Card",
       "description": "An interactive card component that flips on hover with smooth 3D transitions with shadcn-new-york style.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "systaliko-ui.vercel.app/r/card-flip"
+      ],
       "files": [
         {
           "path": "__registry__/cards/card-flip/shadcn-new-york/index.tsx",
@@ -899,7 +917,7 @@
       "title": "Flip Card Demo",
       "description": "Demo showing Flip Card Component with default style.",
       "registryDependencies": [
-        "http://localhost:3000/r/card-flip"
+        "https://systaliko-ui.vercel.app/r/card-flip"
       ],
       "files": [
         {
@@ -915,7 +933,7 @@
       "title": "Flip Card Demo",
       "description": "Demo showing Flip Card Component with shadcn-default style.",
       "registryDependencies": [
-        "http://localhost:3000/r/card-flip"
+        "https://systaliko-ui.vercel.app/r/card-flip"
       ],
       "files": [
         {
@@ -931,7 +949,7 @@
       "title": "Flip Card Demo",
       "description": "Demo showing Flip Card Component with shadcn-new-york style.",
       "registryDependencies": [
-        "http://localhost:3000/r/card-flip"
+        "https://systaliko-ui.vercel.app/r/card-flip"
       ],
       "files": [
         {

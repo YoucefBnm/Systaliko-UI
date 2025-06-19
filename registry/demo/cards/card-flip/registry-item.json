@@ -4,7 +4,7 @@
   "type": "registry:ui",
   "title": "Flip Card Demo",
   "description": "Demo showing Flip Card Component.",
-  "registryDependencies": ["http://localhost:3000/r/card-flip"],
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/card-flip"],
   "files": [
     {
       "path": "registry/demo/cards/card-flip/index.tsx",

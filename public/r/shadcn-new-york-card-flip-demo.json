@@ -5,7 +5,7 @@
   "title": "Flip Card Demo",
   "description": "Demo showing Flip Card Component with shadcn-new-york style.",
   "registryDependencies": [
-    "http://localhost:3000/r/card-flip"
+    "https://systaliko-ui.vercel.app/r/card-flip"
   ],
   "files": [
     {

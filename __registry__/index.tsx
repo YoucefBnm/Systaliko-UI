@@ -350,9 +350,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: [
-      'systaliko-ui.vercel.app/r/default-card-curtain-reveal',
-    ],
+    registryDependencies: ['systaliko-ui.vercel.app/r/card-curtain-reveal'],
     styles: undefined,
     files: [
       {
@@ -388,9 +386,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: [
-      'systaliko-ui.vercel.app/r/default-card-curtain-reveal',
-    ],
+    registryDependencies: ['systaliko-ui.vercel.app/r/card-curtain-reveal'],
     styles: undefined,
     files: [
       {
@@ -426,9 +422,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: [
-      'systaliko-ui.vercel.app/r/default-card-curtain-reveal',
-    ],
+    registryDependencies: ['systaliko-ui.vercel.app/r/card-curtain-reveal'],
     styles: undefined,
     files: [
       {
@@ -462,9 +456,9 @@ export const index: Record<string, any> = {
     description:
       'An interactive card component that flips on hover with smooth 3D transitions with default style.',
     type: 'registry:ui',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['systaliko-ui.vercel.app/r/card-flip'],
     styles: undefined,
     files: [
       {
@@ -498,9 +492,9 @@ export const index: Record<string, any> = {
     description:
       'An interactive card component that flips on hover with smooth 3D transitions with shadcn-default style.',
     type: 'registry:ui',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['systaliko-ui.vercel.app/r/card-flip'],
     styles: undefined,
     files: [
       {
@@ -534,9 +528,9 @@ export const index: Record<string, any> = {
     description:
       'An interactive card component that flips on hover with smooth 3D transitions with shadcn-new-york style.',
     type: 'registry:ui',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['systaliko-ui.vercel.app/r/card-flip'],
     styles: undefined,
     files: [
       {
@@ -2209,7 +2203,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/card-flip'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/card-flip'],
     styles: undefined,
     files: [
       {
@@ -2244,7 +2238,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/card-flip'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/card-flip'],
     styles: undefined,
     files: [
       {
@@ -2279,7 +2273,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/card-flip'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/card-flip'],
     styles: undefined,
     files: [
       {
