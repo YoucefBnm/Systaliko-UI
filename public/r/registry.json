@@ -266,8 +266,11 @@
     {
       "name": "default-card-hover-reveal",
       "type": "registry:ui",
-      "title": "Card Hover Reveal",
+      "title": "Hover Reveal Details Card",
       "description": "Animated card with gesture animations,  Reveals hidden content and scale main image on hover with default style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/card-hover-reveal"
+      ],
       "files": [
         {
           "path": "__registry__/cards/card-hover-reveal/default/index.tsx",
@@ -279,8 +282,11 @@
     {
       "name": "shadcn-default-card-hover-reveal",
       "type": "registry:ui",
-      "title": "Card Hover Reveal",
+      "title": "Hover Reveal Details Card",
       "description": "Animated card with gesture animations,  Reveals hidden content and scale main image on hover with shadcn-default style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/card-hover-reveal"
+      ],
       "files": [
         {
           "path": "__registry__/cards/card-hover-reveal/shadcn-default/index.tsx",
@@ -292,8 +298,11 @@
     {
       "name": "shadcn-new-york-card-hover-reveal",
       "type": "registry:ui",
-      "title": "Card Hover Reveal",
+      "title": "Hover Reveal Details Card",
       "description": "Animated card with gesture animations,  Reveals hidden content and scale main image on hover with shadcn-new-york style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/card-hover-reveal"
+      ],
       "files": [
         {
           "path": "__registry__/cards/card-hover-reveal/shadcn-new-york/index.tsx",
@@ -773,7 +782,7 @@
       "title": "Background Gradient Demo",
       "description": "Demo showing a configurable background gradient with default style.",
       "registryDependencies": [
-        "https://systaliko-ui.com/r/default-background-gradient"
+        "https://systaliko-ui.vercel.app/r/background-gradient"
       ],
       "files": [
         {
@@ -789,7 +798,7 @@
       "title": "Background Gradient Demo",
       "description": "Demo showing a configurable background gradient with shadcn-default style.",
       "registryDependencies": [
-        "https://systaliko-ui.com/r/shadcn-default-background-gradient"
+        "https://systaliko-ui.vercel.app/r/background-gradient"
       ],
       "files": [
         {
@@ -805,7 +814,7 @@
       "title": "Background Gradient Demo",
       "description": "Demo showing a configurable background gradient with shadcn-new-york style.",
       "registryDependencies": [
-        "https://systaliko-ui.com/r/shadcn-new-york-background-gradient"
+        "https://systaliko-ui.vercel.app/r/background-gradient"
       ],
       "files": [
         {
@@ -965,7 +974,7 @@
       "title": "Card Hover Reveal Demo",
       "description": "Demo showing Card Hover Reveal Component with default style.",
       "registryDependencies": [
-        "http://localhost:3000/r/card-hover-reveal"
+        "https://systaliko-ui.vercel.app/r/card-hover-reveal"
       ],
       "files": [
         {
@@ -981,7 +990,7 @@
       "title": "Card Hover Reveal Demo",
       "description": "Demo showing Card Hover Reveal Component with shadcn-default style.",
       "registryDependencies": [
-        "http://localhost:3000/r/card-hover-reveal"
+        "https://systaliko-ui.vercel.app/r/card-hover-reveal"
       ],
       "files": [
         {
@@ -997,11 +1006,59 @@
       "title": "Card Hover Reveal Demo",
       "description": "Demo showing Card Hover Reveal Component with shadcn-new-york style.",
       "registryDependencies": [
-        "http://localhost:3000/r/card-hover-reveal"
+        "https://systaliko-ui.vercel.app/r/card-hover-reveal"
       ],
       "files": [
         {
           "path": "__registry__/demo/cards/card-hover-reveal/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/cards/card-hover-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-card-hover-reveal-full-demo",
+      "type": "registry:ui",
+      "title": "Card Hover Reveal Full Demo",
+      "description": "Demo showing another usecase of Card Hover Reveal Component with default style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/card-hover-reveal"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/card-hover-reveal-full/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/cards/card-hover-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-card-hover-reveal-full-demo",
+      "type": "registry:ui",
+      "title": "Card Hover Reveal Full Demo",
+      "description": "Demo showing another usecase of Card Hover Reveal Component with shadcn-default style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/card-hover-reveal"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/card-hover-reveal-full/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/cards/card-hover-reveal.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-card-hover-reveal-full-demo",
+      "type": "registry:ui",
+      "title": "Card Hover Reveal Full Demo",
+      "description": "Demo showing another usecase of Card Hover Reveal Component with shadcn-new-york style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/card-hover-reveal"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/cards/card-hover-reveal-full/shadcn-new-york/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/cards/card-hover-reveal.tsx"
         }

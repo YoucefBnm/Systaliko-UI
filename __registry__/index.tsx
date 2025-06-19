@@ -20,7 +20,7 @@ export const index: Record<string, any> = {
     styles: undefined,
     files: [],
     component: null,
-    command: 'https://systaliko-ui.com/r/index',
+    command: 'https://systaliko-ui.vercel.app/r/index',
   },
   'default-background-gradient': {
     name: 'default-background-gradient',
@@ -56,7 +56,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-background-gradient',
+    command: 'https://systaliko-ui.vercel.app/r/default-background-gradient',
   },
   'shadcn-default-background-gradient': {
     name: 'shadcn-default-background-gradient',
@@ -92,7 +92,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-background-gradient',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-background-gradient',
   },
   'shadcn-new-york-background-gradient': {
     name: 'shadcn-new-york-background-gradient',
@@ -128,7 +129,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-background-gradient',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-background-gradient',
   },
   'default-clipped-shape': {
     name: 'default-clipped-shape',
@@ -163,7 +165,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-clipped-shape',
+    command: 'https://systaliko-ui.vercel.app/r/default-clipped-shape',
   },
   'shadcn-default-clipped-shape': {
     name: 'shadcn-default-clipped-shape',
@@ -198,7 +200,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-clipped-shape',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-clipped-shape',
   },
   'shadcn-new-york-clipped-shape': {
     name: 'shadcn-new-york-clipped-shape',
@@ -233,7 +235,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-clipped-shape',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-clipped-shape',
   },
   'default-copy-button': {
     name: 'default-copy-button',
@@ -269,7 +271,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-copy-button',
+    command: 'https://systaliko-ui.vercel.app/r/default-copy-button',
   },
   'shadcn-default-copy-button': {
     name: 'shadcn-default-copy-button',
@@ -305,7 +307,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-copy-button',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-copy-button',
   },
   'shadcn-new-york-copy-button': {
     name: 'shadcn-new-york-copy-button',
@@ -341,7 +343,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-copy-button',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-copy-button',
   },
   'default-card-curtain-reveal': {
     name: 'default-card-curtain-reveal',
@@ -377,7 +379,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-card-curtain-reveal',
+    command: 'https://systaliko-ui.vercel.app/r/default-card-curtain-reveal',
   },
   'shadcn-default-card-curtain-reveal': {
     name: 'shadcn-default-card-curtain-reveal',
@@ -413,7 +415,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-card-curtain-reveal',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-card-curtain-reveal',
   },
   'shadcn-new-york-card-curtain-reveal': {
     name: 'shadcn-new-york-card-curtain-reveal',
@@ -449,7 +452,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-card-curtain-reveal',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-card-curtain-reveal',
   },
   'default-card-flip': {
     name: 'default-card-flip',
@@ -485,7 +489,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-card-flip',
+    command: 'https://systaliko-ui.vercel.app/r/default-card-flip',
   },
   'shadcn-default-card-flip': {
     name: 'shadcn-default-card-flip',
@@ -521,7 +525,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-card-flip',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-card-flip',
   },
   'shadcn-new-york-card-flip': {
     name: 'shadcn-new-york-card-flip',
@@ -557,7 +561,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-card-flip',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-card-flip',
   },
   'default-card-hover-reveal': {
     name: 'default-card-hover-reveal',
@@ -566,7 +570,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/card-hover-reveal',
+    ],
     styles: undefined,
     files: [
       {
@@ -593,7 +599,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-card-hover-reveal',
+    command: 'https://systaliko-ui.vercel.app/r/default-card-hover-reveal',
   },
   'shadcn-default-card-hover-reveal': {
     name: 'shadcn-default-card-hover-reveal',
@@ -602,7 +608,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/card-hover-reveal',
+    ],
     styles: undefined,
     files: [
       {
@@ -629,7 +637,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-card-hover-reveal',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-card-hover-reveal',
   },
   'shadcn-new-york-card-hover-reveal': {
     name: 'shadcn-new-york-card-hover-reveal',
@@ -638,7 +647,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/card-hover-reveal',
+    ],
     styles: undefined,
     files: [
       {
@@ -665,7 +676,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-card-hover-reveal',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-card-hover-reveal',
   },
   'default-card-testimonial': {
     name: 'default-card-testimonial',
@@ -701,7 +713,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-card-testimonial',
+    command: 'https://systaliko-ui.vercel.app/r/default-card-testimonial',
   },
   'shadcn-default-card-testimonial': {
     name: 'shadcn-default-card-testimonial',
@@ -737,7 +749,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-card-testimonial',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-card-testimonial',
   },
   'shadcn-new-york-card-testimonial': {
     name: 'shadcn-new-york-card-testimonial',
@@ -773,7 +786,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-card-testimonial',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-card-testimonial',
   },
   'default-cards-stack': {
     name: 'default-cards-stack',
@@ -809,7 +823,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-cards-stack',
+    command: 'https://systaliko-ui.vercel.app/r/default-cards-stack',
   },
   'shadcn-default-cards-stack': {
     name: 'shadcn-default-cards-stack',
@@ -845,7 +859,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-cards-stack',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-cards-stack',
   },
   'shadcn-new-york-cards-stack': {
     name: 'shadcn-new-york-cards-stack',
@@ -881,7 +895,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-cards-stack',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-cards-stack',
   },
   'default-cards-stack-rotated': {
     name: 'default-cards-stack-rotated',
@@ -917,7 +931,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-cards-stack-rotated',
+    command: 'https://systaliko-ui.vercel.app/r/default-cards-stack-rotated',
   },
   'shadcn-default-cards-stack-rotated': {
     name: 'shadcn-default-cards-stack-rotated',
@@ -953,7 +967,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-cards-stack-rotated',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-cards-stack-rotated',
   },
   'shadcn-new-york-cards-stack-rotated': {
     name: 'shadcn-new-york-cards-stack-rotated',
@@ -989,7 +1004,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-cards-stack-rotated',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-cards-stack-rotated',
   },
   'default-container-clipped': {
     name: 'default-container-clipped',
@@ -1024,7 +1040,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-container-clipped',
+    command: 'https://systaliko-ui.vercel.app/r/default-container-clipped',
   },
   'shadcn-default-container-clipped': {
     name: 'shadcn-default-container-clipped',
@@ -1059,7 +1075,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-container-clipped',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-container-clipped',
   },
   'shadcn-new-york-container-clipped': {
     name: 'shadcn-new-york-container-clipped',
@@ -1094,7 +1111,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-container-clipped',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-container-clipped',
   },
   'default-container-infinite-scroll': {
     name: 'default-container-infinite-scroll',
@@ -1131,7 +1149,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-container-infinite-scroll',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-container-infinite-scroll',
   },
   'shadcn-default-container-infinite-scroll': {
     name: 'shadcn-default-container-infinite-scroll',
@@ -1169,7 +1188,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-container-infinite-scroll',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-container-infinite-scroll',
   },
   'shadcn-new-york-container-infinite-scroll': {
     name: 'shadcn-new-york-container-infinite-scroll',
@@ -1207,7 +1226,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-container-infinite-scroll',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-container-infinite-scroll',
   },
   'default-container-stagger': {
     name: 'default-container-stagger',
@@ -1243,7 +1262,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-container-stagger',
+    command: 'https://systaliko-ui.vercel.app/r/default-container-stagger',
   },
   'shadcn-default-container-stagger': {
     name: 'shadcn-default-container-stagger',
@@ -1279,7 +1298,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-container-stagger',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-container-stagger',
   },
   'shadcn-new-york-container-stagger': {
     name: 'shadcn-new-york-container-stagger',
@@ -1315,7 +1335,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-container-stagger',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-container-stagger',
   },
   'default-containers-scroll-animations': {
     name: 'default-containers-scroll-animations',
@@ -1352,7 +1373,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-containers-scroll-animations',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-containers-scroll-animations',
   },
   'shadcn-default-containers-scroll-animations': {
     name: 'shadcn-default-containers-scroll-animations',
@@ -1390,7 +1412,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-containers-scroll-animations',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-containers-scroll-animations',
   },
   'shadcn-new-york-containers-scroll-animations': {
     name: 'shadcn-new-york-containers-scroll-animations',
@@ -1428,7 +1450,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-containers-scroll-animations',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-containers-scroll-animations',
   },
   'default-gallery-rotated-scroll': {
     name: 'default-gallery-rotated-scroll',
@@ -1464,7 +1486,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-gallery-rotated-scroll',
+    command: 'https://systaliko-ui.vercel.app/r/default-gallery-rotated-scroll',
   },
   'shadcn-default-gallery-rotated-scroll': {
     name: 'shadcn-default-gallery-rotated-scroll',
@@ -1500,7 +1522,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-gallery-rotated-scroll',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-gallery-rotated-scroll',
   },
   'shadcn-new-york-gallery-rotated-scroll': {
     name: 'shadcn-new-york-gallery-rotated-scroll',
@@ -1537,7 +1560,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-gallery-rotated-scroll',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-gallery-rotated-scroll',
   },
   'default-grid-bento': {
     name: 'default-grid-bento',
@@ -1573,7 +1596,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-grid-bento',
+    command: 'https://systaliko-ui.vercel.app/r/default-grid-bento',
   },
   'shadcn-default-grid-bento': {
     name: 'shadcn-default-grid-bento',
@@ -1609,7 +1632,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-grid-bento',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-grid-bento',
   },
   'shadcn-new-york-grid-bento': {
     name: 'shadcn-new-york-grid-bento',
@@ -1645,7 +1668,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-grid-bento',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-grid-bento',
   },
   'default-grid-staggered': {
     name: 'default-grid-staggered',
@@ -1681,7 +1704,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-grid-staggered',
+    command: 'https://systaliko-ui.vercel.app/r/default-grid-staggered',
   },
   'shadcn-default-grid-staggered': {
     name: 'shadcn-default-grid-staggered',
@@ -1717,7 +1740,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-grid-staggered',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-grid-staggered',
   },
   'shadcn-new-york-grid-staggered': {
     name: 'shadcn-new-york-grid-staggered',
@@ -1753,7 +1776,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-grid-staggered',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-grid-staggered',
   },
   'default-custom-cursor': {
     name: 'default-custom-cursor',
@@ -1789,7 +1812,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-custom-cursor',
+    command: 'https://systaliko-ui.vercel.app/r/default-custom-cursor',
   },
   'shadcn-default-custom-cursor': {
     name: 'shadcn-default-custom-cursor',
@@ -1825,7 +1848,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-custom-cursor',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-custom-cursor',
   },
   'shadcn-new-york-custom-cursor': {
     name: 'shadcn-new-york-custom-cursor',
@@ -1861,7 +1884,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-custom-cursor',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-custom-cursor',
   },
   'default-background-gradient-demo': {
     name: 'default-background-gradient-demo',
@@ -1871,7 +1894,7 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.com/r/default-background-gradient',
+      'https://systaliko-ui.vercel.app/r/background-gradient',
     ],
     styles: undefined,
     files: [
@@ -1899,7 +1922,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-background-gradient-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-background-gradient-demo',
   },
   'shadcn-default-background-gradient-demo': {
     name: 'shadcn-default-background-gradient-demo',
@@ -1909,7 +1933,7 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.com/r/shadcn-default-background-gradient',
+      'https://systaliko-ui.vercel.app/r/background-gradient',
     ],
     styles: undefined,
     files: [
@@ -1938,7 +1962,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-background-gradient-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-background-gradient-demo',
   },
   'shadcn-new-york-background-gradient-demo': {
     name: 'shadcn-new-york-background-gradient-demo',
@@ -1948,7 +1972,7 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.com/r/shadcn-new-york-background-gradient',
+      'https://systaliko-ui.vercel.app/r/background-gradient',
     ],
     styles: undefined,
     files: [
@@ -1977,7 +2001,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-background-gradient-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-background-gradient-demo',
   },
   'default-clipped-shape-demo': {
     name: 'default-clipped-shape-demo',
@@ -2013,7 +2037,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-clipped-shape-demo',
+    command: 'https://systaliko-ui.vercel.app/r/default-clipped-shape-demo',
   },
   'shadcn-default-clipped-shape-demo': {
     name: 'shadcn-default-clipped-shape-demo',
@@ -2049,7 +2073,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-clipped-shape-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-clipped-shape-demo',
   },
   'shadcn-new-york-clipped-shape-demo': {
     name: 'shadcn-new-york-clipped-shape-demo',
@@ -2085,7 +2110,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-clipped-shape-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-clipped-shape-demo',
   },
   'default-card-curtain-reveal-demo': {
     name: 'default-card-curtain-reveal-demo',
@@ -2121,7 +2147,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-card-curtain-reveal-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-card-curtain-reveal-demo',
   },
   'shadcn-default-card-curtain-reveal-demo': {
     name: 'shadcn-default-card-curtain-reveal-demo',
@@ -2158,7 +2185,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-card-curtain-reveal-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-card-curtain-reveal-demo',
   },
   'shadcn-new-york-card-curtain-reveal-demo': {
     name: 'shadcn-new-york-card-curtain-reveal-demo',
@@ -2195,7 +2222,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-card-curtain-reveal-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-card-curtain-reveal-demo',
   },
   'default-card-flip-demo': {
     name: 'default-card-flip-demo',
@@ -2230,7 +2257,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-card-flip-demo',
+    command: 'https://systaliko-ui.vercel.app/r/default-card-flip-demo',
   },
   'shadcn-default-card-flip-demo': {
     name: 'shadcn-default-card-flip-demo',
@@ -2265,7 +2292,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-card-flip-demo',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-card-flip-demo',
   },
   'shadcn-new-york-card-flip-demo': {
     name: 'shadcn-new-york-card-flip-demo',
@@ -2300,7 +2327,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-card-flip-demo',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-card-flip-demo',
   },
   'default-card-hover-reveal-demo': {
     name: 'default-card-hover-reveal-demo',
@@ -2308,7 +2335,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/card-hover-reveal'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/card-hover-reveal',
+    ],
     styles: undefined,
     files: [
       {
@@ -2335,7 +2364,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-card-hover-reveal-demo',
+    command: 'https://systaliko-ui.vercel.app/r/default-card-hover-reveal-demo',
   },
   'shadcn-default-card-hover-reveal-demo': {
     name: 'shadcn-default-card-hover-reveal-demo',
@@ -2344,7 +2373,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/card-hover-reveal'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/card-hover-reveal',
+    ],
     styles: undefined,
     files: [
       {
@@ -2371,7 +2402,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-card-hover-reveal-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-card-hover-reveal-demo',
   },
   'shadcn-new-york-card-hover-reveal-demo': {
     name: 'shadcn-new-york-card-hover-reveal-demo',
@@ -2380,7 +2412,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/card-hover-reveal'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/card-hover-reveal',
+    ],
     styles: undefined,
     files: [
       {
@@ -2408,7 +2442,124 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-card-hover-reveal-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-card-hover-reveal-demo',
+  },
+  'default-card-hover-reveal-full-demo': {
+    name: 'default-card-hover-reveal-full-demo',
+    description:
+      'Demo showing another usecase of Card Hover Reveal Component with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/card-hover-reveal',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/card-hover-reveal-full/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/cards/card-hover-reveal.tsx',
+        content:
+          'import {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from \'@/components/systaliko-ui/cards/card-hover-reveal\';\n\nexport const CardHoverRevealDemo = () => (\n  <CardHoverReveal className="h-[512px] w-[385px] rounded-xl">\n    <CardHoverRevealMain hoverScale={1.2}>\n      <img\n        width={1077}\n        height={606}\n        alt="product image"\n        src="https://images.unsplash.com/photo-1619551734325-81aaf323686c?q=80&w=2549&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        className="inline-block size-full max-h-full max-w-full object-cover align-middle"\n      />\n    </CardHoverRevealMain>\n\n    <CardHoverRevealContent className="space-y-4 rounded-2xl bg-black/80 text-secondary/80 p-4">\n      <div className="space-y-2">\n        <h3 className="text-sm ">Services</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-secondary-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">Branding</p>\n          </div>\n          <div className=" rounded-full bg-secondary-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">3D Modeling</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className=" text-sm ">Stack</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Auto CAD</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Key Shot</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">In Design</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className="text-sm ">Profile</h3>\n        {/* tag */}\n        <div className="flex flex-wrap gap-2 ">\n          <p className="text-sm text-secondary">\n            Comprehensive platform designed for an agency, Creating professional\n            and business-oriented brand.\n          </p>\n        </div>\n      </div>\n    </CardHoverRevealContent>\n  </CardHoverReveal>\n);',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/card-hover-reveal-full/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-card-hover-reveal-full-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/default-card-hover-reveal-full-demo',
+  },
+  'shadcn-default-card-hover-reveal-full-demo': {
+    name: 'shadcn-default-card-hover-reveal-full-demo',
+    description:
+      'Demo showing another usecase of Card Hover Reveal Component with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/card-hover-reveal',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/card-hover-reveal-full/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/cards/card-hover-reveal.tsx',
+        content:
+          'import {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from \'@/components/systaliko-ui/cards/card-hover-reveal\';\n\nexport const CardHoverRevealDemo = () => (\n  <CardHoverReveal className="h-[512px] w-[385px] rounded-xl">\n    <CardHoverRevealMain hoverScale={1.2}>\n      <img\n        width={1077}\n        height={606}\n        alt="product image"\n        src="https://images.unsplash.com/photo-1619551734325-81aaf323686c?q=80&w=2549&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        className="inline-block size-full max-h-full max-w-full object-cover align-middle"\n      />\n    </CardHoverRevealMain>\n\n    <CardHoverRevealContent className="space-y-4 rounded-2xl bg-black/80 text-secondary/80 p-4">\n      <div className="space-y-2">\n        <h3 className="text-sm ">Services</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-secondary-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">Branding</p>\n          </div>\n          <div className=" rounded-full bg-secondary-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">3D Modeling</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className=" text-sm ">Stack</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Auto CAD</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Key Shot</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">In Design</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className="text-sm ">Profile</h3>\n        {/* tag */}\n        <div className="flex flex-wrap gap-2 ">\n          <p className="text-sm text-secondary">\n            Comprehensive platform designed for an agency, Creating professional\n            and business-oriented brand.\n          </p>\n        </div>\n      </div>\n    </CardHoverRevealContent>\n  </CardHoverReveal>\n);',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/card-hover-reveal-full/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-card-hover-reveal-full-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-card-hover-reveal-full-demo',
+  },
+  'shadcn-new-york-card-hover-reveal-full-demo': {
+    name: 'shadcn-new-york-card-hover-reveal-full-demo',
+    description:
+      'Demo showing another usecase of Card Hover Reveal Component with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/card-hover-reveal',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/card-hover-reveal-full/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/cards/card-hover-reveal.tsx',
+        content:
+          'import {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from \'@/components/systaliko-ui/cards/card-hover-reveal\';\n\nexport const CardHoverRevealDemo = () => (\n  <CardHoverReveal className="h-[512px] w-[385px] rounded-xl">\n    <CardHoverRevealMain hoverScale={1.2}>\n      <img\n        width={1077}\n        height={606}\n        alt="product image"\n        src="https://images.unsplash.com/photo-1619551734325-81aaf323686c?q=80&w=2549&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        className="inline-block size-full max-h-full max-w-full object-cover align-middle"\n      />\n    </CardHoverRevealMain>\n\n    <CardHoverRevealContent className="space-y-4 rounded-2xl bg-black/80 text-secondary/80 p-4">\n      <div className="space-y-2">\n        <h3 className="text-sm ">Services</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-secondary-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">Branding</p>\n          </div>\n          <div className=" rounded-full bg-secondary-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">3D Modeling</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className=" text-sm ">Stack</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Auto CAD</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Key Shot</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">In Design</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className="text-sm ">Profile</h3>\n        {/* tag */}\n        <div className="flex flex-wrap gap-2 ">\n          <p className="text-sm text-secondary">\n            Comprehensive platform designed for an agency, Creating professional\n            and business-oriented brand.\n          </p>\n        </div>\n      </div>\n    </CardHoverRevealContent>\n  </CardHoverReveal>\n);',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/card-hover-reveal-full/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-card-hover-reveal-full-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-card-hover-reveal-full-demo',
   },
   'default-card-testimonial-demo': {
     name: 'default-card-testimonial-demo',
@@ -2443,7 +2594,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-card-testimonial-demo',
+    command: 'https://systaliko-ui.vercel.app/r/default-card-testimonial-demo',
   },
   'shadcn-default-card-testimonial-demo': {
     name: 'shadcn-default-card-testimonial-demo',
@@ -2479,7 +2630,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-card-testimonial-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-card-testimonial-demo',
   },
   'shadcn-new-york-card-testimonial-demo': {
     name: 'shadcn-new-york-card-testimonial-demo',
@@ -2515,7 +2667,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-card-testimonial-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-card-testimonial-demo',
   },
   'default-cards-stack-demo': {
     name: 'default-cards-stack-demo',
@@ -2550,7 +2703,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-cards-stack-demo',
+    command: 'https://systaliko-ui.vercel.app/r/default-cards-stack-demo',
   },
   'shadcn-default-cards-stack-demo': {
     name: 'shadcn-default-cards-stack-demo',
@@ -2586,7 +2739,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-cards-stack-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-cards-stack-demo',
   },
   'shadcn-new-york-cards-stack-demo': {
     name: 'shadcn-new-york-cards-stack-demo',
@@ -2622,7 +2776,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-cards-stack-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-cards-stack-demo',
   },
   'default-cards-stack-full-demo': {
     name: 'default-cards-stack-full-demo',
@@ -2658,7 +2813,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-cards-stack-full-demo',
+    command: 'https://systaliko-ui.vercel.app/r/default-cards-stack-full-demo',
   },
   'shadcn-default-cards-stack-full-demo': {
     name: 'shadcn-default-cards-stack-full-demo',
@@ -2694,7 +2849,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-cards-stack-full-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-cards-stack-full-demo',
   },
   'shadcn-new-york-cards-stack-full-demo': {
     name: 'shadcn-new-york-cards-stack-full-demo',
@@ -2730,7 +2886,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-cards-stack-full-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-cards-stack-full-demo',
   },
   'default-cards-stack-rotated-demo': {
     name: 'default-cards-stack-rotated-demo',
@@ -2766,7 +2923,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-cards-stack-rotated-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-cards-stack-rotated-demo',
   },
   'shadcn-default-cards-stack-rotated-demo': {
     name: 'shadcn-default-cards-stack-rotated-demo',
@@ -2803,7 +2961,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-cards-stack-rotated-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-cards-stack-rotated-demo',
   },
   'shadcn-new-york-cards-stack-rotated-demo': {
     name: 'shadcn-new-york-cards-stack-rotated-demo',
@@ -2840,7 +2998,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-cards-stack-rotated-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-cards-stack-rotated-demo',
   },
   'default-cards-stack-rotated-recognitions-demo': {
     name: 'default-cards-stack-rotated-recognitions-demo',
@@ -2878,7 +3036,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/default-cards-stack-rotated-recognitions-demo',
+      'https://systaliko-ui.vercel.app/r/default-cards-stack-rotated-recognitions-demo',
   },
   'shadcn-default-cards-stack-rotated-recognitions-demo': {
     name: 'shadcn-default-cards-stack-rotated-recognitions-demo',
@@ -2916,7 +3074,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-cards-stack-rotated-recognitions-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-cards-stack-rotated-recognitions-demo',
   },
   'shadcn-new-york-cards-stack-rotated-recognitions-demo': {
     name: 'shadcn-new-york-cards-stack-rotated-recognitions-demo',
@@ -2954,7 +3112,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-cards-stack-rotated-recognitions-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-cards-stack-rotated-recognitions-demo',
   },
   'default-cards-stack-sm-demo': {
     name: 'default-cards-stack-sm-demo',
@@ -2990,7 +3148,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-cards-stack-sm-demo',
+    command: 'https://systaliko-ui.vercel.app/r/default-cards-stack-sm-demo',
   },
   'shadcn-default-cards-stack-sm-demo': {
     name: 'shadcn-default-cards-stack-sm-demo',
@@ -3026,7 +3184,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-cards-stack-sm-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-cards-stack-sm-demo',
   },
   'shadcn-new-york-cards-stack-sm-demo': {
     name: 'shadcn-new-york-cards-stack-sm-demo',
@@ -3062,7 +3221,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-cards-stack-sm-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-cards-stack-sm-demo',
   },
   'default-container-clipped-demo': {
     name: 'default-container-clipped-demo',
@@ -3097,7 +3257,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-container-clipped-demo',
+    command: 'https://systaliko-ui.vercel.app/r/default-container-clipped-demo',
   },
   'shadcn-default-container-clipped-demo': {
     name: 'shadcn-default-container-clipped-demo',
@@ -3133,7 +3293,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-container-clipped-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-container-clipped-demo',
   },
   'shadcn-new-york-container-clipped-demo': {
     name: 'shadcn-new-york-container-clipped-demo',
@@ -3170,7 +3331,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-container-clipped-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-container-clipped-demo',
   },
   'default-container-infinite-scroll-demo': {
     name: 'default-container-infinite-scroll-demo',
@@ -3207,7 +3368,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/default-container-infinite-scroll-demo',
+      'https://systaliko-ui.vercel.app/r/default-container-infinite-scroll-demo',
   },
   'shadcn-default-container-infinite-scroll-demo': {
     name: 'shadcn-default-container-infinite-scroll-demo',
@@ -3245,7 +3406,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-container-infinite-scroll-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-container-infinite-scroll-demo',
   },
   'shadcn-new-york-container-infinite-scroll-demo': {
     name: 'shadcn-new-york-container-infinite-scroll-demo',
@@ -3283,7 +3444,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-container-infinite-scroll-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-container-infinite-scroll-demo',
   },
   'default-container-scroll-combo-demo': {
     name: 'default-container-scroll-combo-demo',
@@ -3320,7 +3481,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-container-scroll-combo-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-container-scroll-combo-demo',
   },
   'shadcn-default-container-scroll-combo-demo': {
     name: 'shadcn-default-container-scroll-combo-demo',
@@ -3358,7 +3520,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-container-scroll-combo-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-container-scroll-combo-demo',
   },
   'shadcn-new-york-container-scroll-combo-demo': {
     name: 'shadcn-new-york-container-scroll-combo-demo',
@@ -3396,7 +3558,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-container-scroll-combo-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-container-scroll-combo-demo',
   },
   'default-container-scroll-inset-demo': {
     name: 'default-container-scroll-inset-demo',
@@ -3433,7 +3595,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-container-scroll-inset-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-container-scroll-inset-demo',
   },
   'shadcn-default-container-scroll-inset-demo': {
     name: 'shadcn-default-container-scroll-inset-demo',
@@ -3471,7 +3634,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-container-scroll-inset-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-container-scroll-inset-demo',
   },
   'shadcn-new-york-container-scroll-inset-demo': {
     name: 'shadcn-new-york-container-scroll-inset-demo',
@@ -3509,7 +3672,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-container-scroll-inset-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-container-scroll-inset-demo',
   },
   'default-container-scroll-inset-x-demo': {
     name: 'default-container-scroll-inset-x-demo',
@@ -3546,7 +3709,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-container-scroll-inset-x-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-container-scroll-inset-x-demo',
   },
   'shadcn-default-container-scroll-inset-x-demo': {
     name: 'shadcn-default-container-scroll-inset-x-demo',
@@ -3584,7 +3748,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-container-scroll-inset-x-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-container-scroll-inset-x-demo',
   },
   'shadcn-new-york-container-scroll-inset-x-demo': {
     name: 'shadcn-new-york-container-scroll-inset-x-demo',
@@ -3622,7 +3786,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-container-scroll-inset-x-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-container-scroll-inset-x-demo',
   },
   'default-container-scroll-inset-y-demo': {
     name: 'default-container-scroll-inset-y-demo',
@@ -3659,7 +3823,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-container-scroll-inset-y-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-container-scroll-inset-y-demo',
   },
   'shadcn-default-container-scroll-inset-y-demo': {
     name: 'shadcn-default-container-scroll-inset-y-demo',
@@ -3697,7 +3862,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-container-scroll-inset-y-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-container-scroll-inset-y-demo',
   },
   'shadcn-new-york-container-scroll-inset-y-demo': {
     name: 'shadcn-new-york-container-scroll-inset-y-demo',
@@ -3735,7 +3900,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-container-scroll-inset-y-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-container-scroll-inset-y-demo',
   },
   'default-container-scroll-radius-demo': {
     name: 'default-container-scroll-radius-demo',
@@ -3772,7 +3937,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-container-scroll-radius-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-container-scroll-radius-demo',
   },
   'shadcn-default-container-scroll-radius-demo': {
     name: 'shadcn-default-container-scroll-radius-demo',
@@ -3810,7 +3976,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-container-scroll-radius-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-container-scroll-radius-demo',
   },
   'shadcn-new-york-container-scroll-radius-demo': {
     name: 'shadcn-new-york-container-scroll-radius-demo',
@@ -3848,7 +4014,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-container-scroll-radius-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-container-scroll-radius-demo',
   },
   'default-container-scroll-scale-demo': {
     name: 'default-container-scroll-scale-demo',
@@ -3885,7 +4051,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-container-scroll-scale-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-container-scroll-scale-demo',
   },
   'shadcn-default-container-scroll-scale-demo': {
     name: 'shadcn-default-container-scroll-scale-demo',
@@ -3923,7 +4090,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-container-scroll-scale-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-container-scroll-scale-demo',
   },
   'shadcn-new-york-container-scroll-scale-demo': {
     name: 'shadcn-new-york-container-scroll-scale-demo',
@@ -3961,7 +4128,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-container-scroll-scale-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-container-scroll-scale-demo',
   },
   'default-container-stagger-demo': {
     name: 'default-container-stagger-demo',
@@ -3997,7 +4164,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-container-stagger-demo',
+    command: 'https://systaliko-ui.vercel.app/r/default-container-stagger-demo',
   },
   'shadcn-default-container-stagger-demo': {
     name: 'shadcn-default-container-stagger-demo',
@@ -4033,7 +4200,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-container-stagger-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-container-stagger-demo',
   },
   'shadcn-new-york-container-stagger-demo': {
     name: 'shadcn-new-york-container-stagger-demo',
@@ -4070,7 +4238,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-container-stagger-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-container-stagger-demo',
   },
   'default-gallery-rotated-scroll-demo': {
     name: 'default-gallery-rotated-scroll-demo',
@@ -4107,7 +4275,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-gallery-rotated-scroll-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-gallery-rotated-scroll-demo',
   },
   'shadcn-default-gallery-rotated-scroll-demo': {
     name: 'shadcn-default-gallery-rotated-scroll-demo',
@@ -4145,7 +4314,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-gallery-rotated-scroll-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-gallery-rotated-scroll-demo',
   },
   'shadcn-new-york-gallery-rotated-scroll-demo': {
     name: 'shadcn-new-york-gallery-rotated-scroll-demo',
@@ -4183,7 +4352,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-gallery-rotated-scroll-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-gallery-rotated-scroll-demo',
   },
   'default-grid-bento-demo': {
     name: 'default-grid-bento-demo',
@@ -4218,7 +4387,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-grid-bento-demo',
+    command: 'https://systaliko-ui.vercel.app/r/default-grid-bento-demo',
   },
   'shadcn-default-grid-bento-demo': {
     name: 'shadcn-default-grid-bento-demo',
@@ -4254,7 +4423,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-grid-bento-demo',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-grid-bento-demo',
   },
   'shadcn-new-york-grid-bento-demo': {
     name: 'shadcn-new-york-grid-bento-demo',
@@ -4290,7 +4459,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-grid-bento-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-grid-bento-demo',
   },
   'default-grid-bento-four-cells-demo': {
     name: 'default-grid-bento-four-cells-demo',
@@ -4326,7 +4496,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-grid-bento-four-cells-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-grid-bento-four-cells-demo',
   },
   'shadcn-default-grid-bento-four-cells-demo': {
     name: 'shadcn-default-grid-bento-four-cells-demo',
@@ -4364,7 +4535,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-grid-bento-four-cells-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-grid-bento-four-cells-demo',
   },
   'shadcn-new-york-grid-bento-four-cells-demo': {
     name: 'shadcn-new-york-grid-bento-four-cells-demo',
@@ -4402,7 +4573,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-grid-bento-four-cells-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-grid-bento-four-cells-demo',
   },
   'default-grid-bento-three-cells-demo': {
     name: 'default-grid-bento-three-cells-demo',
@@ -4439,7 +4610,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-grid-bento-three-cells-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-grid-bento-three-cells-demo',
   },
   'shadcn-default-grid-bento-three-cells-demo': {
     name: 'shadcn-default-grid-bento-three-cells-demo',
@@ -4477,7 +4649,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-grid-bento-three-cells-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-grid-bento-three-cells-demo',
   },
   'shadcn-new-york-grid-bento-three-cells-demo': {
     name: 'shadcn-new-york-grid-bento-three-cells-demo',
@@ -4515,7 +4687,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-grid-bento-three-cells-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-grid-bento-three-cells-demo',
   },
   'default-grid-staggered-demo': {
     name: 'default-grid-staggered-demo',
@@ -4551,7 +4723,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-grid-staggered-demo',
+    command: 'https://systaliko-ui.vercel.app/r/default-grid-staggered-demo',
   },
   'shadcn-default-grid-staggered-demo': {
     name: 'shadcn-default-grid-staggered-demo',
@@ -4587,7 +4759,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-grid-staggered-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-grid-staggered-demo',
   },
   'shadcn-new-york-grid-staggered-demo': {
     name: 'shadcn-new-york-grid-staggered-demo',
@@ -4623,7 +4796,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-grid-staggered-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-grid-staggered-demo',
   },
   'default-custom-cursor-demo': {
     name: 'default-custom-cursor-demo',
@@ -4658,7 +4832,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-custom-cursor-demo',
+    command: 'https://systaliko-ui.vercel.app/r/default-custom-cursor-demo',
   },
   'shadcn-default-custom-cursor-demo': {
     name: 'shadcn-default-custom-cursor-demo',
@@ -4694,7 +4868,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-custom-cursor-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-custom-cursor-demo',
   },
   'shadcn-new-york-custom-cursor-demo': {
     name: 'shadcn-new-york-custom-cursor-demo',
@@ -4730,7 +4905,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-custom-cursor-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-custom-cursor-demo',
   },
   'default-hero-gallery-scroll-animation-demo': {
     name: 'default-hero-gallery-scroll-animation-demo',
@@ -4769,7 +4945,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/default-hero-gallery-scroll-animation-demo',
+      'https://systaliko-ui.vercel.app/r/default-hero-gallery-scroll-animation-demo',
   },
   'shadcn-default-hero-gallery-scroll-animation-demo': {
     name: 'shadcn-default-hero-gallery-scroll-animation-demo',
@@ -4808,7 +4984,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-hero-gallery-scroll-animation-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-hero-gallery-scroll-animation-demo',
   },
   'shadcn-new-york-hero-gallery-scroll-animation-demo': {
     name: 'shadcn-new-york-hero-gallery-scroll-animation-demo',
@@ -4847,7 +5023,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-hero-gallery-scroll-animation-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-hero-gallery-scroll-animation-demo',
   },
   'default-hero-gradient-demo': {
     name: 'default-hero-gradient-demo',
@@ -4882,7 +5058,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-hero-gradient-demo',
+    command: 'https://systaliko-ui.vercel.app/r/default-hero-gradient-demo',
   },
   'shadcn-default-hero-gradient-demo': {
     name: 'shadcn-default-hero-gradient-demo',
@@ -4918,7 +5094,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-hero-gradient-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-hero-gradient-demo',
   },
   'shadcn-new-york-hero-gradient-demo': {
     name: 'shadcn-new-york-hero-gradient-demo',
@@ -4954,7 +5131,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-hero-gradient-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-hero-gradient-demo',
   },
   'default-hero-rotated-gallery-demo': {
     name: 'default-hero-rotated-gallery-demo',
@@ -4990,7 +5168,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-hero-rotated-gallery-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-hero-rotated-gallery-demo',
   },
   'shadcn-default-hero-rotated-gallery-demo': {
     name: 'shadcn-default-hero-rotated-gallery-demo',
@@ -5027,7 +5206,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-hero-rotated-gallery-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-hero-rotated-gallery-demo',
   },
   'shadcn-new-york-hero-rotated-gallery-demo': {
     name: 'shadcn-new-york-hero-rotated-gallery-demo',
@@ -5064,7 +5243,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-hero-rotated-gallery-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-hero-rotated-gallery-demo',
   },
   'default-rating-stars-demo': {
     name: 'default-rating-stars-demo',
@@ -5099,7 +5278,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-rating-stars-demo',
+    command: 'https://systaliko-ui.vercel.app/r/default-rating-stars-demo',
   },
   'shadcn-default-rating-stars-demo': {
     name: 'shadcn-default-rating-stars-demo',
@@ -5135,7 +5314,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-rating-stars-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-rating-stars-demo',
   },
   'shadcn-new-york-rating-stars-demo': {
     name: 'shadcn-new-york-rating-stars-demo',
@@ -5171,7 +5351,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-rating-stars-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-rating-stars-demo',
   },
   'default-section-gallery-demo': {
     name: 'default-section-gallery-demo',
@@ -5206,7 +5387,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-section-gallery-demo',
+    command: 'https://systaliko-ui.vercel.app/r/default-section-gallery-demo',
   },
   'shadcn-default-section-gallery-demo': {
     name: 'shadcn-default-section-gallery-demo',
@@ -5241,7 +5422,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-section-gallery-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-section-gallery-demo',
   },
   'shadcn-new-york-section-gallery-demo': {
     name: 'shadcn-new-york-section-gallery-demo',
@@ -5276,7 +5458,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-section-gallery-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-section-gallery-demo',
   },
   'default-slideshow-demo': {
     name: 'default-slideshow-demo',
@@ -5312,7 +5495,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-slideshow-demo',
+    command: 'https://systaliko-ui.vercel.app/r/default-slideshow-demo',
   },
   'shadcn-default-slideshow-demo': {
     name: 'shadcn-default-slideshow-demo',
@@ -5348,7 +5531,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-slideshow-demo',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-slideshow-demo',
   },
   'shadcn-new-york-slideshow-demo': {
     name: 'shadcn-new-york-slideshow-demo',
@@ -5384,7 +5567,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-slideshow-demo',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-slideshow-demo',
   },
   'default-story-demo': {
     name: 'default-story-demo',
@@ -5417,7 +5600,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-story-demo',
+    command: 'https://systaliko-ui.vercel.app/r/default-story-demo',
   },
   'shadcn-default-story-demo': {
     name: 'shadcn-default-story-demo',
@@ -5453,7 +5636,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-story-demo',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-story-demo',
   },
   'shadcn-new-york-story-demo': {
     name: 'shadcn-new-york-story-demo',
@@ -5489,7 +5672,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-story-demo',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-story-demo',
   },
   'default-text-stagger-hover-demo': {
     name: 'default-text-stagger-hover-demo',
@@ -5525,7 +5708,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-text-stagger-hover-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-text-stagger-hover-demo',
   },
   'shadcn-default-text-stagger-hover-demo': {
     name: 'shadcn-default-text-stagger-hover-demo',
@@ -5562,7 +5746,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-text-stagger-hover-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-text-stagger-hover-demo',
   },
   'shadcn-new-york-text-stagger-hover-demo': {
     name: 'shadcn-new-york-text-stagger-hover-demo',
@@ -5599,7 +5783,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-text-stagger-hover-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-text-stagger-hover-demo',
   },
   'default-text-stagger-inview-demo': {
     name: 'default-text-stagger-inview-demo',
@@ -5635,7 +5819,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-text-stagger-inview-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-text-stagger-inview-demo',
   },
   'shadcn-default-text-stagger-inview-demo': {
     name: 'shadcn-default-text-stagger-inview-demo',
@@ -5672,7 +5857,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-text-stagger-inview-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-text-stagger-inview-demo',
   },
   'shadcn-new-york-text-stagger-inview-demo': {
     name: 'shadcn-new-york-text-stagger-inview-demo',
@@ -5709,7 +5894,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-text-stagger-inview-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-text-stagger-inview-demo',
   },
   'default-text-vertical-demo': {
     name: 'default-text-vertical-demo',
@@ -5744,7 +5929,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-text-vertical-demo',
+    command: 'https://systaliko-ui.vercel.app/r/default-text-vertical-demo',
   },
   'shadcn-default-text-vertical-demo': {
     name: 'shadcn-default-text-vertical-demo',
@@ -5779,7 +5964,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-text-vertical-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-text-vertical-demo',
   },
   'shadcn-new-york-text-vertical-demo': {
     name: 'shadcn-new-york-text-vertical-demo',
@@ -5814,7 +6000,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-text-vertical-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-text-vertical-demo',
   },
   'default-set-stagger-direction-demo': {
     name: 'default-set-stagger-direction-demo',
@@ -5853,7 +6040,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-set-stagger-direction-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-set-stagger-direction-demo',
   },
   'shadcn-default-set-stagger-direction-demo': {
     name: 'shadcn-default-set-stagger-direction-demo',
@@ -5893,7 +6081,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-set-stagger-direction-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-set-stagger-direction-demo',
   },
   'shadcn-new-york-set-stagger-direction-demo': {
     name: 'shadcn-new-york-set-stagger-direction-demo',
@@ -5933,7 +6121,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-set-stagger-direction-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-set-stagger-direction-demo',
   },
   'default-use-animation-variants-demo': {
     name: 'default-use-animation-variants-demo',
@@ -5972,7 +6160,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-use-animation-variants-demo',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-use-animation-variants-demo',
   },
   'shadcn-default-use-animation-variants-demo': {
     name: 'shadcn-default-use-animation-variants-demo',
@@ -6012,7 +6201,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-use-animation-variants-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-use-animation-variants-demo',
   },
   'shadcn-new-york-use-animation-variants-demo': {
     name: 'shadcn-new-york-use-animation-variants-demo',
@@ -6052,7 +6241,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-use-animation-variants-demo',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-use-animation-variants-demo',
   },
   'default-hero-gallery-scroll-animation': {
     name: 'default-hero-gallery-scroll-animation',
@@ -6088,7 +6277,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-hero-gallery-scroll-animation',
+    command:
+      'https://systaliko-ui.vercel.app/r/default-hero-gallery-scroll-animation',
   },
   'shadcn-default-hero-gallery-scroll-animation': {
     name: 'shadcn-default-hero-gallery-scroll-animation',
@@ -6125,7 +6315,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-default-hero-gallery-scroll-animation',
+      'https://systaliko-ui.vercel.app/r/shadcn-default-hero-gallery-scroll-animation',
   },
   'shadcn-new-york-hero-gallery-scroll-animation': {
     name: 'shadcn-new-york-hero-gallery-scroll-animation',
@@ -6162,7 +6352,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-hero-gallery-scroll-animation',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-hero-gallery-scroll-animation',
   },
   'default-hero-gradient': {
     name: 'default-hero-gradient',
@@ -6197,7 +6387,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-hero-gradient',
+    command: 'https://systaliko-ui.vercel.app/r/default-hero-gradient',
   },
   'shadcn-default-hero-gradient': {
     name: 'shadcn-default-hero-gradient',
@@ -6233,7 +6423,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-hero-gradient',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-hero-gradient',
   },
   'shadcn-new-york-hero-gradient': {
     name: 'shadcn-new-york-hero-gradient',
@@ -6269,7 +6459,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-hero-gradient',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-hero-gradient',
   },
   'default-hero-rotated-gallery': {
     name: 'default-hero-rotated-gallery',
@@ -6305,7 +6495,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-hero-rotated-gallery',
+    command: 'https://systaliko-ui.vercel.app/r/default-hero-rotated-gallery',
   },
   'shadcn-default-hero-rotated-gallery': {
     name: 'shadcn-default-hero-rotated-gallery',
@@ -6341,7 +6531,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-hero-rotated-gallery',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-hero-rotated-gallery',
   },
   'shadcn-new-york-hero-rotated-gallery': {
     name: 'shadcn-new-york-hero-rotated-gallery',
@@ -6377,7 +6568,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-hero-rotated-gallery',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-hero-rotated-gallery',
   },
   'default-rating-stars': {
     name: 'default-rating-stars',
@@ -6413,7 +6605,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-rating-stars',
+    command: 'https://systaliko-ui.vercel.app/r/default-rating-stars',
   },
   'shadcn-default-rating-stars': {
     name: 'shadcn-default-rating-stars',
@@ -6449,7 +6641,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-rating-stars',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-rating-stars',
   },
   'shadcn-new-york-rating-stars': {
     name: 'shadcn-new-york-rating-stars',
@@ -6485,7 +6677,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-rating-stars',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-rating-stars',
   },
   'default-section-gallery': {
     name: 'default-section-gallery',
@@ -6521,7 +6713,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-section-gallery',
+    command: 'https://systaliko-ui.vercel.app/r/default-section-gallery',
   },
   'shadcn-default-section-gallery': {
     name: 'shadcn-default-section-gallery',
@@ -6557,7 +6749,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-section-gallery',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-section-gallery',
   },
   'shadcn-new-york-section-gallery': {
     name: 'shadcn-new-york-section-gallery',
@@ -6593,7 +6785,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-section-gallery',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-section-gallery',
   },
   'default-slideshow': {
     name: 'default-slideshow',
@@ -6627,7 +6820,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-slideshow',
+    command: 'https://systaliko-ui.vercel.app/r/default-slideshow',
   },
   'shadcn-default-slideshow': {
     name: 'shadcn-default-slideshow',
@@ -6663,7 +6856,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-slideshow',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-slideshow',
   },
   'shadcn-new-york-slideshow': {
     name: 'shadcn-new-york-slideshow',
@@ -6699,7 +6892,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-slideshow',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-slideshow',
   },
   'default-story': {
     name: 'default-story',
@@ -6733,7 +6926,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-story',
+    command: 'https://systaliko-ui.vercel.app/r/default-story',
   },
   'shadcn-default-story': {
     name: 'shadcn-default-story',
@@ -6769,7 +6962,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-story',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-story',
   },
   'shadcn-new-york-story': {
     name: 'shadcn-new-york-story',
@@ -6805,7 +6998,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-story',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-story',
   },
   'default-text-stagger-hover': {
     name: 'default-text-stagger-hover',
@@ -6841,7 +7034,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-text-stagger-hover',
+    command: 'https://systaliko-ui.vercel.app/r/default-text-stagger-hover',
   },
   'shadcn-default-text-stagger-hover': {
     name: 'shadcn-default-text-stagger-hover',
@@ -6877,7 +7070,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-text-stagger-hover',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-text-stagger-hover',
   },
   'shadcn-new-york-text-stagger-hover': {
     name: 'shadcn-new-york-text-stagger-hover',
@@ -6913,7 +7107,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-text-stagger-hover',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-text-stagger-hover',
   },
   'default-text-stagger-inview': {
     name: 'default-text-stagger-inview',
@@ -6949,7 +7144,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-text-stagger-inview',
+    command: 'https://systaliko-ui.vercel.app/r/default-text-stagger-inview',
   },
   'shadcn-default-text-stagger-inview': {
     name: 'shadcn-default-text-stagger-inview',
@@ -6985,7 +7180,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-text-stagger-inview',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-text-stagger-inview',
   },
   'shadcn-new-york-text-stagger-inview': {
     name: 'shadcn-new-york-text-stagger-inview',
@@ -7021,7 +7217,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-text-stagger-inview',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-text-stagger-inview',
   },
   'default-text-vertical': {
     name: 'default-text-vertical',
@@ -7057,7 +7254,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-text-vertical',
+    command: 'https://systaliko-ui.vercel.app/r/default-text-vertical',
   },
   'shadcn-default-text-vertical': {
     name: 'shadcn-default-text-vertical',
@@ -7093,7 +7290,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-text-vertical',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-text-vertical',
   },
   'shadcn-new-york-text-vertical': {
     name: 'shadcn-new-york-text-vertical',
@@ -7129,7 +7326,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-text-vertical',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-text-vertical',
   },
   'default-word-stagger': {
     name: 'default-word-stagger',
@@ -7165,7 +7362,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-word-stagger',
+    command: 'https://systaliko-ui.vercel.app/r/default-word-stagger',
   },
   'shadcn-default-word-stagger': {
     name: 'shadcn-default-word-stagger',
@@ -7201,7 +7398,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-word-stagger',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-word-stagger',
   },
   'shadcn-new-york-word-stagger': {
     name: 'shadcn-new-york-word-stagger',
@@ -7237,7 +7434,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-word-stagger',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-word-stagger',
   },
   'default-gsap-transitions': {
     name: 'default-gsap-transitions',
@@ -7273,7 +7470,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-gsap-transitions',
+    command: 'https://systaliko-ui.vercel.app/r/default-gsap-transitions',
   },
   'shadcn-default-gsap-transitions': {
     name: 'shadcn-default-gsap-transitions',
@@ -7309,7 +7506,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-gsap-transitions',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-gsap-transitions',
   },
   'shadcn-new-york-gsap-transitions': {
     name: 'shadcn-new-york-gsap-transitions',
@@ -7345,7 +7543,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-gsap-transitions',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-gsap-transitions',
   },
   'default-set-stagger-direction': {
     name: 'default-set-stagger-direction',
@@ -7381,7 +7580,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-set-stagger-direction',
+    command: 'https://systaliko-ui.vercel.app/r/default-set-stagger-direction',
   },
   'shadcn-default-set-stagger-direction': {
     name: 'shadcn-default-set-stagger-direction',
@@ -7417,7 +7616,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-set-stagger-direction',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-set-stagger-direction',
   },
   'shadcn-new-york-set-stagger-direction': {
     name: 'shadcn-new-york-set-stagger-direction',
@@ -7453,7 +7653,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-set-stagger-direction',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-set-stagger-direction',
   },
   'default-split-text': {
     name: 'default-split-text',
@@ -7489,7 +7690,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-split-text',
+    command: 'https://systaliko-ui.vercel.app/r/default-split-text',
   },
   'shadcn-default-split-text': {
     name: 'shadcn-default-split-text',
@@ -7525,7 +7726,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-split-text',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-split-text',
   },
   'shadcn-new-york-split-text': {
     name: 'shadcn-new-york-split-text',
@@ -7561,7 +7762,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-split-text',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-split-text',
   },
   'default-use-animation-variants': {
     name: 'default-use-animation-variants',
@@ -7597,7 +7798,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-use-animation-variants',
+    command: 'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
   },
   'shadcn-default-use-animation-variants': {
     name: 'shadcn-default-use-animation-variants',
@@ -7633,7 +7834,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-use-animation-variants',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-use-animation-variants',
   },
   'shadcn-new-york-use-animation-variants': {
     name: 'shadcn-new-york-use-animation-variants',
@@ -7670,7 +7872,7 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command:
-      'https://systaliko-ui.com/r/shadcn-new-york-use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-use-animation-variants',
   },
   'default-use-follow-mouse': {
     name: 'default-use-follow-mouse',
@@ -7706,7 +7908,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-use-follow-mouse',
+    command: 'https://systaliko-ui.vercel.app/r/default-use-follow-mouse',
   },
   'shadcn-default-use-follow-mouse': {
     name: 'shadcn-default-use-follow-mouse',
@@ -7742,7 +7944,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-use-follow-mouse',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-use-follow-mouse',
   },
   'shadcn-new-york-use-follow-mouse': {
     name: 'shadcn-new-york-use-follow-mouse',
@@ -7778,7 +7981,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-use-follow-mouse',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-use-follow-mouse',
   },
   'default-use-smooth-scroll': {
     name: 'default-use-smooth-scroll',
@@ -7814,7 +8018,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/default-use-smooth-scroll',
+    command: 'https://systaliko-ui.vercel.app/r/default-use-smooth-scroll',
   },
   'shadcn-default-use-smooth-scroll': {
     name: 'shadcn-default-use-smooth-scroll',
@@ -7850,7 +8054,8 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-default-use-smooth-scroll',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-use-smooth-scroll',
   },
   'shadcn-new-york-use-smooth-scroll': {
     name: 'shadcn-new-york-use-smooth-scroll',
@@ -7886,6 +8091,7 @@ export const index: Record<string, any> = {
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.com/r/shadcn-new-york-use-smooth-scroll',
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-use-smooth-scroll',
   },
 };

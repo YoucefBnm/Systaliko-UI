@@ -1,9 +1,9 @@
 // @ts-nocheck -- skip type checking
-import * as docs_28 from '../content/docs/heros/hero-rotated-gallery.mdx?collection=docs&hash=1749857735996';
-import * as docs_27 from '../content/docs/heros/hero-gradient.mdx?collection=docs&hash=1749857735996';
-import * as docs_26 from '../content/docs/heros/hero-gallery-scroll-animation.mdx?collection=docs&hash=1749857735996';
-import * as docs_25 from '../content/docs/utils/use-animation-variants.mdx?collection=docs&hash=1749857735996';
-import * as docs_24 from '../content/docs/utils/set-stagger-direction.mdx?collection=docs&hash=1749857735996';
+import * as docs_28 from '../content/docs/utils/use-animation-variants.mdx?collection=docs&hash=1749857735996';
+import * as docs_27 from '../content/docs/utils/set-stagger-direction.mdx?collection=docs&hash=1749857735996';
+import * as docs_26 from '../content/docs/heros/hero-rotated-gallery.mdx?collection=docs&hash=1749857735996';
+import * as docs_25 from '../content/docs/heros/hero-gradient.mdx?collection=docs&hash=1749857735996';
+import * as docs_24 from '../content/docs/heros/hero-gallery-scroll-animation.mdx?collection=docs&hash=1749857735996';
 import * as docs_23 from '../content/docs/text/text-vertical.mdx?collection=docs&hash=1749857735996';
 import * as docs_22 from '../content/docs/text/text-stagger-inview.mdx?collection=docs&hash=1749857735996';
 import * as docs_21 from '../content/docs/text/text-stagger-hover.mdx?collection=docs&hash=1749857735996';
@@ -226,27 +226,11 @@ export const docs = _runtime.docs<typeof _source.docs>(
     },
     {
       info: {
-        path: 'utils/set-stagger-direction.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/utils/set-stagger-direction.mdx',
-      },
-      data: docs_24,
-    },
-    {
-      info: {
-        path: 'utils/use-animation-variants.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/utils/use-animation-variants.mdx',
-      },
-      data: docs_25,
-    },
-    {
-      info: {
         path: 'heros/hero-gallery-scroll-animation.mdx',
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/heros/hero-gallery-scroll-animation.mdx',
       },
-      data: docs_26,
+      data: docs_24,
     },
     {
       info: {
@@ -254,13 +238,29 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/heros/hero-gradient.mdx',
       },
-      data: docs_27,
+      data: docs_25,
     },
     {
       info: {
         path: 'heros/hero-rotated-gallery.mdx',
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/heros/hero-rotated-gallery.mdx',
+      },
+      data: docs_26,
+    },
+    {
+      info: {
+        path: 'utils/set-stagger-direction.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/utils/set-stagger-direction.mdx',
+      },
+      data: docs_27,
+    },
+    {
+      info: {
+        path: 'utils/use-animation-variants.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/utils/use-animation-variants.mdx',
       },
       data: docs_28,
     },

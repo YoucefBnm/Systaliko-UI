@@ -2,8 +2,11 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "shadcn-default-card-hover-reveal",
   "type": "registry:ui",
-  "title": "Card Hover Reveal",
+  "title": "Hover Reveal Details Card",
   "description": "Animated card with gesture animations,  Reveals hidden content and scale main image on hover with shadcn-default style.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/card-hover-reveal"
+  ],
   "files": [
     {
       "path": "__registry__/cards/card-hover-reveal/shadcn-default/index.tsx",

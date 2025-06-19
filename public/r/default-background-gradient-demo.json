@@ -5,7 +5,7 @@
   "title": "Background Gradient Demo",
   "description": "Demo showing a configurable background gradient with default style.",
   "registryDependencies": [
-    "https://systaliko-ui.com/r/default-background-gradient"
+    "https://systaliko-ui.vercel.app/r/background-gradient"
   ],
   "files": [
     {

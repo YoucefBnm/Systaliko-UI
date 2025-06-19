@@ -5,7 +5,7 @@
   "title": "Background Gradient Demo",
   "description": "Demo showing a configurable background gradient with shadcn-new-york style.",
   "registryDependencies": [
-    "https://systaliko-ui.com/r/shadcn-new-york-background-gradient"
+    "https://systaliko-ui.vercel.app/r/background-gradient"
   ],
   "files": [
     {

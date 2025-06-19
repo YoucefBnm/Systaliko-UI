@@ -5,7 +5,7 @@
   "title": "Background Gradient Demo",
   "description": "Demo showing a configurable background gradient with shadcn-default style.",
   "registryDependencies": [
-    "https://systaliko-ui.com/r/shadcn-default-background-gradient"
+    "https://systaliko-ui.vercel.app/r/background-gradient"
   ],
   "files": [
     {

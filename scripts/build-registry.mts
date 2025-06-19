@@ -119,7 +119,7 @@ async function getRegistryItemsFromFolder(dir: string): Promise<any[]> {
                 /^https:\/\/systaliko-ui\.com\/r\/([^\/]+)\/?$/,
               );
               if (m) {
-                return `https://systaliko-ui.com/r/${style}-${m[1]}`;
+                return `https://systaliko-ui.vercel.app/r/${style}-${m[1]}`;
               }
               return url;
             },
@@ -248,7 +248,7 @@ export const index: Record<string, any> = {`;
     styles: ${JSON.stringify(extractStyleVariants(item.meta))},
     files: ${JSON.stringify(filesWithContent, null, 2)},
     component: ${compSnippet},
-    command: "https://systaliko-ui.com/r/${item.name}",
+    command: "https://systaliko-ui.vercel.app/r/${item.name}",
   },`;
   }
 

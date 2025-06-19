@@ -4,7 +4,9 @@
   "type": "registry:ui",
   "title": "Background Gradient Demo",
   "description": "Demo showing a configurable background gradient.",
-  "registryDependencies": ["https://systaliko-ui.com/r/background-gradient"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/background-gradient"
+  ],
   "files": [
     {
       "path": "registry/demo/backgrounds/background-gradient/index.tsx",

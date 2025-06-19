@@ -5,7 +5,7 @@
   "title": "Card Hover Reveal Demo",
   "description": "Demo showing Card Hover Reveal Component with shadcn-default style.",
   "registryDependencies": [
-    "http://localhost:3000/r/card-hover-reveal"
+    "https://systaliko-ui.vercel.app/r/card-hover-reveal"
   ],
   "files": [
     {
