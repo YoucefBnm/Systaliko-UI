@@ -38,7 +38,6 @@ export const CardCurtainRevealDemo = () => {
       </CardCurtainRevealBody>
 
       <CardCurtainRevealFooter className="mt-auto">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           width="100%"
           height="100%"

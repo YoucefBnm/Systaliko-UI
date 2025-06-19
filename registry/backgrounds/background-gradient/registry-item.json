@@ -2,8 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "background-gradient",
   "type": "registry:ui",
-  "title": "Card Curtain Reveal",
-  "description": "background gradient style fully customizable.",
+  "title": "Background Gradient",
+  "description": "A customizable background gradient style with interactive controls.",
   "files": [
     {
       "path": "registry/backgrounds/background-gradient/index.ts",

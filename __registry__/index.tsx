@@ -25,7 +25,7 @@ export const index: Record<string, any> = {
   'default-background-gradient': {
     name: 'default-background-gradient',
     description:
-      'background gradient style fully customizable with default style.',
+      'A customizable background gradient style with interactive controls with default style.',
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
@@ -37,7 +37,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/backgrounds/background-gradient.ts',
         content:
-          "export interface GradientStyleT {\n  gradientColors?: { color: string; start: string }[];\n  gradientSize?: { width: string; height: string };\n  gradientPosition?: { x: string; y: string };\n}\nconst gradientColorsDefault = [\n  { color: 'var(--color-primary)', start: '0%' },\n\n  { color: 'var(--background)', start: '100%' },\n];\nconst gradientSizeDefault = {\n  width: '80%',\n  height: '100%',\n};\nconst gradientPositionDefault = {\n  x: '50%',\n  y: '-20%',\n};\n\nexport const gradientStyle = ({\n  gradientColors = gradientColorsDefault,\n  gradientSize: gradientSize = gradientSizeDefault,\n  gradientPosition: gradientPosition = gradientPositionDefault,\n}: GradientStyleT) => {\n  const gradientString = gradientColors\n    .map(({ color, start }) => `${color} ${start}`)\n    .join(', ');\n\n  const gradientBg = `radial-gradient(${gradientSize.width} ${gradientSize.height} at ${gradientPosition.x} ${gradientPosition.y}, ${gradientString})`;\n\n  return {\n    gradientString,\n    gradientBg,\n  };\n};",
+          "export interface GradientStyleT {\n  gradientColors?: { color: string; start: string }[];\n  gradientSize?: { width: string; height: string };\n  gradientPosition?: { x: string; y: string };\n}\n\nexport const gradientStyle = ({\n  gradientColors = [\n    { color: 'var(--color-primary)', start: '0%' },\n    { color: 'var(--background)', start: '100%' },\n  ],\n  gradientSize = {\n    width: '80%',\n    height: '100%',\n  },\n  gradientPosition = {\n    x: '50%',\n    y: '-20%',\n  },\n}: GradientStyleT) => {\n  const gradientString = gradientColors\n    .map(({ color, start }) => `${color} ${start}`)\n    .join(', ');\n\n  const gradientBg = `radial-gradient(${gradientSize.width} ${gradientSize.height} at ${gradientPosition.x} ${gradientPosition.y}, ${gradientString})`;\n\n  return {\n    gradientString,\n    gradientBg,\n  };\n};",
       },
     ],
     component: (function () {
@@ -61,7 +61,7 @@ export const index: Record<string, any> = {
   'shadcn-default-background-gradient': {
     name: 'shadcn-default-background-gradient',
     description:
-      'background gradient style fully customizable with shadcn-default style.',
+      'A customizable background gradient style with interactive controls with shadcn-default style.',
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
@@ -73,7 +73,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/backgrounds/background-gradient.ts',
         content:
-          "export interface GradientStyleT {\n  gradientColors?: { color: string; start: string }[];\n  gradientSize?: { width: string; height: string };\n  gradientPosition?: { x: string; y: string };\n}\nconst gradientColorsDefault = [\n  { color: 'var(--color-primary)', start: '0%' },\n\n  { color: 'var(--background)', start: '100%' },\n];\nconst gradientSizeDefault = {\n  width: '80%',\n  height: '100%',\n};\nconst gradientPositionDefault = {\n  x: '50%',\n  y: '-20%',\n};\n\nexport const gradientStyle = ({\n  gradientColors = gradientColorsDefault,\n  gradientSize: gradientSize = gradientSizeDefault,\n  gradientPosition: gradientPosition = gradientPositionDefault,\n}: GradientStyleT) => {\n  const gradientString = gradientColors\n    .map(({ color, start }) => `${color} ${start}`)\n    .join(', ');\n\n  const gradientBg = `radial-gradient(${gradientSize.width} ${gradientSize.height} at ${gradientPosition.x} ${gradientPosition.y}, ${gradientString})`;\n\n  return {\n    gradientString,\n    gradientBg,\n  };\n};",
+          "export interface GradientStyleT {\n  gradientColors?: { color: string; start: string }[];\n  gradientSize?: { width: string; height: string };\n  gradientPosition?: { x: string; y: string };\n}\n\nexport const gradientStyle = ({\n  gradientColors = [\n    { color: 'var(--color-primary)', start: '0%' },\n    { color: 'var(--background)', start: '100%' },\n  ],\n  gradientSize = {\n    width: '80%',\n    height: '100%',\n  },\n  gradientPosition = {\n    x: '50%',\n    y: '-20%',\n  },\n}: GradientStyleT) => {\n  const gradientString = gradientColors\n    .map(({ color, start }) => `${color} ${start}`)\n    .join(', ');\n\n  const gradientBg = `radial-gradient(${gradientSize.width} ${gradientSize.height} at ${gradientPosition.x} ${gradientPosition.y}, ${gradientString})`;\n\n  return {\n    gradientString,\n    gradientBg,\n  };\n};",
       },
     ],
     component: (function () {
@@ -97,7 +97,7 @@ export const index: Record<string, any> = {
   'shadcn-new-york-background-gradient': {
     name: 'shadcn-new-york-background-gradient',
     description:
-      'background gradient style fully customizable with shadcn-new-york style.',
+      'A customizable background gradient style with interactive controls with shadcn-new-york style.',
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
@@ -109,7 +109,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/backgrounds/background-gradient.ts',
         content:
-          "export interface GradientStyleT {\n  gradientColors?: { color: string; start: string }[];\n  gradientSize?: { width: string; height: string };\n  gradientPosition?: { x: string; y: string };\n}\nconst gradientColorsDefault = [\n  { color: 'var(--color-primary)', start: '0%' },\n\n  { color: 'var(--background)', start: '100%' },\n];\nconst gradientSizeDefault = {\n  width: '80%',\n  height: '100%',\n};\nconst gradientPositionDefault = {\n  x: '50%',\n  y: '-20%',\n};\n\nexport const gradientStyle = ({\n  gradientColors = gradientColorsDefault,\n  gradientSize: gradientSize = gradientSizeDefault,\n  gradientPosition: gradientPosition = gradientPositionDefault,\n}: GradientStyleT) => {\n  const gradientString = gradientColors\n    .map(({ color, start }) => `${color} ${start}`)\n    .join(', ');\n\n  const gradientBg = `radial-gradient(${gradientSize.width} ${gradientSize.height} at ${gradientPosition.x} ${gradientPosition.y}, ${gradientString})`;\n\n  return {\n    gradientString,\n    gradientBg,\n  };\n};",
+          "export interface GradientStyleT {\n  gradientColors?: { color: string; start: string }[];\n  gradientSize?: { width: string; height: string };\n  gradientPosition?: { x: string; y: string };\n}\n\nexport const gradientStyle = ({\n  gradientColors = [\n    { color: 'var(--color-primary)', start: '0%' },\n    { color: 'var(--background)', start: '100%' },\n  ],\n  gradientSize = {\n    width: '80%',\n    height: '100%',\n  },\n  gradientPosition = {\n    x: '50%',\n    y: '-20%',\n  },\n}: GradientStyleT) => {\n  const gradientString = gradientColors\n    .map(({ color, start }) => `${color} ${start}`)\n    .join(', ');\n\n  const gradientBg = `radial-gradient(${gradientSize.width} ${gradientSize.height} at ${gradientPosition.x} ${gradientPosition.y}, ${gradientString})`;\n\n  return {\n    gradientString,\n    gradientBg,\n  };\n};",
       },
     ],
     component: (function () {
@@ -346,11 +346,13 @@ export const index: Record<string, any> = {
   'default-card-curtain-reveal': {
     name: 'default-card-curtain-reveal',
     description:
-      'Interactive card component with open curtain to see content on hover with default style.',
+      'Interactive card component with open curtain to see content on hover gesture with default style.',
     type: 'registry:ui',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'systaliko-ui.vercel.app/r/default-card-curtain-reveal',
+    ],
     styles: undefined,
     files: [
       {
@@ -382,11 +384,13 @@ export const index: Record<string, any> = {
   'shadcn-default-card-curtain-reveal': {
     name: 'shadcn-default-card-curtain-reveal',
     description:
-      'Interactive card component with open curtain to see content on hover with shadcn-default style.',
+      'Interactive card component with open curtain to see content on hover gesture with shadcn-default style.',
     type: 'registry:ui',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'systaliko-ui.vercel.app/r/default-card-curtain-reveal',
+    ],
     styles: undefined,
     files: [
       {
@@ -418,11 +422,13 @@ export const index: Record<string, any> = {
   'shadcn-new-york-card-curtain-reveal': {
     name: 'shadcn-new-york-card-curtain-reveal',
     description:
-      'Interactive card component with open curtain to see content on hover with shadcn-new-york style.',
+      'Interactive card component with open curtain to see content on hover gesture with shadcn-new-york style.',
     type: 'registry:ui',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'systaliko-ui.vercel.app/r/default-card-curtain-reveal',
+    ],
     styles: undefined,
     files: [
       {
@@ -1866,20 +1872,21 @@ export const index: Record<string, any> = {
   'default-background-gradient-demo': {
     name: 'default-background-gradient-demo',
     description:
-      'Demo showing how to set background gradient with default style.',
+      'Demo showing a configurable background gradient with default style.',
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/background-gradient'],
+    registryDependencies: [
+      'https://systaliko-ui.com/r/default-background-gradient',
+    ],
     styles: undefined,
     files: [
       {
         path: '__registry__/demo/backgrounds/background-gradient/default/index.tsx',
         type: 'registry:ui',
-        target:
-          'components/systaliko-ui/demo/backgrounds/background-gradient/index.tsx',
+        target: 'components/backgrounds/demo/background-gradient.tsx',
         content:
-          '\'use client\';\n\nimport * as React from \'react\';\nimport { gradientStyle } from \'@/components/systaliko-ui/backgrounds/background-gradient\';\nimport {\n  BackgroundConfig,\n  GradientControls,\n  useSetBackgroundConfig,\n} from \'@/components/docs/background-config\';\n\nfunction GradientDemoContent() {\n  const { gradientColors, gradientSize, gradientPosition } =\n    useSetBackgroundConfig();\n  const { gradientBg } = gradientStyle({\n    gradientColors,\n    gradientSize,\n    gradientPosition,\n  });\n\n  return (\n    <section\n      className="bg-background relative h-dvh w-full px-6 py-12 place-content-center"\n      style={{\n        backgroundImage: gradientBg,\n      }}\n    >\n      <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm p-4 rounded-lg shadow-lg">\n        <GradientControls />\n      </div>\n      <div className="text-center">\n        <h1 className="text-4xl font-bold mb-4">Gradient Background Demo</h1>\n        <p className="text-lg">Adjust the controls to customize the gradient</p>\n      </div>\n    </section>\n  );\n}\n\nexport function BackgroundGradientDemo() {\n  return (\n    <BackgroundConfig>\n      <GradientDemoContent />\n    </BackgroundConfig>\n  );\n}\n\nexport default BackgroundGradientDemo;',
+          '\'use client\';\n\nimport * as React from \'react\';\nimport { gradientStyle } from \'@/components/systaliko-ui/backgrounds/background-gradient\';\n\ninterface BackgroundGradientDemoProps {\n  gradientColors: { color: string; start: string }[];\n  gradientSize: { width: string; height: string };\n  gradientPosition: { x: string; y: string };\n}\n\nexport function BackgroundGradientDemo({\n  gradientColors,\n  gradientSize,\n  gradientPosition,\n}: BackgroundGradientDemoProps) {\n  const { gradientBg } = gradientStyle({\n    gradientColors,\n    gradientSize,\n    gradientPosition,\n  });\n\n  return (\n    <section\n      className="bg-background relative h-dvh w-full px-6 py-12 place-content-center"\n      style={{\n        backgroundImage: gradientBg,\n      }}\n    >\n      <div className="text-center">\n        <h1 className="text-4xl font-bold mb-4">Gradient Background Demo</h1>\n        <p className="text-lg">Adjust the controls to customize the gradient</p>\n      </div>\n    </section>\n  );\n}',
       },
     ],
     component: (function () {
@@ -1903,20 +1910,21 @@ export const index: Record<string, any> = {
   'shadcn-default-background-gradient-demo': {
     name: 'shadcn-default-background-gradient-demo',
     description:
-      'Demo showing how to set background gradient with shadcn-default style.',
+      'Demo showing a configurable background gradient with shadcn-default style.',
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/background-gradient'],
+    registryDependencies: [
+      'https://systaliko-ui.com/r/shadcn-default-background-gradient',
+    ],
     styles: undefined,
     files: [
       {
         path: '__registry__/demo/backgrounds/background-gradient/shadcn-default/index.tsx',
         type: 'registry:ui',
-        target:
-          'components/systaliko-ui/demo/backgrounds/background-gradient/index.tsx',
+        target: 'components/backgrounds/demo/background-gradient.tsx',
         content:
-          '\'use client\';\n\nimport * as React from \'react\';\nimport { gradientStyle } from \'@/components/systaliko-ui/backgrounds/background-gradient\';\nimport {\n  BackgroundConfig,\n  GradientControls,\n  useSetBackgroundConfig,\n} from \'@/components/docs/background-config\';\n\nfunction GradientDemoContent() {\n  const { gradientColors, gradientSize, gradientPosition } =\n    useSetBackgroundConfig();\n  const { gradientBg } = gradientStyle({\n    gradientColors,\n    gradientSize,\n    gradientPosition,\n  });\n\n  return (\n    <section\n      className="bg-background relative h-dvh w-full px-6 py-12 place-content-center"\n      style={{\n        backgroundImage: gradientBg,\n      }}\n    >\n      <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm p-4 rounded-lg shadow-lg">\n        <GradientControls />\n      </div>\n      <div className="text-center">\n        <h1 className="text-4xl font-bold mb-4">Gradient Background Demo</h1>\n        <p className="text-lg">Adjust the controls to customize the gradient</p>\n      </div>\n    </section>\n  );\n}\n\nexport function BackgroundGradientDemo() {\n  return (\n    <BackgroundConfig>\n      <GradientDemoContent />\n    </BackgroundConfig>\n  );\n}\n\nexport default BackgroundGradientDemo;',
+          '\'use client\';\n\nimport * as React from \'react\';\nimport { gradientStyle } from \'@/components/systaliko-ui/backgrounds/background-gradient\';\n\ninterface BackgroundGradientDemoProps {\n  gradientColors: { color: string; start: string }[];\n  gradientSize: { width: string; height: string };\n  gradientPosition: { x: string; y: string };\n}\n\nexport function BackgroundGradientDemo({\n  gradientColors,\n  gradientSize,\n  gradientPosition,\n}: BackgroundGradientDemoProps) {\n  const { gradientBg } = gradientStyle({\n    gradientColors,\n    gradientSize,\n    gradientPosition,\n  });\n\n  return (\n    <section\n      className="bg-background relative h-dvh w-full px-6 py-12 place-content-center"\n      style={{\n        backgroundImage: gradientBg,\n      }}\n    >\n      <div className="text-center">\n        <h1 className="text-4xl font-bold mb-4">Gradient Background Demo</h1>\n        <p className="text-lg">Adjust the controls to customize the gradient</p>\n      </div>\n    </section>\n  );\n}',
       },
     ],
     component: (function () {
@@ -1941,20 +1949,21 @@ export const index: Record<string, any> = {
   'shadcn-new-york-background-gradient-demo': {
     name: 'shadcn-new-york-background-gradient-demo',
     description:
-      'Demo showing how to set background gradient with shadcn-new-york style.',
+      'Demo showing a configurable background gradient with shadcn-new-york style.',
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/background-gradient'],
+    registryDependencies: [
+      'https://systaliko-ui.com/r/shadcn-new-york-background-gradient',
+    ],
     styles: undefined,
     files: [
       {
         path: '__registry__/demo/backgrounds/background-gradient/shadcn-new-york/index.tsx',
         type: 'registry:ui',
-        target:
-          'components/systaliko-ui/demo/backgrounds/background-gradient/index.tsx',
+        target: 'components/backgrounds/demo/background-gradient.tsx',
         content:
-          '\'use client\';\n\nimport * as React from \'react\';\nimport { gradientStyle } from \'@/components/systaliko-ui/backgrounds/background-gradient\';\nimport {\n  BackgroundConfig,\n  GradientControls,\n  useSetBackgroundConfig,\n} from \'@/components/docs/background-config\';\n\nfunction GradientDemoContent() {\n  const { gradientColors, gradientSize, gradientPosition } =\n    useSetBackgroundConfig();\n  const { gradientBg } = gradientStyle({\n    gradientColors,\n    gradientSize,\n    gradientPosition,\n  });\n\n  return (\n    <section\n      className="bg-background relative h-dvh w-full px-6 py-12 place-content-center"\n      style={{\n        backgroundImage: gradientBg,\n      }}\n    >\n      <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm p-4 rounded-lg shadow-lg">\n        <GradientControls />\n      </div>\n      <div className="text-center">\n        <h1 className="text-4xl font-bold mb-4">Gradient Background Demo</h1>\n        <p className="text-lg">Adjust the controls to customize the gradient</p>\n      </div>\n    </section>\n  );\n}\n\nexport function BackgroundGradientDemo() {\n  return (\n    <BackgroundConfig>\n      <GradientDemoContent />\n    </BackgroundConfig>\n  );\n}\n\nexport default BackgroundGradientDemo;',
+          '\'use client\';\n\nimport * as React from \'react\';\nimport { gradientStyle } from \'@/components/systaliko-ui/backgrounds/background-gradient\';\n\ninterface BackgroundGradientDemoProps {\n  gradientColors: { color: string; start: string }[];\n  gradientSize: { width: string; height: string };\n  gradientPosition: { x: string; y: string };\n}\n\nexport function BackgroundGradientDemo({\n  gradientColors,\n  gradientSize,\n  gradientPosition,\n}: BackgroundGradientDemoProps) {\n  const { gradientBg } = gradientStyle({\n    gradientColors,\n    gradientSize,\n    gradientPosition,\n  });\n\n  return (\n    <section\n      className="bg-background relative h-dvh w-full px-6 py-12 place-content-center"\n      style={{\n        backgroundImage: gradientBg,\n      }}\n    >\n      <div className="text-center">\n        <h1 className="text-4xl font-bold mb-4">Gradient Background Demo</h1>\n        <p className="text-lg">Adjust the controls to customize the gradient</p>\n      </div>\n    </section>\n  );\n}',
       },
     ],
     component: (function () {
@@ -2091,7 +2100,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/card-curtain-reveal'],
+    registryDependencies: ['systaliko-ui.vercel.app/r/card-curtain-reveal'],
     styles: undefined,
     files: [
       {
@@ -2099,7 +2108,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/cards/card-curtain-reveal.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport {\n  CardCurtain,\n  CardCurtainReveal,\n  CardCurtainRevealBody,\n  CardCurtainRevealDescription,\n  CardCurtainRevealFooter,\n  CardCurtainRevealTitle,\n} from \'@/components/systaliko-ui/cards/card-curtain-reveal\';\nimport { ArrowUpRight } from \'lucide-react\';\n\nexport const CardCurtainRevealDemo = () => {\n  return (\n    <CardCurtainReveal className=" h-[540px] w-96 border bg-black dark:bg-white text-fd-accent shadow">\n      <CardCurtainRevealBody>\n        <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">\n          Behind <br />\n          the Curtain\n        </CardCurtainRevealTitle>\n        <CardCurtainRevealDescription className="my-4 ">\n          <p>\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium\n            voluptate, eum quia temporibus fugiat rerum nobis modi dolor,\n            delectus laboriosam, quae adipisci reprehenderit officiis quidem\n            iure ducimus incidunt officia. Magni, eligendi repellendus. Fugiat,\n            natus aut?\n          </p>\n        </CardCurtainRevealDescription>\n        <Button\n          variant={\'secondary\'}\n          size={\'icon\'}\n          className="aspect-square rounded-full"\n        >\n          <ArrowUpRight />\n        </Button>\n\n        <CardCurtain className="bg-background" />\n      </CardCurtainRevealBody>\n\n      <CardCurtainRevealFooter className="mt-auto">\n        {/* eslint-disable-next-line @next/next/no-img-element */}\n        <img\n          width="100%"\n          height="100%"\n          alt="street"\n          className="size-full"\n          src="https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"\n        />\n      </CardCurtainRevealFooter>\n    </CardCurtainReveal>\n  );\n};',
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  CardCurtain,\n  CardCurtainReveal,\n  CardCurtainRevealBody,\n  CardCurtainRevealDescription,\n  CardCurtainRevealFooter,\n  CardCurtainRevealTitle,\n} from \'@/components/systaliko-ui/cards/card-curtain-reveal\';\nimport { ArrowUpRight } from \'lucide-react\';\n\nexport const CardCurtainRevealDemo = () => {\n  return (\n    <CardCurtainReveal className=" h-[540px] w-96 border bg-black dark:bg-white text-fd-accent shadow">\n      <CardCurtainRevealBody>\n        <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">\n          Behind <br />\n          the Curtain\n        </CardCurtainRevealTitle>\n        <CardCurtainRevealDescription className="my-4 ">\n          <p>\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium\n            voluptate, eum quia temporibus fugiat rerum nobis modi dolor,\n            delectus laboriosam, quae adipisci reprehenderit officiis quidem\n            iure ducimus incidunt officia. Magni, eligendi repellendus. Fugiat,\n            natus aut?\n          </p>\n        </CardCurtainRevealDescription>\n        <Button\n          variant={\'secondary\'}\n          size={\'icon\'}\n          className="aspect-square rounded-full"\n        >\n          <ArrowUpRight />\n        </Button>\n\n        <CardCurtain className="bg-background" />\n      </CardCurtainRevealBody>\n\n      <CardCurtainRevealFooter className="mt-auto">\n        <img\n          width="100%"\n          height="100%"\n          alt="street"\n          className="size-full"\n          src="https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"\n        />\n      </CardCurtainRevealFooter>\n    </CardCurtainReveal>\n  );\n};',
       },
     ],
     component: (function () {
@@ -2127,7 +2136,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/card-curtain-reveal'],
+    registryDependencies: ['systaliko-ui.vercel.app/r/card-curtain-reveal'],
     styles: undefined,
     files: [
       {
@@ -2135,7 +2144,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/cards/card-curtain-reveal.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport {\n  CardCurtain,\n  CardCurtainReveal,\n  CardCurtainRevealBody,\n  CardCurtainRevealDescription,\n  CardCurtainRevealFooter,\n  CardCurtainRevealTitle,\n} from \'@/components/systaliko-ui/cards/card-curtain-reveal\';\nimport { ArrowUpRight } from \'lucide-react\';\n\nexport const CardCurtainRevealDemo = () => {\n  return (\n    <CardCurtainReveal className=" h-[540px] w-96 border bg-black dark:bg-white text-fd-accent shadow">\n      <CardCurtainRevealBody>\n        <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">\n          Behind <br />\n          the Curtain\n        </CardCurtainRevealTitle>\n        <CardCurtainRevealDescription className="my-4 ">\n          <p>\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium\n            voluptate, eum quia temporibus fugiat rerum nobis modi dolor,\n            delectus laboriosam, quae adipisci reprehenderit officiis quidem\n            iure ducimus incidunt officia. Magni, eligendi repellendus. Fugiat,\n            natus aut?\n          </p>\n        </CardCurtainRevealDescription>\n        <Button\n          variant={\'secondary\'}\n          size={\'icon\'}\n          className="aspect-square rounded-full"\n        >\n          <ArrowUpRight />\n        </Button>\n\n        <CardCurtain className="bg-background" />\n      </CardCurtainRevealBody>\n\n      <CardCurtainRevealFooter className="mt-auto">\n        {/* eslint-disable-next-line @next/next/no-img-element */}\n        <img\n          width="100%"\n          height="100%"\n          alt="street"\n          className="size-full"\n          src="https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"\n        />\n      </CardCurtainRevealFooter>\n    </CardCurtainReveal>\n  );\n};',
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  CardCurtain,\n  CardCurtainReveal,\n  CardCurtainRevealBody,\n  CardCurtainRevealDescription,\n  CardCurtainRevealFooter,\n  CardCurtainRevealTitle,\n} from \'@/components/systaliko-ui/cards/card-curtain-reveal\';\nimport { ArrowUpRight } from \'lucide-react\';\n\nexport const CardCurtainRevealDemo = () => {\n  return (\n    <CardCurtainReveal className=" h-[540px] w-96 border bg-black dark:bg-white text-fd-accent shadow">\n      <CardCurtainRevealBody>\n        <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">\n          Behind <br />\n          the Curtain\n        </CardCurtainRevealTitle>\n        <CardCurtainRevealDescription className="my-4 ">\n          <p>\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium\n            voluptate, eum quia temporibus fugiat rerum nobis modi dolor,\n            delectus laboriosam, quae adipisci reprehenderit officiis quidem\n            iure ducimus incidunt officia. Magni, eligendi repellendus. Fugiat,\n            natus aut?\n          </p>\n        </CardCurtainRevealDescription>\n        <Button\n          variant={\'secondary\'}\n          size={\'icon\'}\n          className="aspect-square rounded-full"\n        >\n          <ArrowUpRight />\n        </Button>\n\n        <CardCurtain className="bg-background" />\n      </CardCurtainRevealBody>\n\n      <CardCurtainRevealFooter className="mt-auto">\n        <img\n          width="100%"\n          height="100%"\n          alt="street"\n          className="size-full"\n          src="https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"\n        />\n      </CardCurtainRevealFooter>\n    </CardCurtainReveal>\n  );\n};',
       },
     ],
     component: (function () {
@@ -2164,7 +2173,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/card-curtain-reveal'],
+    registryDependencies: ['systaliko-ui.vercel.app/r/card-curtain-reveal'],
     styles: undefined,
     files: [
       {
@@ -2172,7 +2181,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/cards/card-curtain-reveal.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport {\n  CardCurtain,\n  CardCurtainReveal,\n  CardCurtainRevealBody,\n  CardCurtainRevealDescription,\n  CardCurtainRevealFooter,\n  CardCurtainRevealTitle,\n} from \'@/components/systaliko-ui/cards/card-curtain-reveal\';\nimport { ArrowUpRight } from \'lucide-react\';\n\nexport const CardCurtainRevealDemo = () => {\n  return (\n    <CardCurtainReveal className=" h-[540px] w-96 border bg-black dark:bg-white text-fd-accent shadow">\n      <CardCurtainRevealBody>\n        <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">\n          Behind <br />\n          the Curtain\n        </CardCurtainRevealTitle>\n        <CardCurtainRevealDescription className="my-4 ">\n          <p>\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium\n            voluptate, eum quia temporibus fugiat rerum nobis modi dolor,\n            delectus laboriosam, quae adipisci reprehenderit officiis quidem\n            iure ducimus incidunt officia. Magni, eligendi repellendus. Fugiat,\n            natus aut?\n          </p>\n        </CardCurtainRevealDescription>\n        <Button\n          variant={\'secondary\'}\n          size={\'icon\'}\n          className="aspect-square rounded-full"\n        >\n          <ArrowUpRight />\n        </Button>\n\n        <CardCurtain className="bg-background" />\n      </CardCurtainRevealBody>\n\n      <CardCurtainRevealFooter className="mt-auto">\n        {/* eslint-disable-next-line @next/next/no-img-element */}\n        <img\n          width="100%"\n          height="100%"\n          alt="street"\n          className="size-full"\n          src="https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"\n        />\n      </CardCurtainRevealFooter>\n    </CardCurtainReveal>\n  );\n};',
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  CardCurtain,\n  CardCurtainReveal,\n  CardCurtainRevealBody,\n  CardCurtainRevealDescription,\n  CardCurtainRevealFooter,\n  CardCurtainRevealTitle,\n} from \'@/components/systaliko-ui/cards/card-curtain-reveal\';\nimport { ArrowUpRight } from \'lucide-react\';\n\nexport const CardCurtainRevealDemo = () => {\n  return (\n    <CardCurtainReveal className=" h-[540px] w-96 border bg-black dark:bg-white text-fd-accent shadow">\n      <CardCurtainRevealBody>\n        <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">\n          Behind <br />\n          the Curtain\n        </CardCurtainRevealTitle>\n        <CardCurtainRevealDescription className="my-4 ">\n          <p>\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium\n            voluptate, eum quia temporibus fugiat rerum nobis modi dolor,\n            delectus laboriosam, quae adipisci reprehenderit officiis quidem\n            iure ducimus incidunt officia. Magni, eligendi repellendus. Fugiat,\n            natus aut?\n          </p>\n        </CardCurtainRevealDescription>\n        <Button\n          variant={\'secondary\'}\n          size={\'icon\'}\n          className="aspect-square rounded-full"\n        >\n          <ArrowUpRight />\n        </Button>\n\n        <CardCurtain className="bg-background" />\n      </CardCurtainRevealBody>\n\n      <CardCurtainRevealFooter className="mt-auto">\n        <img\n          width="100%"\n          height="100%"\n          alt="street"\n          className="size-full"\n          src="https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"\n        />\n      </CardCurtainRevealFooter>\n    </CardCurtainReveal>\n  );\n};',
       },
     ],
     component: (function () {

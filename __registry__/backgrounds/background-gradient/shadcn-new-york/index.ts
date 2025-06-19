@@ -3,24 +3,20 @@ export interface GradientStyleT {
   gradientSize?: { width: string; height: string };
   gradientPosition?: { x: string; y: string };
 }
-const gradientColorsDefault = [
-  { color: 'var(--color-primary)', start: '0%' },
-
-  { color: 'var(--background)', start: '100%' },
-];
-const gradientSizeDefault = {
-  width: '80%',
-  height: '100%',
-};
-const gradientPositionDefault = {
-  x: '50%',
-  y: '-20%',
-};
 
 export const gradientStyle = ({
-  gradientColors = gradientColorsDefault,
-  gradientSize: gradientSize = gradientSizeDefault,
-  gradientPosition: gradientPosition = gradientPositionDefault,
+  gradientColors = [
+    { color: 'var(--color-primary)', start: '0%' },
+    { color: 'var(--background)', start: '100%' },
+  ],
+  gradientSize = {
+    width: '80%',
+    height: '100%',
+  },
+  gradientPosition = {
+    x: '50%',
+    y: '-20%',
+  },
 }: GradientStyleT) => {
   const gradientString = gradientColors
     .map(({ color, start }) => `${color} ${start}`)

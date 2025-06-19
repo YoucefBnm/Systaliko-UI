@@ -20,8 +20,8 @@
     {
       "name": "default-background-gradient",
       "type": "registry:ui",
-      "title": "Card Curtain Reveal",
-      "description": "background gradient style fully customizable with default style.",
+      "title": "Background Gradient",
+      "description": "A customizable background gradient style with interactive controls with default style.",
       "files": [
         {
           "path": "__registry__/backgrounds/background-gradient/default/index.ts",
@@ -33,8 +33,8 @@
     {
       "name": "shadcn-default-background-gradient",
       "type": "registry:ui",
-      "title": "Card Curtain Reveal",
-      "description": "background gradient style fully customizable with shadcn-default style.",
+      "title": "Background Gradient",
+      "description": "A customizable background gradient style with interactive controls with shadcn-default style.",
       "files": [
         {
           "path": "__registry__/backgrounds/background-gradient/shadcn-default/index.ts",
@@ -46,8 +46,8 @@
     {
       "name": "shadcn-new-york-background-gradient",
       "type": "registry:ui",
-      "title": "Card Curtain Reveal",
-      "description": "background gradient style fully customizable with shadcn-new-york style.",
+      "title": "Background Gradient",
+      "description": "A customizable background gradient style with interactive controls with shadcn-new-york style.",
       "files": [
         {
           "path": "__registry__/backgrounds/background-gradient/shadcn-new-york/index.ts",
@@ -152,8 +152,14 @@
     {
       "name": "default-card-curtain-reveal",
       "type": "registry:ui",
-      "title": "Card Curtain Reveal",
-      "description": "Interactive card component with open curtain to see content on hover with default style.",
+      "title": "Curtain Reveal Card",
+      "description": "Interactive card component with open curtain to see content on hover gesture with default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "systaliko-ui.vercel.app/r/default-card-curtain-reveal"
+      ],
       "files": [
         {
           "path": "__registry__/cards/card-curtain-reveal/default/index.tsx",
@@ -165,8 +171,14 @@
     {
       "name": "shadcn-default-card-curtain-reveal",
       "type": "registry:ui",
-      "title": "Card Curtain Reveal",
-      "description": "Interactive card component with open curtain to see content on hover with shadcn-default style.",
+      "title": "Curtain Reveal Card",
+      "description": "Interactive card component with open curtain to see content on hover gesture with shadcn-default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "systaliko-ui.vercel.app/r/default-card-curtain-reveal"
+      ],
       "files": [
         {
           "path": "__registry__/cards/card-curtain-reveal/shadcn-default/index.tsx",
@@ -178,8 +190,14 @@
     {
       "name": "shadcn-new-york-card-curtain-reveal",
       "type": "registry:ui",
-      "title": "Card Curtain Reveal",
-      "description": "Interactive card component with open curtain to see content on hover with shadcn-new-york style.",
+      "title": "Curtain Reveal Card",
+      "description": "Interactive card component with open curtain to see content on hover gesture with shadcn-new-york style.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "systaliko-ui.vercel.app/r/default-card-curtain-reveal"
+      ],
       "files": [
         {
           "path": "__registry__/cards/card-curtain-reveal/shadcn-new-york/index.tsx",
@@ -735,15 +753,15 @@
       "name": "default-background-gradient-demo",
       "type": "registry:ui",
       "title": "Background Gradient Demo",
-      "description": "Demo showing how to set background gradient with default style.",
+      "description": "Demo showing a configurable background gradient with default style.",
       "registryDependencies": [
-        "http://localhost:3000/r/background-gradient"
+        "https://systaliko-ui.com/r/default-background-gradient"
       ],
       "files": [
         {
           "path": "__registry__/demo/backgrounds/background-gradient/default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/backgrounds/background-gradient/index.tsx"
+          "target": "components/backgrounds/demo/background-gradient.tsx"
         }
       ]
     },
@@ -751,15 +769,15 @@
       "name": "shadcn-default-background-gradient-demo",
       "type": "registry:ui",
       "title": "Background Gradient Demo",
-      "description": "Demo showing how to set background gradient with shadcn-default style.",
+      "description": "Demo showing a configurable background gradient with shadcn-default style.",
       "registryDependencies": [
-        "http://localhost:3000/r/background-gradient"
+        "https://systaliko-ui.com/r/shadcn-default-background-gradient"
       ],
       "files": [
         {
           "path": "__registry__/demo/backgrounds/background-gradient/shadcn-default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/backgrounds/background-gradient/index.tsx"
+          "target": "components/backgrounds/demo/background-gradient.tsx"
         }
       ]
     },
@@ -767,15 +785,15 @@
       "name": "shadcn-new-york-background-gradient-demo",
       "type": "registry:ui",
       "title": "Background Gradient Demo",
-      "description": "Demo showing how to set background gradient with shadcn-new-york style.",
+      "description": "Demo showing a configurable background gradient with shadcn-new-york style.",
       "registryDependencies": [
-        "http://localhost:3000/r/background-gradient"
+        "https://systaliko-ui.com/r/shadcn-new-york-background-gradient"
       ],
       "files": [
         {
           "path": "__registry__/demo/backgrounds/background-gradient/shadcn-new-york/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/backgrounds/background-gradient/index.tsx"
+          "target": "components/backgrounds/demo/background-gradient.tsx"
         }
       ]
     },
@@ -833,7 +851,7 @@
       "title": "Card Curtain Reveal Demo",
       "description": "Demo showing Card Curtain Reveal Component with default style.",
       "registryDependencies": [
-        "http://localhost:3000/r/card-curtain-reveal"
+        "systaliko-ui.vercel.app/r/card-curtain-reveal"
       ],
       "files": [
         {
@@ -849,7 +867,7 @@
       "title": "Card Curtain Reveal Demo",
       "description": "Demo showing Card Curtain Reveal Component with shadcn-default style.",
       "registryDependencies": [
-        "http://localhost:3000/r/card-curtain-reveal"
+        "systaliko-ui.vercel.app/r/card-curtain-reveal"
       ],
       "files": [
         {
@@ -865,7 +883,7 @@
       "title": "Card Curtain Reveal Demo",
       "description": "Demo showing Card Curtain Reveal Component with shadcn-new-york style.",
       "registryDependencies": [
-        "http://localhost:3000/r/card-curtain-reveal"
+        "systaliko-ui.vercel.app/r/card-curtain-reveal"
       ],
       "files": [
         {

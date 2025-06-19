@@ -2,15 +2,18 @@
 
 import * as React from 'react';
 import { gradientStyle } from '@/registry/backgrounds/background-gradient';
-import {
-  BackgroundConfig,
-  GradientControls,
-  useSetBackgroundConfig,
-} from '@/components/docs/background-config';
 
-function GradientDemoContent() {
-  const { gradientColors, gradientSize, gradientPosition } =
-    useSetBackgroundConfig();
+interface BackgroundGradientDemoProps {
+  gradientColors: { color: string; start: string }[];
+  gradientSize: { width: string; height: string };
+  gradientPosition: { x: string; y: string };
+}
+
+export function BackgroundGradientDemo({
+  gradientColors,
+  gradientSize,
+  gradientPosition,
+}: BackgroundGradientDemoProps) {
   const { gradientBg } = gradientStyle({
     gradientColors,
     gradientSize,
@@ -24,9 +27,6 @@ function GradientDemoContent() {
         backgroundImage: gradientBg,
       }}
     >
-      <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm p-4 rounded-lg shadow-lg">
-        <GradientControls />
-      </div>
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4">Gradient Background Demo</h1>
         <p className="text-lg">Adjust the controls to customize the gradient</p>
@@ -34,13 +34,3 @@ function GradientDemoContent() {
     </section>
   );
 }
-
-export function BackgroundGradientDemo() {
-  return (
-    <BackgroundConfig>
-      <GradientDemoContent />
-    </BackgroundConfig>
-  );
-}
-
-export default BackgroundGradientDemo;

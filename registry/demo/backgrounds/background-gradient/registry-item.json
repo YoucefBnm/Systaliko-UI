@@ -3,13 +3,13 @@
   "name": "background-gradient-demo",
   "type": "registry:ui",
   "title": "Background Gradient Demo",
-  "description": "Demo showing how to set background gradient.",
-  "registryDependencies": ["http://localhost:3000/r/background-gradient"],
+  "description": "Demo showing a configurable background gradient.",
+  "registryDependencies": ["https://systaliko-ui.com/r/background-gradient"],
   "files": [
     {
       "path": "registry/demo/backgrounds/background-gradient/index.tsx",
       "type": "registry:ui",
-      "target": "components/systaliko-ui/demo/backgrounds/background-gradient/index.tsx"
+      "target": "components/backgrounds/demo/background-gradient.tsx"
     }
   ]
 }

@@ -2,8 +2,14 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "shadcn-new-york-card-curtain-reveal",
   "type": "registry:ui",
-  "title": "Card Curtain Reveal",
-  "description": "Interactive card component with open curtain to see content on hover with shadcn-new-york style.",
+  "title": "Curtain Reveal Card",
+  "description": "Interactive card component with open curtain to see content on hover gesture with shadcn-new-york style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "systaliko-ui.vercel.app/r/default-card-curtain-reveal"
+  ],
   "files": [
     {
       "path": "__registry__/cards/card-curtain-reveal/shadcn-new-york/index.tsx",

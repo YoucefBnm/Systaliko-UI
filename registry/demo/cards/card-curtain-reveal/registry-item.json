@@ -4,7 +4,7 @@
   "type": "registry:ui",
   "title": "Card Curtain Reveal Demo",
   "description": "Demo showing Card Curtain Reveal Component.",
-  "registryDependencies": ["http://localhost:3000/r/card-curtain-reveal"],
+  "registryDependencies": ["systaliko-ui.vercel.app/r/card-curtain-reveal"],
   "files": [
     {
       "path": "registry/demo/cards/card-curtain-reveal/index.tsx",

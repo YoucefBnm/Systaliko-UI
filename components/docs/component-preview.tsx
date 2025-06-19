@@ -9,7 +9,7 @@ import { Suspense, useEffect, useMemo, useState } from 'react';
 import { DynamicCodeBlock } from '@/components/docs/dynamic-codeblock';
 import ReactIcon from '../icons/react-icon';
 import { useStyle } from '@/providers/style-provider';
-import { Binds } from '../systaliko-ui/tweakpane';
+import { type Binds } from '../systaliko-ui/tweakpane';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
