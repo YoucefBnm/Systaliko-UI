@@ -22,6 +22,111 @@ export const index: Record<string, any> = {
     component: null,
     command: 'https://systaliko-ui.vercel.app/r/index',
   },
+  'default-avatar': {
+    name: 'default-avatar',
+    description: 'Avatar component with fallback and image with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/avatar/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/avatar.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport * as AvatarPrimitive from '@radix-ui/react-avatar';\n\nimport { cn } from '@/lib/utils';\n\nfunction Avatar({\n  className,\n  ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Root>) {\n  return (\n    <AvatarPrimitive.Root\n      data-slot=\"avatar\"\n      className={cn(\n        'relative flex size-8 shrink-0 overflow-hidden rounded-full',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction AvatarImage({\n  className,\n  ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Image>) {\n  return (\n    <AvatarPrimitive.Image\n      data-slot=\"avatar-image\"\n      className={cn('aspect-square size-full', className)}\n      {...props}\n    />\n  );\n}\n\nfunction AvatarFallback({\n  className,\n  ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Fallback>) {\n  return (\n    <AvatarPrimitive.Fallback\n      data-slot=\"avatar-fallback\"\n      className={cn(\n        'bg-muted flex size-full items-center justify-center rounded-full',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Avatar, AvatarImage, AvatarFallback };",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import('@/__registry__/avatar/default/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-avatar';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/default-avatar',
+  },
+  'shadcn-default-avatar': {
+    name: 'shadcn-default-avatar',
+    description:
+      'Avatar component with fallback and image with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/avatar/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/avatar.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport * as AvatarPrimitive from '@radix-ui/react-avatar';\n\nimport { cn } from '@/lib/utils';\n\nfunction Avatar({\n  className,\n  ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Root>) {\n  return (\n    <AvatarPrimitive.Root\n      data-slot=\"avatar\"\n      className={cn(\n        'relative flex size-8 shrink-0 overflow-hidden rounded-full',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction AvatarImage({\n  className,\n  ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Image>) {\n  return (\n    <AvatarPrimitive.Image\n      data-slot=\"avatar-image\"\n      className={cn('aspect-square size-full', className)}\n      {...props}\n    />\n  );\n}\n\nfunction AvatarFallback({\n  className,\n  ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Fallback>) {\n  return (\n    <AvatarPrimitive.Fallback\n      data-slot=\"avatar-fallback\"\n      className={cn(\n        'bg-muted flex size-full items-center justify-center rounded-full',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Avatar, AvatarImage, AvatarFallback };",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/avatar/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-avatar';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-avatar',
+  },
+  'shadcn-new-york-avatar': {
+    name: 'shadcn-new-york-avatar',
+    description:
+      'Avatar component with fallback and image with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/avatar/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/avatar.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport * as AvatarPrimitive from '@radix-ui/react-avatar';\n\nimport { cn } from '@/lib/utils';\n\nfunction Avatar({\n  className,\n  ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Root>) {\n  return (\n    <AvatarPrimitive.Root\n      data-slot=\"avatar\"\n      className={cn(\n        'relative flex size-8 shrink-0 overflow-hidden rounded-full',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction AvatarImage({\n  className,\n  ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Image>) {\n  return (\n    <AvatarPrimitive.Image\n      data-slot=\"avatar-image\"\n      className={cn('aspect-square size-full', className)}\n      {...props}\n    />\n  );\n}\n\nfunction AvatarFallback({\n  className,\n  ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Fallback>) {\n  return (\n    <AvatarPrimitive.Fallback\n      data-slot=\"avatar-fallback\"\n      className={cn(\n        'bg-muted flex size-full items-center justify-center rounded-full',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Avatar, AvatarImage, AvatarFallback };",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/avatar/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-avatar';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-avatar',
+  },
   'default-background-gradient': {
     name: 'default-background-gradient',
     description:
@@ -237,12 +342,218 @@ export const index: Record<string, any> = {
     })(),
     command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-clipped-shape',
   },
+  'default-badge': {
+    name: 'default-badge',
+    description: 'Badge component with variants with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/badge/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/badge.tsx',
+        content:
+          "import * as React from 'react';\nimport { Slot } from '@radix-ui/react-slot';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils';\n\nconst badgeVariants = cva(\n  'inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden',\n  {\n    variants: {\n      variant: {\n        default:\n          'border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary/90',\n        secondary:\n          'border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90',\n        destructive:\n          'border-transparent bg-destructive text-white [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',\n        outline:\n          'text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\n\nfunction Badge({\n  className,\n  variant,\n  asChild = false,\n  ...props\n}: React.ComponentProps<'span'> &\n  VariantProps<typeof badgeVariants> & { asChild?: boolean }) {\n  const Comp = asChild ? Slot : 'span';\n\n  return (\n    <Comp\n      data-slot=\"badge\"\n      className={cn(badgeVariants({ variant }), className)}\n      {...props}\n    />\n  );\n}\n\nexport { Badge, badgeVariants };",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import('@/__registry__/badge/default/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-badge';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/default-badge',
+  },
+  'shadcn-default-badge': {
+    name: 'shadcn-default-badge',
+    description: 'Badge component with variants with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/badge/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/badge.tsx',
+        content:
+          "import * as React from 'react';\nimport { Slot } from '@radix-ui/react-slot';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils';\n\nconst badgeVariants = cva(\n  'inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden',\n  {\n    variants: {\n      variant: {\n        default:\n          'border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary/90',\n        secondary:\n          'border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90',\n        destructive:\n          'border-transparent bg-destructive text-white [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',\n        outline:\n          'text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\n\nfunction Badge({\n  className,\n  variant,\n  asChild = false,\n  ...props\n}: React.ComponentProps<'span'> &\n  VariantProps<typeof badgeVariants> & { asChild?: boolean }) {\n  const Comp = asChild ? Slot : 'span';\n\n  return (\n    <Comp\n      data-slot=\"badge\"\n      className={cn(badgeVariants({ variant }), className)}\n      {...props}\n    />\n  );\n}\n\nexport { Badge, badgeVariants };",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/badge/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-badge';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-badge',
+  },
+  'shadcn-new-york-badge': {
+    name: 'shadcn-new-york-badge',
+    description: 'Badge component with variants with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/badge/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/badge.tsx',
+        content:
+          "import * as React from 'react';\nimport { Slot } from '@radix-ui/react-slot';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils';\n\nconst badgeVariants = cva(\n  'inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden',\n  {\n    variants: {\n      variant: {\n        default:\n          'border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary/90',\n        secondary:\n          'border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90',\n        destructive:\n          'border-transparent bg-destructive text-white [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',\n        outline:\n          'text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\n\nfunction Badge({\n  className,\n  variant,\n  asChild = false,\n  ...props\n}: React.ComponentProps<'span'> &\n  VariantProps<typeof badgeVariants> & { asChild?: boolean }) {\n  const Comp = asChild ? Slot : 'span';\n\n  return (\n    <Comp\n      data-slot=\"badge\"\n      className={cn(badgeVariants({ variant }), className)}\n      {...props}\n    />\n  );\n}\n\nexport { Badge, badgeVariants };",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/badge/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-badge';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-badge',
+  },
+  'default-button': {
+    name: 'default-button',
+    description: 'button component with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/button/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/button.tsx',
+        content:
+          "import * as React from 'react';\nimport { Slot } from '@radix-ui/react-slot';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils';\n\nconst buttonVariants = cva(\n  \"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive\",\n  {\n    variants: {\n      variant: {\n        default:\n          'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',\n        destructive:\n          'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',\n        outline:\n          'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50',\n        secondary:\n          'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',\n        ghost:\n          'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',\n        link: 'text-primary underline-offset-4 hover:underline',\n      },\n      size: {\n        default: 'h-9 px-4 py-2 has-[>svg]:px-3',\n        sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',\n        lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',\n        icon: 'size-9',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n      size: 'default',\n    },\n  },\n);\n\nfunction Button({\n  className,\n  variant,\n  size,\n  asChild = false,\n  ...props\n}: React.ComponentProps<'button'> &\n  VariantProps<typeof buttonVariants> & {\n    asChild?: boolean;\n  }) {\n  const Comp = asChild ? Slot : 'button';\n\n  return (\n    <Comp\n      data-slot=\"button\"\n      className={cn(buttonVariants({ variant, size, className }))}\n      {...props}\n    />\n  );\n}\n\nexport { Button, buttonVariants };",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import('@/__registry__/button/default/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-button';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/default-button',
+  },
+  'shadcn-default-button': {
+    name: 'shadcn-default-button',
+    description: 'button component with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/button/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/button.tsx',
+        content:
+          "import * as React from 'react';\nimport { Slot } from '@radix-ui/react-slot';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils';\n\nconst buttonVariants = cva(\n  \"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive\",\n  {\n    variants: {\n      variant: {\n        default:\n          'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',\n        destructive:\n          'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',\n        outline:\n          'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50',\n        secondary:\n          'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',\n        ghost:\n          'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',\n        link: 'text-primary underline-offset-4 hover:underline',\n      },\n      size: {\n        default: 'h-9 px-4 py-2 has-[>svg]:px-3',\n        sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',\n        lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',\n        icon: 'size-9',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n      size: 'default',\n    },\n  },\n);\n\nfunction Button({\n  className,\n  variant,\n  size,\n  asChild = false,\n  ...props\n}: React.ComponentProps<'button'> &\n  VariantProps<typeof buttonVariants> & {\n    asChild?: boolean;\n  }) {\n  const Comp = asChild ? Slot : 'button';\n\n  return (\n    <Comp\n      data-slot=\"button\"\n      className={cn(buttonVariants({ variant, size, className }))}\n      {...props}\n    />\n  );\n}\n\nexport { Button, buttonVariants };",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/button/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-button';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-button',
+  },
+  'shadcn-new-york-button': {
+    name: 'shadcn-new-york-button',
+    description: 'button component with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/button/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/button.tsx',
+        content:
+          "import * as React from 'react';\nimport { Slot } from '@radix-ui/react-slot';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils';\n\nconst buttonVariants = cva(\n  \"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive\",\n  {\n    variants: {\n      variant: {\n        default:\n          'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',\n        destructive:\n          'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',\n        outline:\n          'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50',\n        secondary:\n          'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',\n        ghost:\n          'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',\n        link: 'text-primary underline-offset-4 hover:underline',\n      },\n      size: {\n        default: 'h-9 px-4 py-2 has-[>svg]:px-3',\n        sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',\n        lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',\n        icon: 'size-9',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n      size: 'default',\n    },\n  },\n);\n\nfunction Button({\n  className,\n  variant,\n  size,\n  asChild = false,\n  ...props\n}: React.ComponentProps<'button'> &\n  VariantProps<typeof buttonVariants> & {\n    asChild?: boolean;\n  }) {\n  const Comp = asChild ? Slot : 'button';\n\n  return (\n    <Comp\n      data-slot=\"button\"\n      className={cn(buttonVariants({ variant, size, className }))}\n      {...props}\n    />\n  );\n}\n\nexport { Button, buttonVariants };",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/button/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-button';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-button',
+  },
   'default-copy-button': {
     name: 'default-copy-button',
     description:
       'A button with a copy to clipboard animation with default style.',
     type: 'registry:ui',
-    dependencies: ['motion', 'lucide-react', 'class-variance-authority'],
+    dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
@@ -250,7 +561,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/buttons/copy/default/index.tsx',
         type: 'registry:ui',
-        target: 'components/animate-ui/buttons/copy.tsx',
+        target: 'components/copy.tsx',
         content:
           "'use client';\n\nimport * as React from 'react';\nimport { AnimatePresence, HTMLMotionProps, motion } from 'motion/react';\nimport { CheckIcon, CopyIcon } from 'lucide-react';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils';\n\nconst buttonVariants = cva(\n  'inline-flex items-center justify-center cursor-pointer rounded-md transition-colors disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive',\n  {\n    variants: {\n      variant: {\n        default:\n          'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',\n        muted: 'bg-muted text-muted-foreground',\n        destructive:\n          'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',\n        outline:\n          'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50',\n        secondary:\n          'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',\n        ghost:\n          'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',\n      },\n      size: {\n        default: 'size-8 rounded-lg [&_svg]:size-4',\n        sm: 'size-6 [&_svg]:size-3',\n        md: 'size-10 rounded-lg [&_svg]:size-5',\n        lg: 'size-12 rounded-xl [&_svg]:size-6',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n      size: 'default',\n    },\n  },\n);\n\ntype CopyButtonProps = Omit<HTMLMotionProps<'button'>, 'children' | 'onCopy'> &\n  VariantProps<typeof buttonVariants> & {\n    content?: string;\n    delay?: number;\n    onCopy?: (content: string) => void;\n    isCopied?: boolean;\n    onCopyChange?: (isCopied: boolean) => void;\n  };\n\nfunction CopyButton({\n  content,\n  className,\n  size,\n  variant,\n  delay = 3000,\n  onClick,\n  onCopy,\n  isCopied,\n  onCopyChange,\n  ...props\n}: CopyButtonProps) {\n  const [localIsCopied, setLocalIsCopied] = React.useState(isCopied ?? false);\n  const Icon = localIsCopied ? CheckIcon : CopyIcon;\n\n  React.useEffect(() => {\n    setLocalIsCopied(isCopied ?? false);\n  }, [isCopied]);\n\n  const handleIsCopied = React.useCallback(\n    (isCopied: boolean) => {\n      setLocalIsCopied(isCopied);\n      onCopyChange?.(isCopied);\n    },\n    [onCopyChange],\n  );\n\n  const handleCopy = React.useCallback(\n    (e: React.MouseEvent<HTMLButtonElement>) => {\n      if (isCopied) return;\n      if (content) {\n        navigator.clipboard\n          .writeText(content)\n          .then(() => {\n            handleIsCopied(true);\n            setTimeout(() => handleIsCopied(false), delay);\n            onCopy?.(content);\n          })\n          .catch((error) => {\n            console.error('Error copying command', error);\n          });\n      }\n      onClick?.(e);\n    },\n    [isCopied, content, delay, onClick, onCopy, handleIsCopied],\n  );\n\n  return (\n    <motion.button\n      data-slot=\"copy-button\"\n      whileHover={{ scale: 1.05 }}\n      whileTap={{ scale: 0.95 }}\n      className={cn(buttonVariants({ variant, size }), className)}\n      onClick={handleCopy}\n      {...props}\n    >\n      <AnimatePresence mode=\"wait\">\n        <motion.span\n          key={localIsCopied ? 'check' : 'copy'}\n          data-slot=\"copy-button-icon\"\n          initial={{ scale: 0 }}\n          animate={{ scale: 1 }}\n          exit={{ scale: 0 }}\n          transition={{ duration: 0.15 }}\n        >\n          <Icon />\n        </motion.span>\n      </AnimatePresence>\n    </motion.button>\n  );\n}\n\nexport { CopyButton, buttonVariants, type CopyButtonProps };",
       },
@@ -278,7 +589,7 @@ export const index: Record<string, any> = {
     description:
       'A button with a copy to clipboard animation with shadcn-default style.',
     type: 'registry:ui',
-    dependencies: ['motion', 'lucide-react', 'class-variance-authority'],
+    dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
@@ -286,7 +597,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/buttons/copy/shadcn-default/index.tsx',
         type: 'registry:ui',
-        target: 'components/animate-ui/buttons/copy.tsx',
+        target: 'components/copy.tsx',
         content:
           "'use client';\n\nimport * as React from 'react';\nimport { AnimatePresence, HTMLMotionProps, motion } from 'motion/react';\nimport { CheckIcon, CopyIcon } from 'lucide-react';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils';\n\nconst buttonVariants = cva(\n  'inline-flex items-center justify-center cursor-pointer rounded-md transition-colors disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive',\n  {\n    variants: {\n      variant: {\n        default:\n          'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',\n        muted: 'bg-muted text-muted-foreground',\n        destructive:\n          'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',\n        outline:\n          'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50',\n        secondary:\n          'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',\n        ghost:\n          'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',\n      },\n      size: {\n        default: 'size-8 rounded-lg [&_svg]:size-4',\n        sm: 'size-6 [&_svg]:size-3',\n        md: 'size-10 rounded-lg [&_svg]:size-5',\n        lg: 'size-12 rounded-xl [&_svg]:size-6',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n      size: 'default',\n    },\n  },\n);\n\ntype CopyButtonProps = Omit<HTMLMotionProps<'button'>, 'children' | 'onCopy'> &\n  VariantProps<typeof buttonVariants> & {\n    content?: string;\n    delay?: number;\n    onCopy?: (content: string) => void;\n    isCopied?: boolean;\n    onCopyChange?: (isCopied: boolean) => void;\n  };\n\nfunction CopyButton({\n  content,\n  className,\n  size,\n  variant,\n  delay = 3000,\n  onClick,\n  onCopy,\n  isCopied,\n  onCopyChange,\n  ...props\n}: CopyButtonProps) {\n  const [localIsCopied, setLocalIsCopied] = React.useState(isCopied ?? false);\n  const Icon = localIsCopied ? CheckIcon : CopyIcon;\n\n  React.useEffect(() => {\n    setLocalIsCopied(isCopied ?? false);\n  }, [isCopied]);\n\n  const handleIsCopied = React.useCallback(\n    (isCopied: boolean) => {\n      setLocalIsCopied(isCopied);\n      onCopyChange?.(isCopied);\n    },\n    [onCopyChange],\n  );\n\n  const handleCopy = React.useCallback(\n    (e: React.MouseEvent<HTMLButtonElement>) => {\n      if (isCopied) return;\n      if (content) {\n        navigator.clipboard\n          .writeText(content)\n          .then(() => {\n            handleIsCopied(true);\n            setTimeout(() => handleIsCopied(false), delay);\n            onCopy?.(content);\n          })\n          .catch((error) => {\n            console.error('Error copying command', error);\n          });\n      }\n      onClick?.(e);\n    },\n    [isCopied, content, delay, onClick, onCopy, handleIsCopied],\n  );\n\n  return (\n    <motion.button\n      data-slot=\"copy-button\"\n      whileHover={{ scale: 1.05 }}\n      whileTap={{ scale: 0.95 }}\n      className={cn(buttonVariants({ variant, size }), className)}\n      onClick={handleCopy}\n      {...props}\n    >\n      <AnimatePresence mode=\"wait\">\n        <motion.span\n          key={localIsCopied ? 'check' : 'copy'}\n          data-slot=\"copy-button-icon\"\n          initial={{ scale: 0 }}\n          animate={{ scale: 1 }}\n          exit={{ scale: 0 }}\n          transition={{ duration: 0.15 }}\n        >\n          <Icon />\n        </motion.span>\n      </AnimatePresence>\n    </motion.button>\n  );\n}\n\nexport { CopyButton, buttonVariants, type CopyButtonProps };",
       },
@@ -314,7 +625,7 @@ export const index: Record<string, any> = {
     description:
       'A button with a copy to clipboard animation with shadcn-new-york style.',
     type: 'registry:ui',
-    dependencies: ['motion', 'lucide-react', 'class-variance-authority'],
+    dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
@@ -322,7 +633,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/buttons/copy/shadcn-new-york/index.tsx',
         type: 'registry:ui',
-        target: 'components/animate-ui/buttons/copy.tsx',
+        target: 'components/copy.tsx',
         content:
           "'use client';\n\nimport * as React from 'react';\nimport { AnimatePresence, HTMLMotionProps, motion } from 'motion/react';\nimport { CheckIcon, CopyIcon } from 'lucide-react';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils';\n\nconst buttonVariants = cva(\n  'inline-flex items-center justify-center cursor-pointer rounded-md transition-colors disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive',\n  {\n    variants: {\n      variant: {\n        default:\n          'bg-primary text-primary-foreground shadow-xs hover:bg-primary/90',\n        muted: 'bg-muted text-muted-foreground',\n        destructive:\n          'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',\n        outline:\n          'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50',\n        secondary:\n          'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80',\n        ghost:\n          'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',\n      },\n      size: {\n        default: 'size-8 rounded-lg [&_svg]:size-4',\n        sm: 'size-6 [&_svg]:size-3',\n        md: 'size-10 rounded-lg [&_svg]:size-5',\n        lg: 'size-12 rounded-xl [&_svg]:size-6',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n      size: 'default',\n    },\n  },\n);\n\ntype CopyButtonProps = Omit<HTMLMotionProps<'button'>, 'children' | 'onCopy'> &\n  VariantProps<typeof buttonVariants> & {\n    content?: string;\n    delay?: number;\n    onCopy?: (content: string) => void;\n    isCopied?: boolean;\n    onCopyChange?: (isCopied: boolean) => void;\n  };\n\nfunction CopyButton({\n  content,\n  className,\n  size,\n  variant,\n  delay = 3000,\n  onClick,\n  onCopy,\n  isCopied,\n  onCopyChange,\n  ...props\n}: CopyButtonProps) {\n  const [localIsCopied, setLocalIsCopied] = React.useState(isCopied ?? false);\n  const Icon = localIsCopied ? CheckIcon : CopyIcon;\n\n  React.useEffect(() => {\n    setLocalIsCopied(isCopied ?? false);\n  }, [isCopied]);\n\n  const handleIsCopied = React.useCallback(\n    (isCopied: boolean) => {\n      setLocalIsCopied(isCopied);\n      onCopyChange?.(isCopied);\n    },\n    [onCopyChange],\n  );\n\n  const handleCopy = React.useCallback(\n    (e: React.MouseEvent<HTMLButtonElement>) => {\n      if (isCopied) return;\n      if (content) {\n        navigator.clipboard\n          .writeText(content)\n          .then(() => {\n            handleIsCopied(true);\n            setTimeout(() => handleIsCopied(false), delay);\n            onCopy?.(content);\n          })\n          .catch((error) => {\n            console.error('Error copying command', error);\n          });\n      }\n      onClick?.(e);\n    },\n    [isCopied, content, delay, onClick, onCopy, handleIsCopied],\n  );\n\n  return (\n    <motion.button\n      data-slot=\"copy-button\"\n      whileHover={{ scale: 1.05 }}\n      whileTap={{ scale: 0.95 }}\n      className={cn(buttonVariants({ variant, size }), className)}\n      onClick={handleCopy}\n      {...props}\n    >\n      <AnimatePresence mode=\"wait\">\n        <motion.span\n          key={localIsCopied ? 'check' : 'copy'}\n          data-slot=\"copy-button-icon\"\n          initial={{ scale: 0 }}\n          animate={{ scale: 1 }}\n          exit={{ scale: 0 }}\n          transition={{ duration: 0.15 }}\n        >\n          <Icon />\n        </motion.span>\n      </AnimatePresence>\n    </motion.button>\n  );\n}\n\nexport { CopyButton, buttonVariants, type CopyButtonProps };",
       },
@@ -345,6 +656,109 @@ export const index: Record<string, any> = {
     })(),
     command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-copy-button',
   },
+  'default-Card': {
+    name: 'default-Card',
+    description: 'Card component with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/card/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/Card.tsx',
+        content:
+          "import * as React from 'react';\n\nimport { cn } from '@/lib/utils';\n\nfunction Card({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card\"\n      className={cn(\n        'bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction CardHeader({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card-header\"\n      className={cn(\n        '@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction CardTitle({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card-title\"\n      className={cn('leading-none font-semibold', className)}\n      {...props}\n    />\n  );\n}\n\nfunction CardDescription({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card-description\"\n      className={cn('text-muted-foreground text-sm', className)}\n      {...props}\n    />\n  );\n}\n\nfunction CardAction({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card-action\"\n      className={cn(\n        'col-start-2 row-span-2 row-start-1 self-start justify-self-end',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction CardContent({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card-content\"\n      className={cn('px-6', className)}\n      {...props}\n    />\n  );\n}\n\nfunction CardFooter({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card-footer\"\n      className={cn('flex items-center px-6 [.border-t]:pt-6', className)}\n      {...props}\n    />\n  );\n}\n\nexport {\n  Card,\n  CardHeader,\n  CardFooter,\n  CardTitle,\n  CardAction,\n  CardDescription,\n  CardContent,\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import('@/__registry__/card/default/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-Card';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/default-Card',
+  },
+  'shadcn-default-Card': {
+    name: 'shadcn-default-Card',
+    description: 'Card component with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/card/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/Card.tsx',
+        content:
+          "import * as React from 'react';\n\nimport { cn } from '@/lib/utils';\n\nfunction Card({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card\"\n      className={cn(\n        'bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction CardHeader({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card-header\"\n      className={cn(\n        '@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction CardTitle({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card-title\"\n      className={cn('leading-none font-semibold', className)}\n      {...props}\n    />\n  );\n}\n\nfunction CardDescription({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card-description\"\n      className={cn('text-muted-foreground text-sm', className)}\n      {...props}\n    />\n  );\n}\n\nfunction CardAction({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card-action\"\n      className={cn(\n        'col-start-2 row-span-2 row-start-1 self-start justify-self-end',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction CardContent({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card-content\"\n      className={cn('px-6', className)}\n      {...props}\n    />\n  );\n}\n\nfunction CardFooter({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card-footer\"\n      className={cn('flex items-center px-6 [.border-t]:pt-6', className)}\n      {...props}\n    />\n  );\n}\n\nexport {\n  Card,\n  CardHeader,\n  CardFooter,\n  CardTitle,\n  CardAction,\n  CardDescription,\n  CardContent,\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/card/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-Card';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-Card',
+  },
+  'shadcn-new-york-Card': {
+    name: 'shadcn-new-york-Card',
+    description: 'Card component with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/card/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/Card.tsx',
+        content:
+          "import * as React from 'react';\n\nimport { cn } from '@/lib/utils';\n\nfunction Card({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card\"\n      className={cn(\n        'bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction CardHeader({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card-header\"\n      className={cn(\n        '@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction CardTitle({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card-title\"\n      className={cn('leading-none font-semibold', className)}\n      {...props}\n    />\n  );\n}\n\nfunction CardDescription({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card-description\"\n      className={cn('text-muted-foreground text-sm', className)}\n      {...props}\n    />\n  );\n}\n\nfunction CardAction({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card-action\"\n      className={cn(\n        'col-start-2 row-span-2 row-start-1 self-start justify-self-end',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction CardContent({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card-content\"\n      className={cn('px-6', className)}\n      {...props}\n    />\n  );\n}\n\nfunction CardFooter({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"card-footer\"\n      className={cn('flex items-center px-6 [.border-t]:pt-6', className)}\n      {...props}\n    />\n  );\n}\n\nexport {\n  Card,\n  CardHeader,\n  CardFooter,\n  CardTitle,\n  CardAction,\n  CardDescription,\n  CardContent,\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/card/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-Card';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-Card',
+  },
   'default-card-curtain-reveal': {
     name: 'default-card-curtain-reveal',
     description:
@@ -352,7 +766,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['systaliko-ui.vercel.app/r/card-curtain-reveal'],
+    registryDependencies: undefined,
     styles: undefined,
     files: [
       {
@@ -388,7 +802,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['systaliko-ui.vercel.app/r/card-curtain-reveal'],
+    registryDependencies: undefined,
     styles: undefined,
     files: [
       {
@@ -425,7 +839,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['systaliko-ui.vercel.app/r/card-curtain-reveal'],
+    registryDependencies: undefined,
     styles: undefined,
     files: [
       {
@@ -462,7 +876,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['systaliko-ui.vercel.app/r/card-flip'],
+    registryDependencies: undefined,
     styles: undefined,
     files: [
       {
@@ -498,7 +912,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['systaliko-ui.vercel.app/r/card-flip'],
+    registryDependencies: undefined,
     styles: undefined,
     files: [
       {
@@ -534,7 +948,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['systaliko-ui.vercel.app/r/card-flip'],
+    registryDependencies: undefined,
     styles: undefined,
     files: [
       {
@@ -570,9 +984,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/card-hover-reveal',
-    ],
+    registryDependencies: undefined,
     styles: undefined,
     files: [
       {
@@ -608,9 +1020,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/card-hover-reveal',
-    ],
+    registryDependencies: undefined,
     styles: undefined,
     files: [
       {
@@ -647,9 +1057,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/card-hover-reveal',
-    ],
+    registryDependencies: undefined,
     styles: undefined,
     files: [
       {
@@ -686,7 +1094,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/avatar'],
     styles: undefined,
     files: [
       {
@@ -694,7 +1102,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/cards/card-testimonial.tsx',
         content:
-          "'use client';\n\nimport { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';\nimport { cn } from '@/lib/utils';\nimport { RatingStars } from '@/components/systaliko-ui/rating-stars';\nimport { cva, VariantProps } from 'class-variance-authority';\nimport * as React from 'react';\n\ninterface AuthorProps extends React.HTMLAttributes<HTMLDivElement> {\n  authorName: string;\n  avatarUrl?: string;\n  description?: string;\n}\ninterface CardTestimonialProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof cardTestimonialVariants> {\n  testimonialQuote: string;\n  testimonialAuthor: AuthorProps;\n  testimonialRating?: number;\n}\ninterface TestimonialContextValue {\n  testimonialQuote: string;\n  testimonialAuthor: AuthorProps;\n  testimonialRating?: number;\n}\n\nconst cardTestimonialVariants = cva('', {\n  variants: {\n    variant: {\n      default:\n        'flex size-full flex-col items-center justify-center gap-6 rounded-2xl border  bg-accent bg-background/80 p-6 backdrop-blur-md',\n    },\n  },\n  defaultVariants: {\n    variant: 'default',\n  },\n});\n\nconst CardTestimonialContext = React.createContext<\n  TestimonialContextValue | undefined\n>(undefined);\n\nfunction useCardTestimonialContext() {\n  const context = React.useContext(CardTestimonialContext);\n  if (context === undefined) {\n    throw new Error(\n      'useCardTestimonialContext must be used within a CardTestimonialProvider',\n    );\n  }\n  return context;\n}\n\nexport const CardTestimonial = ({\n  testimonialQuote,\n  testimonialAuthor,\n  testimonialRating,\n  className,\n  children,\n  variant,\n  ...props\n}: CardTestimonialProps) => {\n  return (\n    <CardTestimonialContext.Provider\n      value={{ testimonialQuote, testimonialAuthor, testimonialRating }}\n    >\n      <div\n        className={cn(cardTestimonialVariants({ variant, className }))}\n        {...props}\n      >\n        {children}\n      </div>\n    </CardTestimonialContext.Provider>\n  );\n};\n\nexport const TestimonialAuthor = ({\n  className,\n  children,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => {\n  const { testimonialAuthor } = useCardTestimonialContext();\n  const { authorName, avatarUrl, description } = testimonialAuthor;\n  return (\n    <div className={className} {...props}>\n      <Avatar className=\"size-10\">\n        <AvatarImage src={avatarUrl} alt={`Portrait of ${authorName}`} />\n        <AvatarFallback>\n          {authorName\n            .split(' ')\n            .map((n) => n[0])\n            .join('')}\n        </AvatarFallback>\n      </Avatar>\n      <div>\n        <span className=\"block text-lg font-semibold tracking-tight md:text-xl\">\n          {authorName}\n        </span>\n        <span className=\"block text-sm text-muted-foreground \">\n          {description}\n        </span>\n      </div>\n      {children}\n    </div>\n  );\n};\n\nexport const TestimonialRating = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => {\n  const { testimonialRating } = useCardTestimonialContext();\n  return (\n    <RatingStars\n      className={className}\n      rating={testimonialRating ?? 0}\n      {...props}\n    />\n  );\n};\n\nexport const TestimonialQuote = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLQuoteElement>) => {\n  const { testimonialQuote } = useCardTestimonialContext();\n  return (\n    <blockquote className={className} {...props}>\n      {testimonialQuote}\n    </blockquote>\n  );\n};",
+          "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { Avatar, AvatarFallback, AvatarImage } from '@/components/systaliko-ui/avatar';\nimport { RatingStars } from '@/components/systaliko-ui/rating-stars';\nimport { cva, VariantProps } from 'class-variance-authority';\nimport * as React from 'react';\n\ninterface AuthorProps extends React.HTMLAttributes<HTMLDivElement> {\n  authorName: string;\n  avatarUrl?: string;\n  description?: string;\n}\ninterface CardTestimonialProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof cardTestimonialVariants> {\n  testimonialQuote: string;\n  testimonialAuthor: AuthorProps;\n  testimonialRating?: number;\n}\ninterface TestimonialContextValue {\n  testimonialQuote: string;\n  testimonialAuthor: AuthorProps;\n  testimonialRating?: number;\n}\n\nconst cardTestimonialVariants = cva('', {\n  variants: {\n    variant: {\n      default:\n        'flex size-full flex-col items-center justify-center gap-6 rounded-2xl border  bg-accent bg-background/80 p-6 backdrop-blur-md',\n    },\n  },\n  defaultVariants: {\n    variant: 'default',\n  },\n});\n\nconst CardTestimonialContext = React.createContext<\n  TestimonialContextValue | undefined\n>(undefined);\n\nfunction useCardTestimonialContext() {\n  const context = React.useContext(CardTestimonialContext);\n  if (context === undefined) {\n    throw new Error(\n      'useCardTestimonialContext must be used within a CardTestimonialProvider',\n    );\n  }\n  return context;\n}\n\nexport const CardTestimonial = ({\n  testimonialQuote,\n  testimonialAuthor,\n  testimonialRating,\n  className,\n  children,\n  variant,\n  ...props\n}: CardTestimonialProps) => {\n  return (\n    <CardTestimonialContext.Provider\n      value={{ testimonialQuote, testimonialAuthor, testimonialRating }}\n    >\n      <div\n        className={cn(cardTestimonialVariants({ variant, className }))}\n        {...props}\n      >\n        {children}\n      </div>\n    </CardTestimonialContext.Provider>\n  );\n};\n\nexport const TestimonialAuthor = ({\n  className,\n  children,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => {\n  const { testimonialAuthor } = useCardTestimonialContext();\n  const { authorName, avatarUrl, description } = testimonialAuthor;\n  return (\n    <div className={className} {...props}>\n      <Avatar className=\"size-10\">\n        <AvatarImage src={avatarUrl} alt={`Portrait of ${authorName}`} />\n        <AvatarFallback>\n          {authorName\n            .split(' ')\n            .map((n) => n[0])\n            .join('')}\n        </AvatarFallback>\n      </Avatar>\n      <div>\n        <h4 className=\"block text-lg font-semibold tracking-tight md:text-xl\">\n          {authorName}\n        </h4>\n        <span className=\"block text-sm text-muted-foreground \">\n          {description}\n        </span>\n      </div>\n      {children}\n    </div>\n  );\n};\n\nexport const TestimonialRating = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => {\n  const { testimonialRating } = useCardTestimonialContext();\n  return (\n    <RatingStars\n      className={className}\n      rating={testimonialRating ?? 0}\n      {...props}\n    />\n  );\n};\n\nexport const TestimonialQuote = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLQuoteElement>) => {\n  const { testimonialQuote } = useCardTestimonialContext();\n  return (\n    <blockquote className={className} {...props}>\n      {testimonialQuote}\n    </blockquote>\n  );\n};",
       },
     ],
     component: (function () {
@@ -722,7 +1130,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/avatar'],
     styles: undefined,
     files: [
       {
@@ -730,7 +1138,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/cards/card-testimonial.tsx',
         content:
-          "'use client';\n\nimport { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';\nimport { cn } from '@/lib/utils';\nimport { RatingStars } from '@/components/systaliko-ui/rating-stars';\nimport { cva, VariantProps } from 'class-variance-authority';\nimport * as React from 'react';\n\ninterface AuthorProps extends React.HTMLAttributes<HTMLDivElement> {\n  authorName: string;\n  avatarUrl?: string;\n  description?: string;\n}\ninterface CardTestimonialProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof cardTestimonialVariants> {\n  testimonialQuote: string;\n  testimonialAuthor: AuthorProps;\n  testimonialRating?: number;\n}\ninterface TestimonialContextValue {\n  testimonialQuote: string;\n  testimonialAuthor: AuthorProps;\n  testimonialRating?: number;\n}\n\nconst cardTestimonialVariants = cva('', {\n  variants: {\n    variant: {\n      default:\n        'flex size-full flex-col items-center justify-center gap-6 rounded-2xl border  bg-accent bg-background/80 p-6 backdrop-blur-md',\n    },\n  },\n  defaultVariants: {\n    variant: 'default',\n  },\n});\n\nconst CardTestimonialContext = React.createContext<\n  TestimonialContextValue | undefined\n>(undefined);\n\nfunction useCardTestimonialContext() {\n  const context = React.useContext(CardTestimonialContext);\n  if (context === undefined) {\n    throw new Error(\n      'useCardTestimonialContext must be used within a CardTestimonialProvider',\n    );\n  }\n  return context;\n}\n\nexport const CardTestimonial = ({\n  testimonialQuote,\n  testimonialAuthor,\n  testimonialRating,\n  className,\n  children,\n  variant,\n  ...props\n}: CardTestimonialProps) => {\n  return (\n    <CardTestimonialContext.Provider\n      value={{ testimonialQuote, testimonialAuthor, testimonialRating }}\n    >\n      <div\n        className={cn(cardTestimonialVariants({ variant, className }))}\n        {...props}\n      >\n        {children}\n      </div>\n    </CardTestimonialContext.Provider>\n  );\n};\n\nexport const TestimonialAuthor = ({\n  className,\n  children,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => {\n  const { testimonialAuthor } = useCardTestimonialContext();\n  const { authorName, avatarUrl, description } = testimonialAuthor;\n  return (\n    <div className={className} {...props}>\n      <Avatar className=\"size-10\">\n        <AvatarImage src={avatarUrl} alt={`Portrait of ${authorName}`} />\n        <AvatarFallback>\n          {authorName\n            .split(' ')\n            .map((n) => n[0])\n            .join('')}\n        </AvatarFallback>\n      </Avatar>\n      <div>\n        <span className=\"block text-lg font-semibold tracking-tight md:text-xl\">\n          {authorName}\n        </span>\n        <span className=\"block text-sm text-muted-foreground \">\n          {description}\n        </span>\n      </div>\n      {children}\n    </div>\n  );\n};\n\nexport const TestimonialRating = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => {\n  const { testimonialRating } = useCardTestimonialContext();\n  return (\n    <RatingStars\n      className={className}\n      rating={testimonialRating ?? 0}\n      {...props}\n    />\n  );\n};\n\nexport const TestimonialQuote = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLQuoteElement>) => {\n  const { testimonialQuote } = useCardTestimonialContext();\n  return (\n    <blockquote className={className} {...props}>\n      {testimonialQuote}\n    </blockquote>\n  );\n};",
+          "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { Avatar, AvatarFallback, AvatarImage } from '@/components/systaliko-ui/avatar';\nimport { RatingStars } from '@/components/systaliko-ui/rating-stars';\nimport { cva, VariantProps } from 'class-variance-authority';\nimport * as React from 'react';\n\ninterface AuthorProps extends React.HTMLAttributes<HTMLDivElement> {\n  authorName: string;\n  avatarUrl?: string;\n  description?: string;\n}\ninterface CardTestimonialProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof cardTestimonialVariants> {\n  testimonialQuote: string;\n  testimonialAuthor: AuthorProps;\n  testimonialRating?: number;\n}\ninterface TestimonialContextValue {\n  testimonialQuote: string;\n  testimonialAuthor: AuthorProps;\n  testimonialRating?: number;\n}\n\nconst cardTestimonialVariants = cva('', {\n  variants: {\n    variant: {\n      default:\n        'flex size-full flex-col items-center justify-center gap-6 rounded-2xl border  bg-accent bg-background/80 p-6 backdrop-blur-md',\n    },\n  },\n  defaultVariants: {\n    variant: 'default',\n  },\n});\n\nconst CardTestimonialContext = React.createContext<\n  TestimonialContextValue | undefined\n>(undefined);\n\nfunction useCardTestimonialContext() {\n  const context = React.useContext(CardTestimonialContext);\n  if (context === undefined) {\n    throw new Error(\n      'useCardTestimonialContext must be used within a CardTestimonialProvider',\n    );\n  }\n  return context;\n}\n\nexport const CardTestimonial = ({\n  testimonialQuote,\n  testimonialAuthor,\n  testimonialRating,\n  className,\n  children,\n  variant,\n  ...props\n}: CardTestimonialProps) => {\n  return (\n    <CardTestimonialContext.Provider\n      value={{ testimonialQuote, testimonialAuthor, testimonialRating }}\n    >\n      <div\n        className={cn(cardTestimonialVariants({ variant, className }))}\n        {...props}\n      >\n        {children}\n      </div>\n    </CardTestimonialContext.Provider>\n  );\n};\n\nexport const TestimonialAuthor = ({\n  className,\n  children,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => {\n  const { testimonialAuthor } = useCardTestimonialContext();\n  const { authorName, avatarUrl, description } = testimonialAuthor;\n  return (\n    <div className={className} {...props}>\n      <Avatar className=\"size-10\">\n        <AvatarImage src={avatarUrl} alt={`Portrait of ${authorName}`} />\n        <AvatarFallback>\n          {authorName\n            .split(' ')\n            .map((n) => n[0])\n            .join('')}\n        </AvatarFallback>\n      </Avatar>\n      <div>\n        <h4 className=\"block text-lg font-semibold tracking-tight md:text-xl\">\n          {authorName}\n        </h4>\n        <span className=\"block text-sm text-muted-foreground \">\n          {description}\n        </span>\n      </div>\n      {children}\n    </div>\n  );\n};\n\nexport const TestimonialRating = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => {\n  const { testimonialRating } = useCardTestimonialContext();\n  return (\n    <RatingStars\n      className={className}\n      rating={testimonialRating ?? 0}\n      {...props}\n    />\n  );\n};\n\nexport const TestimonialQuote = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLQuoteElement>) => {\n  const { testimonialQuote } = useCardTestimonialContext();\n  return (\n    <blockquote className={className} {...props}>\n      {testimonialQuote}\n    </blockquote>\n  );\n};",
       },
     ],
     component: (function () {
@@ -759,7 +1167,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/avatar'],
     styles: undefined,
     files: [
       {
@@ -767,7 +1175,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/cards/card-testimonial.tsx',
         content:
-          "'use client';\n\nimport { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';\nimport { cn } from '@/lib/utils';\nimport { RatingStars } from '@/components/systaliko-ui/rating-stars';\nimport { cva, VariantProps } from 'class-variance-authority';\nimport * as React from 'react';\n\ninterface AuthorProps extends React.HTMLAttributes<HTMLDivElement> {\n  authorName: string;\n  avatarUrl?: string;\n  description?: string;\n}\ninterface CardTestimonialProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof cardTestimonialVariants> {\n  testimonialQuote: string;\n  testimonialAuthor: AuthorProps;\n  testimonialRating?: number;\n}\ninterface TestimonialContextValue {\n  testimonialQuote: string;\n  testimonialAuthor: AuthorProps;\n  testimonialRating?: number;\n}\n\nconst cardTestimonialVariants = cva('', {\n  variants: {\n    variant: {\n      default:\n        'flex size-full flex-col items-center justify-center gap-6 rounded-2xl border  bg-accent bg-background/80 p-6 backdrop-blur-md',\n    },\n  },\n  defaultVariants: {\n    variant: 'default',\n  },\n});\n\nconst CardTestimonialContext = React.createContext<\n  TestimonialContextValue | undefined\n>(undefined);\n\nfunction useCardTestimonialContext() {\n  const context = React.useContext(CardTestimonialContext);\n  if (context === undefined) {\n    throw new Error(\n      'useCardTestimonialContext must be used within a CardTestimonialProvider',\n    );\n  }\n  return context;\n}\n\nexport const CardTestimonial = ({\n  testimonialQuote,\n  testimonialAuthor,\n  testimonialRating,\n  className,\n  children,\n  variant,\n  ...props\n}: CardTestimonialProps) => {\n  return (\n    <CardTestimonialContext.Provider\n      value={{ testimonialQuote, testimonialAuthor, testimonialRating }}\n    >\n      <div\n        className={cn(cardTestimonialVariants({ variant, className }))}\n        {...props}\n      >\n        {children}\n      </div>\n    </CardTestimonialContext.Provider>\n  );\n};\n\nexport const TestimonialAuthor = ({\n  className,\n  children,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => {\n  const { testimonialAuthor } = useCardTestimonialContext();\n  const { authorName, avatarUrl, description } = testimonialAuthor;\n  return (\n    <div className={className} {...props}>\n      <Avatar className=\"size-10\">\n        <AvatarImage src={avatarUrl} alt={`Portrait of ${authorName}`} />\n        <AvatarFallback>\n          {authorName\n            .split(' ')\n            .map((n) => n[0])\n            .join('')}\n        </AvatarFallback>\n      </Avatar>\n      <div>\n        <span className=\"block text-lg font-semibold tracking-tight md:text-xl\">\n          {authorName}\n        </span>\n        <span className=\"block text-sm text-muted-foreground \">\n          {description}\n        </span>\n      </div>\n      {children}\n    </div>\n  );\n};\n\nexport const TestimonialRating = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => {\n  const { testimonialRating } = useCardTestimonialContext();\n  return (\n    <RatingStars\n      className={className}\n      rating={testimonialRating ?? 0}\n      {...props}\n    />\n  );\n};\n\nexport const TestimonialQuote = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLQuoteElement>) => {\n  const { testimonialQuote } = useCardTestimonialContext();\n  return (\n    <blockquote className={className} {...props}>\n      {testimonialQuote}\n    </blockquote>\n  );\n};",
+          "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { Avatar, AvatarFallback, AvatarImage } from '@/components/systaliko-ui/avatar';\nimport { RatingStars } from '@/components/systaliko-ui/rating-stars';\nimport { cva, VariantProps } from 'class-variance-authority';\nimport * as React from 'react';\n\ninterface AuthorProps extends React.HTMLAttributes<HTMLDivElement> {\n  authorName: string;\n  avatarUrl?: string;\n  description?: string;\n}\ninterface CardTestimonialProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof cardTestimonialVariants> {\n  testimonialQuote: string;\n  testimonialAuthor: AuthorProps;\n  testimonialRating?: number;\n}\ninterface TestimonialContextValue {\n  testimonialQuote: string;\n  testimonialAuthor: AuthorProps;\n  testimonialRating?: number;\n}\n\nconst cardTestimonialVariants = cva('', {\n  variants: {\n    variant: {\n      default:\n        'flex size-full flex-col items-center justify-center gap-6 rounded-2xl border  bg-accent bg-background/80 p-6 backdrop-blur-md',\n    },\n  },\n  defaultVariants: {\n    variant: 'default',\n  },\n});\n\nconst CardTestimonialContext = React.createContext<\n  TestimonialContextValue | undefined\n>(undefined);\n\nfunction useCardTestimonialContext() {\n  const context = React.useContext(CardTestimonialContext);\n  if (context === undefined) {\n    throw new Error(\n      'useCardTestimonialContext must be used within a CardTestimonialProvider',\n    );\n  }\n  return context;\n}\n\nexport const CardTestimonial = ({\n  testimonialQuote,\n  testimonialAuthor,\n  testimonialRating,\n  className,\n  children,\n  variant,\n  ...props\n}: CardTestimonialProps) => {\n  return (\n    <CardTestimonialContext.Provider\n      value={{ testimonialQuote, testimonialAuthor, testimonialRating }}\n    >\n      <div\n        className={cn(cardTestimonialVariants({ variant, className }))}\n        {...props}\n      >\n        {children}\n      </div>\n    </CardTestimonialContext.Provider>\n  );\n};\n\nexport const TestimonialAuthor = ({\n  className,\n  children,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => {\n  const { testimonialAuthor } = useCardTestimonialContext();\n  const { authorName, avatarUrl, description } = testimonialAuthor;\n  return (\n    <div className={className} {...props}>\n      <Avatar className=\"size-10\">\n        <AvatarImage src={avatarUrl} alt={`Portrait of ${authorName}`} />\n        <AvatarFallback>\n          {authorName\n            .split(' ')\n            .map((n) => n[0])\n            .join('')}\n        </AvatarFallback>\n      </Avatar>\n      <div>\n        <h4 className=\"block text-lg font-semibold tracking-tight md:text-xl\">\n          {authorName}\n        </h4>\n        <span className=\"block text-sm text-muted-foreground \">\n          {description}\n        </span>\n      </div>\n      {children}\n    </div>\n  );\n};\n\nexport const TestimonialRating = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) => {\n  const { testimonialRating } = useCardTestimonialContext();\n  return (\n    <RatingStars\n      className={className}\n      rating={testimonialRating ?? 0}\n      {...props}\n    />\n  );\n};\n\nexport const TestimonialQuote = ({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLQuoteElement>) => {\n  const { testimonialQuote } = useCardTestimonialContext();\n  return (\n    <blockquote className={className} {...props}>\n      {testimonialQuote}\n    </blockquote>\n  );\n};",
       },
     ],
     component: (function () {
@@ -794,7 +1202,7 @@ export const index: Record<string, any> = {
     description:
       'Stack of cards to showcase a related set of element, like your services, your work, features, process of work, timeline, etc with default style.',
     type: 'registry:block',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
@@ -830,7 +1238,7 @@ export const index: Record<string, any> = {
     description:
       'Stack of cards to showcase a related set of element, like your services, your work, features, process of work, timeline, etc with shadcn-default style.',
     type: 'registry:block',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
@@ -866,7 +1274,7 @@ export const index: Record<string, any> = {
     description:
       'Stack of cards to showcase a related set of element, like your services, your work, features, process of work, timeline, etc with shadcn-new-york style.',
     type: 'registry:block',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
@@ -902,7 +1310,7 @@ export const index: Record<string, any> = {
     description:
       'Stack of rotated cards show, rotate one element at a time depending on scroll position with default style.',
     type: 'registry:block',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
@@ -938,7 +1346,7 @@ export const index: Record<string, any> = {
     description:
       'Stack of rotated cards show, rotate one element at a time depending on scroll position with shadcn-default style.',
     type: 'registry:block',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
@@ -975,7 +1383,7 @@ export const index: Record<string, any> = {
     description:
       'Stack of rotated cards show, rotate one element at a time depending on scroll position with shadcn-new-york style.',
     type: 'registry:block',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
@@ -1121,7 +1529,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/skelton'],
     styles: undefined,
     files: [
       {
@@ -1159,7 +1567,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/skelton'],
     styles: undefined,
     files: [
       {
@@ -1197,7 +1605,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/skelton'],
     styles: undefined,
     files: [
       {
@@ -1231,7 +1639,7 @@ export const index: Record<string, any> = {
   'default-container-stagger': {
     name: 'default-container-stagger',
     description:
-      'Animated Block with orchestrated stagger animations, for your motion components with default style.',
+      'Animated Block with orchestrated stagger animations, for your motion components, the animations are triggered by view with default style.',
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
@@ -1267,7 +1675,7 @@ export const index: Record<string, any> = {
   'shadcn-default-container-stagger': {
     name: 'shadcn-default-container-stagger',
     description:
-      'Animated Block with orchestrated stagger animations, for your motion components with shadcn-default style.',
+      'Animated Block with orchestrated stagger animations, for your motion components, the animations are triggered by view with shadcn-default style.',
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
@@ -1304,7 +1712,7 @@ export const index: Record<string, any> = {
   'shadcn-new-york-container-stagger': {
     name: 'shadcn-new-york-container-stagger',
     description:
-      'Animated Block with orchestrated stagger animations, for your motion components with shadcn-new-york style.',
+      'Animated Block with orchestrated stagger animations, for your motion components, the animations are triggered by view with shadcn-new-york style.',
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
@@ -1341,11 +1749,13 @@ export const index: Record<string, any> = {
   'default-containers-scroll-animations': {
     name: 'default-containers-scroll-animations',
     description:
-      'Collection of scroll triggred animations containers, most important elements for your scroll triggred animations with default style.',
+      'Collection of scroll triggered animations, Triggering the animation by scroll event with default style.',
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-smooth-scroll',
+    ],
     styles: undefined,
     files: [
       {
@@ -1379,11 +1789,13 @@ export const index: Record<string, any> = {
   'shadcn-default-containers-scroll-animations': {
     name: 'shadcn-default-containers-scroll-animations',
     description:
-      'Collection of scroll triggred animations containers, most important elements for your scroll triggred animations with shadcn-default style.',
+      'Collection of scroll triggered animations, Triggering the animation by scroll event with shadcn-default style.',
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-smooth-scroll',
+    ],
     styles: undefined,
     files: [
       {
@@ -1417,11 +1829,13 @@ export const index: Record<string, any> = {
   'shadcn-new-york-containers-scroll-animations': {
     name: 'shadcn-new-york-containers-scroll-animations',
     description:
-      'Collection of scroll triggred animations containers, most important elements for your scroll triggred animations with shadcn-new-york style.',
+      'Collection of scroll triggered animations, Triggering the animation by scroll event with shadcn-new-york style.',
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-smooth-scroll',
+    ],
     styles: undefined,
     files: [
       {
@@ -1457,9 +1871,11 @@ export const index: Record<string, any> = {
     description:
       'Animated gallery images, with scroll triggered animations, rotates and translates on the Y axis on scroll with default style.',
     type: 'registry:block',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-smooth-scroll',
+    ],
     styles: undefined,
     files: [
       {
@@ -1467,7 +1883,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/containers/gallery-rotated-scroll.tsx',
         content:
-          "import { cn } from '@/lib/utils';\nimport { useSmoothScroll } from '@/components/systaliko-ui/utils/use-smooth-scroll';\nimport {\n  motion,\n  HTMLMotionProps,\n  MotionValue,\n  useScroll,\n  useTransform,\n  easeInOut,\n} from 'motion/react';\nimport * as React from 'react';\n\ninterface GalleryRotatedScrollContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst GalleryRotatedScrollContext = React.createContext<\n  GalleryRotatedScrollContextValue | undefined\n>(undefined);\nexport function useGalleryRotatedScrollContext() {\n  const context = React.useContext(GalleryRotatedScrollContext);\n  if (!context) {\n    throw new Error(\n      'useGalleryRotatedScrollContext must be used within a GalleryRotatedScrollContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const GalleryRotatedScroll = ({\n  spacerClass,\n  children,\n  className,\n  style,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { spacerClass?: string }) => {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n  });\n\n  useSmoothScroll();\n\n  return (\n    <GalleryRotatedScrollContext.Provider value={{ scrollYProgress }}>\n      <div\n        ref={scrollRef}\n        className={cn('relative overflow-hidden', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n        <div className={cn('w-full', spacerClass)} />\n      </div>\n    </GalleryRotatedScrollContext.Provider>\n  );\n};\n\nGalleryRotatedScroll.displayName = 'GalleryRotatedScroll';\n\ninterface GalleryContainerProps extends HTMLMotionProps<'div'> {\n  yRange?: [number, number];\n  rotateXRange?: [number, number];\n  scaleRange?: [number, number];\n}\n\nexport const GalleryContainer = React.forwardRef<\n  HTMLDivElement,\n  GalleryContainerProps\n>(\n  (\n    {\n      yRange = [0, 300],\n      rotateXRange = [80, 0],\n      scaleRange = [1.1, 1],\n      children,\n      className,\n      style,\n      ...props\n    },\n    ref,\n  ) => {\n    const { scrollYProgress } = useGalleryRotatedScrollContext();\n\n    const y = useTransform(scrollYProgress, [0, 1], yRange, {\n      ease: easeInOut,\n    });\n\n    const rotateX = useTransform(scrollYProgress, [0, 0.5], rotateXRange, {\n      ease: easeInOut,\n    });\n\n    const scale = useTransform(scrollYProgress, [0.5, 0.9], scaleRange, {\n      ease: easeInOut,\n    });\n\n    return (\n      <motion.div\n        ref={ref}\n        className={cn('flex relative', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          willChange: 'transform',\n          backfaceVisibility: 'hidden',\n          position: 'sticky',\n          top: 0,\n          y,\n          rotateX,\n          scale,\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n      </motion.div>\n    );\n  },\n);\nGalleryContainer.displayName = 'GalleryContainer';\n\nexport const GalleryCol = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { yRange?: [string, string] }\n>(({ yRange = ['-5%', '1%'], className, style, ...props }, ref) => {\n  const { scrollYProgress } = useGalleryRotatedScrollContext();\n\n  const y = useTransform(scrollYProgress, [0.4, 0.8], yRange, {\n    ease: easeInOut,\n  });\n\n  return (\n    <motion.div\n      ref={ref}\n      className={cn('relative flex flex-col w-full', className)}\n      style={{\n        y,\n        backfaceVisibility: 'hidden',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n});\nGalleryCol.displayName = 'GalleryCol';",
+          "import { cn } from '@/lib/utils';\nimport { useSmoothScroll } from '@/components/systaliko-ui/utils/use-smooth-scroll';\nimport {\n  motion,\n  HTMLMotionProps,\n  MotionValue,\n  useScroll,\n  useTransform,\n  easeInOut,\n} from 'motion/react';\nimport * as React from 'react';\n\ninterface GalleryRotatedScrollContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst GalleryRotatedScrollContext = React.createContext<\n  GalleryRotatedScrollContextValue | undefined\n>(undefined);\nexport function useGalleryRotatedScrollContext() {\n  const context = React.useContext(GalleryRotatedScrollContext);\n  if (!context) {\n    throw new Error(\n      'useGalleryRotatedScrollContext must be used within a GalleryRotatedScrollContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const GalleryRotatedScroll = ({\n  spacerClass,\n  children,\n  className,\n  style,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { spacerClass?: string }) => {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n  });\n\n  useSmoothScroll();\n\n  return (\n    <GalleryRotatedScrollContext.Provider value={{ scrollYProgress }}>\n      <div\n        ref={scrollRef}\n        className={cn('relative overflow-hidden', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n        <div className={cn('w-full h-96', spacerClass)} />\n      </div>\n    </GalleryRotatedScrollContext.Provider>\n  );\n};\n\nGalleryRotatedScroll.displayName = 'GalleryRotatedScroll';\n\ninterface GalleryContainerProps extends HTMLMotionProps<'div'> {\n  yRange?: [number, number];\n  rotateXRange?: [number, number];\n  scaleRange?: [number, number];\n}\n\nexport const GalleryContainer = React.forwardRef<\n  HTMLDivElement,\n  GalleryContainerProps\n>(\n  (\n    {\n      yRange = [0, 350],\n      rotateXRange = [80, 0],\n      scaleRange = [1.1, 1],\n      children,\n      className,\n      style,\n      ...props\n    },\n    ref,\n  ) => {\n    const { scrollYProgress } = useGalleryRotatedScrollContext();\n\n    const y = useTransform(scrollYProgress, [0, 1], yRange, {\n      ease: easeInOut,\n    });\n\n    const rotateX = useTransform(scrollYProgress, [0, 0.5], rotateXRange, {\n      ease: easeInOut,\n    });\n\n    const scale = useTransform(scrollYProgress, [0.5, 0.9], scaleRange, {\n      ease: easeInOut,\n    });\n\n    return (\n      <motion.div\n        ref={ref}\n        className={cn('flex relative', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          willChange: 'transform',\n          backfaceVisibility: 'hidden',\n          top: 0,\n          y,\n          rotateX,\n          scale,\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n      </motion.div>\n    );\n  },\n);\nGalleryContainer.displayName = 'GalleryContainer';\n\nexport const GalleryCol = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { yRange?: [string, string] }\n>(({ yRange = ['-5%', '1%'], className, style, ...props }, ref) => {\n  const { scrollYProgress } = useGalleryRotatedScrollContext();\n\n  const y = useTransform(scrollYProgress, [0.4, 0.8], yRange, {\n    ease: easeInOut,\n  });\n\n  return (\n    <motion.div\n      ref={ref}\n      className={cn('relative flex flex-col w-full', className)}\n      style={{\n        y,\n        backfaceVisibility: 'hidden',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n});\nGalleryCol.displayName = 'GalleryCol';",
       },
     ],
     component: (function () {
@@ -1493,9 +1909,11 @@ export const index: Record<string, any> = {
     description:
       'Animated gallery images, with scroll triggered animations, rotates and translates on the Y axis on scroll with shadcn-default style.',
     type: 'registry:block',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-smooth-scroll',
+    ],
     styles: undefined,
     files: [
       {
@@ -1503,7 +1921,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/containers/gallery-rotated-scroll.tsx',
         content:
-          "import { cn } from '@/lib/utils';\nimport { useSmoothScroll } from '@/components/systaliko-ui/utils/use-smooth-scroll';\nimport {\n  motion,\n  HTMLMotionProps,\n  MotionValue,\n  useScroll,\n  useTransform,\n  easeInOut,\n} from 'motion/react';\nimport * as React from 'react';\n\ninterface GalleryRotatedScrollContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst GalleryRotatedScrollContext = React.createContext<\n  GalleryRotatedScrollContextValue | undefined\n>(undefined);\nexport function useGalleryRotatedScrollContext() {\n  const context = React.useContext(GalleryRotatedScrollContext);\n  if (!context) {\n    throw new Error(\n      'useGalleryRotatedScrollContext must be used within a GalleryRotatedScrollContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const GalleryRotatedScroll = ({\n  spacerClass,\n  children,\n  className,\n  style,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { spacerClass?: string }) => {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n  });\n\n  useSmoothScroll();\n\n  return (\n    <GalleryRotatedScrollContext.Provider value={{ scrollYProgress }}>\n      <div\n        ref={scrollRef}\n        className={cn('relative overflow-hidden', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n        <div className={cn('w-full', spacerClass)} />\n      </div>\n    </GalleryRotatedScrollContext.Provider>\n  );\n};\n\nGalleryRotatedScroll.displayName = 'GalleryRotatedScroll';\n\ninterface GalleryContainerProps extends HTMLMotionProps<'div'> {\n  yRange?: [number, number];\n  rotateXRange?: [number, number];\n  scaleRange?: [number, number];\n}\n\nexport const GalleryContainer = React.forwardRef<\n  HTMLDivElement,\n  GalleryContainerProps\n>(\n  (\n    {\n      yRange = [0, 300],\n      rotateXRange = [80, 0],\n      scaleRange = [1.1, 1],\n      children,\n      className,\n      style,\n      ...props\n    },\n    ref,\n  ) => {\n    const { scrollYProgress } = useGalleryRotatedScrollContext();\n\n    const y = useTransform(scrollYProgress, [0, 1], yRange, {\n      ease: easeInOut,\n    });\n\n    const rotateX = useTransform(scrollYProgress, [0, 0.5], rotateXRange, {\n      ease: easeInOut,\n    });\n\n    const scale = useTransform(scrollYProgress, [0.5, 0.9], scaleRange, {\n      ease: easeInOut,\n    });\n\n    return (\n      <motion.div\n        ref={ref}\n        className={cn('flex relative', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          willChange: 'transform',\n          backfaceVisibility: 'hidden',\n          position: 'sticky',\n          top: 0,\n          y,\n          rotateX,\n          scale,\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n      </motion.div>\n    );\n  },\n);\nGalleryContainer.displayName = 'GalleryContainer';\n\nexport const GalleryCol = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { yRange?: [string, string] }\n>(({ yRange = ['-5%', '1%'], className, style, ...props }, ref) => {\n  const { scrollYProgress } = useGalleryRotatedScrollContext();\n\n  const y = useTransform(scrollYProgress, [0.4, 0.8], yRange, {\n    ease: easeInOut,\n  });\n\n  return (\n    <motion.div\n      ref={ref}\n      className={cn('relative flex flex-col w-full', className)}\n      style={{\n        y,\n        backfaceVisibility: 'hidden',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n});\nGalleryCol.displayName = 'GalleryCol';",
+          "import { cn } from '@/lib/utils';\nimport { useSmoothScroll } from '@/components/systaliko-ui/utils/use-smooth-scroll';\nimport {\n  motion,\n  HTMLMotionProps,\n  MotionValue,\n  useScroll,\n  useTransform,\n  easeInOut,\n} from 'motion/react';\nimport * as React from 'react';\n\ninterface GalleryRotatedScrollContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst GalleryRotatedScrollContext = React.createContext<\n  GalleryRotatedScrollContextValue | undefined\n>(undefined);\nexport function useGalleryRotatedScrollContext() {\n  const context = React.useContext(GalleryRotatedScrollContext);\n  if (!context) {\n    throw new Error(\n      'useGalleryRotatedScrollContext must be used within a GalleryRotatedScrollContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const GalleryRotatedScroll = ({\n  spacerClass,\n  children,\n  className,\n  style,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { spacerClass?: string }) => {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n  });\n\n  useSmoothScroll();\n\n  return (\n    <GalleryRotatedScrollContext.Provider value={{ scrollYProgress }}>\n      <div\n        ref={scrollRef}\n        className={cn('relative overflow-hidden', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n        <div className={cn('w-full h-96', spacerClass)} />\n      </div>\n    </GalleryRotatedScrollContext.Provider>\n  );\n};\n\nGalleryRotatedScroll.displayName = 'GalleryRotatedScroll';\n\ninterface GalleryContainerProps extends HTMLMotionProps<'div'> {\n  yRange?: [number, number];\n  rotateXRange?: [number, number];\n  scaleRange?: [number, number];\n}\n\nexport const GalleryContainer = React.forwardRef<\n  HTMLDivElement,\n  GalleryContainerProps\n>(\n  (\n    {\n      yRange = [0, 350],\n      rotateXRange = [80, 0],\n      scaleRange = [1.1, 1],\n      children,\n      className,\n      style,\n      ...props\n    },\n    ref,\n  ) => {\n    const { scrollYProgress } = useGalleryRotatedScrollContext();\n\n    const y = useTransform(scrollYProgress, [0, 1], yRange, {\n      ease: easeInOut,\n    });\n\n    const rotateX = useTransform(scrollYProgress, [0, 0.5], rotateXRange, {\n      ease: easeInOut,\n    });\n\n    const scale = useTransform(scrollYProgress, [0.5, 0.9], scaleRange, {\n      ease: easeInOut,\n    });\n\n    return (\n      <motion.div\n        ref={ref}\n        className={cn('flex relative', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          willChange: 'transform',\n          backfaceVisibility: 'hidden',\n          top: 0,\n          y,\n          rotateX,\n          scale,\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n      </motion.div>\n    );\n  },\n);\nGalleryContainer.displayName = 'GalleryContainer';\n\nexport const GalleryCol = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { yRange?: [string, string] }\n>(({ yRange = ['-5%', '1%'], className, style, ...props }, ref) => {\n  const { scrollYProgress } = useGalleryRotatedScrollContext();\n\n  const y = useTransform(scrollYProgress, [0.4, 0.8], yRange, {\n    ease: easeInOut,\n  });\n\n  return (\n    <motion.div\n      ref={ref}\n      className={cn('relative flex flex-col w-full', className)}\n      style={{\n        y,\n        backfaceVisibility: 'hidden',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n});\nGalleryCol.displayName = 'GalleryCol';",
       },
     ],
     component: (function () {
@@ -1530,9 +1948,11 @@ export const index: Record<string, any> = {
     description:
       'Animated gallery images, with scroll triggered animations, rotates and translates on the Y axis on scroll with shadcn-new-york style.',
     type: 'registry:block',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-smooth-scroll',
+    ],
     styles: undefined,
     files: [
       {
@@ -1540,7 +1960,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/containers/gallery-rotated-scroll.tsx',
         content:
-          "import { cn } from '@/lib/utils';\nimport { useSmoothScroll } from '@/components/systaliko-ui/utils/use-smooth-scroll';\nimport {\n  motion,\n  HTMLMotionProps,\n  MotionValue,\n  useScroll,\n  useTransform,\n  easeInOut,\n} from 'motion/react';\nimport * as React from 'react';\n\ninterface GalleryRotatedScrollContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst GalleryRotatedScrollContext = React.createContext<\n  GalleryRotatedScrollContextValue | undefined\n>(undefined);\nexport function useGalleryRotatedScrollContext() {\n  const context = React.useContext(GalleryRotatedScrollContext);\n  if (!context) {\n    throw new Error(\n      'useGalleryRotatedScrollContext must be used within a GalleryRotatedScrollContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const GalleryRotatedScroll = ({\n  spacerClass,\n  children,\n  className,\n  style,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { spacerClass?: string }) => {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n  });\n\n  useSmoothScroll();\n\n  return (\n    <GalleryRotatedScrollContext.Provider value={{ scrollYProgress }}>\n      <div\n        ref={scrollRef}\n        className={cn('relative overflow-hidden', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n        <div className={cn('w-full', spacerClass)} />\n      </div>\n    </GalleryRotatedScrollContext.Provider>\n  );\n};\n\nGalleryRotatedScroll.displayName = 'GalleryRotatedScroll';\n\ninterface GalleryContainerProps extends HTMLMotionProps<'div'> {\n  yRange?: [number, number];\n  rotateXRange?: [number, number];\n  scaleRange?: [number, number];\n}\n\nexport const GalleryContainer = React.forwardRef<\n  HTMLDivElement,\n  GalleryContainerProps\n>(\n  (\n    {\n      yRange = [0, 300],\n      rotateXRange = [80, 0],\n      scaleRange = [1.1, 1],\n      children,\n      className,\n      style,\n      ...props\n    },\n    ref,\n  ) => {\n    const { scrollYProgress } = useGalleryRotatedScrollContext();\n\n    const y = useTransform(scrollYProgress, [0, 1], yRange, {\n      ease: easeInOut,\n    });\n\n    const rotateX = useTransform(scrollYProgress, [0, 0.5], rotateXRange, {\n      ease: easeInOut,\n    });\n\n    const scale = useTransform(scrollYProgress, [0.5, 0.9], scaleRange, {\n      ease: easeInOut,\n    });\n\n    return (\n      <motion.div\n        ref={ref}\n        className={cn('flex relative', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          willChange: 'transform',\n          backfaceVisibility: 'hidden',\n          position: 'sticky',\n          top: 0,\n          y,\n          rotateX,\n          scale,\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n      </motion.div>\n    );\n  },\n);\nGalleryContainer.displayName = 'GalleryContainer';\n\nexport const GalleryCol = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { yRange?: [string, string] }\n>(({ yRange = ['-5%', '1%'], className, style, ...props }, ref) => {\n  const { scrollYProgress } = useGalleryRotatedScrollContext();\n\n  const y = useTransform(scrollYProgress, [0.4, 0.8], yRange, {\n    ease: easeInOut,\n  });\n\n  return (\n    <motion.div\n      ref={ref}\n      className={cn('relative flex flex-col w-full', className)}\n      style={{\n        y,\n        backfaceVisibility: 'hidden',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n});\nGalleryCol.displayName = 'GalleryCol';",
+          "import { cn } from '@/lib/utils';\nimport { useSmoothScroll } from '@/components/systaliko-ui/utils/use-smooth-scroll';\nimport {\n  motion,\n  HTMLMotionProps,\n  MotionValue,\n  useScroll,\n  useTransform,\n  easeInOut,\n} from 'motion/react';\nimport * as React from 'react';\n\ninterface GalleryRotatedScrollContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst GalleryRotatedScrollContext = React.createContext<\n  GalleryRotatedScrollContextValue | undefined\n>(undefined);\nexport function useGalleryRotatedScrollContext() {\n  const context = React.useContext(GalleryRotatedScrollContext);\n  if (!context) {\n    throw new Error(\n      'useGalleryRotatedScrollContext must be used within a GalleryRotatedScrollContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const GalleryRotatedScroll = ({\n  spacerClass,\n  children,\n  className,\n  style,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { spacerClass?: string }) => {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n  });\n\n  useSmoothScroll();\n\n  return (\n    <GalleryRotatedScrollContext.Provider value={{ scrollYProgress }}>\n      <div\n        ref={scrollRef}\n        className={cn('relative overflow-hidden', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n        <div className={cn('w-full h-96', spacerClass)} />\n      </div>\n    </GalleryRotatedScrollContext.Provider>\n  );\n};\n\nGalleryRotatedScroll.displayName = 'GalleryRotatedScroll';\n\ninterface GalleryContainerProps extends HTMLMotionProps<'div'> {\n  yRange?: [number, number];\n  rotateXRange?: [number, number];\n  scaleRange?: [number, number];\n}\n\nexport const GalleryContainer = React.forwardRef<\n  HTMLDivElement,\n  GalleryContainerProps\n>(\n  (\n    {\n      yRange = [0, 350],\n      rotateXRange = [80, 0],\n      scaleRange = [1.1, 1],\n      children,\n      className,\n      style,\n      ...props\n    },\n    ref,\n  ) => {\n    const { scrollYProgress } = useGalleryRotatedScrollContext();\n\n    const y = useTransform(scrollYProgress, [0, 1], yRange, {\n      ease: easeInOut,\n    });\n\n    const rotateX = useTransform(scrollYProgress, [0, 0.5], rotateXRange, {\n      ease: easeInOut,\n    });\n\n    const scale = useTransform(scrollYProgress, [0.5, 0.9], scaleRange, {\n      ease: easeInOut,\n    });\n\n    return (\n      <motion.div\n        ref={ref}\n        className={cn('flex relative', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          willChange: 'transform',\n          backfaceVisibility: 'hidden',\n          top: 0,\n          y,\n          rotateX,\n          scale,\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n      </motion.div>\n    );\n  },\n);\nGalleryContainer.displayName = 'GalleryContainer';\n\nexport const GalleryCol = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { yRange?: [string, string] }\n>(({ yRange = ['-5%', '1%'], className, style, ...props }, ref) => {\n  const { scrollYProgress } = useGalleryRotatedScrollContext();\n\n  const y = useTransform(scrollYProgress, [0.4, 0.8], yRange, {\n    ease: easeInOut,\n  });\n\n  return (\n    <motion.div\n      ref={ref}\n      className={cn('relative flex flex-col w-full', className)}\n      style={{\n        y,\n        backfaceVisibility: 'hidden',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n});\nGalleryCol.displayName = 'GalleryCol';",
       },
     ],
     component: (function () {
@@ -1569,7 +1989,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/grid-bento'],
     styles: undefined,
     files: [
       {
@@ -1605,7 +2025,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/grid-bento'],
     styles: undefined,
     files: [
       {
@@ -1641,7 +2061,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/grid-bento'],
     styles: undefined,
     files: [
       {
@@ -1677,7 +2097,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/grid-staggered'],
     styles: undefined,
     files: [
       {
@@ -1713,7 +2133,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/grid-staggered'],
     styles: undefined,
     files: [
       {
@@ -1749,7 +2169,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/grid-staggered'],
     styles: undefined,
     files: [
       {
@@ -1781,11 +2201,13 @@ export const index: Record<string, any> = {
   'default-custom-cursor': {
     name: 'default-custom-cursor',
     description:
-      'Custom Cursor component with multiple animation variants, You can also set the cursor children with default style.',
+      'Turn your cursor into any element your want, text, image, video, or a shape with default style.',
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-follow-mouse',
+    ],
     styles: undefined,
     files: [
       {
@@ -1793,7 +2215,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/custom-cursor.tsx',
         content:
-          "'use client';\n\nimport * as React from 'react';\nimport {\n  AnimatePresence,\n  HTMLMotionProps,\n  motion,\n  MotionStyle,\n  Variants,\n  TargetAndTransition,\n} from 'motion/react';\n\nimport { cn } from '@/lib/utils';\nimport { useFollowMouse } from '@/components/systaliko-ui/utils/use-follow-mouse';\n\nconst springConfig = {\n  damping: 25,\n  stiffness: 250,\n  mass: 1,\n  restSpeed: 0.01,\n  restDelta: 0.01,\n  duration: 0.3,\n};\n\nconst customCursorVariants: Variants = {};\n\ntype CursorVariant = keyof typeof customCursorVariants;\n\nexport function useSetCursorVariant() {\n  const [cursorVariant, setCursorVariant] = React.useState<\n    CursorVariant | MotionStyle\n  >('default');\n  const [cursorChildren, setCursorChildren] = React.useState<React.ReactNode>(\n    <div className=\"rounded-full bg-black size-5\" />,\n  );\n\n  const handleCustomStyle = React.useCallback((style: MotionStyle) => {\n    setCursorVariant(style);\n  }, []);\n  const resetCursorChildren = () =>\n    setCursorChildren(<div className=\"rounded-full bg-black size-5\" />);\n\n  const resetStyle = () => setCursorVariant({});\n  return {\n    cursorVariant,\n    setCursorVariant,\n    cursorChildren,\n    setCursorChildren,\n    handleCustomStyle,\n    resetCursorChildren,\n    resetStyle,\n  };\n}\n\ninterface CustomCursorProps extends HTMLMotionProps<'div'> {\n  variant?: CursorVariant | MotionStyle;\n  cursorChildren?: React.ReactNode;\n}\n\nexport function CustomCursor({\n  variant = 'default',\n  cursorChildren = null,\n  className,\n  style,\n}: CustomCursorProps) {\n  const { cursorXSpring, cursroYSpring } = useFollowMouse(springConfig);\n\n  const animate = React.useMemo(() => {\n    if (typeof variant === 'string') {\n      return variant;\n    }\n    return variant as TargetAndTransition;\n  }, [variant]);\n\n  return (\n    <motion.div\n      className={cn(\n        'pointer-events-none fixed left-0 top-0 z-50 flex min-w-5 min-h-5 items-center justify-center text-center text-xs',\n        className,\n      )}\n      layout={'preserve-aspect'}\n      variants={customCursorVariants}\n      animate={animate}\n      style={{\n        y: cursroYSpring,\n        x: cursorXSpring,\n        ...style,\n      }}\n      exit={{ transition: { duration: 0.5 } }}\n    >\n      <AnimatePresence mode=\"sync\">\n        {cursorChildren && (\n          <motion.div\n            initial={{ opacity: 0, scale: 0 }}\n            animate={{ opacity: 1, scale: 1 }}\n            exit={{ opacity: 0, scale: 0 }}\n            transition={{\n              type: 'spring',\n              stiffness: 400,\n              damping: 30,\n              mass: 0.8,\n              duration: 0.2,\n            }}\n            className=\"flex items-center justify-center\"\n          >\n            {cursorChildren}\n          </motion.div>\n        )}\n      </AnimatePresence>\n    </motion.div>\n  );\n}",
+          "'use client';\n\nimport * as React from 'react';\nimport {\n  AnimatePresence,\n  HTMLMotionProps,\n  motion,\n  MotionStyle,\n  Variants,\n  TargetAndTransition,\n} from 'motion/react';\n\nimport { cn } from '@/lib/utils';\nimport { useFollowMouse } from '@/components/systaliko-ui/utils/use-follow-mouse';\n\nconst springConfig = {\n  damping: 25,\n  stiffness: 250,\n  mass: 1,\n  restSpeed: 0.01,\n  restDelta: 0.01,\n  duration: 0.3,\n};\n\nconst customCursorVariants: Variants = {};\n\ntype CursorVariant = keyof typeof customCursorVariants;\n\nexport function useSetCursorVariant() {\n  const [cursorVariant, setCursorVariant] = React.useState<\n    CursorVariant | MotionStyle\n  >('default');\n  const [cursorChildren, setCursorChildren] = React.useState<React.ReactNode>(\n    <div className=\"rounded-full bg-black size-5\" />,\n  );\n\n  const handleCustomStyle = React.useCallback((style: MotionStyle) => {\n    setCursorVariant(style);\n  }, []);\n  const resetCursorChildren = () =>\n    setCursorChildren(<div className=\"rounded-full bg-black size-5\" />);\n\n  const resetStyle = () => setCursorVariant({});\n  return {\n    cursorVariant,\n    setCursorVariant,\n    cursorChildren,\n    setCursorChildren,\n    handleCustomStyle,\n    resetCursorChildren,\n    resetStyle,\n  };\n}\n\ninterface CustomCursorProps extends HTMLMotionProps<'div'> {\n  variant?: CursorVariant | MotionStyle;\n  cursorChildren?: React.ReactNode;\n}\n\nexport function CustomCursor({\n  variant = 'default',\n  cursorChildren = null,\n  className,\n  style,\n}: CustomCursorProps) {\n  const { cursorXSpring, cursroYSpring } = useFollowMouse(springConfig);\n\n  const animate = React.useMemo(() => {\n    if (typeof variant === 'string') {\n      return variant;\n    }\n    return variant as TargetAndTransition;\n  }, [variant]);\n\n  return (\n    <motion.div\n      className={cn(\n        'pointer-events-none absolute left-0 top-0 z-50 flex min-w-5 min-h-5 items-center justify-center text-center text-xs',\n        className,\n      )}\n      layout={'preserve-aspect'}\n      variants={customCursorVariants}\n      animate={animate}\n      style={{\n        y: cursroYSpring,\n        x: cursorXSpring,\n        ...style,\n      }}\n      exit={{ transition: { duration: 0.5 } }}\n    >\n      <AnimatePresence mode=\"sync\">\n        {cursorChildren && (\n          <motion.div\n            initial={{ opacity: 0, scale: 0 }}\n            animate={{ opacity: 1, scale: 1 }}\n            exit={{ opacity: 0, scale: 0 }}\n            transition={{\n              type: 'spring',\n              stiffness: 400,\n              damping: 30,\n              mass: 0.8,\n              duration: 0.2,\n            }}\n            className=\"flex items-center justify-center\"\n          >\n            {cursorChildren}\n          </motion.div>\n        )}\n      </AnimatePresence>\n    </motion.div>\n  );\n}",
       },
     ],
     component: (function () {
@@ -1817,11 +2239,13 @@ export const index: Record<string, any> = {
   'shadcn-default-custom-cursor': {
     name: 'shadcn-default-custom-cursor',
     description:
-      'Custom Cursor component with multiple animation variants, You can also set the cursor children with shadcn-default style.',
+      'Turn your cursor into any element your want, text, image, video, or a shape with shadcn-default style.',
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-follow-mouse',
+    ],
     styles: undefined,
     files: [
       {
@@ -1829,7 +2253,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/custom-cursor.tsx',
         content:
-          "'use client';\n\nimport * as React from 'react';\nimport {\n  AnimatePresence,\n  HTMLMotionProps,\n  motion,\n  MotionStyle,\n  Variants,\n  TargetAndTransition,\n} from 'motion/react';\n\nimport { cn } from '@/lib/utils';\nimport { useFollowMouse } from '@/components/systaliko-ui/utils/use-follow-mouse';\n\nconst springConfig = {\n  damping: 25,\n  stiffness: 250,\n  mass: 1,\n  restSpeed: 0.01,\n  restDelta: 0.01,\n  duration: 0.3,\n};\n\nconst customCursorVariants: Variants = {};\n\ntype CursorVariant = keyof typeof customCursorVariants;\n\nexport function useSetCursorVariant() {\n  const [cursorVariant, setCursorVariant] = React.useState<\n    CursorVariant | MotionStyle\n  >('default');\n  const [cursorChildren, setCursorChildren] = React.useState<React.ReactNode>(\n    <div className=\"rounded-full bg-black size-5\" />,\n  );\n\n  const handleCustomStyle = React.useCallback((style: MotionStyle) => {\n    setCursorVariant(style);\n  }, []);\n  const resetCursorChildren = () =>\n    setCursorChildren(<div className=\"rounded-full bg-black size-5\" />);\n\n  const resetStyle = () => setCursorVariant({});\n  return {\n    cursorVariant,\n    setCursorVariant,\n    cursorChildren,\n    setCursorChildren,\n    handleCustomStyle,\n    resetCursorChildren,\n    resetStyle,\n  };\n}\n\ninterface CustomCursorProps extends HTMLMotionProps<'div'> {\n  variant?: CursorVariant | MotionStyle;\n  cursorChildren?: React.ReactNode;\n}\n\nexport function CustomCursor({\n  variant = 'default',\n  cursorChildren = null,\n  className,\n  style,\n}: CustomCursorProps) {\n  const { cursorXSpring, cursroYSpring } = useFollowMouse(springConfig);\n\n  const animate = React.useMemo(() => {\n    if (typeof variant === 'string') {\n      return variant;\n    }\n    return variant as TargetAndTransition;\n  }, [variant]);\n\n  return (\n    <motion.div\n      className={cn(\n        'pointer-events-none fixed left-0 top-0 z-50 flex min-w-5 min-h-5 items-center justify-center text-center text-xs',\n        className,\n      )}\n      layout={'preserve-aspect'}\n      variants={customCursorVariants}\n      animate={animate}\n      style={{\n        y: cursroYSpring,\n        x: cursorXSpring,\n        ...style,\n      }}\n      exit={{ transition: { duration: 0.5 } }}\n    >\n      <AnimatePresence mode=\"sync\">\n        {cursorChildren && (\n          <motion.div\n            initial={{ opacity: 0, scale: 0 }}\n            animate={{ opacity: 1, scale: 1 }}\n            exit={{ opacity: 0, scale: 0 }}\n            transition={{\n              type: 'spring',\n              stiffness: 400,\n              damping: 30,\n              mass: 0.8,\n              duration: 0.2,\n            }}\n            className=\"flex items-center justify-center\"\n          >\n            {cursorChildren}\n          </motion.div>\n        )}\n      </AnimatePresence>\n    </motion.div>\n  );\n}",
+          "'use client';\n\nimport * as React from 'react';\nimport {\n  AnimatePresence,\n  HTMLMotionProps,\n  motion,\n  MotionStyle,\n  Variants,\n  TargetAndTransition,\n} from 'motion/react';\n\nimport { cn } from '@/lib/utils';\nimport { useFollowMouse } from '@/components/systaliko-ui/utils/use-follow-mouse';\n\nconst springConfig = {\n  damping: 25,\n  stiffness: 250,\n  mass: 1,\n  restSpeed: 0.01,\n  restDelta: 0.01,\n  duration: 0.3,\n};\n\nconst customCursorVariants: Variants = {};\n\ntype CursorVariant = keyof typeof customCursorVariants;\n\nexport function useSetCursorVariant() {\n  const [cursorVariant, setCursorVariant] = React.useState<\n    CursorVariant | MotionStyle\n  >('default');\n  const [cursorChildren, setCursorChildren] = React.useState<React.ReactNode>(\n    <div className=\"rounded-full bg-black size-5\" />,\n  );\n\n  const handleCustomStyle = React.useCallback((style: MotionStyle) => {\n    setCursorVariant(style);\n  }, []);\n  const resetCursorChildren = () =>\n    setCursorChildren(<div className=\"rounded-full bg-black size-5\" />);\n\n  const resetStyle = () => setCursorVariant({});\n  return {\n    cursorVariant,\n    setCursorVariant,\n    cursorChildren,\n    setCursorChildren,\n    handleCustomStyle,\n    resetCursorChildren,\n    resetStyle,\n  };\n}\n\ninterface CustomCursorProps extends HTMLMotionProps<'div'> {\n  variant?: CursorVariant | MotionStyle;\n  cursorChildren?: React.ReactNode;\n}\n\nexport function CustomCursor({\n  variant = 'default',\n  cursorChildren = null,\n  className,\n  style,\n}: CustomCursorProps) {\n  const { cursorXSpring, cursroYSpring } = useFollowMouse(springConfig);\n\n  const animate = React.useMemo(() => {\n    if (typeof variant === 'string') {\n      return variant;\n    }\n    return variant as TargetAndTransition;\n  }, [variant]);\n\n  return (\n    <motion.div\n      className={cn(\n        'pointer-events-none absolute left-0 top-0 z-50 flex min-w-5 min-h-5 items-center justify-center text-center text-xs',\n        className,\n      )}\n      layout={'preserve-aspect'}\n      variants={customCursorVariants}\n      animate={animate}\n      style={{\n        y: cursroYSpring,\n        x: cursorXSpring,\n        ...style,\n      }}\n      exit={{ transition: { duration: 0.5 } }}\n    >\n      <AnimatePresence mode=\"sync\">\n        {cursorChildren && (\n          <motion.div\n            initial={{ opacity: 0, scale: 0 }}\n            animate={{ opacity: 1, scale: 1 }}\n            exit={{ opacity: 0, scale: 0 }}\n            transition={{\n              type: 'spring',\n              stiffness: 400,\n              damping: 30,\n              mass: 0.8,\n              duration: 0.2,\n            }}\n            className=\"flex items-center justify-center\"\n          >\n            {cursorChildren}\n          </motion.div>\n        )}\n      </AnimatePresence>\n    </motion.div>\n  );\n}",
       },
     ],
     component: (function () {
@@ -1853,11 +2277,13 @@ export const index: Record<string, any> = {
   'shadcn-new-york-custom-cursor': {
     name: 'shadcn-new-york-custom-cursor',
     description:
-      'Custom Cursor component with multiple animation variants, You can also set the cursor children with shadcn-new-york style.',
+      'Turn your cursor into any element your want, text, image, video, or a shape with shadcn-new-york style.',
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-follow-mouse',
+    ],
     styles: undefined,
     files: [
       {
@@ -1865,7 +2291,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/custom-cursor.tsx',
         content:
-          "'use client';\n\nimport * as React from 'react';\nimport {\n  AnimatePresence,\n  HTMLMotionProps,\n  motion,\n  MotionStyle,\n  Variants,\n  TargetAndTransition,\n} from 'motion/react';\n\nimport { cn } from '@/lib/utils';\nimport { useFollowMouse } from '@/components/systaliko-ui/utils/use-follow-mouse';\n\nconst springConfig = {\n  damping: 25,\n  stiffness: 250,\n  mass: 1,\n  restSpeed: 0.01,\n  restDelta: 0.01,\n  duration: 0.3,\n};\n\nconst customCursorVariants: Variants = {};\n\ntype CursorVariant = keyof typeof customCursorVariants;\n\nexport function useSetCursorVariant() {\n  const [cursorVariant, setCursorVariant] = React.useState<\n    CursorVariant | MotionStyle\n  >('default');\n  const [cursorChildren, setCursorChildren] = React.useState<React.ReactNode>(\n    <div className=\"rounded-full bg-black size-5\" />,\n  );\n\n  const handleCustomStyle = React.useCallback((style: MotionStyle) => {\n    setCursorVariant(style);\n  }, []);\n  const resetCursorChildren = () =>\n    setCursorChildren(<div className=\"rounded-full bg-black size-5\" />);\n\n  const resetStyle = () => setCursorVariant({});\n  return {\n    cursorVariant,\n    setCursorVariant,\n    cursorChildren,\n    setCursorChildren,\n    handleCustomStyle,\n    resetCursorChildren,\n    resetStyle,\n  };\n}\n\ninterface CustomCursorProps extends HTMLMotionProps<'div'> {\n  variant?: CursorVariant | MotionStyle;\n  cursorChildren?: React.ReactNode;\n}\n\nexport function CustomCursor({\n  variant = 'default',\n  cursorChildren = null,\n  className,\n  style,\n}: CustomCursorProps) {\n  const { cursorXSpring, cursroYSpring } = useFollowMouse(springConfig);\n\n  const animate = React.useMemo(() => {\n    if (typeof variant === 'string') {\n      return variant;\n    }\n    return variant as TargetAndTransition;\n  }, [variant]);\n\n  return (\n    <motion.div\n      className={cn(\n        'pointer-events-none fixed left-0 top-0 z-50 flex min-w-5 min-h-5 items-center justify-center text-center text-xs',\n        className,\n      )}\n      layout={'preserve-aspect'}\n      variants={customCursorVariants}\n      animate={animate}\n      style={{\n        y: cursroYSpring,\n        x: cursorXSpring,\n        ...style,\n      }}\n      exit={{ transition: { duration: 0.5 } }}\n    >\n      <AnimatePresence mode=\"sync\">\n        {cursorChildren && (\n          <motion.div\n            initial={{ opacity: 0, scale: 0 }}\n            animate={{ opacity: 1, scale: 1 }}\n            exit={{ opacity: 0, scale: 0 }}\n            transition={{\n              type: 'spring',\n              stiffness: 400,\n              damping: 30,\n              mass: 0.8,\n              duration: 0.2,\n            }}\n            className=\"flex items-center justify-center\"\n          >\n            {cursorChildren}\n          </motion.div>\n        )}\n      </AnimatePresence>\n    </motion.div>\n  );\n}",
+          "'use client';\n\nimport * as React from 'react';\nimport {\n  AnimatePresence,\n  HTMLMotionProps,\n  motion,\n  MotionStyle,\n  Variants,\n  TargetAndTransition,\n} from 'motion/react';\n\nimport { cn } from '@/lib/utils';\nimport { useFollowMouse } from '@/components/systaliko-ui/utils/use-follow-mouse';\n\nconst springConfig = {\n  damping: 25,\n  stiffness: 250,\n  mass: 1,\n  restSpeed: 0.01,\n  restDelta: 0.01,\n  duration: 0.3,\n};\n\nconst customCursorVariants: Variants = {};\n\ntype CursorVariant = keyof typeof customCursorVariants;\n\nexport function useSetCursorVariant() {\n  const [cursorVariant, setCursorVariant] = React.useState<\n    CursorVariant | MotionStyle\n  >('default');\n  const [cursorChildren, setCursorChildren] = React.useState<React.ReactNode>(\n    <div className=\"rounded-full bg-black size-5\" />,\n  );\n\n  const handleCustomStyle = React.useCallback((style: MotionStyle) => {\n    setCursorVariant(style);\n  }, []);\n  const resetCursorChildren = () =>\n    setCursorChildren(<div className=\"rounded-full bg-black size-5\" />);\n\n  const resetStyle = () => setCursorVariant({});\n  return {\n    cursorVariant,\n    setCursorVariant,\n    cursorChildren,\n    setCursorChildren,\n    handleCustomStyle,\n    resetCursorChildren,\n    resetStyle,\n  };\n}\n\ninterface CustomCursorProps extends HTMLMotionProps<'div'> {\n  variant?: CursorVariant | MotionStyle;\n  cursorChildren?: React.ReactNode;\n}\n\nexport function CustomCursor({\n  variant = 'default',\n  cursorChildren = null,\n  className,\n  style,\n}: CustomCursorProps) {\n  const { cursorXSpring, cursroYSpring } = useFollowMouse(springConfig);\n\n  const animate = React.useMemo(() => {\n    if (typeof variant === 'string') {\n      return variant;\n    }\n    return variant as TargetAndTransition;\n  }, [variant]);\n\n  return (\n    <motion.div\n      className={cn(\n        'pointer-events-none absolute left-0 top-0 z-50 flex min-w-5 min-h-5 items-center justify-center text-center text-xs',\n        className,\n      )}\n      layout={'preserve-aspect'}\n      variants={customCursorVariants}\n      animate={animate}\n      style={{\n        y: cursroYSpring,\n        x: cursorXSpring,\n        ...style,\n      }}\n      exit={{ transition: { duration: 0.5 } }}\n    >\n      <AnimatePresence mode=\"sync\">\n        {cursorChildren && (\n          <motion.div\n            initial={{ opacity: 0, scale: 0 }}\n            animate={{ opacity: 1, scale: 1 }}\n            exit={{ opacity: 0, scale: 0 }}\n            transition={{\n              type: 'spring',\n              stiffness: 400,\n              damping: 30,\n              mass: 0.8,\n              duration: 0.2,\n            }}\n            className=\"flex items-center justify-center\"\n          >\n            {cursorChildren}\n          </motion.div>\n        )}\n      </AnimatePresence>\n    </motion.div>\n  );\n}",
       },
     ],
     component: (function () {
@@ -2461,7 +2887,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/cards/card-hover-reveal.tsx',
         content:
-          'import {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from \'@/components/systaliko-ui/cards/card-hover-reveal\';\n\nexport const CardHoverRevealDemo = () => (\n  <CardHoverReveal className="h-[512px] w-[385px] rounded-xl">\n    <CardHoverRevealMain hoverScale={1.2}>\n      <img\n        width={1077}\n        height={606}\n        alt="product image"\n        src="https://images.unsplash.com/photo-1619551734325-81aaf323686c?q=80&w=2549&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        className="inline-block size-full max-h-full max-w-full object-cover align-middle"\n      />\n    </CardHoverRevealMain>\n\n    <CardHoverRevealContent className="space-y-4 rounded-2xl bg-black/80 text-secondary/80 p-4">\n      <div className="space-y-2">\n        <h3 className="text-sm ">Services</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-secondary-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">Branding</p>\n          </div>\n          <div className=" rounded-full bg-secondary-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">3D Modeling</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className=" text-sm ">Stack</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Auto CAD</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Key Shot</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">In Design</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className="text-sm ">Profile</h3>\n        {/* tag */}\n        <div className="flex flex-wrap gap-2 ">\n          <p className="text-sm text-secondary">\n            Comprehensive platform designed for an agency, Creating professional\n            and business-oriented brand.\n          </p>\n        </div>\n      </div>\n    </CardHoverRevealContent>\n  </CardHoverReveal>\n);',
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from \'@/components/systaliko-ui/cards/card-hover-reveal\';\nimport { ArrowUpRightIcon } from \'lucide-react\';\n\nexport const CardHoverRevealFullDemo = () => (\n  <CardHoverReveal className="h-[512px] w-[385px]">\n    <CardHoverRevealMain hoverScale={1}>\n      <img\n        alt="honda robot"\n        src="https://images.unsplash.com/photo-1593376853899-fbb47a057fa0?q=80&w=715&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        width={430}\n        height={603}\n        className="size-full object-cover"\n      />\n    </CardHoverRevealMain>\n\n    <CardHoverRevealContent className="inset-0 bg-black/80 text-white p-0 flex flex-col justify-between">\n      <div className="text-right">\n        <Button size="icon" className="rounded-none">\n          <ArrowUpRightIcon />\n        </Button>\n      </div>\n\n      <div className="space-y-2 flex flex-col py-8 px-6 items-start">\n        <h3 className=" font-semibold text-2xl">\n          ASIMO Advanced Step in Innovative Mobility\n        </h3>\n\n        <p className="text-muted text-sm">\n          walk, run, and perform various tasks, showcasing advancements in\n          robotics. Honda retired ASIMO in 2018 to focus\n        </p>\n      </div>\n    </CardHoverRevealContent>\n  </CardHoverReveal>\n);',
       },
     ],
     component: (function () {
@@ -2500,7 +2926,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/cards/card-hover-reveal.tsx',
         content:
-          'import {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from \'@/components/systaliko-ui/cards/card-hover-reveal\';\n\nexport const CardHoverRevealDemo = () => (\n  <CardHoverReveal className="h-[512px] w-[385px] rounded-xl">\n    <CardHoverRevealMain hoverScale={1.2}>\n      <img\n        width={1077}\n        height={606}\n        alt="product image"\n        src="https://images.unsplash.com/photo-1619551734325-81aaf323686c?q=80&w=2549&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        className="inline-block size-full max-h-full max-w-full object-cover align-middle"\n      />\n    </CardHoverRevealMain>\n\n    <CardHoverRevealContent className="space-y-4 rounded-2xl bg-black/80 text-secondary/80 p-4">\n      <div className="space-y-2">\n        <h3 className="text-sm ">Services</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-secondary-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">Branding</p>\n          </div>\n          <div className=" rounded-full bg-secondary-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">3D Modeling</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className=" text-sm ">Stack</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Auto CAD</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Key Shot</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">In Design</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className="text-sm ">Profile</h3>\n        {/* tag */}\n        <div className="flex flex-wrap gap-2 ">\n          <p className="text-sm text-secondary">\n            Comprehensive platform designed for an agency, Creating professional\n            and business-oriented brand.\n          </p>\n        </div>\n      </div>\n    </CardHoverRevealContent>\n  </CardHoverReveal>\n);',
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from \'@/components/systaliko-ui/cards/card-hover-reveal\';\nimport { ArrowUpRightIcon } from \'lucide-react\';\n\nexport const CardHoverRevealFullDemo = () => (\n  <CardHoverReveal className="h-[512px] w-[385px]">\n    <CardHoverRevealMain hoverScale={1}>\n      <img\n        alt="honda robot"\n        src="https://images.unsplash.com/photo-1593376853899-fbb47a057fa0?q=80&w=715&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        width={430}\n        height={603}\n        className="size-full object-cover"\n      />\n    </CardHoverRevealMain>\n\n    <CardHoverRevealContent className="inset-0 bg-black/80 text-white p-0 flex flex-col justify-between">\n      <div className="text-right">\n        <Button size="icon" className="rounded-none">\n          <ArrowUpRightIcon />\n        </Button>\n      </div>\n\n      <div className="space-y-2 flex flex-col py-8 px-6 items-start">\n        <h3 className=" font-semibold text-2xl">\n          ASIMO Advanced Step in Innovative Mobility\n        </h3>\n\n        <p className="text-muted text-sm">\n          walk, run, and perform various tasks, showcasing advancements in\n          robotics. Honda retired ASIMO in 2018 to focus\n        </p>\n      </div>\n    </CardHoverRevealContent>\n  </CardHoverReveal>\n);',
       },
     ],
     component: (function () {
@@ -2539,7 +2965,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/cards/card-hover-reveal.tsx',
         content:
-          'import {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from \'@/components/systaliko-ui/cards/card-hover-reveal\';\n\nexport const CardHoverRevealDemo = () => (\n  <CardHoverReveal className="h-[512px] w-[385px] rounded-xl">\n    <CardHoverRevealMain hoverScale={1.2}>\n      <img\n        width={1077}\n        height={606}\n        alt="product image"\n        src="https://images.unsplash.com/photo-1619551734325-81aaf323686c?q=80&w=2549&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        className="inline-block size-full max-h-full max-w-full object-cover align-middle"\n      />\n    </CardHoverRevealMain>\n\n    <CardHoverRevealContent className="space-y-4 rounded-2xl bg-black/80 text-secondary/80 p-4">\n      <div className="space-y-2">\n        <h3 className="text-sm ">Services</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-secondary-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">Branding</p>\n          </div>\n          <div className=" rounded-full bg-secondary-foreground px-2 py-1">\n            <p className=" text-xs leading-normal">3D Modeling</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className=" text-sm ">Stack</h3>\n        <div className="flex flex-wrap gap-2 ">\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Auto CAD</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">Key Shot</p>\n          </div>\n          <div className=" rounded-full bg-primary px-2 py-1">\n            <p className=" text-xs leading-normal">In Design</p>\n          </div>\n        </div>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className="text-sm ">Profile</h3>\n        {/* tag */}\n        <div className="flex flex-wrap gap-2 ">\n          <p className="text-sm text-secondary">\n            Comprehensive platform designed for an agency, Creating professional\n            and business-oriented brand.\n          </p>\n        </div>\n      </div>\n    </CardHoverRevealContent>\n  </CardHoverReveal>\n);',
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from \'@/components/systaliko-ui/cards/card-hover-reveal\';\nimport { ArrowUpRightIcon } from \'lucide-react\';\n\nexport const CardHoverRevealFullDemo = () => (\n  <CardHoverReveal className="h-[512px] w-[385px]">\n    <CardHoverRevealMain hoverScale={1}>\n      <img\n        alt="honda robot"\n        src="https://images.unsplash.com/photo-1593376853899-fbb47a057fa0?q=80&w=715&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n        width={430}\n        height={603}\n        className="size-full object-cover"\n      />\n    </CardHoverRevealMain>\n\n    <CardHoverRevealContent className="inset-0 bg-black/80 text-white p-0 flex flex-col justify-between">\n      <div className="text-right">\n        <Button size="icon" className="rounded-none">\n          <ArrowUpRightIcon />\n        </Button>\n      </div>\n\n      <div className="space-y-2 flex flex-col py-8 px-6 items-start">\n        <h3 className=" font-semibold text-2xl">\n          ASIMO Advanced Step in Innovative Mobility\n        </h3>\n\n        <p className="text-muted text-sm">\n          walk, run, and perform various tasks, showcasing advancements in\n          robotics. Honda retired ASIMO in 2018 to focus\n        </p>\n      </div>\n    </CardHoverRevealContent>\n  </CardHoverReveal>\n);',
       },
     ],
     component: (function () {
@@ -2670,6 +3096,116 @@ export const index: Record<string, any> = {
     command:
       'https://systaliko-ui.vercel.app/r/shadcn-new-york-card-testimonial-demo',
   },
+  'default-card-testimonial-2-demo': {
+    name: 'default-card-testimonial-2-demo',
+    description: 'Demo showing Card Testimonial Component with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/card-testimonial'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/card-testimonial-2/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/cards/card-testimonial.tsx',
+        content:
+          "import {\n  CardTestimonial,\n  TestimonialAuthor,\n  TestimonialQuote,\n  TestimonialRating,\n} from '@/components/systaliko-ui/cards/card-testimonial';\n\nconst TESTIMONIAL = {\n  id: 'testimonial-2',\n  name: 'Lisa M.',\n  profession: 'UX Designer',\n  rating: 5,\n  quote:\n    'Working with them was a game-changer for our project. Their expertise and professionalism exceeded our expectations.',\n  avatarUrl:\n    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D',\n};\n\nexport const CardTestimonial2Demo = () => {\n  return (\n    <CardTestimonial\n      testimonialQuote={TESTIMONIAL.quote}\n      testimonialRating={TESTIMONIAL.rating}\n      testimonialAuthor={{\n        authorName: TESTIMONIAL.name,\n        avatarUrl: TESTIMONIAL.avatarUrl,\n        description: TESTIMONIAL.profession,\n      }}\n      role=\"article\"\n      aria-labelledby={`card-${TESTIMONIAL.id}-title`}\n      aria-describedby={`card-${TESTIMONIAL.id}-content`}\n      className=\"w-[480px] h-[350px] shadow-md justify-evenly items-start\"\n    >\n      <TestimonialRating className=\"text-yellow-500\" />\n      <div className=\"relative  text-lg\">\n        <TestimonialQuote>{TESTIMONIAL.quote}</TestimonialQuote>\n      </div>\n\n      <TestimonialAuthor className=\"flex items-center gap-4\" />\n    </CardTestimonial>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/card-testimonial-2/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-card-testimonial-2-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/default-card-testimonial-2-demo',
+  },
+  'shadcn-default-card-testimonial-2-demo': {
+    name: 'shadcn-default-card-testimonial-2-demo',
+    description:
+      'Demo showing Card Testimonial Component with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/card-testimonial'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/card-testimonial-2/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/cards/card-testimonial.tsx',
+        content:
+          "import {\n  CardTestimonial,\n  TestimonialAuthor,\n  TestimonialQuote,\n  TestimonialRating,\n} from '@/components/systaliko-ui/cards/card-testimonial';\n\nconst TESTIMONIAL = {\n  id: 'testimonial-2',\n  name: 'Lisa M.',\n  profession: 'UX Designer',\n  rating: 5,\n  quote:\n    'Working with them was a game-changer for our project. Their expertise and professionalism exceeded our expectations.',\n  avatarUrl:\n    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D',\n};\n\nexport const CardTestimonial2Demo = () => {\n  return (\n    <CardTestimonial\n      testimonialQuote={TESTIMONIAL.quote}\n      testimonialRating={TESTIMONIAL.rating}\n      testimonialAuthor={{\n        authorName: TESTIMONIAL.name,\n        avatarUrl: TESTIMONIAL.avatarUrl,\n        description: TESTIMONIAL.profession,\n      }}\n      role=\"article\"\n      aria-labelledby={`card-${TESTIMONIAL.id}-title`}\n      aria-describedby={`card-${TESTIMONIAL.id}-content`}\n      className=\"w-[480px] h-[350px] shadow-md justify-evenly items-start\"\n    >\n      <TestimonialRating className=\"text-yellow-500\" />\n      <div className=\"relative  text-lg\">\n        <TestimonialQuote>{TESTIMONIAL.quote}</TestimonialQuote>\n      </div>\n\n      <TestimonialAuthor className=\"flex items-center gap-4\" />\n    </CardTestimonial>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/card-testimonial-2/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-card-testimonial-2-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-card-testimonial-2-demo',
+  },
+  'shadcn-new-york-card-testimonial-2-demo': {
+    name: 'shadcn-new-york-card-testimonial-2-demo',
+    description:
+      'Demo showing Card Testimonial Component with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/card-testimonial'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/cards/card-testimonial-2/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/cards/card-testimonial.tsx',
+        content:
+          "import {\n  CardTestimonial,\n  TestimonialAuthor,\n  TestimonialQuote,\n  TestimonialRating,\n} from '@/components/systaliko-ui/cards/card-testimonial';\n\nconst TESTIMONIAL = {\n  id: 'testimonial-2',\n  name: 'Lisa M.',\n  profession: 'UX Designer',\n  rating: 5,\n  quote:\n    'Working with them was a game-changer for our project. Their expertise and professionalism exceeded our expectations.',\n  avatarUrl:\n    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D',\n};\n\nexport const CardTestimonial2Demo = () => {\n  return (\n    <CardTestimonial\n      testimonialQuote={TESTIMONIAL.quote}\n      testimonialRating={TESTIMONIAL.rating}\n      testimonialAuthor={{\n        authorName: TESTIMONIAL.name,\n        avatarUrl: TESTIMONIAL.avatarUrl,\n        description: TESTIMONIAL.profession,\n      }}\n      role=\"article\"\n      aria-labelledby={`card-${TESTIMONIAL.id}-title`}\n      aria-describedby={`card-${TESTIMONIAL.id}-content`}\n      className=\"w-[480px] h-[350px] shadow-md justify-evenly items-start\"\n    >\n      <TestimonialRating className=\"text-yellow-500\" />\n      <div className=\"relative  text-lg\">\n        <TestimonialQuote>{TESTIMONIAL.quote}</TestimonialQuote>\n      </div>\n\n      <TestimonialAuthor className=\"flex items-center gap-4\" />\n    </CardTestimonial>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/cards/card-testimonial-2/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-card-testimonial-2-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-card-testimonial-2-demo',
+  },
   'default-cards-stack-demo': {
     name: 'default-cards-stack-demo',
     description: 'Demo showing Cards Stack component with default style.',
@@ -2786,7 +3322,10 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/cards-stack'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/cards-stack',
+      'https://systaliko-ui.vercel.app/r/badge',
+    ],
     styles: undefined,
     files: [
       {
@@ -2794,7 +3333,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/animate-ui/demo/cards/cards-stack-full.tsx',
         content:
-          "import { Badge } from '@/components/ui/badge';\nimport { CardSticky, ContainerScroll } from '@/components/systaliko-ui/cards/cards-stack';\n\nconst WORK_PROJECTS = [\n  {\n    id: 'work-project-3',\n    title: 'YCF DEV',\n    services: ['Portfolio', 'Partnership', 'UI UX Design'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'work-project-1',\n    title: 'Stridath Ecommerce',\n    services: ['E-Commerce', 'Branding', 'UI UX Design', 'Development'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1688561808434-886a6dd97b8c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'work-project-2',\n    title: 'Marketing Agency',\n    services: ['Partnership', 'UI UX Design', 'Development'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1683803055067-1ca1c17cb2b9?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n];\n\nexport function CardsStackFullDemo() {\n  return (\n    <div className=\"container min-h-svh place-content-center p-12 \">\n      <div className=\"text-center\">\n        <Badge className=\"rounded-full\" variant={'secondary'}>\n          latest projects\n        </Badge>\n        <h2 className=\"mb-4 mt-1 text-4xl font-bold tracking-tight\">\n          Get a glimpse of <span className=\"text-primary\">our work</span>\n        </h2>\n        <p className=\"mx-auto max-w-prose text-sm \">\n          From ecommerce to startup landing pages and singl/multi page websites,\n          building fully responsive and functional website that showcase your\n          product and your unique identity.\n        </p>\n      </div>\n      <ContainerScroll className=\"min-h-[500vh] py-12\">\n        {WORK_PROJECTS.map((project, index) => (\n          <CardSticky\n            key={project.id}\n            index={index}\n            className=\"w-full overflow-hidden rounded-sm  bg-chart-3 text-secondary border\"\n            incrementY={60}\n            incrementZ={5}\n          >\n            <div className=\"flex flex-wrap items-center justify-between gap-4 px-6 py-4\">\n              <h2 className=\"text-2xl font-bold tracking-tighter\">\n                {project.title}\n              </h2>\n              <div className=\"flex flex-wrap gap-1\">\n                {project.services.map((service) => (\n                  <Badge key={service} className=\"rounded-full\">\n                    {service}\n                  </Badge>\n                ))}\n              </div>\n            </div>\n            <img\n              className=\"size-full object-cover\"\n              width=\"100%\"\n              height=\"100%\"\n              src={project.imageUrl}\n            />\n          </CardSticky>\n        ))}\n      </ContainerScroll>\n    </div>\n  );\n}",
+          "import { Badge } from '@/components/systaliko-ui/badge';\nimport { CardSticky, ContainerScroll } from '@/components/systaliko-ui/cards/cards-stack';\n\nconst WORK_PROJECTS = [\n  {\n    id: 'work-project-3',\n    title: 'YCF DEV',\n    services: ['Portfolio', 'Partnership', 'UI UX Design'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'work-project-1',\n    title: 'Stridath Ecommerce',\n    services: ['E-Commerce', 'Branding', 'UI UX Design', 'Development'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1688561808434-886a6dd97b8c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'work-project-2',\n    title: 'Marketing Agency',\n    services: ['Partnership', 'UI UX Design', 'Development'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1683803055067-1ca1c17cb2b9?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n];\n\nexport function CardsStackFullDemo() {\n  return (\n    <div className=\"container min-h-svh place-content-center p-12 \">\n      <div className=\"text-center\">\n        <Badge className=\"rounded-full\" variant={'secondary'}>\n          latest projects\n        </Badge>\n        <h2 className=\"mb-4 mt-1 text-4xl font-bold tracking-tight\">\n          Get a glimpse of <span className=\"text-primary\">our work</span>\n        </h2>\n        <p className=\"mx-auto max-w-prose text-sm \">\n          From ecommerce to startup landing pages and singl/multi page websites,\n          building fully responsive and functional website that showcase your\n          product and your unique identity.\n        </p>\n      </div>\n      <ContainerScroll className=\"min-h-[500vh] py-12\">\n        {WORK_PROJECTS.map((project, index) => (\n          <CardSticky\n            key={project.id}\n            index={index}\n            className=\"w-full overflow-hidden rounded-sm bg-indigo-950 text-white border\"\n            incrementY={60}\n            incrementZ={5}\n          >\n            <div className=\"flex flex-wrap items-center justify-between gap-4 px-6 py-4\">\n              <h2 className=\"text-2xl font-bold tracking-tighter\">\n                {project.title}\n              </h2>\n              <div className=\"flex flex-wrap gap-1\">\n                {project.services.map((service) => (\n                  <Badge key={service} className=\"rounded-full\">\n                    {service}\n                  </Badge>\n                ))}\n              </div>\n            </div>\n            <img\n              className=\"size-full object-cover\"\n              width=\"100%\"\n              height=\"100%\"\n              src={project.imageUrl}\n              alt=\"project\"\n            />\n          </CardSticky>\n        ))}\n      </ContainerScroll>\n    </div>\n  );\n}",
       },
     ],
     component: (function () {
@@ -2822,7 +3361,10 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/cards-stack'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/cards-stack',
+      'https://systaliko-ui.vercel.app/r/badge',
+    ],
     styles: undefined,
     files: [
       {
@@ -2830,7 +3372,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/animate-ui/demo/cards/cards-stack-full.tsx',
         content:
-          "import { Badge } from '@/components/ui/badge';\nimport { CardSticky, ContainerScroll } from '@/components/systaliko-ui/cards/cards-stack';\n\nconst WORK_PROJECTS = [\n  {\n    id: 'work-project-3',\n    title: 'YCF DEV',\n    services: ['Portfolio', 'Partnership', 'UI UX Design'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'work-project-1',\n    title: 'Stridath Ecommerce',\n    services: ['E-Commerce', 'Branding', 'UI UX Design', 'Development'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1688561808434-886a6dd97b8c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'work-project-2',\n    title: 'Marketing Agency',\n    services: ['Partnership', 'UI UX Design', 'Development'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1683803055067-1ca1c17cb2b9?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n];\n\nexport function CardsStackFullDemo() {\n  return (\n    <div className=\"container min-h-svh place-content-center p-12 \">\n      <div className=\"text-center\">\n        <Badge className=\"rounded-full\" variant={'secondary'}>\n          latest projects\n        </Badge>\n        <h2 className=\"mb-4 mt-1 text-4xl font-bold tracking-tight\">\n          Get a glimpse of <span className=\"text-primary\">our work</span>\n        </h2>\n        <p className=\"mx-auto max-w-prose text-sm \">\n          From ecommerce to startup landing pages and singl/multi page websites,\n          building fully responsive and functional website that showcase your\n          product and your unique identity.\n        </p>\n      </div>\n      <ContainerScroll className=\"min-h-[500vh] py-12\">\n        {WORK_PROJECTS.map((project, index) => (\n          <CardSticky\n            key={project.id}\n            index={index}\n            className=\"w-full overflow-hidden rounded-sm  bg-chart-3 text-secondary border\"\n            incrementY={60}\n            incrementZ={5}\n          >\n            <div className=\"flex flex-wrap items-center justify-between gap-4 px-6 py-4\">\n              <h2 className=\"text-2xl font-bold tracking-tighter\">\n                {project.title}\n              </h2>\n              <div className=\"flex flex-wrap gap-1\">\n                {project.services.map((service) => (\n                  <Badge key={service} className=\"rounded-full\">\n                    {service}\n                  </Badge>\n                ))}\n              </div>\n            </div>\n            <img\n              className=\"size-full object-cover\"\n              width=\"100%\"\n              height=\"100%\"\n              src={project.imageUrl}\n            />\n          </CardSticky>\n        ))}\n      </ContainerScroll>\n    </div>\n  );\n}",
+          "import { Badge } from '@/components/systaliko-ui/badge';\nimport { CardSticky, ContainerScroll } from '@/components/systaliko-ui/cards/cards-stack';\n\nconst WORK_PROJECTS = [\n  {\n    id: 'work-project-3',\n    title: 'YCF DEV',\n    services: ['Portfolio', 'Partnership', 'UI UX Design'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'work-project-1',\n    title: 'Stridath Ecommerce',\n    services: ['E-Commerce', 'Branding', 'UI UX Design', 'Development'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1688561808434-886a6dd97b8c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'work-project-2',\n    title: 'Marketing Agency',\n    services: ['Partnership', 'UI UX Design', 'Development'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1683803055067-1ca1c17cb2b9?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n];\n\nexport function CardsStackFullDemo() {\n  return (\n    <div className=\"container min-h-svh place-content-center p-12 \">\n      <div className=\"text-center\">\n        <Badge className=\"rounded-full\" variant={'secondary'}>\n          latest projects\n        </Badge>\n        <h2 className=\"mb-4 mt-1 text-4xl font-bold tracking-tight\">\n          Get a glimpse of <span className=\"text-primary\">our work</span>\n        </h2>\n        <p className=\"mx-auto max-w-prose text-sm \">\n          From ecommerce to startup landing pages and singl/multi page websites,\n          building fully responsive and functional website that showcase your\n          product and your unique identity.\n        </p>\n      </div>\n      <ContainerScroll className=\"min-h-[500vh] py-12\">\n        {WORK_PROJECTS.map((project, index) => (\n          <CardSticky\n            key={project.id}\n            index={index}\n            className=\"w-full overflow-hidden rounded-sm bg-indigo-950 text-white border\"\n            incrementY={60}\n            incrementZ={5}\n          >\n            <div className=\"flex flex-wrap items-center justify-between gap-4 px-6 py-4\">\n              <h2 className=\"text-2xl font-bold tracking-tighter\">\n                {project.title}\n              </h2>\n              <div className=\"flex flex-wrap gap-1\">\n                {project.services.map((service) => (\n                  <Badge key={service} className=\"rounded-full\">\n                    {service}\n                  </Badge>\n                ))}\n              </div>\n            </div>\n            <img\n              className=\"size-full object-cover\"\n              width=\"100%\"\n              height=\"100%\"\n              src={project.imageUrl}\n              alt=\"project\"\n            />\n          </CardSticky>\n        ))}\n      </ContainerScroll>\n    </div>\n  );\n}",
       },
     ],
     component: (function () {
@@ -2859,7 +3401,10 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/cards-stack'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/cards-stack',
+      'https://systaliko-ui.vercel.app/r/badge',
+    ],
     styles: undefined,
     files: [
       {
@@ -2867,7 +3412,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/animate-ui/demo/cards/cards-stack-full.tsx',
         content:
-          "import { Badge } from '@/components/ui/badge';\nimport { CardSticky, ContainerScroll } from '@/components/systaliko-ui/cards/cards-stack';\n\nconst WORK_PROJECTS = [\n  {\n    id: 'work-project-3',\n    title: 'YCF DEV',\n    services: ['Portfolio', 'Partnership', 'UI UX Design'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'work-project-1',\n    title: 'Stridath Ecommerce',\n    services: ['E-Commerce', 'Branding', 'UI UX Design', 'Development'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1688561808434-886a6dd97b8c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'work-project-2',\n    title: 'Marketing Agency',\n    services: ['Partnership', 'UI UX Design', 'Development'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1683803055067-1ca1c17cb2b9?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n];\n\nexport function CardsStackFullDemo() {\n  return (\n    <div className=\"container min-h-svh place-content-center p-12 \">\n      <div className=\"text-center\">\n        <Badge className=\"rounded-full\" variant={'secondary'}>\n          latest projects\n        </Badge>\n        <h2 className=\"mb-4 mt-1 text-4xl font-bold tracking-tight\">\n          Get a glimpse of <span className=\"text-primary\">our work</span>\n        </h2>\n        <p className=\"mx-auto max-w-prose text-sm \">\n          From ecommerce to startup landing pages and singl/multi page websites,\n          building fully responsive and functional website that showcase your\n          product and your unique identity.\n        </p>\n      </div>\n      <ContainerScroll className=\"min-h-[500vh] py-12\">\n        {WORK_PROJECTS.map((project, index) => (\n          <CardSticky\n            key={project.id}\n            index={index}\n            className=\"w-full overflow-hidden rounded-sm  bg-chart-3 text-secondary border\"\n            incrementY={60}\n            incrementZ={5}\n          >\n            <div className=\"flex flex-wrap items-center justify-between gap-4 px-6 py-4\">\n              <h2 className=\"text-2xl font-bold tracking-tighter\">\n                {project.title}\n              </h2>\n              <div className=\"flex flex-wrap gap-1\">\n                {project.services.map((service) => (\n                  <Badge key={service} className=\"rounded-full\">\n                    {service}\n                  </Badge>\n                ))}\n              </div>\n            </div>\n            <img\n              className=\"size-full object-cover\"\n              width=\"100%\"\n              height=\"100%\"\n              src={project.imageUrl}\n            />\n          </CardSticky>\n        ))}\n      </ContainerScroll>\n    </div>\n  );\n}",
+          "import { Badge } from '@/components/systaliko-ui/badge';\nimport { CardSticky, ContainerScroll } from '@/components/systaliko-ui/cards/cards-stack';\n\nconst WORK_PROJECTS = [\n  {\n    id: 'work-project-3',\n    title: 'YCF DEV',\n    services: ['Portfolio', 'Partnership', 'UI UX Design'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'work-project-1',\n    title: 'Stridath Ecommerce',\n    services: ['E-Commerce', 'Branding', 'UI UX Design', 'Development'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1688561808434-886a6dd97b8c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'work-project-2',\n    title: 'Marketing Agency',\n    services: ['Partnership', 'UI UX Design', 'Development'],\n    imageUrl:\n      'https://images.unsplash.com/photo-1683803055067-1ca1c17cb2b9?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n];\n\nexport function CardsStackFullDemo() {\n  return (\n    <div className=\"container min-h-svh place-content-center p-12 \">\n      <div className=\"text-center\">\n        <Badge className=\"rounded-full\" variant={'secondary'}>\n          latest projects\n        </Badge>\n        <h2 className=\"mb-4 mt-1 text-4xl font-bold tracking-tight\">\n          Get a glimpse of <span className=\"text-primary\">our work</span>\n        </h2>\n        <p className=\"mx-auto max-w-prose text-sm \">\n          From ecommerce to startup landing pages and singl/multi page websites,\n          building fully responsive and functional website that showcase your\n          product and your unique identity.\n        </p>\n      </div>\n      <ContainerScroll className=\"min-h-[500vh] py-12\">\n        {WORK_PROJECTS.map((project, index) => (\n          <CardSticky\n            key={project.id}\n            index={index}\n            className=\"w-full overflow-hidden rounded-sm bg-indigo-950 text-white border\"\n            incrementY={60}\n            incrementZ={5}\n          >\n            <div className=\"flex flex-wrap items-center justify-between gap-4 px-6 py-4\">\n              <h2 className=\"text-2xl font-bold tracking-tighter\">\n                {project.title}\n              </h2>\n              <div className=\"flex flex-wrap gap-1\">\n                {project.services.map((service) => (\n                  <Badge key={service} className=\"rounded-full\">\n                    {service}\n                  </Badge>\n                ))}\n              </div>\n            </div>\n            <img\n              className=\"size-full object-cover\"\n              width=\"100%\"\n              height=\"100%\"\n              src={project.imageUrl}\n              alt=\"project\"\n            />\n          </CardSticky>\n        ))}\n      </ContainerScroll>\n    </div>\n  );\n}",
       },
     ],
     component: (function () {
@@ -2896,7 +3441,10 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/cards-stack-rotated'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/cards-stack-rotated',
+      'https://systaliko-ui.vercel.app/r/card-testimonial',
+    ],
     styles: undefined,
     files: [
       {
@@ -2933,7 +3481,10 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/cards-stack-rotated'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/cards-stack-rotated',
+      'https://systaliko-ui.vercel.app/r/card-testimonial',
+    ],
     styles: undefined,
     files: [
       {
@@ -2970,7 +3521,10 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/cards-stack-rotated'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/cards-stack-rotated',
+      'https://systaliko-ui.vercel.app/r/card-testimonial',
+    ],
     styles: undefined,
     files: [
       {
@@ -3339,7 +3893,10 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-infinite-scroll'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/container-infinite-scroll',
+      'https://systaliko-ui.vercel.app/r/card',
+    ],
     styles: undefined,
     files: [
       {
@@ -3377,7 +3934,10 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-infinite-scroll'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/container-infinite-scroll',
+      'https://systaliko-ui.vercel.app/r/card',
+    ],
     styles: undefined,
     files: [
       {
@@ -3415,7 +3975,10 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-infinite-scroll'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/container-infinite-scroll',
+      'https://systaliko-ui.vercel.app/r/card',
+    ],
     styles: undefined,
     files: [
       {
@@ -3453,7 +4016,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-scroll-combo'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+    ],
     styles: undefined,
     files: [
       {
@@ -3491,7 +4056,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-scroll-combo'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+    ],
     styles: undefined,
     files: [
       {
@@ -3529,7 +4096,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-scroll-combo'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+    ],
     styles: undefined,
     files: [
       {
@@ -3567,7 +4136,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-scroll-inset'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+    ],
     styles: undefined,
     files: [
       {
@@ -3605,7 +4176,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-scroll-inset'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+    ],
     styles: undefined,
     files: [
       {
@@ -3643,7 +4216,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-scroll-inset'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+    ],
     styles: undefined,
     files: [
       {
@@ -3681,7 +4256,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-scroll-inset-x'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+    ],
     styles: undefined,
     files: [
       {
@@ -3719,7 +4296,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-scroll-inset-x'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+    ],
     styles: undefined,
     files: [
       {
@@ -3757,7 +4336,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-scroll-inset-x'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+    ],
     styles: undefined,
     files: [
       {
@@ -3795,7 +4376,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-scroll-inset-y'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+    ],
     styles: undefined,
     files: [
       {
@@ -3833,7 +4416,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-scroll-inset-y'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+    ],
     styles: undefined,
     files: [
       {
@@ -3871,7 +4456,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-scroll-inset-y'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+    ],
     styles: undefined,
     files: [
       {
@@ -3909,7 +4496,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-scroll-radius'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+    ],
     styles: undefined,
     files: [
       {
@@ -3947,7 +4536,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-scroll-radius'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+    ],
     styles: undefined,
     files: [
       {
@@ -3985,7 +4576,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-scroll-radius'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+    ],
     styles: undefined,
     files: [
       {
@@ -4023,7 +4616,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-scroll-scale'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+    ],
     styles: undefined,
     files: [
       {
@@ -4061,7 +4656,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-scroll-scale'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+    ],
     styles: undefined,
     files: [
       {
@@ -4099,7 +4696,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-scroll-scale'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+    ],
     styles: undefined,
     files: [
       {
@@ -4135,15 +4734,19 @@ export const index: Record<string, any> = {
     description:
       'Demo showing how to use container stagger with your motion components with default style.',
     type: 'registry:block',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-stagger'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/container-stagger',
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/button',
+    ],
     styles: undefined,
     files: [
       {
         path: '__registry__/demo/containers/container-stagger/default/index.tsx',
         type: 'registry:block',
-        target: 'components/systaliko-ui/demo/containers/container-stagger.tsx',
+        target: 'components/systaliko-ui/containers/container-stagger.tsx',
         content:
           "'use client';\nimport { Button } from '@/components/ui/button';\nimport { ContainerStagger } from '@/components/systaliko-ui/containers/container-stagger';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { VideoIcon } from 'lucide-react';\nimport { motion } from 'motion/react';\n\nexport function ContainerStaggerDemo() {\n  const MotionButton = motion.create(Button);\n  const animationVariants = useAnimationVariants('blur');\n  return (\n    <ContainerStagger className=\"flex flex-col text-center items-center space-y-5 p-6\">\n      <motion.h1\n        className=\"font-serif text-5xl font-extralight\"\n        variants={animationVariants}\n      >\n        Your{' '}\n        <span className=\" font-serif font-extralight text-primary\">\n          animated & reusuble\n        </span>{' '}\n        <br />\n        blocks for your designs\n      </motion.h1>\n\n      <motion.p\n        variants={animationVariants}\n        className=\"leading-normal tracking-tight text-muted-foreground\"\n      >\n        Crafting exceptional digital experiences through innovative design\n        solutions.\n        <br /> From concept to creation, we transform your vision into reality.\n      </motion.p>\n\n      <MotionButton size=\"sm\" variants={animationVariants}>\n        Book free call <VideoIcon className=\"size-4  \" />\n      </MotionButton>\n    </ContainerStagger>\n  );\n}",
       },
@@ -4171,15 +4774,19 @@ export const index: Record<string, any> = {
     description:
       'Demo showing how to use container stagger with your motion components with shadcn-default style.',
     type: 'registry:block',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-stagger'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/container-stagger',
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/button',
+    ],
     styles: undefined,
     files: [
       {
         path: '__registry__/demo/containers/container-stagger/shadcn-default/index.tsx',
         type: 'registry:block',
-        target: 'components/systaliko-ui/demo/containers/container-stagger.tsx',
+        target: 'components/systaliko-ui/containers/container-stagger.tsx',
         content:
           "'use client';\nimport { Button } from '@/components/ui/button';\nimport { ContainerStagger } from '@/components/systaliko-ui/containers/container-stagger';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { VideoIcon } from 'lucide-react';\nimport { motion } from 'motion/react';\n\nexport function ContainerStaggerDemo() {\n  const MotionButton = motion.create(Button);\n  const animationVariants = useAnimationVariants('blur');\n  return (\n    <ContainerStagger className=\"flex flex-col text-center items-center space-y-5 p-6\">\n      <motion.h1\n        className=\"font-serif text-5xl font-extralight\"\n        variants={animationVariants}\n      >\n        Your{' '}\n        <span className=\" font-serif font-extralight text-primary\">\n          animated & reusuble\n        </span>{' '}\n        <br />\n        blocks for your designs\n      </motion.h1>\n\n      <motion.p\n        variants={animationVariants}\n        className=\"leading-normal tracking-tight text-muted-foreground\"\n      >\n        Crafting exceptional digital experiences through innovative design\n        solutions.\n        <br /> From concept to creation, we transform your vision into reality.\n      </motion.p>\n\n      <MotionButton size=\"sm\" variants={animationVariants}>\n        Book free call <VideoIcon className=\"size-4  \" />\n      </MotionButton>\n    </ContainerStagger>\n  );\n}",
       },
@@ -4208,15 +4815,19 @@ export const index: Record<string, any> = {
     description:
       'Demo showing how to use container stagger with your motion components with shadcn-new-york style.',
     type: 'registry:block',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/container-stagger'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/container-stagger',
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/button',
+    ],
     styles: undefined,
     files: [
       {
         path: '__registry__/demo/containers/container-stagger/shadcn-new-york/index.tsx',
         type: 'registry:block',
-        target: 'components/systaliko-ui/demo/containers/container-stagger.tsx',
+        target: 'components/systaliko-ui/containers/container-stagger.tsx',
         content:
           "'use client';\nimport { Button } from '@/components/ui/button';\nimport { ContainerStagger } from '@/components/systaliko-ui/containers/container-stagger';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { VideoIcon } from 'lucide-react';\nimport { motion } from 'motion/react';\n\nexport function ContainerStaggerDemo() {\n  const MotionButton = motion.create(Button);\n  const animationVariants = useAnimationVariants('blur');\n  return (\n    <ContainerStagger className=\"flex flex-col text-center items-center space-y-5 p-6\">\n      <motion.h1\n        className=\"font-serif text-5xl font-extralight\"\n        variants={animationVariants}\n      >\n        Your{' '}\n        <span className=\" font-serif font-extralight text-primary\">\n          animated & reusuble\n        </span>{' '}\n        <br />\n        blocks for your designs\n      </motion.h1>\n\n      <motion.p\n        variants={animationVariants}\n        className=\"leading-normal tracking-tight text-muted-foreground\"\n      >\n        Crafting exceptional digital experiences through innovative design\n        solutions.\n        <br /> From concept to creation, we transform your vision into reality.\n      </motion.p>\n\n      <MotionButton size=\"sm\" variants={animationVariants}>\n        Book free call <VideoIcon className=\"size-4  \" />\n      </MotionButton>\n    </ContainerStagger>\n  );\n}",
       },
@@ -4240,6 +4851,246 @@ export const index: Record<string, any> = {
     command:
       'https://systaliko-ui.vercel.app/r/shadcn-new-york-container-stagger-demo',
   },
+  'default-container-stagger-2-demo': {
+    name: 'default-container-stagger-2-demo',
+    description:
+      'Demo showing another use case for container stagger with your motion components with default style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/container-stagger',
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/container-stagger-2/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/containers/container-stagger.tsx',
+        content:
+          '\'use client\';\nimport { ContainerStagger } from \'@/components/systaliko-ui/containers/container-stagger\';\nimport { useAnimationVariants } from \'@/components/systaliko-ui/utils/use-animation-variants\';\nimport { motion, MotionConfig } from \'motion/react\';\n\nexport function ContainerStagger2Demo() {\n  const animationVariants = useAnimationVariants();\n  return (\n    <div className="p-8">\n      <div className="h-dvh place-content-center place-items-center">\n        <h1 className="text-4xl">Scroll to see the animation 👇🏻</h1>\n      </div>\n      <ContainerStagger\n        staggerChildren={0.4}\n        className="flex overflow-hidden gap-4 justify-center"\n      >\n        <MotionConfig transition={{ duration: 0.3, ease: \'easeIn\' }}>\n          <motion.div\n            variants={animationVariants}\n            className=" size-32 bg-pink-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-32 bg-emerald-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-32 bg-indigo-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-32 bg-yellow-500 rounded"\n          />\n        </MotionConfig>\n      </ContainerStagger>\n    </div>\n  );\n}',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/container-stagger-2/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-container-stagger-2-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/default-container-stagger-2-demo',
+  },
+  'shadcn-default-container-stagger-2-demo': {
+    name: 'shadcn-default-container-stagger-2-demo',
+    description:
+      'Demo showing another use case for container stagger with your motion components with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/container-stagger',
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/container-stagger-2/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/containers/container-stagger.tsx',
+        content:
+          '\'use client\';\nimport { ContainerStagger } from \'@/components/systaliko-ui/containers/container-stagger\';\nimport { useAnimationVariants } from \'@/components/systaliko-ui/utils/use-animation-variants\';\nimport { motion, MotionConfig } from \'motion/react\';\n\nexport function ContainerStagger2Demo() {\n  const animationVariants = useAnimationVariants();\n  return (\n    <div className="p-8">\n      <div className="h-dvh place-content-center place-items-center">\n        <h1 className="text-4xl">Scroll to see the animation 👇🏻</h1>\n      </div>\n      <ContainerStagger\n        staggerChildren={0.4}\n        className="flex overflow-hidden gap-4 justify-center"\n      >\n        <MotionConfig transition={{ duration: 0.3, ease: \'easeIn\' }}>\n          <motion.div\n            variants={animationVariants}\n            className=" size-32 bg-pink-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-32 bg-emerald-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-32 bg-indigo-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-32 bg-yellow-500 rounded"\n          />\n        </MotionConfig>\n      </ContainerStagger>\n    </div>\n  );\n}',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/container-stagger-2/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-container-stagger-2-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-container-stagger-2-demo',
+  },
+  'shadcn-new-york-container-stagger-2-demo': {
+    name: 'shadcn-new-york-container-stagger-2-demo',
+    description:
+      'Demo showing another use case for container stagger with your motion components with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/container-stagger',
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/container-stagger-2/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/containers/container-stagger.tsx',
+        content:
+          '\'use client\';\nimport { ContainerStagger } from \'@/components/systaliko-ui/containers/container-stagger\';\nimport { useAnimationVariants } from \'@/components/systaliko-ui/utils/use-animation-variants\';\nimport { motion, MotionConfig } from \'motion/react\';\n\nexport function ContainerStagger2Demo() {\n  const animationVariants = useAnimationVariants();\n  return (\n    <div className="p-8">\n      <div className="h-dvh place-content-center place-items-center">\n        <h1 className="text-4xl">Scroll to see the animation 👇🏻</h1>\n      </div>\n      <ContainerStagger\n        staggerChildren={0.4}\n        className="flex overflow-hidden gap-4 justify-center"\n      >\n        <MotionConfig transition={{ duration: 0.3, ease: \'easeIn\' }}>\n          <motion.div\n            variants={animationVariants}\n            className=" size-32 bg-pink-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-32 bg-emerald-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-32 bg-indigo-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-32 bg-yellow-500 rounded"\n          />\n        </MotionConfig>\n      </ContainerStagger>\n    </div>\n  );\n}',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/container-stagger-2/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-container-stagger-2-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-container-stagger-2-demo',
+  },
+  'default-device-rotated-scroll-demo': {
+    name: 'default-device-rotated-scroll-demo',
+    description:
+      'Demo showing another usecase of GalleryRotatedScroll component with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/gallery-rotated-scroll',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/device-rotated-scroll/default/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/containers/device-rotated-scroll.tsx',
+        content:
+          'import {\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from \'@/components/systaliko-ui/containers/gallery-rotated-scroll\';\n\nexport const DeviceRotatedScrollDemo = () => {\n  return (\n    <GalleryRotatedScroll>\n      <div\n        className="pointer-events-none absolute z-10 h-[20vh] w-full "\n        style={{\n          background: \'linear-gradient(to right, var(--primary), gray, purple)\',\n          filter: \'blur(84px)\',\n          mixBlendMode: \'screen\',\n        }}\n      />\n\n      <GalleryContainer\n        className={`\n        w-4/5 aspect-video mx-auto bg-border relative border-[20px] rounded-xl shadow-2xl\n        after:block after:absolute after:top-[3%] after:left-[36%] after:h-[0.5%] after:w-[28%] after:rounded-full after:shadow-[0_0_3px_0_white] after:z-20\n        `}\n        rotateXRange={[95, 0]}\n      >\n        <div className="rounded-md size-full overflow-hidden">\n          <video\n            className="relative z-10  size-full object-cover"\n            src="https://videos.pexels.com/video-files/8086711/8086711-uhd_2560_1440_25fps.mp4"\n            autoPlay\n            muted\n            loop\n            playsInline\n          />\n        </div>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/device-rotated-scroll/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-device-rotated-scroll-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/default-device-rotated-scroll-demo',
+  },
+  'shadcn-default-device-rotated-scroll-demo': {
+    name: 'shadcn-default-device-rotated-scroll-demo',
+    description:
+      'Demo showing another usecase of GalleryRotatedScroll component with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/gallery-rotated-scroll',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/device-rotated-scroll/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/containers/device-rotated-scroll.tsx',
+        content:
+          'import {\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from \'@/components/systaliko-ui/containers/gallery-rotated-scroll\';\n\nexport const DeviceRotatedScrollDemo = () => {\n  return (\n    <GalleryRotatedScroll>\n      <div\n        className="pointer-events-none absolute z-10 h-[20vh] w-full "\n        style={{\n          background: \'linear-gradient(to right, var(--primary), gray, purple)\',\n          filter: \'blur(84px)\',\n          mixBlendMode: \'screen\',\n        }}\n      />\n\n      <GalleryContainer\n        className={`\n        w-4/5 aspect-video mx-auto bg-border relative border-[20px] rounded-xl shadow-2xl\n        after:block after:absolute after:top-[3%] after:left-[36%] after:h-[0.5%] after:w-[28%] after:rounded-full after:shadow-[0_0_3px_0_white] after:z-20\n        `}\n        rotateXRange={[95, 0]}\n      >\n        <div className="rounded-md size-full overflow-hidden">\n          <video\n            className="relative z-10  size-full object-cover"\n            src="https://videos.pexels.com/video-files/8086711/8086711-uhd_2560_1440_25fps.mp4"\n            autoPlay\n            muted\n            loop\n            playsInline\n          />\n        </div>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/device-rotated-scroll/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-device-rotated-scroll-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-device-rotated-scroll-demo',
+  },
+  'shadcn-new-york-device-rotated-scroll-demo': {
+    name: 'shadcn-new-york-device-rotated-scroll-demo',
+    description:
+      'Demo showing another usecase of GalleryRotatedScroll component with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/gallery-rotated-scroll',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/containers/device-rotated-scroll/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/containers/device-rotated-scroll.tsx',
+        content:
+          'import {\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from \'@/components/systaliko-ui/containers/gallery-rotated-scroll\';\n\nexport const DeviceRotatedScrollDemo = () => {\n  return (\n    <GalleryRotatedScroll>\n      <div\n        className="pointer-events-none absolute z-10 h-[20vh] w-full "\n        style={{\n          background: \'linear-gradient(to right, var(--primary), gray, purple)\',\n          filter: \'blur(84px)\',\n          mixBlendMode: \'screen\',\n        }}\n      />\n\n      <GalleryContainer\n        className={`\n        w-4/5 aspect-video mx-auto bg-border relative border-[20px] rounded-xl shadow-2xl\n        after:block after:absolute after:top-[3%] after:left-[36%] after:h-[0.5%] after:w-[28%] after:rounded-full after:shadow-[0_0_3px_0_white] after:z-20\n        `}\n        rotateXRange={[95, 0]}\n      >\n        <div className="rounded-md size-full overflow-hidden">\n          <video\n            className="relative z-10  size-full object-cover"\n            src="https://videos.pexels.com/video-files/8086711/8086711-uhd_2560_1440_25fps.mp4"\n            autoPlay\n            muted\n            loop\n            playsInline\n          />\n        </div>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/containers/device-rotated-scroll/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-device-rotated-scroll-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-device-rotated-scroll-demo',
+  },
   'default-gallery-rotated-scroll-demo': {
     name: 'default-gallery-rotated-scroll-demo',
     description:
@@ -4247,7 +5098,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/gallery-rotated-scroll'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/gallery-rotated-scroll',
+    ],
     styles: undefined,
     files: [
       {
@@ -4256,7 +5109,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/demo/containers/gallery-rotated-scroll.tsx',
         content:
-          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const GalleryRotatedScrollDemo = () => {\n  return (\n    <GalleryRotatedScroll spacerClass=\"h-96\">\n      <div\n        className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n        style={{\n          background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n          filter: 'blur(84px)',\n          mixBlendMode: 'screen',\n        }}\n      />\n\n      <GalleryContainer className=\"h-dvh  gap-2\">\n        <GalleryCol className=\"-mt-2 gap-2\">\n          {IMAGES_1.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n          {IMAGES_2.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 -mt-2\">\n          {IMAGES_3.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};",
+          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const GalleryRotatedScrollDemo = () => {\n  return (\n    <GalleryRotatedScroll spacerClass=\"h-96\">\n      <div\n        className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n        style={{\n          background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n          filter: 'blur(84px)',\n          mixBlendMode: 'screen',\n        }}\n      />\n\n      <GalleryContainer className=\"h-dvh  gap-2\">\n        <GalleryCol yRange={['-10%', '2%']} className=\"-mt-2 gap-2\">\n          {IMAGES_1.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n          {IMAGES_2.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol yRange={['-10%', '0%']} className=\"gap-2 -mt-2\">\n          {IMAGES_3.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};",
       },
     ],
     component: (function () {
@@ -4285,7 +5138,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/gallery-rotated-scroll'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/gallery-rotated-scroll',
+    ],
     styles: undefined,
     files: [
       {
@@ -4294,7 +5149,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/demo/containers/gallery-rotated-scroll.tsx',
         content:
-          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const GalleryRotatedScrollDemo = () => {\n  return (\n    <GalleryRotatedScroll spacerClass=\"h-96\">\n      <div\n        className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n        style={{\n          background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n          filter: 'blur(84px)',\n          mixBlendMode: 'screen',\n        }}\n      />\n\n      <GalleryContainer className=\"h-dvh  gap-2\">\n        <GalleryCol className=\"-mt-2 gap-2\">\n          {IMAGES_1.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n          {IMAGES_2.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 -mt-2\">\n          {IMAGES_3.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};",
+          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const GalleryRotatedScrollDemo = () => {\n  return (\n    <GalleryRotatedScroll spacerClass=\"h-96\">\n      <div\n        className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n        style={{\n          background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n          filter: 'blur(84px)',\n          mixBlendMode: 'screen',\n        }}\n      />\n\n      <GalleryContainer className=\"h-dvh  gap-2\">\n        <GalleryCol yRange={['-10%', '2%']} className=\"-mt-2 gap-2\">\n          {IMAGES_1.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n          {IMAGES_2.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol yRange={['-10%', '0%']} className=\"gap-2 -mt-2\">\n          {IMAGES_3.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};",
       },
     ],
     component: (function () {
@@ -4323,7 +5178,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/gallery-rotated-scroll'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/gallery-rotated-scroll',
+    ],
     styles: undefined,
     files: [
       {
@@ -4332,7 +5189,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/demo/containers/gallery-rotated-scroll.tsx',
         content:
-          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const GalleryRotatedScrollDemo = () => {\n  return (\n    <GalleryRotatedScroll spacerClass=\"h-96\">\n      <div\n        className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n        style={{\n          background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n          filter: 'blur(84px)',\n          mixBlendMode: 'screen',\n        }}\n      />\n\n      <GalleryContainer className=\"h-dvh  gap-2\">\n        <GalleryCol className=\"-mt-2 gap-2\">\n          {IMAGES_1.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n          {IMAGES_2.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 -mt-2\">\n          {IMAGES_3.map((imageUrl, index) => (\n            // eslint-disable-next-line @next/next/no-img-element\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};",
+          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const GalleryRotatedScrollDemo = () => {\n  return (\n    <GalleryRotatedScroll spacerClass=\"h-96\">\n      <div\n        className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n        style={{\n          background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n          filter: 'blur(84px)',\n          mixBlendMode: 'screen',\n        }}\n      />\n\n      <GalleryContainer className=\"h-dvh  gap-2\">\n        <GalleryCol yRange={['-10%', '2%']} className=\"-mt-2 gap-2\">\n          {IMAGES_1.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n          {IMAGES_2.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol yRange={['-10%', '0%']} className=\"gap-2 -mt-2\">\n          {IMAGES_3.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};",
       },
     ],
     component: (function () {
@@ -4360,7 +5217,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/grid-bento'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/grid-bento'],
     styles: undefined,
     files: [
       {
@@ -4396,7 +5253,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/grid-bento'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/grid-bento'],
     styles: undefined,
     files: [
       {
@@ -4432,7 +5289,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/grid-bento'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/grid-bento'],
     styles: undefined,
     files: [
       {
@@ -4468,7 +5325,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/grid-bento-four-cells'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/grid-bento-four-cells',
+    ],
     styles: undefined,
     files: [
       {
@@ -4506,7 +5365,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/grid-bento-four-cells'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/grid-bento-four-cells',
+    ],
     styles: undefined,
     files: [
       {
@@ -4544,7 +5405,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/grid-bento-four-cells'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/grid-bento-four-cells',
+    ],
     styles: undefined,
     files: [
       {
@@ -4578,11 +5441,13 @@ export const index: Record<string, any> = {
   'default-grid-bento-three-cells-demo': {
     name: 'default-grid-bento-three-cells-demo',
     description:
-      'Demo showing how to implement scroll triggred animations with default style.',
+      'Demo showing another variant of grid bento component with default style.',
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/grid-bento-three-cells'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/grid-bento-three-cells',
+    ],
     styles: undefined,
     files: [
       {
@@ -4616,11 +5481,13 @@ export const index: Record<string, any> = {
   'shadcn-default-grid-bento-three-cells-demo': {
     name: 'shadcn-default-grid-bento-three-cells-demo',
     description:
-      'Demo showing how to implement scroll triggred animations with shadcn-default style.',
+      'Demo showing another variant of grid bento component with shadcn-default style.',
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/grid-bento-three-cells'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/grid-bento-three-cells',
+    ],
     styles: undefined,
     files: [
       {
@@ -4654,11 +5521,13 @@ export const index: Record<string, any> = {
   'shadcn-new-york-grid-bento-three-cells-demo': {
     name: 'shadcn-new-york-grid-bento-three-cells-demo',
     description:
-      'Demo showing how to implement scroll triggred animations with shadcn-new-york style.',
+      'Demo showing another variant of grid bento component with shadcn-new-york style.',
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/grid-bento-three-cells'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/grid-bento-three-cells',
+    ],
     styles: undefined,
     files: [
       {
@@ -4696,7 +5565,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/grid-staggered'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/grid-staggered'],
     styles: undefined,
     files: [
       {
@@ -4732,7 +5601,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/grid-staggered'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/grid-staggered'],
     styles: undefined,
     files: [
       {
@@ -4769,7 +5638,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/grid-staggered'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/grid-staggered'],
     styles: undefined,
     files: [
       {
@@ -4805,7 +5674,10 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/custom-cursor'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/custom-cursor',
+      'https://systaliko-ui.vercel.app/r/button',
+    ],
     styles: undefined,
     files: [
       {
@@ -4813,7 +5685,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/custom-cursor.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport { CustomCursor, useSetCursorVariant } from \'@/components/systaliko-ui/custom-cursor\';\nimport { MapPinIcon } from \'lucide-react\';\n\nexport function CustomCursorDemo() {\n  const {\n    handleCustomStyle,\n    setCursorVariant,\n    cursorChildren,\n    cursorVariant,\n    setCursorChildren,\n    resetCursorChildren,\n    resetStyle,\n  } = useSetCursorVariant();\n\n  return (\n    <div className="container flex justify-between gap-12 flex-wrap items-center py-12 px-6 min-h-svh">\n      <CustomCursor variant={cursorVariant} cursorChildren={cursorChildren} />\n      <div className="flex flex-1 flex-col gap-4 items-start">\n        <h1\n          className="text-5xl tracking-tight font-semibold"\n          onMouseEnter={() => {\n            setCursorChildren(null);\n            setCursorVariant({\n              mixBlendMode: \'difference\',\n              backgroundColor: \'red\',\n              scale: 5,\n              borderRadius: \'50%\',\n            });\n          }}\n          onMouseLeave={() => {\n            resetCursorChildren();\n            resetStyle();\n          }}\n        >\n          Custom Cursor with multiple{\' \'}\n          <span className="text-primary">animation variants</span>.\n        </h1>\n        <p className="text-sm max-w-prose">\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia\n          doloremque, ipsam excepturi ratione aliquid assumenda, esse, in\n          inventore quos nihil possimus reprehenderit. Facere nihil, qui illo\n          corrupti corporis commodi animi excepturi? Neque amet a ipsam?\n        </p>\n\n        <div className="flex gap-4">\n          <Button\n            onMouseEnter={() => handleCustomStyle({ scale: 0.4 })}\n            onMouseLeave={resetStyle}\n            className="bg-primary text-white"\n            size="lg"\n          >\n            Hover Me\n          </Button>\n          <Button\n            variant={\'link\'}\n            onMouseEnter={() => {\n              setCursorVariant(\'reset\');\n              setCursorChildren(\n                <div className="w-40 h-60 relative pointer-events-none">\n                  <img\n                    src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n                    alt="tokyo"\n                    className="rounded-md object-cover"\n                  />\n                </div>,\n              );\n            }}\n            onMouseLeave={() => {\n              setCursorVariant({});\n              resetCursorChildren();\n            }}\n            className="text-primary"\n            size="lg"\n          >\n            Visit Tokyo\n          </Button>\n        </div>\n      </div>\n\n      <div\n        className="relative w-2/3 md:w-1/3"\n        onMouseLeave={() => {\n          setCursorChildren(<div className="rounded-full bg-black size-5" />);\n          setCursorVariant({});\n        }}\n        onMouseEnter={() => {\n          setCursorVariant({});\n          setCursorChildren(\n            <Button className="text-white" variant={\'link\'} size="lg">\n              <MapPinIcon />\n              Visit Tokyo\n            </Button>,\n          );\n        }}\n      >\n        <img\n          src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n          alt="tokyo"\n          className="rounded-md size-full object-cover"\n        />\n      </div>\n    </div>\n  );\n}',
+          'import { Button } from \'@/components/systaliko-ui/button\';\nimport { CustomCursor, useSetCursorVariant } from \'@/components/systaliko-ui/custom-cursor\';\nimport { MapPinIcon } from \'lucide-react\';\n\nexport function CustomCursorDemo() {\n  const {\n    handleCustomStyle,\n    setCursorVariant,\n    cursorChildren,\n    cursorVariant,\n    setCursorChildren,\n    resetCursorChildren,\n    resetStyle,\n  } = useSetCursorVariant();\n\n  return (\n    <div className="container flex justify-between gap-12 flex-wrap items-center py-12 px-6 min-h-svh">\n      <CustomCursor\n        className="fixed"\n        variant={cursorVariant}\n        cursorChildren={cursorChildren}\n      />\n      <div className="flex flex-1 flex-col gap-4 items-start">\n        <h1\n          className="text-5xl tracking-tight font-semibold"\n          onMouseEnter={() => {\n            setCursorChildren(null);\n            setCursorVariant({\n              mixBlendMode: \'difference\',\n              backgroundColor: \'var(--accent)\',\n              scale: 6,\n              borderRadius: \'50%\',\n            });\n          }}\n          onMouseLeave={() => {\n            resetCursorChildren();\n            resetStyle();\n          }}\n        >\n          Custom Cursor with multiple{\' \'}\n          <span className="text-primary">animation variants</span>.\n        </h1>\n        <p className="text-sm max-w-prose">\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia\n          doloremque, ipsam excepturi ratione aliquid assumenda, esse, in\n          inventore quos nihil possimus reprehenderit. Facere nihil, qui illo\n          corrupti corporis commodi animi excepturi? Neque amet a ipsam?\n        </p>\n\n        <div className="flex gap-4">\n          <Button\n            onMouseEnter={() => handleCustomStyle({ scale: 0.4 })}\n            onMouseLeave={resetStyle}\n            size="lg"\n          >\n            Hover Me\n          </Button>\n          <Button\n            variant={\'link\'}\n            onMouseEnter={() => {\n              setCursorVariant(\'reset\');\n              setCursorChildren(\n                <div className="w-40 h-60 relative pointer-events-none">\n                  <img\n                    src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n                    alt="tokyo"\n                    className="rounded-md object-cover"\n                  />\n                </div>,\n              );\n            }}\n            onMouseLeave={() => {\n              setCursorVariant({});\n              resetCursorChildren();\n            }}\n            className="text-primary"\n            size="lg"\n          >\n            Visit Tokyo\n          </Button>\n        </div>\n      </div>\n\n      <div\n        className="relative w-2/3 md:w-1/3"\n        onMouseLeave={() => {\n          resetCursorChildren();\n          setCursorVariant({});\n        }}\n        onMouseEnter={() => {\n          setCursorVariant({});\n          setCursorChildren(\n            <Button size="sm" className="rounded-full bg-primary/80">\n              Visit Tokyo\n              <MapPinIcon />\n            </Button>,\n          );\n        }}\n      >\n        <img\n          src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n          alt="tokyo"\n          className="rounded-md size-full object-cover"\n        />\n      </div>\n    </div>\n  );\n}',
       },
     ],
     component: (function () {
@@ -4841,7 +5713,10 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/custom-cursor'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/custom-cursor',
+      'https://systaliko-ui.vercel.app/r/button',
+    ],
     styles: undefined,
     files: [
       {
@@ -4849,7 +5724,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/custom-cursor.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport { CustomCursor, useSetCursorVariant } from \'@/components/systaliko-ui/custom-cursor\';\nimport { MapPinIcon } from \'lucide-react\';\n\nexport function CustomCursorDemo() {\n  const {\n    handleCustomStyle,\n    setCursorVariant,\n    cursorChildren,\n    cursorVariant,\n    setCursorChildren,\n    resetCursorChildren,\n    resetStyle,\n  } = useSetCursorVariant();\n\n  return (\n    <div className="container flex justify-between gap-12 flex-wrap items-center py-12 px-6 min-h-svh">\n      <CustomCursor variant={cursorVariant} cursorChildren={cursorChildren} />\n      <div className="flex flex-1 flex-col gap-4 items-start">\n        <h1\n          className="text-5xl tracking-tight font-semibold"\n          onMouseEnter={() => {\n            setCursorChildren(null);\n            setCursorVariant({\n              mixBlendMode: \'difference\',\n              backgroundColor: \'red\',\n              scale: 5,\n              borderRadius: \'50%\',\n            });\n          }}\n          onMouseLeave={() => {\n            resetCursorChildren();\n            resetStyle();\n          }}\n        >\n          Custom Cursor with multiple{\' \'}\n          <span className="text-primary">animation variants</span>.\n        </h1>\n        <p className="text-sm max-w-prose">\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia\n          doloremque, ipsam excepturi ratione aliquid assumenda, esse, in\n          inventore quos nihil possimus reprehenderit. Facere nihil, qui illo\n          corrupti corporis commodi animi excepturi? Neque amet a ipsam?\n        </p>\n\n        <div className="flex gap-4">\n          <Button\n            onMouseEnter={() => handleCustomStyle({ scale: 0.4 })}\n            onMouseLeave={resetStyle}\n            className="bg-primary text-white"\n            size="lg"\n          >\n            Hover Me\n          </Button>\n          <Button\n            variant={\'link\'}\n            onMouseEnter={() => {\n              setCursorVariant(\'reset\');\n              setCursorChildren(\n                <div className="w-40 h-60 relative pointer-events-none">\n                  <img\n                    src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n                    alt="tokyo"\n                    className="rounded-md object-cover"\n                  />\n                </div>,\n              );\n            }}\n            onMouseLeave={() => {\n              setCursorVariant({});\n              resetCursorChildren();\n            }}\n            className="text-primary"\n            size="lg"\n          >\n            Visit Tokyo\n          </Button>\n        </div>\n      </div>\n\n      <div\n        className="relative w-2/3 md:w-1/3"\n        onMouseLeave={() => {\n          setCursorChildren(<div className="rounded-full bg-black size-5" />);\n          setCursorVariant({});\n        }}\n        onMouseEnter={() => {\n          setCursorVariant({});\n          setCursorChildren(\n            <Button className="text-white" variant={\'link\'} size="lg">\n              <MapPinIcon />\n              Visit Tokyo\n            </Button>,\n          );\n        }}\n      >\n        <img\n          src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n          alt="tokyo"\n          className="rounded-md size-full object-cover"\n        />\n      </div>\n    </div>\n  );\n}',
+          'import { Button } from \'@/components/systaliko-ui/button\';\nimport { CustomCursor, useSetCursorVariant } from \'@/components/systaliko-ui/custom-cursor\';\nimport { MapPinIcon } from \'lucide-react\';\n\nexport function CustomCursorDemo() {\n  const {\n    handleCustomStyle,\n    setCursorVariant,\n    cursorChildren,\n    cursorVariant,\n    setCursorChildren,\n    resetCursorChildren,\n    resetStyle,\n  } = useSetCursorVariant();\n\n  return (\n    <div className="container flex justify-between gap-12 flex-wrap items-center py-12 px-6 min-h-svh">\n      <CustomCursor\n        className="fixed"\n        variant={cursorVariant}\n        cursorChildren={cursorChildren}\n      />\n      <div className="flex flex-1 flex-col gap-4 items-start">\n        <h1\n          className="text-5xl tracking-tight font-semibold"\n          onMouseEnter={() => {\n            setCursorChildren(null);\n            setCursorVariant({\n              mixBlendMode: \'difference\',\n              backgroundColor: \'var(--accent)\',\n              scale: 6,\n              borderRadius: \'50%\',\n            });\n          }}\n          onMouseLeave={() => {\n            resetCursorChildren();\n            resetStyle();\n          }}\n        >\n          Custom Cursor with multiple{\' \'}\n          <span className="text-primary">animation variants</span>.\n        </h1>\n        <p className="text-sm max-w-prose">\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia\n          doloremque, ipsam excepturi ratione aliquid assumenda, esse, in\n          inventore quos nihil possimus reprehenderit. Facere nihil, qui illo\n          corrupti corporis commodi animi excepturi? Neque amet a ipsam?\n        </p>\n\n        <div className="flex gap-4">\n          <Button\n            onMouseEnter={() => handleCustomStyle({ scale: 0.4 })}\n            onMouseLeave={resetStyle}\n            size="lg"\n          >\n            Hover Me\n          </Button>\n          <Button\n            variant={\'link\'}\n            onMouseEnter={() => {\n              setCursorVariant(\'reset\');\n              setCursorChildren(\n                <div className="w-40 h-60 relative pointer-events-none">\n                  <img\n                    src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n                    alt="tokyo"\n                    className="rounded-md object-cover"\n                  />\n                </div>,\n              );\n            }}\n            onMouseLeave={() => {\n              setCursorVariant({});\n              resetCursorChildren();\n            }}\n            className="text-primary"\n            size="lg"\n          >\n            Visit Tokyo\n          </Button>\n        </div>\n      </div>\n\n      <div\n        className="relative w-2/3 md:w-1/3"\n        onMouseLeave={() => {\n          resetCursorChildren();\n          setCursorVariant({});\n        }}\n        onMouseEnter={() => {\n          setCursorVariant({});\n          setCursorChildren(\n            <Button size="sm" className="rounded-full bg-primary/80">\n              Visit Tokyo\n              <MapPinIcon />\n            </Button>,\n          );\n        }}\n      >\n        <img\n          src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n          alt="tokyo"\n          className="rounded-md size-full object-cover"\n        />\n      </div>\n    </div>\n  );\n}',
       },
     ],
     component: (function () {
@@ -4878,7 +5753,10 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/custom-cursor'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/custom-cursor',
+      'https://systaliko-ui.vercel.app/r/button',
+    ],
     styles: undefined,
     files: [
       {
@@ -4886,7 +5764,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/custom-cursor.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport { CustomCursor, useSetCursorVariant } from \'@/components/systaliko-ui/custom-cursor\';\nimport { MapPinIcon } from \'lucide-react\';\n\nexport function CustomCursorDemo() {\n  const {\n    handleCustomStyle,\n    setCursorVariant,\n    cursorChildren,\n    cursorVariant,\n    setCursorChildren,\n    resetCursorChildren,\n    resetStyle,\n  } = useSetCursorVariant();\n\n  return (\n    <div className="container flex justify-between gap-12 flex-wrap items-center py-12 px-6 min-h-svh">\n      <CustomCursor variant={cursorVariant} cursorChildren={cursorChildren} />\n      <div className="flex flex-1 flex-col gap-4 items-start">\n        <h1\n          className="text-5xl tracking-tight font-semibold"\n          onMouseEnter={() => {\n            setCursorChildren(null);\n            setCursorVariant({\n              mixBlendMode: \'difference\',\n              backgroundColor: \'red\',\n              scale: 5,\n              borderRadius: \'50%\',\n            });\n          }}\n          onMouseLeave={() => {\n            resetCursorChildren();\n            resetStyle();\n          }}\n        >\n          Custom Cursor with multiple{\' \'}\n          <span className="text-primary">animation variants</span>.\n        </h1>\n        <p className="text-sm max-w-prose">\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia\n          doloremque, ipsam excepturi ratione aliquid assumenda, esse, in\n          inventore quos nihil possimus reprehenderit. Facere nihil, qui illo\n          corrupti corporis commodi animi excepturi? Neque amet a ipsam?\n        </p>\n\n        <div className="flex gap-4">\n          <Button\n            onMouseEnter={() => handleCustomStyle({ scale: 0.4 })}\n            onMouseLeave={resetStyle}\n            className="bg-primary text-white"\n            size="lg"\n          >\n            Hover Me\n          </Button>\n          <Button\n            variant={\'link\'}\n            onMouseEnter={() => {\n              setCursorVariant(\'reset\');\n              setCursorChildren(\n                <div className="w-40 h-60 relative pointer-events-none">\n                  <img\n                    src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n                    alt="tokyo"\n                    className="rounded-md object-cover"\n                  />\n                </div>,\n              );\n            }}\n            onMouseLeave={() => {\n              setCursorVariant({});\n              resetCursorChildren();\n            }}\n            className="text-primary"\n            size="lg"\n          >\n            Visit Tokyo\n          </Button>\n        </div>\n      </div>\n\n      <div\n        className="relative w-2/3 md:w-1/3"\n        onMouseLeave={() => {\n          setCursorChildren(<div className="rounded-full bg-black size-5" />);\n          setCursorVariant({});\n        }}\n        onMouseEnter={() => {\n          setCursorVariant({});\n          setCursorChildren(\n            <Button className="text-white" variant={\'link\'} size="lg">\n              <MapPinIcon />\n              Visit Tokyo\n            </Button>,\n          );\n        }}\n      >\n        <img\n          src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n          alt="tokyo"\n          className="rounded-md size-full object-cover"\n        />\n      </div>\n    </div>\n  );\n}',
+          'import { Button } from \'@/components/systaliko-ui/button\';\nimport { CustomCursor, useSetCursorVariant } from \'@/components/systaliko-ui/custom-cursor\';\nimport { MapPinIcon } from \'lucide-react\';\n\nexport function CustomCursorDemo() {\n  const {\n    handleCustomStyle,\n    setCursorVariant,\n    cursorChildren,\n    cursorVariant,\n    setCursorChildren,\n    resetCursorChildren,\n    resetStyle,\n  } = useSetCursorVariant();\n\n  return (\n    <div className="container flex justify-between gap-12 flex-wrap items-center py-12 px-6 min-h-svh">\n      <CustomCursor\n        className="fixed"\n        variant={cursorVariant}\n        cursorChildren={cursorChildren}\n      />\n      <div className="flex flex-1 flex-col gap-4 items-start">\n        <h1\n          className="text-5xl tracking-tight font-semibold"\n          onMouseEnter={() => {\n            setCursorChildren(null);\n            setCursorVariant({\n              mixBlendMode: \'difference\',\n              backgroundColor: \'var(--accent)\',\n              scale: 6,\n              borderRadius: \'50%\',\n            });\n          }}\n          onMouseLeave={() => {\n            resetCursorChildren();\n            resetStyle();\n          }}\n        >\n          Custom Cursor with multiple{\' \'}\n          <span className="text-primary">animation variants</span>.\n        </h1>\n        <p className="text-sm max-w-prose">\n          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia\n          doloremque, ipsam excepturi ratione aliquid assumenda, esse, in\n          inventore quos nihil possimus reprehenderit. Facere nihil, qui illo\n          corrupti corporis commodi animi excepturi? Neque amet a ipsam?\n        </p>\n\n        <div className="flex gap-4">\n          <Button\n            onMouseEnter={() => handleCustomStyle({ scale: 0.4 })}\n            onMouseLeave={resetStyle}\n            size="lg"\n          >\n            Hover Me\n          </Button>\n          <Button\n            variant={\'link\'}\n            onMouseEnter={() => {\n              setCursorVariant(\'reset\');\n              setCursorChildren(\n                <div className="w-40 h-60 relative pointer-events-none">\n                  <img\n                    src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n                    alt="tokyo"\n                    className="rounded-md object-cover"\n                  />\n                </div>,\n              );\n            }}\n            onMouseLeave={() => {\n              setCursorVariant({});\n              resetCursorChildren();\n            }}\n            className="text-primary"\n            size="lg"\n          >\n            Visit Tokyo\n          </Button>\n        </div>\n      </div>\n\n      <div\n        className="relative w-2/3 md:w-1/3"\n        onMouseLeave={() => {\n          resetCursorChildren();\n          setCursorVariant({});\n        }}\n        onMouseEnter={() => {\n          setCursorVariant({});\n          setCursorChildren(\n            <Button size="sm" className="rounded-full bg-primary/80">\n              Visit Tokyo\n              <MapPinIcon />\n            </Button>,\n          );\n        }}\n      >\n        <img\n          src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n          alt="tokyo"\n          className="rounded-md size-full object-cover"\n        />\n      </div>\n    </div>\n  );\n}',
       },
     ],
     component: (function () {
@@ -4907,123 +5785,6 @@ export const index: Record<string, any> = {
     })(),
     command:
       'https://systaliko-ui.vercel.app/r/shadcn-new-york-custom-cursor-demo',
-  },
-  'default-hero-gallery-scroll-animation-demo': {
-    name: 'default-hero-gallery-scroll-animation-demo',
-    description:
-      'Demo of gallery and text scroll scale animations with default style.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'http://localhost:3000/r/hero-gallery-scroll-animation',
-    ],
-    styles: undefined,
-    files: [
-      {
-        path: '__registry__/demo/heros/hero-gallery-scroll-animation/default/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/demo/heros/hero-gradient.tsx',
-        content:
-          "import { HeroGalleryScrollAnimation } from '@/components/systaliko-ui/heros/hero-gallery-scroll-animation';\n\nexport const HeroGalleryScrollAnimationDemo = () => (\n  <HeroGalleryScrollAnimation />\n);",
-      },
-    ],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/__registry__/demo/heros/hero-gallery-scroll-animation/default/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'default-hero-gallery-scroll-animation-demo';
-        const Comp = mod.default || mod[exportName];
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command:
-      'https://systaliko-ui.vercel.app/r/default-hero-gallery-scroll-animation-demo',
-  },
-  'shadcn-default-hero-gallery-scroll-animation-demo': {
-    name: 'shadcn-default-hero-gallery-scroll-animation-demo',
-    description:
-      'Demo of gallery and text scroll scale animations with shadcn-default style.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'http://localhost:3000/r/hero-gallery-scroll-animation',
-    ],
-    styles: undefined,
-    files: [
-      {
-        path: '__registry__/demo/heros/hero-gallery-scroll-animation/shadcn-default/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/demo/heros/hero-gradient.tsx',
-        content:
-          "import { HeroGalleryScrollAnimation } from '@/components/systaliko-ui/heros/hero-gallery-scroll-animation';\n\nexport const HeroGalleryScrollAnimationDemo = () => (\n  <HeroGalleryScrollAnimation />\n);",
-      },
-    ],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/__registry__/demo/heros/hero-gallery-scroll-animation/shadcn-default/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'shadcn-default-hero-gallery-scroll-animation-demo';
-        const Comp = mod.default || mod[exportName];
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command:
-      'https://systaliko-ui.vercel.app/r/shadcn-default-hero-gallery-scroll-animation-demo',
-  },
-  'shadcn-new-york-hero-gallery-scroll-animation-demo': {
-    name: 'shadcn-new-york-hero-gallery-scroll-animation-demo',
-    description:
-      'Demo of gallery and text scroll scale animations with shadcn-new-york style.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'http://localhost:3000/r/hero-gallery-scroll-animation',
-    ],
-    styles: undefined,
-    files: [
-      {
-        path: '__registry__/demo/heros/hero-gallery-scroll-animation/shadcn-new-york/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/demo/heros/hero-gradient.tsx',
-        content:
-          "import { HeroGalleryScrollAnimation } from '@/components/systaliko-ui/heros/hero-gallery-scroll-animation';\n\nexport const HeroGalleryScrollAnimationDemo = () => (\n  <HeroGalleryScrollAnimation />\n);",
-      },
-    ],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/__registry__/demo/heros/hero-gallery-scroll-animation/shadcn-new-york/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'shadcn-new-york-hero-gallery-scroll-animation-demo';
-        const Comp = mod.default || mod[exportName];
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command:
-      'https://systaliko-ui.vercel.app/r/shadcn-new-york-hero-gallery-scroll-animation-demo',
   },
   'default-hero-gradient-demo': {
     name: 'default-hero-gradient-demo',
@@ -5134,124 +5895,13 @@ export const index: Record<string, any> = {
     command:
       'https://systaliko-ui.vercel.app/r/shadcn-new-york-hero-gradient-demo',
   },
-  'default-hero-rotated-gallery-demo': {
-    name: 'default-hero-rotated-gallery-demo',
-    description:
-      'Demo showing how to use Hero rotated gallery with default style.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/hero-rotated-gallery'],
-    styles: undefined,
-    files: [
-      {
-        path: '__registry__/demo/heros/hero-rotated-gallery/default/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/demo/heros/hero-gradient.tsx',
-        content:
-          "import { HeroRotatedGallery } from '@/components/systaliko-ui/heros/hero-rotated-gallery';\n\nexport const HeroRotatedGalleryDemo = () => {\n  return <HeroRotatedGallery />;\n};",
-      },
-    ],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/__registry__/demo/heros/hero-rotated-gallery/default/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'default-hero-rotated-gallery-demo';
-        const Comp = mod.default || mod[exportName];
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command:
-      'https://systaliko-ui.vercel.app/r/default-hero-rotated-gallery-demo',
-  },
-  'shadcn-default-hero-rotated-gallery-demo': {
-    name: 'shadcn-default-hero-rotated-gallery-demo',
-    description:
-      'Demo showing how to use Hero rotated gallery with shadcn-default style.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/hero-rotated-gallery'],
-    styles: undefined,
-    files: [
-      {
-        path: '__registry__/demo/heros/hero-rotated-gallery/shadcn-default/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/demo/heros/hero-gradient.tsx',
-        content:
-          "import { HeroRotatedGallery } from '@/components/systaliko-ui/heros/hero-rotated-gallery';\n\nexport const HeroRotatedGalleryDemo = () => {\n  return <HeroRotatedGallery />;\n};",
-      },
-    ],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/__registry__/demo/heros/hero-rotated-gallery/shadcn-default/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'shadcn-default-hero-rotated-gallery-demo';
-        const Comp = mod.default || mod[exportName];
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command:
-      'https://systaliko-ui.vercel.app/r/shadcn-default-hero-rotated-gallery-demo',
-  },
-  'shadcn-new-york-hero-rotated-gallery-demo': {
-    name: 'shadcn-new-york-hero-rotated-gallery-demo',
-    description:
-      'Demo showing how to use Hero rotated gallery with shadcn-new-york style.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/hero-rotated-gallery'],
-    styles: undefined,
-    files: [
-      {
-        path: '__registry__/demo/heros/hero-rotated-gallery/shadcn-new-york/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/demo/heros/hero-gradient.tsx',
-        content:
-          "import { HeroRotatedGallery } from '@/components/systaliko-ui/heros/hero-rotated-gallery';\n\nexport const HeroRotatedGalleryDemo = () => {\n  return <HeroRotatedGallery />;\n};",
-      },
-    ],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/__registry__/demo/heros/hero-rotated-gallery/shadcn-new-york/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'shadcn-new-york-hero-rotated-gallery-demo';
-        const Comp = mod.default || mod[exportName];
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command:
-      'https://systaliko-ui.vercel.app/r/shadcn-new-york-hero-rotated-gallery-demo',
-  },
   'default-rating-stars-demo': {
     name: 'default-rating-stars-demo',
     description: 'Demo showing Rating stars component with default style.',
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/rating-stars'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/rating-stars'],
     styles: undefined,
     files: [
       {
@@ -5287,7 +5937,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/rating-stars'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/rating-stars'],
     styles: undefined,
     files: [
       {
@@ -5324,7 +5974,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/rating-stars'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/rating-stars'],
     styles: undefined,
     files: [
       {
@@ -5360,7 +6010,11 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/section-gallery'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/section-gallery',
+      'https://systaliko-ui.vercel.app/r/grid-staggered',
+      'https://systaliko-ui.vercel.app/r/button',
+    ],
     styles: undefined,
     files: [
       {
@@ -5395,7 +6049,11 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/section-gallery'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/section-gallery',
+      'https://systaliko-ui.vercel.app/r/grid-staggered',
+      'https://systaliko-ui.vercel.app/r/button',
+    ],
     styles: undefined,
     files: [
       {
@@ -5431,7 +6089,11 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/section-gallery'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/section-gallery',
+      'https://systaliko-ui.vercel.app/r/grid-staggered',
+      'https://systaliko-ui.vercel.app/r/button',
+    ],
     styles: undefined,
     files: [
       {
@@ -5461,6 +6123,243 @@ export const index: Record<string, any> = {
     command:
       'https://systaliko-ui.vercel.app/r/shadcn-new-york-section-gallery-demo',
   },
+  'default-section-scale-scroll-animation-demo': {
+    name: 'default-section-scale-scroll-animation-demo',
+    description:
+      'Demo of gallery and text scroll scale animations with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/section-scale-scroll-animation',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/section-scale-scroll-animation/default/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/section-scale-scroll-animation.tsx',
+        content:
+          "import { SectionScaleScrollAnimation } from '@/components/systaliko-ui/section-scale-scroll-animation';\n\nexport const HeroGalleryScrollAnimationDemo = () => (\n  <SectionScaleScrollAnimation />\n);",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/section-scale-scroll-animation/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-section-scale-scroll-animation-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/default-section-scale-scroll-animation-demo',
+  },
+  'shadcn-default-section-scale-scroll-animation-demo': {
+    name: 'shadcn-default-section-scale-scroll-animation-demo',
+    description:
+      'Demo of gallery and text scroll scale animations with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/section-scale-scroll-animation',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/section-scale-scroll-animation/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/section-scale-scroll-animation.tsx',
+        content:
+          "import { SectionScaleScrollAnimation } from '@/components/systaliko-ui/section-scale-scroll-animation';\n\nexport const HeroGalleryScrollAnimationDemo = () => (\n  <SectionScaleScrollAnimation />\n);",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/section-scale-scroll-animation/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-section-scale-scroll-animation-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-section-scale-scroll-animation-demo',
+  },
+  'shadcn-new-york-section-scale-scroll-animation-demo': {
+    name: 'shadcn-new-york-section-scale-scroll-animation-demo',
+    description:
+      'Demo of gallery and text scroll scale animations with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/section-scale-scroll-animation',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/section-scale-scroll-animation/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/section-scale-scroll-animation.tsx',
+        content:
+          "import { SectionScaleScrollAnimation } from '@/components/systaliko-ui/section-scale-scroll-animation';\n\nexport const HeroGalleryScrollAnimationDemo = () => (\n  <SectionScaleScrollAnimation />\n);",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/section-scale-scroll-animation/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-section-scale-scroll-animation-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-section-scale-scroll-animation-demo',
+  },
+  'default-section-scroll-rotate-demo': {
+    name: 'default-section-scroll-rotate-demo',
+    description:
+      'Demo showing how to use Hero rotated gallery with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/section-scroll-rotate',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/section-scroll-rotate/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/section-scroll-rotate.tsx',
+        content:
+          "import { SectionScrollRotate } from '@/components/systaliko-ui/section-scroll-rotate';\n\nexport const HeroRotatedGalleryDemo = () => {\n  return <SectionScrollRotate />;\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/section-scroll-rotate/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-section-scroll-rotate-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/default-section-scroll-rotate-demo',
+  },
+  'shadcn-default-section-scroll-rotate-demo': {
+    name: 'shadcn-default-section-scroll-rotate-demo',
+    description:
+      'Demo showing how to use Hero rotated gallery with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/section-scroll-rotate',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/section-scroll-rotate/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/section-scroll-rotate.tsx',
+        content:
+          "import { SectionScrollRotate } from '@/components/systaliko-ui/section-scroll-rotate';\n\nexport const HeroRotatedGalleryDemo = () => {\n  return <SectionScrollRotate />;\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/section-scroll-rotate/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-section-scroll-rotate-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-section-scroll-rotate-demo',
+  },
+  'shadcn-new-york-section-scroll-rotate-demo': {
+    name: 'shadcn-new-york-section-scroll-rotate-demo',
+    description:
+      'Demo showing how to use Hero rotated gallery with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/section-scroll-rotate',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/section-scroll-rotate/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/section-scroll-rotate.tsx',
+        content:
+          "import { SectionScrollRotate } from '@/components/systaliko-ui/section-scroll-rotate';\n\nexport const HeroRotatedGalleryDemo = () => {\n  return <SectionScrollRotate />;\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/section-scroll-rotate/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-section-scroll-rotate-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-section-scroll-rotate-demo',
+  },
   'default-slideshow-demo': {
     name: 'default-slideshow-demo',
     description:
@@ -5468,7 +6367,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/slideshow'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/slideshow'],
     styles: undefined,
     files: [
       {
@@ -5504,7 +6403,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/slideshow'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/slideshow'],
     styles: undefined,
     files: [
       {
@@ -5540,7 +6439,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/slideshow'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/slideshow'],
     styles: undefined,
     files: [
       {
@@ -5575,7 +6474,11 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/story'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/story',
+      'https://systaliko-ui.vercel.app/r/dialog',
+      'https://systaliko-ui.vercel.app/r/avatar',
+    ],
     styles: undefined,
     files: [
       {
@@ -5609,7 +6512,11 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/story'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/story',
+      'https://systaliko-ui.vercel.app/r/dialog',
+      'https://systaliko-ui.vercel.app/r/avatar',
+    ],
     styles: undefined,
     files: [
       {
@@ -5645,7 +6552,11 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/story'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/story',
+      'https://systaliko-ui.vercel.app/r/dialog',
+      'https://systaliko-ui.vercel.app/r/avatar',
+    ],
     styles: undefined,
     files: [
       {
@@ -5681,7 +6592,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/text-stagger-hover'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/text-stagger-hover',
+    ],
     styles: undefined,
     files: [
       {
@@ -5718,7 +6631,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/text-stagger-hover'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/text-stagger-hover',
+    ],
     styles: undefined,
     files: [
       {
@@ -5755,7 +6670,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/text-stagger-hover'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/text-stagger-hover',
+    ],
     styles: undefined,
     files: [
       {
@@ -5792,7 +6709,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/text-stagger-inview'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/text-stagger-inview',
+    ],
     styles: undefined,
     files: [
       {
@@ -5829,7 +6748,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/text-stagger-inview'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/text-stagger-inview',
+    ],
     styles: undefined,
     files: [
       {
@@ -5866,7 +6787,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/text-stagger-inview'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/text-stagger-inview',
+    ],
     styles: undefined,
     files: [
       {
@@ -5902,7 +6825,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/text-vertical'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/text-vertical'],
     styles: undefined,
     files: [
       {
@@ -5937,7 +6860,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/text-vertical'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/text-vertical'],
     styles: undefined,
     files: [
       {
@@ -5973,7 +6896,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/text-vertical'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/text-vertical'],
     styles: undefined,
     files: [
       {
@@ -6128,11 +7051,10 @@ export const index: Record<string, any> = {
     description:
       'Demo showing how to use use-animation-variants hook with default style.',
     type: 'registry:hook',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'http://localhost:3000/r/use-animation-variants',
-      'motion',
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
     ],
     styles: undefined,
     files: [
@@ -6168,11 +7090,10 @@ export const index: Record<string, any> = {
     description:
       'Demo showing how to use use-animation-variants hook with shadcn-default style.',
     type: 'registry:hook',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'http://localhost:3000/r/use-animation-variants',
-      'motion',
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
     ],
     styles: undefined,
     files: [
@@ -6208,11 +7129,10 @@ export const index: Record<string, any> = {
     description:
       'Demo showing how to use use-animation-variants hook with shadcn-new-york style.',
     type: 'registry:hook',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'http://localhost:3000/r/use-animation-variants',
-      'motion',
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
     ],
     styles: undefined,
     files: [
@@ -6243,116 +7163,108 @@ export const index: Record<string, any> = {
     command:
       'https://systaliko-ui.vercel.app/r/shadcn-new-york-use-animation-variants-demo',
   },
-  'default-hero-gallery-scroll-animation': {
-    name: 'default-hero-gallery-scroll-animation',
-    description:
-      'Hero section with scroll trigger animation, that reverse animate both gallery images and text on scroll with default style.',
-    type: 'registry:block',
+  'default-dialog': {
+    name: 'default-dialog',
+    description: 'Dialog component with default style.',
+    type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
     files: [
       {
-        path: '__registry__/heros/hero-gallery-scroll-animation/default/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/hero-gallery-scroll-animation.tsx',
+        path: '__registry__/dialog/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/dialog.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport {\n  ContainerScrollAnimation,\n  ContainerScrollScale,\n  ContainerScrollTranslate,\n} from \'@/components/systaliko-ui/containers/containers-scroll-animations\';\nimport { GridBento } from \'@/components/systaliko-ui/containers/grid-bento\';\n\nconst IMAGES = [\n  \'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=2368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D\',\n  \'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww\',\n];\nexport const HeroGalleryScrollAnimation = () => {\n  return (\n    <ContainerScrollAnimation className="p-8">\n      <ContainerScrollTranslate className="h-dvh grid grid-cols-12 grid-rows-1">\n        <ContainerScrollScale\n          className="col-start-2 col-end-12 row-start-1 row-end-2 md:col-start-4 md:col-end-10 flex flex-col justify-center items-center space-y-6 text-center"\n          scaleRange={[1, 0]}\n          inputRange={[0.1, 0.6]}\n        >\n          <h1 className="max-w-xl text-5xl font-bold tracking-tighter">\n            Your Animated Hero\n          </h1>\n          <p className="max-w-xl text-sm md:text-base">\n            Yet another hero section, this time with scroll trigger animations,\n            animating the hero content with motion.\n          </p>\n          <div className="flex items-center justify-center gap-4">\n            <Button className="bg-indigo-500 hover:bg-indigo-300">\n              Get Started\n            </Button>\n            <Button\n              className="text-indigo-500 hover:text-indigo-300"\n              variant="link"\n            >\n              Learn more\n            </Button>\n          </div>\n        </ContainerScrollScale>\n        <GridBento className="col-start-1 row-start-1 pointer-events-none row-end-2 col-end-13">\n          {IMAGES.map((imageUrl, index) => (\n            <ContainerScrollScale\n              key={index}\n              inputRange={[0, 1]}\n              scaleRange={[0.5, 1]}\n              className="overflow-hidden"\n            >\n              <img\n                className="size-full object-cover rounded-xl shadow-xl"\n                src={imageUrl}\n                alt="tokyo city"\n              />\n            </ContainerScrollScale>\n          ))}\n        </GridBento>\n      </ContainerScrollTranslate>\n    </ContainerScrollAnimation>\n  );\n};',
+          '\'use client\';\n\nimport * as React from \'react\';\nimport * as DialogPrimitive from \'@radix-ui/react-dialog\';\nimport { XIcon } from \'lucide-react\';\n\nimport { cn } from \'@/lib/utils\';\n\nfunction Dialog({\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Root>) {\n  return <DialogPrimitive.Root data-slot="dialog" {...props} />;\n}\n\nfunction DialogTrigger({\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Trigger>) {\n  return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />;\n}\n\nfunction DialogPortal({\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Portal>) {\n  return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />;\n}\n\nfunction DialogClose({\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Close>) {\n  return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;\n}\n\nfunction DialogOverlay({\n  className,\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Overlay>) {\n  return (\n    <DialogPrimitive.Overlay\n      data-slot="dialog-overlay"\n      className={cn(\n        \'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50\',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction DialogContent({\n  className,\n  children,\n  showCloseButton = true,\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Content> & {\n  showCloseButton?: boolean;\n}) {\n  return (\n    <DialogPortal data-slot="dialog-portal">\n      <DialogOverlay />\n      <DialogPrimitive.Content\n        data-slot="dialog-content"\n        className={cn(\n          \'bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg duration-200 sm:max-w-lg\',\n          className,\n        )}\n        {...props}\n      >\n        {children}\n        {showCloseButton && (\n          <DialogPrimitive.Close\n            data-slot="dialog-close"\n            className="ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*=\'size-\'])]:size-4"\n          >\n            <XIcon />\n            <span className="sr-only">Close</span>\n          </DialogPrimitive.Close>\n        )}\n      </DialogPrimitive.Content>\n    </DialogPortal>\n  );\n}\n\nfunction DialogHeader({ className, ...props }: React.ComponentProps<\'div\'>) {\n  return (\n    <div\n      data-slot="dialog-header"\n      className={cn(\'flex flex-col gap-2 text-center sm:text-left\', className)}\n      {...props}\n    />\n  );\n}\n\nfunction DialogFooter({ className, ...props }: React.ComponentProps<\'div\'>) {\n  return (\n    <div\n      data-slot="dialog-footer"\n      className={cn(\n        \'flex flex-col-reverse gap-2 sm:flex-row sm:justify-end\',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction DialogTitle({\n  className,\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Title>) {\n  return (\n    <DialogPrimitive.Title\n      data-slot="dialog-title"\n      className={cn(\'text-lg leading-none font-semibold\', className)}\n      {...props}\n    />\n  );\n}\n\nfunction DialogDescription({\n  className,\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Description>) {\n  return (\n    <DialogPrimitive.Description\n      data-slot="dialog-description"\n      className={cn(\'text-muted-foreground text-sm\', className)}\n      {...props}\n    />\n  );\n}\n\nexport {\n  Dialog,\n  DialogClose,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogOverlay,\n  DialogPortal,\n  DialogTitle,\n  DialogTrigger,\n};',
       },
     ],
     component: (function () {
       const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/__registry__/heros/hero-gallery-scroll-animation/default/index.tsx'
-        );
+        const mod = await import('@/__registry__/dialog/default/index.tsx');
         const exportName =
           Object.keys(mod).find(
             (key) =>
               typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'default-hero-gallery-scroll-animation';
+          ) || 'default-dialog';
         const Comp = mod.default || mod[exportName];
         return { default: Comp };
       });
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command:
-      'https://systaliko-ui.vercel.app/r/default-hero-gallery-scroll-animation',
+    command: 'https://systaliko-ui.vercel.app/r/default-dialog',
   },
-  'shadcn-default-hero-gallery-scroll-animation': {
-    name: 'shadcn-default-hero-gallery-scroll-animation',
-    description:
-      'Hero section with scroll trigger animation, that reverse animate both gallery images and text on scroll with shadcn-default style.',
-    type: 'registry:block',
+  'shadcn-default-dialog': {
+    name: 'shadcn-default-dialog',
+    description: 'Dialog component with shadcn-default style.',
+    type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
     files: [
       {
-        path: '__registry__/heros/hero-gallery-scroll-animation/shadcn-default/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/hero-gallery-scroll-animation.tsx',
+        path: '__registry__/dialog/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/dialog.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport {\n  ContainerScrollAnimation,\n  ContainerScrollScale,\n  ContainerScrollTranslate,\n} from \'@/components/systaliko-ui/containers/containers-scroll-animations\';\nimport { GridBento } from \'@/components/systaliko-ui/containers/grid-bento\';\n\nconst IMAGES = [\n  \'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=2368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D\',\n  \'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww\',\n];\nexport const HeroGalleryScrollAnimation = () => {\n  return (\n    <ContainerScrollAnimation className="p-8">\n      <ContainerScrollTranslate className="h-dvh grid grid-cols-12 grid-rows-1">\n        <ContainerScrollScale\n          className="col-start-2 col-end-12 row-start-1 row-end-2 md:col-start-4 md:col-end-10 flex flex-col justify-center items-center space-y-6 text-center"\n          scaleRange={[1, 0]}\n          inputRange={[0.1, 0.6]}\n        >\n          <h1 className="max-w-xl text-5xl font-bold tracking-tighter">\n            Your Animated Hero\n          </h1>\n          <p className="max-w-xl text-sm md:text-base">\n            Yet another hero section, this time with scroll trigger animations,\n            animating the hero content with motion.\n          </p>\n          <div className="flex items-center justify-center gap-4">\n            <Button className="bg-indigo-500 hover:bg-indigo-300">\n              Get Started\n            </Button>\n            <Button\n              className="text-indigo-500 hover:text-indigo-300"\n              variant="link"\n            >\n              Learn more\n            </Button>\n          </div>\n        </ContainerScrollScale>\n        <GridBento className="col-start-1 row-start-1 pointer-events-none row-end-2 col-end-13">\n          {IMAGES.map((imageUrl, index) => (\n            <ContainerScrollScale\n              key={index}\n              inputRange={[0, 1]}\n              scaleRange={[0.5, 1]}\n              className="overflow-hidden"\n            >\n              <img\n                className="size-full object-cover rounded-xl shadow-xl"\n                src={imageUrl}\n                alt="tokyo city"\n              />\n            </ContainerScrollScale>\n          ))}\n        </GridBento>\n      </ContainerScrollTranslate>\n    </ContainerScrollAnimation>\n  );\n};',
+          '\'use client\';\n\nimport * as React from \'react\';\nimport * as DialogPrimitive from \'@radix-ui/react-dialog\';\nimport { XIcon } from \'lucide-react\';\n\nimport { cn } from \'@/lib/utils\';\n\nfunction Dialog({\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Root>) {\n  return <DialogPrimitive.Root data-slot="dialog" {...props} />;\n}\n\nfunction DialogTrigger({\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Trigger>) {\n  return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />;\n}\n\nfunction DialogPortal({\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Portal>) {\n  return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />;\n}\n\nfunction DialogClose({\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Close>) {\n  return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;\n}\n\nfunction DialogOverlay({\n  className,\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Overlay>) {\n  return (\n    <DialogPrimitive.Overlay\n      data-slot="dialog-overlay"\n      className={cn(\n        \'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50\',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction DialogContent({\n  className,\n  children,\n  showCloseButton = true,\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Content> & {\n  showCloseButton?: boolean;\n}) {\n  return (\n    <DialogPortal data-slot="dialog-portal">\n      <DialogOverlay />\n      <DialogPrimitive.Content\n        data-slot="dialog-content"\n        className={cn(\n          \'bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg duration-200 sm:max-w-lg\',\n          className,\n        )}\n        {...props}\n      >\n        {children}\n        {showCloseButton && (\n          <DialogPrimitive.Close\n            data-slot="dialog-close"\n            className="ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*=\'size-\'])]:size-4"\n          >\n            <XIcon />\n            <span className="sr-only">Close</span>\n          </DialogPrimitive.Close>\n        )}\n      </DialogPrimitive.Content>\n    </DialogPortal>\n  );\n}\n\nfunction DialogHeader({ className, ...props }: React.ComponentProps<\'div\'>) {\n  return (\n    <div\n      data-slot="dialog-header"\n      className={cn(\'flex flex-col gap-2 text-center sm:text-left\', className)}\n      {...props}\n    />\n  );\n}\n\nfunction DialogFooter({ className, ...props }: React.ComponentProps<\'div\'>) {\n  return (\n    <div\n      data-slot="dialog-footer"\n      className={cn(\n        \'flex flex-col-reverse gap-2 sm:flex-row sm:justify-end\',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction DialogTitle({\n  className,\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Title>) {\n  return (\n    <DialogPrimitive.Title\n      data-slot="dialog-title"\n      className={cn(\'text-lg leading-none font-semibold\', className)}\n      {...props}\n    />\n  );\n}\n\nfunction DialogDescription({\n  className,\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Description>) {\n  return (\n    <DialogPrimitive.Description\n      data-slot="dialog-description"\n      className={cn(\'text-muted-foreground text-sm\', className)}\n      {...props}\n    />\n  );\n}\n\nexport {\n  Dialog,\n  DialogClose,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogOverlay,\n  DialogPortal,\n  DialogTitle,\n  DialogTrigger,\n};',
       },
     ],
     component: (function () {
       const LazyComp = React.lazy(async () => {
         const mod = await import(
-          '@/__registry__/heros/hero-gallery-scroll-animation/shadcn-default/index.tsx'
+          '@/__registry__/dialog/shadcn-default/index.tsx'
         );
         const exportName =
           Object.keys(mod).find(
             (key) =>
               typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'shadcn-default-hero-gallery-scroll-animation';
+          ) || 'shadcn-default-dialog';
         const Comp = mod.default || mod[exportName];
         return { default: Comp };
       });
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command:
-      'https://systaliko-ui.vercel.app/r/shadcn-default-hero-gallery-scroll-animation',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-dialog',
   },
-  'shadcn-new-york-hero-gallery-scroll-animation': {
-    name: 'shadcn-new-york-hero-gallery-scroll-animation',
-    description:
-      'Hero section with scroll trigger animation, that reverse animate both gallery images and text on scroll with shadcn-new-york style.',
-    type: 'registry:block',
+  'shadcn-new-york-dialog': {
+    name: 'shadcn-new-york-dialog',
+    description: 'Dialog component with shadcn-new-york style.',
+    type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
     files: [
       {
-        path: '__registry__/heros/hero-gallery-scroll-animation/shadcn-new-york/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/hero-gallery-scroll-animation.tsx',
+        path: '__registry__/dialog/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/dialog.tsx',
         content:
-          'import { Button } from \'@/components/ui/button\';\nimport {\n  ContainerScrollAnimation,\n  ContainerScrollScale,\n  ContainerScrollTranslate,\n} from \'@/components/systaliko-ui/containers/containers-scroll-animations\';\nimport { GridBento } from \'@/components/systaliko-ui/containers/grid-bento\';\n\nconst IMAGES = [\n  \'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=2368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D\',\n  \'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww\',\n];\nexport const HeroGalleryScrollAnimation = () => {\n  return (\n    <ContainerScrollAnimation className="p-8">\n      <ContainerScrollTranslate className="h-dvh grid grid-cols-12 grid-rows-1">\n        <ContainerScrollScale\n          className="col-start-2 col-end-12 row-start-1 row-end-2 md:col-start-4 md:col-end-10 flex flex-col justify-center items-center space-y-6 text-center"\n          scaleRange={[1, 0]}\n          inputRange={[0.1, 0.6]}\n        >\n          <h1 className="max-w-xl text-5xl font-bold tracking-tighter">\n            Your Animated Hero\n          </h1>\n          <p className="max-w-xl text-sm md:text-base">\n            Yet another hero section, this time with scroll trigger animations,\n            animating the hero content with motion.\n          </p>\n          <div className="flex items-center justify-center gap-4">\n            <Button className="bg-indigo-500 hover:bg-indigo-300">\n              Get Started\n            </Button>\n            <Button\n              className="text-indigo-500 hover:text-indigo-300"\n              variant="link"\n            >\n              Learn more\n            </Button>\n          </div>\n        </ContainerScrollScale>\n        <GridBento className="col-start-1 row-start-1 pointer-events-none row-end-2 col-end-13">\n          {IMAGES.map((imageUrl, index) => (\n            <ContainerScrollScale\n              key={index}\n              inputRange={[0, 1]}\n              scaleRange={[0.5, 1]}\n              className="overflow-hidden"\n            >\n              <img\n                className="size-full object-cover rounded-xl shadow-xl"\n                src={imageUrl}\n                alt="tokyo city"\n              />\n            </ContainerScrollScale>\n          ))}\n        </GridBento>\n      </ContainerScrollTranslate>\n    </ContainerScrollAnimation>\n  );\n};',
+          '\'use client\';\n\nimport * as React from \'react\';\nimport * as DialogPrimitive from \'@radix-ui/react-dialog\';\nimport { XIcon } from \'lucide-react\';\n\nimport { cn } from \'@/lib/utils\';\n\nfunction Dialog({\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Root>) {\n  return <DialogPrimitive.Root data-slot="dialog" {...props} />;\n}\n\nfunction DialogTrigger({\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Trigger>) {\n  return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />;\n}\n\nfunction DialogPortal({\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Portal>) {\n  return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />;\n}\n\nfunction DialogClose({\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Close>) {\n  return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;\n}\n\nfunction DialogOverlay({\n  className,\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Overlay>) {\n  return (\n    <DialogPrimitive.Overlay\n      data-slot="dialog-overlay"\n      className={cn(\n        \'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50\',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction DialogContent({\n  className,\n  children,\n  showCloseButton = true,\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Content> & {\n  showCloseButton?: boolean;\n}) {\n  return (\n    <DialogPortal data-slot="dialog-portal">\n      <DialogOverlay />\n      <DialogPrimitive.Content\n        data-slot="dialog-content"\n        className={cn(\n          \'bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg duration-200 sm:max-w-lg\',\n          className,\n        )}\n        {...props}\n      >\n        {children}\n        {showCloseButton && (\n          <DialogPrimitive.Close\n            data-slot="dialog-close"\n            className="ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*=\'size-\'])]:size-4"\n          >\n            <XIcon />\n            <span className="sr-only">Close</span>\n          </DialogPrimitive.Close>\n        )}\n      </DialogPrimitive.Content>\n    </DialogPortal>\n  );\n}\n\nfunction DialogHeader({ className, ...props }: React.ComponentProps<\'div\'>) {\n  return (\n    <div\n      data-slot="dialog-header"\n      className={cn(\'flex flex-col gap-2 text-center sm:text-left\', className)}\n      {...props}\n    />\n  );\n}\n\nfunction DialogFooter({ className, ...props }: React.ComponentProps<\'div\'>) {\n  return (\n    <div\n      data-slot="dialog-footer"\n      className={cn(\n        \'flex flex-col-reverse gap-2 sm:flex-row sm:justify-end\',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction DialogTitle({\n  className,\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Title>) {\n  return (\n    <DialogPrimitive.Title\n      data-slot="dialog-title"\n      className={cn(\'text-lg leading-none font-semibold\', className)}\n      {...props}\n    />\n  );\n}\n\nfunction DialogDescription({\n  className,\n  ...props\n}: React.ComponentProps<typeof DialogPrimitive.Description>) {\n  return (\n    <DialogPrimitive.Description\n      data-slot="dialog-description"\n      className={cn(\'text-muted-foreground text-sm\', className)}\n      {...props}\n    />\n  );\n}\n\nexport {\n  Dialog,\n  DialogClose,\n  DialogContent,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogOverlay,\n  DialogPortal,\n  DialogTitle,\n  DialogTrigger,\n};',
       },
     ],
     component: (function () {
       const LazyComp = React.lazy(async () => {
         const mod = await import(
-          '@/__registry__/heros/hero-gallery-scroll-animation/shadcn-new-york/index.tsx'
+          '@/__registry__/dialog/shadcn-new-york/index.tsx'
         );
         const exportName =
           Object.keys(mod).find(
             (key) =>
               typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'shadcn-new-york-hero-gallery-scroll-animation';
+          ) || 'shadcn-new-york-dialog';
         const Comp = mod.default || mod[exportName];
         return { default: Comp };
       });
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command:
-      'https://systaliko-ui.vercel.app/r/shadcn-new-york-hero-gallery-scroll-animation',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-dialog',
   },
   'default-hero-gradient': {
     name: 'default-hero-gradient',
@@ -6461,116 +7373,6 @@ export const index: Record<string, any> = {
     })(),
     command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-hero-gradient',
   },
-  'default-hero-rotated-gallery': {
-    name: 'default-hero-rotated-gallery',
-    description:
-      'Hero section with animated staggered content triggered by view, and animated gallery with scroll trigger animations with default style.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: undefined,
-    styles: undefined,
-    files: [
-      {
-        path: '__registry__/heros/hero-rotated-gallery/default/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/heros/hero-rotated-gallery.tsx',
-        content:
-          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\nimport { ContainerStaggerDemo } from '@/components/systaliko-ui/demo/containers/container-stagger';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const HeroRotatedGallery = () => {\n  return (\n    <section>\n      <GalleryRotatedScroll spacerClass=\"h-96\">\n        <ContainerStaggerDemo />\n        <div\n          className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n          style={{\n            background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n            filter: 'blur(84px)',\n            mixBlendMode: 'screen',\n          }}\n        />\n\n        <GalleryContainer yRange={[-100, 400]} className=\"h-dvh  gap-2\">\n          <GalleryCol className=\"gap-2 mt-[-10%]\">\n            {IMAGES_1.map((imageUrl, index) => (\n              // eslint-disable-next-line @next/next/no-img-element\n              <img\n                key={index}\n                className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n                src={imageUrl}\n                alt=\"gallery item\"\n              />\n            ))}\n          </GalleryCol>\n          <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n            {IMAGES_2.map((imageUrl, index) => (\n              // eslint-disable-next-line @next/next/no-img-element\n              <img\n                key={index}\n                className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n                src={imageUrl}\n                alt=\"gallery item\"\n              />\n            ))}\n          </GalleryCol>\n          <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 mt-[-10%]\">\n            {IMAGES_3.map((imageUrl, index) => (\n              // eslint-disable-next-line @next/next/no-img-element\n              <img\n                key={index}\n                className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n                src={imageUrl}\n                alt=\"gallery item\"\n              />\n            ))}\n          </GalleryCol>\n        </GalleryContainer>\n      </GalleryRotatedScroll>\n    </section>\n  );\n};",
-      },
-    ],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/__registry__/heros/hero-rotated-gallery/default/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'default-hero-rotated-gallery';
-        const Comp = mod.default || mod[exportName];
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: 'https://systaliko-ui.vercel.app/r/default-hero-rotated-gallery',
-  },
-  'shadcn-default-hero-rotated-gallery': {
-    name: 'shadcn-default-hero-rotated-gallery',
-    description:
-      'Hero section with animated staggered content triggered by view, and animated gallery with scroll trigger animations with shadcn-default style.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: undefined,
-    styles: undefined,
-    files: [
-      {
-        path: '__registry__/heros/hero-rotated-gallery/shadcn-default/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/heros/hero-rotated-gallery.tsx',
-        content:
-          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\nimport { ContainerStaggerDemo } from '@/components/systaliko-ui/demo/containers/container-stagger';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const HeroRotatedGallery = () => {\n  return (\n    <section>\n      <GalleryRotatedScroll spacerClass=\"h-96\">\n        <ContainerStaggerDemo />\n        <div\n          className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n          style={{\n            background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n            filter: 'blur(84px)',\n            mixBlendMode: 'screen',\n          }}\n        />\n\n        <GalleryContainer yRange={[-100, 400]} className=\"h-dvh  gap-2\">\n          <GalleryCol className=\"gap-2 mt-[-10%]\">\n            {IMAGES_1.map((imageUrl, index) => (\n              // eslint-disable-next-line @next/next/no-img-element\n              <img\n                key={index}\n                className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n                src={imageUrl}\n                alt=\"gallery item\"\n              />\n            ))}\n          </GalleryCol>\n          <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n            {IMAGES_2.map((imageUrl, index) => (\n              // eslint-disable-next-line @next/next/no-img-element\n              <img\n                key={index}\n                className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n                src={imageUrl}\n                alt=\"gallery item\"\n              />\n            ))}\n          </GalleryCol>\n          <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 mt-[-10%]\">\n            {IMAGES_3.map((imageUrl, index) => (\n              // eslint-disable-next-line @next/next/no-img-element\n              <img\n                key={index}\n                className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n                src={imageUrl}\n                alt=\"gallery item\"\n              />\n            ))}\n          </GalleryCol>\n        </GalleryContainer>\n      </GalleryRotatedScroll>\n    </section>\n  );\n};",
-      },
-    ],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/__registry__/heros/hero-rotated-gallery/shadcn-default/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'shadcn-default-hero-rotated-gallery';
-        const Comp = mod.default || mod[exportName];
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command:
-      'https://systaliko-ui.vercel.app/r/shadcn-default-hero-rotated-gallery',
-  },
-  'shadcn-new-york-hero-rotated-gallery': {
-    name: 'shadcn-new-york-hero-rotated-gallery',
-    description:
-      'Hero section with animated staggered content triggered by view, and animated gallery with scroll trigger animations with shadcn-new-york style.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: undefined,
-    styles: undefined,
-    files: [
-      {
-        path: '__registry__/heros/hero-rotated-gallery/shadcn-new-york/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/heros/hero-rotated-gallery.tsx',
-        content:
-          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\nimport { ContainerStaggerDemo } from '@/components/systaliko-ui/demo/containers/container-stagger';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const HeroRotatedGallery = () => {\n  return (\n    <section>\n      <GalleryRotatedScroll spacerClass=\"h-96\">\n        <ContainerStaggerDemo />\n        <div\n          className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n          style={{\n            background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n            filter: 'blur(84px)',\n            mixBlendMode: 'screen',\n          }}\n        />\n\n        <GalleryContainer yRange={[-100, 400]} className=\"h-dvh  gap-2\">\n          <GalleryCol className=\"gap-2 mt-[-10%]\">\n            {IMAGES_1.map((imageUrl, index) => (\n              // eslint-disable-next-line @next/next/no-img-element\n              <img\n                key={index}\n                className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n                src={imageUrl}\n                alt=\"gallery item\"\n              />\n            ))}\n          </GalleryCol>\n          <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n            {IMAGES_2.map((imageUrl, index) => (\n              // eslint-disable-next-line @next/next/no-img-element\n              <img\n                key={index}\n                className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n                src={imageUrl}\n                alt=\"gallery item\"\n              />\n            ))}\n          </GalleryCol>\n          <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 mt-[-10%]\">\n            {IMAGES_3.map((imageUrl, index) => (\n              // eslint-disable-next-line @next/next/no-img-element\n              <img\n                key={index}\n                className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n                src={imageUrl}\n                alt=\"gallery item\"\n              />\n            ))}\n          </GalleryCol>\n        </GalleryContainer>\n      </GalleryRotatedScroll>\n    </section>\n  );\n};",
-      },
-    ],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/__registry__/heros/hero-rotated-gallery/shadcn-new-york/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'shadcn-new-york-hero-rotated-gallery';
-        const Comp = mod.default || mod[exportName];
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command:
-      'https://systaliko-ui.vercel.app/r/shadcn-new-york-hero-rotated-gallery',
-  },
   'default-rating-stars': {
     name: 'default-rating-stars',
     description:
@@ -6578,7 +7380,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/rating-stars'],
     styles: undefined,
     files: [
       {
@@ -6614,7 +7416,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/rating-stars'],
     styles: undefined,
     files: [
       {
@@ -6650,7 +7452,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/rating-stars'],
     styles: undefined,
     files: [
       {
@@ -6684,9 +7486,11 @@ export const index: Record<string, any> = {
     description:
       'Gallery section with text, and staggred grid images, and cta button with default style.',
     type: 'registry:block',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+    ],
     styles: undefined,
     files: [
       {
@@ -6720,9 +7524,11 @@ export const index: Record<string, any> = {
     description:
       'Gallery section with text, and staggred grid images, and cta button with shadcn-default style.',
     type: 'registry:block',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+    ],
     styles: undefined,
     files: [
       {
@@ -6756,9 +7562,11 @@ export const index: Record<string, any> = {
     description:
       'Gallery section with text, and staggred grid images, and cta button with shadcn-new-york style.',
     type: 'registry:block',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+    ],
     styles: undefined,
     files: [
       {
@@ -6788,6 +7596,350 @@ export const index: Record<string, any> = {
     command:
       'https://systaliko-ui.vercel.app/r/shadcn-new-york-section-gallery',
   },
+  'default-section-scale-scroll-animation': {
+    name: 'default-section-scale-scroll-animation',
+    description:
+      'Scroll Trigger animations, that reverse animation of both gallery images and text in different range on scroll with default style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+      'https://systaliko-ui.vercel.app/r/grid-bento',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/section-scale-scroll-animation/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/section-scale-scroll-animation.tsx',
+        content:
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  ContainerScrollAnimation,\n  ContainerScrollScale,\n  ContainerScrollTranslate,\n} from \'@/components/systaliko-ui/containers/containers-scroll-animations\';\nimport { GridBento } from \'@/components/systaliko-ui/containers/grid-bento\';\n\nconst IMAGES = [\n  \'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=2368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D\',\n  \'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww\',\n];\nexport const SectionScaleScrollAnimation = () => {\n  return (\n    <ContainerScrollAnimation className="p-8">\n      <ContainerScrollTranslate className="h-dvh grid grid-cols-12 grid-rows-1">\n        <ContainerScrollScale\n          className="col-start-2 col-end-12 row-start-1 row-end-2 flex flex-col justify-center items-center space-y-6 text-center"\n          scaleRange={[1, 0]}\n          inputRange={[0.1, 0.6]}\n        >\n          <h1 className="text-5xl font-bold tracking-tighter">\n            Your Animated Hero\n          </h1>\n          <p className="mx-auto text-sm md:text-base">\n            Yet another hero section, this time with scroll trigger animations,{\' \'}\n            <br />\n            animating the hero content with motion.\n          </p>\n          <div className="flex items-center justify-center gap-4">\n            <Button className="bg-indigo-500 hover:bg-indigo-300">\n              Get Started\n            </Button>\n            <Button\n              className="text-indigo-500 hover:text-indigo-300"\n              variant="link"\n            >\n              Learn more\n            </Button>\n          </div>\n        </ContainerScrollScale>\n        <GridBento className="col-start-1 row-start-1 pointer-events-none row-end-2 col-end-13">\n          {IMAGES.map((imageUrl, index) => (\n            <ContainerScrollScale\n              key={index}\n              inputRange={[0, 1]}\n              scaleRange={[0.5, 1]}\n              className="overflow-hidden"\n            >\n              <img\n                className="size-full object-cover rounded-xl shadow-xl"\n                src={imageUrl}\n                alt="tokyo city"\n              />\n            </ContainerScrollScale>\n          ))}\n        </GridBento>\n      </ContainerScrollTranslate>\n    </ContainerScrollAnimation>\n  );\n};',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/section-scale-scroll-animation/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-section-scale-scroll-animation';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/default-section-scale-scroll-animation',
+  },
+  'shadcn-default-section-scale-scroll-animation': {
+    name: 'shadcn-default-section-scale-scroll-animation',
+    description:
+      'Scroll Trigger animations, that reverse animation of both gallery images and text in different range on scroll with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+      'https://systaliko-ui.vercel.app/r/grid-bento',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/section-scale-scroll-animation/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/section-scale-scroll-animation.tsx',
+        content:
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  ContainerScrollAnimation,\n  ContainerScrollScale,\n  ContainerScrollTranslate,\n} from \'@/components/systaliko-ui/containers/containers-scroll-animations\';\nimport { GridBento } from \'@/components/systaliko-ui/containers/grid-bento\';\n\nconst IMAGES = [\n  \'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=2368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D\',\n  \'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww\',\n];\nexport const SectionScaleScrollAnimation = () => {\n  return (\n    <ContainerScrollAnimation className="p-8">\n      <ContainerScrollTranslate className="h-dvh grid grid-cols-12 grid-rows-1">\n        <ContainerScrollScale\n          className="col-start-2 col-end-12 row-start-1 row-end-2 flex flex-col justify-center items-center space-y-6 text-center"\n          scaleRange={[1, 0]}\n          inputRange={[0.1, 0.6]}\n        >\n          <h1 className="text-5xl font-bold tracking-tighter">\n            Your Animated Hero\n          </h1>\n          <p className="mx-auto text-sm md:text-base">\n            Yet another hero section, this time with scroll trigger animations,{\' \'}\n            <br />\n            animating the hero content with motion.\n          </p>\n          <div className="flex items-center justify-center gap-4">\n            <Button className="bg-indigo-500 hover:bg-indigo-300">\n              Get Started\n            </Button>\n            <Button\n              className="text-indigo-500 hover:text-indigo-300"\n              variant="link"\n            >\n              Learn more\n            </Button>\n          </div>\n        </ContainerScrollScale>\n        <GridBento className="col-start-1 row-start-1 pointer-events-none row-end-2 col-end-13">\n          {IMAGES.map((imageUrl, index) => (\n            <ContainerScrollScale\n              key={index}\n              inputRange={[0, 1]}\n              scaleRange={[0.5, 1]}\n              className="overflow-hidden"\n            >\n              <img\n                className="size-full object-cover rounded-xl shadow-xl"\n                src={imageUrl}\n                alt="tokyo city"\n              />\n            </ContainerScrollScale>\n          ))}\n        </GridBento>\n      </ContainerScrollTranslate>\n    </ContainerScrollAnimation>\n  );\n};',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/section-scale-scroll-animation/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-section-scale-scroll-animation';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-section-scale-scroll-animation',
+  },
+  'shadcn-new-york-section-scale-scroll-animation': {
+    name: 'shadcn-new-york-section-scale-scroll-animation',
+    description:
+      'Scroll Trigger animations, that reverse animation of both gallery images and text in different range on scroll with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/containers-scroll-animations',
+      'https://systaliko-ui.vercel.app/r/grid-bento',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/section-scale-scroll-animation/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/section-scale-scroll-animation.tsx',
+        content:
+          'import { Button } from \'@/components/ui/button\';\nimport {\n  ContainerScrollAnimation,\n  ContainerScrollScale,\n  ContainerScrollTranslate,\n} from \'@/components/systaliko-ui/containers/containers-scroll-animations\';\nimport { GridBento } from \'@/components/systaliko-ui/containers/grid-bento\';\n\nconst IMAGES = [\n  \'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=2368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D\',\n  \'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww\',\n];\nexport const SectionScaleScrollAnimation = () => {\n  return (\n    <ContainerScrollAnimation className="p-8">\n      <ContainerScrollTranslate className="h-dvh grid grid-cols-12 grid-rows-1">\n        <ContainerScrollScale\n          className="col-start-2 col-end-12 row-start-1 row-end-2 flex flex-col justify-center items-center space-y-6 text-center"\n          scaleRange={[1, 0]}\n          inputRange={[0.1, 0.6]}\n        >\n          <h1 className="text-5xl font-bold tracking-tighter">\n            Your Animated Hero\n          </h1>\n          <p className="mx-auto text-sm md:text-base">\n            Yet another hero section, this time with scroll trigger animations,{\' \'}\n            <br />\n            animating the hero content with motion.\n          </p>\n          <div className="flex items-center justify-center gap-4">\n            <Button className="bg-indigo-500 hover:bg-indigo-300">\n              Get Started\n            </Button>\n            <Button\n              className="text-indigo-500 hover:text-indigo-300"\n              variant="link"\n            >\n              Learn more\n            </Button>\n          </div>\n        </ContainerScrollScale>\n        <GridBento className="col-start-1 row-start-1 pointer-events-none row-end-2 col-end-13">\n          {IMAGES.map((imageUrl, index) => (\n            <ContainerScrollScale\n              key={index}\n              inputRange={[0, 1]}\n              scaleRange={[0.5, 1]}\n              className="overflow-hidden"\n            >\n              <img\n                className="size-full object-cover rounded-xl shadow-xl"\n                src={imageUrl}\n                alt="tokyo city"\n              />\n            </ContainerScrollScale>\n          ))}\n        </GridBento>\n      </ContainerScrollTranslate>\n    </ContainerScrollAnimation>\n  );\n};',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/section-scale-scroll-animation/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-section-scale-scroll-animation';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-section-scale-scroll-animation',
+  },
+  'default-section-scroll-rotate': {
+    name: 'default-section-scroll-rotate',
+    description:
+      'Section with animated staggered text triggered by view, and animated gallery with scroll trigger animations with default style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/gallery-rotated-scroll',
+      'https://systaliko-ui.vercel.app/r/container-stagger',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/section-scroll-rotate/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/section-scroll-rotate.tsx',
+        content:
+          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\nimport { ContainerStaggerDemo } from '@/components/systaliko-ui/demo/containers/container-stagger';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const SectionScrollRotate = () => {\n  return (\n    <GalleryRotatedScroll spacerClass=\"h-96\">\n      <ContainerStaggerDemo />\n      <div\n        className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n        style={{\n          background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n          filter: 'blur(84px)',\n          mixBlendMode: 'screen',\n        }}\n      />\n\n      <GalleryContainer yRange={[-100, 400]} className=\"h-dvh  gap-2\">\n        <GalleryCol className=\"gap-2 mt-[-10%]\">\n          {IMAGES_1.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n          {IMAGES_2.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 mt-[-10%]\">\n          {IMAGES_3.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/section-scroll-rotate/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-section-scroll-rotate';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/default-section-scroll-rotate',
+  },
+  'shadcn-default-section-scroll-rotate': {
+    name: 'shadcn-default-section-scroll-rotate',
+    description:
+      'Section with animated staggered text triggered by view, and animated gallery with scroll trigger animations with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/gallery-rotated-scroll',
+      'https://systaliko-ui.vercel.app/r/container-stagger',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/section-scroll-rotate/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/section-scroll-rotate.tsx',
+        content:
+          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\nimport { ContainerStaggerDemo } from '@/components/systaliko-ui/demo/containers/container-stagger';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const SectionScrollRotate = () => {\n  return (\n    <GalleryRotatedScroll spacerClass=\"h-96\">\n      <ContainerStaggerDemo />\n      <div\n        className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n        style={{\n          background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n          filter: 'blur(84px)',\n          mixBlendMode: 'screen',\n        }}\n      />\n\n      <GalleryContainer yRange={[-100, 400]} className=\"h-dvh  gap-2\">\n        <GalleryCol className=\"gap-2 mt-[-10%]\">\n          {IMAGES_1.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n          {IMAGES_2.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 mt-[-10%]\">\n          {IMAGES_3.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/section-scroll-rotate/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-section-scroll-rotate';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-section-scroll-rotate',
+  },
+  'shadcn-new-york-section-scroll-rotate': {
+    name: 'shadcn-new-york-section-scroll-rotate',
+    description:
+      'Section with animated staggered text triggered by view, and animated gallery with scroll trigger animations with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/gallery-rotated-scroll',
+      'https://systaliko-ui.vercel.app/r/container-stagger',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/section-scroll-rotate/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/section-scroll-rotate.tsx',
+        content:
+          "import {\n  GalleryCol,\n  GalleryContainer,\n  GalleryRotatedScroll,\n} from '@/components/systaliko-ui/containers/gallery-rotated-scroll';\nimport { ContainerStaggerDemo } from '@/components/systaliko-ui/demo/containers/container-stagger';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1604928141064-207cea6f571f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dG9reW98ZW58MHwwfDB8fHwy',\n  'https://images.unsplash.com/photo-1573455494060-c5595004fb6c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dG9reW98ZW58MHwwfDB8fHwy',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1528361237150-8a9a7df33035?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const SectionScrollRotate = () => {\n  return (\n    <GalleryRotatedScroll spacerClass=\"h-96\">\n      <ContainerStaggerDemo />\n      <div\n        className=\"pointer-events-none absolute z-10 h-[20vh] w-full \"\n        style={{\n          background: 'linear-gradient(to right, gray, rebeccapurple, blue)',\n          filter: 'blur(84px)',\n          mixBlendMode: 'screen',\n        }}\n      />\n\n      <GalleryContainer yRange={[-100, 400]} className=\"h-dvh  gap-2\">\n        <GalleryCol className=\"gap-2 mt-[-10%]\">\n          {IMAGES_1.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol className=\"gap-2 mt-[-20%]\" yRange={['15%', '5%']}>\n          {IMAGES_2.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n        <GalleryCol yRange={['-10%', '2%']} className=\"gap-2 mt-[-10%]\">\n          {IMAGES_3.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </GalleryCol>\n      </GalleryContainer>\n    </GalleryRotatedScroll>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/section-scroll-rotate/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-section-scroll-rotate';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-section-scroll-rotate',
+  },
+  'default-skelton': {
+    name: 'default-skelton',
+    description: 'Skelton component for loading state with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/skelton/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/skelton.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport * as AvatarPrimitive from '@radix-ui/react-avatar';\n\nimport { cn } from '@/lib/utils';\n\nfunction Avatar({\n  className,\n  ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Root>) {\n  return (\n    <AvatarPrimitive.Root\n      data-slot=\"avatar\"\n      className={cn(\n        'relative flex size-8 shrink-0 overflow-hidden rounded-full',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction AvatarImage({\n  className,\n  ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Image>) {\n  return (\n    <AvatarPrimitive.Image\n      data-slot=\"avatar-image\"\n      className={cn('aspect-square size-full', className)}\n      {...props}\n    />\n  );\n}\n\nfunction AvatarFallback({\n  className,\n  ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Fallback>) {\n  return (\n    <AvatarPrimitive.Fallback\n      data-slot=\"avatar-fallback\"\n      className={cn(\n        'bg-muted flex size-full items-center justify-center rounded-full',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Avatar, AvatarImage, AvatarFallback };",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import('@/__registry__/skelton/default/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-skelton';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/default-skelton',
+  },
+  'shadcn-default-skelton': {
+    name: 'shadcn-default-skelton',
+    description:
+      'Skelton component for loading state with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/skelton/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/skelton.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport * as AvatarPrimitive from '@radix-ui/react-avatar';\n\nimport { cn } from '@/lib/utils';\n\nfunction Avatar({\n  className,\n  ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Root>) {\n  return (\n    <AvatarPrimitive.Root\n      data-slot=\"avatar\"\n      className={cn(\n        'relative flex size-8 shrink-0 overflow-hidden rounded-full',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction AvatarImage({\n  className,\n  ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Image>) {\n  return (\n    <AvatarPrimitive.Image\n      data-slot=\"avatar-image\"\n      className={cn('aspect-square size-full', className)}\n      {...props}\n    />\n  );\n}\n\nfunction AvatarFallback({\n  className,\n  ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Fallback>) {\n  return (\n    <AvatarPrimitive.Fallback\n      data-slot=\"avatar-fallback\"\n      className={cn(\n        'bg-muted flex size-full items-center justify-center rounded-full',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Avatar, AvatarImage, AvatarFallback };",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/skelton/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-skelton';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-skelton',
+  },
+  'shadcn-new-york-skelton': {
+    name: 'shadcn-new-york-skelton',
+    description:
+      'Skelton component for loading state with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/skelton/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/skelton.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport * as AvatarPrimitive from '@radix-ui/react-avatar';\n\nimport { cn } from '@/lib/utils';\n\nfunction Avatar({\n  className,\n  ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Root>) {\n  return (\n    <AvatarPrimitive.Root\n      data-slot=\"avatar\"\n      className={cn(\n        'relative flex size-8 shrink-0 overflow-hidden rounded-full',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction AvatarImage({\n  className,\n  ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Image>) {\n  return (\n    <AvatarPrimitive.Image\n      data-slot=\"avatar-image\"\n      className={cn('aspect-square size-full', className)}\n      {...props}\n    />\n  );\n}\n\nfunction AvatarFallback({\n  className,\n  ...props\n}: React.ComponentProps<typeof AvatarPrimitive.Fallback>) {\n  return (\n    <AvatarPrimitive.Fallback\n      data-slot=\"avatar-fallback\"\n      className={cn(\n        'bg-muted flex size-full items-center justify-center rounded-full',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { Avatar, AvatarImage, AvatarFallback };",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/skelton/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-skelton';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-skelton',
+  },
   'default-slideshow': {
     name: 'default-slideshow',
     description:
@@ -6795,7 +7947,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/text-stagger-hover',
+    ],
     styles: undefined,
     files: [
       {
@@ -6829,7 +7983,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/text-stagger-hover',
+    ],
     styles: undefined,
     files: [
       {
@@ -6865,7 +8021,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/text-stagger-hover',
+    ],
     styles: undefined,
     files: [
       {
@@ -6899,9 +8057,9 @@ export const index: Record<string, any> = {
     description:
       'Simillar to IG story, Story is a component that allows you to display a collection of components in a single view with default style.',
     type: 'registry:ui',
-    dependencies: ['motion'],
+    dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/button'],
     styles: undefined,
     files: [
       {
@@ -6933,9 +8091,9 @@ export const index: Record<string, any> = {
     description:
       'Simillar to IG story, Story is a component that allows you to display a collection of components in a single view with shadcn-default style.',
     type: 'registry:ui',
-    dependencies: ['motion'],
+    dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/button'],
     styles: undefined,
     files: [
       {
@@ -6969,9 +8127,9 @@ export const index: Record<string, any> = {
     description:
       'Simillar to IG story, Story is a component that allows you to display a collection of components in a single view with shadcn-new-york style.',
     type: 'registry:ui',
-    dependencies: ['motion'],
+    dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/button'],
     styles: undefined,
     files: [
       {
@@ -7007,7 +8165,12 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/set-stagger-direction',
+      'https://systaliko-ui.vercel.app/r/split-text',
+      'https://systaliko-ui.vercel.app/r/gsap-transitions',
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+    ],
     styles: undefined,
     files: [
       {
@@ -7043,7 +8206,12 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/set-stagger-direction',
+      'https://systaliko-ui.vercel.app/r/split-text',
+      'https://systaliko-ui.vercel.app/r/gsap-transitions',
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+    ],
     styles: undefined,
     files: [
       {
@@ -7080,7 +8248,12 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/set-stagger-direction',
+      'https://systaliko-ui.vercel.app/r/split-text',
+      'https://systaliko-ui.vercel.app/r/gsap-transitions',
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+    ],
     styles: undefined,
     files: [
       {
@@ -7117,7 +8290,10 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/word-stagger',
+    ],
     styles: undefined,
     files: [
       {
@@ -7153,7 +8329,10 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/word-stagger',
+    ],
     styles: undefined,
     files: [
       {
@@ -7190,7 +8369,10 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/word-stagger',
+    ],
     styles: undefined,
     files: [
       {
@@ -7333,9 +8515,12 @@ export const index: Record<string, any> = {
     description:
       'Alternative to text-stagger-inview and text-stagger-hover, in case you have one word or you want more custom text animations, use this component, it is used in the same way as text-stagger-inview and text-stagger-hover with default style.',
     type: 'registry:ui',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/gsap-transitions',
+    ],
     styles: undefined,
     files: [
       {
@@ -7369,9 +8554,12 @@ export const index: Record<string, any> = {
     description:
       'Alternative to text-stagger-inview and text-stagger-hover, in case you have one word or you want more custom text animations, use this component, it is used in the same way as text-stagger-inview and text-stagger-hover with shadcn-default style.',
     type: 'registry:ui',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/gsap-transitions',
+    ],
     styles: undefined,
     files: [
       {
@@ -7405,9 +8593,12 @@ export const index: Record<string, any> = {
     description:
       'Alternative to text-stagger-inview and text-stagger-hover, in case you have one word or you want more custom text animations, use this component, it is used in the same way as text-stagger-inview and text-stagger-hover with shadcn-new-york style.',
     type: 'registry:ui',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/gsap-transitions',
+    ],
     styles: undefined,
     files: [
       {
@@ -7549,7 +8740,7 @@ export const index: Record<string, any> = {
   'default-set-stagger-direction': {
     name: 'default-set-stagger-direction',
     description:
-      'Set stagger direction, Allow to animate in orchestrated order depending on the order, can animate from the start item, middle item, last item with default style.',
+      'stagger direction, Allow to animate in orchestrated order depending on the order, can animate from the start item, middle item, last item with default style.',
     type: 'registry:lib',
     dependencies: undefined,
     devDependencies: undefined,
@@ -7585,7 +8776,7 @@ export const index: Record<string, any> = {
   'shadcn-default-set-stagger-direction': {
     name: 'shadcn-default-set-stagger-direction',
     description:
-      'Set stagger direction, Allow to animate in orchestrated order depending on the order, can animate from the start item, middle item, last item with shadcn-default style.',
+      'stagger direction, Allow to animate in orchestrated order depending on the order, can animate from the start item, middle item, last item with shadcn-default style.',
     type: 'registry:lib',
     dependencies: undefined,
     devDependencies: undefined,
@@ -7622,7 +8813,7 @@ export const index: Record<string, any> = {
   'shadcn-new-york-set-stagger-direction': {
     name: 'shadcn-new-york-set-stagger-direction',
     description:
-      'Set stagger direction, Allow to animate in orchestrated order depending on the order, can animate from the start item, middle item, last item with shadcn-new-york style.',
+      'stagger direction, Allow to animate in orchestrated order depending on the order, can animate from the start item, middle item, last item with shadcn-new-york style.',
     type: 'registry:lib',
     dependencies: undefined,
     devDependencies: undefined,
@@ -7879,7 +9070,7 @@ export const index: Record<string, any> = {
     description:
       'As the name suggests, this hook will follow the mouse position with default style.',
     type: 'registry:hook',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
@@ -7915,7 +9106,7 @@ export const index: Record<string, any> = {
     description:
       'As the name suggests, this hook will follow the mouse position with shadcn-default style.',
     type: 'registry:hook',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
@@ -7952,7 +9143,7 @@ export const index: Record<string, any> = {
     description:
       'As the name suggests, this hook will follow the mouse position with shadcn-new-york style.',
     type: 'registry:hook',
-    dependencies: undefined,
+    dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
@@ -7989,7 +9180,7 @@ export const index: Record<string, any> = {
     description:
       'Add lenis smooth scrolling to your website with default style.',
     type: 'registry:hook',
-    dependencies: undefined,
+    dependencies: ['lenis'],
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
@@ -8025,7 +9216,7 @@ export const index: Record<string, any> = {
     description:
       'Add lenis smooth scrolling to your website with shadcn-default style.',
     type: 'registry:hook',
-    dependencies: undefined,
+    dependencies: ['lenis'],
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
@@ -8062,7 +9253,7 @@ export const index: Record<string, any> = {
     description:
       'Add lenis smooth scrolling to your website with shadcn-new-york style.',
     type: 'registry:hook',
-    dependencies: undefined,
+    dependencies: ['lenis'],
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,

@@ -2,8 +2,12 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "gallery-rotated-scroll",
   "type": "registry:block",
-  "title": "Gallery Rotated Scroll",
+  "title": "Scroll Trigger Rotation Animation",
   "description": "Animated gallery images, with scroll triggered animations, rotates and translates on the Y axis on scroll.",
+  "dependencies": ["motion"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/use-smooth-scroll"
+  ],
   "files": [
     {
       "path": "registry/containers/gallery-rotated-scroll/index.tsx",

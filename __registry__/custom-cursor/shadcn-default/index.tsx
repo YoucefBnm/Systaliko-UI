@@ -75,7 +75,7 @@ export function CustomCursor({
   return (
     <motion.div
       className={cn(
-        'pointer-events-none fixed left-0 top-0 z-50 flex min-w-5 min-h-5 items-center justify-center text-center text-xs',
+        'pointer-events-none absolute left-0 top-0 z-50 flex min-w-5 min-h-5 items-center justify-center text-center text-xs',
         className,
       )}
       layout={'preserve-aspect'}

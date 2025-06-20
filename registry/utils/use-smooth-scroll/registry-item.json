@@ -4,6 +4,7 @@
   "type": "registry:hook",
   "title": "Use Follow Mouse Hook",
   "description": "Add lenis smooth scrolling to your website.",
+  "dependencies": ["lenis"],
   "files": [
     {
       "path": "registry/utils/use-smooth-scroll/index.ts",

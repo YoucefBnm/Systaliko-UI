@@ -4,7 +4,7 @@
   "type": "registry:ui",
   "title": "Slideshow Demo",
   "description": "Demo showing how to use slideshow component.",
-  "registryDependencies": ["http://localhost:3000/r/slideshow"],
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/slideshow"],
   "files": [
     {
       "path": "registry/demo/slideshow/index.tsx",

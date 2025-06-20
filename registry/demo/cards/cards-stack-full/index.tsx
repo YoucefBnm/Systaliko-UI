@@ -1,4 +1,4 @@
-import { Badge } from '@/components/ui/badge';
+import { Badge } from '@/registry/badge';
 import { CardSticky, ContainerScroll } from '@/registry/cards/cards-stack';
 
 const WORK_PROJECTS = [
@@ -46,7 +46,7 @@ export function CardsStackFullDemo() {
           <CardSticky
             key={project.id}
             index={index}
-            className="w-full overflow-hidden rounded-sm  bg-chart-3 text-secondary border"
+            className="w-full overflow-hidden rounded-sm bg-indigo-950 text-white border"
             incrementY={60}
             incrementZ={5}
           >
@@ -67,6 +67,7 @@ export function CardsStackFullDemo() {
               width="100%"
               height="100%"
               src={project.imageUrl}
+              alt="project"
             />
           </CardSticky>
         ))}

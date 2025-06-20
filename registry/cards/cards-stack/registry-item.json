@@ -4,6 +4,7 @@
   "type": "registry:block",
   "title": "Cards Stack",
   "description": "Stack of cards to showcase a related set of element, like your services, your work, features, process of work, timeline, etc.",
+  "dependencies": ["motion"],
   "files": [
     {
       "path": "registry/cards/cards-stack/index.tsx",

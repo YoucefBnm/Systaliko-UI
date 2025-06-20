@@ -5,7 +5,6 @@
   "title": "Curtain Reveal Card",
   "description": "Interactive card component with open curtain to see content on hover gesture.",
   "dependencies": ["motion"],
-  "registryDependencies": ["systaliko-ui.vercel.app/r/card-curtain-reveal"],
   "files": [
     {
       "path": "registry/cards/card-curtain-reveal/index.tsx",

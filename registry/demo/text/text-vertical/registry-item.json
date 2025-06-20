@@ -4,7 +4,7 @@
   "type": "registry:ui",
   "title": "Vertical Text Demo",
   "description": "Demo showing a vertical text.",
-  "registryDependencies": ["http://localhost:3000/r/text-vertical"],
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/text-vertical"],
   "files": [
     {
       "path": "registry/demo/text/text-vertical/index.tsx",

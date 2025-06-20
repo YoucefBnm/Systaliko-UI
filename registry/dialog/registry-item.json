@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog",
+  "type": "registry:ui",
+  "title": "Dialog",
+  "description": "Dialog component.",
+  "files": [
+    {
+      "path": "registry/dialog/index.tsx",
+      "type": "registry:ui",
+      "target": "components/dialog.tsx"
+    }
+  ]
+}

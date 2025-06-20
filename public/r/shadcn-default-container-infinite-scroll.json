@@ -2,10 +2,13 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "shadcn-default-container-infinite-scroll",
   "type": "registry:block",
-  "title": "Container Infinite Scroll",
+  "title": "Lazy Load/Infinite Scroll Container",
   "description": "Infinite scroll container for optimizing the loading of large data sets, with a customizable threshold and a configurable loading indicator with shadcn-default style.",
   "dependencies": [
     "motion"
+  ],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/skelton"
   ],
   "files": [
     {

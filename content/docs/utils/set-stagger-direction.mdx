@@ -1,5 +1,5 @@
 ---
-title: Set Stagger Direction
+title: Stagger Direction
 description: Set stagger direction, Allow to animate in orchestrated order depending on the order, can animate from the start item, middle item, last item.
 ---
 
@@ -12,21 +12,6 @@ description: Set stagger direction, Allow to animate in orchestrated order depen
 ## Usage
 
 ```tsx
-const ITEMS = [
-  {
-    bg: 'bg-green-500',
-  },
-  {
-    bg: 'bg-indigo-500',
-  },
-  {
-    bg: 'bg-rose-500',
-  },
-  {
-    bg: 'bg-yellow-500',
-  },
-];
-
 return (
   <div className="flex gap-4 flex-wrap">
     {ITEMS.map(({ bg }, index) => (

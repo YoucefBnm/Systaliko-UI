@@ -4,6 +4,9 @@
   "type": "registry:hook",
   "title": "Use Follow Mouse Hook",
   "description": "As the name suggests, this hook will follow the mouse position with default style.",
+  "dependencies": [
+    "motion"
+  ],
   "files": [
     {
       "path": "__registry__/utils/use-follow-mouse/default/index.ts",

@@ -1,13 +1,13 @@
 ---
-title: Hero Rotated Gallery
-description: Hero section with animated staggered content triggered by view, and animated gallery with scroll trigger animations.
+title: Scroll Rotate Animation Gallery
+description: Section with staggered text animations triggered by view, and rotated gallery animation triggered by scroll.
 ---
 
-<ComponentPreview name="hero-rotated-gallery-demo" />
+<ComponentPreview name="section-scroll-rotate-demo" />
 
 ## Installation
 
-<ComponentInstallation name="hero-rotated-gallery" />
+<ComponentInstallation name="section-scroll-rotate-demo" />" />
 
 ## Usage
 
@@ -29,7 +29,6 @@ export const HeroRotatedGallery = () => {
         <GalleryContainer yRange={[-100, 400]} className="h-dvh  gap-2">
           <GalleryCol className="gap-2 mt-[-10%]">
             {IMAGES_1.map((imageUrl, index) => (
-              // eslint-disable-next-line @next/next/no-img-element
               <img
                 key={index}
                 className="aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow"
@@ -40,7 +39,6 @@ export const HeroRotatedGallery = () => {
           </GalleryCol>
           <GalleryCol className="gap-2 mt-[-20%]" yRange={['15%', '5%']}>
             {IMAGES_2.map((imageUrl, index) => (
-              // eslint-disable-next-line @next/next/no-img-element
               <img
                 key={index}
                 className="aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow"
@@ -51,7 +49,6 @@ export const HeroRotatedGallery = () => {
           </GalleryCol>
           <GalleryCol yRange={['-10%', '2%']} className="gap-2 mt-[-10%]">
             {IMAGES_3.map((imageUrl, index) => (
-              // eslint-disable-next-line @next/next/no-img-element
               <img
                 key={index}
                 className="aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow"

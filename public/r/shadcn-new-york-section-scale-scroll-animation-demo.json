@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-new-york-section-scale-scroll-animation-demo",
+  "type": "registry:block",
+  "title": "Section with scroll triggered animations Demo",
+  "description": "Demo of gallery and text scroll scale animations with shadcn-new-york style.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/section-scale-scroll-animation"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/section-scale-scroll-animation/shadcn-new-york/index.tsx",
+      "content": "import { SectionScaleScrollAnimation } from '@/components/systaliko-ui/section-scale-scroll-animation';\n\nexport const HeroGalleryScrollAnimationDemo = () => (\n  <SectionScaleScrollAnimation />\n);\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/section-scale-scroll-animation.tsx"
+    }
+  ]
+}

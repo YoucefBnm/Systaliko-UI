@@ -2,8 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "set-stagger-direction",
   "type": "registry:lib",
-  "title": "set stagger direction",
-  "description": "Set stagger direction, Allow to animate in orchestrated order depending on the order, can animate from the start item, middle item, last item.",
+  "title": "stagger direction",
+  "description": "stagger direction, Allow to animate in orchestrated order depending on the order, can animate from the start item, middle item, last item.",
   "files": [
     {
       "path": "registry/utils/set-stagger-direction/index.ts",

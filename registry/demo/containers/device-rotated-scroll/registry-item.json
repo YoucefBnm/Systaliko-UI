@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "device-rotated-scroll-demo",
+  "type": "registry:block",
+  "title": "Rotated Devices On Scroll Demo",
+  "description": "Demo showing another usecase of GalleryRotatedScroll component.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/gallery-rotated-scroll"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/containers/device-rotated-scroll/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/containers/device-rotated-scroll.tsx"
+    }
+  ]
+}

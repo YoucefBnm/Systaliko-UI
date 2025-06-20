@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "default-section-scroll-rotate-demo",
+  "type": "registry:block",
+  "title": "Hero with animated Gallery and staggered reveal text Demo",
+  "description": "Demo showing how to use Hero rotated gallery with default style.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/section-scroll-rotate"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/section-scroll-rotate/default/index.tsx",
+      "content": "import { SectionScrollRotate } from '@/components/systaliko-ui/section-scroll-rotate';\n\nexport const HeroRotatedGalleryDemo = () => {\n  return <SectionScrollRotate />;\n};\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/section-scroll-rotate.tsx"
+    }
+  ]
+}

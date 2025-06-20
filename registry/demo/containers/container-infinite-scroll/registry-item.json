@@ -4,7 +4,10 @@
   "type": "registry:block",
   "title": "Container Infinite Scroll Demo",
   "description": "Demo showing container infinite scroll.",
-  "registryDependencies": ["http://localhost:3000/r/container-infinite-scroll"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/container-infinite-scroll",
+    "https://systaliko-ui.vercel.app/r/card"
+  ],
   "files": [
     {
       "path": "registry/demo/containers/container-infinite-scroll/index.tsx",

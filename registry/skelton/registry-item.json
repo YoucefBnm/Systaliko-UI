@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "skelton",
+  "type": "registry:ui",
+  "title": "Skelton",
+  "description": "Skelton component for loading state.",
+  "files": [
+    {
+      "path": "registry/skelton/index.tsx",
+      "type": "registry:ui",
+      "target": "components/skelton.tsx"
+    }
+  ]
+}

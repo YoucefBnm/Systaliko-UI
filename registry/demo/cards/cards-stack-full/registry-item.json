@@ -4,7 +4,10 @@
   "type": "registry:block",
   "title": "Cards stack full screen Demo",
   "description": "Demo showing different usecase of Cards Stack component.",
-  "registryDependencies": ["http://localhost:3000/r/cards-stack"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/cards-stack",
+    "https://systaliko-ui.vercel.app/r/badge"
+  ],
   "files": [
     {
       "path": "registry/demo/cards/cards-stack-full/index.tsx",

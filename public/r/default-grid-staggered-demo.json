@@ -5,7 +5,7 @@
   "title": "Grid Staggered Demos",
   "description": "Grid Staggered Demo with multiple variants with default style.",
   "registryDependencies": [
-    "http://localhost:3000/r/grid-staggered"
+    "https://systaliko-ui.vercel.app/r/grid-staggered"
   ],
   "files": [
     {

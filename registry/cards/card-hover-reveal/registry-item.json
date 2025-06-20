@@ -4,9 +4,6 @@
   "type": "registry:ui",
   "title": "Hover Reveal Details Card",
   "description": "Animated card with gesture animations,  Reveals hidden content and scale main image on hover.",
-  "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/card-hover-reveal"
-  ],
   "files": [
     {
       "path": "registry/cards/card-hover-reveal/index.tsx",

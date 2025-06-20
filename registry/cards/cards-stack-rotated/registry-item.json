@@ -4,6 +4,7 @@
   "type": "registry:block",
   "title": "Cards Stack Rotated",
   "description": "Stack of rotated cards show, rotate one element at a time depending on scroll position.",
+  "dependencies": ["motion"],
   "files": [
     {
       "path": "registry/cards/cards-stack-rotated/index.tsx",

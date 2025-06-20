@@ -4,7 +4,11 @@
   "type": "registry:block",
   "title": "Gallery Section Demo",
   "description": "Demo showing Gallery Section.",
-  "registryDependencies": ["http://localhost:3000/r/section-gallery"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/section-gallery",
+    "https://systaliko-ui.vercel.app/r/grid-staggered",
+    "https://systaliko-ui.vercel.app/r/button"
+  ],
   "files": [
     {
       "path": "registry/demo/section-gallery/index.tsx",

@@ -4,7 +4,10 @@
   "type": "registry:block",
   "title": "Cards Stack Rotated Demo",
   "description": "Demo showing Cards Stack Rotated component.",
-  "registryDependencies": ["http://localhost:3000/r/cards-stack-rotated"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/cards-stack-rotated",
+    "https://systaliko-ui.vercel.app/r/card-testimonial"
+  ],
   "files": [
     {
       "path": "registry/demo/cards/cards-stack-rotated/index.tsx",

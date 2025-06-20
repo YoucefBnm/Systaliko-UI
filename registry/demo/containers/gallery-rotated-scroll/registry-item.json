@@ -4,7 +4,9 @@
   "type": "registry:block",
   "title": "Gallery Rotated Scroll Demo",
   "description": "Demo showing how to use GalleryRotatedScroll component.",
-  "registryDependencies": ["http://localhost:3000/r/gallery-rotated-scroll"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/gallery-rotated-scroll"
+  ],
   "files": [
     {
       "path": "registry/demo/containers/gallery-rotated-scroll/index.tsx",

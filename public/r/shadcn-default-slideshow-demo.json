@@ -5,7 +5,7 @@
   "title": "Slideshow Demo",
   "description": "Demo showing how to use slideshow component with shadcn-default style.",
   "registryDependencies": [
-    "http://localhost:3000/r/slideshow"
+    "https://systaliko-ui.vercel.app/r/slideshow"
   ],
   "files": [
     {

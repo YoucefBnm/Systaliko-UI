@@ -4,6 +4,9 @@
   "type": "registry:hook",
   "title": "Use Follow Mouse Hook",
   "description": "Add lenis smooth scrolling to your website with shadcn-default style.",
+  "dependencies": [
+    "lenis"
+  ],
   "files": [
     {
       "path": "__registry__/utils/use-smooth-scroll/shadcn-default/index.ts",

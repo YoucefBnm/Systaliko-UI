@@ -5,7 +5,8 @@
   "title": "Cards Stack Rotated Demo",
   "description": "Demo showing Cards Stack Rotated component with shadcn-new-york style.",
   "registryDependencies": [
-    "http://localhost:3000/r/cards-stack-rotated"
+    "https://systaliko-ui.vercel.app/r/cards-stack-rotated",
+    "https://systaliko-ui.vercel.app/r/card-testimonial"
   ],
   "files": [
     {

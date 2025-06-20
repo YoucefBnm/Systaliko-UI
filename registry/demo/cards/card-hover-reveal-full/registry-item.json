@@ -9,7 +9,7 @@
   ],
   "files": [
     {
-      "path": "registry/demo/cards/card-hover-reveal/index.tsx",
+      "path": "registry/demo/cards/card-hover-reveal-full/index.tsx",
       "type": "registry:ui",
       "target": "components/systaliko-ui/demo/cards/card-hover-reveal.tsx"
     }

@@ -7,6 +7,9 @@
   "dependencies": [
     "motion"
   ],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/text-stagger-hover"
+  ],
   "files": [
     {
       "path": "__registry__/slideshow/default/index.tsx",

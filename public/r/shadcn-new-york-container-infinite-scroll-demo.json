@@ -5,7 +5,8 @@
   "title": "Container Infinite Scroll Demo",
   "description": "Demo showing container infinite scroll with shadcn-new-york style.",
   "registryDependencies": [
-    "http://localhost:3000/r/container-infinite-scroll"
+    "https://systaliko-ui.vercel.app/r/container-infinite-scroll",
+    "https://systaliko-ui.vercel.app/r/card"
   ],
   "files": [
     {

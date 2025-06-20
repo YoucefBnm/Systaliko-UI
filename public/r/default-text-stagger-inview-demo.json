@@ -5,7 +5,7 @@
   "title": "Text Stagger Inview Demo",
   "description": "Demo showing a split text with stagger animation with default style.",
   "registryDependencies": [
-    "http://localhost:3000/r/text-stagger-inview"
+    "https://systaliko-ui.vercel.app/r/text-stagger-inview"
   ],
   "files": [
     {

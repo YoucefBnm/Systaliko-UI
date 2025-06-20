@@ -5,6 +5,9 @@
   "title": "Slideshow",
   "description": "Display the active image and activate the next image with hovering the text indicator.",
   "dependencies": ["motion"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/text-stagger-hover"
+  ],
   "files": [
     {
       "path": "registry/slideshow/index.tsx",

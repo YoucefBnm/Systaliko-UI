@@ -5,7 +5,7 @@
   "title": "Gallery Rotated Scroll Demo",
   "description": "Demo showing how to use combination of scroll trigger animations, insetX and scale and translateY with shadcn-new-york style.",
   "registryDependencies": [
-    "http://localhost:3000/r/container-scroll-combo"
+    "https://systaliko-ui.vercel.app/r/containers-scroll-animations"
   ],
   "files": [
     {

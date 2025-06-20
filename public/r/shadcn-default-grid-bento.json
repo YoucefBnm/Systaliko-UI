@@ -4,6 +4,9 @@
   "type": "registry:block",
   "title": "Grid Bento",
   "description": "Bento Grid, container with multiple variants and displays with shadcn-default style.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/grid-bento"
+  ],
   "files": [
     {
       "path": "__registry__/containers/grid-bento/shadcn-default/index.tsx",

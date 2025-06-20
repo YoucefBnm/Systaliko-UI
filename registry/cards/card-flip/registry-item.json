@@ -5,7 +5,6 @@
   "title": "3d Flip Card",
   "description": "An interactive card component that flips on hover with smooth 3D transitions.",
   "dependencies": ["motion"],
-  "registryDependencies": ["systaliko-ui.vercel.app/r/card-flip"],
   "files": [
     {
       "path": "registry/cards/card-flip/index.tsx",

@@ -5,7 +5,7 @@
   "title": "Text Stagger Hover Demo",
   "description": "Demo showing a split text with stagger animation on hover with default style.",
   "registryDependencies": [
-    "http://localhost:3000/r/text-stagger-hover"
+    "https://systaliko-ui.vercel.app/r/text-stagger-hover"
   ],
   "files": [
     {

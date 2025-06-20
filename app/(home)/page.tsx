@@ -1,16 +1,17 @@
+'use client';
 import { Features } from '@/components/features';
 import { Header } from '@/components/header';
 import { Hero } from '@/components/hero';
-import { CardHoverRevealFullDemo } from '@/registry/demo/cards/card-hover-reveal-full';
+import { ContainerStagger2Demo } from '@/registry/demo/containers/container-stagger-2';
+import { DeviceRotatedScrollDemo } from '@/registry/demo/containers/device-rotated-scroll';
 
 export default function HomePage() {
   return (
     <main className="relative">
+      <DeviceRotatedScrollDemo />
       <Header />
       <Hero />
-      <div className="min-h-dvh w-full place-content-center place-items-center">
-        <CardHoverRevealFullDemo />
-      </div>
+      <ContainerStagger2Demo />
       <Features />
     </main>
   );

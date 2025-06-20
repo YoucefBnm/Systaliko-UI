@@ -5,7 +5,7 @@
   "title": "Container Stagger Demo",
   "description": "Demo showing how to use container stagger with your motion components with shadcn-default style.",
   "registryDependencies": [
-    "http://localhost:3000/r/container-scroll-radius"
+    "https://systaliko-ui.vercel.app/r/containers-scroll-animations"
   ],
   "files": [
     {

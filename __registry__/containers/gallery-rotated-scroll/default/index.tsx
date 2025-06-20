@@ -55,7 +55,7 @@ export const GalleryRotatedScroll = ({
         {...props}
       >
         {children}
-        <div className={cn('w-full', spacerClass)} />
+        <div className={cn('w-full h-96', spacerClass)} />
       </div>
     </GalleryRotatedScrollContext.Provider>
   );
@@ -75,7 +75,7 @@ export const GalleryContainer = React.forwardRef<
 >(
   (
     {
-      yRange = [0, 300],
+      yRange = [0, 350],
       rotateXRange = [80, 0],
       scaleRange = [1.1, 1],
       children,
@@ -110,7 +110,6 @@ export const GalleryContainer = React.forwardRef<
           transformOrigin: '50% 50%',
           willChange: 'transform',
           backfaceVisibility: 'hidden',
-          position: 'sticky',
           top: 0,
           y,
           rotateX,

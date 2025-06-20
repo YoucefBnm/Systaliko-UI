@@ -5,7 +5,7 @@
   "title": "Grid Bento Demos",
   "description": "Grid Bento Demo with multiple variants with default style.",
   "registryDependencies": [
-    "http://localhost:3000/r/grid-bento"
+    "https://systaliko-ui.vercel.app/r/grid-bento"
   ],
   "files": [
     {

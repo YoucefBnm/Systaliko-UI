@@ -2,8 +2,14 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "shadcn-default-section-gallery",
   "type": "registry:block",
-  "title": "Section Gallery",
+  "title": "Gallery Section",
   "description": "Gallery section with text, and staggred grid images, and cta button with shadcn-default style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/use-animation-variants"
+  ],
   "files": [
     {
       "path": "__registry__/section-gallery/shadcn-default/index.tsx",

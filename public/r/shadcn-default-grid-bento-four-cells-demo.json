@@ -5,7 +5,7 @@
   "title": "Grid Bento Demos",
   "description": "Grid Bento Demo with multiple variants with shadcn-default style.",
   "registryDependencies": [
-    "http://localhost:3000/r/grid-bento-four-cells"
+    "https://systaliko-ui.vercel.app/r/grid-bento-four-cells"
   ],
   "files": [
     {

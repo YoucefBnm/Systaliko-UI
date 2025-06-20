@@ -5,7 +5,9 @@
   "title": "Story Demo",
   "description": "Demo showing how to use story component with shadcn-default style.",
   "registryDependencies": [
-    "http://localhost:3000/r/story"
+    "https://systaliko-ui.vercel.app/r/story",
+    "https://systaliko-ui.vercel.app/r/dialog",
+    "https://systaliko-ui.vercel.app/r/avatar"
   ],
   "files": [
     {

@@ -4,6 +4,11 @@
   "type": "registry:ui",
   "title": "Word Stagger",
   "description": "Alternative to text-stagger-inview and text-stagger-hover, in case you have one word or you want more custom text animations, use this component, it is used in the same way as text-stagger-inview and text-stagger-hover.",
+  "dependencies": ["motion"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/use-animation-variants",
+    "https://systaliko-ui.vercel.app/r/gsap-transitions"
+  ],
   "files": [
     {
       "path": "registry/text/word-stagger/index.tsx",

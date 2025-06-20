@@ -5,7 +5,7 @@
   "title": "Vertical Text Demo",
   "description": "Demo showing a vertical text with shadcn-default style.",
   "registryDependencies": [
-    "http://localhost:3000/r/text-vertical"
+    "https://systaliko-ui.vercel.app/r/text-vertical"
   ],
   "files": [
     {

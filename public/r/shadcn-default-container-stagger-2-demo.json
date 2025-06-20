@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-default-container-stagger-2-demo",
+  "type": "registry:block",
+  "title": "Container Stagger Demo",
+  "description": "Demo showing another use case for container stagger with your motion components with shadcn-default style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/container-stagger",
+    "https://systaliko-ui.vercel.app/r/use-animation-variants"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/containers/container-stagger-2/shadcn-default/index.tsx",
+      "content": "'use client';\nimport { ContainerStagger } from '@/components/systaliko-ui/containers/container-stagger';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion, MotionConfig } from 'motion/react';\n\nexport function ContainerStagger2Demo() {\n  const animationVariants = useAnimationVariants();\n  return (\n    <div className=\"p-8\">\n      <div className=\"h-dvh place-content-center place-items-center\">\n        <h1 className=\"text-4xl\">Scroll to see the animation 👇🏻</h1>\n      </div>\n      <ContainerStagger\n        staggerChildren={0.4}\n        className=\"flex overflow-hidden gap-4 justify-center\"\n      >\n        <MotionConfig transition={{ duration: 0.3, ease: 'easeIn' }}>\n          <motion.div\n            variants={animationVariants}\n            className=\" size-32 bg-pink-500 rounded\"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=\" size-32 bg-emerald-500 rounded\"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=\" size-32 bg-indigo-500 rounded\"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=\" size-32 bg-yellow-500 rounded\"\n          />\n        </MotionConfig>\n      </ContainerStagger>\n    </div>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/containers/container-stagger.tsx"
+    }
+  ]
+}

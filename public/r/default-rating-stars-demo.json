@@ -5,7 +5,7 @@
   "title": "Rating stars Demo",
   "description": "Demo showing Rating stars component with default style.",
   "registryDependencies": [
-    "http://localhost:3000/r/rating-stars"
+    "https://systaliko-ui.vercel.app/r/rating-stars"
   ],
   "files": [
     {

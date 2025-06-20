@@ -4,7 +4,10 @@
   "type": "registry:ui",
   "title": "Custom Cursor Demo",
   "description": "Demo showing Custom Cursor component.",
-  "registryDependencies": ["http://localhost:3000/r/custom-cursor"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/custom-cursor",
+    "https://systaliko-ui.vercel.app/r/button"
+  ],
   "files": [
     {
       "path": "registry/demo/custom-cursor/index.tsx",

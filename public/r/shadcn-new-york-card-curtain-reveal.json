@@ -7,9 +7,6 @@
   "dependencies": [
     "motion"
   ],
-  "registryDependencies": [
-    "systaliko-ui.vercel.app/r/card-curtain-reveal"
-  ],
   "files": [
     {
       "path": "__registry__/cards/card-curtain-reveal/shadcn-new-york/index.tsx",

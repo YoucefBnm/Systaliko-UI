@@ -7,6 +7,10 @@
   "dependencies": [
     "motion"
   ],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/use-animation-variants",
+    "https://systaliko-ui.vercel.app/r/word-stagger"
+  ],
   "files": [
     {
       "path": "__registry__/text/text-stagger-inview/shadcn-new-york/index.tsx",

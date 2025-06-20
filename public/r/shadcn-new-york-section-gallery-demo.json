@@ -5,7 +5,9 @@
   "title": "Gallery Section Demo",
   "description": "Demo showing Gallery Section with shadcn-new-york style.",
   "registryDependencies": [
-    "http://localhost:3000/r/section-gallery"
+    "https://systaliko-ui.vercel.app/r/section-gallery",
+    "https://systaliko-ui.vercel.app/r/grid-staggered",
+    "https://systaliko-ui.vercel.app/r/button"
   ],
   "files": [
     {

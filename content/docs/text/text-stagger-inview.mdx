@@ -13,10 +13,9 @@ description: Splitted text animation with staggered reveal animation triggered b
 
 ```tsx
 <TextStaggerInview
-  key={`${animation}-${staggerValue}`}
-  animation={animation}
+  animation={'blur'}
   className="overflow-hidden text-4xl tracking-tight font-bold"
-  stagger={staggerValue}
+  stagger={0.03}
 >
   Stagger Text Inview Demo
 </TextStaggerInview>

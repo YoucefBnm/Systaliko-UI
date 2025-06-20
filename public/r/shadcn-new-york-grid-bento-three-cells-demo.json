@@ -2,10 +2,10 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "shadcn-new-york-grid-bento-three-cells-demo",
   "type": "registry:block",
-  "title": "Scroll Trigger Inset-X Animations Demo",
-  "description": "Demo showing how to implement scroll triggred animations with shadcn-new-york style.",
+  "title": "Grid Bento Three Cells Demo",
+  "description": "Demo showing another variant of grid bento component with shadcn-new-york style.",
   "registryDependencies": [
-    "http://localhost:3000/r/grid-bento-three-cells"
+    "https://systaliko-ui.vercel.app/r/grid-bento-three-cells"
   ],
   "files": [
     {

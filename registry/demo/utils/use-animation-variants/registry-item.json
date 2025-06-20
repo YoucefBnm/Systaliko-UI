@@ -4,9 +4,9 @@
   "type": "registry:hook",
   "title": "Use Animation Variants Demo",
   "description": "Demo showing how to use use-animation-variants hook.",
+  "dependencies": ["motion"],
   "registryDependencies": [
-    "http://localhost:3000/r/use-animation-variants",
-    "motion"
+    "https://systaliko-ui.vercel.app/r/use-animation-variants"
   ],
   "files": [
     {

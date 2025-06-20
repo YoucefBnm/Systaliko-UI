@@ -7,6 +7,12 @@
   "dependencies": [
     "motion"
   ],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/set-stagger-direction",
+    "https://systaliko-ui.vercel.app/r/split-text",
+    "https://systaliko-ui.vercel.app/r/gsap-transitions",
+    "https://systaliko-ui.vercel.app/r/use-animation-variants"
+  ],
   "files": [
     {
       "path": "__registry__/text/text-stagger-hover/shadcn-new-york/index.tsx",

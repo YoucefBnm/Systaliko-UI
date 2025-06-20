@@ -4,6 +4,9 @@
   "type": "registry:block",
   "title": "Staggered Grid",
   "description": "Staggered layout component with customizable gap and stagger with shadcn-new-york style.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/grid-staggered"
+  ],
   "files": [
     {
       "path": "__registry__/containers/grid-staggered/shadcn-new-york/index.tsx",

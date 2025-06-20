@@ -36,9 +36,8 @@ export const GalleryRotatedScrollDemo = () => {
       />
 
       <GalleryContainer className="h-dvh  gap-2">
-        <GalleryCol className="-mt-2 gap-2">
+        <GalleryCol yRange={['-10%', '2%']} className="-mt-2 gap-2">
           {IMAGES_1.map((imageUrl, index) => (
-            // eslint-disable-next-line @next/next/no-img-element
             <img
               key={index}
               className="aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow"
@@ -49,7 +48,6 @@ export const GalleryRotatedScrollDemo = () => {
         </GalleryCol>
         <GalleryCol className="gap-2 mt-[-20%]" yRange={['15%', '5%']}>
           {IMAGES_2.map((imageUrl, index) => (
-            // eslint-disable-next-line @next/next/no-img-element
             <img
               key={index}
               className="aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow"
@@ -58,9 +56,8 @@ export const GalleryRotatedScrollDemo = () => {
             />
           ))}
         </GalleryCol>
-        <GalleryCol yRange={['-10%', '2%']} className="gap-2 -mt-2">
+        <GalleryCol yRange={['-10%', '0%']} className="gap-2 -mt-2">
           {IMAGES_3.map((imageUrl, index) => (
-            // eslint-disable-next-line @next/next/no-img-element
             <img
               key={index}
               className="aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow"

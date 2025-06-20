@@ -4,6 +4,7 @@
   "type": "registry:block",
   "title": "Staggered Grid",
   "description": "Staggered layout component with customizable gap and stagger.",
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/grid-staggered"],
   "files": [
     {
       "path": "registry/containers/grid-staggered/index.tsx",

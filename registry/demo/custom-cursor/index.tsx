@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@/registry/button';
 import { CustomCursor, useSetCursorVariant } from '@/registry/custom-cursor';
 import { MapPinIcon } from 'lucide-react';
 
@@ -15,7 +15,11 @@ export function CustomCursorDemo() {
 
   return (
     <div className="container flex justify-between gap-12 flex-wrap items-center py-12 px-6 min-h-svh">
-      <CustomCursor variant={cursorVariant} cursorChildren={cursorChildren} />
+      <CustomCursor
+        className="fixed"
+        variant={cursorVariant}
+        cursorChildren={cursorChildren}
+      />
       <div className="flex flex-1 flex-col gap-4 items-start">
         <h1
           className="text-5xl tracking-tight font-semibold"
@@ -23,8 +27,8 @@ export function CustomCursorDemo() {
             setCursorChildren(null);
             setCursorVariant({
               mixBlendMode: 'difference',
-              backgroundColor: 'red',
-              scale: 5,
+              backgroundColor: 'var(--accent)',
+              scale: 6,
               borderRadius: '50%',
             });
           }}
@@ -47,7 +51,6 @@ export function CustomCursorDemo() {
           <Button
             onMouseEnter={() => handleCustomStyle({ scale: 0.4 })}
             onMouseLeave={resetStyle}
-            className="bg-primary text-white"
             size="lg"
           >
             Hover Me
@@ -81,15 +84,15 @@ export function CustomCursorDemo() {
       <div
         className="relative w-2/3 md:w-1/3"
         onMouseLeave={() => {
-          setCursorChildren(<div className="rounded-full bg-black size-5" />);
+          resetCursorChildren();
           setCursorVariant({});
         }}
         onMouseEnter={() => {
           setCursorVariant({});
           setCursorChildren(
-            <Button className="text-white" variant={'link'} size="lg">
-              <MapPinIcon />
+            <Button size="sm" className="rounded-full bg-primary/80">
               Visit Tokyo
+              <MapPinIcon />
             </Button>,
           );
         }}

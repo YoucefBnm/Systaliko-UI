@@ -4,7 +4,7 @@
   "type": "registry:block",
   "title": "Grid Staggered Demos",
   "description": "Grid Staggered Demo with multiple variants.",
-  "registryDependencies": ["http://localhost:3000/r/grid-staggered"],
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/grid-staggered"],
   "files": [
     {
       "path": "registry/demo/containers/grid-staggered/index.tsx",

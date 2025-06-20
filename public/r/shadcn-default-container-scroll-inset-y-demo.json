@@ -5,7 +5,7 @@
   "title": "Scroll Trigger X-inset Animations Demo",
   "description": "Demo showing how to implement scroll triggred animations with shadcn-default style.",
   "registryDependencies": [
-    "http://localhost:3000/r/container-scroll-inset-y"
+    "https://systaliko-ui.vercel.app/r/containers-scroll-animations"
   ],
   "files": [
     {

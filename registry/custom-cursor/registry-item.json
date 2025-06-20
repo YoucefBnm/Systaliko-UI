@@ -3,8 +3,11 @@
   "name": "custom-cursor",
   "type": "registry:ui",
   "title": "Custom Cursor",
-  "description": "Custom Cursor component with multiple animation variants, You can also set the cursor children.",
+  "description": "Turn your cursor into any element your want, text, image, video, or a shape.",
   "dependencies": ["motion"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/use-follow-mouse"
+  ],
   "files": [
     {
       "path": "registry/custom-cursor/index.tsx",

@@ -4,6 +4,9 @@
   "type": "registry:block",
   "title": "Cards Stack Rotated",
   "description": "Stack of rotated cards show, rotate one element at a time depending on scroll position with shadcn-new-york style.",
+  "dependencies": [
+    "motion"
+  ],
   "files": [
     {
       "path": "__registry__/cards/cards-stack-rotated/shadcn-new-york/index.tsx",

@@ -1,7 +1,7 @@
 'use client';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { cn } from '@/lib/utils';
+import { Avatar, AvatarFallback, AvatarImage } from '@/registry/avatar';
 import { RatingStars } from '@/registry/rating-stars';
 import { cva, VariantProps } from 'class-variance-authority';
 import * as React from 'react';
@@ -92,9 +92,9 @@ export const TestimonialAuthor = ({
         </AvatarFallback>
       </Avatar>
       <div>
-        <span className="block text-lg font-semibold tracking-tight md:text-xl">
+        <h4 className="block text-lg font-semibold tracking-tight md:text-xl">
           {authorName}
-        </span>
+        </h4>
         <span className="block text-sm text-muted-foreground ">
           {description}
         </span>

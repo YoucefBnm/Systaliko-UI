@@ -2,8 +2,8 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "shadcn-default-container-stagger",
   "type": "registry:block",
-  "title": "Container Stagger",
-  "description": "Animated Block with orchestrated stagger animations, for your motion components with shadcn-default style.",
+  "title": "Stagger Animations",
+  "description": "Animated Block with orchestrated stagger animations, for your motion components, the animations are triggered by view with shadcn-default style.",
   "dependencies": [
     "motion"
   ],

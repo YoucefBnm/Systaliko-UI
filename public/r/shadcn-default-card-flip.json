@@ -7,9 +7,6 @@
   "dependencies": [
     "motion"
   ],
-  "registryDependencies": [
-    "systaliko-ui.vercel.app/r/card-flip"
-  ],
   "files": [
     {
       "path": "__registry__/cards/card-flip/shadcn-default/index.tsx",

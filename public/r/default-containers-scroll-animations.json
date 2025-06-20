@@ -3,9 +3,12 @@
   "name": "default-containers-scroll-animations",
   "type": "registry:block",
   "title": "Scroll Trigger Animations.",
-  "description": "Collection of scroll triggred animations containers, most important elements for your scroll triggred animations with default style.",
+  "description": "Collection of scroll triggered animations, Triggering the animation by scroll event with default style.",
   "dependencies": [
     "motion"
+  ],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/use-smooth-scroll"
   ],
   "files": [
     {

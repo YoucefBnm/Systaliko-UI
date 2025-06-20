@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "Card",
+  "type": "registry:ui",
+  "title": "Card",
+  "description": "Card component.",
+  "files": [
+    {
+      "path": "registry/Card/index.tsx",
+      "type": "registry:ui",
+      "target": "components/Card.tsx"
+    }
+  ]
+}
