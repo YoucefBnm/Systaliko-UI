@@ -5,17 +5,13 @@
     "index",
 
     "---Blocks---",
+    "blocks/section-gallery-scroll-animation",
     "blocks/cards-stack",
+    "blocks/section-rotated-gallery",
     "blocks/cards-stack-rotated",
-    "blocks/container-clipped",
     "blocks/section-gallery",
     "blocks/slideshow",
     "blocks/story",
-
-    "---Heros---",
-    "heros/hero-gallery-scroll-animation",
-    "heros/hero-gradient",
-    "heros/hero-rotated-gallery",
 
     "---Cards---",
     "cards/card-curtain-reveal",
@@ -39,10 +35,6 @@
     "text/text-stagger-hover",
     "text/text-stagger-inview",
     "text/text-vertical",
-
-    "---Backgrounds---",
-    "background/background-gradient",
-    "background/clipped-shape",
 
     "---Utils / Hooks---",
     "utils/set-stagger-direction",
