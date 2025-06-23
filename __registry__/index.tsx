@@ -6241,7 +6241,7 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/default-containers-scroll-animations',
+      'https://systaliko-ui.vercel.app/r/section-scale-scroll-animation',
     ],
     styles: undefined,
     files: [
@@ -6281,7 +6281,7 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/default-containers-scroll-animations',
+      'https://systaliko-ui.vercel.app/r/section-scale-scroll-animation',
     ],
     styles: undefined,
     files: [
@@ -6321,7 +6321,7 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/default-containers-scroll-animations',
+      'https://systaliko-ui.vercel.app/r/section-scale-scroll-animation',
     ],
     styles: undefined,
     files: [
