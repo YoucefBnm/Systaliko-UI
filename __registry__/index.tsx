@@ -6241,7 +6241,7 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/section-scale-scroll-animation',
+      'https://systaliko-ui.vercel.app/r/default-containers-scroll-animations',
     ],
     styles: undefined,
     files: [
@@ -6251,7 +6251,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/demo/section-scale-scroll-animation.tsx',
         content:
-          "import { SectionScaleScrollAnimation } from '@/components/systaliko-ui/section-scale-scroll-animation';\n\nexport const HeroGalleryScrollAnimationDemo = () => (\n  <SectionScaleScrollAnimation />\n);",
+          "import { SectionScaleScrollAnimation } from '@/components/systaliko-ui/section-scale-scroll-animation';\n\nexport const SectionScaleScrollAnimationDemo = () => (\n  <SectionScaleScrollAnimation />\n);",
       },
     ],
     component: (function () {
@@ -6281,7 +6281,7 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/section-scale-scroll-animation',
+      'https://systaliko-ui.vercel.app/r/default-containers-scroll-animations',
     ],
     styles: undefined,
     files: [
@@ -6291,7 +6291,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/demo/section-scale-scroll-animation.tsx',
         content:
-          "import { SectionScaleScrollAnimation } from '@/components/systaliko-ui/section-scale-scroll-animation';\n\nexport const HeroGalleryScrollAnimationDemo = () => (\n  <SectionScaleScrollAnimation />\n);",
+          "import { SectionScaleScrollAnimation } from '@/components/systaliko-ui/section-scale-scroll-animation';\n\nexport const SectionScaleScrollAnimationDemo = () => (\n  <SectionScaleScrollAnimation />\n);",
       },
     ],
     component: (function () {
@@ -6321,7 +6321,7 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/section-scale-scroll-animation',
+      'https://systaliko-ui.vercel.app/r/default-containers-scroll-animations',
     ],
     styles: undefined,
     files: [
@@ -6331,7 +6331,7 @@ export const index: Record<string, any> = {
         target:
           'components/systaliko-ui/demo/section-scale-scroll-animation.tsx',
         content:
-          "import { SectionScaleScrollAnimation } from '@/components/systaliko-ui/section-scale-scroll-animation';\n\nexport const HeroGalleryScrollAnimationDemo = () => (\n  <SectionScaleScrollAnimation />\n);",
+          "import { SectionScaleScrollAnimation } from '@/components/systaliko-ui/section-scale-scroll-animation';\n\nexport const SectionScaleScrollAnimationDemo = () => (\n  <SectionScaleScrollAnimation />\n);",
       },
     ],
     component: (function () {

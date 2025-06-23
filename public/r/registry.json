@@ -2663,7 +2663,7 @@
       "title": "Section with scroll triggered animations Demo",
       "description": "Demo of gallery and text scroll scale animations with default style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/section-scale-scroll-animation"
+        "https://systaliko-ui.vercel.app/r/default-containers-scroll-animations"
       ],
       "files": [
         {
@@ -2679,7 +2679,7 @@
       "title": "Section with scroll triggered animations Demo",
       "description": "Demo of gallery and text scroll scale animations with shadcn-default style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/section-scale-scroll-animation"
+        "https://systaliko-ui.vercel.app/r/default-containers-scroll-animations"
       ],
       "files": [
         {
@@ -2695,7 +2695,7 @@
       "title": "Section with scroll triggered animations Demo",
       "description": "Demo of gallery and text scroll scale animations with shadcn-new-york style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/section-scale-scroll-animation"
+        "https://systaliko-ui.vercel.app/r/default-containers-scroll-animations"
       ],
       "files": [
         {

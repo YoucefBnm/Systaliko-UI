@@ -5,12 +5,12 @@
   "title": "Section with scroll triggered animations Demo",
   "description": "Demo of gallery and text scroll scale animations with shadcn-default style.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/section-scale-scroll-animation"
+    "https://systaliko-ui.vercel.app/r/default-containers-scroll-animations"
   ],
   "files": [
     {
       "path": "__registry__/demo/section-scale-scroll-animation/shadcn-default/index.tsx",
-      "content": "import { SectionScaleScrollAnimation } from '@/components/systaliko-ui/section-scale-scroll-animation';\n\nexport const HeroGalleryScrollAnimationDemo = () => (\n  <SectionScaleScrollAnimation />\n);\n",
+      "content": "import { SectionScaleScrollAnimation } from '@/components/systaliko-ui/section-scale-scroll-animation';\n\nexport const SectionScaleScrollAnimationDemo = () => (\n  <SectionScaleScrollAnimation />\n);\n",
       "type": "registry:block",
       "target": "components/systaliko-ui/demo/section-scale-scroll-animation.tsx"
     }

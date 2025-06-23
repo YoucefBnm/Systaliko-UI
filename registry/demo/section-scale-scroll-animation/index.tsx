@@ -1,5 +1,5 @@
 import { SectionScaleScrollAnimation } from '@/registry/section-scale-scroll-animation';
 
-export const HeroGalleryScrollAnimationDemo = () => (
+export const SectionScaleScrollAnimationDemo = () => (
   <SectionScaleScrollAnimation />
 );
