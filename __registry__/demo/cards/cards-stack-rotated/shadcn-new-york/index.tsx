@@ -16,13 +16,13 @@ import * as React from 'react';
 const TESTIMONIALS = [
   {
     id: 'testimonial-3',
-    name: 'James S.',
+    name: 'Youcef Bnm.',
     profession: 'Frontend Developer',
     rating: 5,
     quote:
       'Their innovative solutions and quick turnaround time made our collaboration incredibly successful. Highly recommended!',
     avatarUrl:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'https://lh3.googleusercontent.com/a/ACg8ocKV3NNwtqyu8_gbuVEDARpyUpTuFtb_XPAIETgsD3wbXx4F4xlE=s576-c-no',
   },
   {
     id: 'testimonial-1',

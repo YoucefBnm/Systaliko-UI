@@ -14,16 +14,17 @@ import { ComponentPreview } from '@/components/docs/component-preview';
 ## Usage
 
 ```tsx
+const animationVariants = useAnimationVariants('blur');
 <motion.div
-  key={animation}
   variants={animationVariants}
   transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}
   initial="hidden"
   whileInView="visible"
+  viewport={{ once: true }}
   className="text-4xl tracking-tight font-bold"
 >
   <h2>Animation variants demo</h2>
-</motion.div>
+</motion.div>;
 ```
 
 ## Props

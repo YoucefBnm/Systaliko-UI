@@ -114,18 +114,11 @@ export const CardTransformed = React.forwardRef<
       index * incrementZ
     }px) translateY(${y}) rotate(${rotate}deg)`;
 
-    const dx = useTransform(scrollYProgress, rotateRange, [4, 0]);
-    const dy = useTransform(scrollYProgress, rotateRange, [4, 12]);
-    const blur = useTransform(scrollYProgress, rotateRange, [2, 24]);
-    const alpha = useTransform(scrollYProgress, rotateRange, [0.15, 0.2]);
-    const filter = useMotionTemplate`drop-shadow(${dx}px ${dy}px ${blur}px rgba(0,0,0,${alpha}))`;
-
     const cardStyle = {
       top: index * incrementY,
       transform,
       backfaceVisibility: 'hidden' as const,
       zIndex: (arrayLength - index) * incrementZ,
-      filter,
       ...style,
     };
     return (

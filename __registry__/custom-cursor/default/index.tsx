@@ -1,16 +1,13 @@
 'use client';
-
 import * as React from 'react';
+import { cn } from '@/lib/utils';
 import {
   AnimatePresence,
   HTMLMotionProps,
   motion,
   MotionStyle,
-  Variants,
-  TargetAndTransition,
+  MotionValue,
 } from 'motion/react';
-
-import { cn } from '@/lib/utils';
 import { useFollowMouse } from '@/__registry__/utils/use-follow-mouse/default';
 
 const springConfig = {
@@ -22,71 +19,91 @@ const springConfig = {
   duration: 0.3,
 };
 
-const customCursorVariants: Variants = {};
+interface CustomCursorContextType {
+  cursorRef: React.RefObject<HTMLDivElement | null>;
+  containerRef: React.RefObject<HTMLDivElement | null>;
+  cursorXSpring: MotionValue<number>;
+  cursorYSpring: MotionValue<number>;
+  cursorStyle?: MotionStyle;
+  setCursorStyle: React.Dispatch<React.SetStateAction<MotionStyle | undefined>>;
+  cursorChildren?: React.ReactNode;
+  setCursorChildren: React.Dispatch<React.SetStateAction<React.ReactNode>>;
+}
 
-type CursorVariant = keyof typeof customCursorVariants;
+const CustomCursorContext = React.createContext<CustomCursorContextType | null>(
+  null,
+);
 
-export function useSetCursorVariant() {
-  const [cursorVariant, setCursorVariant] = React.useState<
-    CursorVariant | MotionStyle
-  >('default');
-  const [cursorChildren, setCursorChildren] = React.useState<React.ReactNode>(
-    <div className="rounded-full bg-black size-5" />,
-  );
-
-  const handleCustomStyle = React.useCallback((style: MotionStyle) => {
-    setCursorVariant(style);
-  }, []);
-  const resetCursorChildren = () =>
-    setCursorChildren(<div className="rounded-full bg-black size-5" />);
-
-  const resetStyle = () => setCursorVariant({});
-  return {
-    cursorVariant,
-    setCursorVariant,
+const Provider = ({
+  children,
+}: {
+  children:
+    | React.ReactNode
+    | ((context: CustomCursorContextType) => React.ReactNode);
+}) => {
+  const { cursorRef, containerRef, cursorXSpring, cursorYSpring } =
+    useFollowMouse({
+      springConfig,
+    });
+  const [cursorStyle, setCursorStyle] = React.useState<MotionStyle>();
+  const [cursorChildren, setCursorChildren] = React.useState<React.ReactNode>();
+  const value = {
+    cursorRef,
+    containerRef,
+    cursorXSpring,
+    cursorYSpring,
+    cursorStyle,
+    setCursorStyle,
     cursorChildren,
     setCursorChildren,
-    handleCustomStyle,
-    resetCursorChildren,
-    resetStyle,
   };
-}
+  return (
+    <CustomCursorContext.Provider value={value}>
+      {typeof children === 'function' ? children(value) : children}
+    </CustomCursorContext.Provider>
+  );
+};
 
-interface CustomCursorProps extends HTMLMotionProps<'div'> {
-  variant?: CursorVariant | MotionStyle;
-  cursorChildren?: React.ReactNode;
-}
+export const useCustomCursor = () => {
+  const context = React.useContext(CustomCursorContext);
+  if (!context) {
+    throw new Error(
+      'useCustomCursor must be used within a CustomCursorProvider',
+    );
+  }
+  return context;
+};
+
+interface CustomCursorProps extends HTMLMotionProps<'div'> {}
 
 export function CustomCursor({
-  variant = 'default',
-  cursorChildren = null,
   className,
   style,
+  ...props
 }: CustomCursorProps) {
-  const { cursorXSpring, cursroYSpring } = useFollowMouse(springConfig);
-
-  const animate = React.useMemo(() => {
-    if (typeof variant === 'string') {
-      return variant;
-    }
-    return variant as TargetAndTransition;
-  }, [variant]);
-
+  const {
+    cursorRef,
+    cursorXSpring,
+    cursorYSpring,
+    cursorChildren,
+    cursorStyle,
+  } = useCustomCursor();
   return (
     <motion.div
       className={cn(
-        'pointer-events-none absolute left-0 top-0 z-50 flex min-w-5 min-h-5 items-center justify-center text-center text-xs',
+        'absolute pointer-events-none left-0 top-0 z-[999] flex items-center justify-center',
         className,
       )}
-      layout={'preserve-aspect'}
-      variants={customCursorVariants}
-      animate={animate}
+      ref={cursorRef}
+      layout
       style={{
-        y: cursroYSpring,
+        y: cursorYSpring,
         x: cursorXSpring,
         ...style,
+        ...cursorStyle,
       }}
-      exit={{ transition: { duration: 0.5 } }}
+      exit={{ transition: { duration: 0.3 } }}
+      {...props}
     >
       <AnimatePresence mode="sync">
         {cursorChildren && (
@@ -94,13 +111,6 @@ export function CustomCursor({
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
-            transition={{
-              type: 'spring',
-              stiffness: 400,
-              damping: 30,
-              mass: 0.8,
-              duration: 0.2,
-            }}
             className="flex items-center justify-center"
           >
             {cursorChildren}
@@ -110,3 +120,4 @@ export function CustomCursor({
     </motion.div>
   );
 }
+CustomCursor.Provider = Provider;

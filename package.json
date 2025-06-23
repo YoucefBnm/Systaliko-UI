@@ -29,6 +29,7 @@
     "@tailwindcss/postcss": "^4.1.7",
     "@tanstack/react-query": "^5.64.1",
     "@types/mdx": "^2.0.13",
+    "@uidotdev/usehooks": "^2.4.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "fumadocs-core": "^15.4.2",

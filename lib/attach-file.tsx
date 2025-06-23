@@ -27,7 +27,7 @@ const Badge = ({
 
 export const attachFile: BuildPageTreeOptions['attachFile'] = (node, file) => {
   if (!file) return node;
-  const data = file.data.data as object;
+  const data = file.data as object;
 
   if ('new' in data && typeof data.new === 'boolean' && data.new) {
     node.name = (
@@ -51,7 +51,7 @@ export const attachFile: BuildPageTreeOptions['attachFile'] = (node, file) => {
 
   if ('updated' in data && typeof data.updated === 'boolean' && data.updated) {
     node.name = (
-      <Badge name={node.name} className="bg-chart-1">
+      <Badge name={node.name} className="bg-chart-3">
         updated
       </Badge>
     );

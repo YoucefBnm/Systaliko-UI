@@ -10,8 +10,8 @@ export function ContainerScrollInsetDemo() {
       <ContainerScrollTranslate className="h-dvh  py-8 px-6 flex justify-center items-center">
         <ContainerScrollInset
           className="overflow-hidden w-full flex justify-center items-center"
-          insetRangeY={[45, 0]}
-          insetXRange={[45, 0]}
+          insetRangeY={[20, 0]}
+          insetXRange={[20, 0]}
           roundednessRange={[1000, 16]}
         >
           <video

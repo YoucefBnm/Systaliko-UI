@@ -2460,6 +2460,54 @@
       ]
     },
     {
+      "name": "default-custom-cursor-2-demo",
+      "type": "registry:ui",
+      "title": "Custom Cursor 2 Demo",
+      "description": "Demo showing another usecase of Custom Cursor component with default style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/custom-cursor"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/custom-cursor-2/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/custom-cursor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-custom-cursor-2-demo",
+      "type": "registry:ui",
+      "title": "Custom Cursor 2 Demo",
+      "description": "Demo showing another usecase of Custom Cursor component with shadcn-default style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/custom-cursor"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/custom-cursor-2/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/custom-cursor.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-custom-cursor-2-demo",
+      "type": "registry:ui",
+      "title": "Custom Cursor 2 Demo",
+      "description": "Demo showing another usecase of Custom Cursor component with shadcn-new-york style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/custom-cursor"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/custom-cursor-2/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/custom-cursor.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-hero-gradient-demo",
       "type": "registry:block",
       "title": "Hero Gradient Demo",
