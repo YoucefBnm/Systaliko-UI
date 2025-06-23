@@ -7834,8 +7834,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/gallery-rotated-scroll',
-      'https://systaliko-ui.vercel.app/r/container-stagger',
+      'https://systaliko-ui.vercel.app/r/default-gallery-rotated-scroll',
+      'https://systaliko-ui.vercel.app/r/default-container-stagger',
     ],
     styles: undefined,
     files: [
@@ -7873,8 +7873,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/gallery-rotated-scroll',
-      'https://systaliko-ui.vercel.app/r/container-stagger',
+      'https://systaliko-ui.vercel.app/r/default-gallery-rotated-scroll',
+      'https://systaliko-ui.vercel.app/r/default-container-stagger',
     ],
     styles: undefined,
     files: [
@@ -7913,8 +7913,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/gallery-rotated-scroll',
-      'https://systaliko-ui.vercel.app/r/container-stagger',
+      'https://systaliko-ui.vercel.app/r/default-gallery-rotated-scroll',
+      'https://systaliko-ui.vercel.app/r/default-container-stagger',
     ],
     styles: undefined,
     files: [
