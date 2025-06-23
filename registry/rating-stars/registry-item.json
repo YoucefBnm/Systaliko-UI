@@ -4,7 +4,6 @@
   "type": "registry:ui",
   "title": "Rating Stars",
   "description": "Stars rating component with customizable color, size depending on average rating.",
-  "registryDependencies": ["https://systaliko-ui.vercel.app/r/rating-stars"],
   "files": [
     {
       "path": "registry/rating-stars/index.tsx",

@@ -7490,7 +7490,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/rating-stars'],
+    registryDependencies: undefined,
     styles: undefined,
     files: [
       {
@@ -7526,7 +7526,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/rating-stars'],
+    registryDependencies: undefined,
     styles: undefined,
     files: [
       {
@@ -7562,7 +7562,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/rating-stars'],
+    registryDependencies: undefined,
     styles: undefined,
     files: [
       {
