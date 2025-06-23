@@ -6,7 +6,7 @@
   "description": "Animated gallery images, with scroll triggered animations, rotates and translates on the Y axis on scroll.",
   "dependencies": ["motion"],
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/use-smooth-scroll"
+    "https://systaliko-ui.vercel.app/r/default-use-smooth-scroll"
   ],
   "files": [
     {

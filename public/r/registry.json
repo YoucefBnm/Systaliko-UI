@@ -779,7 +779,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/use-smooth-scroll"
+        "https://systaliko-ui.vercel.app/r/default-use-smooth-scroll"
       ],
       "files": [
         {
@@ -798,7 +798,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/use-smooth-scroll"
+        "https://systaliko-ui.vercel.app/r/default-use-smooth-scroll"
       ],
       "files": [
         {
@@ -817,7 +817,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/use-smooth-scroll"
+        "https://systaliko-ui.vercel.app/r/default-use-smooth-scroll"
       ],
       "files": [
         {
