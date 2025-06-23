@@ -1989,7 +1989,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/grid-bento'],
+    registryDependencies: undefined,
     styles: undefined,
     files: [
       {
@@ -2025,7 +2025,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/grid-bento'],
+    registryDependencies: undefined,
     styles: undefined,
     files: [
       {
@@ -2061,7 +2061,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/grid-bento'],
+    registryDependencies: undefined,
     styles: undefined,
     files: [
       {
