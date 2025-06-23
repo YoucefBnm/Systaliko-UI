@@ -8,7 +8,7 @@
     "motion"
   ],
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/text-stagger-hover"
+    "https://systaliko-ui.vercel.app/r/default-text-stagger-hover"
   ],
   "files": [
     {

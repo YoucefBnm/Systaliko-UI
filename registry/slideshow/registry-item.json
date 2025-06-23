@@ -6,7 +6,7 @@
   "description": "Display the active image and activate the next image with hovering the text indicator.",
   "dependencies": ["motion"],
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/text-stagger-hover"
+    "https://systaliko-ui.vercel.app/r/default-text-stagger-hover"
   ],
   "files": [
     {

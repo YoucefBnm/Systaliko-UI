@@ -8058,7 +8058,7 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/text-stagger-hover',
+      'https://systaliko-ui.vercel.app/r/default-text-stagger-hover',
     ],
     styles: undefined,
     files: [
@@ -8094,7 +8094,7 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/text-stagger-hover',
+      'https://systaliko-ui.vercel.app/r/default-text-stagger-hover',
     ],
     styles: undefined,
     files: [
@@ -8132,7 +8132,7 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/text-stagger-hover',
+      'https://systaliko-ui.vercel.app/r/default-text-stagger-hover',
     ],
     styles: undefined,
     files: [
