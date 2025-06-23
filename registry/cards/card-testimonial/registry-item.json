@@ -4,7 +4,7 @@
   "type": "registry:ui",
   "title": "Card Testimonial",
   "description": "Card Testimonial, with rating, block quote, and author's informations.",
-  "registryDependencies": ["https://systaliko-ui.vercel.app/r/avatar"],
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/default-avatar"],
   "files": [
     {
       "path": "registry/cards/card-testimonial/index.tsx",

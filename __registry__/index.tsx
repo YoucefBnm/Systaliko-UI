@@ -1094,7 +1094,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/avatar'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/default-avatar'],
     styles: undefined,
     files: [
       {
@@ -1130,7 +1130,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/avatar'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/default-avatar'],
     styles: undefined,
     files: [
       {
@@ -1167,7 +1167,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/avatar'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/default-avatar'],
     styles: undefined,
     files: [
       {
@@ -3110,7 +3110,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/cards/card-testimonial.tsx',
         content:
-          "import {\n  CardTestimonial,\n  TestimonialAuthor,\n  TestimonialQuote,\n  TestimonialRating,\n} from '@/components/systaliko-ui/cards/card-testimonial';\n\nconst TESTIMONIAL = {\n  id: 'testimonial-2',\n  name: 'Lisa M.',\n  profession: 'UX Designer',\n  rating: 5,\n  quote:\n    'Working with them was a game-changer for our project. Their expertise and professionalism exceeded our expectations.',\n  avatarUrl:\n    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D',\n};\n\nexport const CardTestimonial2Demo = () => {\n  return (\n    <CardTestimonial\n      testimonialQuote={TESTIMONIAL.quote}\n      testimonialRating={TESTIMONIAL.rating}\n      testimonialAuthor={{\n        authorName: TESTIMONIAL.name,\n        avatarUrl: TESTIMONIAL.avatarUrl,\n        description: TESTIMONIAL.profession,\n      }}\n      role=\"article\"\n      aria-labelledby={`card-${TESTIMONIAL.id}-title`}\n      aria-describedby={`card-${TESTIMONIAL.id}-content`}\n      className=\"w-[480px] h-[350px] shadow-md justify-evenly items-start\"\n    >\n      <TestimonialRating className=\"text-yellow-500\" />\n      <div className=\"relative  text-lg\">\n        <TestimonialQuote>{TESTIMONIAL.quote}</TestimonialQuote>\n      </div>\n\n      <TestimonialAuthor className=\"flex items-center gap-4\" />\n    </CardTestimonial>\n  );\n};",
+          "import {\n  CardTestimonial,\n  TestimonialAuthor,\n  TestimonialQuote,\n  TestimonialRating,\n} from '@/components/systaliko-ui/cards/card-testimonial';\n\nconst TESTIMONIAL = {\n  id: 'testimonial-2',\n  name: 'Lisa M.',\n  profession: 'UX Designer',\n  rating: 5,\n  quote:\n    'Working with them was a game-changer for our project. Their expertise and professionalism exceeded our expectations.',\n  avatarUrl:\n    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D',\n};\n\nexport const CardTestimonial2Demo = () => {\n  return (\n    <CardTestimonial\n      testimonialQuote={TESTIMONIAL.quote}\n      testimonialRating={TESTIMONIAL.rating}\n      testimonialAuthor={{\n        authorName: TESTIMONIAL.name,\n        avatarUrl: TESTIMONIAL.avatarUrl,\n        description: TESTIMONIAL.profession,\n      }}\n      role=\"article\"\n      aria-labelledby={`card-${TESTIMONIAL.id}-title`}\n      aria-describedby={`card-${TESTIMONIAL.id}-content`}\n      className=\"w-[480px] h-[350px] shadow-md justify-evenly items-start\"\n    >\n      <TestimonialRating className=\"text-yellow-500\" />\n      <div className=\"relative  text-lg\">\n        <TestimonialQuote>{TESTIMONIAL.quote}</TestimonialQuote>\n      </div>\n\n      <TestimonialAuthor className=\"flex items-center justify-end gap-4\" />\n    </CardTestimonial>\n  );\n};",
       },
     ],
     component: (function () {
@@ -3147,7 +3147,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/cards/card-testimonial.tsx',
         content:
-          "import {\n  CardTestimonial,\n  TestimonialAuthor,\n  TestimonialQuote,\n  TestimonialRating,\n} from '@/components/systaliko-ui/cards/card-testimonial';\n\nconst TESTIMONIAL = {\n  id: 'testimonial-2',\n  name: 'Lisa M.',\n  profession: 'UX Designer',\n  rating: 5,\n  quote:\n    'Working with them was a game-changer for our project. Their expertise and professionalism exceeded our expectations.',\n  avatarUrl:\n    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D',\n};\n\nexport const CardTestimonial2Demo = () => {\n  return (\n    <CardTestimonial\n      testimonialQuote={TESTIMONIAL.quote}\n      testimonialRating={TESTIMONIAL.rating}\n      testimonialAuthor={{\n        authorName: TESTIMONIAL.name,\n        avatarUrl: TESTIMONIAL.avatarUrl,\n        description: TESTIMONIAL.profession,\n      }}\n      role=\"article\"\n      aria-labelledby={`card-${TESTIMONIAL.id}-title`}\n      aria-describedby={`card-${TESTIMONIAL.id}-content`}\n      className=\"w-[480px] h-[350px] shadow-md justify-evenly items-start\"\n    >\n      <TestimonialRating className=\"text-yellow-500\" />\n      <div className=\"relative  text-lg\">\n        <TestimonialQuote>{TESTIMONIAL.quote}</TestimonialQuote>\n      </div>\n\n      <TestimonialAuthor className=\"flex items-center gap-4\" />\n    </CardTestimonial>\n  );\n};",
+          "import {\n  CardTestimonial,\n  TestimonialAuthor,\n  TestimonialQuote,\n  TestimonialRating,\n} from '@/components/systaliko-ui/cards/card-testimonial';\n\nconst TESTIMONIAL = {\n  id: 'testimonial-2',\n  name: 'Lisa M.',\n  profession: 'UX Designer',\n  rating: 5,\n  quote:\n    'Working with them was a game-changer for our project. Their expertise and professionalism exceeded our expectations.',\n  avatarUrl:\n    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D',\n};\n\nexport const CardTestimonial2Demo = () => {\n  return (\n    <CardTestimonial\n      testimonialQuote={TESTIMONIAL.quote}\n      testimonialRating={TESTIMONIAL.rating}\n      testimonialAuthor={{\n        authorName: TESTIMONIAL.name,\n        avatarUrl: TESTIMONIAL.avatarUrl,\n        description: TESTIMONIAL.profession,\n      }}\n      role=\"article\"\n      aria-labelledby={`card-${TESTIMONIAL.id}-title`}\n      aria-describedby={`card-${TESTIMONIAL.id}-content`}\n      className=\"w-[480px] h-[350px] shadow-md justify-evenly items-start\"\n    >\n      <TestimonialRating className=\"text-yellow-500\" />\n      <div className=\"relative  text-lg\">\n        <TestimonialQuote>{TESTIMONIAL.quote}</TestimonialQuote>\n      </div>\n\n      <TestimonialAuthor className=\"flex items-center justify-end gap-4\" />\n    </CardTestimonial>\n  );\n};",
       },
     ],
     component: (function () {
@@ -3184,7 +3184,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/cards/card-testimonial.tsx',
         content:
-          "import {\n  CardTestimonial,\n  TestimonialAuthor,\n  TestimonialQuote,\n  TestimonialRating,\n} from '@/components/systaliko-ui/cards/card-testimonial';\n\nconst TESTIMONIAL = {\n  id: 'testimonial-2',\n  name: 'Lisa M.',\n  profession: 'UX Designer',\n  rating: 5,\n  quote:\n    'Working with them was a game-changer for our project. Their expertise and professionalism exceeded our expectations.',\n  avatarUrl:\n    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D',\n};\n\nexport const CardTestimonial2Demo = () => {\n  return (\n    <CardTestimonial\n      testimonialQuote={TESTIMONIAL.quote}\n      testimonialRating={TESTIMONIAL.rating}\n      testimonialAuthor={{\n        authorName: TESTIMONIAL.name,\n        avatarUrl: TESTIMONIAL.avatarUrl,\n        description: TESTIMONIAL.profession,\n      }}\n      role=\"article\"\n      aria-labelledby={`card-${TESTIMONIAL.id}-title`}\n      aria-describedby={`card-${TESTIMONIAL.id}-content`}\n      className=\"w-[480px] h-[350px] shadow-md justify-evenly items-start\"\n    >\n      <TestimonialRating className=\"text-yellow-500\" />\n      <div className=\"relative  text-lg\">\n        <TestimonialQuote>{TESTIMONIAL.quote}</TestimonialQuote>\n      </div>\n\n      <TestimonialAuthor className=\"flex items-center gap-4\" />\n    </CardTestimonial>\n  );\n};",
+          "import {\n  CardTestimonial,\n  TestimonialAuthor,\n  TestimonialQuote,\n  TestimonialRating,\n} from '@/components/systaliko-ui/cards/card-testimonial';\n\nconst TESTIMONIAL = {\n  id: 'testimonial-2',\n  name: 'Lisa M.',\n  profession: 'UX Designer',\n  rating: 5,\n  quote:\n    'Working with them was a game-changer for our project. Their expertise and professionalism exceeded our expectations.',\n  avatarUrl:\n    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D',\n};\n\nexport const CardTestimonial2Demo = () => {\n  return (\n    <CardTestimonial\n      testimonialQuote={TESTIMONIAL.quote}\n      testimonialRating={TESTIMONIAL.rating}\n      testimonialAuthor={{\n        authorName: TESTIMONIAL.name,\n        avatarUrl: TESTIMONIAL.avatarUrl,\n        description: TESTIMONIAL.profession,\n      }}\n      role=\"article\"\n      aria-labelledby={`card-${TESTIMONIAL.id}-title`}\n      aria-describedby={`card-${TESTIMONIAL.id}-content`}\n      className=\"w-[480px] h-[350px] shadow-md justify-evenly items-start\"\n    >\n      <TestimonialRating className=\"text-yellow-500\" />\n      <div className=\"relative  text-lg\">\n        <TestimonialQuote>{TESTIMONIAL.quote}</TestimonialQuote>\n      </div>\n\n      <TestimonialAuthor className=\"flex items-center justify-end gap-4\" />\n    </CardTestimonial>\n  );\n};",
       },
     ],
     component: (function () {

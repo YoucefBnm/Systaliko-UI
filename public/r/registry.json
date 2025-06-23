@@ -431,7 +431,7 @@
       "title": "Card Testimonial",
       "description": "Card Testimonial, with rating, block quote, and author's informations with default style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/avatar"
+        "https://systaliko-ui.vercel.app/r/default-avatar"
       ],
       "files": [
         {
@@ -447,7 +447,7 @@
       "title": "Card Testimonial",
       "description": "Card Testimonial, with rating, block quote, and author's informations with shadcn-default style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/avatar"
+        "https://systaliko-ui.vercel.app/r/default-avatar"
       ],
       "files": [
         {
@@ -463,7 +463,7 @@
       "title": "Card Testimonial",
       "description": "Card Testimonial, with rating, block quote, and author's informations with shadcn-new-york style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/avatar"
+        "https://systaliko-ui.vercel.app/r/default-avatar"
       ],
       "files": [
         {
