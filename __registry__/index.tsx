@@ -7599,7 +7599,7 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
     ],
     styles: undefined,
     files: [
@@ -7637,7 +7637,7 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
     ],
     styles: undefined,
     files: [
@@ -7675,7 +7675,7 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
     ],
     styles: undefined,
     files: [
