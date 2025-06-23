@@ -1754,7 +1754,7 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/use-smooth-scroll',
+      'https://systaliko-ui.vercel.app/r/default-use-smooth-scroll',
     ],
     styles: undefined,
     files: [
@@ -1794,7 +1794,7 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/use-smooth-scroll',
+      'https://systaliko-ui.vercel.app/r/default-use-smooth-scroll',
     ],
     styles: undefined,
     files: [
@@ -1834,7 +1834,7 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/use-smooth-scroll',
+      'https://systaliko-ui.vercel.app/r/default-use-smooth-scroll',
     ],
     styles: undefined,
     files: [

@@ -718,11 +718,11 @@
       "type": "registry:block",
       "title": "Scroll Trigger Animations.",
       "description": "Collection of scroll triggered animations, Triggering the animation by scroll event with default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/use-smooth-scroll"
-      ],
       "dependencies": [
         "motion"
+      ],
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/default-use-smooth-scroll"
       ],
       "files": [
         {
@@ -737,11 +737,11 @@
       "type": "registry:block",
       "title": "Scroll Trigger Animations.",
       "description": "Collection of scroll triggered animations, Triggering the animation by scroll event with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/use-smooth-scroll"
-      ],
       "dependencies": [
         "motion"
+      ],
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/default-use-smooth-scroll"
       ],
       "files": [
         {
@@ -756,11 +756,11 @@
       "type": "registry:block",
       "title": "Scroll Trigger Animations.",
       "description": "Collection of scroll triggered animations, Triggering the animation by scroll event with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/use-smooth-scroll"
-      ],
       "dependencies": [
         "motion"
+      ],
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/default-use-smooth-scroll"
       ],
       "files": [
         {
