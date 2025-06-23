@@ -2206,7 +2206,7 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/use-follow-mouse',
+      'https://systaliko-ui.vercel.app/r/default-use-follow-mouse',
     ],
     styles: undefined,
     files: [
@@ -2244,7 +2244,7 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/use-follow-mouse',
+      'https://systaliko-ui.vercel.app/r/default-use-follow-mouse',
     ],
     styles: undefined,
     files: [
@@ -2282,7 +2282,7 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/use-follow-mouse',
+      'https://systaliko-ui.vercel.app/r/default-use-follow-mouse',
     ],
     styles: undefined,
     files: [
