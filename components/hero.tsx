@@ -6,18 +6,12 @@ import { motion, MotionConfig } from 'motion/react';
 import { useAnimationVariants } from '@/registry/utils/use-animation-variants';
 import { Button } from './ui/button';
 import Link from 'next/link';
-import GithubIcon from './icons/github-icon';
 import ReactIcon from './icons/react-icon';
 import TailwindIcon from './icons/tailwind-icon';
 import ShadcnIcon from './icons/shadcn-icon';
 import MotionIcon from './icons/motion-icon';
 import TSIcon from './icons/ts-icon';
-import {
-  ArrowRightIcon,
-  ArrowUpRightIcon,
-  ComponentIcon,
-  StarIcon,
-} from 'lucide-react';
+import { ArrowUpRightIcon, ComponentIcon, StarIcon } from 'lucide-react';
 import { Badge } from './ui/badge';
 
 export const Hero = () => {
