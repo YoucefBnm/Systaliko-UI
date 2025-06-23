@@ -2,19 +2,14 @@
 import { Features } from '@/components/features';
 import { Header } from '@/components/header';
 import { Hero } from '@/components/hero';
-import { ContainerStagger2Demo } from '@/registry/demo/containers/container-stagger-2';
-import { CustomCursorDemo } from '@/registry/demo/custom-cursor';
-import { CustomCursor2Demo } from '@/registry/demo/custom-cursor-2';
+import { Logo } from '@/components/logo';
+import { TextStaggerInview } from '@/registry/text/text-stagger-inview';
 
 export default function HomePage() {
   return (
     <main className="relative">
-      <Header />
-      <CustomCursorDemo />
-
+      {/* <Header /> */}
       <Hero />
-      <ContainerStagger2Demo />
-      <CustomCursor2Demo />
       <Features />
     </main>
   );

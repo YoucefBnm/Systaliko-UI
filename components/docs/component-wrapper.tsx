@@ -23,6 +23,7 @@ interface ComponentWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   iframe?: boolean;
   bigScreen?: boolean;
   tweakpane?: React.ReactNode;
+  url?: string;
 }
 
 export const ComponentWrapper = ({
@@ -32,6 +33,7 @@ export const ComponentWrapper = ({
   iframe = false,
   bigScreen = false,
   tweakpane,
+  url,
 }: ComponentWrapperProps) => {
   const [key, setKey] = useState(0);
   const [tweakMode, setTweakMode] = useState(false);
@@ -77,7 +79,7 @@ export const ComponentWrapper = ({
             )}
 
             <div className="absolute top-3 right-3 z-[9]  flex items-center justify-end gap-2 p-1 rounded-[11px]">
-              <OpenIn21stBtn componentName={componentName} />
+              <OpenIn21stBtn componentName={componentName} url={url} />
               <Button
                 onClick={() => setKey((prev) => prev + 1)}
                 className="flex items-center rounded-lg"

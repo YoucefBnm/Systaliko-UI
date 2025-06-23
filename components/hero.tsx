@@ -12,7 +12,12 @@ import TailwindIcon from './icons/tailwind-icon';
 import ShadcnIcon from './icons/shadcn-icon';
 import MotionIcon from './icons/motion-icon';
 import TSIcon from './icons/ts-icon';
-import { ArrowRightIcon, ComponentIcon } from 'lucide-react';
+import {
+  ArrowRightIcon,
+  ArrowUpRightIcon,
+  ComponentIcon,
+  StarIcon,
+} from 'lucide-react';
 import { Badge } from './ui/badge';
 
 export const Hero = () => {
@@ -28,7 +33,7 @@ export const Hero = () => {
             href="/docs/heros/hero-gradient"
           >
             <Badge variant={'secondary'} className="rounded-full">
-              Use this Hero Component <ArrowRightIcon />
+              <StarIcon /> View source code
             </Badge>
           </MotionLink>
           <motion.h1
@@ -57,10 +62,9 @@ export const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {' '}
-                Source code
+                Use this component
               </Link>
-              <GithubIcon />
+              <ArrowUpRightIcon />
             </Button>
           </motion.div>
 

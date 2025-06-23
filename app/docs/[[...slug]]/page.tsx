@@ -19,6 +19,7 @@ export default async function Page(props: {
   if (!page) notFound();
 
   const MDXContent = page.data.body;
+  const url = page.data.url as string | undefined;
 
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
@@ -28,7 +29,9 @@ export default async function Page(props: {
         <MDXContent
           components={{
             ...defaultMdxComponents,
-            ComponentPreview,
+            ComponentPreview: (props) => (
+              <ComponentPreview {...props} url={url} />
+            ),
             ComponentInstallation,
             TypeTable,
           }}

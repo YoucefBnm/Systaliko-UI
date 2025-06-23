@@ -16,6 +16,7 @@ interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
   iframe?: boolean;
   bigScreen?: boolean;
+  url?: string;
 }
 
 function flattenFirstLevel<T>(input: Record<string, any>): T {
@@ -45,6 +46,7 @@ export function ComponentPreview({
   className,
   iframe = false,
   bigScreen = false,
+  url,
   ...props
 }: ComponentPreviewProps) {
   const [binds, setBinds] = useState<Binds | null>(null);
@@ -116,7 +118,12 @@ export function ComponentPreview({
         </TabsList>
 
         <TabsContent value="preview" className="relative rounded-md h-full">
-          <ComponentWrapper name={name} iframe={iframe} bigScreen={bigScreen}>
+          <ComponentWrapper
+            name={name}
+            iframe={iframe}
+            bigScreen={bigScreen}
+            url={url}
+          >
             <Suspense
               fallback={
                 <div className="flex items-center text-sm text-muted-foreground">

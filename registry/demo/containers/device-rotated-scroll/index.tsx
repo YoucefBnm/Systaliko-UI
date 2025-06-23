@@ -20,7 +20,7 @@ export const DeviceRotatedScrollDemo = () => {
         w-4/5 aspect-video mx-auto bg-border relative border-[20px] rounded-xl shadow-2xl
         after:block after:absolute after:top-[3%] after:left-[36%] after:h-[0.5%] after:w-[28%] after:rounded-full after:shadow-[0_0_3px_0_white] after:z-20
         `}
-        rotateXRange={[95, 0]}
+        rotateXRange={[85, 0]}
       >
         <div className="rounded-md size-full overflow-hidden">
           <video
