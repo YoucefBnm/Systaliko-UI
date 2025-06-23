@@ -617,7 +617,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/skelton"
+        "https://systaliko-ui.vercel.app/r/default-skelton"
       ],
       "files": [
         {
@@ -636,7 +636,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/skelton"
+        "https://systaliko-ui.vercel.app/r/default-skelton"
       ],
       "files": [
         {
@@ -655,7 +655,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/skelton"
+        "https://systaliko-ui.vercel.app/r/default-skelton"
       ],
       "files": [
         {

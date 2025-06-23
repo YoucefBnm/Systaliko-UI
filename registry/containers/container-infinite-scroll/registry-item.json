@@ -5,7 +5,7 @@
   "title": "Lazy Load/Infinite Scroll Container",
   "description": "Infinite scroll container for optimizing the loading of large data sets, with a customizable threshold and a configurable loading indicator.",
   "dependencies": ["motion"],
-  "registryDependencies": ["https://systaliko-ui.vercel.app/r/skelton"],
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/default-skelton"],
   "files": [
     {
       "path": "registry/containers/container-infinite-scroll/index.tsx",

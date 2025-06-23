@@ -36,7 +36,7 @@ export const CardTestimonial2Demo = () => {
         <TestimonialQuote>{TESTIMONIAL.quote}</TestimonialQuote>
       </div>
 
-      <TestimonialAuthor className="flex items-center justify-end gap-4" />
+      <TestimonialAuthor className="flex items-center gap-4" />
     </CardTestimonial>
   );
 };
