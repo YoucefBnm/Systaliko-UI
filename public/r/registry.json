@@ -3512,7 +3512,7 @@
       "title": "Story",
       "description": "Simillar to IG story, Story is a component that allows you to display a collection of components in a single view with default style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/button"
+        "https://systaliko-ui.vercel.app/r/default-button"
       ],
       "files": [
         {
@@ -3528,7 +3528,7 @@
       "title": "Story",
       "description": "Simillar to IG story, Story is a component that allows you to display a collection of components in a single view with shadcn-default style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/button"
+        "https://systaliko-ui.vercel.app/r/default-button"
       ],
       "files": [
         {
@@ -3544,7 +3544,7 @@
       "title": "Story",
       "description": "Simillar to IG story, Story is a component that allows you to display a collection of components in a single view with shadcn-new-york style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/button"
+        "https://systaliko-ui.vercel.app/r/default-button"
       ],
       "files": [
         {

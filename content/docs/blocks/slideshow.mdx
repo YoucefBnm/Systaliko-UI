@@ -12,41 +12,36 @@ description: Display the active image and activate the next image with hovering 
 ## Usage
 
 ```tsx
-<Slideshow className="min-h-svh place-content-center p-6 md:px-12">
-  <h3 className="mb-6 text-primary text-xs font-medium capitalize tracking-wide">
-    / our services
-  </h3>
-  <div className="flex flex-wrap items-center justify-evenly gap-6 md:gap-12">
-    <div className="flex  flex-col space-y-2 md:space-y-4   ">
-      {SLIDES.map((slide, index) => (
-        <SlideshowIndicator
-          key={slide.title}
-          index={index}
-          className="cursor-pointer text-4xl font-bold uppercase tracking-tighter"
-        >
-          {slide.title}
-        </SlideshowIndicator>
-      ))}
-    </div>
-    <SlideshowImageContainer>
-      {SLIDES.map((slide, index) => (
-        <div key={slide.id} className="  ">
-          <SlideshowImageWrap
-            index={index}
-            className="size-full max-h-96 object-cover"
-          >
-            <img
-              src={slide.imageUrl}
-              alt={slide.title}
-              loading="eager"
-              decoding="async"
-              className="size-full object-cover"
-            />
-          </SlideshowImageWrap>
-        </div>
-      ))}
-    </SlideshowImageContainer>
+<Slideshow className="min-h-svh place-content-center p-6 md:px-12 flex flex-wrap items-center justify-evenly gap-6 md:gap-12">
+  <div className="flex  flex-col space-y-2 md:space-y-4   ">
+    {SLIDES.map((slide, index) => (
+      <SlideshowIndicator
+        key={slide.title}
+        index={index}
+        className="cursor-pointer text-4xl font-bold uppercase tracking-tighter"
+      >
+        {slide.title}
+      </SlideshowIndicator>
+    ))}
   </div>
+  <SlideshowImageContainer>
+    {SLIDES.map((slide, index) => (
+      <div key={slide.id} className="  ">
+        <SlideshowImageWrap
+          index={index}
+          className="size-full max-h-96 object-cover"
+        >
+          <img
+            src={slide.imageUrl}
+            alt={slide.title}
+            loading="eager"
+            decoding="async"
+            className="size-full object-cover"
+          />
+        </SlideshowImageWrap>
+      </div>
+    ))}
+  </SlideshowImageContainer>
 </Slideshow>
 ```
 
