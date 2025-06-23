@@ -2711,7 +2711,7 @@
       "title": "Hero with animated Gallery and staggered reveal text Demo",
       "description": "Demo showing how to use Hero rotated gallery with default style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/section-scroll-rotate"
+        "https://systaliko-ui.vercel.app/r/default-section-scroll-rotate"
       ],
       "files": [
         {
@@ -2727,7 +2727,7 @@
       "title": "Hero with animated Gallery and staggered reveal text Demo",
       "description": "Demo showing how to use Hero rotated gallery with shadcn-default style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/section-scroll-rotate"
+        "https://systaliko-ui.vercel.app/r/default-section-scroll-rotate"
       ],
       "files": [
         {
@@ -2743,7 +2743,7 @@
       "title": "Hero with animated Gallery and staggered reveal text Demo",
       "description": "Demo showing how to use Hero rotated gallery with shadcn-new-york style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/section-scroll-rotate"
+        "https://systaliko-ui.vercel.app/r/default-section-scroll-rotate"
       ],
       "files": [
         {
