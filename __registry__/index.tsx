@@ -8276,10 +8276,10 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/set-stagger-direction',
-      'https://systaliko-ui.vercel.app/r/split-text',
-      'https://systaliko-ui.vercel.app/r/gsap-transitions',
-      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-set-stagger-direction',
+      'https://systaliko-ui.vercel.app/r/default-split-text',
+      'https://systaliko-ui.vercel.app/r/default-gsap-transitions',
+      'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
     ],
     styles: undefined,
     files: [
@@ -8317,10 +8317,10 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/set-stagger-direction',
-      'https://systaliko-ui.vercel.app/r/split-text',
-      'https://systaliko-ui.vercel.app/r/gsap-transitions',
-      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-set-stagger-direction',
+      'https://systaliko-ui.vercel.app/r/default-split-text',
+      'https://systaliko-ui.vercel.app/r/default-gsap-transitions',
+      'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
     ],
     styles: undefined,
     files: [
@@ -8359,10 +8359,10 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/set-stagger-direction',
-      'https://systaliko-ui.vercel.app/r/split-text',
-      'https://systaliko-ui.vercel.app/r/gsap-transitions',
-      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-set-stagger-direction',
+      'https://systaliko-ui.vercel.app/r/default-split-text',
+      'https://systaliko-ui.vercel.app/r/default-gsap-transitions',
+      'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
     ],
     styles: undefined,
     files: [
@@ -8401,8 +8401,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/use-animation-variants',
-      'https://systaliko-ui.vercel.app/r/word-stagger',
+      'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-word-stagger',
     ],
     styles: undefined,
     files: [
@@ -8440,8 +8440,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/use-animation-variants',
-      'https://systaliko-ui.vercel.app/r/word-stagger',
+      'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-word-stagger',
     ],
     styles: undefined,
     files: [
@@ -8480,8 +8480,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/use-animation-variants',
-      'https://systaliko-ui.vercel.app/r/word-stagger',
+      'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-word-stagger',
     ],
     styles: undefined,
     files: [
