@@ -1,23 +1,20 @@
-# registry-template
+# Systaliko UI
 
-You can use the `shadcn` CLI to run your own component registry. Running your own
-component registry allows you to distribute your custom components, hooks, pages, and
-other files to any React project.
+Collection of UI components, blocks, utilities, Designed for flexibility, built for customization, and crafted to scale across variants and use cases.
 
 > [!IMPORTANT]  
-> This template uses Tailwind v3. For Tailwind v4, see [registry-template](https://github.com/shadcn-ui/registry-template-v4).
+> this is the beta version, so it's possible that the components contain **bugs** and that these will be **modified regularly** open (new issue)[https://github.com/YoucefBnm/Systaliko-UI/issues/new].
 
-## Getting Started
-
-This is a template for creating a custom registry using Next.js.
-
-- The template uses a `registry.json` file to define components and their files.
-- The `shadcn build` command is used to build the registry.
-- The registry items are served as static files under `public/r/[name].json`.
-- The template also includes a route handler for serving registry items.
-- Every registry item are compatible with the `shadcn` CLI.
-- We have also added v0 integration using the `Open in v0` api.
+![hero](/public/og-image.png)
 
 ## Documentation
 
-Visit the [shadcn documentation](https://ui.shadcn.com/docs/registry) to view the full documentation.
+Visit the [systaliko documentation](https://systaliko-ui.vercel.app/docs) to view the full documentation.
+
+## Contributing
+
+See the [contributing guide](https://github.com/YoucefBnm/Systaliko-UI/blob/main/CONTRIBUTING.md) to learn how to contribute.
+
+## License
+
+Licensed under the [MIT license](https://github.com/YoucefBnm/Systaliko-UI/blob/main/LICENSE).
