@@ -26,6 +26,42 @@ export const metadata: Metadata = {
     'UI distribution',
     'Open-source components',
   ],
+  authors: [
+    {
+      name: 'Youcef Bnm',
+      url: 'https://github.com/YoucefBnm',
+    },
+  ],
+  publisher: 'Systaliko UI',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://systaliko-ui.vercel.app/',
+    siteName: 'Systaliko UI',
+    images: [
+      {
+        url: 'https://systaliko-ui.vercel.app/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Systaliko UI',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@systaliko_ui',
+    title: 'Systaliko UI',
+    description:
+      'Collection of fully customizable, animated, free UI components built with React, TypeScript, Tailwind CSS, and Motion.',
+    images: [
+      {
+        url: 'https://systaliko-ui.vercel.app/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Systaliko UI',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

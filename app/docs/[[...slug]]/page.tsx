@@ -55,5 +55,34 @@ export async function generateMetadata(props: {
   return {
     title: page.data.title,
     description: page.data.description,
+    openGraph: {
+      title: page.data.title,
+      description: page.data.description,
+      url: 'https://systaliko-ui.vercel.app/',
+      images: [
+        {
+          url: 'https://systaliko-ui.vercel.app/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: 'Systaliko UI',
+        },
+      ],
+      locale: 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@systaliko_ui',
+      title: page.data.title,
+      description: page.data.description,
+      images: [
+        {
+          url: 'https://systaliko-ui.vercel.app/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: 'Systaliko UI',
+        },
+      ],
+    },
   };
 }

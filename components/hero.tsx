@@ -17,19 +17,20 @@ import { Badge } from './ui/badge';
 export const Hero = () => {
   const animationVariants = useAnimationVariants('blur');
 
-  const MotionLink = motion.create(Link);
   return (
     <section className="relative max-w-7xl place-content-center min-h-dvh px-6 py-8 w-full">
       <ContainerStagger className="flex flex-col items-center text-center justify-center space-y-5">
         <MotionConfig transition={{ duration: 0.3, ease: 'easeIn' }}>
-          <MotionLink
+          <motion.a
             variants={animationVariants}
-            href="/docs/heros/hero-gradient"
+            href="https://github.com/YoucefBnm/Systaliko-UI"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <Badge variant={'secondary'} className="rounded-full">
               <StarIcon /> View source code
             </Badge>
-          </MotionLink>
+          </motion.a>
           <motion.h1
             variants={animationVariants}
             className="text-4xl font-semibold tracking-tight max-w-[25ch]"
@@ -51,13 +52,7 @@ export const Hero = () => {
               <ComponentIcon />
             </Button>
             <Button size="sm" variant={'outline'}>
-              <Link
-                href="/https://github.com/YoucefBnm/Systaliko-UI"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Use this component
-              </Link>
+              <Link href="/docs/heros/hero-gradient">Use this component</Link>
               <ArrowUpRightIcon />
             </Button>
           </motion.div>
