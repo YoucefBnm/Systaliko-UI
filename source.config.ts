@@ -12,6 +12,7 @@ export const docs = defineDocs({
       new: z.boolean().optional(),
       updated: z.boolean().optional(),
       deprecated: z.boolean().optional(),
+      soon: z.boolean().optional(),
       url: z.string().optional(),
       author: z
         .object({

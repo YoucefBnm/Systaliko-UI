@@ -5,6 +5,7 @@ import { baseOptions } from '@/app/layout.config';
 import XIcon from '@/components/icons/x-icon';
 import GlobeIcon from '@/components/icons/globe-icon';
 import LinkedinIcon from '@/components/icons/linkedin-icon';
+import TwentyFirstIcon from '@/components/icons/21st-icon';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
@@ -27,6 +28,12 @@ export default function Layout({ children }: { children: ReactNode }) {
           icon: <LinkedinIcon />,
           url: 'https://www.linkedin.com/in/youcef-bnm-692392123/',
           text: 'Linkedin',
+          type: 'icon',
+        },
+        {
+          icon: <TwentyFirstIcon className="size-6" />,
+          url: 'https://21st.dev/YoucefBnm',
+          text: '21st',
           type: 'icon',
         },
       ]}

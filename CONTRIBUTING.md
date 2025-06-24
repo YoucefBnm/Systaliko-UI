@@ -65,7 +65,8 @@ For new components, **Systaliko UI** as a project focuses on:
 
 - Blocks/Sections: components that can be used as a standalone component or as part of a larger UI (Hero, services, features, cta, contact, etc.).
 - UI/components: small components, UI elements that can be part of a block/section (cards, typography, buttons, etc.).
-- The Component/Block must be visually animated and interactive (add gestures, trigger animations: scroll, view, etc.).
+- The Component/Block must be visually appealing and interactive (add gestures, trigger animations: scroll, view, etc.).
+- Elements usecase, ecommerce UI/Blocks like (product-card, cart, checkout), or marketing landings like (hero, Cta, Features, etc.)
 - You can not copy/past components from other libraries, if you create an element inspried (reverse engineered) by other components, include a link/credit to the original author [like this example](https://systaliko-ui.vercel.app/docs/cards/card-curtain-reveal)
 
 ### Add Component to the Registry
@@ -184,6 +185,6 @@ author:
   }}
 />
 ## Ask for Help
+```
 
 If you need any assistance or have questions, please feel free to open a [GitHub issue](https://github.com/YoucefBnm/Systaliko-UI/issues/new).
-```
