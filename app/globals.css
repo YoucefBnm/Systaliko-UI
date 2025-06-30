@@ -172,6 +172,9 @@
   --shadow-2xl: var(--shadow-2xl);
 }
 
+body {
+  letter-spacing: var(--tracking-normal);
+}
 @custom-variant dark (&:is(.dark *));
 
 @layer base {
@@ -200,27 +203,4 @@
       opacity: 0.6;
     }
   }
-}
-
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-
-.lenis:not(.lenis-autoToggle).lenis-stopped {
-  overflow: clip;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-smooth iframe {
-  pointer-events: none;
-}
-
-.lenis.lenis-autoToggle {
-  transition-property: overflow;
-  transition-duration: 1ms;
-  transition-behavior: allow-discrete;
 }

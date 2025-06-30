@@ -1,6 +1,8 @@
 import { RootProvider } from 'fumadocs-ui/provider';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
+
 import './globals.css';
 import { StyleProvider } from '@/providers/style-provider';
 
@@ -77,6 +79,7 @@ export default function RootLayout({
         <StyleProvider>
           <RootProvider>{children}</RootProvider>
         </StyleProvider>
+        <Analytics />
       </body>
     </html>
   );
