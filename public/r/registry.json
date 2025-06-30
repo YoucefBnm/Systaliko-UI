@@ -2547,6 +2547,54 @@
       ]
     },
     {
+      "name": "default-agency-page-demo",
+      "type": "registry:block",
+      "title": "Rating stars Demo",
+      "description": "Demo showing how to combine blocks and components to create your own webpage with default style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/agency-page"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/pages/agency-page/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/agency-page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-agency-page-demo",
+      "type": "registry:block",
+      "title": "Rating stars Demo",
+      "description": "Demo showing how to combine blocks and components to create your own webpage with shadcn-default style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/agency-page"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/pages/agency-page/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/agency-page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-agency-page-demo",
+      "type": "registry:block",
+      "title": "Rating stars Demo",
+      "description": "Demo showing how to combine blocks and components to create your own webpage with shadcn-new-york style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/agency-page"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/pages/agency-page/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/agency-page.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-rating-stars-demo",
       "type": "registry:ui",
       "title": "Rating stars Demo",

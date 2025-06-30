@@ -7,7 +7,7 @@
   "registryDependencies": ["https://systaliko-ui.vercel.app/r/agency-page"],
   "files": [
     {
-      "path": "registry/demo/agency-page/index.tsx",
+      "path": "registry/demo/pages/agency-page/index.tsx",
       "type": "registry:block",
       "target": "components/systaliko-ui/demo/agency-page.tsx"
     }

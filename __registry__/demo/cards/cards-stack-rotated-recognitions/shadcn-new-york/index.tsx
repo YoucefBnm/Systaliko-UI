@@ -1,7 +1,7 @@
 import {
   CardsContainer,
   CardTransformed,
-  ContainerScroll,
+  ContainerScrollRotatedCards,
 } from '@/__registry__/cards/cards-stack-rotated/shadcn-new-york';
 
 export function CardsStackRotatedRecognitionsDemo() {
@@ -14,7 +14,7 @@ export function CardsStackRotatedRecognitionsDemo() {
           consequatur reprehenderit.
         </p>
       </div>
-      <ContainerScroll className="container h-[300vh] ">
+      <ContainerScrollRotatedCards className="container h-[300vh] ">
         <div className="sticky left-0 top-0 h-svh w-full py-12">
           <CardsContainer className="mx-auto size-full h-72 w-[440px]">
             <CardTransformed
@@ -100,7 +100,7 @@ export function CardsStackRotatedRecognitionsDemo() {
             </CardTransformed>
           </CardsContainer>
         </div>
-      </ContainerScroll>
+      </ContainerScrollRotatedCards>
     </section>
   );
 }

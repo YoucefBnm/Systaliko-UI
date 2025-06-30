@@ -12,7 +12,7 @@ interface UseSmoothScrollOptions {
   easing?: (t: number) => number;
 }
 const defaultOptions: UseSmoothScrollOptions = {
-  duration: 1.8,
+  duration: 0.08,
   lerp: 0.1,
   smoothWheel: true,
   touchMultiplier: 2,

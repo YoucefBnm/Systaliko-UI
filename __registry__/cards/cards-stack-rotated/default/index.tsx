@@ -37,7 +37,7 @@ function useContainerScrollContext() {
   return context;
 }
 
-export const ContainerScroll: React.FC<
+export const ContainerScrollRotatedCards: React.FC<
   React.HTMLAttributes<HTMLDivElement>
 > = ({ children, style, className, ...props }) => {
   const scrollRef = React.useRef<HTMLDivElement>(null);
@@ -59,7 +59,7 @@ export const ContainerScroll: React.FC<
     </ContainerScrollContext.Provider>
   );
 };
-ContainerScroll.displayName = 'ContainerScroll';
+ContainerScrollRotatedCards.displayName = 'ContainerScroll';
 
 export const CardsContainer: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   children,

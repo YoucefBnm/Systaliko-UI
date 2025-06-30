@@ -9,7 +9,7 @@ import {
 import {
   CardsContainer,
   CardTransformed,
-  ContainerScroll,
+  ContainerScrollRotatedCards,
 } from '@/registry/cards/cards-stack-rotated';
 import * as React from 'react';
 
@@ -66,7 +66,7 @@ export function CardsStackRotatedDemo() {
           consequatur reprehenderit.
         </p>
       </div>
-      <ContainerScroll className="container h-[300vh] ">
+      <ContainerScrollRotatedCards className="container h-[300vh] ">
         <div className="sticky left-0 top-0 h-svh w-full py-12">
           <CardsContainer className="mx-auto size-full h-[450px] w-[350px]">
             {TESTIMONIALS.map((testimonial, index) => (
@@ -99,7 +99,7 @@ export function CardsStackRotatedDemo() {
             ))}
           </CardsContainer>
         </div>
-      </ContainerScroll>
+      </ContainerScrollRotatedCards>
     </section>
   );
 }
