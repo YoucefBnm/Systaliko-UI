@@ -1,7 +1,8 @@
 ---
 title: Scroll X Carousel
 description: Carousel that transforms on the x-axis, showing items depnding on the scroll position, with a progress indicator (optional).
-url: https://21st.dev/youcefbnm/animated-slideshow/default
+url: https://21st.dev/youcefbnm/scroll-x-carousel/default
+new: true
 ---
 
 <ComponentPreview name="scroll-x-carousel-demo" />
@@ -12,63 +13,61 @@ url: https://21st.dev/youcefbnm/animated-slideshow/default
 
 ## Usage
 
-````tsx
+```tsx
 <ScrollXCarousel className="h-[150vh]">
-      <ScrollXCarouselContainer className="h-dvh place-content-center flex flex-col gap-8 py-12">
-        <ScrollXCarouselWrap className="flex-4/5 flex space-x-8 [&>*:first-child]:ml-8">
-          {SLIDES.map((slide) => (
-            <CardHoverReveal
-              key={slide.id}
-              className="min-w-[70vw] md:min-w-[38vw] shadow-xl border xl:min-w-[30vw] rounded-xl"
-            >
-              <CardHoverRevealMain>
-                <img
-                  alt={slide.title}
-                  src={slide.imageUrl}
-                  className="size-full aspect-square object-cover"
-                />
-              </CardHoverRevealMain>
-              <CardHoverRevealContent className="space-y-4 rounded-2xl bg-[rgba(0,0,0,.5)] backdrop-blur-3xl p-4">
-                <div className="space-y-2">
-                  <h3 className="text-sm text-white/80">Type</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge className="capitalize rounded-full">
-                      {slide.type}
-                    </Badge>
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-sm text-white/80">Services</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {slide.services.map((service) => (
-                      <Badge
-                        key={service}
-                        className="capitalize rounded-full"
-                        variant={'secondary'}
-                      >
-                        {service}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
+  <ScrollXCarouselContainer className="h-dvh place-content-center flex flex-col gap-8 py-12">
+    <ScrollXCarouselWrap className="flex-4/5 flex space-x-8 [&>*:first-child]:ml-8">
+      {SLIDES.map((slide) => (
+        <CardHoverReveal
+          key={slide.id}
+          className="min-w-[70vw] md:min-w-[38vw] shadow-xl border xl:min-w-[30vw] rounded-xl"
+        >
+          <CardHoverRevealMain>
+            <img
+              alt={slide.title}
+              src={slide.imageUrl}
+              className="size-full aspect-square object-cover"
+            />
+          </CardHoverRevealMain>
+          <CardHoverRevealContent className="space-y-4 rounded-2xl bg-[rgba(0,0,0,.5)] backdrop-blur-3xl p-4">
+            <div className="space-y-2">
+              <h3 className="text-sm text-white/80">Type</h3>
+              <div className="flex flex-wrap gap-2">
+                <Badge className="capitalize rounded-full">{slide.type}</Badge>
+              </div>
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-sm text-white/80">Services</h3>
+              <div className="flex flex-wrap gap-2">
+                {slide.services.map((service) => (
+                  <Badge
+                    key={service}
+                    className="capitalize rounded-full"
+                    variant={'secondary'}
+                  >
+                    {service}
+                  </Badge>
+                ))}
+              </div>
+            </div>
 
-                <div className="space-y-2 mt-2">
-                  <h3 className="text-white capitalize font-medium">
-                    {slide.title}
-                  </h3>
-                  <p className="text-white/80 text-sm">{slide.description}</p>
-                </div>
-              </CardHoverRevealContent>
-            </CardHoverReveal>
-          ))}
-        </ScrollXCarouselWrap>
-        <ScrollXCarouselProgress
-          className="bg-secondary mx-8 h-1 rounded-full overflow-hidden"
-          progressStyle="size-full bg-primary/70 rounded-full"
-        />
-      </ScrollXCarouselContainer>
-    </ScrollXCarousel>
-  ```
+            <div className="space-y-2 mt-2">
+              <h3 className="text-white capitalize font-medium">
+                {slide.title}
+              </h3>
+              <p className="text-white/80 text-sm">{slide.description}</p>
+            </div>
+          </CardHoverRevealContent>
+        </CardHoverReveal>
+      ))}
+    </ScrollXCarouselWrap>
+    <ScrollXCarouselProgress
+      className="bg-secondary mx-8 h-1 rounded-full overflow-hidden"
+      progressStyle="size-full bg-primary/70 rounded-full"
+    />
+  </ScrollXCarouselContainer>
+</ScrollXCarousel>
+```
 
 ## Props
 
@@ -98,4 +97,3 @@ url: https://21st.dev/youcefbnm/animated-slideshow/default
     },
   }}
 />
-````
