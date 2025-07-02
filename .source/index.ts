@@ -1,32 +1,33 @@
 // @ts-nocheck -- skip type checking
-import * as docs_30 from '../content/docs/utils/use-animation-variants.mdx?collection=docs&hash=1750781212473';
-import * as docs_29 from '../content/docs/utils/set-stagger-direction.mdx?collection=docs&hash=1750781212473';
-import * as docs_28 from '../content/docs/text/text-vertical.mdx?collection=docs&hash=1750781212473';
-import * as docs_27 from '../content/docs/text/text-stagger-inview.mdx?collection=docs&hash=1750781212473';
-import * as docs_26 from '../content/docs/text/text-stagger-hover.mdx?collection=docs&hash=1750781212473';
-import * as docs_25 from '../content/docs/heros/hero-gradient.mdx?collection=docs&hash=1750781212473';
-import * as docs_24 from '../content/docs/containers/grid-staggered.mdx?collection=docs&hash=1750781212473';
-import * as docs_23 from '../content/docs/containers/grid-bento.mdx?collection=docs&hash=1750781212473';
-import * as docs_22 from '../content/docs/containers/gallery-rotated-scroll.mdx?collection=docs&hash=1750781212473';
-import * as docs_21 from '../content/docs/containers/containers-scroll-animations.mdx?collection=docs&hash=1750781212473';
-import * as docs_20 from '../content/docs/containers/container-stagger.mdx?collection=docs&hash=1750781212473';
-import * as docs_19 from '../content/docs/containers/container-infinite-scroll.mdx?collection=docs&hash=1750781212473';
-import * as docs_18 from '../content/docs/components/rating-stars.mdx?collection=docs&hash=1750781212473';
-import * as docs_17 from '../content/docs/components/custom-cursor.mdx?collection=docs&hash=1750781212473';
-import * as docs_16 from '../content/docs/cards/card-testimonial.mdx?collection=docs&hash=1750781212473';
-import * as docs_15 from '../content/docs/cards/card-hover-reveal.mdx?collection=docs&hash=1750781212473';
-import * as docs_14 from '../content/docs/cards/card-flip.mdx?collection=docs&hash=1750781212473';
-import * as docs_13 from '../content/docs/cards/card-curtain-reveal.mdx?collection=docs&hash=1750781212473';
-import * as docs_12 from '../content/docs/blocks/story.mdx?collection=docs&hash=1750781212473';
-import * as docs_11 from '../content/docs/blocks/slideshow.mdx?collection=docs&hash=1750781212473';
-import * as docs_10 from '../content/docs/blocks/section-rotated-gallery.mdx?collection=docs&hash=1750781212473';
-import * as docs_9 from '../content/docs/blocks/section-gallery.mdx?collection=docs&hash=1750781212473';
-import * as docs_8 from '../content/docs/blocks/section-gallery-scroll-animation.mdx?collection=docs&hash=1750781212473';
-import * as docs_7 from '../content/docs/blocks/container-clipped.mdx?collection=docs&hash=1750781212473';
-import * as docs_6 from '../content/docs/blocks/cards-stack.mdx?collection=docs&hash=1750781212473';
-import * as docs_5 from '../content/docs/blocks/cards-stack-rotated.mdx?collection=docs&hash=1750781212473';
-import * as docs_4 from '../content/docs/background/clipped-shape.mdx?collection=docs&hash=1750781212473';
-import * as docs_3 from '../content/docs/background/background-gradient.mdx?collection=docs&hash=1750781212473';
+import * as docs_31 from '../content/docs/utils/use-animation-variants.mdx?collection=docs&hash=1750781212473';
+import * as docs_30 from '../content/docs/utils/set-stagger-direction.mdx?collection=docs&hash=1750781212473';
+import * as docs_29 from '../content/docs/text/text-vertical.mdx?collection=docs&hash=1750781212473';
+import * as docs_28 from '../content/docs/text/text-stagger-inview.mdx?collection=docs&hash=1750781212473';
+import * as docs_27 from '../content/docs/text/text-stagger-hover.mdx?collection=docs&hash=1750781212473';
+import * as docs_26 from '../content/docs/heros/hero-gradient.mdx?collection=docs&hash=1750781212473';
+import * as docs_25 from '../content/docs/containers/grid-staggered.mdx?collection=docs&hash=1750781212473';
+import * as docs_24 from '../content/docs/containers/grid-bento.mdx?collection=docs&hash=1750781212473';
+import * as docs_23 from '../content/docs/containers/gallery-rotated-scroll.mdx?collection=docs&hash=1750781212473';
+import * as docs_22 from '../content/docs/containers/containers-scroll-animations.mdx?collection=docs&hash=1750781212473';
+import * as docs_21 from '../content/docs/containers/container-stagger.mdx?collection=docs&hash=1750781212473';
+import * as docs_20 from '../content/docs/containers/container-infinite-scroll.mdx?collection=docs&hash=1750781212473';
+import * as docs_19 from '../content/docs/components/rating-stars.mdx?collection=docs&hash=1750781212473';
+import * as docs_18 from '../content/docs/components/custom-cursor.mdx?collection=docs&hash=1750781212473';
+import * as docs_17 from '../content/docs/cards/card-testimonial.mdx?collection=docs&hash=1750781212473';
+import * as docs_16 from '../content/docs/cards/card-hover-reveal.mdx?collection=docs&hash=1750781212473';
+import * as docs_15 from '../content/docs/cards/card-flip.mdx?collection=docs&hash=1750781212473';
+import * as docs_14 from '../content/docs/cards/card-curtain-reveal.mdx?collection=docs&hash=1750781212473';
+import * as docs_13 from '../content/docs/background/clipped-shape.mdx?collection=docs&hash=1750781212473';
+import * as docs_12 from '../content/docs/background/background-gradient.mdx?collection=docs&hash=1750781212473';
+import * as docs_11 from '../content/docs/blocks/story.mdx?collection=docs&hash=1750781212473';
+import * as docs_10 from '../content/docs/blocks/slideshow.mdx?collection=docs&hash=1750781212473';
+import * as docs_9 from '../content/docs/blocks/section-rotated-gallery.mdx?collection=docs&hash=1750781212473';
+import * as docs_8 from '../content/docs/blocks/section-gallery.mdx?collection=docs&hash=1750781212473';
+import * as docs_7 from '../content/docs/blocks/section-gallery-scroll-animation.mdx?collection=docs&hash=1750781212473';
+import * as docs_6 from '../content/docs/blocks/scroll-x-carousel.mdx?collection=docs&hash=1750781212473';
+import * as docs_5 from '../content/docs/blocks/container-clipped.mdx?collection=docs&hash=1750781212473';
+import * as docs_4 from '../content/docs/blocks/cards-stack.mdx?collection=docs&hash=1750781212473';
+import * as docs_3 from '../content/docs/blocks/cards-stack-rotated.mdx?collection=docs&hash=1750781212473';
 import * as docs_2 from '../content/docs/pages.mdx?collection=docs&hash=1750781212473';
 import * as docs_1 from '../content/docs/mcp.mdx?collection=docs&hash=1750781212473';
 import * as docs_0 from '../content/docs/index.mdx?collection=docs&hash=1750781212473';
@@ -59,27 +60,11 @@ export const docs = _runtime.docs<typeof _source.docs>(
     },
     {
       info: {
-        path: 'background/background-gradient.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/background/background-gradient.mdx',
-      },
-      data: docs_3,
-    },
-    {
-      info: {
-        path: 'background/clipped-shape.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/background/clipped-shape.mdx',
-      },
-      data: docs_4,
-    },
-    {
-      info: {
         path: 'blocks/cards-stack-rotated.mdx',
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/cards-stack-rotated.mdx',
       },
-      data: docs_5,
+      data: docs_3,
     },
     {
       info: {
@@ -87,7 +72,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/cards-stack.mdx',
       },
-      data: docs_6,
+      data: docs_4,
     },
     {
       info: {
@@ -95,7 +80,15 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/container-clipped.mdx',
       },
-      data: docs_7,
+      data: docs_5,
+    },
+    {
+      info: {
+        path: 'blocks/scroll-x-carousel.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/scroll-x-carousel.mdx',
+      },
+      data: docs_6,
     },
     {
       info: {
@@ -103,7 +96,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/section-gallery-scroll-animation.mdx',
       },
-      data: docs_8,
+      data: docs_7,
     },
     {
       info: {
@@ -111,7 +104,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/section-gallery.mdx',
       },
-      data: docs_9,
+      data: docs_8,
     },
     {
       info: {
@@ -119,7 +112,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/section-rotated-gallery.mdx',
       },
-      data: docs_10,
+      data: docs_9,
     },
     {
       info: {
@@ -127,7 +120,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/slideshow.mdx',
       },
-      data: docs_11,
+      data: docs_10,
     },
     {
       info: {
@@ -135,7 +128,23 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/story.mdx',
       },
+      data: docs_11,
+    },
+    {
+      info: {
+        path: 'background/background-gradient.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/background/background-gradient.mdx',
+      },
       data: docs_12,
+    },
+    {
+      info: {
+        path: 'background/clipped-shape.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/background/clipped-shape.mdx',
+      },
+      data: docs_13,
     },
     {
       info: {
@@ -143,7 +152,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/cards/card-curtain-reveal.mdx',
       },
-      data: docs_13,
+      data: docs_14,
     },
     {
       info: {
@@ -151,7 +160,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/cards/card-flip.mdx',
       },
-      data: docs_14,
+      data: docs_15,
     },
     {
       info: {
@@ -159,7 +168,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/cards/card-hover-reveal.mdx',
       },
-      data: docs_15,
+      data: docs_16,
     },
     {
       info: {
@@ -167,7 +176,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/cards/card-testimonial.mdx',
       },
-      data: docs_16,
+      data: docs_17,
     },
     {
       info: {
@@ -175,7 +184,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/components/custom-cursor.mdx',
       },
-      data: docs_17,
+      data: docs_18,
     },
     {
       info: {
@@ -183,7 +192,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/components/rating-stars.mdx',
       },
-      data: docs_18,
+      data: docs_19,
     },
     {
       info: {
@@ -191,7 +200,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/containers/container-infinite-scroll.mdx',
       },
-      data: docs_19,
+      data: docs_20,
     },
     {
       info: {
@@ -199,7 +208,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/containers/container-stagger.mdx',
       },
-      data: docs_20,
+      data: docs_21,
     },
     {
       info: {
@@ -207,7 +216,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/containers/containers-scroll-animations.mdx',
       },
-      data: docs_21,
+      data: docs_22,
     },
     {
       info: {
@@ -215,7 +224,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/containers/gallery-rotated-scroll.mdx',
       },
-      data: docs_22,
+      data: docs_23,
     },
     {
       info: {
@@ -223,7 +232,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/containers/grid-bento.mdx',
       },
-      data: docs_23,
+      data: docs_24,
     },
     {
       info: {
@@ -231,7 +240,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/containers/grid-staggered.mdx',
       },
-      data: docs_24,
+      data: docs_25,
     },
     {
       info: {
@@ -239,7 +248,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/heros/hero-gradient.mdx',
       },
-      data: docs_25,
+      data: docs_26,
     },
     {
       info: {
@@ -247,7 +256,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/text/text-stagger-hover.mdx',
       },
-      data: docs_26,
+      data: docs_27,
     },
     {
       info: {
@@ -255,7 +264,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/text/text-stagger-inview.mdx',
       },
-      data: docs_27,
+      data: docs_28,
     },
     {
       info: {
@@ -263,7 +272,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/text/text-vertical.mdx',
       },
-      data: docs_28,
+      data: docs_29,
     },
     {
       info: {
@@ -271,7 +280,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/utils/set-stagger-direction.mdx',
       },
-      data: docs_29,
+      data: docs_30,
     },
     {
       info: {
@@ -279,7 +288,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/utils/use-animation-variants.mdx',
       },
-      data: docs_30,
+      data: docs_31,
     },
   ],
   [

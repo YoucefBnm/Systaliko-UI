@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-x-carousel-demo",
+  "type": "registry:ui",
+  "title": "scroll x carousel Demo",
+  "description": "Demo showing how to use scroll x carousel component.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/scroll-x-carousel"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/scroll-x-carousel/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/scroll-x-carousel.tsx"
+    }
+  ]
+}

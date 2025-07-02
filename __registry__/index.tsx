@@ -6224,6 +6224,122 @@ export const index: Record<string, any> = {
     command:
       'https://systaliko-ui.vercel.app/r/shadcn-new-york-rating-stars-demo',
   },
+  'default-scroll-x-carousel-demo': {
+    name: 'default-scroll-x-carousel-demo',
+    description:
+      'Demo showing how to use scroll x carousel component with default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-x-carousel',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/scroll-x-carousel/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/scroll-x-carousel.tsx',
+        content:
+          "import { Badge } from '@/components/systaliko-ui/badge';\nimport {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from '@/components/systaliko-ui/cards/card-hover-reveal';\nimport {\n  ScrollXCarousel,\n  ScrollXCarouselContainer,\n  ScrollXCarouselProgress,\n  ScrollXCarouselWrap,\n} from '@/components/systaliko-ui/scroll-x-carousel';\n\nconst SLIDES = [\n  {\n    id: 'slide-6',\n    title: 'UI UX design',\n    description:\n      'We build a car rental platform for the masses, with a focus on user experience and security, and data privacy.',\n    services: ['branding', 'design'],\n    type: 'Agency',\n    imageUrl:\n      'https://images.unsplash.com/photo-1688733720228-4f7a18681c4f?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-2',\n    title: 'Blockchain wallet',\n    description:\n      'We build a Blockchain wallet for the masses, with a focus on security and usability.',\n    services: ['branding', 'design', 'development'],\n    type: 'blockchain',\n    imageUrl:\n      'https://images.unsplash.com/photo-1624996752380-8ec242e0f85d?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-3',\n    title: 'ecommerce store',\n    description:\n      'We build an ecommerce store for the masses, with a focus on performance and user experience.',\n    services: ['branding', 'design', 'payment getaway', 'development'],\n    type: 'ecommerce',\n    imageUrl:\n      'https://images.unsplash.com/photo-1574717025058-2f8737d2e2b7?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-1',\n    title: 'SaaS platform',\n    description:\n      'We build a SaaS platform for the masses, with a focus on user experience and security, and data privacy.',\n    services: ['branding', 'design', 'development'],\n    type: 'SaaS',\n    imageUrl:\n      'https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?q=80&w=2486&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-4',\n    title: 'SEO Optimization',\n    description:\n      'We build a SaaS platform for the masses, with a focus on user experience and security, and data privacy.',\n    services: ['branding', 'design', 'development'],\n    type: 'SaaS',\n    imageUrl:\n      'https://images.unsplash.com/photo-1726066012698-bb7a3abce786?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n];\n\nexport function ScrollXCarouselDemo() {\n  return (\n    <ScrollXCarousel className=\"h-[150vh]\">\n      <ScrollXCarouselContainer className=\"h-dvh place-content-center flex flex-col gap-8 py-12\">\n        <ScrollXCarouselWrap className=\"flex-4/5 flex space-x-8 [&>*:first-child]:ml-8\">\n          {SLIDES.map((slide) => (\n            <CardHoverReveal\n              key={slide.id}\n              className=\"min-w-[70vw] md:min-w-[38vw] shadow-xl border xl:min-w-[30vw] rounded-xl\"\n            >\n              <CardHoverRevealMain>\n                <img\n                  alt={slide.title}\n                  src={slide.imageUrl}\n                  className=\"size-full aspect-square object-cover\"\n                />\n              </CardHoverRevealMain>\n              <CardHoverRevealContent className=\"space-y-4 rounded-2xl bg-[rgba(0,0,0,.5)] backdrop-blur-3xl p-4\">\n                <div className=\"space-y-2\">\n                  <h3 className=\"text-sm text-white/80\">Type</h3>\n                  <div className=\"flex flex-wrap gap-2\">\n                    <Badge className=\"capitalize rounded-full\">\n                      {slide.type}\n                    </Badge>\n                  </div>\n                </div>\n                <div className=\"space-y-2\">\n                  <h3 className=\"text-sm text-white/80\">Services</h3>\n                  <div className=\"flex flex-wrap gap-2\">\n                    {slide.services.map((service) => (\n                      <Badge\n                        key={service}\n                        className=\"capitalize rounded-full\"\n                        variant={'secondary'}\n                      >\n                        {service}\n                      </Badge>\n                    ))}\n                  </div>\n                </div>\n\n                <div className=\"space-y-2 mt-2\">\n                  <h3 className=\"text-white capitalize font-medium\">\n                    {slide.title}\n                  </h3>\n                  <p className=\"text-white/80 text-sm\">{slide.description}</p>\n                </div>\n              </CardHoverRevealContent>\n            </CardHoverReveal>\n          ))}\n        </ScrollXCarouselWrap>\n        <ScrollXCarouselProgress\n          className=\"bg-secondary mx-8 h-1 rounded-full overflow-hidden\"\n          progressStyle=\"size-full bg-primary/70 rounded-full\"\n        />\n      </ScrollXCarouselContainer>\n    </ScrollXCarousel>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/scroll-x-carousel/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-scroll-x-carousel-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/default-scroll-x-carousel-demo',
+  },
+  'shadcn-default-scroll-x-carousel-demo': {
+    name: 'shadcn-default-scroll-x-carousel-demo',
+    description:
+      'Demo showing how to use scroll x carousel component with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-x-carousel',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/scroll-x-carousel/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/scroll-x-carousel.tsx',
+        content:
+          "import { Badge } from '@/components/systaliko-ui/badge';\nimport {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from '@/components/systaliko-ui/cards/card-hover-reveal';\nimport {\n  ScrollXCarousel,\n  ScrollXCarouselContainer,\n  ScrollXCarouselProgress,\n  ScrollXCarouselWrap,\n} from '@/components/systaliko-ui/scroll-x-carousel';\n\nconst SLIDES = [\n  {\n    id: 'slide-6',\n    title: 'UI UX design',\n    description:\n      'We build a car rental platform for the masses, with a focus on user experience and security, and data privacy.',\n    services: ['branding', 'design'],\n    type: 'Agency',\n    imageUrl:\n      'https://images.unsplash.com/photo-1688733720228-4f7a18681c4f?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-2',\n    title: 'Blockchain wallet',\n    description:\n      'We build a Blockchain wallet for the masses, with a focus on security and usability.',\n    services: ['branding', 'design', 'development'],\n    type: 'blockchain',\n    imageUrl:\n      'https://images.unsplash.com/photo-1624996752380-8ec242e0f85d?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-3',\n    title: 'ecommerce store',\n    description:\n      'We build an ecommerce store for the masses, with a focus on performance and user experience.',\n    services: ['branding', 'design', 'payment getaway', 'development'],\n    type: 'ecommerce',\n    imageUrl:\n      'https://images.unsplash.com/photo-1574717025058-2f8737d2e2b7?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-1',\n    title: 'SaaS platform',\n    description:\n      'We build a SaaS platform for the masses, with a focus on user experience and security, and data privacy.',\n    services: ['branding', 'design', 'development'],\n    type: 'SaaS',\n    imageUrl:\n      'https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?q=80&w=2486&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-4',\n    title: 'SEO Optimization',\n    description:\n      'We build a SaaS platform for the masses, with a focus on user experience and security, and data privacy.',\n    services: ['branding', 'design', 'development'],\n    type: 'SaaS',\n    imageUrl:\n      'https://images.unsplash.com/photo-1726066012698-bb7a3abce786?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n];\n\nexport function ScrollXCarouselDemo() {\n  return (\n    <ScrollXCarousel className=\"h-[150vh]\">\n      <ScrollXCarouselContainer className=\"h-dvh place-content-center flex flex-col gap-8 py-12\">\n        <ScrollXCarouselWrap className=\"flex-4/5 flex space-x-8 [&>*:first-child]:ml-8\">\n          {SLIDES.map((slide) => (\n            <CardHoverReveal\n              key={slide.id}\n              className=\"min-w-[70vw] md:min-w-[38vw] shadow-xl border xl:min-w-[30vw] rounded-xl\"\n            >\n              <CardHoverRevealMain>\n                <img\n                  alt={slide.title}\n                  src={slide.imageUrl}\n                  className=\"size-full aspect-square object-cover\"\n                />\n              </CardHoverRevealMain>\n              <CardHoverRevealContent className=\"space-y-4 rounded-2xl bg-[rgba(0,0,0,.5)] backdrop-blur-3xl p-4\">\n                <div className=\"space-y-2\">\n                  <h3 className=\"text-sm text-white/80\">Type</h3>\n                  <div className=\"flex flex-wrap gap-2\">\n                    <Badge className=\"capitalize rounded-full\">\n                      {slide.type}\n                    </Badge>\n                  </div>\n                </div>\n                <div className=\"space-y-2\">\n                  <h3 className=\"text-sm text-white/80\">Services</h3>\n                  <div className=\"flex flex-wrap gap-2\">\n                    {slide.services.map((service) => (\n                      <Badge\n                        key={service}\n                        className=\"capitalize rounded-full\"\n                        variant={'secondary'}\n                      >\n                        {service}\n                      </Badge>\n                    ))}\n                  </div>\n                </div>\n\n                <div className=\"space-y-2 mt-2\">\n                  <h3 className=\"text-white capitalize font-medium\">\n                    {slide.title}\n                  </h3>\n                  <p className=\"text-white/80 text-sm\">{slide.description}</p>\n                </div>\n              </CardHoverRevealContent>\n            </CardHoverReveal>\n          ))}\n        </ScrollXCarouselWrap>\n        <ScrollXCarouselProgress\n          className=\"bg-secondary mx-8 h-1 rounded-full overflow-hidden\"\n          progressStyle=\"size-full bg-primary/70 rounded-full\"\n        />\n      </ScrollXCarouselContainer>\n    </ScrollXCarousel>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/scroll-x-carousel/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-scroll-x-carousel-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-scroll-x-carousel-demo',
+  },
+  'shadcn-new-york-scroll-x-carousel-demo': {
+    name: 'shadcn-new-york-scroll-x-carousel-demo',
+    description:
+      'Demo showing how to use scroll x carousel component with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-x-carousel',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/scroll-x-carousel/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/scroll-x-carousel.tsx',
+        content:
+          "import { Badge } from '@/components/systaliko-ui/badge';\nimport {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from '@/components/systaliko-ui/cards/card-hover-reveal';\nimport {\n  ScrollXCarousel,\n  ScrollXCarouselContainer,\n  ScrollXCarouselProgress,\n  ScrollXCarouselWrap,\n} from '@/components/systaliko-ui/scroll-x-carousel';\n\nconst SLIDES = [\n  {\n    id: 'slide-6',\n    title: 'UI UX design',\n    description:\n      'We build a car rental platform for the masses, with a focus on user experience and security, and data privacy.',\n    services: ['branding', 'design'],\n    type: 'Agency',\n    imageUrl:\n      'https://images.unsplash.com/photo-1688733720228-4f7a18681c4f?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-2',\n    title: 'Blockchain wallet',\n    description:\n      'We build a Blockchain wallet for the masses, with a focus on security and usability.',\n    services: ['branding', 'design', 'development'],\n    type: 'blockchain',\n    imageUrl:\n      'https://images.unsplash.com/photo-1624996752380-8ec242e0f85d?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-3',\n    title: 'ecommerce store',\n    description:\n      'We build an ecommerce store for the masses, with a focus on performance and user experience.',\n    services: ['branding', 'design', 'payment getaway', 'development'],\n    type: 'ecommerce',\n    imageUrl:\n      'https://images.unsplash.com/photo-1574717025058-2f8737d2e2b7?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-1',\n    title: 'SaaS platform',\n    description:\n      'We build a SaaS platform for the masses, with a focus on user experience and security, and data privacy.',\n    services: ['branding', 'design', 'development'],\n    type: 'SaaS',\n    imageUrl:\n      'https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?q=80&w=2486&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-4',\n    title: 'SEO Optimization',\n    description:\n      'We build a SaaS platform for the masses, with a focus on user experience and security, and data privacy.',\n    services: ['branding', 'design', 'development'],\n    type: 'SaaS',\n    imageUrl:\n      'https://images.unsplash.com/photo-1726066012698-bb7a3abce786?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n];\n\nexport function ScrollXCarouselDemo() {\n  return (\n    <ScrollXCarousel className=\"h-[150vh]\">\n      <ScrollXCarouselContainer className=\"h-dvh place-content-center flex flex-col gap-8 py-12\">\n        <ScrollXCarouselWrap className=\"flex-4/5 flex space-x-8 [&>*:first-child]:ml-8\">\n          {SLIDES.map((slide) => (\n            <CardHoverReveal\n              key={slide.id}\n              className=\"min-w-[70vw] md:min-w-[38vw] shadow-xl border xl:min-w-[30vw] rounded-xl\"\n            >\n              <CardHoverRevealMain>\n                <img\n                  alt={slide.title}\n                  src={slide.imageUrl}\n                  className=\"size-full aspect-square object-cover\"\n                />\n              </CardHoverRevealMain>\n              <CardHoverRevealContent className=\"space-y-4 rounded-2xl bg-[rgba(0,0,0,.5)] backdrop-blur-3xl p-4\">\n                <div className=\"space-y-2\">\n                  <h3 className=\"text-sm text-white/80\">Type</h3>\n                  <div className=\"flex flex-wrap gap-2\">\n                    <Badge className=\"capitalize rounded-full\">\n                      {slide.type}\n                    </Badge>\n                  </div>\n                </div>\n                <div className=\"space-y-2\">\n                  <h3 className=\"text-sm text-white/80\">Services</h3>\n                  <div className=\"flex flex-wrap gap-2\">\n                    {slide.services.map((service) => (\n                      <Badge\n                        key={service}\n                        className=\"capitalize rounded-full\"\n                        variant={'secondary'}\n                      >\n                        {service}\n                      </Badge>\n                    ))}\n                  </div>\n                </div>\n\n                <div className=\"space-y-2 mt-2\">\n                  <h3 className=\"text-white capitalize font-medium\">\n                    {slide.title}\n                  </h3>\n                  <p className=\"text-white/80 text-sm\">{slide.description}</p>\n                </div>\n              </CardHoverRevealContent>\n            </CardHoverReveal>\n          ))}\n        </ScrollXCarouselWrap>\n        <ScrollXCarouselProgress\n          className=\"bg-secondary mx-8 h-1 rounded-full overflow-hidden\"\n          progressStyle=\"size-full bg-primary/70 rounded-full\"\n        />\n      </ScrollXCarouselContainer>\n    </ScrollXCarousel>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/scroll-x-carousel/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-scroll-x-carousel-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-scroll-x-carousel-demo',
+  },
   'default-section-gallery-demo': {
     name: 'default-section-gallery-demo',
     description: 'Demo showing Gallery Section with default style.',
@@ -7700,6 +7816,116 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-rating-stars',
+  },
+  'default-scroll-x-carousel': {
+    name: 'default-scroll-x-carousel',
+    description:
+      'Scroll carousel on x axis, with optional progress indicator with default style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/scroll-x-carousel/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/scroll-x-carousel.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useScroll,\n  useTransform,\n} from 'motion/react';\n\ninterface ScrollXCarouselContextValue {\n  scrollYProgress: MotionValue<number>;\n}\n\nconst ScrollXCarouselContext =\n  React.createContext<ScrollXCarouselContextValue | null>(null);\nfunction useScrollXCarousel() {\n  const context = React.useContext(ScrollXCarouselContext);\n  if (!context) {\n    throw new Error('useScrollXCarousel must be used within a ScrollXCarousel');\n  }\n  return context;\n}\nexport function ScrollXCarousel({\n  children,\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  const carouselRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: carouselRef,\n  });\n  return (\n    <ScrollXCarouselContext.Provider value={{ scrollYProgress }}>\n      <div\n        ref={carouselRef}\n        className={cn('relative w-screen max-w-full', className)}\n        {...props}\n      >\n        {children}\n      </div>\n    </ScrollXCarouselContext.Provider>\n  );\n}\n\nexport function ScrollXCarouselContainer({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn('sticky overflow-hidden w-full top-0 left-0', className)}\n      {...props}\n    />\n  );\n}\nexport function ScrollXCarouselWrap({\n  className,\n  style,\n  xRagnge = ['-0%', '-80%'],\n  ...props\n}: HTMLMotionProps<'div'> & { xRagnge?: unknown[] }) {\n  const { scrollYProgress } = useScrollXCarousel();\n  const x = useTransform(scrollYProgress, [0, 1], xRagnge);\n\n  return (\n    <motion.div\n      className={cn('w-fit', className)}\n      style={{ x, ...style }}\n      {...props}\n    />\n  );\n}\nexport function ScrollXCarouselProgress({\n  className,\n  style,\n  progressStyle,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { progressStyle?: string }) {\n  const { scrollYProgress } = useScrollXCarousel();\n  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);\n  return (\n    <div className={cn('max-w-screen overflow-hidden', className)} {...props}>\n      <motion.div\n        className={cn('origin-left', progressStyle)}\n        style={{ scaleX, ...style }}\n      />\n    </div>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/scroll-x-carousel/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-scroll-x-carousel';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/default-scroll-x-carousel',
+  },
+  'shadcn-default-scroll-x-carousel': {
+    name: 'shadcn-default-scroll-x-carousel',
+    description:
+      'Scroll carousel on x axis, with optional progress indicator with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/scroll-x-carousel/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/scroll-x-carousel.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useScroll,\n  useTransform,\n} from 'motion/react';\n\ninterface ScrollXCarouselContextValue {\n  scrollYProgress: MotionValue<number>;\n}\n\nconst ScrollXCarouselContext =\n  React.createContext<ScrollXCarouselContextValue | null>(null);\nfunction useScrollXCarousel() {\n  const context = React.useContext(ScrollXCarouselContext);\n  if (!context) {\n    throw new Error('useScrollXCarousel must be used within a ScrollXCarousel');\n  }\n  return context;\n}\nexport function ScrollXCarousel({\n  children,\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  const carouselRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: carouselRef,\n  });\n  return (\n    <ScrollXCarouselContext.Provider value={{ scrollYProgress }}>\n      <div\n        ref={carouselRef}\n        className={cn('relative w-screen max-w-full', className)}\n        {...props}\n      >\n        {children}\n      </div>\n    </ScrollXCarouselContext.Provider>\n  );\n}\n\nexport function ScrollXCarouselContainer({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn('sticky overflow-hidden w-full top-0 left-0', className)}\n      {...props}\n    />\n  );\n}\nexport function ScrollXCarouselWrap({\n  className,\n  style,\n  xRagnge = ['-0%', '-80%'],\n  ...props\n}: HTMLMotionProps<'div'> & { xRagnge?: unknown[] }) {\n  const { scrollYProgress } = useScrollXCarousel();\n  const x = useTransform(scrollYProgress, [0, 1], xRagnge);\n\n  return (\n    <motion.div\n      className={cn('w-fit', className)}\n      style={{ x, ...style }}\n      {...props}\n    />\n  );\n}\nexport function ScrollXCarouselProgress({\n  className,\n  style,\n  progressStyle,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { progressStyle?: string }) {\n  const { scrollYProgress } = useScrollXCarousel();\n  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);\n  return (\n    <div className={cn('max-w-screen overflow-hidden', className)} {...props}>\n      <motion.div\n        className={cn('origin-left', progressStyle)}\n        style={{ scaleX, ...style }}\n      />\n    </div>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/scroll-x-carousel/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-scroll-x-carousel';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-scroll-x-carousel',
+  },
+  'shadcn-new-york-scroll-x-carousel': {
+    name: 'shadcn-new-york-scroll-x-carousel',
+    description:
+      'Scroll carousel on x axis, with optional progress indicator with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/scroll-x-carousel/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/scroll-x-carousel.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useScroll,\n  useTransform,\n} from 'motion/react';\n\ninterface ScrollXCarouselContextValue {\n  scrollYProgress: MotionValue<number>;\n}\n\nconst ScrollXCarouselContext =\n  React.createContext<ScrollXCarouselContextValue | null>(null);\nfunction useScrollXCarousel() {\n  const context = React.useContext(ScrollXCarouselContext);\n  if (!context) {\n    throw new Error('useScrollXCarousel must be used within a ScrollXCarousel');\n  }\n  return context;\n}\nexport function ScrollXCarousel({\n  children,\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  const carouselRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: carouselRef,\n  });\n  return (\n    <ScrollXCarouselContext.Provider value={{ scrollYProgress }}>\n      <div\n        ref={carouselRef}\n        className={cn('relative w-screen max-w-full', className)}\n        {...props}\n      >\n        {children}\n      </div>\n    </ScrollXCarouselContext.Provider>\n  );\n}\n\nexport function ScrollXCarouselContainer({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn('sticky overflow-hidden w-full top-0 left-0', className)}\n      {...props}\n    />\n  );\n}\nexport function ScrollXCarouselWrap({\n  className,\n  style,\n  xRagnge = ['-0%', '-80%'],\n  ...props\n}: HTMLMotionProps<'div'> & { xRagnge?: unknown[] }) {\n  const { scrollYProgress } = useScrollXCarousel();\n  const x = useTransform(scrollYProgress, [0, 1], xRagnge);\n\n  return (\n    <motion.div\n      className={cn('w-fit', className)}\n      style={{ x, ...style }}\n      {...props}\n    />\n  );\n}\nexport function ScrollXCarouselProgress({\n  className,\n  style,\n  progressStyle,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { progressStyle?: string }) {\n  const { scrollYProgress } = useScrollXCarousel();\n  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);\n  return (\n    <div className={cn('max-w-screen overflow-hidden', className)} {...props}>\n      <motion.div\n        className={cn('origin-left', progressStyle)}\n        style={{ scaleX, ...style }}\n      />\n    </div>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/scroll-x-carousel/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-scroll-x-carousel';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-scroll-x-carousel',
   },
   'default-section-gallery': {
     name: 'default-section-gallery',

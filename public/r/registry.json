@@ -2643,6 +2643,54 @@
       ]
     },
     {
+      "name": "default-scroll-x-carousel-demo",
+      "type": "registry:ui",
+      "title": "scroll x carousel Demo",
+      "description": "Demo showing how to use scroll x carousel component with default style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/scroll-x-carousel"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/scroll-x-carousel/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/scroll-x-carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-scroll-x-carousel-demo",
+      "type": "registry:ui",
+      "title": "scroll x carousel Demo",
+      "description": "Demo showing how to use scroll x carousel component with shadcn-default style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/scroll-x-carousel"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/scroll-x-carousel/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/scroll-x-carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-scroll-x-carousel-demo",
+      "type": "registry:ui",
+      "title": "scroll x carousel Demo",
+      "description": "Demo showing how to use scroll x carousel component with shadcn-new-york style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/scroll-x-carousel"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/scroll-x-carousel/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/scroll-x-carousel.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-section-gallery-demo",
       "type": "registry:block",
       "title": "Gallery Section Demo",
@@ -3260,6 +3308,54 @@
           "path": "__registry__/rating-stars/shadcn-new-york/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/rating-stars.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-scroll-x-carousel",
+      "type": "registry:block",
+      "title": "Scroll X Carousel",
+      "description": "Scroll carousel on x axis, with optional progress indicator with default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/scroll-x-carousel/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/scroll-x-carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-scroll-x-carousel",
+      "type": "registry:block",
+      "title": "Scroll X Carousel",
+      "description": "Scroll carousel on x axis, with optional progress indicator with shadcn-default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/scroll-x-carousel/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/scroll-x-carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-scroll-x-carousel",
+      "type": "registry:block",
+      "title": "Scroll X Carousel",
+      "description": "Scroll carousel on x axis, with optional progress indicator with shadcn-new-york style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/scroll-x-carousel/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/scroll-x-carousel.tsx"
         }
       ]
     },
