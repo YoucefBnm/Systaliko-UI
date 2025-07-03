@@ -2,15 +2,13 @@
 import { Features } from '@/components/features';
 import { Header } from '@/components/header';
 import { Hero } from '@/components/hero';
-import { SectionVideoDemo } from '@/registry/demo/section-video';
 
 export default function HomePage() {
   return (
     <>
-      {/* <Header />
+      <Header />
       <Hero />
-      <Features /> */}
-      <SectionVideoDemo />
+      <Features />
     </>
   );
 }
