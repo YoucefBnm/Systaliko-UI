@@ -28,7 +28,7 @@ export const Hero = () => {
             rel="noopener noreferrer"
           >
             <Badge variant={'secondary'} className="rounded-full">
-              <StarIcon /> View source code
+              <StarIcon fill="currentColor" /> Star on github
             </Badge>
           </motion.a>
           <motion.h1

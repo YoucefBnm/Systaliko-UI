@@ -42,7 +42,7 @@ export const SectionScaleScrollAnimation = () => {
             </Button>
           </div>
         </ContainerScrollScale>
-        <GridBento className="col-start-1 row-start-1 pointer-events-none row-end-2 col-end-13">
+        <GridBento className="[&>*:first-child]:origin-[10%_0%] col-start-1 row-start-1 pointer-events-none row-end-2 col-end-13">
           {IMAGES.map((imageUrl, index) => (
             <ContainerScrollScale
               key={index}

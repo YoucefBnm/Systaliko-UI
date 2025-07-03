@@ -22,7 +22,7 @@ export const bentoGridVariants = cva(
         `,
         fourCells: `
           grid-cols-3 grid-rows-2
-          [&>*:first-child]:col-span-1
+          [&>*:first-child]:col-span-1 
           [&>*:nth-child(2)]:col-span-2
           [&>*:nth-child(3)]:col-span-2
           [&>*:nth-child(5)]:hidden
