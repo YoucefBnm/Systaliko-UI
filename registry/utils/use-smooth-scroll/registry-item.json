@@ -7,9 +7,9 @@
   "dependencies": ["lenis"],
   "files": [
     {
-      "path": "registry/utils/use-smooth-scroll/index.ts",
+      "path": "registry/utils/use-smooth-scroll/index.tsx",
       "type": "registry:hook",
-      "target": "components/systaliko-ui/utils/use-smooth-scroll.ts"
+      "target": "components/systaliko-ui/utils/use-smooth-scroll.tsx"
     }
   ]
 }

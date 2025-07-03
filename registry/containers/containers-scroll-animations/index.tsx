@@ -1,14 +1,15 @@
 'use client';
 import * as React from 'react';
 import { cn } from '@/lib/utils';
-import { useSmoothScroll } from '@/registry/utils/use-smooth-scroll';
 import {
   HTMLMotionProps,
   MapInputRange,
   motion,
   MotionValue,
   useMotionTemplate,
+  useReducedMotion,
   useScroll,
+  useSpring,
   useTransform,
 } from 'motion/react';
 
@@ -39,7 +40,6 @@ export function ContainerScrollAnimation({
   const { scrollYProgress } = useScroll({
     target: scrollRef,
   });
-  useSmoothScroll();
   return (
     <ContainerScrollAnimationContext.Provider value={{ scrollYProgress }}>
       <div ref={scrollRef} className={cn('relative', className)} {...props}>
@@ -63,7 +63,7 @@ export function ContainerScrollInsetX({
   return (
     <motion.div
       className={className}
-      style={{ clipPath, ...style }}
+      style={{ clipPath, willChange: 'clip-path', ...style }}
       {...props}
     />
   );
@@ -81,7 +81,7 @@ export function ContainerScrollInsetY({
   return (
     <motion.div
       className={className}
-      style={{ clipPath, ...style }}
+      style={{ clipPath, willChange: 'clip-path', ...style }}
       {...props}
     />
   );
@@ -114,7 +114,7 @@ export function ContainerScrollInset({
   return (
     <motion.div
       className={className}
-      style={{ clipPath, ...style }}
+      style={{ clipPath, willChange: 'clip-path', ...style }}
       {...props}
     />
   );
@@ -128,10 +128,17 @@ export function ContainerScrollTranslate({
   ...props
 }: HTMLMotionProps<'div'> & { yRange?: unknown[]; inputRange?: number[] }) {
   const { scrollYProgress } = useContainerScrollAnimationContext();
-  const y = useTransform(scrollYProgress, inputRange, yRange);
+  const smoothProgress = useSpring(scrollYProgress, {
+    damping: 30,
+    stiffness: 400,
+    restDelta: 0.001, // Important for stopping micro-animations
+  });
+  const reducedMotion = useReducedMotion();
+  const scrollProgress = reducedMotion ? scrollYProgress : smoothProgress;
+  const y = useTransform(scrollProgress, inputRange, yRange);
   return (
     <motion.div
-      style={{ y, ...style }}
+      style={{ y, willChange: 'transform', ...style }}
       className={cn('relative', className)}
       {...props}
     />
@@ -148,7 +155,11 @@ export function ContainerScrollScale({
   const { scrollYProgress } = useContainerScrollAnimationContext();
   const scale = useTransform(scrollYProgress, inputRange, scaleRange);
   return (
-    <motion.div className={className} style={{ scale, ...style }} {...props} />
+    <motion.div
+      className={className}
+      style={{ scale, willChange: 'transform', ...style }}
+      {...props}
+    />
   );
 }
 export function ContainerScrollRadius({
@@ -167,7 +178,7 @@ export function ContainerScrollRadius({
     <motion.div
       layout
       className={className}
-      style={{ borderRadius, ...style }}
+      style={{ borderRadius, willChange: 'border-radius', ...style }}
       {...props}
     />
   );

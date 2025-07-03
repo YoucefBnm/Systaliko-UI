@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-default-section-video",
+  "type": "registry:block",
+  "title": "Video Section",
+  "description": "section with animated text triggered by view, and animated video triggered by scroll with shadcn-default style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/default-use-animation-variants"
+  ],
+  "files": [
+    {
+      "path": "__registry__/section-video/shadcn-default/index.tsx",
+      "content": "'use client';\nimport * as React from 'react';\n\nexport function SectionVideo() {\n  return <div>section video</div>;\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/section-video.tsx"
+    }
+  ]
+}

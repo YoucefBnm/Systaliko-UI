@@ -2841,6 +2841,60 @@
       ]
     },
     {
+      "name": "default-section-video-demo",
+      "type": "registry:block",
+      "title": "Gallery Section Demo",
+      "description": "Demo showing Gallery Section with default style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/section-video",
+        "https://systaliko-ui.vercel.app/r/grid-staggered",
+        "https://systaliko-ui.vercel.app/r/button"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/section-video/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/section-video.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-section-video-demo",
+      "type": "registry:block",
+      "title": "Gallery Section Demo",
+      "description": "Demo showing Gallery Section with shadcn-default style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/section-video",
+        "https://systaliko-ui.vercel.app/r/grid-staggered",
+        "https://systaliko-ui.vercel.app/r/button"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/section-video/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/section-video.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-section-video-demo",
+      "type": "registry:block",
+      "title": "Gallery Section Demo",
+      "description": "Demo showing Gallery Section with shadcn-new-york style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/section-video",
+        "https://systaliko-ui.vercel.app/r/grid-staggered",
+        "https://systaliko-ui.vercel.app/r/button"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/section-video/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/section-video.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-slideshow-demo",
       "type": "registry:ui",
       "title": "Slideshow Demo",
@@ -3537,6 +3591,63 @@
       ]
     },
     {
+      "name": "default-section-video",
+      "type": "registry:block",
+      "title": "Video Section",
+      "description": "section with animated text triggered by view, and animated video triggered by scroll with default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/default-use-animation-variants"
+      ],
+      "files": [
+        {
+          "path": "__registry__/section-video/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/section-video.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-section-video",
+      "type": "registry:block",
+      "title": "Video Section",
+      "description": "section with animated text triggered by view, and animated video triggered by scroll with shadcn-default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/default-use-animation-variants"
+      ],
+      "files": [
+        {
+          "path": "__registry__/section-video/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/section-video.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-section-video",
+      "type": "registry:block",
+      "title": "Video Section",
+      "description": "section with animated text triggered by view, and animated video triggered by scroll with shadcn-new-york style.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/default-use-animation-variants"
+      ],
+      "files": [
+        {
+          "path": "__registry__/section-video/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/section-video.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-skelton",
       "type": "registry:ui",
       "title": "Skelton",
@@ -4119,9 +4230,9 @@
       ],
       "files": [
         {
-          "path": "__registry__/utils/use-smooth-scroll/default/index.ts",
+          "path": "__registry__/utils/use-smooth-scroll/default/index.tsx",
           "type": "registry:hook",
-          "target": "components/systaliko-ui/utils/use-smooth-scroll.ts"
+          "target": "components/systaliko-ui/utils/use-smooth-scroll.tsx"
         }
       ]
     },
@@ -4135,9 +4246,9 @@
       ],
       "files": [
         {
-          "path": "__registry__/utils/use-smooth-scroll/shadcn-default/index.ts",
+          "path": "__registry__/utils/use-smooth-scroll/shadcn-default/index.tsx",
           "type": "registry:hook",
-          "target": "components/systaliko-ui/utils/use-smooth-scroll.ts"
+          "target": "components/systaliko-ui/utils/use-smooth-scroll.tsx"
         }
       ]
     },
@@ -4151,9 +4262,9 @@
       ],
       "files": [
         {
-          "path": "__registry__/utils/use-smooth-scroll/shadcn-new-york/index.ts",
+          "path": "__registry__/utils/use-smooth-scroll/shadcn-new-york/index.tsx",
           "type": "registry:hook",
-          "target": "components/systaliko-ui/utils/use-smooth-scroll.ts"
+          "target": "components/systaliko-ui/utils/use-smooth-scroll.tsx"
         }
       ]
     }

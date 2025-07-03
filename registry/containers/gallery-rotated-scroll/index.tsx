@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils';
-import { useSmoothScroll } from '@/registry/utils/use-smooth-scroll';
 import {
   motion,
   HTMLMotionProps,
@@ -37,8 +36,6 @@ export const GalleryRotatedScroll = ({
   const { scrollYProgress } = useScroll({
     target: scrollRef,
   });
-
-  useSmoothScroll();
 
   return (
     <GalleryRotatedScrollContext.Provider value={{ scrollYProgress }}>
