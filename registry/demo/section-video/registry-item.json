@@ -5,9 +5,8 @@
   "title": "Gallery Section Demo",
   "description": "Demo showing Gallery Section.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/section-video",
-    "https://systaliko-ui.vercel.app/r/grid-staggered",
-    "https://systaliko-ui.vercel.app/r/button"
+    "https://systaliko-ui.vercel.app/r/default-containers-scroll-animations",
+    "https://systaliko-ui.vercel.app/r/default-button"
   ],
   "files": [
     {

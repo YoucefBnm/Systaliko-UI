@@ -6,7 +6,9 @@ import {
   HTMLMotionProps,
   motion,
   MotionValue,
+  useReducedMotion,
   useScroll,
+  useSpring,
   useTransform,
 } from 'motion/react';
 
@@ -36,7 +38,7 @@ export function ScrollXCarousel({
     <ScrollXCarouselContext.Provider value={{ scrollYProgress }}>
       <div
         ref={carouselRef}
-        className={cn('relative w-screen max-w-full', className)}
+        className={cn('relative max-w-full', className)}
         {...props}
       >
         {children}
@@ -63,12 +65,21 @@ export function ScrollXCarouselWrap({
   ...props
 }: HTMLMotionProps<'div'> & { xRagnge?: unknown[] }) {
   const { scrollYProgress } = useScrollXCarousel();
-  const x = useTransform(scrollYProgress, [0, 1], xRagnge);
+  const reducedMotion = useReducedMotion();
+  const smoothProgress = useSpring(scrollYProgress, {
+    damping: 30,
+    stiffness: 400,
+    restDelta: 0.001, // Important for stopping micro-animations
+  });
+
+  const scrollProgress = reducedMotion ? scrollYProgress : smoothProgress;
+
+  const x = useTransform(scrollProgress, [0, 1], xRagnge);
 
   return (
     <motion.div
       className={cn('w-fit', className)}
-      style={{ x, ...style }}
+      style={{ x, willChange: 'transform', ...style }}
       {...props}
     />
   );

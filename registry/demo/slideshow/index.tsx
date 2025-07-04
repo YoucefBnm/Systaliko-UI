@@ -67,7 +67,6 @@ export function SlideshowDemo() {
                   src={slide.imageUrl}
                   alt={slide.title}
                   loading="eager"
-                  decoding="async"
                   className="size-full object-cover"
                 />
               </SlideshowImageWrap>

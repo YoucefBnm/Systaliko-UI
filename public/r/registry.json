@@ -2595,6 +2595,54 @@
       ]
     },
     {
+      "name": "default-agency-page-2-demo",
+      "type": "registry:block",
+      "title": "Agency Page 2 Demo",
+      "description": "Another demo showing how to combine blocks and components to create your own webpage with default style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/agency-page-2"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/pages/agency-page-2/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/agency-page-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-agency-page-2-demo",
+      "type": "registry:block",
+      "title": "Agency Page 2 Demo",
+      "description": "Another demo showing how to combine blocks and components to create your own webpage with shadcn-default style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/agency-page-2"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/pages/agency-page-2/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/agency-page-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-agency-page-2-demo",
+      "type": "registry:block",
+      "title": "Agency Page 2 Demo",
+      "description": "Another demo showing how to combine blocks and components to create your own webpage with shadcn-new-york style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/agency-page-2"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/pages/agency-page-2/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/agency-page-2.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-rating-stars-demo",
       "type": "registry:ui",
       "title": "Rating stars Demo",
@@ -2687,6 +2735,54 @@
           "path": "__registry__/demo/scroll-x-carousel/shadcn-new-york/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/scroll-x-carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-scroll-x-carousel-reverse-demo",
+      "type": "registry:ui",
+      "title": "scroll x carousel reversed Demo",
+      "description": "another Demo showing how to use scroll x carousel component in a reversed with default style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/scroll-x-carousel"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/scroll-x-carousel-reverse/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/scroll-x-carousel-reverse.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-scroll-x-carousel-reverse-demo",
+      "type": "registry:ui",
+      "title": "scroll x carousel reversed Demo",
+      "description": "another Demo showing how to use scroll x carousel component in a reversed with shadcn-default style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/scroll-x-carousel"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/scroll-x-carousel-reverse/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/scroll-x-carousel-reverse.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-scroll-x-carousel-reverse-demo",
+      "type": "registry:ui",
+      "title": "scroll x carousel reversed Demo",
+      "description": "another Demo showing how to use scroll x carousel component in a reversed with shadcn-new-york style.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/scroll-x-carousel"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/scroll-x-carousel-reverse/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/scroll-x-carousel-reverse.tsx"
         }
       ]
     },
@@ -2846,9 +2942,8 @@
       "title": "Gallery Section Demo",
       "description": "Demo showing Gallery Section with default style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/section-video",
-        "https://systaliko-ui.vercel.app/r/grid-staggered",
-        "https://systaliko-ui.vercel.app/r/button"
+        "https://systaliko-ui.vercel.app/r/default-containers-scroll-animations",
+        "https://systaliko-ui.vercel.app/r/default-button"
       ],
       "files": [
         {
@@ -2864,9 +2959,8 @@
       "title": "Gallery Section Demo",
       "description": "Demo showing Gallery Section with shadcn-default style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/section-video",
-        "https://systaliko-ui.vercel.app/r/grid-staggered",
-        "https://systaliko-ui.vercel.app/r/button"
+        "https://systaliko-ui.vercel.app/r/default-containers-scroll-animations",
+        "https://systaliko-ui.vercel.app/r/default-button"
       ],
       "files": [
         {
@@ -2882,9 +2976,8 @@
       "title": "Gallery Section Demo",
       "description": "Demo showing Gallery Section with shadcn-new-york style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/section-video",
-        "https://systaliko-ui.vercel.app/r/grid-staggered",
-        "https://systaliko-ui.vercel.app/r/button"
+        "https://systaliko-ui.vercel.app/r/default-containers-scroll-animations",
+        "https://systaliko-ui.vercel.app/r/default-button"
       ],
       "files": [
         {

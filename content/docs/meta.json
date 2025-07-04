@@ -13,6 +13,7 @@
     "blocks/slideshow",
     "blocks/story",
     "blocks/scroll-x-carousel",
+    "blocks/section-video",
 
     "---Cards---",
     "cards/card-curtain-reveal",

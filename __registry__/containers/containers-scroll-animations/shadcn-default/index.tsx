@@ -139,7 +139,7 @@ export function ContainerScrollTranslate({
   return (
     <motion.div
       style={{ y, willChange: 'transform', ...style }}
-      className={cn('relative', className)}
+      className={cn('relative origin-top', className)}
       {...props}
     />
   );
