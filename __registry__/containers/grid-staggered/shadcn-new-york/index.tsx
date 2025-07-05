@@ -3,7 +3,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 export const gridStaggerdVariants = cva(
-  'grid grid-cols-12 place-items-stretch [&>*]:h-max ',
+  'grid grid-cols-12 place-items-stretch [&>*]:h-full [&>*]:min-h-max gap-4',
   {
     variants: {
       variant: {
