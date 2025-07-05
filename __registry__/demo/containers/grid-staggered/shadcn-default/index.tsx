@@ -13,9 +13,6 @@ export function GridStaggeredDemo() {
       {IMAGES.map((image, index) => (
         <div className="overflow-hidden rounded-md shadow" key={index}>
           <img src={image} alt="image" className="size-full object-cover" />
-          <div className="text-center text-sm font-semibold text-gray-500">
-            {index + 1}
-          </div>
         </div>
       ))}
     </GridStaggered>
