@@ -1,5 +1,5 @@
 'use client';
-import { Input } from '@/components/ui/input';
+import { Input } from '@/registry/shadcn/input';
 import { createContext, useContext, useState } from 'react';
 
 const defaultGradientColors = [
