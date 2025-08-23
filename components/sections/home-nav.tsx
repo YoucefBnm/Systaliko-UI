@@ -6,7 +6,10 @@ import { MobileNav } from '../mobile-nav';
 
 export function HomeNav() {
   return (
-    <header className="supports-[backdrop-blur]:bg-background/90 sticky top-0 z-50 w-full border-b border-border bg-background/40 backdrop-blur-lg">
+    <header
+      // className="supports-[backdrop-blur]:bg-background/90 sticky top-0 z-50 w-full border-b border-border bg-background/40 backdrop-blur-lg"
+      className="relative z-50 w-full"
+    >
       <div className="container flex justify-between h-16 items-center">
         <Link href="/">
           <Logo />
