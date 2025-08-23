@@ -18,10 +18,10 @@ This demo is inspired by [Beyond agency](https://bynd-agency.com/) hero section.
 
 ```tsx
 <ScrollAnimation className="overflow-hidden">
-  <ScrollTranslate className="h-dvh relative">
+  <ScrollTranslateY className="h-dvh relative">
     <ScrollInset className="h-full relative">
       <ScrollScale className="flex bg-secondary gap-2 overflow-hidden px-6">
-        <ScrollTranslate
+        <ScrollTranslateY
           yRange={['0%', '-10%']}
           className="flex flex-col gap-2"
         >
@@ -33,9 +33,9 @@ This demo is inspired by [Beyond agency](https://bynd-agency.com/) hero section.
               alt="gallery item"
             />
           ))}
-        </ScrollTranslate>
+        </ScrollTranslateY>
 
-        <ScrollTranslate
+        <ScrollTranslateY
           yRange={['0%', '20%']}
           className="flex mt-[-20%] relative flex-col gap-2"
         >
@@ -47,9 +47,9 @@ This demo is inspired by [Beyond agency](https://bynd-agency.com/) hero section.
               alt="gallery item"
             />
           ))}
-        </ScrollTranslate>
+        </ScrollTranslateY>
 
-        <ScrollTranslate
+        <ScrollTranslateY
           yRange={['0%', '-10%']}
           className="hidden md:flex flex-col gap-2"
         >
@@ -61,10 +61,10 @@ This demo is inspired by [Beyond agency](https://bynd-agency.com/) hero section.
               alt="gallery item"
             />
           ))}
-        </ScrollTranslate>
+        </ScrollTranslateY>
       </ScrollScale>
     </ScrollInset>
-  </ScrollTranslate>
+  </ScrollTranslateY>
 </ScrollAnimation>
 ```
 
@@ -90,6 +90,10 @@ This demo is inspired by [Beyond agency](https://bynd-agency.com/) hero section.
 
 <ComponentPreview name="scroll-animation-scale-demo" />
 
+## Translate X
+
+<ComponentPreview name="scroll-animation-translate-x-demo" />
+
 ## Props
 
 `ScrollAnimation`
@@ -104,7 +108,7 @@ This demo is inspired by [Beyond agency](https://bynd-agency.com/) hero section.
   }}
 />
 
-`ScrollTranslate`
+`ScrollTranslateY`
 
 <TypeTable
   type={{
@@ -119,6 +123,25 @@ This demo is inspired by [Beyond agency](https://bynd-agency.com/) hero section.
       type: 'number[]',
       required: false,
       default: '[0, 384]',
+    },
+  }}
+/>
+
+`ScrollTranslateX`
+
+<TypeTable
+  type={{
+    inputRange: {
+      description: 'The range of the scroll range minimum 0 and max 1.',
+      type: 'number[]',
+      required: false,
+      default: '[0, 1]',
+    },
+    xRange: {
+      description: 'Animation range of the x transform.',
+      type: 'number[]',
+      required: false,
+      default: '[0, 100]',
     },
   }}
 />

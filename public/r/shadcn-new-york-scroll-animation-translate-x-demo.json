@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-new-york-scroll-animation-translate-x-demo",
+  "type": "registry:block",
+  "title": "Scroll Trigger inset Animations Demo",
+  "description": "Demo showing how to implement scroll triggred animations with shadcn-new-york style.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/scroll-animations"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/blocks/scroll-animation-translate-x/shadcn-new-york/index.tsx",
+      "content": "import {\n  ScrollAnimation,\n  ScrollTranslateX,\n  ScrollTranslateY,\n} from '@/components/systaliko-ui/blocks/scroll-animation';\n\nexport function ScrollAnimationTranslateXDemo() {\n  return (\n    <ScrollAnimation>\n      <ScrollTranslateY className=\"h-dvh py-8 px-6 place-content-center\">\n        <ScrollTranslateX className=\" w-full\">\n          <h1 className=\"text-5xl not-first:font-bold tracking-tight uppercase\">\n            Crafting websites\n          </h1>\n        </ScrollTranslateX>\n        <ScrollTranslateX xRange={[0, -150]} className=\" w-full text-right\">\n          <h1 className=\"text-primary text-4xl font-bold tracking-tight uppercase\">\n            in no time\n          </h1>\n        </ScrollTranslateX>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/scroll-animation-translate-x-demo.tsx"
+    }
+  ]
+}

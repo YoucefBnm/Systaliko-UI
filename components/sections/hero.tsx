@@ -44,7 +44,7 @@ export function Hero() {
   const animationVariants = useAnimationVariants('blur');
 
   return (
-    <section className="relative max-w-7xl place-content-center  px-6 py-12 w-full">
+    <section className="relative max-w-7xl place-content-center min-h-svh px-6 py-12 w-full">
       <ContainerStagger className="flex flex-col items-center text-center justify-center space-y-5">
         <MotionConfig transition={{ duration: 0.3, ease: 'easeIn' }}>
           <motion.div variants={animationVariants}>

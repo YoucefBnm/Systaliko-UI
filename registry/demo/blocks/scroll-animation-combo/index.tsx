@@ -2,7 +2,7 @@ import {
   ScrollAnimation,
   ScrollInsetX,
   ScrollScale,
-  ScrollTranslate,
+  ScrollTranslateY,
 } from '@/registry/blocks/scroll-animation';
 
 const IMAGES_1 = [
@@ -27,10 +27,10 @@ const IMAGES_3 = [
 export const ScrollAnimationComboDemo = () => {
   return (
     <ScrollAnimation className="overflow-hidden">
-      <ScrollTranslate className="h-dvh relative">
+      <ScrollTranslateY className="h-dvh relative">
         <ScrollInsetX className="h-full relative">
           <ScrollScale className="flex bg-secondary gap-2 overflow-hidden px-6">
-            <ScrollTranslate
+            <ScrollTranslateY
               yRange={['0%', '-10%']}
               className="flex flex-col gap-2"
             >
@@ -42,9 +42,9 @@ export const ScrollAnimationComboDemo = () => {
                   alt="gallery item"
                 />
               ))}
-            </ScrollTranslate>
+            </ScrollTranslateY>
 
-            <ScrollTranslate
+            <ScrollTranslateY
               yRange={['0%', '20%']}
               className="flex mt-[-20%] relative flex-col gap-2"
             >
@@ -56,9 +56,9 @@ export const ScrollAnimationComboDemo = () => {
                   alt="gallery item"
                 />
               ))}
-            </ScrollTranslate>
+            </ScrollTranslateY>
 
-            <ScrollTranslate
+            <ScrollTranslateY
               yRange={['0%', '-10%']}
               className="hidden md:flex flex-col gap-2"
             >
@@ -70,10 +70,10 @@ export const ScrollAnimationComboDemo = () => {
                   alt="gallery item"
                 />
               ))}
-            </ScrollTranslate>
+            </ScrollTranslateY>
           </ScrollScale>
         </ScrollInsetX>
-      </ScrollTranslate>
+      </ScrollTranslateY>
     </ScrollAnimation>
   );
 };

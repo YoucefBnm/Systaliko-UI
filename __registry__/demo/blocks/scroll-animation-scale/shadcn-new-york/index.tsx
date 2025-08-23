@@ -1,13 +1,13 @@
 import {
   ScrollAnimation,
   ScrollScale,
-  ScrollTranslate,
+  ScrollTranslateY,
 } from '@/__registry__/blocks/scroll-animation/shadcn-new-york';
 
 export const ScrollAnimationScaleDemo = () => {
   return (
     <ScrollAnimation>
-      <ScrollTranslate className="h-dvh  py-8 px-6 flex justify-center items-center">
+      <ScrollTranslateY className="h-dvh  py-8 px-6 flex justify-center items-center">
         <ScrollScale
           className="overflow-hidden rounded-4xl shadow"
           scaleRange={[0.4, 1]}
@@ -18,7 +18,7 @@ export const ScrollAnimationScaleDemo = () => {
             className="max-w-full max-h-full"
           />
         </ScrollScale>
-      </ScrollTranslate>
+      </ScrollTranslateY>
     </ScrollAnimation>
   );
 };

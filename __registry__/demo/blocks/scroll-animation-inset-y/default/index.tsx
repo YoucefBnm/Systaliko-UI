@@ -1,13 +1,13 @@
 import {
   ScrollAnimation,
   ScrollInsetY,
-  ScrollTranslate,
+  ScrollTranslateY,
 } from '@/__registry__/blocks/scroll-animation/default';
 
 export function ScrollAnimationInsetYDemo() {
   return (
     <ScrollAnimation>
-      <ScrollTranslate className="h-dvh  py-8 px-6 flex justify-center items-center">
+      <ScrollTranslateY className="h-dvh  py-8 px-6 flex justify-center items-center">
         <ScrollInsetY
           className="overflow-hidden w-4/5 mx-auto  rounded-md flex justify-center items-center"
           insetRange={[80, 0]}
@@ -21,7 +21,7 @@ export function ScrollAnimationInsetYDemo() {
             playsInline
           />
         </ScrollInsetY>
-      </ScrollTranslate>
+      </ScrollTranslateY>
     </ScrollAnimation>
   );
 }

@@ -1,13 +1,13 @@
 import {
   ScrollAnimation,
   ScrollInset,
-  ScrollTranslate,
+  ScrollTranslateY,
 } from '@/__registry__/blocks/scroll-animation/shadcn-default';
 
 export function ScrollAnimationInsetDemo() {
   return (
     <ScrollAnimation>
-      <ScrollTranslate className="h-dvh  py-8 px-6 flex justify-center items-center">
+      <ScrollTranslateY className="h-dvh  py-8 px-6 flex justify-center items-center">
         <ScrollInset
           className="overflow-hidden w-full flex justify-center items-center"
           insetRangeY={[20, 0]}
@@ -23,7 +23,7 @@ export function ScrollAnimationInsetDemo() {
             playsInline
           />
         </ScrollInset>
-      </ScrollTranslate>
+      </ScrollTranslateY>
     </ScrollAnimation>
   );
 }

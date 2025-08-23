@@ -4,7 +4,7 @@ import { GridBento } from '@/__registry__/blocks/grid-bento/shadcn-default';
 import {
   ScrollAnimation,
   ScrollScale,
-  ScrollTranslate,
+  ScrollTranslateY,
 } from '@/__registry__/blocks/scroll-animation/shadcn-default';
 import { Button } from '@/__registry__/shadcn/button/shadcn-default';
 
@@ -19,7 +19,7 @@ const IMAGES = [
 export function ScrollReverseScaleAnimationDemo() {
   return (
     <ScrollAnimation className="p-8">
-      <ScrollTranslate className="h-dvh grid grid-cols-12 grid-rows-1">
+      <ScrollTranslateY className="h-dvh grid grid-cols-12 grid-rows-1">
         <ScrollScale
           className="col-start-2 col-end-12 row-start-1 row-end-2 flex flex-col justify-center items-center space-y-6 text-center"
           scaleRange={[1, 0]}
@@ -54,7 +54,7 @@ export function ScrollReverseScaleAnimationDemo() {
             </ScrollScale>
           ))}
         </GridBento>
-      </ScrollTranslate>
+      </ScrollTranslateY>
     </ScrollAnimation>
   );
 }

@@ -1,13 +1,13 @@
 import {
   ScrollAnimation,
   ScrollInset,
-  ScrollTranslate,
+  ScrollTranslateY,
 } from '@/__registry__/blocks/scroll-animation/shadcn-new-york';
 
 export function ScrollRadiusDemo() {
   return (
     <ScrollAnimation>
-      <ScrollTranslate className="h-dvh  py-8 px-6 flex justify-center items-center">
+      <ScrollTranslateY className="h-dvh  py-8 px-6 flex justify-center items-center">
         <ScrollInset
           className="overflow-hidden size-96"
           insetRangeY={[0, 0]}
@@ -20,7 +20,7 @@ export function ScrollRadiusDemo() {
             className="size-full object-cover"
           />
         </ScrollInset>
-      </ScrollTranslate>
+      </ScrollTranslateY>
     </ScrollAnimation>
   );
 }

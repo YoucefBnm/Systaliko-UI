@@ -128,7 +128,7 @@ export function ScrollInset({
   );
 }
 
-export function ScrollTranslate({
+export function ScrollTranslateY({
   yRange = [0, 384],
   inputRange = [0, 1],
   style,
@@ -140,6 +140,24 @@ export function ScrollTranslate({
   return (
     <motion.div
       style={{ y, willChange: 'transform', ...style }}
+      className={cn('relative origin-top', className)}
+      {...props}
+    />
+  );
+}
+
+export function ScrollTranslateX({
+  xRange = [0, 100],
+  inputRange = [0, 1],
+  style,
+  className,
+  ...props
+}: HTMLMotionProps<'div'> & { xRange?: unknown[]; inputRange?: number[] }) {
+  const { scrollProgress } = useScrollAnimationContext();
+  const x = useTransform(scrollProgress, inputRange, xRange);
+  return (
+    <motion.div
+      style={{ x, willChange: 'transform', ...style }}
       className={cn('relative origin-top', className)}
       {...props}
     />
