@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import { Button } from '@/registry/shadcn/button';
 import { ModeToggle } from './mode-toggle';
-import { StarIcon } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 import XIcon from './icons/x-icon';
 import GithubIcon from './icons/github-icon';
@@ -35,9 +34,7 @@ export function DesktopNav() {
             <span className="ml-1 lg:hidden">Star</span>
             <span className="ml-1 hidden lg:inline">Star on GitHub</span>{' '}
           </div>
-          <div className="ml-2 flex items-center gap-1 text-sm md:flex">
-            <StarIcon className="size-3.5" fill="currentColor" />
-          </div>
+          <span className="ml-2 ">⭐️</span>
         </Link>
       </Button>
 

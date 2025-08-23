@@ -72,7 +72,7 @@ export function Features() {
           </Button>
         </div>
 
-        <CardsStackContainer className="min-h-[400vh] space-y-8 py-12 place-content-center place-items-center">
+        <CardsStackContainer className="md:min-h-[400vh] space-y-8 py-12 place-content-center place-items-center">
           {FEATURES.map((feature, index) => (
             <CardSticky
               key={feature.id}
