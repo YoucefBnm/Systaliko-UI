@@ -27,7 +27,7 @@ const Badge = ({
 
 export const attachFile: BuildPageTreeOptions['attachFile'] = (node, file) => {
   if (!file) return node;
-  const data = file.data.data as object;
+  const data = file.data as object;
 
   if ('new' in data && typeof data.new === 'boolean' && data.new) {
     node.name = (
