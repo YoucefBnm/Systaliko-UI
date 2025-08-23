@@ -1,0 +1,162 @@
+---
+title: Scroll Animations
+description: Scroll triggerd animations never been easier, now you can animate transforms, and roundness and positioning.
+url: https://21st.dev/youcefbnm/scroll-trigger-animations/default
+---
+
+### Combo animations (inset on x axis, scale and translateY)
+
+This demo is inspired by [Beyond agency](https://bynd-agency.com/) hero section.
+
+<ComponentPreview name="scroll-animation-combo-demo" />
+
+## Installation
+
+<ComponentInstallation name="scroll-animation" />
+
+## Usage
+
+```tsx
+<ScrollAnimation className="overflow-hidden">
+  <ScrollTranslate className="h-dvh relative">
+    <ScrollInset className="h-full relative">
+      <ScrollScale className="flex bg-secondary gap-2 overflow-hidden px-6">
+        <ScrollTranslate
+          yRange={['0%', '-10%']}
+          className="flex flex-col gap-2"
+        >
+          {IMAGES_1.map((imageUrl, index) => (
+            <img
+              key={index}
+              className="aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover"
+              src={imageUrl}
+              alt="gallery item"
+            />
+          ))}
+        </ScrollTranslate>
+
+        <ScrollTranslate
+          yRange={['0%', '20%']}
+          className="flex mt-[-20%] relative flex-col gap-2"
+        >
+          {IMAGES_2.map((imageUrl, index) => (
+            <img
+              key={index}
+              className="aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover"
+              src={imageUrl}
+              alt="gallery item"
+            />
+          ))}
+        </ScrollTranslate>
+
+        <ScrollTranslate
+          yRange={['0%', '-10%']}
+          className="hidden md:flex flex-col gap-2"
+        >
+          {IMAGES_3.map((imageUrl, index) => (
+            <img
+              key={index}
+              className="aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover"
+              src={imageUrl}
+              alt="gallery item"
+            />
+          ))}
+        </ScrollTranslate>
+      </ScrollScale>
+    </ScrollInset>
+  </ScrollTranslate>
+</ScrollAnimation>
+```
+
+## Examples
+
+### Inset with roundness
+
+<ComponentPreview name="scroll-animation-inset-demo" />
+
+### Inset-X
+
+<ComponentPreview name="scroll-animation-inset-x-demo" />
+
+### Inset-Y
+
+<ComponentPreview name="scroll-animation-inset-y-demo" />
+
+### Roundness
+
+<ComponentPreview name="scroll-animation-radius-demo" />
+
+### Scale
+
+<ComponentPreview name="scroll-animation-scale-demo" />
+
+## Props
+
+`ScrollAnimation`
+
+<TypeTable
+  type={{
+    spacerClass: {
+      description: 'the class to be applied to the spacer element on bottom',
+      type: 'string',
+      required: false,
+    },
+  }}
+/>
+
+`ScrollTranslate`
+
+<TypeTable
+  type={{
+    inputRange: {
+      description: 'The range of the scroll range minimum 0 and max 1.',
+      type: 'number[]',
+      required: false,
+      default: '[0, 1]',
+    },
+    yRange: {
+      description: 'Animation range of the y transform.',
+      type: 'number[]',
+      required: false,
+      default: '[0, 384]',
+    },
+  }}
+/>
+
+`ScrollInset`
+
+<TypeTable
+  type={{
+    inputRange: {
+      description: 'The range of the scroll range minimum 0 and max 1.',
+      type: 'number[]',
+      required: false,
+      default: '[0, 1]',
+    },
+    insetRange: {
+      description: 'Animation range of the inset on x axis.',
+      type: 'number[]',
+      required: false,
+      default: '[48, 0]',
+    },
+  }}
+/>
+
+`ScrollScale`
+
+<TypeTable
+  type={{
+    inputRange: {
+      description: 'The range of the scroll range minimum 0 and max 1.',
+      type: 'number[]',
+      required: false,
+      default: '[0, 1]',
+    },
+    yRange: {
+      description: 'Animation range of the scale transform.',
+      type: 'number[]',
+      required: false,
+      default: '[1.2, 1]',
+    },
+  }}
+/>

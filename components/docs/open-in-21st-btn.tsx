@@ -1,5 +1,5 @@
-import { motion } from 'motion/react';
-import { Button } from '../ui/button';
+import TwentyFirstIcon from '../icons/21st-icon';
+import { Button } from '@/registry/shadcn/button';
 
 export function OpenIn21stBtn({
   componentName,
@@ -12,17 +12,9 @@ export function OpenIn21stBtn({
 
   return (
     <Button size={'sm'} aria-label="Open in 21st dev" asChild>
-      <motion.a
-        href={href}
-        target="_blank"
-        rel="noreferrer"
-        className="no-underline"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <span className="sr-only">Open in 21st dev</span>
-        Open in 21st dev
-      </motion.a>
+      <a href={href} target="_blank" rel="noreferrer" className="no-underline">
+        Open in 21st dev <TwentyFirstIcon />
+      </a>
     </Button>
   );
 }

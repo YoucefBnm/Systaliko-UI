@@ -1,0 +1,94 @@
+---
+title: Scroll Rotation Animation
+description: Animated gallery images, with scroll triggered animations, rotates and translates on the Y axis on scroll.
+---
+
+<ComponentPreview name="scroll-animation-rotate-demo" />
+
+## Installation
+
+<ComponentInstallation name="scroll-animation-rotate" />
+
+## Usage
+
+```tsx
+<ScrollAnimationRotate>
+      <ScrollAnimationRotateContainer
+        yRange={[-100, 400]}
+        className="h-dvh gap-2"
+      >
+        <ScrollAnimationRotateCol className="gap-2 mt-[-10%]">
+          {IMAGES_1.map((imageUrl, index) => (
+            <img
+              key={index}
+              className="aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow"
+              src={imageUrl}
+              alt="gallery item"
+            />
+          ))}
+        </ScrollAnimationRotateCol>
+ </ScrollAnimationRotate>
+```
+
+## Examples
+
+<ComponentPreview name="scroll-animation-rotate-y-demo" />
+
+## Props
+
+`ScrollAnimationRotate`
+
+<TypeTable
+  type={{
+    spacerClass: {
+      description: 'the class to be applied to the spacer element on bottom',
+      type: 'string',
+      required: false,
+      default: 'h-96',
+    },
+    offset: {
+      description: 'offset of the scroll container',
+      type: 'any 😁',
+      required: false,
+      default: 'undefined',
+    },
+  }}
+/>
+
+`ScrollAnimationRotateContainer`
+
+<TypeTable
+  type={{
+    yRange: {
+      description: 'the range of the y-axis',
+      type: 'number',
+      required: false,
+      default: '[0, 300]',
+    },
+    rotateXRange: {
+      description: 'the range of the rotateX-axis',
+      type: 'number',
+      required: false,
+      default: '[80, 0]',
+    },
+    scaleRange: {
+      description: 'the range of the scale-axis',
+      type: 'number',
+      required: false,
+      default: '[1.1, 1]',
+    },
+  }}
+/>
+
+`ScrollAnimationRotateCol`
+
+<TypeTable
+  type={{
+    yRange: {
+      description: 'the range of the y-axis',
+      type: 'number',
+      required: false,
+      default: '[-5%, 1%]',
+    },
+  }}
+/>

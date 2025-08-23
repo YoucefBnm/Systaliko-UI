@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/next';
 
 import './globals.css';
 import { StyleProvider } from '@/providers/style-provider';
+import { siteConfig } from '@/config/site';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -27,22 +28,23 @@ export const metadata: Metadata = {
     'Animated UI components',
     'UI distribution',
     'Open-source components',
+    'animations',
   ],
   authors: [
     {
       name: 'Youcef Bnm',
-      url: 'https://github.com/YoucefBnm',
+      url: siteConfig.links.github,
     },
   ],
   publisher: 'Systaliko UI',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://systaliko-ui.vercel.app/',
+    url: siteConfig.url,
     siteName: 'Systaliko UI',
     images: [
       {
-        url: 'https://systaliko-ui.vercel.app/og-image.png',
+        url: siteConfig.ogImage,
         width: 1200,
         height: 630,
         alt: 'Systaliko UI',
@@ -57,7 +59,7 @@ export const metadata: Metadata = {
       'Collection of fully customizable, animated, free UI components built with React, TypeScript, Tailwind CSS, and Motion.',
     images: [
       {
-        url: 'https://systaliko-ui.vercel.app/og-image.png',
+        url: siteConfig.ogImage,
         width: 1200,
         height: 630,
         alt: 'Systaliko UI',

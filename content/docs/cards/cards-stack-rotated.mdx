@@ -1,0 +1,94 @@
+---
+title: Rotated Cards Stack
+description: Stack of rotated cards show, rotate one element at a time.
+url: https://21st.dev/youcefbnm/animated-cards-stack/default
+---
+
+<ComponentPreview name="cards-stack-rotated-demo" />
+
+## Installation
+
+<ComponentInstallation name="cards-stack-rotated" />
+
+## Usage
+
+```tsx
+<ContainerScroll className="container h-[300vh] ">
+  <div className="sticky left-0 top-0 h-svh w-full py-12">
+    <CardsContainer className="mx-auto size-full h-[450px] w-[350px]">
+      {TESTIMONIALS.map((testimonial, index) => (
+        <CardTransformed
+          arrayLength={TESTIMONIALS.length}
+          key={testimonial.id}
+          index={index + 2}
+        >
+          <CardTestimonial
+            testimonialQuote={testimonial.quote}
+            testimonialRating={testimonial.rating}
+            testimonialAuthor={{
+              authorName: testimonial.name,
+              avatarUrl: testimonial.avatarUrl,
+              description: testimonial.profession,
+            }}
+            role="article"
+            aria-labelledby={`card-${testimonial.id}-title`}
+            aria-describedby={`card-${testimonial.id}-content`}
+            className="h-[450px] w-[350px] shadow"
+          >
+            <TestimonialRating className="text-primary" />
+            <div className="relative text-center mx-auto w-4/5 text-lg">
+              <TestimonialQuote>{testimonial.quote}</TestimonialQuote>
+            </div>
+
+            <TestimonialAuthor className="flex items-center gap-4" />
+          </CardTestimonial>
+        </CardTransformed>
+      ))}
+    </CardsContainer>
+  </div>
+</ContainerScroll>
+```
+
+## Examples
+
+### Showcasing Achievements
+
+<ComponentPreview name="cards-stack-rotated-recognitions-demo" />
+
+## Props
+
+#### CardSticky
+
+<TypeTable
+  type={{
+    incrementY: {
+      description: 'the increment of the y-axis',
+      type: 'number',
+      default: 10,
+      required: false,
+    },
+    incrementZ: {
+      description: 'the increment of the z-axis',
+      type: 'number',
+      default: 10,
+      required: false,
+    },
+    incrementRotation: {
+      description: 'the increment of the rotation',
+      type: 'number',
+      default: '-index + 90',
+      required: false,
+    },
+    arrayLength: {
+      description: 'length of the childs elements inside "<CardsContainer />"',
+      type: 'number',
+      required: true,
+    },
+    index: {
+      description:
+        'order of the card/child, you can set it manually or when mapping array set it via "index".',
+      type: 'number',
+      required: true,
+    },
+  }}
+/>

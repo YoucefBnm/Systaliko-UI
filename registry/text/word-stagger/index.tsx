@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils';
-import { GSAP_TRANSITIONS } from '@/registry/utils/gsap-transitions';
 import {
   AnimationT,
   useAnimationVariants,
@@ -25,10 +24,6 @@ export function WordStagger({
           className="inline-block"
           variants={animationVariants}
           key={`${char}-${index}`}
-          transition={{
-            duration: 0.3,
-            ease: GSAP_TRANSITIONS['power1.out'],
-          }}
         >
           {char}
         </motion.span>

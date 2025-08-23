@@ -83,10 +83,11 @@ export function CardsStackRotatedDemo() {
                     avatarUrl: testimonial.avatarUrl,
                     description: testimonial.profession,
                   }}
+                  variant={'glass'}
                   role="article"
                   aria-labelledby={`card-${testimonial.id}-title`}
                   aria-describedby={`card-${testimonial.id}-content`}
-                  className="h-[450px] w-[350px] shadow"
+                  className="h-[450px] w-[350px] justify-center items-center"
                 >
                   <TestimonialRating className="text-primary" />
                   <div className="relative text-center mx-auto w-4/5 text-lg">

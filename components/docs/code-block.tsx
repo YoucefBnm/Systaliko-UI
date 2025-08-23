@@ -1,9 +1,13 @@
 'use client';
 import { cn } from '@/lib/utils';
-import { CopyButton } from '@/registry/buttons/copy';
+import { CopyButton } from './copy-button';
 import { ScrollAreaViewportProps } from '@radix-ui/react-scroll-area';
 import * as React from 'react';
-import { ScrollArea, ScrollBar, ScrollViewport } from '../ui/scroll-area';
+import {
+  ScrollArea,
+  ScrollBar,
+  ScrollViewport,
+} from 'fumadocs-ui/components/ui/scroll-area';
 
 export type CodeBlockProps = React.HTMLAttributes<HTMLElement> & {
   icon?: React.ReactNode;

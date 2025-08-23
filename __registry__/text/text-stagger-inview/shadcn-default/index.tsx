@@ -2,13 +2,20 @@
 import * as React from 'react';
 
 import { AnimationT } from '@/__registry__/utils/use-animation-variants/shadcn-default';
-import { HTMLMotionProps, motion } from 'motion/react';
+import {
+  HTMLMotionProps,
+  motion,
+  MotionConfig,
+  Transition,
+} from 'motion/react';
 import { WordStagger } from '@/__registry__/text/word-stagger/shadcn-default';
+import { TRANSITIONS } from '@/__registry__/utils/transitions/shadcn-default';
 
 interface TextStaggerProps extends HTMLMotionProps<'span'> {
   stagger?: number;
   staggerDirection?: 1 | -1;
   animation?: AnimationT;
+  characterTransition?: Transition;
   as?: React.ElementType;
 }
 
@@ -19,11 +26,12 @@ export function TextStaggerInview({
   stagger = 0.02,
   staggerDirection,
   animation,
+  characterTransition = TRANSITIONS,
   as: Component = 'span',
   ...props
 }: TextStaggerProps) {
   const words = String(children).split(' ');
-  const MotionComponent = motion.create(Component);
+  const MotionComponent = motion(Component);
   return (
     <MotionComponent
       initial="hidden"
@@ -39,7 +47,11 @@ export function TextStaggerInview({
     >
       {words.map((word, index) => (
         <React.Fragment key={`${word}-${index}`}>
-          <WordStagger animation={animation}>{word}</WordStagger>
+          <MotionConfig transition={characterTransition}>
+            <WordStagger data-word={word} animation={animation}>
+              {word}
+            </WordStagger>
+          </MotionConfig>
           {index < words.length - 1 && ' '}
         </React.Fragment>
       ))}

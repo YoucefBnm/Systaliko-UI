@@ -6,33 +6,34 @@ import XIcon from '@/components/icons/x-icon';
 import GlobeIcon from '@/components/icons/globe-icon';
 import LinkedinIcon from '@/components/icons/linkedin-icon';
 import TwentyFirstIcon from '@/components/icons/21st-icon';
+import { siteConfig } from '@/config/site';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <DocsLayout
-      githubUrl="https://github.com/YoucefBnm/Systaliko-UI"
+      githubUrl={siteConfig.links.repo}
       links={[
         {
           icon: <XIcon />,
-          url: 'https://x.com/lbnm_yussef',
+          url: siteConfig.links.x,
           text: 'X',
           type: 'icon',
         },
         {
           icon: <GlobeIcon />,
-          url: 'https://ycfdev.netlify.app/',
+          url: siteConfig.links.website,
           text: 'Website',
           type: 'icon',
         },
         {
           icon: <LinkedinIcon />,
-          url: 'https://www.linkedin.com/in/youcef-bnm-692392123/',
+          url: siteConfig.links.linkedin,
           text: 'Linkedin',
           type: 'icon',
         },
         {
           icon: <TwentyFirstIcon className="size-6" />,
-          url: 'https://21st.dev/YoucefBnm',
+          url: siteConfig.links.twentyFirst,
           text: '21st',
           type: 'icon',
         },

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge",
+  "type": "registry:ui",
+  "title": "Button",
+  "description": "Button component with variants.",
+  "files": [
+    {
+      "path": "registry/shadcn/button/index.tsx",
+      "type": "registry:ui",
+      "target": "components/button.tsx"
+    }
+  ]
+}

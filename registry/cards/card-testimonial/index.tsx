@@ -1,10 +1,11 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { Avatar, AvatarFallback, AvatarImage } from '@/registry/avatar';
-import { RatingStars } from '@/registry/rating-stars';
-import { cva, VariantProps } from 'class-variance-authority';
+import { Avatar, AvatarFallback, AvatarImage } from '@/registry/shadcn/avatar';
+import { RatingStars } from '@/registry/components/rating-stars';
 import * as React from 'react';
+import { Card, cardVariants } from '@/registry/cards/card';
+import { VariantProps } from 'class-variance-authority';
 
 interface AuthorProps extends React.HTMLAttributes<HTMLDivElement> {
   authorName: string;
@@ -13,7 +14,7 @@ interface AuthorProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 interface CardTestimonialProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof cardTestimonialVariants> {
+    VariantProps<typeof cardVariants> {
   testimonialQuote: string;
   testimonialAuthor: AuthorProps;
   testimonialRating?: number;
@@ -23,18 +24,6 @@ interface TestimonialContextValue {
   testimonialAuthor: AuthorProps;
   testimonialRating?: number;
 }
-
-const cardTestimonialVariants = cva('', {
-  variants: {
-    variant: {
-      default:
-        'flex size-full flex-col items-center justify-center gap-6 rounded-2xl border  bg-accent bg-background/80 p-6 backdrop-blur-md',
-    },
-  },
-  defaultVariants: {
-    variant: 'default',
-  },
-});
 
 const CardTestimonialContext = React.createContext<
   TestimonialContextValue | undefined
@@ -63,12 +52,9 @@ export const CardTestimonial = ({
     <CardTestimonialContext.Provider
       value={{ testimonialQuote, testimonialAuthor, testimonialRating }}
     >
-      <div
-        className={cn(cardTestimonialVariants({ variant, className }))}
-        {...props}
-      >
+      <Card className={cn(cardVariants({ variant, className }))} {...props}>
         {children}
-      </div>
+      </Card>
     </CardTestimonialContext.Provider>
   );
 };

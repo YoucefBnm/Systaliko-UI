@@ -1,0 +1,75 @@
+---
+title: Stagger Animations
+description: Animated Block with orchestrated stagger animations, for your motion components, the animations are triggered by view.
+---
+
+<ComponentPreview name="container-stagger-demo" />
+
+## Installation
+
+<ComponentInstallation name="container-stagger" />
+
+## Usage
+
+```tsx
+<ContainerStagger className="flex flex-col text-center items-center space-y-5 p-6">
+  <motion.h1
+    className="font-serif text-5xl font-extralight"
+    variants={animationVariants}
+  >
+    Your{' '}
+    <span className=" font-serif font-extralight text-primary">
+      animated & reusuble
+    </span>{' '}
+    <br />
+    blocks for your designs
+  </motion.h1>
+
+  <motion.p
+    variants={animationVariants}
+    className="leading-normal tracking-tight text-muted-foreground"
+  >
+    Crafting exceptional digital experiences through innovative design
+    solutions.
+    <br /> From concept to creation, we transform your vision into reality.
+  </motion.p>
+
+  <MotionButton size="sm" variants={animationVariants}>
+    Book free call <VideoIcon className="size-4  " />
+  </MotionButton>
+</ContainerStagger>
+```
+
+## Examples
+
+### Increased stagger delay
+
+<ComponentPreview name="container-stagger-2-demo" />
+
+<Callout>
+  the stagger value should not be greater than 500ms, as it will take longer so
+  it is bad user experience, use increased delays for heavy UI elements like
+  cards, and decrease it for light UI elements like text, set it to 0 for
+  reduced motion.
+</Callout>
+
+## Props
+
+<TypeTable
+  type={{
+    delayChildren: {
+      description:
+        'When using variants, children animations will start after this duration (in seconds). You can add the transition property to both the Frame and the variant directly. Adding it to the variant generally offers more flexibility, as it allows you to customize the delay per visual state.',
+      type: 'number',
+      required: false,
+      default: '0.2',
+    },
+    staggerChildren: {
+      description:
+        'When using variants, animations of child components can be staggered by this duration (in seconds).',
+      type: 'number',
+      required: false,
+      default: '0.2',
+    },
+  }}
+/>

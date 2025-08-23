@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "container-stagger",
+  "type": "registry:block",
+  "title": "Stagger Animations",
+  "description": "Animated Block with orchestrated stagger animations, for your motion components, the animations are triggered by view.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "registry/blocks/container-stagger/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/containers/container-stagger.tsx"
+    }
+  ]
+}

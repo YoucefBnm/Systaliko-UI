@@ -1,8 +1,44 @@
+import { Card } from '@/registry/cards/card';
 import {
   CardsContainer,
   CardTransformed,
   ContainerScrollRotatedCards,
 } from '@/registry/cards/cards-stack-rotated';
+
+const RECOGNITIONS = [
+  {
+    id: 'recognition-1',
+    icon: '🏆',
+    title: 'Awwwards',
+    description: 'Site of the Day',
+    bg: 'bg-blue-700/80',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus consequatur reprehenderit.',
+  },
+  {
+    id: 'recognition-2',
+    icon: '🚀',
+    title: 'Performance',
+    description: '100% Performance Score',
+    bg: 'bg-emerald-700/80',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus consequatur reprehenderit.',
+  },
+  {
+    id: 'recognition-3',
+    icon: '🎯',
+    title: 'CSS awaaards',
+    description: 'Honorable Mention',
+    bg: 'bg-indigo-700/80',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus consequatur reprehenderit.',
+  },
+  {
+    id: 'recognition-4',
+    icon: '🎖',
+    title: 'Most Creative Design',
+    description: 'Awards',
+    bg: 'bg-yellow-700/80',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus consequatur reprehenderit.',
+  },
+];
 
 export function CardsStackRotatedRecognitionsDemo() {
   return (
@@ -17,87 +53,34 @@ export function CardsStackRotatedRecognitionsDemo() {
       <ContainerScrollRotatedCards className="container h-[300vh] ">
         <div className="sticky left-0 top-0 h-svh w-full py-12">
           <CardsContainer className="mx-auto size-full h-72 w-[440px]">
-            <CardTransformed
-              className="items-start border p-12 rounded-xl overflow-hidden shadow justify-evenly border-none bg-blue-600/80  text-secondary backdrop-blur-md"
-              arrayLength={4}
-              index={1}
-            >
-              <div className="flex flex-col items-start justify-start space-y-4 ">
-                <div className="flex size-16 items-center justify-center  rounded-sm bg-secondary/50 text-2xl">
-                  🏆
-                </div>
-                <div>
-                  <h4 className="text-sm uppercase tracking-wide">Awwwards</h4>
-                  <h3 className="text-2xl font-bold">Site of the Day</h3>
-                </div>
-              </div>
-              <p className=" text-secondary/80">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Repellendus consequatur reprehenderit.
-              </p>
-            </CardTransformed>
-
-            <CardTransformed
-              className="items-start border p-12 rounded-xl overflow-hidden shadow justify-evenly border-none bg-orange-600/80 text-secondary backdrop-blur-md"
-              arrayLength={4}
-              index={2}
-            >
-              <div className="flex flex-col items-start justify-start space-y-4 ">
-                <div className="flex size-16 items-center justify-center  rounded-sm bg-secondary/50 text-2xl">
-                  🚀
-                </div>
-                <div>
-                  <h4 className="text-sm uppercase tracking-wide">
-                    Performance
-                  </h4>
-                  <h3 className="text-2xl font-bold">100% Performance Score</h3>
-                </div>
-              </div>
-              <p className=" text-secondary/80">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Repellendus consequatur reprehenderit.
-              </p>
-            </CardTransformed>
-            <CardTransformed
-              className="items-start border p-12 rounded-xl overflow-hidden shadow justify-evenly border-none bg-cyan-600/80 text-secondary backdrop-blur-md"
-              arrayLength={4}
-              index={3}
-            >
-              <div className="flex flex-col items-start justify-start space-y-4 ">
-                <div className="flex size-16 items-center justify-center  rounded-sm bg-secondary/50 text-2xl">
-                  🎯
-                </div>
-                <div>
-                  <h4 className="text-sm uppercase tracking-wide">
-                    CSS awaaards
-                  </h4>
-                  <h3 className="text-2xl font-bold">Honorable Mention</h3>
-                </div>
-              </div>
-              <p className=" text-secondary/80">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Repellendus consequatur reprehenderit.
-              </p>
-            </CardTransformed>
-            <CardTransformed
-              className="items-start border p-12 rounded-xl overflow-hidden shadow justify-evenly border-none bg-violet-600/80 text-secondary backdrop-blur-md"
-              arrayLength={4}
-              index={4}
-            >
-              <div className="flex flex-col items-start justify-start space-y-4 ">
-                <div className="flex size-16 items-center justify-center  rounded-sm bg-secondary/50 text-2xl">
-                  🎖
-                </div>
-                <div>
-                  <h4 className="text-sm uppercase tracking-wide">awaaards</h4>
-                  <h4 className="text-2xl font-bold">Most Creative Design</h4>
-                </div>
-              </div>
-              <p className=" text-secondary/80">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Repellendus consequatur reprehenderit.
-              </p>
-            </CardTransformed>
+            {RECOGNITIONS.map((recognition, index) => (
+              <CardTransformed
+                arrayLength={RECOGNITIONS.length}
+                key={recognition.id}
+                index={index + 1}
+              >
+                <Card
+                  variant={'glass'}
+                  className={`${recognition.bg} text-white items-start justify-start space-y-4`}
+                >
+                  <div
+                    style={{ perspective: '500px' }}
+                    className="flex size-16 items-center justify-center  rounded-sm bg-secondary/50 text-2xl"
+                  >
+                    <span className=" translate-z-20">{recognition.icon}</span>
+                  </div>
+                  <div>
+                    <h4 className="text-sm uppercase tracking-wide">
+                      {recognition.title}
+                    </h4>
+                    <h3 className="text-2xl font-bold">
+                      {recognition.description}
+                    </h3>
+                  </div>
+                  <p className="text-white/80">{recognition.text}</p>
+                </Card>
+              </CardTransformed>
+            ))}
           </CardsContainer>
         </div>
       </ContainerScrollRotatedCards>

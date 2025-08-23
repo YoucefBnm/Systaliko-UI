@@ -15,7 +15,7 @@
       "path": "__registry__/demo/utils/use-animation-variants/default/index.tsx",
       "content": "'use client';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  useSetAnimationConfig,\n} from '@/components/docs/animation-config';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\nexport const AnimationVariantsDemo = () => {\n  return (\n    <AnimationConfig>\n      <AnimationVariantsDemoContent />\n    </AnimationConfig>\n  );\n};\n\nconst AnimationVariantsDemoContent = () => {\n  const { animation } = useSetAnimationConfig();\n  const animationVariants = useAnimationVariants(animation);\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <AnimationSelector />\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Animation variants demo\n      </motion.h2>\n    </div>\n  );\n};\n",
       "type": "registry:ui",
-      "target": "components/systaliko-ui/demo/utils/use-animation-variants.ts"
+      "target": "components/systaliko-ui/use-animation-variants-demo.tsx"
     }
   ]
 }

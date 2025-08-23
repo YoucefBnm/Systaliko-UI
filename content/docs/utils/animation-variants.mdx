@@ -1,0 +1,40 @@
+---
+title: Animation Variants
+description: A hook to create animation variants with Motion, animates the transforms(top, bottom, left, right, z), opacity, and blur.
+---
+
+<ComponentPreview name="use-animation-variants-demo" />
+
+## Installation
+
+<ComponentInstallation name="use-animation-variants" />
+
+## Usage
+
+```tsx
+const animationVariants = useAnimationVariants('blur');
+<motion.div
+  variants={animationVariants}
+  transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  className="text-4xl tracking-tight font-bold"
+>
+  <h2>Animation variants demo</h2>
+</motion.div>;
+```
+
+## Props
+
+<TypeTable
+  type={{
+    animation: {
+      description:
+        'the animation property, whether animate transform, blur, or opacity if left undefined.',
+      type: 'left | right | top | bottom | z | blur | undefined',
+      required: false,
+      default: 'opacity',
+    },
+  }}
+/>

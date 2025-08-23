@@ -1,8 +1,8 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@/registry/shadcn/button';
 import { cn } from '@/lib/utils';
-import { Fullscreen, RotateCcw, SlidersHorizontal } from 'lucide-react';
+import { Fullscreen, RotateCcw } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { motion } from 'motion/react';
 import Iframe from './iframe';
@@ -12,17 +12,15 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '../ui/select';
+} from '@/registry/shadcn/select';
 import { STYLES_INFO, useStyle } from '@/providers/style-provider';
 import { index } from '@/__registry__';
 import { OpenIn21stBtn } from './open-in-21st-btn';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 interface ComponentWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
   iframe?: boolean;
   bigScreen?: boolean;
-  tweakpane?: React.ReactNode;
   url?: string;
 }
 
@@ -32,18 +30,15 @@ export const ComponentWrapper = ({
   name,
   iframe = false,
   bigScreen = false,
-  tweakpane,
   url,
 }: ComponentWrapperProps) => {
   const [key, setKey] = useState(0);
-  const [tweakMode, setTweakMode] = useState(false);
 
   const { style, setStyle } = useStyle();
   const componentName = useMemo(() => name.replace('-demo', ''), [name]);
 
   const styleName = `${style}-${componentName}`;
   const hasStyles = index[styleName]?.component;
-  const isMobile = useIsMobile();
 
   return (
     <motion.div
@@ -110,23 +105,6 @@ export const ComponentWrapper = ({
                   </motion.button>
                 </Button>
               )}
-
-              {tweakpane && (
-                <Button
-                  onClick={() => setTweakMode((prev) => !prev)}
-                  className="flex items-center rounded-lg"
-                  variant="secondary"
-                  size="icon"
-                  asChild
-                >
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <SlidersHorizontal aria-label="tweak-btn" size={14} />
-                  </motion.button>
-                </Button>
-              )}
             </div>
           </>
         )}
@@ -141,24 +119,6 @@ export const ComponentWrapper = ({
             {children}
           </div>
         )}
-
-        <motion.div
-          initial={false}
-          animate={{
-            width: isMobile ? '100%' : tweakMode ? '250px' : '0px',
-            height: isMobile ? (tweakMode ? '250px' : '0px') : 'auto',
-            opacity: tweakMode ? 1 : 0,
-          }}
-          transition={{
-            type: 'spring',
-            stiffness: 300,
-            damping: 30,
-            restDelta: 0.01,
-          }}
-          className="relative"
-        >
-          <div className="absolute inset-0 overflow-y-auto">{tweakpane}</div>
-        </motion.div>
       </motion.div>
     </motion.div>
   );

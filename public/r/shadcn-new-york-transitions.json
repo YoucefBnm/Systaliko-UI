@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-new-york-transitions",
+  "type": "registry:hook",
+  "title": "Transitions",
+  "description": "Multiple transitions for your motion components, to animate depending on the animated property with shadcn-new-york style.",
+  "files": [
+    {
+      "path": "__registry__/utils/transitions/shadcn-new-york/index.tsx",
+      "content": "export const TRANSITIONS = {\n  y: { duration: 0.62, ease: [0.22, 1, 0.36, 1] },\n  x: { duration: 0.56, ease: [0.22, 1, 0.36, 1] },\n  scale: { type: 'spring', stiffness: 1000, damping: 28, mass: 0.9 },\n  filter: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },\n  opacity: { duration: 0.36, ease: 'easeOut' },\n} as const;\n",
+      "type": "registry:hook",
+      "target": "components/systaliko-ui/utils/transitions.tsx"
+    }
+  ]
+}

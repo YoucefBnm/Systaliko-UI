@@ -5,7 +5,7 @@ import {
   CardFlipBack,
   CardFlipFront,
 } from '@/__registry__/cards/card-flip/shadcn-new-york';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/__registry__/shadcn/button/shadcn-new-york';
 export function CardFlipDemo() {
   return (
     <div className="container py-12">

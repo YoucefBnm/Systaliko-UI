@@ -3,31 +3,25 @@
   "root": true,
   "pages": [
     "index",
-    "pages",
-    "---Blocks---",
-    "blocks/section-gallery-scroll-animation",
-    "blocks/cards-stack",
-    "blocks/section-rotated-gallery",
-    "blocks/cards-stack-rotated",
-    "blocks/section-gallery",
-    "blocks/slideshow",
-    "blocks/story",
-    "blocks/scroll-x-carousel",
-    "blocks/section-video",
-
+    "templates",
     "---Cards---",
-    "cards/card-curtain-reveal",
     "cards/card-flip",
+    "cards/card-curtain-reveal",
     "cards/card-hover-reveal",
+    "cards/cards-stack-rotated",
+    "cards/cards-stack",
     "cards/card-testimonial",
 
-    "---Containers / Layouts---",
-    "containers/containers-scroll-animations",
-    "containers/container-infinite-scroll",
-    "containers/container-stagger",
-    "containers/gallery-rotated-scroll",
-    "containers/grid-bento",
-    "containers/grid-staggered",
+    "---Blocks---",
+    "blocks/grid-bento",
+    "blocks/parallax",
+    "blocks/scroll-reverse-animation",
+    "blocks/scroll-animations",
+    "blocks/scroll-animations-rotate",
+    "blocks/slideshow",
+    "blocks/container-stagger",
+    "blocks/scroll-x-carousel",
+    "blocks/story",
 
     "---Components---",
     "components/custom-cursor",
@@ -38,8 +32,8 @@
     "text/text-stagger-inview",
     "text/text-vertical",
 
-    "---Utils / Hooks---",
-    "utils/set-stagger-direction",
-    "utils/use-animation-variants"
+    "---Utils---",
+    "utils/animation-variants",
+    "utils/set-stagger-direction"
   ]
 }

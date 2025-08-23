@@ -27,7 +27,7 @@ const TextStaggerInviewDemoContent = () => {
       <TextStaggerInview
         key={`${animation}-${staggerValue}`}
         animation={animation}
-        className="overflow-hidden text-4xl tracking-tight font-bold"
+        className="text-4xl tracking-tight font-bold"
         stagger={staggerValue}
       >
         Stagger Text Inview Demo

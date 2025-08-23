@@ -1,11 +1,11 @@
-import { Input } from '@/components/ui/input';
+import { Input } from '@/registry/shadcn/input';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from '@/registry/shadcn/select';
 import { AnimationT } from '@/registry/utils/use-animation-variants';
 import { createContext, useContext, useState } from 'react';
 import { StaggerDirection } from '@/registry/utils/set-stagger-direction';

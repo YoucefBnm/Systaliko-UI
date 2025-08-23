@@ -5,7 +5,7 @@ import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { CollapsibleContent } from 'fumadocs-ui/components/ui/collapsible';
 import { Collapsible } from 'fumadocs-ui/components/ui/collapsible';
 import { CollapsibleTrigger } from 'fumadocs-ui/components/ui/collapsible';
-import { Button } from '../ui/button';
+import { Button } from '@/registry/shadcn/button';
 import { cn } from '@/lib/utils';
 import { useRef, useState } from 'react';
 import ReactIcon from '../icons/react-icon';

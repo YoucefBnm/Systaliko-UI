@@ -1,6 +1,7 @@
+import { Card } from '@/__registry__/cards/card/default';
 import {
   CardSticky,
-  ContainerScroll,
+  CardsStackContainer,
 } from '@/__registry__/cards/cards-stack/default';
 
 const PROCESS_PHASES = [
@@ -38,25 +39,22 @@ const PROCESS_PHASES = [
 
 export function CardsStackDemo() {
   return (
-    <ContainerScroll className="min-h-[400vh] space-y-8 py-12 place-content-center place-items-center">
+    <CardsStackContainer className="space-y-8 py-12 place-content-center place-items-center">
       {PROCESS_PHASES.map((phase, index) => (
-        <CardSticky
-          key={phase.id}
-          index={index + 2}
-          className="rounded-2xl border p-8 shadow-md backdrop-blur-md max-w-md"
-        >
-          <div className="flex items-center justify-between gap-4">
-            <h2 className="my-6 text-2xl font-bold tracking-tighter">
-              {phase.title}
-            </h2>
-            <h3 className="text-2xl font-bold text-primary">
-              {String(index + 1).padStart(2, '0')}
-            </h3>
-          </div>
-
-          <p className="text-foreground">{phase.description}</p>
+        <CardSticky key={phase.id} index={index + 2}>
+          <Card variant={'glass'} className="p-8 w-1/2 mx-auto">
+            <div className="my-6 flex items-center justify-between gap-4">
+              <h2 className="text-2xl font-bold tracking-tighter">
+                {phase.title}
+              </h2>
+              <h3 className="text-2xl font-bold text-primary">
+                {String(index + 1).padStart(2, '0')}
+              </h3>
+            </div>
+            <p className="text-foreground">{phase.description}</p>
+          </Card>
         </CardSticky>
       ))}
-    </ContainerScroll>
+    </CardsStackContainer>
   );
 }

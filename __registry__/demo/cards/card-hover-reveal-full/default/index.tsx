@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@/__registry__/shadcn/button/default';
 import {
   CardHoverReveal,
   CardHoverRevealContent,

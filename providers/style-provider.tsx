@@ -68,7 +68,7 @@ export const STYLES_INFO_OLD: Record<
   },
 };
 
-const LOCAL_STORAGE_KEY = 'animate-ui-style';
+const LOCAL_STORAGE_KEY = 'systaliko-ui-style';
 
 type StyleContextTypeOld = {
   style: Styles;

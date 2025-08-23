@@ -5,12 +5,16 @@ import { index } from '@/__registry__';
 import { ComponentWrapper } from '@/components/docs/component-wrapper';
 import { cn } from '@/lib/utils';
 import { Loader } from 'lucide-react';
-import { Suspense, useEffect, useMemo, useState } from 'react';
+import { Suspense, useMemo, useState } from 'react';
 import { DynamicCodeBlock } from '@/components/docs/dynamic-codeblock';
 import ReactIcon from '../icons/react-icon';
 import { useStyle } from '@/providers/style-provider';
-import { type Binds } from '../systaliko-ui/tweakpane';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@/registry/shadcn/tabs';
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
@@ -49,7 +53,7 @@ export function ComponentPreview({
   url,
   ...props
 }: ComponentPreviewProps) {
-  const [binds, setBinds] = useState<Binds | null>(null);
+  // const [binds, setBinds] = useState<Binds | null>(null);
   const [componentProps, setComponentProps] = useState<Record<
     string,
     unknown
@@ -77,7 +81,7 @@ export function ComponentPreview({
     if (Object.keys(Component?.demoProps ?? {}).length !== 0) {
       if (componentProps === null)
         setComponentProps(unwrapValues(Component?.demoProps));
-      if (binds === null) setBinds(Component?.demoProps);
+      // if (binds === null) setBinds(Component?.demoProps);
     }
 
     if (!Component) {
@@ -96,12 +100,16 @@ export function ComponentPreview({
     }
 
     return <Component {...flattenFirstLevel(componentProps ?? {})} />;
-  }, [styleName, componentProps, binds]);
+  }, [
+    styleName,
+    componentProps,
+    // binds
+  ]);
 
-  useEffect(() => {
-    if (!binds) return;
-    setComponentProps(unwrapValues(binds));
-  }, [binds]);
+  // useEffect(() => {
+  //   if (!binds) return;
+  //   setComponentProps(unwrapValues(binds));
+  // }, [binds]);
 
   return (
     <div

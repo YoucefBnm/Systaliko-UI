@@ -1,0 +1,112 @@
+---
+title: Scroll Reverse Animation
+description: Scroll Trigger animations, that reverse animation of both gallery images and text in different range on scroll.
+url: https://21st.dev/YoucefBnm/hero-gallery-scroll-animation/default
+---
+
+<ComponentPreview name="scroll-reverse-scale-animation-demo" />
+
+## Installation
+
+<ComponentInstallation name="scroll-animation" />
+
+## Usage
+
+```tsx
+<ScrollAnimation className="p-8">
+  <ScrollTranslate className="h-dvh grid grid-cols-12 grid-rows-1">
+    <ScrollScale
+      className="col-start-2 col-end-12 row-start-1 row-end-2 flex flex-col justify-center items-center space-y-6 text-center"
+      scaleRange={[1, 0]}
+      inputRange={[0.1, 0.6]}
+    >
+      <h1 className="text-5xl font-bold tracking-tighter">
+        Your Animated Hero
+      </h1>
+      <p className="mx-auto text-sm md:text-base">
+        Yet another hero section, this time with scroll trigger animations,{' '}
+        <br />
+        animating the hero content with motion.
+      </p>
+      <div className="flex items-center justify-center gap-4">
+        <Button>Get Started</Button>
+        <Button variant="link">Learn more</Button>
+      </div>
+    </ScrollScale>
+    <GridBento className="[&>*:first-child]:origin-[10%_0%] col-start-1 row-start-1 pointer-events-none row-end-2 col-end-13">
+      {IMAGES.map((imageUrl, index) => (
+        <ScrollScale
+          key={index}
+          inputRange={[0, 1]}
+          scaleRange={[0.5, 1]}
+          className="overflow-hidden"
+        >
+          <img
+            className="size-full object-cover rounded-xl shadow-xl"
+            src={imageUrl}
+            alt="tokyo city"
+          />
+        </ScrollScale>
+      ))}
+    </GridBento>
+  </ScrollTranslate>
+</ScrollAnimation>
+```
+
+## Props
+
+`ScrollAnimation`
+
+<TypeTable
+  type={{
+    spacerClass: {
+      description:
+        'the height of the bottom space to set the duration of the scroll animation by default set to h-96(384px).',
+      type: 'string',
+      required: false,
+      default: 'w-full h-96',
+    },
+  }}
+/>
+
+`ScrollTranslate`
+
+<TypeTable
+  type={{
+    yRange: {
+      description:
+        'the range of the animatiton of the y-axis so it make it sticky to the viewport.',
+      type: 'unknown[]',
+      required: false,
+      default: [0, 384],
+    },
+    inputRange: {
+      description:
+        'the range the of the scroll progress, map it to the animation prop, start is 0 and end is 1.',
+      type: 'unknown[]',
+      required: false,
+      default: [0, 1],
+    },
+  }}
+/>
+
+`ScrollScale`
+
+<TypeTable
+  type={{
+    scaleRange: {
+      description:
+        'the range of the scale animatiton, by default set to [1.2, 1].',
+      type: 'unknown[]',
+      required: false,
+      default: [1.2, 1],
+    },
+    inputRange: {
+      description:
+        'the range the of the scroll progress, map it to the animation prop, start is 0 and end is 1.',
+      type: 'unknown[]',
+      required: false,
+      default: [0, 1],
+    },
+  }}
+/>

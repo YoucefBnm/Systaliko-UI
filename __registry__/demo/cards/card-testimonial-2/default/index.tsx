@@ -4,6 +4,7 @@ import {
   TestimonialQuote,
   TestimonialRating,
 } from '@/__registry__/cards/card-testimonial/default';
+import { QuoteIcon } from 'lucide-react';
 
 const TESTIMONIAL = {
   id: 'testimonial-2',
@@ -29,14 +30,22 @@ export const CardTestimonial2Demo = () => {
       role="article"
       aria-labelledby={`card-${TESTIMONIAL.id}-title`}
       aria-describedby={`card-${TESTIMONIAL.id}-content`}
-      className="w-[480px] h-[350px] shadow-md justify-evenly items-start"
+      className="w-[480px] h-[350px] shadow-md justify-evenly"
     >
-      <TestimonialRating className="text-yellow-500" />
-      <div className="relative  text-lg">
-        <TestimonialQuote>{TESTIMONIAL.quote}</TestimonialQuote>
+      <TestimonialRating className="text-yellow-400 self-start" />
+      <div className="relative text-lg flex">
+        <sup>
+          <QuoteIcon className="size-6 fill-muted-foreground/20 stroke-none" />{' '}
+        </sup>
+        <TestimonialQuote className="my-2">
+          {TESTIMONIAL.quote}
+        </TestimonialQuote>
+        <sup className="self-end">
+          <QuoteIcon className="size-6 fill-muted-foreground/20 stroke-none" />
+        </sup>
       </div>
 
-      <TestimonialAuthor className="flex items-center gap-4" />
+      <TestimonialAuthor className="flex self-end items-center gap-4" />
     </CardTestimonial>
   );
 };

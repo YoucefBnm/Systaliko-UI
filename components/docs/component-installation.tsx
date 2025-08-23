@@ -3,7 +3,12 @@
 import { index } from '@/__registry__';
 import { cn } from '@/lib/utils';
 import { useStyle } from '@/providers/style-provider';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@/registry/shadcn/tabs';
 import { CodeTabs } from './code-tabs';
 import { ComponentManualInstallation } from './component-manuel-installation';
 

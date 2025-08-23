@@ -4,9 +4,14 @@ import * as React from 'react';
 import { useTheme } from 'next-themes';
 
 import { cn } from '@/lib/utils';
-import { CopyButton } from '@/registry/buttons/copy';
+import { CopyButton } from './copy-button';
 import { TabsProps } from '@radix-ui/react-tabs';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@/registry/shadcn/tabs';
 
 type CodeTabsProps = {
   codes: Record<string, string>;

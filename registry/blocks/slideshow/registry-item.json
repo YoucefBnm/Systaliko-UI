@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slideshow",
+  "type": "registry:block",
+  "title": "Slideshow",
+  "description": "Display the active image and activate the next image with hovering the text indicator.",
+  "dependencies": ["motion"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/default-text-stagger-hover"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/slideshow/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/slideshow.tsx"
+    }
+  ]
+}

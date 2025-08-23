@@ -1,7 +1,8 @@
+import { siteConfig } from '@/config/site';
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://systaliko-ui.vercel.app';
+  const baseUrl = siteConfig.url;
   const currentDate = new Date();
 
   return [

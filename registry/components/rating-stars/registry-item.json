@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "rating-stars",
+  "type": "registry:ui",
+  "title": "Rating Stars",
+  "description": "Stars rating component with customizable color, depending on average rating.",
+  "files": [
+    {
+      "path": "registry/components/rating-stars/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/rating-stars.tsx"
+    }
+  ]
+}

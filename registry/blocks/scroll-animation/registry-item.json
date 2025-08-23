@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-animation",
+  "type": "registry:block",
+  "title": "Scroll Animation",
+  "description": "Collection of scroll triggered animations, Triggering the animation by scroll event.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "registry/blocks/scroll-animation/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/blocks/scroll-animation.tsx"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-default-parallax-demo",
+  "type": "registry:block",
+  "title": "Parallax Demo",
+  "description": "Demo showing parallax component with shadcn-default style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/parallax",
+    "https://systaliko-ui.vercel.app/r/container-stagger",
+    "https://systaliko-ui.vercel.app/r/text-stagger-inview",
+    "https://systaliko-ui.vercel.app/r/use-animation-variants",
+    "https://systaliko-ui.vercel.app/r/button"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/blocks/parallax/shadcn-default/index.tsx",
+      "content": "'use client';\nimport { ContainerStagger } from '@/components/systaliko-ui/blocks/container-stagger';\nimport {\n  Parallax,\n  ParallaxItem,\n  PrallaxContainer,\n} from '@/components/systaliko-ui/blocks/parallax';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport { TextStaggerInview } from '@/components/systaliko-ui/text/text-stagger-inview';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\nexport function ParallaxDemo() {\n  const animationVariants = useAnimationVariants('z');\n  return (\n    <Parallax className=\"h-[3600px] md:h-[2000px] p-12\">\n      <ContainerStagger className=\"sticky top-0 h-screen space-y-4 w-full flex flex-col justify-center items-center text-center\">\n        <TextStaggerInview\n          as=\"h2\"\n          className=\"text-5xl font-bold tracking-tighter md:w-2/3 mx-auto\"\n          animation=\"z\"\n        >\n          Creating brands that brings people to the shop\n        </TextStaggerInview>\n\n        <motion.p\n          variants={animationVariants}\n          transition={{\n            type: 'spring',\n            stiffness: 1000,\n            damping: 28,\n            mass: 0.9,\n          }}\n          className=\"max-w-prose  \"\n        >\n          Defining the brand’s unique value proposition and positioning it in\n          the market, creating a brand identity that resonates with the target\n          audience.\n        </motion.p>\n\n        <motion.div\n          variants={animationVariants}\n          transition={{\n            type: 'spring',\n            stiffness: 1000,\n            damping: 28,\n            mass: 0.9,\n          }}\n        >\n          <Button size=\"lg\">Get Started</Button>\n        </motion.div>\n      </ContainerStagger>\n      <PrallaxContainer className=\"flex flex-wrap justify-between gap-4 w-full\">\n        <ParallaxItem\n          className=\"w-11/12 md:w-1/4 max-h-96\"\n          start={200}\n          end={-200}\n        >\n          <img\n            className=\"size-full object-cover object-[50%_50%]\"\n            src=\"https://images.unsplash.com/photo-1508849789987-4e5333c12b78?q=80&w=1593&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n            alt=\"street\"\n          />\n        </ParallaxItem>\n\n        <ParallaxItem\n          className=\"w-11/12 md:w-1/4 max-h-96\"\n          start={500}\n          end={20}\n        >\n          <img\n            className=\"size-full object-cover object-[50%_50%]\"\n            src=\"https://images.unsplash.com/photo-1666053691228-5f2c957b1755?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n            alt=\"street\"\n          />\n        </ParallaxItem>\n        <ParallaxItem\n          className=\"w-11/12 md:w-1/4 max-h-96\"\n          start={800}\n          end={50}\n        >\n          <img\n            className=\"size-full object-cover object-[50%_50%]\"\n            src=\"https://images.unsplash.com/photo-1705693346612-bbc9f38f1621?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n            alt=\"street\"\n          />\n        </ParallaxItem>\n        <ParallaxItem\n          className=\"w-11/12 md:w-1/4 max-h-96\"\n          start={500}\n          end={50}\n        >\n          <img\n            className=\"size-full object-cover object-[50%_50%]\"\n            src=\"https://images.unsplash.com/photo-1534270804882-6b5048b1c1fc?q=80&w=706&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n            alt=\"street\"\n          />\n        </ParallaxItem>\n\n        <ParallaxItem\n          className=\"w-11/12 md:w-1/4 max-h-96\"\n          start={800}\n          end={70}\n        >\n          <img\n            className=\"size-full object-cover object-[50%_50%]\"\n            src=\"https://images.unsplash.com/photo-1643451481461-f73ff49a3f93?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n            alt=\"street\"\n          />\n        </ParallaxItem>\n      </PrallaxContainer>\n    </Parallax>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/blocks/parallax.tsx"
+    }
+  ]
+}

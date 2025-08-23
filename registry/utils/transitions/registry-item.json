@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "transitions",
+  "type": "registry:hook",
+  "title": "Transitions",
+  "description": "Multiple transitions for your motion components, to animate depending on the animated property.",
+  "files": [
+    {
+      "path": "registry/utils/transitions/index.tsx",
+      "type": "registry:hook",
+      "target": "components/systaliko-ui/utils/transitions.tsx"
+    }
+  ]
+}

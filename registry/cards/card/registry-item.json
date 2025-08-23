@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card",
+  "type": "registry:ui",
+  "title": "Card",
+  "description": "Card component with variants.",
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/default-card"],
+  "files": [
+    {
+      "path": "registry/cards/card/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/cards/card.tsx"
+    }
+  ]
+}

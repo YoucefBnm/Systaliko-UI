@@ -71,7 +71,7 @@ export const CardsContainer: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   return (
     <div
       ref={containerRef}
-      className={cn('relative', className)}
+      className={cn('stiky top-0 left-0', className)}
       style={{ perspective: '1000px', ...props.style }}
       {...props}
     >
@@ -126,10 +126,7 @@ export const CardTransformed = React.forwardRef<
         layout="position"
         ref={ref}
         style={cardStyle}
-        className={cn(
-          'absolute will-change-transform backdrop-blur-md',
-          className,
-        )}
+        className={cn('absolute will-change-transform', className)}
         {...props}
       />
     );

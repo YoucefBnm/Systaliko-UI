@@ -14,20 +14,25 @@ async function buildComponents() {
   // Ensure __registry__ directory exists
   await fs.mkdir(AUTO_REGISTRY_DIR, { recursive: true });
 
-  // Delete all directories in AUTO_REGISTRY_DIR
-  const autoEntries = await fs.readdir(AUTO_REGISTRY_DIR, {
-    withFileTypes: true,
-  });
-  await Promise.all(
-    autoEntries
-      .filter((ent) => ent.isDirectory())
-      .map((ent) =>
-        fs.rm(path.join(AUTO_REGISTRY_DIR, ent.name), {
-          recursive: true,
-          force: true,
-        }),
-      ),
-  );
+  // Delete all directories in AUTO_REGISTRY_DIR (if it exists and has content)
+  try {
+    const autoEntries = await fs.readdir(AUTO_REGISTRY_DIR, {
+      withFileTypes: true,
+    });
+    await Promise.all(
+      autoEntries
+        .filter((ent) => ent.isDirectory())
+        .map((ent) =>
+          fs.rm(path.join(AUTO_REGISTRY_DIR, ent.name), {
+            recursive: true,
+            force: true,
+          }),
+        ),
+    );
+  } catch (error) {
+    // Directory doesn't exist or is empty, which is fine
+    console.log('No existing directories to clean up in __registry__');
+  }
 
   // Process each folder under /registry
   const entries = await fs.readdir(REGISTRY_DIR, { withFileTypes: true });

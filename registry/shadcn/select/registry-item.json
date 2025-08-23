@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "select",
+  "type": "registry:ui",
+  "title": "Select",
+  "description": "Select component with variants.",
+  "files": [
+    {
+      "path": "registry/shadcn/select/index.tsx",
+      "type": "registry:ui",
+      "target": "components/select.tsx"
+    }
+  ]
+}

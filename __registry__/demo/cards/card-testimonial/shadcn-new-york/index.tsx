@@ -29,7 +29,7 @@ export const CardTestimonialDemo = () => {
       role="article"
       aria-labelledby={`card-${TESTIMONIAL.id}-title`}
       aria-describedby={`card-${TESTIMONIAL.id}-content`}
-      className="h-[450px] w-[350px] shadow"
+      className="h-[450px] w-[350px] bg-card justify-center items-center"
     >
       <TestimonialRating className="text-primary" />
       <div className="relative text-center mx-auto w-4/5 text-lg">

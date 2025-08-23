@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slideshow-demo",
+  "type": "registry:block",
+  "title": "Slideshow Demo",
+  "description": "Demo showing how to use slideshow component.",
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/slideshow"],
+  "files": [
+    {
+      "path": "registry/demo/blocks/slideshow/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/slideshow-demo.tsx"
+    }
+  ]
+}

@@ -3,7 +3,7 @@
   "name": "cards-stack-rotated",
   "type": "registry:block",
   "title": "Cards Stack Rotated",
-  "description": "Stack of rotated cards show, rotate one element at a time depending on scroll position.",
+  "description": "Stack of cards rotated by a defined index value to rotate in sequence, it show one card at a time depending on the scroll position.",
   "dependencies": ["motion"],
   "files": [
     {

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "custom-cursor",
+  "type": "registry:ui",
+  "title": "Custom Cursor",
+  "description": "Turn your cursor into any element your want, text, image, video, or a shape.",
+  "dependencies": ["motion"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/default-use-follow-mouse"
+  ],
+  "files": [
+    {
+      "path": "registry/components/custom-cursor/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/custom-cursor.tsx"
+    }
+  ]
+}

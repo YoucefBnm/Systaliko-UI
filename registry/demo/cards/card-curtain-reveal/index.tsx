@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@/registry/shadcn/button';
 import {
   CardCurtain,
   CardCurtainReveal,
@@ -11,7 +11,7 @@ import { ArrowUpRight } from 'lucide-react';
 
 export const CardCurtainRevealDemo = () => {
   return (
-    <CardCurtainReveal className=" h-[540px] w-96 border bg-black dark:bg-white text-fd-accent shadow">
+    <CardCurtainReveal className="h-[560px] w-96 border bg-foreground  text-background shadow">
       <CardCurtainRevealBody>
         <CardCurtainRevealTitle className="text-3xl font-medium tracking-tight">
           Behind <br />
@@ -39,11 +39,9 @@ export const CardCurtainRevealDemo = () => {
 
       <CardCurtainRevealFooter className="mt-auto">
         <img
-          width="100%"
-          height="100%"
           alt="street"
           className="size-full"
-          src="https://images.pexels.com/photos/1678997/pexels-photo-1678997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         />
       </CardCurtainRevealFooter>
     </CardCurtainReveal>
