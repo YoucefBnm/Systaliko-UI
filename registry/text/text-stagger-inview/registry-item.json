@@ -6,8 +6,8 @@
   "description": "Splitted text animation with staggered reveal triggered by view, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition.",
   "dependencies": ["motion"],
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/default-use-animation-variants",
-    "https://systaliko-ui.vercel.app/r/default-word-stagger"
+    "https://systaliko-ui.vercel.app/r/default-word-stagger",
+    "https://systaliko-ui.vercel.app/r/default-use-animation-variants"
   ],
   "files": [
     {
