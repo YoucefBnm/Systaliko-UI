@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-new-york-calculator-demo",
+  "type": "registry:block",
+  "title": "Calculator Demo",
+  "description": "Demo showing calculator component with shadcn-new-york style.",
+  "registryDependencies": [
+    "http://localhost:3000/r/calculator"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/blocks/calculator/shadcn-new-york/index.tsx",
+      "content": "import { Calculator } from '@/components/systaliko-ui/blocks/calculator';\n\nexport function CalculatorDemo() {\n  return (\n    <div>\n      <Calculator />\n    </div>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/blocks/calculator.tsx"
+    }
+  ]
+}

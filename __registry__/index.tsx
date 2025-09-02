@@ -22,6 +22,111 @@ export const index: Record<string, any> = {
     component: null,
     command: 'https://systaliko-ui.vercel.app/r/index',
   },
+  'default-calculator': {
+    name: 'default-calculator',
+    description:
+      'calculator utils, for calculator component with default style.',
+    type: 'registry:lib',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/utils/calculator/default/index.ts',
+        type: 'registry:lib',
+        target: 'components/systaliko-ui/utils/calculator.ts',
+        content: '',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/utils/calculator/default/index.ts'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-calculator';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/default-calculator',
+  },
+  'shadcn-default-calculator': {
+    name: 'shadcn-default-calculator',
+    description:
+      'calculator utils, for calculator component with shadcn-default style.',
+    type: 'registry:lib',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/utils/calculator/shadcn-default/index.ts',
+        type: 'registry:lib',
+        target: 'components/systaliko-ui/utils/calculator.ts',
+        content: '',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/utils/calculator/shadcn-default/index.ts'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-calculator';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-calculator',
+  },
+  'shadcn-new-york-calculator': {
+    name: 'shadcn-new-york-calculator',
+    description:
+      'calculator utils, for calculator component with shadcn-new-york style.',
+    type: 'registry:lib',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/utils/calculator/shadcn-new-york/index.ts',
+        type: 'registry:lib',
+        target: 'components/systaliko-ui/utils/calculator.ts',
+        content: '',
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/utils/calculator/shadcn-new-york/index.ts'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-calculator';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-calculator',
+  },
   'default-container-stagger': {
     name: 'default-container-stagger',
     description:
@@ -35,7 +140,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/blocks/container-stagger/default/index.tsx',
         type: 'registry:block',
-        target: 'components/systaliko-ui/containers/container-stagger.tsx',
+        target: 'components/systaliko-ui/blocks/container-stagger.tsx',
         content:
           "'use client';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport * as React from 'react';\n\ninterface ContainerStaggerProps extends HTMLMotionProps<'div'> {\n  staggerChildren?: number;\n  delayChildren?: number;\n  staggerDirection?: 1 | -1;\n}\n\nexport const ContainerStagger = React.forwardRef<\n  HTMLDivElement,\n  ContainerStaggerProps\n>(\n  (\n    {\n      staggerChildren = 0.2,\n      delayChildren = 0.2,\n      staggerDirection = 1,\n      className,\n      transition,\n      ...props\n    },\n    ref,\n  ) => {\n    return (\n      <motion.div\n        ref={ref}\n        className={className}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: true }}\n        transition={{\n          staggerChildren,\n          delayChildren,\n          staggerDirection,\n          ...transition,\n        }}\n        {...props}\n      />\n    );\n  },\n);\nContainerStagger.displayName = 'ContainerStagger';",
       },
@@ -71,7 +176,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/blocks/container-stagger/shadcn-default/index.tsx',
         type: 'registry:block',
-        target: 'components/systaliko-ui/containers/container-stagger.tsx',
+        target: 'components/systaliko-ui/blocks/container-stagger.tsx',
         content:
           "'use client';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport * as React from 'react';\n\ninterface ContainerStaggerProps extends HTMLMotionProps<'div'> {\n  staggerChildren?: number;\n  delayChildren?: number;\n  staggerDirection?: 1 | -1;\n}\n\nexport const ContainerStagger = React.forwardRef<\n  HTMLDivElement,\n  ContainerStaggerProps\n>(\n  (\n    {\n      staggerChildren = 0.2,\n      delayChildren = 0.2,\n      staggerDirection = 1,\n      className,\n      transition,\n      ...props\n    },\n    ref,\n  ) => {\n    return (\n      <motion.div\n        ref={ref}\n        className={className}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: true }}\n        transition={{\n          staggerChildren,\n          delayChildren,\n          staggerDirection,\n          ...transition,\n        }}\n        {...props}\n      />\n    );\n  },\n);\nContainerStagger.displayName = 'ContainerStagger';",
       },
@@ -108,7 +213,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/blocks/container-stagger/shadcn-new-york/index.tsx',
         type: 'registry:block',
-        target: 'components/systaliko-ui/containers/container-stagger.tsx',
+        target: 'components/systaliko-ui/blocks/container-stagger.tsx',
         content:
           "'use client';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport * as React from 'react';\n\ninterface ContainerStaggerProps extends HTMLMotionProps<'div'> {\n  staggerChildren?: number;\n  delayChildren?: number;\n  staggerDirection?: 1 | -1;\n}\n\nexport const ContainerStagger = React.forwardRef<\n  HTMLDivElement,\n  ContainerStaggerProps\n>(\n  (\n    {\n      staggerChildren = 0.2,\n      delayChildren = 0.2,\n      staggerDirection = 1,\n      className,\n      transition,\n      ...props\n    },\n    ref,\n  ) => {\n    return (\n      <motion.div\n        ref={ref}\n        className={className}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: true }}\n        transition={{\n          staggerChildren,\n          delayChildren,\n          staggerDirection,\n          ...transition,\n        }}\n        {...props}\n      />\n    );\n  },\n);\nContainerStagger.displayName = 'ContainerStagger';",
       },
@@ -582,7 +687,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/blocks/scroll-x-carousel/default/index.tsx',
         type: 'registry:block',
-        target: 'components/systaliko-ui/scroll-x-carousel.tsx',
+        target: 'components/systaliko-ui/blocks/scroll-x-carousel.tsx',
         content:
           "'use client';\n\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useReducedMotion,\n  useScroll,\n  useSpring,\n  useTransform,\n} from 'motion/react';\n\ninterface ScrollXCarouselContextValue {\n  scrollYProgress: MotionValue<number>;\n}\n\nconst ScrollXCarouselContext =\n  React.createContext<ScrollXCarouselContextValue | null>(null);\nfunction useScrollXCarousel() {\n  const context = React.useContext(ScrollXCarouselContext);\n  if (!context) {\n    throw new Error('useScrollXCarousel must be used within a ScrollXCarousel');\n  }\n  return context;\n}\nexport function ScrollXCarousel({\n  children,\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  const carouselRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: carouselRef,\n  });\n  return (\n    <ScrollXCarouselContext.Provider value={{ scrollYProgress }}>\n      <div\n        ref={carouselRef}\n        className={cn('relative max-w-full', className)}\n        {...props}\n      >\n        {children}\n      </div>\n    </ScrollXCarouselContext.Provider>\n  );\n}\n\nexport function ScrollXCarouselContainer({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn('sticky overflow-hidden w-full top-0 left-0', className)}\n      {...props}\n    />\n  );\n}\nexport function ScrollXCarouselWrap({\n  className,\n  style,\n  xRagnge = ['-0%', '-80%'],\n  ...props\n}: HTMLMotionProps<'div'> & { xRagnge?: unknown[] }) {\n  const { scrollYProgress } = useScrollXCarousel();\n  const reducedMotion = useReducedMotion();\n  const smoothProgress = useSpring(scrollYProgress, {\n    damping: 30,\n    stiffness: 400,\n    restDelta: 0.001, // Important for stopping micro-animations\n  });\n\n  const scrollProgress = reducedMotion ? scrollYProgress : smoothProgress;\n\n  const x = useTransform(scrollProgress, [0, 1], xRagnge);\n\n  return (\n    <motion.div\n      className={cn('w-fit', className)}\n      style={{ x, willChange: 'transform', ...style }}\n      {...props}\n    />\n  );\n}\nexport function ScrollXCarouselProgress({\n  className,\n  style,\n  progressStyle,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { progressStyle?: string }) {\n  const { scrollYProgress } = useScrollXCarousel();\n  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);\n  return (\n    <div className={cn('max-w-screen overflow-hidden', className)} {...props}>\n      <motion.div\n        className={cn('origin-left', progressStyle)}\n        style={{ scaleX, ...style }}\n      />\n    </div>\n  );\n}",
       },
@@ -618,7 +723,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/blocks/scroll-x-carousel/shadcn-default/index.tsx',
         type: 'registry:block',
-        target: 'components/systaliko-ui/scroll-x-carousel.tsx',
+        target: 'components/systaliko-ui/blocks/scroll-x-carousel.tsx',
         content:
           "'use client';\n\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useReducedMotion,\n  useScroll,\n  useSpring,\n  useTransform,\n} from 'motion/react';\n\ninterface ScrollXCarouselContextValue {\n  scrollYProgress: MotionValue<number>;\n}\n\nconst ScrollXCarouselContext =\n  React.createContext<ScrollXCarouselContextValue | null>(null);\nfunction useScrollXCarousel() {\n  const context = React.useContext(ScrollXCarouselContext);\n  if (!context) {\n    throw new Error('useScrollXCarousel must be used within a ScrollXCarousel');\n  }\n  return context;\n}\nexport function ScrollXCarousel({\n  children,\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  const carouselRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: carouselRef,\n  });\n  return (\n    <ScrollXCarouselContext.Provider value={{ scrollYProgress }}>\n      <div\n        ref={carouselRef}\n        className={cn('relative max-w-full', className)}\n        {...props}\n      >\n        {children}\n      </div>\n    </ScrollXCarouselContext.Provider>\n  );\n}\n\nexport function ScrollXCarouselContainer({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn('sticky overflow-hidden w-full top-0 left-0', className)}\n      {...props}\n    />\n  );\n}\nexport function ScrollXCarouselWrap({\n  className,\n  style,\n  xRagnge = ['-0%', '-80%'],\n  ...props\n}: HTMLMotionProps<'div'> & { xRagnge?: unknown[] }) {\n  const { scrollYProgress } = useScrollXCarousel();\n  const reducedMotion = useReducedMotion();\n  const smoothProgress = useSpring(scrollYProgress, {\n    damping: 30,\n    stiffness: 400,\n    restDelta: 0.001, // Important for stopping micro-animations\n  });\n\n  const scrollProgress = reducedMotion ? scrollYProgress : smoothProgress;\n\n  const x = useTransform(scrollProgress, [0, 1], xRagnge);\n\n  return (\n    <motion.div\n      className={cn('w-fit', className)}\n      style={{ x, willChange: 'transform', ...style }}\n      {...props}\n    />\n  );\n}\nexport function ScrollXCarouselProgress({\n  className,\n  style,\n  progressStyle,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { progressStyle?: string }) {\n  const { scrollYProgress } = useScrollXCarousel();\n  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);\n  return (\n    <div className={cn('max-w-screen overflow-hidden', className)} {...props}>\n      <motion.div\n        className={cn('origin-left', progressStyle)}\n        style={{ scaleX, ...style }}\n      />\n    </div>\n  );\n}",
       },
@@ -655,7 +760,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/blocks/scroll-x-carousel/shadcn-new-york/index.tsx',
         type: 'registry:block',
-        target: 'components/systaliko-ui/scroll-x-carousel.tsx',
+        target: 'components/systaliko-ui/blocks/scroll-x-carousel.tsx',
         content:
           "'use client';\n\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useReducedMotion,\n  useScroll,\n  useSpring,\n  useTransform,\n} from 'motion/react';\n\ninterface ScrollXCarouselContextValue {\n  scrollYProgress: MotionValue<number>;\n}\n\nconst ScrollXCarouselContext =\n  React.createContext<ScrollXCarouselContextValue | null>(null);\nfunction useScrollXCarousel() {\n  const context = React.useContext(ScrollXCarouselContext);\n  if (!context) {\n    throw new Error('useScrollXCarousel must be used within a ScrollXCarousel');\n  }\n  return context;\n}\nexport function ScrollXCarousel({\n  children,\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  const carouselRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: carouselRef,\n  });\n  return (\n    <ScrollXCarouselContext.Provider value={{ scrollYProgress }}>\n      <div\n        ref={carouselRef}\n        className={cn('relative max-w-full', className)}\n        {...props}\n      >\n        {children}\n      </div>\n    </ScrollXCarouselContext.Provider>\n  );\n}\n\nexport function ScrollXCarouselContainer({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn('sticky overflow-hidden w-full top-0 left-0', className)}\n      {...props}\n    />\n  );\n}\nexport function ScrollXCarouselWrap({\n  className,\n  style,\n  xRagnge = ['-0%', '-80%'],\n  ...props\n}: HTMLMotionProps<'div'> & { xRagnge?: unknown[] }) {\n  const { scrollYProgress } = useScrollXCarousel();\n  const reducedMotion = useReducedMotion();\n  const smoothProgress = useSpring(scrollYProgress, {\n    damping: 30,\n    stiffness: 400,\n    restDelta: 0.001, // Important for stopping micro-animations\n  });\n\n  const scrollProgress = reducedMotion ? scrollYProgress : smoothProgress;\n\n  const x = useTransform(scrollProgress, [0, 1], xRagnge);\n\n  return (\n    <motion.div\n      className={cn('w-fit', className)}\n      style={{ x, willChange: 'transform', ...style }}\n      {...props}\n    />\n  );\n}\nexport function ScrollXCarouselProgress({\n  className,\n  style,\n  progressStyle,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { progressStyle?: string }) {\n  const { scrollYProgress } = useScrollXCarousel();\n  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);\n  return (\n    <div className={cn('max-w-screen overflow-hidden', className)} {...props}>\n      <motion.div\n        className={cn('origin-left', progressStyle)}\n        style={{ scaleX, ...style }}\n      />\n    </div>\n  );\n}",
       },
@@ -694,7 +799,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/blocks/slideshow/default/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/slideshow.tsx',
+        target: 'components/systaliko-ui/blocks/slideshow.tsx',
         content:
           "'use client';\n\nimport * as React from 'react';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { cn } from '@/lib/utils';\nimport {\n  TextStaggerHover,\n  TextStaggerHoverActive,\n  TextStaggerHoverHidden,\n} from '@/components/systaliko-ui/text/text-stagger-hover';\n\ninterface SlideshowContextValue {\n  activeSlide: number;\n  changeSlide: (index: number) => void;\n}\n\nconst SlideshowContext = React.createContext<SlideshowContextValue | undefined>(\n  undefined,\n);\nfunction useSlideshowContext() {\n  const context = React.useContext(SlideshowContext);\n  if (context === undefined) {\n    throw new Error(\n      'useSlideshowContext must be used within a SlideshowProvider',\n    );\n  }\n  return context;\n}\n\nexport const Slideshow = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ children, className, ...props }, ref) => {\n  const [activeSlide, setActiveSlide] = React.useState<number>(0);\n  const changeSlide = React.useCallback(\n    (index: number) => setActiveSlide(index),\n    [setActiveSlide],\n  );\n  return (\n    <SlideshowContext.Provider value={{ activeSlide, changeSlide }}>\n      <div className={className} ref={ref} {...props}>\n        {children}\n      </div>\n    </SlideshowContext.Provider>\n  );\n});\nSlideshow.displayName = 'Slideshow';\n\nexport const SlideshowIndicator = React.forwardRef<\n  HTMLElement,\n  React.HTMLAttributes<HTMLElement> & { index: number }\n>(({ index, children, className, ...props }, ref) => {\n  const { activeSlide, changeSlide } = useSlideshowContext();\n  const isActive = activeSlide === index;\n  const handleMouse = () => changeSlide(index);\n  return (\n    <span\n      className={cn(\n        'relative inline-block origin-bottom overflow-hidden',\n        className,\n      )}\n      {...props}\n      ref={ref}\n      onMouseEnter={handleMouse}\n    >\n      <TextStaggerHover\n        as={'h2'}\n        className=\"cursor-pointer text-4xl font-bold uppercase tracking-tighter\"\n      >\n        <TextStaggerHoverActive\n          className=\"opacity-20\"\n          animation={'top'}\n          animate={isActive ? 'hidden' : 'visible'}\n        >\n          {String(children)}\n        </TextStaggerHoverActive>\n        <TextStaggerHoverHidden\n          animation={'bottom'}\n          animate={isActive ? 'visible' : 'hidden'}\n        >\n          {String(children)}\n        </TextStaggerHoverHidden>\n      </TextStaggerHover>\n    </span>\n  );\n});\nSlideshowIndicator.displayName = 'SlideshowIndicator';\n\nexport const clipPathVariants = {\n  visible: {\n    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',\n  },\n  hidden: {\n    clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0px)',\n  },\n};\nexport const SlideshowImageContainer = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(\n        'grid  overflow-hidden [&>*]:col-start-1 [&>*]:col-end-1 [&>*]:row-start-1 [&>*]:row-end-1 [&>*]:size-full',\n        className,\n      )}\n      {...props}\n    />\n  );\n});\nSlideshowImageContainer.displayName = 'SlideshowImageContainer';\n\nexport const SlideshowImageWrap = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { index: number }\n>(({ index, className, ...props }, ref) => {\n  const { activeSlide } = useSlideshowContext();\n  return (\n    <motion.div\n      className={cn('inline-block align-middle', className)}\n      transition={{ ease: [0.33, 1, 0.68, 1], duration: 0.8 }}\n      variants={clipPathVariants}\n      animate={activeSlide === index ? 'visible' : 'hidden'}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nSlideshowImageWrap.displayName = 'SlideshowImageWrap';",
       },
@@ -732,7 +837,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/blocks/slideshow/shadcn-default/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/slideshow.tsx',
+        target: 'components/systaliko-ui/blocks/slideshow.tsx',
         content:
           "'use client';\n\nimport * as React from 'react';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { cn } from '@/lib/utils';\nimport {\n  TextStaggerHover,\n  TextStaggerHoverActive,\n  TextStaggerHoverHidden,\n} from '@/components/systaliko-ui/text/text-stagger-hover';\n\ninterface SlideshowContextValue {\n  activeSlide: number;\n  changeSlide: (index: number) => void;\n}\n\nconst SlideshowContext = React.createContext<SlideshowContextValue | undefined>(\n  undefined,\n);\nfunction useSlideshowContext() {\n  const context = React.useContext(SlideshowContext);\n  if (context === undefined) {\n    throw new Error(\n      'useSlideshowContext must be used within a SlideshowProvider',\n    );\n  }\n  return context;\n}\n\nexport const Slideshow = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ children, className, ...props }, ref) => {\n  const [activeSlide, setActiveSlide] = React.useState<number>(0);\n  const changeSlide = React.useCallback(\n    (index: number) => setActiveSlide(index),\n    [setActiveSlide],\n  );\n  return (\n    <SlideshowContext.Provider value={{ activeSlide, changeSlide }}>\n      <div className={className} ref={ref} {...props}>\n        {children}\n      </div>\n    </SlideshowContext.Provider>\n  );\n});\nSlideshow.displayName = 'Slideshow';\n\nexport const SlideshowIndicator = React.forwardRef<\n  HTMLElement,\n  React.HTMLAttributes<HTMLElement> & { index: number }\n>(({ index, children, className, ...props }, ref) => {\n  const { activeSlide, changeSlide } = useSlideshowContext();\n  const isActive = activeSlide === index;\n  const handleMouse = () => changeSlide(index);\n  return (\n    <span\n      className={cn(\n        'relative inline-block origin-bottom overflow-hidden',\n        className,\n      )}\n      {...props}\n      ref={ref}\n      onMouseEnter={handleMouse}\n    >\n      <TextStaggerHover\n        as={'h2'}\n        className=\"cursor-pointer text-4xl font-bold uppercase tracking-tighter\"\n      >\n        <TextStaggerHoverActive\n          className=\"opacity-20\"\n          animation={'top'}\n          animate={isActive ? 'hidden' : 'visible'}\n        >\n          {String(children)}\n        </TextStaggerHoverActive>\n        <TextStaggerHoverHidden\n          animation={'bottom'}\n          animate={isActive ? 'visible' : 'hidden'}\n        >\n          {String(children)}\n        </TextStaggerHoverHidden>\n      </TextStaggerHover>\n    </span>\n  );\n});\nSlideshowIndicator.displayName = 'SlideshowIndicator';\n\nexport const clipPathVariants = {\n  visible: {\n    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',\n  },\n  hidden: {\n    clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0px)',\n  },\n};\nexport const SlideshowImageContainer = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(\n        'grid  overflow-hidden [&>*]:col-start-1 [&>*]:col-end-1 [&>*]:row-start-1 [&>*]:row-end-1 [&>*]:size-full',\n        className,\n      )}\n      {...props}\n    />\n  );\n});\nSlideshowImageContainer.displayName = 'SlideshowImageContainer';\n\nexport const SlideshowImageWrap = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { index: number }\n>(({ index, className, ...props }, ref) => {\n  const { activeSlide } = useSlideshowContext();\n  return (\n    <motion.div\n      className={cn('inline-block align-middle', className)}\n      transition={{ ease: [0.33, 1, 0.68, 1], duration: 0.8 }}\n      variants={clipPathVariants}\n      animate={activeSlide === index ? 'visible' : 'hidden'}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nSlideshowImageWrap.displayName = 'SlideshowImageWrap';",
       },
@@ -770,7 +875,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/blocks/slideshow/shadcn-new-york/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/slideshow.tsx',
+        target: 'components/systaliko-ui/blocks/slideshow.tsx',
         content:
           "'use client';\n\nimport * as React from 'react';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { cn } from '@/lib/utils';\nimport {\n  TextStaggerHover,\n  TextStaggerHoverActive,\n  TextStaggerHoverHidden,\n} from '@/components/systaliko-ui/text/text-stagger-hover';\n\ninterface SlideshowContextValue {\n  activeSlide: number;\n  changeSlide: (index: number) => void;\n}\n\nconst SlideshowContext = React.createContext<SlideshowContextValue | undefined>(\n  undefined,\n);\nfunction useSlideshowContext() {\n  const context = React.useContext(SlideshowContext);\n  if (context === undefined) {\n    throw new Error(\n      'useSlideshowContext must be used within a SlideshowProvider',\n    );\n  }\n  return context;\n}\n\nexport const Slideshow = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ children, className, ...props }, ref) => {\n  const [activeSlide, setActiveSlide] = React.useState<number>(0);\n  const changeSlide = React.useCallback(\n    (index: number) => setActiveSlide(index),\n    [setActiveSlide],\n  );\n  return (\n    <SlideshowContext.Provider value={{ activeSlide, changeSlide }}>\n      <div className={className} ref={ref} {...props}>\n        {children}\n      </div>\n    </SlideshowContext.Provider>\n  );\n});\nSlideshow.displayName = 'Slideshow';\n\nexport const SlideshowIndicator = React.forwardRef<\n  HTMLElement,\n  React.HTMLAttributes<HTMLElement> & { index: number }\n>(({ index, children, className, ...props }, ref) => {\n  const { activeSlide, changeSlide } = useSlideshowContext();\n  const isActive = activeSlide === index;\n  const handleMouse = () => changeSlide(index);\n  return (\n    <span\n      className={cn(\n        'relative inline-block origin-bottom overflow-hidden',\n        className,\n      )}\n      {...props}\n      ref={ref}\n      onMouseEnter={handleMouse}\n    >\n      <TextStaggerHover\n        as={'h2'}\n        className=\"cursor-pointer text-4xl font-bold uppercase tracking-tighter\"\n      >\n        <TextStaggerHoverActive\n          className=\"opacity-20\"\n          animation={'top'}\n          animate={isActive ? 'hidden' : 'visible'}\n        >\n          {String(children)}\n        </TextStaggerHoverActive>\n        <TextStaggerHoverHidden\n          animation={'bottom'}\n          animate={isActive ? 'visible' : 'hidden'}\n        >\n          {String(children)}\n        </TextStaggerHoverHidden>\n      </TextStaggerHover>\n    </span>\n  );\n});\nSlideshowIndicator.displayName = 'SlideshowIndicator';\n\nexport const clipPathVariants = {\n  visible: {\n    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',\n  },\n  hidden: {\n    clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0px)',\n  },\n};\nexport const SlideshowImageContainer = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(\n        'grid  overflow-hidden [&>*]:col-start-1 [&>*]:col-end-1 [&>*]:row-start-1 [&>*]:row-end-1 [&>*]:size-full',\n        className,\n      )}\n      {...props}\n    />\n  );\n});\nSlideshowImageContainer.displayName = 'SlideshowImageContainer';\n\nexport const SlideshowImageWrap = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { index: number }\n>(({ index, className, ...props }, ref) => {\n  const { activeSlide } = useSlideshowContext();\n  return (\n    <motion.div\n      className={cn('inline-block align-middle', className)}\n      transition={{ ease: [0.33, 1, 0.68, 1], duration: 0.8 }}\n      variants={clipPathVariants}\n      animate={activeSlide === index ? 'visible' : 'hidden'}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nSlideshowImageWrap.displayName = 'SlideshowImageWrap';",
       },
@@ -806,7 +911,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/blocks/story/default/index.tsx',
         type: 'registry:block',
-        target: 'components/systaliko-ui/story.tsx',
+        target: 'components/systaliko-ui/blocks/story.tsx',
         content:
           "'use client';\nimport { cn } from '@/lib/utils';\nimport * as React from 'react';\nimport { Button, ButtonProps } from '@/components/systaliko-ui/shadcn/button';\nimport { PauseIcon, PlayIcon, ReplyIcon } from 'lucide-react';\n\ninterface StoryProps extends React.HTMLAttributes<HTMLDivElement> {\n  mediaLength: number;\n  duration?: number;\n}\ninterface StoryContextValue {\n  mediaLength: number;\n  currentIndex: number;\n  progress: number;\n  isPaused: boolean;\n  isEnded: boolean;\n  handleControl: () => void;\n  setCurrentIndex: (index: number) => void;\n  setIsPaused: (paused: boolean) => void;\n  setIsEnded: (ended: boolean) => void;\n}\nconst StoryContext = React.createContext<StoryContextValue | undefined>(\n  undefined,\n);\nfunction useStoryContext() {\n  const context = React.useContext(StoryContext);\n  if (context === undefined) {\n    throw new Error('useStoryContext must be used within a StoryProvider');\n  }\n  return context;\n}\nexport const Story = React.forwardRef<HTMLDivElement, StoryProps>(\n  ({ mediaLength, duration = 2000, className, children, ...props }, ref) => {\n    const [currentIndex, setCurrentIndex] = React.useState(0);\n    const [progress, setProgress] = React.useState(0);\n    const [isPaused, setIsPaused] = React.useState(false);\n    const [isEnded, setIsEnded] = React.useState(false);\n    const progressRef = React.useRef<number>(0);\n    const intervalRef = React.useRef<ReturnType<typeof setInterval> | null>(\n      null,\n    );\n\n    React.useEffect(() => {\n      progressRef.current = 0;\n      setProgress(0);\n    }, [currentIndex, duration, mediaLength]);\n    React.useEffect(() => {\n      if (mediaLength === 0 || isPaused) return;\n\n      if (intervalRef.current) {\n        clearInterval(intervalRef.current);\n        intervalRef.current = null;\n      }\n\n      const tick = 50;\n      const totalTicks = duration / tick;\n\n      intervalRef.current = setInterval(() => {\n        progressRef.current += 1;\n        const newProgress = (progressRef.current / totalTicks) * 100;\n        setProgress(newProgress);\n\n        if (progressRef.current >= totalTicks) {\n          clearInterval(intervalRef.current!);\n          intervalRef.current = null;\n\n          if (currentIndex < mediaLength - 1) {\n            setCurrentIndex((idx) => idx + 1);\n          } else {\n            setIsPaused(true);\n            setIsEnded(true);\n          }\n        }\n      }, tick);\n\n      return () => {\n        if (intervalRef.current) {\n          clearInterval(intervalRef.current);\n          intervalRef.current = null;\n        }\n      };\n    }, [isPaused, currentIndex, duration, mediaLength]);\n\n    if (mediaLength === 0) {\n      return (\n        <div className=\"text-center text-secondary\">No stories to display</div>\n      );\n    }\n\n    const handleControl = () => {\n      if (isEnded) {\n        setCurrentIndex(0);\n        setIsEnded(false);\n        setIsPaused(false);\n      } else {\n        setIsPaused((prev) => !prev);\n      }\n    };\n\n    return (\n      <StoryContext.Provider\n        value={{\n          mediaLength,\n          currentIndex,\n          progress,\n          isPaused,\n          isEnded,\n          handleControl,\n          setCurrentIndex,\n          setIsPaused,\n          setIsEnded,\n        }}\n      >\n        <div className={cn('mx-auto', className)} ref={ref} {...props}>\n          {children}\n        </div>\n      </StoryContext.Provider>\n    );\n  },\n);\nStory.displayName = 'Story';\n\nexport const StoryProgress = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & {\n    progressWrapClass?: string;\n    progressActiveClass?: string;\n  }\n>(({ className, progressWrapClass, progressActiveClass, ...props }, ref) => {\n  const {\n    mediaLength,\n    currentIndex,\n    progress,\n    setCurrentIndex,\n    setIsEnded,\n    setIsPaused,\n  } = useStoryContext();\n\n  const handleProgressClick = (index: number) => {\n    setCurrentIndex(index);\n    setIsPaused(false);\n    setIsEnded(false);\n  };\n\n  return (\n    <div className={cn('space-x-1 flex', className)} ref={ref} {...props}>\n      {Array.from({ length: mediaLength }).map((_, index) => {\n        const isActive = index === currentIndex;\n        const isCompleted = index < currentIndex;\n\n        return (\n          <div\n            key={index}\n            className={cn(\n              'h-1 flex-1 rounded bg-secondary cursor-pointer transition-colors',\n              'hover:bg-secondary/80',\n              progressWrapClass,\n            )}\n            onClick={() => handleProgressClick(index)}\n            role=\"button\"\n            tabIndex={0}\n            onKeyDown={(e) => {\n              if (e.key === 'Enter' || e.key === ' ') {\n                handleProgressClick(index);\n              }\n            }}\n          >\n            <div\n              className={cn(\n                'h-full rounded-[inherit] transition-all duration-200',\n                isActive\n                  ? 'bg-primary'\n                  : isCompleted\n                    ? 'bg-primary'\n                    : 'bg-transparent',\n                progressActiveClass,\n              )}\n              style={{\n                width: isActive ? `${progress}%` : isCompleted ? '100%' : '0%',\n              }}\n            />\n          </div>\n        );\n      })}\n    </div>\n  );\n});\nStoryProgress.displayName = 'StoryProgress';\n\nexport const StorySlide = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & { index: number }\n>(({ index, className, ...props }, ref) => {\n  const { currentIndex } = useStoryContext();\n  if (index !== currentIndex) return null;\n  return (\n    <div className={cn('animate-in fade-in', className)} ref={ref} {...props} />\n  );\n});\nStorySlide.displayName = 'StorySlide';\n\nexport const StoryControls: React.FC<ButtonProps> = ({\n  className,\n  ...props\n}) => {\n  const { isPaused, isEnded, handleControl } = useStoryContext();\n  return (\n    <Button\n      onClick={handleControl}\n      size=\"icon\"\n      {...props}\n      className={className}\n    >\n      {isPaused ? isEnded ? <ReplyIcon /> : <PlayIcon /> : <PauseIcon />}\n    </Button>\n  );\n};\nStoryControls.displayName = 'StoryControls';\n\nexport const StoryOverlay: React.FC = () => (\n  <div className=\" absolute inset-0 \">\n    <div className=\"absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black to-transparent\" />\n    <div className=\"absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent\" />\n  </div>\n);",
       },
@@ -842,7 +947,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/blocks/story/shadcn-default/index.tsx',
         type: 'registry:block',
-        target: 'components/systaliko-ui/story.tsx',
+        target: 'components/systaliko-ui/blocks/story.tsx',
         content:
           "'use client';\nimport { cn } from '@/lib/utils';\nimport * as React from 'react';\nimport { Button, ButtonProps } from '@/components/systaliko-ui/shadcn/button';\nimport { PauseIcon, PlayIcon, ReplyIcon } from 'lucide-react';\n\ninterface StoryProps extends React.HTMLAttributes<HTMLDivElement> {\n  mediaLength: number;\n  duration?: number;\n}\ninterface StoryContextValue {\n  mediaLength: number;\n  currentIndex: number;\n  progress: number;\n  isPaused: boolean;\n  isEnded: boolean;\n  handleControl: () => void;\n  setCurrentIndex: (index: number) => void;\n  setIsPaused: (paused: boolean) => void;\n  setIsEnded: (ended: boolean) => void;\n}\nconst StoryContext = React.createContext<StoryContextValue | undefined>(\n  undefined,\n);\nfunction useStoryContext() {\n  const context = React.useContext(StoryContext);\n  if (context === undefined) {\n    throw new Error('useStoryContext must be used within a StoryProvider');\n  }\n  return context;\n}\nexport const Story = React.forwardRef<HTMLDivElement, StoryProps>(\n  ({ mediaLength, duration = 2000, className, children, ...props }, ref) => {\n    const [currentIndex, setCurrentIndex] = React.useState(0);\n    const [progress, setProgress] = React.useState(0);\n    const [isPaused, setIsPaused] = React.useState(false);\n    const [isEnded, setIsEnded] = React.useState(false);\n    const progressRef = React.useRef<number>(0);\n    const intervalRef = React.useRef<ReturnType<typeof setInterval> | null>(\n      null,\n    );\n\n    React.useEffect(() => {\n      progressRef.current = 0;\n      setProgress(0);\n    }, [currentIndex, duration, mediaLength]);\n    React.useEffect(() => {\n      if (mediaLength === 0 || isPaused) return;\n\n      if (intervalRef.current) {\n        clearInterval(intervalRef.current);\n        intervalRef.current = null;\n      }\n\n      const tick = 50;\n      const totalTicks = duration / tick;\n\n      intervalRef.current = setInterval(() => {\n        progressRef.current += 1;\n        const newProgress = (progressRef.current / totalTicks) * 100;\n        setProgress(newProgress);\n\n        if (progressRef.current >= totalTicks) {\n          clearInterval(intervalRef.current!);\n          intervalRef.current = null;\n\n          if (currentIndex < mediaLength - 1) {\n            setCurrentIndex((idx) => idx + 1);\n          } else {\n            setIsPaused(true);\n            setIsEnded(true);\n          }\n        }\n      }, tick);\n\n      return () => {\n        if (intervalRef.current) {\n          clearInterval(intervalRef.current);\n          intervalRef.current = null;\n        }\n      };\n    }, [isPaused, currentIndex, duration, mediaLength]);\n\n    if (mediaLength === 0) {\n      return (\n        <div className=\"text-center text-secondary\">No stories to display</div>\n      );\n    }\n\n    const handleControl = () => {\n      if (isEnded) {\n        setCurrentIndex(0);\n        setIsEnded(false);\n        setIsPaused(false);\n      } else {\n        setIsPaused((prev) => !prev);\n      }\n    };\n\n    return (\n      <StoryContext.Provider\n        value={{\n          mediaLength,\n          currentIndex,\n          progress,\n          isPaused,\n          isEnded,\n          handleControl,\n          setCurrentIndex,\n          setIsPaused,\n          setIsEnded,\n        }}\n      >\n        <div className={cn('mx-auto', className)} ref={ref} {...props}>\n          {children}\n        </div>\n      </StoryContext.Provider>\n    );\n  },\n);\nStory.displayName = 'Story';\n\nexport const StoryProgress = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & {\n    progressWrapClass?: string;\n    progressActiveClass?: string;\n  }\n>(({ className, progressWrapClass, progressActiveClass, ...props }, ref) => {\n  const {\n    mediaLength,\n    currentIndex,\n    progress,\n    setCurrentIndex,\n    setIsEnded,\n    setIsPaused,\n  } = useStoryContext();\n\n  const handleProgressClick = (index: number) => {\n    setCurrentIndex(index);\n    setIsPaused(false);\n    setIsEnded(false);\n  };\n\n  return (\n    <div className={cn('space-x-1 flex', className)} ref={ref} {...props}>\n      {Array.from({ length: mediaLength }).map((_, index) => {\n        const isActive = index === currentIndex;\n        const isCompleted = index < currentIndex;\n\n        return (\n          <div\n            key={index}\n            className={cn(\n              'h-1 flex-1 rounded bg-secondary cursor-pointer transition-colors',\n              'hover:bg-secondary/80',\n              progressWrapClass,\n            )}\n            onClick={() => handleProgressClick(index)}\n            role=\"button\"\n            tabIndex={0}\n            onKeyDown={(e) => {\n              if (e.key === 'Enter' || e.key === ' ') {\n                handleProgressClick(index);\n              }\n            }}\n          >\n            <div\n              className={cn(\n                'h-full rounded-[inherit] transition-all duration-200',\n                isActive\n                  ? 'bg-primary'\n                  : isCompleted\n                    ? 'bg-primary'\n                    : 'bg-transparent',\n                progressActiveClass,\n              )}\n              style={{\n                width: isActive ? `${progress}%` : isCompleted ? '100%' : '0%',\n              }}\n            />\n          </div>\n        );\n      })}\n    </div>\n  );\n});\nStoryProgress.displayName = 'StoryProgress';\n\nexport const StorySlide = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & { index: number }\n>(({ index, className, ...props }, ref) => {\n  const { currentIndex } = useStoryContext();\n  if (index !== currentIndex) return null;\n  return (\n    <div className={cn('animate-in fade-in', className)} ref={ref} {...props} />\n  );\n});\nStorySlide.displayName = 'StorySlide';\n\nexport const StoryControls: React.FC<ButtonProps> = ({\n  className,\n  ...props\n}) => {\n  const { isPaused, isEnded, handleControl } = useStoryContext();\n  return (\n    <Button\n      onClick={handleControl}\n      size=\"icon\"\n      {...props}\n      className={className}\n    >\n      {isPaused ? isEnded ? <ReplyIcon /> : <PlayIcon /> : <PauseIcon />}\n    </Button>\n  );\n};\nStoryControls.displayName = 'StoryControls';\n\nexport const StoryOverlay: React.FC = () => (\n  <div className=\" absolute inset-0 \">\n    <div className=\"absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black to-transparent\" />\n    <div className=\"absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent\" />\n  </div>\n);",
       },
@@ -878,7 +983,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/blocks/story/shadcn-new-york/index.tsx',
         type: 'registry:block',
-        target: 'components/systaliko-ui/story.tsx',
+        target: 'components/systaliko-ui/blocks/story.tsx',
         content:
           "'use client';\nimport { cn } from '@/lib/utils';\nimport * as React from 'react';\nimport { Button, ButtonProps } from '@/components/systaliko-ui/shadcn/button';\nimport { PauseIcon, PlayIcon, ReplyIcon } from 'lucide-react';\n\ninterface StoryProps extends React.HTMLAttributes<HTMLDivElement> {\n  mediaLength: number;\n  duration?: number;\n}\ninterface StoryContextValue {\n  mediaLength: number;\n  currentIndex: number;\n  progress: number;\n  isPaused: boolean;\n  isEnded: boolean;\n  handleControl: () => void;\n  setCurrentIndex: (index: number) => void;\n  setIsPaused: (paused: boolean) => void;\n  setIsEnded: (ended: boolean) => void;\n}\nconst StoryContext = React.createContext<StoryContextValue | undefined>(\n  undefined,\n);\nfunction useStoryContext() {\n  const context = React.useContext(StoryContext);\n  if (context === undefined) {\n    throw new Error('useStoryContext must be used within a StoryProvider');\n  }\n  return context;\n}\nexport const Story = React.forwardRef<HTMLDivElement, StoryProps>(\n  ({ mediaLength, duration = 2000, className, children, ...props }, ref) => {\n    const [currentIndex, setCurrentIndex] = React.useState(0);\n    const [progress, setProgress] = React.useState(0);\n    const [isPaused, setIsPaused] = React.useState(false);\n    const [isEnded, setIsEnded] = React.useState(false);\n    const progressRef = React.useRef<number>(0);\n    const intervalRef = React.useRef<ReturnType<typeof setInterval> | null>(\n      null,\n    );\n\n    React.useEffect(() => {\n      progressRef.current = 0;\n      setProgress(0);\n    }, [currentIndex, duration, mediaLength]);\n    React.useEffect(() => {\n      if (mediaLength === 0 || isPaused) return;\n\n      if (intervalRef.current) {\n        clearInterval(intervalRef.current);\n        intervalRef.current = null;\n      }\n\n      const tick = 50;\n      const totalTicks = duration / tick;\n\n      intervalRef.current = setInterval(() => {\n        progressRef.current += 1;\n        const newProgress = (progressRef.current / totalTicks) * 100;\n        setProgress(newProgress);\n\n        if (progressRef.current >= totalTicks) {\n          clearInterval(intervalRef.current!);\n          intervalRef.current = null;\n\n          if (currentIndex < mediaLength - 1) {\n            setCurrentIndex((idx) => idx + 1);\n          } else {\n            setIsPaused(true);\n            setIsEnded(true);\n          }\n        }\n      }, tick);\n\n      return () => {\n        if (intervalRef.current) {\n          clearInterval(intervalRef.current);\n          intervalRef.current = null;\n        }\n      };\n    }, [isPaused, currentIndex, duration, mediaLength]);\n\n    if (mediaLength === 0) {\n      return (\n        <div className=\"text-center text-secondary\">No stories to display</div>\n      );\n    }\n\n    const handleControl = () => {\n      if (isEnded) {\n        setCurrentIndex(0);\n        setIsEnded(false);\n        setIsPaused(false);\n      } else {\n        setIsPaused((prev) => !prev);\n      }\n    };\n\n    return (\n      <StoryContext.Provider\n        value={{\n          mediaLength,\n          currentIndex,\n          progress,\n          isPaused,\n          isEnded,\n          handleControl,\n          setCurrentIndex,\n          setIsPaused,\n          setIsEnded,\n        }}\n      >\n        <div className={cn('mx-auto', className)} ref={ref} {...props}>\n          {children}\n        </div>\n      </StoryContext.Provider>\n    );\n  },\n);\nStory.displayName = 'Story';\n\nexport const StoryProgress = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & {\n    progressWrapClass?: string;\n    progressActiveClass?: string;\n  }\n>(({ className, progressWrapClass, progressActiveClass, ...props }, ref) => {\n  const {\n    mediaLength,\n    currentIndex,\n    progress,\n    setCurrentIndex,\n    setIsEnded,\n    setIsPaused,\n  } = useStoryContext();\n\n  const handleProgressClick = (index: number) => {\n    setCurrentIndex(index);\n    setIsPaused(false);\n    setIsEnded(false);\n  };\n\n  return (\n    <div className={cn('space-x-1 flex', className)} ref={ref} {...props}>\n      {Array.from({ length: mediaLength }).map((_, index) => {\n        const isActive = index === currentIndex;\n        const isCompleted = index < currentIndex;\n\n        return (\n          <div\n            key={index}\n            className={cn(\n              'h-1 flex-1 rounded bg-secondary cursor-pointer transition-colors',\n              'hover:bg-secondary/80',\n              progressWrapClass,\n            )}\n            onClick={() => handleProgressClick(index)}\n            role=\"button\"\n            tabIndex={0}\n            onKeyDown={(e) => {\n              if (e.key === 'Enter' || e.key === ' ') {\n                handleProgressClick(index);\n              }\n            }}\n          >\n            <div\n              className={cn(\n                'h-full rounded-[inherit] transition-all duration-200',\n                isActive\n                  ? 'bg-primary'\n                  : isCompleted\n                    ? 'bg-primary'\n                    : 'bg-transparent',\n                progressActiveClass,\n              )}\n              style={{\n                width: isActive ? `${progress}%` : isCompleted ? '100%' : '0%',\n              }}\n            />\n          </div>\n        );\n      })}\n    </div>\n  );\n});\nStoryProgress.displayName = 'StoryProgress';\n\nexport const StorySlide = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement> & { index: number }\n>(({ index, className, ...props }, ref) => {\n  const { currentIndex } = useStoryContext();\n  if (index !== currentIndex) return null;\n  return (\n    <div className={cn('animate-in fade-in', className)} ref={ref} {...props} />\n  );\n});\nStorySlide.displayName = 'StorySlide';\n\nexport const StoryControls: React.FC<ButtonProps> = ({\n  className,\n  ...props\n}) => {\n  const { isPaused, isEnded, handleControl } = useStoryContext();\n  return (\n    <Button\n      onClick={handleControl}\n      size=\"icon\"\n      {...props}\n      className={className}\n    >\n      {isPaused ? isEnded ? <ReplyIcon /> : <PlayIcon /> : <PauseIcon />}\n    </Button>\n  );\n};\nStoryControls.displayName = 'StoryControls';\n\nexport const StoryOverlay: React.FC = () => (\n  <div className=\" absolute inset-0 \">\n    <div className=\"absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black to-transparent\" />\n    <div className=\"absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent\" />\n  </div>\n);",
       },
@@ -1675,7 +1780,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/components/custom-cursor/default/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/custom-cursor.tsx',
+        target: 'components/systaliko-ui/ui/custom-cursor.tsx',
         content:
           "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport {\n  AnimatePresence,\n  HTMLMotionProps,\n  motion,\n  MotionStyle,\n  MotionValue,\n} from 'motion/react';\nimport { useFollowMouse } from '@/components/systaliko-ui/utils/use-follow-mouse';\n\nconst springConfig = {\n  damping: 25,\n  stiffness: 250,\n  mass: 1,\n  restSpeed: 0.01,\n  restDelta: 0.01,\n  duration: 0.3,\n};\n\ninterface CustomCursorContextType {\n  cursorRef: React.RefObject<HTMLDivElement | null>;\n  containerRef: React.RefObject<HTMLDivElement | null>;\n  cursorXSpring: MotionValue<number>;\n  cursorYSpring: MotionValue<number>;\n  cursorStyle?: MotionStyle;\n  setCursorStyle: React.Dispatch<React.SetStateAction<MotionStyle | undefined>>;\n  cursorChildren?: React.ReactNode;\n  setCursorChildren: React.Dispatch<React.SetStateAction<React.ReactNode>>;\n}\n\nconst CustomCursorContext = React.createContext<CustomCursorContextType | null>(\n  null,\n);\n\nconst Provider = ({\n  children,\n}: {\n  children:\n    | React.ReactNode\n    | ((context: CustomCursorContextType) => React.ReactNode);\n}) => {\n  const { cursorRef, containerRef, cursorXSpring, cursorYSpring } =\n    useFollowMouse({\n      springConfig,\n    });\n  const [cursorStyle, setCursorStyle] = React.useState<MotionStyle>();\n  const [cursorChildren, setCursorChildren] = React.useState<React.ReactNode>();\n  const value = {\n    cursorRef,\n    containerRef,\n    cursorXSpring,\n    cursorYSpring,\n    cursorStyle,\n    setCursorStyle,\n    cursorChildren,\n    setCursorChildren,\n  };\n  return (\n    <CustomCursorContext.Provider value={value}>\n      {typeof children === 'function' ? children(value) : children}\n    </CustomCursorContext.Provider>\n  );\n};\n\nexport const useCustomCursor = () => {\n  const context = React.useContext(CustomCursorContext);\n  if (!context) {\n    throw new Error(\n      'useCustomCursor must be used within a CustomCursorProvider',\n    );\n  }\n  return context;\n};\n\nexport function CustomCursor({\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'>) {\n  const {\n    cursorRef,\n    cursorXSpring,\n    cursorYSpring,\n    cursorChildren,\n    cursorStyle,\n  } = useCustomCursor();\n  return (\n    <motion.div\n      className={cn(\n        'absolute pointer-events-none left-0 top-0 z-[999] flex items-center justify-center',\n        className,\n      )}\n      ref={cursorRef}\n      layout\n      style={{\n        y: cursorYSpring,\n        x: cursorXSpring,\n        ...style,\n        ...cursorStyle,\n      }}\n      exit={{ transition: { duration: 0.3 } }}\n      {...props}\n    >\n      <AnimatePresence mode=\"sync\">\n        {cursorChildren && (\n          <motion.div\n            initial={{ opacity: 0, scale: 0 }}\n            animate={{ opacity: 1, scale: 1 }}\n            exit={{ opacity: 0, scale: 0 }}\n            className=\"flex items-center justify-center\"\n          >\n            {cursorChildren}\n          </motion.div>\n        )}\n      </AnimatePresence>\n    </motion.div>\n  );\n}\nCustomCursor.Provider = Provider;",
       },
@@ -1713,7 +1818,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/components/custom-cursor/shadcn-default/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/custom-cursor.tsx',
+        target: 'components/systaliko-ui/ui/custom-cursor.tsx',
         content:
           "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport {\n  AnimatePresence,\n  HTMLMotionProps,\n  motion,\n  MotionStyle,\n  MotionValue,\n} from 'motion/react';\nimport { useFollowMouse } from '@/components/systaliko-ui/utils/use-follow-mouse';\n\nconst springConfig = {\n  damping: 25,\n  stiffness: 250,\n  mass: 1,\n  restSpeed: 0.01,\n  restDelta: 0.01,\n  duration: 0.3,\n};\n\ninterface CustomCursorContextType {\n  cursorRef: React.RefObject<HTMLDivElement | null>;\n  containerRef: React.RefObject<HTMLDivElement | null>;\n  cursorXSpring: MotionValue<number>;\n  cursorYSpring: MotionValue<number>;\n  cursorStyle?: MotionStyle;\n  setCursorStyle: React.Dispatch<React.SetStateAction<MotionStyle | undefined>>;\n  cursorChildren?: React.ReactNode;\n  setCursorChildren: React.Dispatch<React.SetStateAction<React.ReactNode>>;\n}\n\nconst CustomCursorContext = React.createContext<CustomCursorContextType | null>(\n  null,\n);\n\nconst Provider = ({\n  children,\n}: {\n  children:\n    | React.ReactNode\n    | ((context: CustomCursorContextType) => React.ReactNode);\n}) => {\n  const { cursorRef, containerRef, cursorXSpring, cursorYSpring } =\n    useFollowMouse({\n      springConfig,\n    });\n  const [cursorStyle, setCursorStyle] = React.useState<MotionStyle>();\n  const [cursorChildren, setCursorChildren] = React.useState<React.ReactNode>();\n  const value = {\n    cursorRef,\n    containerRef,\n    cursorXSpring,\n    cursorYSpring,\n    cursorStyle,\n    setCursorStyle,\n    cursorChildren,\n    setCursorChildren,\n  };\n  return (\n    <CustomCursorContext.Provider value={value}>\n      {typeof children === 'function' ? children(value) : children}\n    </CustomCursorContext.Provider>\n  );\n};\n\nexport const useCustomCursor = () => {\n  const context = React.useContext(CustomCursorContext);\n  if (!context) {\n    throw new Error(\n      'useCustomCursor must be used within a CustomCursorProvider',\n    );\n  }\n  return context;\n};\n\nexport function CustomCursor({\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'>) {\n  const {\n    cursorRef,\n    cursorXSpring,\n    cursorYSpring,\n    cursorChildren,\n    cursorStyle,\n  } = useCustomCursor();\n  return (\n    <motion.div\n      className={cn(\n        'absolute pointer-events-none left-0 top-0 z-[999] flex items-center justify-center',\n        className,\n      )}\n      ref={cursorRef}\n      layout\n      style={{\n        y: cursorYSpring,\n        x: cursorXSpring,\n        ...style,\n        ...cursorStyle,\n      }}\n      exit={{ transition: { duration: 0.3 } }}\n      {...props}\n    >\n      <AnimatePresence mode=\"sync\">\n        {cursorChildren && (\n          <motion.div\n            initial={{ opacity: 0, scale: 0 }}\n            animate={{ opacity: 1, scale: 1 }}\n            exit={{ opacity: 0, scale: 0 }}\n            className=\"flex items-center justify-center\"\n          >\n            {cursorChildren}\n          </motion.div>\n        )}\n      </AnimatePresence>\n    </motion.div>\n  );\n}\nCustomCursor.Provider = Provider;",
       },
@@ -1751,7 +1856,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/components/custom-cursor/shadcn-new-york/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/custom-cursor.tsx',
+        target: 'components/systaliko-ui/ui/custom-cursor.tsx',
         content:
           "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport {\n  AnimatePresence,\n  HTMLMotionProps,\n  motion,\n  MotionStyle,\n  MotionValue,\n} from 'motion/react';\nimport { useFollowMouse } from '@/components/systaliko-ui/utils/use-follow-mouse';\n\nconst springConfig = {\n  damping: 25,\n  stiffness: 250,\n  mass: 1,\n  restSpeed: 0.01,\n  restDelta: 0.01,\n  duration: 0.3,\n};\n\ninterface CustomCursorContextType {\n  cursorRef: React.RefObject<HTMLDivElement | null>;\n  containerRef: React.RefObject<HTMLDivElement | null>;\n  cursorXSpring: MotionValue<number>;\n  cursorYSpring: MotionValue<number>;\n  cursorStyle?: MotionStyle;\n  setCursorStyle: React.Dispatch<React.SetStateAction<MotionStyle | undefined>>;\n  cursorChildren?: React.ReactNode;\n  setCursorChildren: React.Dispatch<React.SetStateAction<React.ReactNode>>;\n}\n\nconst CustomCursorContext = React.createContext<CustomCursorContextType | null>(\n  null,\n);\n\nconst Provider = ({\n  children,\n}: {\n  children:\n    | React.ReactNode\n    | ((context: CustomCursorContextType) => React.ReactNode);\n}) => {\n  const { cursorRef, containerRef, cursorXSpring, cursorYSpring } =\n    useFollowMouse({\n      springConfig,\n    });\n  const [cursorStyle, setCursorStyle] = React.useState<MotionStyle>();\n  const [cursorChildren, setCursorChildren] = React.useState<React.ReactNode>();\n  const value = {\n    cursorRef,\n    containerRef,\n    cursorXSpring,\n    cursorYSpring,\n    cursorStyle,\n    setCursorStyle,\n    cursorChildren,\n    setCursorChildren,\n  };\n  return (\n    <CustomCursorContext.Provider value={value}>\n      {typeof children === 'function' ? children(value) : children}\n    </CustomCursorContext.Provider>\n  );\n};\n\nexport const useCustomCursor = () => {\n  const context = React.useContext(CustomCursorContext);\n  if (!context) {\n    throw new Error(\n      'useCustomCursor must be used within a CustomCursorProvider',\n    );\n  }\n  return context;\n};\n\nexport function CustomCursor({\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'>) {\n  const {\n    cursorRef,\n    cursorXSpring,\n    cursorYSpring,\n    cursorChildren,\n    cursorStyle,\n  } = useCustomCursor();\n  return (\n    <motion.div\n      className={cn(\n        'absolute pointer-events-none left-0 top-0 z-[999] flex items-center justify-center',\n        className,\n      )}\n      ref={cursorRef}\n      layout\n      style={{\n        y: cursorYSpring,\n        x: cursorXSpring,\n        ...style,\n        ...cursorStyle,\n      }}\n      exit={{ transition: { duration: 0.3 } }}\n      {...props}\n    >\n      <AnimatePresence mode=\"sync\">\n        {cursorChildren && (\n          <motion.div\n            initial={{ opacity: 0, scale: 0 }}\n            animate={{ opacity: 1, scale: 1 }}\n            exit={{ opacity: 0, scale: 0 }}\n            className=\"flex items-center justify-center\"\n          >\n            {cursorChildren}\n          </motion.div>\n        )}\n      </AnimatePresence>\n    </motion.div>\n  );\n}\nCustomCursor.Provider = Provider;",
       },
@@ -1881,6 +1986,113 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-rating-stars',
+  },
+  'default-calculator-demo': {
+    name: 'default-calculator-demo',
+    description: 'Demo showing calculator component with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/calculator'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/blocks/calculator/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/blocks/calculator.tsx',
+        content:
+          "import { Calculator } from '@/components/systaliko-ui/blocks/calculator';\n\nexport function CalculatorDemo() {\n  return (\n    <div>\n      <Calculator />\n    </div>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/blocks/calculator/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-calculator-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/default-calculator-demo',
+  },
+  'shadcn-default-calculator-demo': {
+    name: 'shadcn-default-calculator-demo',
+    description: 'Demo showing calculator component with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/calculator'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/blocks/calculator/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/blocks/calculator.tsx',
+        content:
+          "import { Calculator } from '@/components/systaliko-ui/blocks/calculator';\n\nexport function CalculatorDemo() {\n  return (\n    <div>\n      <Calculator />\n    </div>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/blocks/calculator/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-calculator-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-calculator-demo',
+  },
+  'shadcn-new-york-calculator-demo': {
+    name: 'shadcn-new-york-calculator-demo',
+    description:
+      'Demo showing calculator component with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/calculator'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/blocks/calculator/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/blocks/calculator.tsx',
+        content:
+          "import { Calculator } from '@/components/systaliko-ui/blocks/calculator';\n\nexport function CalculatorDemo() {\n  return (\n    <div>\n      <Calculator />\n    </div>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/blocks/calculator/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-calculator-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-calculator-demo',
   },
   'default-container-stagger-demo': {
     name: 'default-container-stagger-demo',
@@ -7123,6 +7335,116 @@ export const index: Record<string, any> = {
     })(),
     command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-select',
   },
+  'default-text-scroll-read': {
+    name: 'default-text-scroll-read',
+    description:
+      'Text component allows you to read the text by scrolling with default style.',
+    type: 'registry:ui',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: [],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/text/text-scroll-read/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/text/text-scroll-read.tsx',
+        content:
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport { motion, MotionValue, useTransform, useScroll } from 'motion/react';\nimport * as React from 'react';\n\ninterface TextScrollReadProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n  children: string;\n  className?: string;\n  opacityRange?: [number, number];\n  offset?:\n    | ['start end', 'end start']\n    | ['start center', 'end center']\n    | ['center start', 'center end'];\n}\n\ninterface CharacterProps {\n  children: string;\n  progress: MotionValue<number>;\n  range: [number, number];\n  opacityRange?: [number, number];\n}\n\ninterface WordProps {\n  children: string;\n  progress: MotionValue<number>;\n  range: [number, number];\n  opacityRange?: [number, number];\n}\n\nconst Character = React.memo(function Character({\n  children,\n  progress,\n  range,\n  opacityRange = [0.2, 1],\n}: CharacterProps) {\n  const opacity = useTransform(progress, range, opacityRange);\n\n  return (\n    <motion.span style={{ opacity }} className=\"inline-block\">\n      {children}\n    </motion.span>\n  );\n});\n\nCharacter.displayName = 'Character';\n\nconst Word = React.memo(function Word({\n  children,\n  range,\n  progress,\n  opacityRange,\n}: WordProps) {\n  const characters = children.split('');\n  const amount = range[1] - range[0];\n  const step = amount / characters.length;\n\n  return (\n    <span className=\"inline-block mr-2\">\n      {characters.map((char, index) => {\n        const start = range[0] + step * index;\n        const end = range[0] + step * (index + 1);\n\n        return (\n          <Character\n            key={`${char}-${index}`}\n            range={[start, end]}\n            progress={progress}\n            opacityRange={opacityRange}\n          >\n            {char}\n          </Character>\n        );\n      })}\n      &nbsp;\n    </span>\n  );\n});\n\nWord.displayName = 'Word';\n\nexport const TextScrollRead = React.forwardRef<\n  HTMLElement,\n  TextScrollReadProps\n>(\n  (\n    {\n      as: Component = 'div',\n      children,\n      className,\n      opacityRange = [0.2, 1],\n      offset = ['start end', 'end start'],\n      ...props\n    },\n    ref,\n  ) => {\n    const containerRef = React.useRef<HTMLElement>(null);\n    const { scrollYProgress } = useScroll({\n      target: containerRef,\n      offset,\n    });\n\n    const words = children.split(' ').filter((word) => word.length > 0);\n\n    const combinedRef = React.useCallback(\n      (node: HTMLElement | null) => {\n        containerRef.current = node;\n        if (typeof ref === 'function') {\n          ref(node);\n        } else if (ref) {\n          ref.current = node;\n        }\n      },\n      [ref],\n    );\n\n    return (\n      <Component\n        ref={combinedRef}\n        className={cn('relative leading-relaxed', className)}\n        {...props}\n      >\n        {words.map((word, index) => {\n          const start = index / words.length;\n          const end = start + 1 / words.length;\n\n          return (\n            <Word\n              key={`${word}-${index}`}\n              range={[start, end]}\n              progress={scrollYProgress}\n              opacityRange={opacityRange}\n            >\n              {word}\n            </Word>\n          );\n        })}\n      </Component>\n    );\n  },\n);\n\nTextScrollRead.displayName = 'TextScrollRead';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/text/text-scroll-read/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-text-scroll-read';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/default-text-scroll-read',
+  },
+  'shadcn-default-text-scroll-read': {
+    name: 'shadcn-default-text-scroll-read',
+    description:
+      'Text component allows you to read the text by scrolling with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: [],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/text/text-scroll-read/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/text/text-scroll-read.tsx',
+        content:
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport { motion, MotionValue, useTransform, useScroll } from 'motion/react';\nimport * as React from 'react';\n\ninterface TextScrollReadProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n  children: string;\n  className?: string;\n  opacityRange?: [number, number];\n  offset?:\n    | ['start end', 'end start']\n    | ['start center', 'end center']\n    | ['center start', 'center end'];\n}\n\ninterface CharacterProps {\n  children: string;\n  progress: MotionValue<number>;\n  range: [number, number];\n  opacityRange?: [number, number];\n}\n\ninterface WordProps {\n  children: string;\n  progress: MotionValue<number>;\n  range: [number, number];\n  opacityRange?: [number, number];\n}\n\nconst Character = React.memo(function Character({\n  children,\n  progress,\n  range,\n  opacityRange = [0.2, 1],\n}: CharacterProps) {\n  const opacity = useTransform(progress, range, opacityRange);\n\n  return (\n    <motion.span style={{ opacity }} className=\"inline-block\">\n      {children}\n    </motion.span>\n  );\n});\n\nCharacter.displayName = 'Character';\n\nconst Word = React.memo(function Word({\n  children,\n  range,\n  progress,\n  opacityRange,\n}: WordProps) {\n  const characters = children.split('');\n  const amount = range[1] - range[0];\n  const step = amount / characters.length;\n\n  return (\n    <span className=\"inline-block mr-2\">\n      {characters.map((char, index) => {\n        const start = range[0] + step * index;\n        const end = range[0] + step * (index + 1);\n\n        return (\n          <Character\n            key={`${char}-${index}`}\n            range={[start, end]}\n            progress={progress}\n            opacityRange={opacityRange}\n          >\n            {char}\n          </Character>\n        );\n      })}\n      &nbsp;\n    </span>\n  );\n});\n\nWord.displayName = 'Word';\n\nexport const TextScrollRead = React.forwardRef<\n  HTMLElement,\n  TextScrollReadProps\n>(\n  (\n    {\n      as: Component = 'div',\n      children,\n      className,\n      opacityRange = [0.2, 1],\n      offset = ['start end', 'end start'],\n      ...props\n    },\n    ref,\n  ) => {\n    const containerRef = React.useRef<HTMLElement>(null);\n    const { scrollYProgress } = useScroll({\n      target: containerRef,\n      offset,\n    });\n\n    const words = children.split(' ').filter((word) => word.length > 0);\n\n    const combinedRef = React.useCallback(\n      (node: HTMLElement | null) => {\n        containerRef.current = node;\n        if (typeof ref === 'function') {\n          ref(node);\n        } else if (ref) {\n          ref.current = node;\n        }\n      },\n      [ref],\n    );\n\n    return (\n      <Component\n        ref={combinedRef}\n        className={cn('relative leading-relaxed', className)}\n        {...props}\n      >\n        {words.map((word, index) => {\n          const start = index / words.length;\n          const end = start + 1 / words.length;\n\n          return (\n            <Word\n              key={`${word}-${index}`}\n              range={[start, end]}\n              progress={scrollYProgress}\n              opacityRange={opacityRange}\n            >\n              {word}\n            </Word>\n          );\n        })}\n      </Component>\n    );\n  },\n);\n\nTextScrollRead.displayName = 'TextScrollRead';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/text/text-scroll-read/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-text-scroll-read';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-text-scroll-read',
+  },
+  'shadcn-new-york-text-scroll-read': {
+    name: 'shadcn-new-york-text-scroll-read',
+    description:
+      'Text component allows you to read the text by scrolling with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: [],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/text/text-scroll-read/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/text/text-scroll-read.tsx',
+        content:
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport { motion, MotionValue, useTransform, useScroll } from 'motion/react';\nimport * as React from 'react';\n\ninterface TextScrollReadProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n  children: string;\n  className?: string;\n  opacityRange?: [number, number];\n  offset?:\n    | ['start end', 'end start']\n    | ['start center', 'end center']\n    | ['center start', 'center end'];\n}\n\ninterface CharacterProps {\n  children: string;\n  progress: MotionValue<number>;\n  range: [number, number];\n  opacityRange?: [number, number];\n}\n\ninterface WordProps {\n  children: string;\n  progress: MotionValue<number>;\n  range: [number, number];\n  opacityRange?: [number, number];\n}\n\nconst Character = React.memo(function Character({\n  children,\n  progress,\n  range,\n  opacityRange = [0.2, 1],\n}: CharacterProps) {\n  const opacity = useTransform(progress, range, opacityRange);\n\n  return (\n    <motion.span style={{ opacity }} className=\"inline-block\">\n      {children}\n    </motion.span>\n  );\n});\n\nCharacter.displayName = 'Character';\n\nconst Word = React.memo(function Word({\n  children,\n  range,\n  progress,\n  opacityRange,\n}: WordProps) {\n  const characters = children.split('');\n  const amount = range[1] - range[0];\n  const step = amount / characters.length;\n\n  return (\n    <span className=\"inline-block mr-2\">\n      {characters.map((char, index) => {\n        const start = range[0] + step * index;\n        const end = range[0] + step * (index + 1);\n\n        return (\n          <Character\n            key={`${char}-${index}`}\n            range={[start, end]}\n            progress={progress}\n            opacityRange={opacityRange}\n          >\n            {char}\n          </Character>\n        );\n      })}\n      &nbsp;\n    </span>\n  );\n});\n\nWord.displayName = 'Word';\n\nexport const TextScrollRead = React.forwardRef<\n  HTMLElement,\n  TextScrollReadProps\n>(\n  (\n    {\n      as: Component = 'div',\n      children,\n      className,\n      opacityRange = [0.2, 1],\n      offset = ['start end', 'end start'],\n      ...props\n    },\n    ref,\n  ) => {\n    const containerRef = React.useRef<HTMLElement>(null);\n    const { scrollYProgress } = useScroll({\n      target: containerRef,\n      offset,\n    });\n\n    const words = children.split(' ').filter((word) => word.length > 0);\n\n    const combinedRef = React.useCallback(\n      (node: HTMLElement | null) => {\n        containerRef.current = node;\n        if (typeof ref === 'function') {\n          ref(node);\n        } else if (ref) {\n          ref.current = node;\n        }\n      },\n      [ref],\n    );\n\n    return (\n      <Component\n        ref={combinedRef}\n        className={cn('relative leading-relaxed', className)}\n        {...props}\n      >\n        {words.map((word, index) => {\n          const start = index / words.length;\n          const end = start + 1 / words.length;\n\n          return (\n            <Word\n              key={`${word}-${index}`}\n              range={[start, end]}\n              progress={scrollYProgress}\n              opacityRange={opacityRange}\n            >\n              {word}\n            </Word>\n          );\n        })}\n      </Component>\n    );\n  },\n);\n\nTextScrollRead.displayName = 'TextScrollRead';",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/text/text-scroll-read/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-text-scroll-read';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-text-scroll-read',
+  },
   'default-text-stagger-hover': {
     name: 'default-text-stagger-hover',
     description:
@@ -7140,7 +7462,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/text/text-stagger-hover/default/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/text/text-stagger-hover.tsx',
+        target: 'components/systaliko-ui/ui/text-stagger-hover.tsx',
         content:
           "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  StaggerDirection,\n  setStaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\n\ninterface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n}\n\ninterface TextStaggerHoverContextValue {\n  isMouseIn: boolean;\n}\nconst TextStaggerHoverContext = React.createContext<\n  TextStaggerHoverContextValue | undefined\n>(undefined);\nfunction useTextStaggerHoverContext() {\n  const context = React.useContext(TextStaggerHoverContext);\n  if (!context) {\n    throw new Error(\n      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const TextStaggerHover = ({\n  as: Component = 'span',\n  children,\n  className,\n  ...props\n}: TextStaggerHoverProps) => {\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  const handleMouse = () => setIsMouseIn((prevState) => !prevState);\n\n  return (\n    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>\n      <Component\n        className={cn('relative inline-block overflow-hidden', className)}\n        {...props}\n        onMouseEnter={handleMouse}\n        onMouseLeave={handleMouse}\n      >\n        {children}\n      </Component>\n    </TextStaggerHoverContext.Provider>\n  );\n};\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport const TextStaggerHoverActive = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block text-nowrap\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'hidden' : 'visible'}\n            transition={{\n              delay: staggerDelay,\n              ease: [0.25, 0.46, 0.45, 0.94],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};\n\nexport const TextStaggerHoverHidden = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'visible' : 'hidden'}\n            transition={{\n              delay: staggerDelay,\n              ease: [0.25, 0.46, 0.45, 0.94],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};",
       },
@@ -7180,7 +7502,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/text/text-stagger-hover/shadcn-default/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/text/text-stagger-hover.tsx',
+        target: 'components/systaliko-ui/ui/text-stagger-hover.tsx',
         content:
           "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  StaggerDirection,\n  setStaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\n\ninterface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n}\n\ninterface TextStaggerHoverContextValue {\n  isMouseIn: boolean;\n}\nconst TextStaggerHoverContext = React.createContext<\n  TextStaggerHoverContextValue | undefined\n>(undefined);\nfunction useTextStaggerHoverContext() {\n  const context = React.useContext(TextStaggerHoverContext);\n  if (!context) {\n    throw new Error(\n      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const TextStaggerHover = ({\n  as: Component = 'span',\n  children,\n  className,\n  ...props\n}: TextStaggerHoverProps) => {\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  const handleMouse = () => setIsMouseIn((prevState) => !prevState);\n\n  return (\n    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>\n      <Component\n        className={cn('relative inline-block overflow-hidden', className)}\n        {...props}\n        onMouseEnter={handleMouse}\n        onMouseLeave={handleMouse}\n      >\n        {children}\n      </Component>\n    </TextStaggerHoverContext.Provider>\n  );\n};\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport const TextStaggerHoverActive = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block text-nowrap\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'hidden' : 'visible'}\n            transition={{\n              delay: staggerDelay,\n              ease: [0.25, 0.46, 0.45, 0.94],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};\n\nexport const TextStaggerHoverHidden = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'visible' : 'hidden'}\n            transition={{\n              delay: staggerDelay,\n              ease: [0.25, 0.46, 0.45, 0.94],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};",
       },
@@ -7221,7 +7543,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/text/text-stagger-hover/shadcn-new-york/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/text/text-stagger-hover.tsx',
+        target: 'components/systaliko-ui/ui/text-stagger-hover.tsx',
         content:
           "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  StaggerDirection,\n  setStaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\n\ninterface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n}\n\ninterface TextStaggerHoverContextValue {\n  isMouseIn: boolean;\n}\nconst TextStaggerHoverContext = React.createContext<\n  TextStaggerHoverContextValue | undefined\n>(undefined);\nfunction useTextStaggerHoverContext() {\n  const context = React.useContext(TextStaggerHoverContext);\n  if (!context) {\n    throw new Error(\n      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const TextStaggerHover = ({\n  as: Component = 'span',\n  children,\n  className,\n  ...props\n}: TextStaggerHoverProps) => {\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  const handleMouse = () => setIsMouseIn((prevState) => !prevState);\n\n  return (\n    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>\n      <Component\n        className={cn('relative inline-block overflow-hidden', className)}\n        {...props}\n        onMouseEnter={handleMouse}\n        onMouseLeave={handleMouse}\n      >\n        {children}\n      </Component>\n    </TextStaggerHoverContext.Provider>\n  );\n};\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport const TextStaggerHoverActive = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block text-nowrap\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'hidden' : 'visible'}\n            transition={{\n              delay: staggerDelay,\n              ease: [0.25, 0.46, 0.45, 0.94],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};\n\nexport const TextStaggerHoverHidden = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'visible' : 'hidden'}\n            transition={{\n              delay: staggerDelay,\n              ease: [0.25, 0.46, 0.45, 0.94],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};",
       },
@@ -7261,7 +7583,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/text/text-stagger-inview/default/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
+        target: 'components/systaliko-ui/ui/text-stagger-inview.tsx',
         content:
           "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  Transition,\n} from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  staggerDirection?: 1 | -1;\n  animation?: AnimationT;\n  characterTransition?: Transition;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  staggerDirection,\n  animation,\n  characterTransition = TRANSITIONS,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{\n        staggerChildren: stagger,\n        staggerDirection: staggerDirection,\n        ...transition,\n      }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <MotionConfig transition={characterTransition}>\n            <WordStagger data-word={word} animation={animation}>\n              {word}\n            </WordStagger>\n          </MotionConfig>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
       },
@@ -7300,7 +7622,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/text/text-stagger-inview/shadcn-default/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
+        target: 'components/systaliko-ui/ui/text-stagger-inview.tsx',
         content:
           "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  Transition,\n} from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  staggerDirection?: 1 | -1;\n  animation?: AnimationT;\n  characterTransition?: Transition;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  staggerDirection,\n  animation,\n  characterTransition = TRANSITIONS,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{\n        staggerChildren: stagger,\n        staggerDirection: staggerDirection,\n        ...transition,\n      }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <MotionConfig transition={characterTransition}>\n            <WordStagger data-word={word} animation={animation}>\n              {word}\n            </WordStagger>\n          </MotionConfig>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
       },
@@ -7340,7 +7662,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/text/text-stagger-inview/shadcn-new-york/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
+        target: 'components/systaliko-ui/ui/text-stagger-inview.tsx',
         content:
           "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  Transition,\n} from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  staggerDirection?: 1 | -1;\n  animation?: AnimationT;\n  characterTransition?: Transition;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  staggerDirection,\n  animation,\n  characterTransition = TRANSITIONS,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{\n        staggerChildren: stagger,\n        staggerDirection: staggerDirection,\n        ...transition,\n      }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <MotionConfig transition={characterTransition}>\n            <WordStagger data-word={word} animation={animation}>\n              {word}\n            </WordStagger>\n          </MotionConfig>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
       },
@@ -7604,7 +7926,7 @@ export const index: Record<string, any> = {
         type: 'registry:lib',
         target: 'components/systaliko-ui/utils/set-stagger-direction.ts',
         content:
-          "export type StaggerDirection = 'start' | 'middle' | 'end';\n\nexport interface StaggerOptions {\n  direction?: StaggerDirection;\n  staggerValue?: number;\n  totalItems: number;\n  index: number;\n}\n\nexport function setStaggerDirection({\n  direction = 'start',\n  staggerValue = 0.02,\n  totalItems,\n  index,\n}: StaggerOptions): number {\n  switch (direction) {\n    case 'start':\n      // Linear progression from start\n      return index * staggerValue;\n\n    case 'middle':\n      // Stagger from the middle outward\n      const middleIndex = Math.floor(totalItems / 2);\n      return Math.abs(index - middleIndex) * staggerValue;\n\n    case 'end':\n      // Linear progression from end\n      return (totalItems - 1 - index) * staggerValue;\n\n    default:\n      return 0;\n  }\n}",
+          "export type StaggerDirection = 'start' | 'middle' | 'end' | 'random';\n\nexport interface StaggerOptions {\n  direction?: StaggerDirection;\n  staggerValue?: number;\n  totalItems: number;\n  index: number;\n}\n\nexport function setStaggerDirection({\n  direction = 'start',\n  staggerValue = 0.02,\n  totalItems,\n  index,\n}: StaggerOptions): number {\n  switch (direction) {\n    case 'start':\n      // Linear progression from start\n      return index * staggerValue;\n\n    case 'middle':\n      // Stagger from the middle outward\n      const middleIndex = Math.floor(totalItems / 2);\n      return Math.abs(index - middleIndex) * staggerValue;\n\n    case 'end':\n      // Linear progression from end\n      return (totalItems - 1 - index) * staggerValue;\n\n    case 'random':\n      // Random stagger between index and totalItems\n      const min = Math.min(index, totalItems);\n      const max = Math.max(index, totalItems);\n      return Math.random() * (max - min) * staggerValue;\n\n    default:\n      return 0;\n  }\n}",
       },
     ],
     component: (function () {
@@ -7640,7 +7962,7 @@ export const index: Record<string, any> = {
         type: 'registry:lib',
         target: 'components/systaliko-ui/utils/set-stagger-direction.ts',
         content:
-          "export type StaggerDirection = 'start' | 'middle' | 'end';\n\nexport interface StaggerOptions {\n  direction?: StaggerDirection;\n  staggerValue?: number;\n  totalItems: number;\n  index: number;\n}\n\nexport function setStaggerDirection({\n  direction = 'start',\n  staggerValue = 0.02,\n  totalItems,\n  index,\n}: StaggerOptions): number {\n  switch (direction) {\n    case 'start':\n      // Linear progression from start\n      return index * staggerValue;\n\n    case 'middle':\n      // Stagger from the middle outward\n      const middleIndex = Math.floor(totalItems / 2);\n      return Math.abs(index - middleIndex) * staggerValue;\n\n    case 'end':\n      // Linear progression from end\n      return (totalItems - 1 - index) * staggerValue;\n\n    default:\n      return 0;\n  }\n}",
+          "export type StaggerDirection = 'start' | 'middle' | 'end' | 'random';\n\nexport interface StaggerOptions {\n  direction?: StaggerDirection;\n  staggerValue?: number;\n  totalItems: number;\n  index: number;\n}\n\nexport function setStaggerDirection({\n  direction = 'start',\n  staggerValue = 0.02,\n  totalItems,\n  index,\n}: StaggerOptions): number {\n  switch (direction) {\n    case 'start':\n      // Linear progression from start\n      return index * staggerValue;\n\n    case 'middle':\n      // Stagger from the middle outward\n      const middleIndex = Math.floor(totalItems / 2);\n      return Math.abs(index - middleIndex) * staggerValue;\n\n    case 'end':\n      // Linear progression from end\n      return (totalItems - 1 - index) * staggerValue;\n\n    case 'random':\n      // Random stagger between index and totalItems\n      const min = Math.min(index, totalItems);\n      const max = Math.max(index, totalItems);\n      return Math.random() * (max - min) * staggerValue;\n\n    default:\n      return 0;\n  }\n}",
       },
     ],
     component: (function () {
@@ -7677,7 +7999,7 @@ export const index: Record<string, any> = {
         type: 'registry:lib',
         target: 'components/systaliko-ui/utils/set-stagger-direction.ts',
         content:
-          "export type StaggerDirection = 'start' | 'middle' | 'end';\n\nexport interface StaggerOptions {\n  direction?: StaggerDirection;\n  staggerValue?: number;\n  totalItems: number;\n  index: number;\n}\n\nexport function setStaggerDirection({\n  direction = 'start',\n  staggerValue = 0.02,\n  totalItems,\n  index,\n}: StaggerOptions): number {\n  switch (direction) {\n    case 'start':\n      // Linear progression from start\n      return index * staggerValue;\n\n    case 'middle':\n      // Stagger from the middle outward\n      const middleIndex = Math.floor(totalItems / 2);\n      return Math.abs(index - middleIndex) * staggerValue;\n\n    case 'end':\n      // Linear progression from end\n      return (totalItems - 1 - index) * staggerValue;\n\n    default:\n      return 0;\n  }\n}",
+          "export type StaggerDirection = 'start' | 'middle' | 'end' | 'random';\n\nexport interface StaggerOptions {\n  direction?: StaggerDirection;\n  staggerValue?: number;\n  totalItems: number;\n  index: number;\n}\n\nexport function setStaggerDirection({\n  direction = 'start',\n  staggerValue = 0.02,\n  totalItems,\n  index,\n}: StaggerOptions): number {\n  switch (direction) {\n    case 'start':\n      // Linear progression from start\n      return index * staggerValue;\n\n    case 'middle':\n      // Stagger from the middle outward\n      const middleIndex = Math.floor(totalItems / 2);\n      return Math.abs(index - middleIndex) * staggerValue;\n\n    case 'end':\n      // Linear progression from end\n      return (totalItems - 1 - index) * staggerValue;\n\n    case 'random':\n      // Random stagger between index and totalItems\n      const min = Math.min(index, totalItems);\n      const max = Math.max(index, totalItems);\n      return Math.random() * (max - min) * staggerValue;\n\n    default:\n      return 0;\n  }\n}",
       },
     ],
     component: (function () {

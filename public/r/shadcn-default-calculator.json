@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-default-calculator",
+  "type": "registry:lib",
+  "title": "calculator",
+  "description": "calculator utils, for calculator component with shadcn-default style.",
+  "files": [
+    {
+      "path": "__registry__/utils/calculator/shadcn-default/index.ts",
+      "content": "",
+      "type": "registry:lib",
+      "target": "components/systaliko-ui/utils/calculator.ts"
+    }
+  ]
+}

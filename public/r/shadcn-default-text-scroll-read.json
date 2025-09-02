@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-default-text-scroll-read",
+  "type": "registry:ui",
+  "title": "Text Scroll Read",
+  "description": "Text component allows you to read the text by scrolling with shadcn-default style.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "__registry__/text/text-scroll-read/shadcn-default/index.tsx",
+      "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport { motion, MotionValue, useTransform, useScroll } from 'motion/react';\nimport * as React from 'react';\n\ninterface TextScrollReadProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n  children: string;\n  className?: string;\n  opacityRange?: [number, number];\n  offset?:\n    | ['start end', 'end start']\n    | ['start center', 'end center']\n    | ['center start', 'center end'];\n}\n\ninterface CharacterProps {\n  children: string;\n  progress: MotionValue<number>;\n  range: [number, number];\n  opacityRange?: [number, number];\n}\n\ninterface WordProps {\n  children: string;\n  progress: MotionValue<number>;\n  range: [number, number];\n  opacityRange?: [number, number];\n}\n\nconst Character = React.memo(function Character({\n  children,\n  progress,\n  range,\n  opacityRange = [0.2, 1],\n}: CharacterProps) {\n  const opacity = useTransform(progress, range, opacityRange);\n\n  return (\n    <motion.span style={{ opacity }} className=\"inline-block\">\n      {children}\n    </motion.span>\n  );\n});\n\nCharacter.displayName = 'Character';\n\nconst Word = React.memo(function Word({\n  children,\n  range,\n  progress,\n  opacityRange,\n}: WordProps) {\n  const characters = children.split('');\n  const amount = range[1] - range[0];\n  const step = amount / characters.length;\n\n  return (\n    <span className=\"inline-block mr-2\">\n      {characters.map((char, index) => {\n        const start = range[0] + step * index;\n        const end = range[0] + step * (index + 1);\n\n        return (\n          <Character\n            key={`${char}-${index}`}\n            range={[start, end]}\n            progress={progress}\n            opacityRange={opacityRange}\n          >\n            {char}\n          </Character>\n        );\n      })}\n      &nbsp;\n    </span>\n  );\n});\n\nWord.displayName = 'Word';\n\nexport const TextScrollRead = React.forwardRef<\n  HTMLElement,\n  TextScrollReadProps\n>(\n  (\n    {\n      as: Component = 'div',\n      children,\n      className,\n      opacityRange = [0.2, 1],\n      offset = ['start end', 'end start'],\n      ...props\n    },\n    ref,\n  ) => {\n    const containerRef = React.useRef<HTMLElement>(null);\n    const { scrollYProgress } = useScroll({\n      target: containerRef,\n      offset,\n    });\n\n    const words = children.split(' ').filter((word) => word.length > 0);\n\n    const combinedRef = React.useCallback(\n      (node: HTMLElement | null) => {\n        containerRef.current = node;\n        if (typeof ref === 'function') {\n          ref(node);\n        } else if (ref) {\n          ref.current = node;\n        }\n      },\n      [ref],\n    );\n\n    return (\n      <Component\n        ref={combinedRef}\n        className={cn('relative leading-relaxed', className)}\n        {...props}\n      >\n        {words.map((word, index) => {\n          const start = index / words.length;\n          const end = start + 1 / words.length;\n\n          return (\n            <Word\n              key={`${word}-${index}`}\n              range={[start, end]}\n              progress={scrollYProgress}\n              opacityRange={opacityRange}\n            >\n              {word}\n            </Word>\n          );\n        })}\n      </Component>\n    );\n  },\n);\n\nTextScrollRead.displayName = 'TextScrollRead';\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/text/text-scroll-read.tsx"
+    }
+  ]
+}

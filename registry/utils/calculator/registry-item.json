@@ -6,9 +6,9 @@
   "description": "calculator utils, for calculator component.",
   "files": [
     {
-      "path": "registry/utils/calculator-reducer/index.ts",
+      "path": "registry/utils/calculator/index.ts",
       "type": "registry:lib",
-      "target": "components/systaliko-ui/utils/calculator-reducer.ts"
+      "target": "components/systaliko-ui/utils/calculator.ts"
     }
   ]
 }

@@ -18,6 +18,45 @@
       "cssVars": {}
     },
     {
+      "name": "default-calculator",
+      "type": "registry:block",
+      "title": "Calculator",
+      "description": "Calculator, for your custom pricing, or to extend your existing pricing with default style.",
+      "files": [
+        {
+          "path": "__registry__/blocks/calculator/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/blocks/calculator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-calculator",
+      "type": "registry:block",
+      "title": "Calculator",
+      "description": "Calculator, for your custom pricing, or to extend your existing pricing with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/blocks/calculator/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/blocks/calculator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-calculator",
+      "type": "registry:block",
+      "title": "Calculator",
+      "description": "Calculator, for your custom pricing, or to extend your existing pricing with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/blocks/calculator/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/blocks/calculator.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-container-stagger",
       "type": "registry:block",
       "title": "Stagger Animations",
@@ -29,7 +68,7 @@
         {
           "path": "__registry__/blocks/container-stagger/default/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/containers/container-stagger.tsx"
+          "target": "components/systaliko-ui/blocks/container-stagger.tsx"
         }
       ]
     },
@@ -45,7 +84,7 @@
         {
           "path": "__registry__/blocks/container-stagger/shadcn-default/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/containers/container-stagger.tsx"
+          "target": "components/systaliko-ui/blocks/container-stagger.tsx"
         }
       ]
     },
@@ -61,7 +100,7 @@
         {
           "path": "__registry__/blocks/container-stagger/shadcn-new-york/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/containers/container-stagger.tsx"
+          "target": "components/systaliko-ui/blocks/container-stagger.tsx"
         }
       ]
     },
@@ -260,7 +299,7 @@
         {
           "path": "__registry__/blocks/scroll-x-carousel/default/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/scroll-x-carousel.tsx"
+          "target": "components/systaliko-ui/blocks/scroll-x-carousel.tsx"
         }
       ]
     },
@@ -276,7 +315,7 @@
         {
           "path": "__registry__/blocks/scroll-x-carousel/shadcn-default/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/scroll-x-carousel.tsx"
+          "target": "components/systaliko-ui/blocks/scroll-x-carousel.tsx"
         }
       ]
     },
@@ -292,7 +331,7 @@
         {
           "path": "__registry__/blocks/scroll-x-carousel/shadcn-new-york/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/scroll-x-carousel.tsx"
+          "target": "components/systaliko-ui/blocks/scroll-x-carousel.tsx"
         }
       ]
     },
@@ -311,7 +350,7 @@
         {
           "path": "__registry__/blocks/slideshow/default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/slideshow.tsx"
+          "target": "components/systaliko-ui/blocks/slideshow.tsx"
         }
       ]
     },
@@ -330,7 +369,7 @@
         {
           "path": "__registry__/blocks/slideshow/shadcn-default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/slideshow.tsx"
+          "target": "components/systaliko-ui/blocks/slideshow.tsx"
         }
       ]
     },
@@ -349,7 +388,7 @@
         {
           "path": "__registry__/blocks/slideshow/shadcn-new-york/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/slideshow.tsx"
+          "target": "components/systaliko-ui/blocks/slideshow.tsx"
         }
       ]
     },
@@ -365,7 +404,7 @@
         {
           "path": "__registry__/blocks/story/default/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/story.tsx"
+          "target": "components/systaliko-ui/blocks/story.tsx"
         }
       ]
     },
@@ -381,7 +420,7 @@
         {
           "path": "__registry__/blocks/story/shadcn-default/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/story.tsx"
+          "target": "components/systaliko-ui/blocks/story.tsx"
         }
       ]
     },
@@ -397,7 +436,7 @@
         {
           "path": "__registry__/blocks/story/shadcn-new-york/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/story.tsx"
+          "target": "components/systaliko-ui/blocks/story.tsx"
         }
       ]
     },
@@ -743,7 +782,7 @@
         {
           "path": "__registry__/components/custom-cursor/default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/custom-cursor.tsx"
+          "target": "components/systaliko-ui/ui/custom-cursor.tsx"
         }
       ]
     },
@@ -762,7 +801,7 @@
         {
           "path": "__registry__/components/custom-cursor/shadcn-default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/custom-cursor.tsx"
+          "target": "components/systaliko-ui/ui/custom-cursor.tsx"
         }
       ]
     },
@@ -781,7 +820,7 @@
         {
           "path": "__registry__/components/custom-cursor/shadcn-new-york/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/custom-cursor.tsx"
+          "target": "components/systaliko-ui/ui/custom-cursor.tsx"
         }
       ]
     },
@@ -821,6 +860,54 @@
           "path": "__registry__/components/rating-stars/shadcn-new-york/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/rating-stars.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-calculator-demo",
+      "type": "registry:block",
+      "title": "Calculator Demo",
+      "description": "Demo showing calculator component with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/calculator"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/blocks/calculator/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/blocks/calculator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-calculator-demo",
+      "type": "registry:block",
+      "title": "Calculator Demo",
+      "description": "Demo showing calculator component with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/calculator"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/blocks/calculator/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/blocks/calculator.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-calculator-demo",
+      "type": "registry:block",
+      "title": "Calculator Demo",
+      "description": "Demo showing calculator component with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/calculator"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/blocks/calculator/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/blocks/calculator.tsx"
         }
       ]
     },
@@ -3093,6 +3180,57 @@
       ]
     },
     {
+      "name": "default-text-scroll-read",
+      "type": "registry:ui",
+      "title": "Text Scroll Read",
+      "description": "Text component allows you to read the text by scrolling with default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "__registry__/text/text-scroll-read/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/text/text-scroll-read.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-text-scroll-read",
+      "type": "registry:ui",
+      "title": "Text Scroll Read",
+      "description": "Text component allows you to read the text by scrolling with shadcn-default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "__registry__/text/text-scroll-read/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/text/text-scroll-read.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-text-scroll-read",
+      "type": "registry:ui",
+      "title": "Text Scroll Read",
+      "description": "Text component allows you to read the text by scrolling with shadcn-new-york style.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "__registry__/text/text-scroll-read/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/text/text-scroll-read.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-text-stagger-hover",
       "type": "registry:ui",
       "title": "Text Stagger Hover",
@@ -3109,7 +3247,7 @@
         {
           "path": "__registry__/text/text-stagger-hover/default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/text/text-stagger-hover.tsx"
+          "target": "components/systaliko-ui/ui/text-stagger-hover.tsx"
         }
       ]
     },
@@ -3130,7 +3268,7 @@
         {
           "path": "__registry__/text/text-stagger-hover/shadcn-default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/text/text-stagger-hover.tsx"
+          "target": "components/systaliko-ui/ui/text-stagger-hover.tsx"
         }
       ]
     },
@@ -3151,7 +3289,7 @@
         {
           "path": "__registry__/text/text-stagger-hover/shadcn-new-york/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/text/text-stagger-hover.tsx"
+          "target": "components/systaliko-ui/ui/text-stagger-hover.tsx"
         }
       ]
     },
@@ -3171,7 +3309,7 @@
         {
           "path": "__registry__/text/text-stagger-inview/default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/text/text-stagger-inview.tsx"
+          "target": "components/systaliko-ui/ui/text-stagger-inview.tsx"
         }
       ]
     },
@@ -3191,7 +3329,7 @@
         {
           "path": "__registry__/text/text-stagger-inview/shadcn-default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/text/text-stagger-inview.tsx"
+          "target": "components/systaliko-ui/ui/text-stagger-inview.tsx"
         }
       ]
     },
@@ -3211,7 +3349,7 @@
         {
           "path": "__registry__/text/text-stagger-inview/shadcn-new-york/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/text/text-stagger-inview.tsx"
+          "target": "components/systaliko-ui/ui/text-stagger-inview.tsx"
         }
       ]
     },
@@ -3311,6 +3449,45 @@
           "path": "__registry__/text/word-stagger/shadcn-new-york/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/text/word-stagger.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-calculator",
+      "type": "registry:lib",
+      "title": "calculator",
+      "description": "calculator utils, for calculator component with default style.",
+      "files": [
+        {
+          "path": "__registry__/utils/calculator/default/index.ts",
+          "type": "registry:lib",
+          "target": "components/systaliko-ui/utils/calculator.ts"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-calculator",
+      "type": "registry:lib",
+      "title": "calculator",
+      "description": "calculator utils, for calculator component with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/utils/calculator/shadcn-default/index.ts",
+          "type": "registry:lib",
+          "target": "components/systaliko-ui/utils/calculator.ts"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-calculator",
+      "type": "registry:lib",
+      "title": "calculator",
+      "description": "calculator utils, for calculator component with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/utils/calculator/shadcn-new-york/index.ts",
+          "type": "registry:lib",
+          "target": "components/systaliko-ui/utils/calculator.ts"
         }
       ]
     },
