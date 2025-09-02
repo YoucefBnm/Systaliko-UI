@@ -16,9 +16,9 @@ This component is inspired by [flexxi agency](https://www.flexxi.design/) team s
 ## Usage
 
 ```tsx
-<ScrollAnimation>
-  <ScrollTranslateY className="overflow-hidden min-h-svh flex flex-col justify-center items-center gap-6">
-    <div className="w-full overflow-hidden">
+<ScrollAnimation className="overflow-hidden">
+  <ScrollTranslateY className="min-h-svh flex flex-col justify-center items-center gap-6">
+    <div className="w-full ">
       <ScrollTranslateX
         xRange={['-200%', '0%']}
         inputRange={[0.4, 0.9]}
@@ -42,7 +42,7 @@ This component is inspired by [flexxi agency](https://www.flexxi.design/) team s
         Compact team of <span className="text-primary">strategists</span>
       </h2>
     </ScrollScale>
-    <div className="w-full overflow-hidden">
+    <div className="w-full ">
       <ScrollTranslateX
         inputRange={[0.4, 0.9]}
         xRange={['100%', '-50%']}
