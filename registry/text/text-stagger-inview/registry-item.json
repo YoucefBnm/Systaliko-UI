@@ -14,7 +14,7 @@
     {
       "path": "registry/text/text-stagger-inview/index.tsx",
       "type": "registry:ui",
-      "target": "components/systaliko-ui/ui/text-stagger-inview.tsx"
+      "target": "components/systaliko-ui/text/text-stagger-inview.tsx"
     }
   ]
 }
