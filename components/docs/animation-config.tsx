@@ -23,6 +23,7 @@ const staggerDirections: { value: StaggerDirection; label: string }[] = [
   { value: 'start', label: 'Start' },
   { value: 'middle', label: 'Middle' },
   { value: 'end', label: 'End' },
+  { value: 'random', label: 'Random' },
 ];
 
 type AnimationConfigContextType = {

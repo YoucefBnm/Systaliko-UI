@@ -1,4 +1,4 @@
-export type StaggerDirection = 'start' | 'middle' | 'end';
+export type StaggerDirection = 'start' | 'middle' | 'end' | 'random';
 
 export interface StaggerOptions {
   direction?: StaggerDirection;
