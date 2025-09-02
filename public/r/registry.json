@@ -3247,7 +3247,7 @@
         {
           "path": "__registry__/text/text-stagger-hover/default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/ui/text-stagger-hover.tsx"
+          "target": "components/systaliko-ui/text/text-stagger-hover.tsx"
         }
       ]
     },
@@ -3268,7 +3268,7 @@
         {
           "path": "__registry__/text/text-stagger-hover/shadcn-default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/ui/text-stagger-hover.tsx"
+          "target": "components/systaliko-ui/text/text-stagger-hover.tsx"
         }
       ]
     },
@@ -3289,7 +3289,7 @@
         {
           "path": "__registry__/text/text-stagger-hover/shadcn-new-york/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/ui/text-stagger-hover.tsx"
+          "target": "components/systaliko-ui/text/text-stagger-hover.tsx"
         }
       ]
     },
@@ -3310,7 +3310,7 @@
         {
           "path": "__registry__/text/text-stagger-inview/default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/ui/text-stagger-inview.tsx"
+          "target": "components/systaliko-ui/text/text-stagger-inview.tsx"
         }
       ]
     },
@@ -3331,7 +3331,7 @@
         {
           "path": "__registry__/text/text-stagger-inview/shadcn-default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/ui/text-stagger-inview.tsx"
+          "target": "components/systaliko-ui/text/text-stagger-inview.tsx"
         }
       ]
     },
@@ -3352,7 +3352,7 @@
         {
           "path": "__registry__/text/text-stagger-inview/shadcn-new-york/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/ui/text-stagger-inview.tsx"
+          "target": "components/systaliko-ui/text/text-stagger-inview.tsx"
         }
       ]
     },
@@ -3410,7 +3410,7 @@
         {
           "path": "__registry__/text/word-stagger/default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/ui/word-stagger.tsx"
+          "target": "components/systaliko-ui/text/word-stagger.tsx"
         }
       ]
     },
@@ -3429,7 +3429,7 @@
         {
           "path": "__registry__/text/word-stagger/shadcn-default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/ui/word-stagger.tsx"
+          "target": "components/systaliko-ui/text/word-stagger.tsx"
         }
       ]
     },
@@ -3448,7 +3448,7 @@
         {
           "path": "__registry__/text/word-stagger/shadcn-new-york/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/ui/word-stagger.tsx"
+          "target": "components/systaliko-ui/text/word-stagger.tsx"
         }
       ]
     },
