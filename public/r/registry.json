@@ -3303,7 +3303,8 @@
       ],
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/default-word-stagger",
-        "https://systaliko-ui.vercel.app/r/default-use-animation-variants"
+        "https://systaliko-ui.vercel.app/r/default-use-animation-variants",
+        "https://systaliko-ui.vercel.app/r/default-transitions"
       ],
       "files": [
         {
@@ -3323,7 +3324,8 @@
       ],
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/default-word-stagger",
-        "https://systaliko-ui.vercel.app/r/default-use-animation-variants"
+        "https://systaliko-ui.vercel.app/r/default-use-animation-variants",
+        "https://systaliko-ui.vercel.app/r/default-transitions"
       ],
       "files": [
         {
@@ -3343,7 +3345,8 @@
       ],
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/default-word-stagger",
-        "https://systaliko-ui.vercel.app/r/default-use-animation-variants"
+        "https://systaliko-ui.vercel.app/r/default-use-animation-variants",
+        "https://systaliko-ui.vercel.app/r/default-transitions"
       ],
       "files": [
         {
@@ -3407,7 +3410,7 @@
         {
           "path": "__registry__/text/word-stagger/default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/text/word-stagger.tsx"
+          "target": "components/systaliko-ui/ui/word-stagger.tsx"
         }
       ]
     },
@@ -3426,7 +3429,7 @@
         {
           "path": "__registry__/text/word-stagger/shadcn-default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/text/word-stagger.tsx"
+          "target": "components/systaliko-ui/ui/word-stagger.tsx"
         }
       ]
     },
@@ -3445,7 +3448,7 @@
         {
           "path": "__registry__/text/word-stagger/shadcn-new-york/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/text/word-stagger.tsx"
+          "target": "components/systaliko-ui/ui/word-stagger.tsx"
         }
       ]
     },

@@ -9,7 +9,8 @@
   ],
   "registryDependencies": [
     "https://systaliko-ui.vercel.app/r/default-word-stagger",
-    "https://systaliko-ui.vercel.app/r/default-use-animation-variants"
+    "https://systaliko-ui.vercel.app/r/default-use-animation-variants",
+    "https://systaliko-ui.vercel.app/r/default-transitions"
   ],
   "files": [
     {

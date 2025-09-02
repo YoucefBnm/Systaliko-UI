@@ -7577,6 +7577,7 @@ export const index: Record<string, any> = {
     registryDependencies: [
       'https://systaliko-ui.vercel.app/r/default-word-stagger',
       'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-transitions',
     ],
     styles: undefined,
     files: [
@@ -7616,6 +7617,7 @@ export const index: Record<string, any> = {
     registryDependencies: [
       'https://systaliko-ui.vercel.app/r/default-word-stagger',
       'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-transitions',
     ],
     styles: undefined,
     files: [
@@ -7656,6 +7658,7 @@ export const index: Record<string, any> = {
     registryDependencies: [
       'https://systaliko-ui.vercel.app/r/default-word-stagger',
       'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-transitions',
     ],
     styles: undefined,
     files: [
@@ -7809,7 +7812,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/text/word-stagger/default/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/text/word-stagger.tsx',
+        target: 'components/systaliko-ui/ui/word-stagger.tsx',
         content:
           "import { cn } from '@/lib/utils';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}",
       },
@@ -7847,7 +7850,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/text/word-stagger/shadcn-default/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/text/word-stagger.tsx',
+        target: 'components/systaliko-ui/ui/word-stagger.tsx',
         content:
           "import { cn } from '@/lib/utils';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}",
       },
@@ -7885,7 +7888,7 @@ export const index: Record<string, any> = {
       {
         path: '__registry__/text/word-stagger/shadcn-new-york/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/text/word-stagger.tsx',
+        target: 'components/systaliko-ui/ui/word-stagger.tsx',
         content:
           "import { cn } from '@/lib/utils';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}",
       },
