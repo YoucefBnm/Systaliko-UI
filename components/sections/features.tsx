@@ -68,7 +68,7 @@ export function Features() {
             and easy to adapt to your design and brand.
           </p>
           <Button variant={'link'}>
-            <Link href="/docs/blocks/cards-stack">Use this Component</Link>
+            <Link href="/docs/cards/cards-stack">Use this Component</Link>
           </Button>
         </div>
 
