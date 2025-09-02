@@ -1,4 +1,4 @@
-export type StaggerDirection = 'start' | 'middle' | 'end' | 'random';
+export type StaggerDirection = 'start' | 'middle' | 'end';
 
 export interface StaggerOptions {
   direction?: StaggerDirection;
@@ -26,12 +26,6 @@ export function setStaggerDirection({
     case 'end':
       // Linear progression from end
       return (totalItems - 1 - index) * staggerValue;
-
-    case 'random':
-      // Random stagger between index and totalItems
-      const min = Math.min(index, totalItems);
-      const max = Math.max(index, totalItems);
-      return Math.random() * (max - min) * staggerValue;
 
     default:
       return 0;

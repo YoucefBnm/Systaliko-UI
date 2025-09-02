@@ -14,7 +14,7 @@
     {
       "path": "registry/text/text-stagger-hover/index.tsx",
       "type": "registry:ui",
-      "target": "components/systaliko-ui/text/text-stagger-hover.tsx"
+      "target": "components/systaliko-ui/ui/text-stagger-hover.tsx"
     }
   ]
 }

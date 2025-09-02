@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "calculator",
+  "type": "registry:lib",
+  "title": "calculator",
+  "description": "calculator utils, for calculator component.",
+  "files": [
+    {
+      "path": "registry/utils/calculator-reducer/index.ts",
+      "type": "registry:lib",
+      "target": "components/systaliko-ui/utils/calculator-reducer.ts"
+    }
+  ]
+}

@@ -12,7 +12,7 @@
     {
       "path": "registry/components/custom-cursor/index.tsx",
       "type": "registry:ui",
-      "target": "components/systaliko-ui/custom-cursor.tsx"
+      "target": "components/systaliko-ui/ui/custom-cursor.tsx"
     }
   ]
 }
