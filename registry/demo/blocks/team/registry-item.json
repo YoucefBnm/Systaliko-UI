@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "team-demo",
+  "type": "registry:block",
+  "title": "Team Demo",
+  "description": "Demo showing team component.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/scroll-animation"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/blocks/team/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/blocks/team.tsx"
+    }
+  ]
+}

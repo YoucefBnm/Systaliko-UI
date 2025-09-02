@@ -4549,6 +4549,117 @@ export const index: Record<string, any> = {
     })(),
     command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-story-demo',
   },
+  'default-team-demo': {
+    name: 'default-team-demo',
+    description: 'Demo showing team component with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animation',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/blocks/team/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/blocks/team.tsx',
+        content:
+          "import { cn } from '@/lib/utils';\nimport {\n  ScrollAnimation,\n  ScrollScale,\n  ScrollTranslateX,\n  ScrollTranslateY,\n} from '@/components/systaliko-ui/blocks/scroll-animation';\nimport Image from 'next/image';\n\ninterface TeamMember {\n  avatar: string;\n  name: string;\n  role: string;\n}\nconst TEAM_MEMBERS: TeamMember[] = [\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Magdalina',\n    role: 'CEO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Jamie',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Emilio',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Samia',\n    role: 'COO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Alex',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Ema',\n    role: 'Head of Product',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Carlos',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Campos',\n    role: 'Engineer',\n  },\n];\n\nexport function TeamCard({\n  member,\n  className,\n  ...props\n}: React.ComponentProps<'div'> & { member: TeamMember }) {\n  return (\n    <div className={cn('space-y-6', className)} {...props}>\n      <Image\n        src={member.avatar}\n        alt={member.name}\n        width={200}\n        height={200}\n        className=\"aspect-square w-full\"\n      />\n\n      <div className=\"space-y-1 pb-4 px-4\">\n        <h3 className=\"text-xl font-medium\">{member.name}</h3>\n        <h4>{member.role}</h4>\n      </div>\n    </div>\n  );\n}\nexport function Team() {\n  return (\n    <ScrollAnimation className=\" overflow-hidden\">\n      <ScrollTranslateY className=\"min-h-svh flex flex-col justify-center items-center gap-6\">\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            xRange={['-200%', '0%']}\n            inputRange={[0.4, 0.9]}\n            className=\"origin-bottom flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n        <ScrollScale\n          inputRange={[0, 0.5]}\n          scaleRange={[1.4, 1]}\n          className=\"w-10/12 flex flex-col justify-center text-center items-center mx-auto origin-center\"\n        >\n          <h2 className=\"text-4xl md:text-5xl font-bold\">\n            Compact team of <span className=\"text-primary\">strategists</span>\n          </h2>\n        </ScrollScale>\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            inputRange={[0.4, 0.9]}\n            xRange={['100%', '-50%']}\n            className=\"flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/blocks/team/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-team-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/default-team-demo',
+  },
+  'shadcn-default-team-demo': {
+    name: 'shadcn-default-team-demo',
+    description: 'Demo showing team component with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animation',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/blocks/team/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/blocks/team.tsx',
+        content:
+          "import { cn } from '@/lib/utils';\nimport {\n  ScrollAnimation,\n  ScrollScale,\n  ScrollTranslateX,\n  ScrollTranslateY,\n} from '@/components/systaliko-ui/blocks/scroll-animation';\nimport Image from 'next/image';\n\ninterface TeamMember {\n  avatar: string;\n  name: string;\n  role: string;\n}\nconst TEAM_MEMBERS: TeamMember[] = [\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Magdalina',\n    role: 'CEO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Jamie',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Emilio',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Samia',\n    role: 'COO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Alex',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Ema',\n    role: 'Head of Product',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Carlos',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Campos',\n    role: 'Engineer',\n  },\n];\n\nexport function TeamCard({\n  member,\n  className,\n  ...props\n}: React.ComponentProps<'div'> & { member: TeamMember }) {\n  return (\n    <div className={cn('space-y-6', className)} {...props}>\n      <Image\n        src={member.avatar}\n        alt={member.name}\n        width={200}\n        height={200}\n        className=\"aspect-square w-full\"\n      />\n\n      <div className=\"space-y-1 pb-4 px-4\">\n        <h3 className=\"text-xl font-medium\">{member.name}</h3>\n        <h4>{member.role}</h4>\n      </div>\n    </div>\n  );\n}\nexport function Team() {\n  return (\n    <ScrollAnimation className=\" overflow-hidden\">\n      <ScrollTranslateY className=\"min-h-svh flex flex-col justify-center items-center gap-6\">\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            xRange={['-200%', '0%']}\n            inputRange={[0.4, 0.9]}\n            className=\"origin-bottom flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n        <ScrollScale\n          inputRange={[0, 0.5]}\n          scaleRange={[1.4, 1]}\n          className=\"w-10/12 flex flex-col justify-center text-center items-center mx-auto origin-center\"\n        >\n          <h2 className=\"text-4xl md:text-5xl font-bold\">\n            Compact team of <span className=\"text-primary\">strategists</span>\n          </h2>\n        </ScrollScale>\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            inputRange={[0.4, 0.9]}\n            xRange={['100%', '-50%']}\n            className=\"flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/blocks/team/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-team-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-team-demo',
+  },
+  'shadcn-new-york-team-demo': {
+    name: 'shadcn-new-york-team-demo',
+    description: 'Demo showing team component with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animation',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/blocks/team/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/blocks/team.tsx',
+        content:
+          "import { cn } from '@/lib/utils';\nimport {\n  ScrollAnimation,\n  ScrollScale,\n  ScrollTranslateX,\n  ScrollTranslateY,\n} from '@/components/systaliko-ui/blocks/scroll-animation';\nimport Image from 'next/image';\n\ninterface TeamMember {\n  avatar: string;\n  name: string;\n  role: string;\n}\nconst TEAM_MEMBERS: TeamMember[] = [\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Magdalina',\n    role: 'CEO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Jamie',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Emilio',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Samia',\n    role: 'COO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Alex',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Ema',\n    role: 'Head of Product',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Carlos',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Campos',\n    role: 'Engineer',\n  },\n];\n\nexport function TeamCard({\n  member,\n  className,\n  ...props\n}: React.ComponentProps<'div'> & { member: TeamMember }) {\n  return (\n    <div className={cn('space-y-6', className)} {...props}>\n      <Image\n        src={member.avatar}\n        alt={member.name}\n        width={200}\n        height={200}\n        className=\"aspect-square w-full\"\n      />\n\n      <div className=\"space-y-1 pb-4 px-4\">\n        <h3 className=\"text-xl font-medium\">{member.name}</h3>\n        <h4>{member.role}</h4>\n      </div>\n    </div>\n  );\n}\nexport function Team() {\n  return (\n    <ScrollAnimation className=\" overflow-hidden\">\n      <ScrollTranslateY className=\"min-h-svh flex flex-col justify-center items-center gap-6\">\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            xRange={['-200%', '0%']}\n            inputRange={[0.4, 0.9]}\n            className=\"origin-bottom flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n        <ScrollScale\n          inputRange={[0, 0.5]}\n          scaleRange={[1.4, 1]}\n          className=\"w-10/12 flex flex-col justify-center text-center items-center mx-auto origin-center\"\n        >\n          <h2 className=\"text-4xl md:text-5xl font-bold\">\n            Compact team of <span className=\"text-primary\">strategists</span>\n          </h2>\n        </ScrollScale>\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            inputRange={[0.4, 0.9]}\n            xRange={['100%', '-50%']}\n            className=\"flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/blocks/team/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-team-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-team-demo',
+  },
   'default-card-curtain-reveal-demo': {
     name: 'default-card-curtain-reveal-demo',
     description:
@@ -8133,7 +8244,7 @@ export const index: Record<string, any> = {
     name: 'default-transitions',
     description:
       'Multiple transitions for your motion components, to animate depending on the animated property with default style.',
-    type: 'registry:hook',
+    type: 'registry:lib',
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
@@ -8141,7 +8252,7 @@ export const index: Record<string, any> = {
     files: [
       {
         path: '__registry__/utils/transitions/default/index.tsx',
-        type: 'registry:hook',
+        type: 'registry:lib',
         target: 'components/systaliko-ui/utils/transitions.tsx',
         content:
           "export const TRANSITIONS = {\n  y: { duration: 0.62, ease: [0.22, 1, 0.36, 1] },\n  x: { duration: 0.56, ease: [0.22, 1, 0.36, 1] },\n  scale: { type: 'spring', stiffness: 1000, damping: 28, mass: 0.9 },\n  filter: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },\n  opacity: { duration: 0.36, ease: 'easeOut' },\n} as const;",
@@ -8169,7 +8280,7 @@ export const index: Record<string, any> = {
     name: 'shadcn-default-transitions',
     description:
       'Multiple transitions for your motion components, to animate depending on the animated property with shadcn-default style.',
-    type: 'registry:hook',
+    type: 'registry:lib',
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
@@ -8177,7 +8288,7 @@ export const index: Record<string, any> = {
     files: [
       {
         path: '__registry__/utils/transitions/shadcn-default/index.tsx',
-        type: 'registry:hook',
+        type: 'registry:lib',
         target: 'components/systaliko-ui/utils/transitions.tsx',
         content:
           "export const TRANSITIONS = {\n  y: { duration: 0.62, ease: [0.22, 1, 0.36, 1] },\n  x: { duration: 0.56, ease: [0.22, 1, 0.36, 1] },\n  scale: { type: 'spring', stiffness: 1000, damping: 28, mass: 0.9 },\n  filter: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },\n  opacity: { duration: 0.36, ease: 'easeOut' },\n} as const;",
@@ -8205,7 +8316,7 @@ export const index: Record<string, any> = {
     name: 'shadcn-new-york-transitions',
     description:
       'Multiple transitions for your motion components, to animate depending on the animated property with shadcn-new-york style.',
-    type: 'registry:hook',
+    type: 'registry:lib',
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
@@ -8213,7 +8324,7 @@ export const index: Record<string, any> = {
     files: [
       {
         path: '__registry__/utils/transitions/shadcn-new-york/index.tsx',
-        type: 'registry:hook',
+        type: 'registry:lib',
         target: 'components/systaliko-ui/utils/transitions.tsx',
         content:
           "export const TRANSITIONS = {\n  y: { duration: 0.62, ease: [0.22, 1, 0.36, 1] },\n  x: { duration: 0.56, ease: [0.22, 1, 0.36, 1] },\n  scale: { type: 'spring', stiffness: 1000, damping: 28, mass: 0.9 },\n  filter: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },\n  opacity: { duration: 0.36, ease: 'easeOut' },\n} as const;",

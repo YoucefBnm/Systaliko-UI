@@ -1,0 +1,152 @@
+---
+title: Team section
+description: Team section, showcasing team members with multiple scroll animations.
+new: true
+url: https://21st.dev/youcefbnm/team-section/default
+---
+
+This component is inspired by [flexxi agency](https://www.flexxi.design/) team section.
+
+<ComponentPreview name="team-demo" />
+
+## Installation
+
+<ComponentInstallation name="scroll-animation" />
+
+## Usage
+
+```tsx
+<ScrollAnimation>
+  <ScrollTranslateY className="overflow-hidden min-h-svh flex flex-col justify-center items-center gap-6">
+    <div className="w-full overflow-hidden">
+      <ScrollTranslateX
+        xRange={['-200%', '0%']}
+        inputRange={[0.4, 0.9]}
+        className="origin-bottom flex flex-nowrap gap-4"
+      >
+        {TEAM_MEMBERS.map((member, index) => (
+          <TeamCard
+            className="min-w-[48vw] md:min-w-[20vw] bg-card border"
+            key={index}
+            member={member}
+          />
+        ))}
+      </ScrollTranslateX>
+    </div>
+    <ScrollScale
+      inputRange={[0, 0.5]}
+      scaleRange={[1.4, 1]}
+      className="w-10/12 flex flex-col justify-center text-center items-center mx-auto origin-center"
+    >
+      <h2 className="text-4xl md:text-5xl font-bold">
+        Compact team of <span className="text-primary">strategists</span>
+      </h2>
+    </ScrollScale>
+    <div className="w-full overflow-hidden">
+      <ScrollTranslateX
+        inputRange={[0.4, 0.9]}
+        xRange={['100%', '-50%']}
+        className="flex flex-nowrap gap-4"
+      >
+        {TEAM_MEMBERS.map((member, index) => (
+          <TeamCard
+            className="min-w-[48vw] md:min-w-[20vw] bg-card border"
+            key={index}
+            member={member}
+          />
+        ))}
+      </ScrollTranslateX>
+    </div>
+  </ScrollTranslateY>
+</ScrollAnimation>
+```
+
+## Props
+
+`ScrollAnimation`
+
+<TypeTable
+  type={{
+    spacerClass: {
+      description: 'the class to be applied to the spacer element on bottom',
+      type: 'string',
+      required: false,
+    },
+  }}
+/>
+
+`ScrollTranslateY`
+
+<TypeTable
+  type={{
+    inputRange: {
+      description: 'The range of the scroll range minimum 0 and max 1.',
+      type: 'number[]',
+      required: false,
+      default: '[0, 1]',
+    },
+    yRange: {
+      description: 'Animation range of the y transform.',
+      type: 'number[]',
+      required: false,
+      default: '[0, 384]',
+    },
+  }}
+/>
+
+`ScrollTranslateX`
+
+<TypeTable
+  type={{
+    inputRange: {
+      description: 'The range of the scroll range minimum 0 and max 1.',
+      type: 'number[]',
+      required: false,
+      default: '[0, 1]',
+    },
+    xRange: {
+      description: 'Animation range of the x transform.',
+      type: 'number[]',
+      required: false,
+      default: '[0, 100]',
+    },
+  }}
+/>
+
+`ScrollInset`
+
+<TypeTable
+  type={{
+    inputRange: {
+      description: 'The range of the scroll range minimum 0 and max 1.',
+      type: 'number[]',
+      required: false,
+      default: '[0, 1]',
+    },
+    insetRange: {
+      description: 'Animation range of the inset on x axis.',
+      type: 'number[]',
+      required: false,
+      default: '[48, 0]',
+    },
+  }}
+/>
+
+`ScrollScale`
+
+<TypeTable
+  type={{
+    inputRange: {
+      description: 'The range of the scroll range minimum 0 and max 1.',
+      type: 'number[]',
+      required: false,
+      default: '[0, 1]',
+    },
+    yRange: {
+      description: 'Animation range of the scale transform.',
+      type: 'number[]',
+      required: false,
+      default: '[1.2, 1]',
+    },
+  }}
+/>

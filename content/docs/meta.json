@@ -3,13 +3,7 @@
   "root": true,
   "pages": [
     "index",
-    "---Cards---",
-    "cards/card-flip",
-    "cards/card-curtain-reveal",
-    "cards/card-hover-reveal",
-    "cards/cards-stack-rotated",
-    "cards/cards-stack",
-    "cards/card-testimonial",
+    "templates",
 
     "---Blocks---",
     "blocks/grid-bento",
@@ -21,6 +15,15 @@
     "blocks/container-stagger",
     "blocks/scroll-x-carousel",
     "blocks/story",
+    "blocks/team",
+
+    "---Cards---",
+    "cards/card-flip",
+    "cards/card-curtain-reveal",
+    "cards/card-hover-reveal",
+    "cards/cards-stack-rotated",
+    "cards/cards-stack",
+    "cards/card-testimonial",
 
     "---Components---",
     "components/custom-cursor",
