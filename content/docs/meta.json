@@ -3,8 +3,6 @@
   "root": true,
   "pages": [
     "index",
-    "---Templates---",
-    "templates/veo",
     "---Cards---",
     "cards/card-flip",
     "cards/card-curtain-reveal",
