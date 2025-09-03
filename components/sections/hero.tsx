@@ -79,7 +79,7 @@ export function Hero() {
               <ComponentIcon />
             </Button>
             <Button variant={'outline'}>
-              <Link href="/docs/heros/hero-gradient">Browse Templates</Link>
+              <Link href="/docs/templates">Browse Templates</Link>
               <ArrowUpRightIcon />
             </Button>
           </motion.div>
