@@ -7,6 +7,7 @@ import {
 } from 'fumadocs-ui/page';
 import { notFound } from 'next/navigation';
 import { ComponentPreview } from '@/components/docs/component-preview';
+import { TemplateOpen } from '@/components/docs/template-open';
 import { TypeTable } from 'fumadocs-ui/components/type-table';
 import { ComponentInstallation } from '@/components/docs/component-installation';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
@@ -33,6 +34,7 @@ export default async function Page(props: {
               <ComponentPreview {...props} url={url} />
             ),
             ComponentInstallation,
+            TemplateOpen,
             TypeTable,
           }}
         />

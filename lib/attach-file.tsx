@@ -58,7 +58,7 @@ export const attachFile: BuildPageTreeOptions['attachFile'] = (node, file) => {
   }
   if ('soon' in data && typeof data.soon === 'boolean' && data.soon) {
     node.name = (
-      <Badge name={node.name} className="bg-secondary-foreground">
+      <Badge name={node.name} className="bg-secondary">
         soon
       </Badge>
     );
