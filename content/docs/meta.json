@@ -3,7 +3,9 @@
   "root": true,
   "pages": [
     "index",
-    "templates",
+
+    "---Templates---",
+    "templates/veo",
 
     "---Blocks---",
     "blocks/grid-bento",

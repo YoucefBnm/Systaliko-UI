@@ -5,6 +5,7 @@
   "title": "Cards Stack Rotated",
   "description": "Stack of cards rotated by a defined index value to rotate in sequence, it show one card at a time depending on the scroll position.",
   "dependencies": ["motion"],
+  "registryDependencies": ["registry/cards/card-testimonial/index.tsx"],
   "files": [
     {
       "path": "registry/cards/cards-stack-rotated/index.tsx",

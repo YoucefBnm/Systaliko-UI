@@ -4,7 +4,6 @@
   "type": "registry:ui",
   "title": "Card",
   "description": "Card component with variants.",
-  "registryDependencies": ["https://systaliko-ui.vercel.app/r/default-card"],
   "files": [
     {
       "path": "registry/cards/card/index.tsx",
