@@ -16,7 +16,7 @@ export function DesktopNav() {
         Components
       </Link>
       <Link
-        href="/templates"
+        href="/docs/templates"
         className="p-2 text-sm transition-colors hover:text-accent-foreground"
       >
         Templates
