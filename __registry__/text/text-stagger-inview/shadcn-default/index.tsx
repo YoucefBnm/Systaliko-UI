@@ -31,7 +31,7 @@ export function TextStaggerInview({
   ...props
 }: TextStaggerProps) {
   const words = String(children).split(' ');
-  const MotionComponent = motion(Component);
+  const MotionComponent = motion.create(Component);
   return (
     <MotionComponent
       initial="hidden"

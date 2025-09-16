@@ -9,6 +9,7 @@
 
     "---Blocks---",
     "blocks/grid-bento",
+    "blocks/image-player",
     "blocks/parallax",
     "blocks/scroll-reverse-animation",
     "blocks/scroll-animations",

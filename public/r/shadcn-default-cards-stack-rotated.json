@@ -7,6 +7,9 @@
   "dependencies": [
     "motion"
   ],
+  "registryDependencies": [
+    "registry/cards/card-testimonial/index.tsx"
+  ],
   "files": [
     {
       "path": "__registry__/cards/cards-stack-rotated/shadcn-default/index.tsx",

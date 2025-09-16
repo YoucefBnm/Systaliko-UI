@@ -87,7 +87,7 @@ export function TeamCard({
 }
 export function Team() {
   return (
-    <ScrollAnimation className=" overflow-hidden">
+    <ScrollAnimation className="overflow-hidden">
       <ScrollTranslateY className="min-h-svh flex flex-col justify-center items-center gap-6">
         <div className="w-full ">
           <ScrollTranslateX

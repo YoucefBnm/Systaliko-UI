@@ -144,6 +144,45 @@
       ]
     },
     {
+      "name": "default-image-player",
+      "type": "registry:block",
+      "title": "Image Player",
+      "description": "Create your own image player GIF/video, with image player component with default style.",
+      "files": [
+        {
+          "path": "__registry__/blocks/image-player/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/blocks/image-player.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-image-player",
+      "type": "registry:block",
+      "title": "Image Player",
+      "description": "Create your own image player GIF/video, with image player component with shadcn-default style.",
+      "files": [
+        {
+          "path": "__registry__/blocks/image-player/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/blocks/image-player.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-image-player",
+      "type": "registry:block",
+      "title": "Image Player",
+      "description": "Create your own image player GIF/video, with image player component with shadcn-new-york style.",
+      "files": [
+        {
+          "path": "__registry__/blocks/image-player/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/blocks/image-player.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-parallax",
       "type": "registry:block",
       "title": "Parallax",
@@ -445,9 +484,6 @@
       "type": "registry:ui",
       "title": "Card",
       "description": "Card component with variants with default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-card"
-      ],
       "files": [
         {
           "path": "__registry__/cards/card/default/index.tsx",
@@ -461,9 +497,6 @@
       "type": "registry:ui",
       "title": "Card",
       "description": "Card component with variants with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-card"
-      ],
       "files": [
         {
           "path": "__registry__/cards/card/shadcn-default/index.tsx",
@@ -477,9 +510,6 @@
       "type": "registry:ui",
       "title": "Card",
       "description": "Card component with variants with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-card"
-      ],
       "files": [
         {
           "path": "__registry__/cards/card/shadcn-new-york/index.tsx",
@@ -629,7 +659,9 @@
       "title": "Card Testimonial",
       "description": "Card Testimonial, with rating, block quote, and author's informations with default style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-avatar"
+        "https://systaliko-ui.vercel.app/r/default-avatar",
+        "https://systaliko-ui.vercel.app/r/default-rating-stars",
+        "https://systaliko-ui.vercel.app/r/default-card"
       ],
       "files": [
         {
@@ -645,7 +677,9 @@
       "title": "Card Testimonial",
       "description": "Card Testimonial, with rating, block quote, and author's informations with shadcn-default style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-avatar"
+        "https://systaliko-ui.vercel.app/r/default-avatar",
+        "https://systaliko-ui.vercel.app/r/default-rating-stars",
+        "https://systaliko-ui.vercel.app/r/default-card"
       ],
       "files": [
         {
@@ -661,7 +695,9 @@
       "title": "Card Testimonial",
       "description": "Card Testimonial, with rating, block quote, and author's informations with shadcn-new-york style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-avatar"
+        "https://systaliko-ui.vercel.app/r/default-avatar",
+        "https://systaliko-ui.vercel.app/r/default-rating-stars",
+        "https://systaliko-ui.vercel.app/r/default-card"
       ],
       "files": [
         {
@@ -727,6 +763,9 @@
       "dependencies": [
         "motion"
       ],
+      "registryDependencies": [
+        "registry/cards/card-testimonial/index.tsx"
+      ],
       "files": [
         {
           "path": "__registry__/cards/cards-stack-rotated/default/index.tsx",
@@ -743,6 +782,9 @@
       "dependencies": [
         "motion"
       ],
+      "registryDependencies": [
+        "registry/cards/card-testimonial/index.tsx"
+      ],
       "files": [
         {
           "path": "__registry__/cards/cards-stack-rotated/shadcn-default/index.tsx",
@@ -758,6 +800,9 @@
       "description": "Stack of cards rotated by a defined index value to rotate in sequence, it show one card at a time depending on the scroll position with shadcn-new-york style.",
       "dependencies": [
         "motion"
+      ],
+      "registryDependencies": [
+        "registry/cards/card-testimonial/index.tsx"
       ],
       "files": [
         {
@@ -1163,6 +1208,54 @@
           "path": "__registry__/demo/blocks/grid-bento-three-cells/shadcn-new-york/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/blocks/grid-bento-three-cells.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-image-player-demo",
+      "type": "registry:block",
+      "title": "Image Player Demo",
+      "description": "Demo showing how to use image player component with default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/image-player"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/blocks/image-player/default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/blocks/image-player.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-image-player-demo",
+      "type": "registry:block",
+      "title": "Image Player Demo",
+      "description": "Demo showing how to use image player component with shadcn-default style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/image-player"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/blocks/image-player/shadcn-default/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/blocks/image-player.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-image-player-demo",
+      "type": "registry:block",
+      "title": "Image Player Demo",
+      "description": "Demo showing how to use image player component with shadcn-new-york style.",
+      "registryDependencies": [
+        "http://localhost:3000/r/image-player"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/blocks/image-player/shadcn-new-york/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/blocks/image-player.tsx"
         }
       ]
     },

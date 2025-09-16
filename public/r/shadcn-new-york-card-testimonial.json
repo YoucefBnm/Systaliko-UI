@@ -5,7 +5,9 @@
   "title": "Card Testimonial",
   "description": "Card Testimonial, with rating, block quote, and author's informations with shadcn-new-york style.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/default-avatar"
+    "https://systaliko-ui.vercel.app/r/default-avatar",
+    "https://systaliko-ui.vercel.app/r/default-rating-stars",
+    "https://systaliko-ui.vercel.app/r/default-card"
   ],
   "files": [
     {

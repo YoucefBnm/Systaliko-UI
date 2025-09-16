@@ -1,0 +1,64 @@
+---
+title: Image Player
+description: Create your own image player GIF/video.
+new: true
+url: https://21st.dev/youcefbnm/image-player/default
+---
+
+<ComponentPreview name="image-player-demo" />
+
+## Installation
+
+<ComponentInstallation name="image-player" />
+
+## Usage
+
+```tsx
+<ImagePlayer
+  images={IMAGES}
+  interval={200}
+  renderImage={(src) => (
+    <Image
+      src={src}
+      width={400}
+      height={300}
+      className="size-full h-auto max-h-full max-w-xl object-cover inline-block align-middle"
+      alt="showcalse"
+    />
+  )}
+/>
+```
+
+## Props
+
+<TypeTable
+  type={{
+    loop: {
+      description: 'auto play the images.',
+      type: 'boolean',
+      required: false,
+      default: 'true',
+    },
+    onComplete: {
+      description: 'callback function when the image player is completed.',
+      type: '() => void',
+      required: false,
+    },
+    renderImage: {
+      description: 'render image function.',
+      type: '(src: string, index: number) => React.ReactNode',
+      required: false,
+    },
+    interval: {
+      description: 'the interval of the image player.',
+      type: 'number',
+      required: false,
+      default: 500,
+    },
+    images: {
+      description: 'The array of images to be displayed in the player.',
+      type: 'string',
+      required: true,
+    },
+  }}
+/>

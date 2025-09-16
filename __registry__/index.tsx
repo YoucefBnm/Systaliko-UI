@@ -345,6 +345,114 @@ export const index: Record<string, any> = {
     })(),
     command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-grid-bento',
   },
+  'default-image-player': {
+    name: 'default-image-player',
+    description:
+      'Create your own image player GIF/video, with image player component with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/blocks/image-player/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/blocks/image-player.tsx',
+        content:
+          "/* eslint-disable @next/next/no-img-element */\n'use client';\nimport * as React from 'react';\n\ninterface ImagePlayerProps extends React.HTMLAttributes<HTMLImageElement> {\n  images: string[];\n  interval?: number;\n  loop?: boolean;\n  onComplete?: () => void;\n  renderImage?: (src: string, index: number) => React.ReactNode;\n}\n\nexport const ImagePlayer: React.FC<ImagePlayerProps> = ({\n  images,\n  interval = 500,\n  loop = true,\n  onComplete,\n  renderImage,\n  ...props\n}) => {\n  const [currentIndex, setCurrentIndex] = React.useState<number>(0);\n  const intervalRef = React.useRef<NodeJS.Timeout | null>(null);\n\n  const currentImage = React.useMemo(\n    () => images[currentIndex],\n    [images, currentIndex],\n  );\n\n  React.useEffect(() => {\n    if (images.length <= 1) return;\n\n    intervalRef.current = setInterval(() => {\n      setCurrentIndex((prevIndex) => {\n        const nextIndex = prevIndex + 1;\n\n        if (nextIndex >= images.length) {\n          if (loop) {\n            return 0;\n          } else {\n            onComplete?.();\n            return prevIndex;\n          }\n        }\n\n        return nextIndex;\n      });\n    }, interval);\n\n    return () => {\n      if (intervalRef.current) {\n        clearInterval(intervalRef.current);\n      }\n    };\n  }, [images.length, interval, loop, onComplete]);\n\n  React.useEffect(() => {\n    setCurrentIndex(0);\n  }, [images]);\n\n  if (!images || images.length === 0) {\n    return <div className=\"text-destructive\">No images !!</div>;\n  }\n\n  return (\n    <>\n      {renderImage ? (\n        renderImage(currentImage, currentIndex)\n      ) : (\n        <img src={currentImage} {...props} />\n      )}\n    </>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/blocks/image-player/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-image-player';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/default-image-player',
+  },
+  'shadcn-default-image-player': {
+    name: 'shadcn-default-image-player',
+    description:
+      'Create your own image player GIF/video, with image player component with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/blocks/image-player/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/blocks/image-player.tsx',
+        content:
+          "/* eslint-disable @next/next/no-img-element */\n'use client';\nimport * as React from 'react';\n\ninterface ImagePlayerProps extends React.HTMLAttributes<HTMLImageElement> {\n  images: string[];\n  interval?: number;\n  loop?: boolean;\n  onComplete?: () => void;\n  renderImage?: (src: string, index: number) => React.ReactNode;\n}\n\nexport const ImagePlayer: React.FC<ImagePlayerProps> = ({\n  images,\n  interval = 500,\n  loop = true,\n  onComplete,\n  renderImage,\n  ...props\n}) => {\n  const [currentIndex, setCurrentIndex] = React.useState<number>(0);\n  const intervalRef = React.useRef<NodeJS.Timeout | null>(null);\n\n  const currentImage = React.useMemo(\n    () => images[currentIndex],\n    [images, currentIndex],\n  );\n\n  React.useEffect(() => {\n    if (images.length <= 1) return;\n\n    intervalRef.current = setInterval(() => {\n      setCurrentIndex((prevIndex) => {\n        const nextIndex = prevIndex + 1;\n\n        if (nextIndex >= images.length) {\n          if (loop) {\n            return 0;\n          } else {\n            onComplete?.();\n            return prevIndex;\n          }\n        }\n\n        return nextIndex;\n      });\n    }, interval);\n\n    return () => {\n      if (intervalRef.current) {\n        clearInterval(intervalRef.current);\n      }\n    };\n  }, [images.length, interval, loop, onComplete]);\n\n  React.useEffect(() => {\n    setCurrentIndex(0);\n  }, [images]);\n\n  if (!images || images.length === 0) {\n    return <div className=\"text-destructive\">No images !!</div>;\n  }\n\n  return (\n    <>\n      {renderImage ? (\n        renderImage(currentImage, currentIndex)\n      ) : (\n        <img src={currentImage} {...props} />\n      )}\n    </>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/blocks/image-player/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-image-player';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-image-player',
+  },
+  'shadcn-new-york-image-player': {
+    name: 'shadcn-new-york-image-player',
+    description:
+      'Create your own image player GIF/video, with image player component with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/blocks/image-player/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/blocks/image-player.tsx',
+        content:
+          "/* eslint-disable @next/next/no-img-element */\n'use client';\nimport * as React from 'react';\n\ninterface ImagePlayerProps extends React.HTMLAttributes<HTMLImageElement> {\n  images: string[];\n  interval?: number;\n  loop?: boolean;\n  onComplete?: () => void;\n  renderImage?: (src: string, index: number) => React.ReactNode;\n}\n\nexport const ImagePlayer: React.FC<ImagePlayerProps> = ({\n  images,\n  interval = 500,\n  loop = true,\n  onComplete,\n  renderImage,\n  ...props\n}) => {\n  const [currentIndex, setCurrentIndex] = React.useState<number>(0);\n  const intervalRef = React.useRef<NodeJS.Timeout | null>(null);\n\n  const currentImage = React.useMemo(\n    () => images[currentIndex],\n    [images, currentIndex],\n  );\n\n  React.useEffect(() => {\n    if (images.length <= 1) return;\n\n    intervalRef.current = setInterval(() => {\n      setCurrentIndex((prevIndex) => {\n        const nextIndex = prevIndex + 1;\n\n        if (nextIndex >= images.length) {\n          if (loop) {\n            return 0;\n          } else {\n            onComplete?.();\n            return prevIndex;\n          }\n        }\n\n        return nextIndex;\n      });\n    }, interval);\n\n    return () => {\n      if (intervalRef.current) {\n        clearInterval(intervalRef.current);\n      }\n    };\n  }, [images.length, interval, loop, onComplete]);\n\n  React.useEffect(() => {\n    setCurrentIndex(0);\n  }, [images]);\n\n  if (!images || images.length === 0) {\n    return <div className=\"text-destructive\">No images !!</div>;\n  }\n\n  return (\n    <>\n      {renderImage ? (\n        renderImage(currentImage, currentIndex)\n      ) : (\n        <img src={currentImage} {...props} />\n      )}\n    </>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/blocks/image-player/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-image-player';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-image-player',
+  },
   'default-parallax': {
     name: 'default-parallax',
     description:
@@ -1012,7 +1120,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/default-card'],
+    registryDependencies: undefined,
     styles: undefined,
     files: [
       {
@@ -1045,7 +1153,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/default-card'],
+    registryDependencies: undefined,
     styles: undefined,
     files: [
       {
@@ -1080,7 +1188,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/default-card'],
+    registryDependencies: undefined,
     styles: undefined,
     files: [
       {
@@ -1444,7 +1552,11 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/default-avatar'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/default-avatar',
+      'https://systaliko-ui.vercel.app/r/default-rating-stars',
+      'https://systaliko-ui.vercel.app/r/default-card',
+    ],
     styles: undefined,
     files: [
       {
@@ -1480,7 +1592,11 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/default-avatar'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/default-avatar',
+      'https://systaliko-ui.vercel.app/r/default-rating-stars',
+      'https://systaliko-ui.vercel.app/r/default-card',
+    ],
     styles: undefined,
     files: [
       {
@@ -1517,7 +1633,11 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/default-avatar'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/default-avatar',
+      'https://systaliko-ui.vercel.app/r/default-rating-stars',
+      'https://systaliko-ui.vercel.app/r/default-card',
+    ],
     styles: undefined,
     files: [
       {
@@ -1662,7 +1782,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['registry/cards/card-testimonial/index.tsx'],
     styles: undefined,
     files: [
       {
@@ -1698,7 +1818,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['registry/cards/card-testimonial/index.tsx'],
     styles: undefined,
     files: [
       {
@@ -1735,7 +1855,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: undefined,
+    registryDependencies: ['registry/cards/card-testimonial/index.tsx'],
     styles: undefined,
     files: [
       {
@@ -2675,6 +2795,116 @@ export const index: Record<string, any> = {
     })(),
     command:
       'https://systaliko-ui.vercel.app/r/shadcn-new-york-grid-bento-three-cells-demo',
+  },
+  'default-image-player-demo': {
+    name: 'default-image-player-demo',
+    description:
+      'Demo showing how to use image player component with default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/image-player'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/blocks/image-player/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/blocks/image-player.tsx',
+        content:
+          "'use client';\n\nimport { ImagePlayer } from '@/components/systaliko-ui/blocks/image-player';\nimport Image from 'next/image';\n\nconst IMAGES = [\n  'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=1494&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1617869763329-8e8160d32adb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1705675742522-b0bdc228f2ed?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1705615791178-d32cc2cdcd9c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport function ImagePlayerDemo() {\n  return (\n    <div className=\"h-screen p-12 flex items-center justify-center\">\n      <ImagePlayer\n        images={IMAGES}\n        interval={200}\n        renderImage={(src) => (\n          <Image\n            src={src}\n            width={400}\n            height={300}\n            className=\"size-full h-auto max-h-full max-w-xl object-cover inline-block align-middle\"\n            alt=\"showcalse\"\n          />\n        )}\n      />\n    </div>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/blocks/image-player/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-image-player-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/default-image-player-demo',
+  },
+  'shadcn-default-image-player-demo': {
+    name: 'shadcn-default-image-player-demo',
+    description:
+      'Demo showing how to use image player component with shadcn-default style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/image-player'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/blocks/image-player/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/blocks/image-player.tsx',
+        content:
+          "'use client';\n\nimport { ImagePlayer } from '@/components/systaliko-ui/blocks/image-player';\nimport Image from 'next/image';\n\nconst IMAGES = [\n  'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=1494&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1617869763329-8e8160d32adb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1705675742522-b0bdc228f2ed?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1705615791178-d32cc2cdcd9c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport function ImagePlayerDemo() {\n  return (\n    <div className=\"h-screen p-12 flex items-center justify-center\">\n      <ImagePlayer\n        images={IMAGES}\n        interval={200}\n        renderImage={(src) => (\n          <Image\n            src={src}\n            width={400}\n            height={300}\n            className=\"size-full h-auto max-h-full max-w-xl object-cover inline-block align-middle\"\n            alt=\"showcalse\"\n          />\n        )}\n      />\n    </div>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/blocks/image-player/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-image-player-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-image-player-demo',
+  },
+  'shadcn-new-york-image-player-demo': {
+    name: 'shadcn-new-york-image-player-demo',
+    description:
+      'Demo showing how to use image player component with shadcn-new-york style.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/image-player'],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/blocks/image-player/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/blocks/image-player.tsx',
+        content:
+          "'use client';\n\nimport { ImagePlayer } from '@/components/systaliko-ui/blocks/image-player';\nimport Image from 'next/image';\n\nconst IMAGES = [\n  'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=1494&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1617869763329-8e8160d32adb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1705675742522-b0bdc228f2ed?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1705615791178-d32cc2cdcd9c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport function ImagePlayerDemo() {\n  return (\n    <div className=\"h-screen p-12 flex items-center justify-center\">\n      <ImagePlayer\n        images={IMAGES}\n        interval={200}\n        renderImage={(src) => (\n          <Image\n            src={src}\n            width={400}\n            height={300}\n            className=\"size-full h-auto max-h-full max-w-xl object-cover inline-block align-middle\"\n            alt=\"showcalse\"\n          />\n        )}\n      />\n    </div>\n  );\n}",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/blocks/image-player/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-image-player-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-image-player-demo',
   },
   'default-parallax-demo': {
     name: 'default-parallax-demo',
@@ -4565,7 +4795,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/blocks/team.tsx',
         content:
-          "import { cn } from '@/lib/utils';\nimport {\n  ScrollAnimation,\n  ScrollScale,\n  ScrollTranslateX,\n  ScrollTranslateY,\n} from '@/components/systaliko-ui/blocks/scroll-animation';\nimport Image from 'next/image';\n\ninterface TeamMember {\n  avatar: string;\n  name: string;\n  role: string;\n}\nconst TEAM_MEMBERS: TeamMember[] = [\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Magdalina',\n    role: 'CEO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Jamie',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Emilio',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Samia',\n    role: 'COO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Alex',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Ema',\n    role: 'Head of Product',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Carlos',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Campos',\n    role: 'Engineer',\n  },\n];\n\nexport function TeamCard({\n  member,\n  className,\n  ...props\n}: React.ComponentProps<'div'> & { member: TeamMember }) {\n  return (\n    <div className={cn('space-y-6', className)} {...props}>\n      <Image\n        src={member.avatar}\n        alt={member.name}\n        width={200}\n        height={200}\n        className=\"aspect-square w-full\"\n      />\n\n      <div className=\"space-y-1 pb-4 px-4\">\n        <h3 className=\"text-xl font-medium\">{member.name}</h3>\n        <h4>{member.role}</h4>\n      </div>\n    </div>\n  );\n}\nexport function Team() {\n  return (\n    <ScrollAnimation className=\" overflow-hidden\">\n      <ScrollTranslateY className=\"min-h-svh flex flex-col justify-center items-center gap-6\">\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            xRange={['-200%', '0%']}\n            inputRange={[0.4, 0.9]}\n            className=\"origin-bottom flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n        <ScrollScale\n          inputRange={[0, 0.5]}\n          scaleRange={[1.4, 1]}\n          className=\"w-10/12 flex flex-col justify-center text-center items-center mx-auto origin-center\"\n        >\n          <h2 className=\"text-4xl md:text-5xl font-bold\">\n            Compact team of <span className=\"text-primary\">strategists</span>\n          </h2>\n        </ScrollScale>\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            inputRange={[0.4, 0.9]}\n            xRange={['100%', '-50%']}\n            className=\"flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}",
+          "import { cn } from '@/lib/utils';\nimport {\n  ScrollAnimation,\n  ScrollScale,\n  ScrollTranslateX,\n  ScrollTranslateY,\n} from '@/components/systaliko-ui/blocks/scroll-animation';\nimport Image from 'next/image';\n\ninterface TeamMember {\n  avatar: string;\n  name: string;\n  role: string;\n}\nconst TEAM_MEMBERS: TeamMember[] = [\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Magdalina',\n    role: 'CEO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Jamie',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Emilio',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Samia',\n    role: 'COO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Alex',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Ema',\n    role: 'Head of Product',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Carlos',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Campos',\n    role: 'Engineer',\n  },\n];\n\nexport function TeamCard({\n  member,\n  className,\n  ...props\n}: React.ComponentProps<'div'> & { member: TeamMember }) {\n  return (\n    <div className={cn('space-y-6', className)} {...props}>\n      <Image\n        src={member.avatar}\n        alt={member.name}\n        width={200}\n        height={200}\n        className=\"aspect-square w-full\"\n      />\n\n      <div className=\"space-y-1 pb-4 px-4\">\n        <h3 className=\"text-xl font-medium\">{member.name}</h3>\n        <h4>{member.role}</h4>\n      </div>\n    </div>\n  );\n}\nexport function Team() {\n  return (\n    <ScrollAnimation className=\"overflow-hidden\">\n      <ScrollTranslateY className=\"min-h-svh flex flex-col justify-center items-center gap-6\">\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            xRange={['-200%', '0%']}\n            inputRange={[0.4, 0.9]}\n            className=\"origin-bottom flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n        <ScrollScale\n          inputRange={[0, 0.5]}\n          scaleRange={[1.4, 1]}\n          className=\"w-10/12 flex flex-col justify-center text-center items-center mx-auto origin-center\"\n        >\n          <h2 className=\"text-4xl md:text-5xl font-bold\">\n            Compact team of <span className=\"text-primary\">strategists</span>\n          </h2>\n        </ScrollScale>\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            inputRange={[0.4, 0.9]}\n            xRange={['100%', '-50%']}\n            className=\"flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}",
       },
     ],
     component: (function () {
@@ -4602,7 +4832,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/blocks/team.tsx',
         content:
-          "import { cn } from '@/lib/utils';\nimport {\n  ScrollAnimation,\n  ScrollScale,\n  ScrollTranslateX,\n  ScrollTranslateY,\n} from '@/components/systaliko-ui/blocks/scroll-animation';\nimport Image from 'next/image';\n\ninterface TeamMember {\n  avatar: string;\n  name: string;\n  role: string;\n}\nconst TEAM_MEMBERS: TeamMember[] = [\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Magdalina',\n    role: 'CEO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Jamie',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Emilio',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Samia',\n    role: 'COO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Alex',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Ema',\n    role: 'Head of Product',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Carlos',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Campos',\n    role: 'Engineer',\n  },\n];\n\nexport function TeamCard({\n  member,\n  className,\n  ...props\n}: React.ComponentProps<'div'> & { member: TeamMember }) {\n  return (\n    <div className={cn('space-y-6', className)} {...props}>\n      <Image\n        src={member.avatar}\n        alt={member.name}\n        width={200}\n        height={200}\n        className=\"aspect-square w-full\"\n      />\n\n      <div className=\"space-y-1 pb-4 px-4\">\n        <h3 className=\"text-xl font-medium\">{member.name}</h3>\n        <h4>{member.role}</h4>\n      </div>\n    </div>\n  );\n}\nexport function Team() {\n  return (\n    <ScrollAnimation className=\" overflow-hidden\">\n      <ScrollTranslateY className=\"min-h-svh flex flex-col justify-center items-center gap-6\">\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            xRange={['-200%', '0%']}\n            inputRange={[0.4, 0.9]}\n            className=\"origin-bottom flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n        <ScrollScale\n          inputRange={[0, 0.5]}\n          scaleRange={[1.4, 1]}\n          className=\"w-10/12 flex flex-col justify-center text-center items-center mx-auto origin-center\"\n        >\n          <h2 className=\"text-4xl md:text-5xl font-bold\">\n            Compact team of <span className=\"text-primary\">strategists</span>\n          </h2>\n        </ScrollScale>\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            inputRange={[0.4, 0.9]}\n            xRange={['100%', '-50%']}\n            className=\"flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}",
+          "import { cn } from '@/lib/utils';\nimport {\n  ScrollAnimation,\n  ScrollScale,\n  ScrollTranslateX,\n  ScrollTranslateY,\n} from '@/components/systaliko-ui/blocks/scroll-animation';\nimport Image from 'next/image';\n\ninterface TeamMember {\n  avatar: string;\n  name: string;\n  role: string;\n}\nconst TEAM_MEMBERS: TeamMember[] = [\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Magdalina',\n    role: 'CEO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Jamie',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Emilio',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Samia',\n    role: 'COO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Alex',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Ema',\n    role: 'Head of Product',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Carlos',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Campos',\n    role: 'Engineer',\n  },\n];\n\nexport function TeamCard({\n  member,\n  className,\n  ...props\n}: React.ComponentProps<'div'> & { member: TeamMember }) {\n  return (\n    <div className={cn('space-y-6', className)} {...props}>\n      <Image\n        src={member.avatar}\n        alt={member.name}\n        width={200}\n        height={200}\n        className=\"aspect-square w-full\"\n      />\n\n      <div className=\"space-y-1 pb-4 px-4\">\n        <h3 className=\"text-xl font-medium\">{member.name}</h3>\n        <h4>{member.role}</h4>\n      </div>\n    </div>\n  );\n}\nexport function Team() {\n  return (\n    <ScrollAnimation className=\"overflow-hidden\">\n      <ScrollTranslateY className=\"min-h-svh flex flex-col justify-center items-center gap-6\">\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            xRange={['-200%', '0%']}\n            inputRange={[0.4, 0.9]}\n            className=\"origin-bottom flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n        <ScrollScale\n          inputRange={[0, 0.5]}\n          scaleRange={[1.4, 1]}\n          className=\"w-10/12 flex flex-col justify-center text-center items-center mx-auto origin-center\"\n        >\n          <h2 className=\"text-4xl md:text-5xl font-bold\">\n            Compact team of <span className=\"text-primary\">strategists</span>\n          </h2>\n        </ScrollScale>\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            inputRange={[0.4, 0.9]}\n            xRange={['100%', '-50%']}\n            className=\"flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}",
       },
     ],
     component: (function () {
@@ -4639,7 +4869,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/blocks/team.tsx',
         content:
-          "import { cn } from '@/lib/utils';\nimport {\n  ScrollAnimation,\n  ScrollScale,\n  ScrollTranslateX,\n  ScrollTranslateY,\n} from '@/components/systaliko-ui/blocks/scroll-animation';\nimport Image from 'next/image';\n\ninterface TeamMember {\n  avatar: string;\n  name: string;\n  role: string;\n}\nconst TEAM_MEMBERS: TeamMember[] = [\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Magdalina',\n    role: 'CEO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Jamie',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Emilio',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Samia',\n    role: 'COO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Alex',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Ema',\n    role: 'Head of Product',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Carlos',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Campos',\n    role: 'Engineer',\n  },\n];\n\nexport function TeamCard({\n  member,\n  className,\n  ...props\n}: React.ComponentProps<'div'> & { member: TeamMember }) {\n  return (\n    <div className={cn('space-y-6', className)} {...props}>\n      <Image\n        src={member.avatar}\n        alt={member.name}\n        width={200}\n        height={200}\n        className=\"aspect-square w-full\"\n      />\n\n      <div className=\"space-y-1 pb-4 px-4\">\n        <h3 className=\"text-xl font-medium\">{member.name}</h3>\n        <h4>{member.role}</h4>\n      </div>\n    </div>\n  );\n}\nexport function Team() {\n  return (\n    <ScrollAnimation className=\" overflow-hidden\">\n      <ScrollTranslateY className=\"min-h-svh flex flex-col justify-center items-center gap-6\">\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            xRange={['-200%', '0%']}\n            inputRange={[0.4, 0.9]}\n            className=\"origin-bottom flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n        <ScrollScale\n          inputRange={[0, 0.5]}\n          scaleRange={[1.4, 1]}\n          className=\"w-10/12 flex flex-col justify-center text-center items-center mx-auto origin-center\"\n        >\n          <h2 className=\"text-4xl md:text-5xl font-bold\">\n            Compact team of <span className=\"text-primary\">strategists</span>\n          </h2>\n        </ScrollScale>\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            inputRange={[0.4, 0.9]}\n            xRange={['100%', '-50%']}\n            className=\"flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}",
+          "import { cn } from '@/lib/utils';\nimport {\n  ScrollAnimation,\n  ScrollScale,\n  ScrollTranslateX,\n  ScrollTranslateY,\n} from '@/components/systaliko-ui/blocks/scroll-animation';\nimport Image from 'next/image';\n\ninterface TeamMember {\n  avatar: string;\n  name: string;\n  role: string;\n}\nconst TEAM_MEMBERS: TeamMember[] = [\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Magdalina',\n    role: 'CEO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Jamie',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Emilio',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Samia',\n    role: 'COO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Alex',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Ema',\n    role: 'Head of Product',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Carlos',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Campos',\n    role: 'Engineer',\n  },\n];\n\nexport function TeamCard({\n  member,\n  className,\n  ...props\n}: React.ComponentProps<'div'> & { member: TeamMember }) {\n  return (\n    <div className={cn('space-y-6', className)} {...props}>\n      <Image\n        src={member.avatar}\n        alt={member.name}\n        width={200}\n        height={200}\n        className=\"aspect-square w-full\"\n      />\n\n      <div className=\"space-y-1 pb-4 px-4\">\n        <h3 className=\"text-xl font-medium\">{member.name}</h3>\n        <h4>{member.role}</h4>\n      </div>\n    </div>\n  );\n}\nexport function Team() {\n  return (\n    <ScrollAnimation className=\"overflow-hidden\">\n      <ScrollTranslateY className=\"min-h-svh flex flex-col justify-center items-center gap-6\">\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            xRange={['-200%', '0%']}\n            inputRange={[0.4, 0.9]}\n            className=\"origin-bottom flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n        <ScrollScale\n          inputRange={[0, 0.5]}\n          scaleRange={[1.4, 1]}\n          className=\"w-10/12 flex flex-col justify-center text-center items-center mx-auto origin-center\"\n        >\n          <h2 className=\"text-4xl md:text-5xl font-bold\">\n            Compact team of <span className=\"text-primary\">strategists</span>\n          </h2>\n        </ScrollScale>\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            inputRange={[0.4, 0.9]}\n            xRange={['100%', '-50%']}\n            className=\"flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}",
       },
     ],
     component: (function () {
@@ -7697,7 +7927,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  Transition,\n} from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  staggerDirection?: 1 | -1;\n  animation?: AnimationT;\n  characterTransition?: Transition;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  staggerDirection,\n  animation,\n  characterTransition = TRANSITIONS,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{\n        staggerChildren: stagger,\n        staggerDirection: staggerDirection,\n        ...transition,\n      }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <MotionConfig transition={characterTransition}>\n            <WordStagger data-word={word} animation={animation}>\n              {word}\n            </WordStagger>\n          </MotionConfig>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  Transition,\n} from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  staggerDirection?: 1 | -1;\n  animation?: AnimationT;\n  characterTransition?: Transition;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  staggerDirection,\n  animation,\n  characterTransition = TRANSITIONS,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion.create(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{\n        staggerChildren: stagger,\n        staggerDirection: staggerDirection,\n        ...transition,\n      }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <MotionConfig transition={characterTransition}>\n            <WordStagger data-word={word} animation={animation}>\n              {word}\n            </WordStagger>\n          </MotionConfig>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
       },
     ],
     component: (function () {
@@ -7737,7 +7967,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  Transition,\n} from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  staggerDirection?: 1 | -1;\n  animation?: AnimationT;\n  characterTransition?: Transition;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  staggerDirection,\n  animation,\n  characterTransition = TRANSITIONS,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{\n        staggerChildren: stagger,\n        staggerDirection: staggerDirection,\n        ...transition,\n      }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <MotionConfig transition={characterTransition}>\n            <WordStagger data-word={word} animation={animation}>\n              {word}\n            </WordStagger>\n          </MotionConfig>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  Transition,\n} from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  staggerDirection?: 1 | -1;\n  animation?: AnimationT;\n  characterTransition?: Transition;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  staggerDirection,\n  animation,\n  characterTransition = TRANSITIONS,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion.create(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{\n        staggerChildren: stagger,\n        staggerDirection: staggerDirection,\n        ...transition,\n      }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <MotionConfig transition={characterTransition}>\n            <WordStagger data-word={word} animation={animation}>\n              {word}\n            </WordStagger>\n          </MotionConfig>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
       },
     ],
     component: (function () {
@@ -7778,7 +8008,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  Transition,\n} from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  staggerDirection?: 1 | -1;\n  animation?: AnimationT;\n  characterTransition?: Transition;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  staggerDirection,\n  animation,\n  characterTransition = TRANSITIONS,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{\n        staggerChildren: stagger,\n        staggerDirection: staggerDirection,\n        ...transition,\n      }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <MotionConfig transition={characterTransition}>\n            <WordStagger data-word={word} animation={animation}>\n              {word}\n            </WordStagger>\n          </MotionConfig>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  Transition,\n} from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  staggerDirection?: 1 | -1;\n  animation?: AnimationT;\n  characterTransition?: Transition;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  staggerDirection,\n  animation,\n  characterTransition = TRANSITIONS,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion.create(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{\n        staggerChildren: stagger,\n        staggerDirection: staggerDirection,\n        ...transition,\n      }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <MotionConfig transition={characterTransition}>\n            <WordStagger data-word={word} animation={animation}>\n              {word}\n            </WordStagger>\n          </MotionConfig>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
       },
     ],
     component: (function () {

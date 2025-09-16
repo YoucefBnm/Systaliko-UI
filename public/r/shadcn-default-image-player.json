@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-default-image-player",
+  "type": "registry:block",
+  "title": "Image Player",
+  "description": "Create your own image player GIF/video, with image player component with shadcn-default style.",
+  "files": [
+    {
+      "path": "__registry__/blocks/image-player/shadcn-default/index.tsx",
+      "content": "/* eslint-disable @next/next/no-img-element */\n'use client';\nimport * as React from 'react';\n\ninterface ImagePlayerProps extends React.HTMLAttributes<HTMLImageElement> {\n  images: string[];\n  interval?: number;\n  loop?: boolean;\n  onComplete?: () => void;\n  renderImage?: (src: string, index: number) => React.ReactNode;\n}\n\nexport const ImagePlayer: React.FC<ImagePlayerProps> = ({\n  images,\n  interval = 500,\n  loop = true,\n  onComplete,\n  renderImage,\n  ...props\n}) => {\n  const [currentIndex, setCurrentIndex] = React.useState<number>(0);\n  const intervalRef = React.useRef<NodeJS.Timeout | null>(null);\n\n  const currentImage = React.useMemo(\n    () => images[currentIndex],\n    [images, currentIndex],\n  );\n\n  React.useEffect(() => {\n    if (images.length <= 1) return;\n\n    intervalRef.current = setInterval(() => {\n      setCurrentIndex((prevIndex) => {\n        const nextIndex = prevIndex + 1;\n\n        if (nextIndex >= images.length) {\n          if (loop) {\n            return 0;\n          } else {\n            onComplete?.();\n            return prevIndex;\n          }\n        }\n\n        return nextIndex;\n      });\n    }, interval);\n\n    return () => {\n      if (intervalRef.current) {\n        clearInterval(intervalRef.current);\n      }\n    };\n  }, [images.length, interval, loop, onComplete]);\n\n  React.useEffect(() => {\n    setCurrentIndex(0);\n  }, [images]);\n\n  if (!images || images.length === 0) {\n    return <div className=\"text-destructive\">No images !!</div>;\n  }\n\n  return (\n    <>\n      {renderImage ? (\n        renderImage(currentImage, currentIndex)\n      ) : (\n        <img src={currentImage} {...props} />\n      )}\n    </>\n  );\n};\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/blocks/image-player.tsx"
+    }
+  ]
+}
