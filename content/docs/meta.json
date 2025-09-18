@@ -6,6 +6,7 @@
 
     "---Templates---",
     "templates/veo",
+    "templates/abla",
 
     "---Blocks---",
     "blocks/grid-bento",

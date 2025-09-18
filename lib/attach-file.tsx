@@ -15,7 +15,7 @@ const Badge = ({
       {name}{' '}
       <span
         className={cn(
-          'ms-auto text-[10px] text-nowrap text-white rounded-sm leading-1 px-1 py-0.5 h-4.5 font-semibold flex items-center justify-center',
+          'ms-auto text-[10px] text-nowrap rounded-sm leading-1 px-1 py-0.5 h-4.5 font-semibold flex items-center justify-center',
           className,
         )}
       >
@@ -31,7 +31,7 @@ export const attachFile: BuildPageTreeOptions['attachFile'] = (node, file) => {
 
   if ('new' in data && typeof data.new === 'boolean' && data.new) {
     node.name = (
-      <Badge name={node.name} className="bg-primary">
+      <Badge name={node.name} className="bg-indigo-600 text-white">
         new
       </Badge>
     );
@@ -51,14 +51,14 @@ export const attachFile: BuildPageTreeOptions['attachFile'] = (node, file) => {
 
   if ('updated' in data && typeof data.updated === 'boolean' && data.updated) {
     node.name = (
-      <Badge name={node.name} className="bg-indigo-700">
+      <Badge name={node.name} className="bg-blue-400">
         updated
       </Badge>
     );
   }
   if ('soon' in data && typeof data.soon === 'boolean' && data.soon) {
     node.name = (
-      <Badge name={node.name} className="bg-secondary">
+      <Badge name={node.name} className="bg-secondary text-foreground">
         soon
       </Badge>
     );

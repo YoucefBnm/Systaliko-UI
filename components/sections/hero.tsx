@@ -1,6 +1,5 @@
 'use client';
 import { ContainerStagger } from '@/registry/blocks/container-stagger';
-import { Badge } from '@/registry/shadcn/badge';
 import { Button } from '@/registry/shadcn/button';
 import { useAnimationVariants } from '@/registry/utils/use-animation-variants';
 import { ArrowUpRightIcon, ComponentIcon } from 'lucide-react';
@@ -11,6 +10,7 @@ import TSIcon from '../icons/ts-icon';
 import TailwindIcon from '../icons/tailwind-icon';
 import ShadcnIcon from '../icons/shadcn-icon copy';
 import MotionIcon from '../icons/motion-icon';
+import { Pill } from '../pill';
 
 const TECH_STACK = [
   {
@@ -47,21 +47,20 @@ export function Hero() {
     <section className="relative max-w-7xl place-content-center min-h-[90vh] px-6 py-12 w-full">
       <ContainerStagger className="flex flex-col items-center text-center justify-center space-y-5">
         <MotionConfig transition={{ duration: 0.3, ease: 'easeIn' }}>
-          <motion.div variants={animationVariants}>
-            <Link href="/docs/blocks/container-stagger">
-              <Badge className="bg-primary/20 text-foreground">
-                <span className="text-base">👇🏻</span>
-                {'  '} Use this animated component
-              </Badge>
-            </Link>
+          <motion.div className="" variants={animationVariants}>
+            <Pill
+              href="/docs/templates/abla-studio"
+              label="Introducing Abla Studio Template"
+              announcement="🎉 New Template"
+            />
           </motion.div>
 
           <motion.h1
             variants={animationVariants}
-            className="text-4xl font-semibold tracking-tight max-w-[25ch]"
+            className="text-4xl text-foreground/80 font-semibold tracking-tight max-w-[25ch]"
           >
-            Beautiful animated components, easy to change and adapt to your
-            design.
+            <span className="text-foreground font-bold">Copy/Paste React</span>{' '}
+            components easy to change and adapt to your design
           </motion.h1>
 
           <motion.p variants={animationVariants} className="max-w-prose">
@@ -78,7 +77,7 @@ export function Hero() {
               <Link href="/docs">Browse Components</Link>
               <ComponentIcon />
             </Button>
-            <Button variant={'outline'}>
+            <Button variant={'secondary'}>
               <Link href="/docs/templates">Browse Templates</Link>
               <ArrowUpRightIcon />
             </Button>
