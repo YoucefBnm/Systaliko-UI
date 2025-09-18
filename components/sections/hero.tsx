@@ -49,7 +49,7 @@ export function Hero() {
         <MotionConfig transition={{ duration: 0.3, ease: 'easeIn' }}>
           <motion.div className="" variants={animationVariants}>
             <Pill
-              href="/docs/templates/abla-studio"
+              href="/docs/templates/abla"
               label="Introducing Abla Studio Template"
               announcement="🎉 New Template"
             />
