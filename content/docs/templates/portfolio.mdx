@@ -5,10 +5,17 @@ soon: true
 ---
 
 <div className="flex max-w-[800px] flex-col gap-4">
-  <img
-    src="/videos/portfolio-perview.png"
+  <video
+    autoPlay
+    muted
+    loop
+    src="/videos/portfolio-preview.mp4"
+    poster="/videos/portfolio-preview.png"
     className="w-full rounded-xl border"
   />
+  <div className="flex w-full flex-col gap-2 sm:flex-row">
+    <TemplateCustom />
+  </div>
 </div>
 
 ### Features
@@ -17,7 +24,6 @@ soon: true
 - ☑️ Minimal design with a focus on user experience.
 - ☑️ Reveal, scroll and parallax animations.
 - ☑️ Easy to customize and extend and change the content or the design.
-- ☑️ Deployed on Vercel.
 
 ### Depndencies
 

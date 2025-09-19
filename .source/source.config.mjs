@@ -13,6 +13,7 @@ var docs = defineDocs({
       updated: z.boolean().optional(),
       deprecated: z.boolean().optional(),
       soon: z.boolean().optional(),
+      custom: z.boolean().optional(),
       url: z.string().optional(),
       author: z.object({
         name: z.string(),

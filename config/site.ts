@@ -11,6 +11,7 @@ export const siteConfig = {
     website: 'https://ycfdev.netlify.app/',
     repo: 'https://github.com/YoucefBnm/systaliko-ui',
     twentyFirst: 'https://21st.dev/YoucefBnm',
+    email: 'ssefbnm@gmail.com',
   },
   keywords: [
     'React',
