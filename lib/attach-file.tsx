@@ -31,7 +31,7 @@ export const attachFile: BuildPageTreeOptions['attachFile'] = (node, file) => {
 
   if ('new' in data && typeof data.new === 'boolean' && data.new) {
     node.name = (
-      <Badge name={node.name} className="bg-indigo-600 text-white">
+      <Badge name={node.name} className="bg-foreground text-background">
         new
       </Badge>
     );
@@ -43,7 +43,7 @@ export const attachFile: BuildPageTreeOptions['attachFile'] = (node, file) => {
     data.deprecated
   ) {
     node.name = (
-      <Badge name={node.name} className="bg-red-500">
+      <Badge name={node.name} className="bg-red-500 text-white">
         deprecated
       </Badge>
     );
@@ -58,7 +58,7 @@ export const attachFile: BuildPageTreeOptions['attachFile'] = (node, file) => {
   }
   if ('soon' in data && typeof data.soon === 'boolean' && data.soon) {
     node.name = (
-      <Badge name={node.name} className="bg-secondary text-foreground">
+      <Badge name={node.name} className="bg-secondary text-black">
         soon
       </Badge>
     );
