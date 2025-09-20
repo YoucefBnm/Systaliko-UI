@@ -8,7 +8,9 @@ export function OpenIn21stBtn({
   componentName: string;
   url?: string;
 }) {
-  const href = url ?? `https://21st.dev/youcefbnm/${componentName}/default`;
+  const href =
+    url ??
+    `https://21st.dev/youcefbnm/${componentName}/default/?ref=systaliko-ui`;
 
   return (
     <Button size={'sm'} aria-label="Open in 21st dev" asChild>
