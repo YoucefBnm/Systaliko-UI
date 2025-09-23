@@ -8,17 +8,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+
 - 🎨 Complete redesign of the Veo template for improved aesthetics and user experience
 - 🔄 Modified animation range in `scroll-reverse-scale-animation` component
 - 🏷️ Renamed `use-animation-variants` to `animation-variants` for better semantic clarity
 
 ### Fixed
+
 - ⚡️ Improved performance of text animation components
   - Optimized `text-stagger-inview` component
   - Enhanced `text-stagger-hover` component efficiency
 
 ## [0.1.0] - 2025-09-23
+
 ### Added
+
 - Initial release of Systaliko UI
 - Component registry system
 - Documentation site with Fumadocs
