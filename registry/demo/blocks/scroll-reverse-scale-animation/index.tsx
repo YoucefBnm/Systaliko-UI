@@ -22,8 +22,8 @@ export function ScrollReverseScaleAnimationDemo() {
       <ScrollTranslateY className="h-dvh grid grid-cols-12 grid-rows-1">
         <ScrollScale
           className="col-start-2 col-end-12 row-start-1 row-end-2 flex flex-col justify-center items-center space-y-6 text-center"
-          scaleRange={[1, 0]}
-          inputRange={[0.1, 0.6]}
+          scaleRange={[0, 1]}
+          inputRange={[0.4, 0.9]}
         >
           <h1 className="text-5xl font-bold tracking-tighter">
             Your Animated Hero
@@ -42,8 +42,8 @@ export function ScrollReverseScaleAnimationDemo() {
           {IMAGES.map((imageUrl, index) => (
             <ScrollScale
               key={index}
-              inputRange={[0, 1]}
-              scaleRange={[0.5, 1]}
+              inputRange={[0, 0.5]}
+              scaleRange={[1, 0.5]}
               className="overflow-hidden"
             >
               <img

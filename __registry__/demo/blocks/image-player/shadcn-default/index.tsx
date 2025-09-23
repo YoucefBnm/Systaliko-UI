@@ -21,8 +21,9 @@ export function ImagePlayerDemo() {
             src={src}
             width={400}
             height={300}
-            className="size-full h-auto max-h-full max-w-xl object-cover inline-block align-middle"
-            alt="showcalse"
+            sizes="(max-width: 768px) 100vw, 400px"
+            className="size-full object-cover inline-block align-middle"
+            alt="showcase"
           />
         )}
       />
