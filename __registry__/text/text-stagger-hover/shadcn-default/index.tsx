@@ -10,8 +10,8 @@ import { HTMLMotionProps, motion } from 'motion/react';
 import { splitText } from '@/__registry__/utils/split-text/shadcn-default';
 import {
   AnimationT,
-  useAnimationVariants,
-} from '@/__registry__/utils/use-animation-variants/shadcn-default';
+  ANIMATION_VARIANTS,
+} from '@/__registry__/utils/animation-variants/shadcn-default';
 
 interface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {
   as?: React.ElementType;
@@ -68,7 +68,7 @@ export const TextStaggerHoverActive = ({
   ...props
 }: TextStaggerHoverContentProps) => {
   const { characters, characterCount } = splitText(String(children));
-  const animationVariants = useAnimationVariants(animation);
+  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];
   const { isMouseIn } = useTextStaggerHoverContext();
   return (
     <span className={cn('inline-block', className)}>
@@ -86,8 +86,6 @@ export const TextStaggerHoverActive = ({
             animate={isMouseIn ? 'hidden' : 'visible'}
             transition={{
               delay: staggerDelay,
-              ease: [0.25, 0.46, 0.45, 0.94],
-              duration: 0.3,
               ...transition,
             }}
             {...props}
@@ -110,7 +108,7 @@ export const TextStaggerHoverHidden = ({
   ...props
 }: TextStaggerHoverContentProps) => {
   const { characters, characterCount } = splitText(String(children));
-  const animationVariants = useAnimationVariants(animation);
+  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];
   const { isMouseIn } = useTextStaggerHoverContext();
   return (
     <span className={cn('inline-block absolute left-0 top-0', className)}>
@@ -128,8 +126,6 @@ export const TextStaggerHoverHidden = ({
             animate={isMouseIn ? 'visible' : 'hidden'}
             transition={{
               delay: staggerDelay,
-              ease: [0.25, 0.46, 0.45, 0.94],
-              duration: 0.3,
               ...transition,
             }}
             {...props}

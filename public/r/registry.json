@@ -1017,7 +1017,7 @@
       ],
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/container-stagger",
-        "https://systaliko-ui.vercel.app/r/use-animation-variants"
+        "https://systaliko-ui.vercel.app/r/animation-variants"
       ],
       "files": [
         {
@@ -1037,7 +1037,7 @@
       ],
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/container-stagger",
-        "https://systaliko-ui.vercel.app/r/use-animation-variants"
+        "https://systaliko-ui.vercel.app/r/animation-variants"
       ],
       "files": [
         {
@@ -1057,7 +1057,7 @@
       ],
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/container-stagger",
-        "https://systaliko-ui.vercel.app/r/use-animation-variants"
+        "https://systaliko-ui.vercel.app/r/animation-variants"
       ],
       "files": [
         {
@@ -1271,7 +1271,7 @@
         "https://systaliko-ui.vercel.app/r/parallax",
         "https://systaliko-ui.vercel.app/r/container-stagger",
         "https://systaliko-ui.vercel.app/r/text-stagger-inview",
-        "https://systaliko-ui.vercel.app/r/use-animation-variants",
+        "https://systaliko-ui.vercel.app/r/animation-variants",
         "https://systaliko-ui.vercel.app/r/button"
       ],
       "files": [
@@ -1294,7 +1294,7 @@
         "https://systaliko-ui.vercel.app/r/parallax",
         "https://systaliko-ui.vercel.app/r/container-stagger",
         "https://systaliko-ui.vercel.app/r/text-stagger-inview",
-        "https://systaliko-ui.vercel.app/r/use-animation-variants",
+        "https://systaliko-ui.vercel.app/r/animation-variants",
         "https://systaliko-ui.vercel.app/r/button"
       ],
       "files": [
@@ -1317,7 +1317,7 @@
         "https://systaliko-ui.vercel.app/r/parallax",
         "https://systaliko-ui.vercel.app/r/container-stagger",
         "https://systaliko-ui.vercel.app/r/text-stagger-inview",
-        "https://systaliko-ui.vercel.app/r/use-animation-variants",
+        "https://systaliko-ui.vercel.app/r/animation-variants",
         "https://systaliko-ui.vercel.app/r/button"
       ],
       "files": [
@@ -2940,6 +2940,63 @@
       ]
     },
     {
+      "name": "default-animation-variants-demo",
+      "type": "registry:hook",
+      "title": "Use Animation Variants Demo",
+      "description": "Demo showing how to use animation-variants hook with default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/animation-variants"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/utils/animation-variants/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/animation-variants-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-animation-variants-demo",
+      "type": "registry:hook",
+      "title": "Use Animation Variants Demo",
+      "description": "Demo showing how to use animation-variants hook with shadcn-default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/animation-variants"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/utils/animation-variants/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/animation-variants-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-animation-variants-demo",
+      "type": "registry:hook",
+      "title": "Use Animation Variants Demo",
+      "description": "Demo showing how to use animation-variants hook with shadcn-new-york style.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/animation-variants"
+      ],
+      "files": [
+        {
+          "path": "__registry__/demo/utils/animation-variants/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/animation-variants-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "default-set-stagger-direction-demo",
       "type": "registry:hook",
       "title": "Set Stagger Direction Demo",
@@ -2987,63 +3044,6 @@
           "path": "__registry__/demo/utils/set-stagger-direction/shadcn-new-york/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/utils/set-stagger-direction.ts"
-        }
-      ]
-    },
-    {
-      "name": "default-use-animation-variants-demo",
-      "type": "registry:hook",
-      "title": "Use Animation Variants Demo",
-      "description": "Demo showing how to use use-animation-variants hook with default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/use-animation-variants"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/utils/use-animation-variants/default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/use-animation-variants-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-default-use-animation-variants-demo",
-      "type": "registry:hook",
-      "title": "Use Animation Variants Demo",
-      "description": "Demo showing how to use use-animation-variants hook with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/use-animation-variants"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/utils/use-animation-variants/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/use-animation-variants-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-use-animation-variants-demo",
-      "type": "registry:hook",
-      "title": "Use Animation Variants Demo",
-      "description": "Demo showing how to use use-animation-variants hook with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/use-animation-variants"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/utils/use-animation-variants/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/use-animation-variants-demo.tsx"
         }
       ]
     },
@@ -3382,7 +3382,7 @@
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/default-set-stagger-direction",
         "https://systaliko-ui.vercel.app/r/default-split-text",
-        "https://systaliko-ui.vercel.app/r/default-use-animation-variants"
+        "https://systaliko-ui.vercel.app/r/default-animation-variants"
       ],
       "files": [
         {
@@ -3403,7 +3403,7 @@
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/default-set-stagger-direction",
         "https://systaliko-ui.vercel.app/r/default-split-text",
-        "https://systaliko-ui.vercel.app/r/default-use-animation-variants"
+        "https://systaliko-ui.vercel.app/r/default-animation-variants"
       ],
       "files": [
         {
@@ -3424,7 +3424,7 @@
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/default-set-stagger-direction",
         "https://systaliko-ui.vercel.app/r/default-split-text",
-        "https://systaliko-ui.vercel.app/r/default-use-animation-variants"
+        "https://systaliko-ui.vercel.app/r/default-animation-variants"
       ],
       "files": [
         {
@@ -3444,7 +3444,7 @@
       ],
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/default-word-stagger",
-        "https://systaliko-ui.vercel.app/r/default-use-animation-variants",
+        "https://systaliko-ui.vercel.app/r/default-animation-variants",
         "https://systaliko-ui.vercel.app/r/default-transitions"
       ],
       "files": [
@@ -3465,7 +3465,7 @@
       ],
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/default-word-stagger",
-        "https://systaliko-ui.vercel.app/r/default-use-animation-variants",
+        "https://systaliko-ui.vercel.app/r/default-animation-variants",
         "https://systaliko-ui.vercel.app/r/default-transitions"
       ],
       "files": [
@@ -3486,7 +3486,7 @@
       ],
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/default-word-stagger",
-        "https://systaliko-ui.vercel.app/r/default-use-animation-variants",
+        "https://systaliko-ui.vercel.app/r/default-animation-variants",
         "https://systaliko-ui.vercel.app/r/default-transitions"
       ],
       "files": [
@@ -3545,7 +3545,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-use-animation-variants"
+        "https://systaliko-ui.vercel.app/r/default-animation-variants"
       ],
       "files": [
         {
@@ -3564,7 +3564,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-use-animation-variants"
+        "https://systaliko-ui.vercel.app/r/default-animation-variants"
       ],
       "files": [
         {
@@ -3583,7 +3583,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-use-animation-variants"
+        "https://systaliko-ui.vercel.app/r/default-animation-variants"
       ],
       "files": [
         {
@@ -3594,41 +3594,41 @@
       ]
     },
     {
-      "name": "default-calculator",
-      "type": "registry:lib",
-      "title": "calculator",
-      "description": "calculator utils, for calculator component with default style.",
+      "name": "default-animation-variants",
+      "type": "registry:item",
+      "title": "Animation Variants",
+      "description": "animation variants, for your motion components, allows to animate component with transforms, opacity, and blur with default style.",
       "files": [
         {
-          "path": "__registry__/utils/calculator/default/index.ts",
-          "type": "registry:lib",
-          "target": "components/systaliko-ui/utils/calculator.ts"
+          "path": "__registry__/utils/animation-variants/default/index.tsx",
+          "type": "registry:item",
+          "target": "components/systaliko-ui/utils/animation-variants.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-calculator",
-      "type": "registry:lib",
-      "title": "calculator",
-      "description": "calculator utils, for calculator component with shadcn-default style.",
+      "name": "shadcn-default-animation-variants",
+      "type": "registry:item",
+      "title": "Animation Variants",
+      "description": "animation variants, for your motion components, allows to animate component with transforms, opacity, and blur with shadcn-default style.",
       "files": [
         {
-          "path": "__registry__/utils/calculator/shadcn-default/index.ts",
-          "type": "registry:lib",
-          "target": "components/systaliko-ui/utils/calculator.ts"
+          "path": "__registry__/utils/animation-variants/shadcn-default/index.tsx",
+          "type": "registry:item",
+          "target": "components/systaliko-ui/utils/animation-variants.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-new-york-calculator",
-      "type": "registry:lib",
-      "title": "calculator",
-      "description": "calculator utils, for calculator component with shadcn-new-york style.",
+      "name": "shadcn-new-york-animation-variants",
+      "type": "registry:item",
+      "title": "Animation Variants",
+      "description": "animation variants, for your motion components, allows to animate component with transforms, opacity, and blur with shadcn-new-york style.",
       "files": [
         {
-          "path": "__registry__/utils/calculator/shadcn-new-york/index.ts",
-          "type": "registry:lib",
-          "target": "components/systaliko-ui/utils/calculator.ts"
+          "path": "__registry__/utils/animation-variants/shadcn-new-york/index.tsx",
+          "type": "registry:item",
+          "target": "components/systaliko-ui/utils/animation-variants.tsx"
         }
       ]
     },
@@ -3712,79 +3712,40 @@
     },
     {
       "name": "default-transitions",
-      "type": "registry:lib",
+      "type": "registry:item",
       "title": "Transitions",
       "description": "Multiple transitions for your motion components, to animate depending on the animated property with default style.",
       "files": [
         {
           "path": "__registry__/utils/transitions/default/index.tsx",
-          "type": "registry:lib",
+          "type": "registry:item",
           "target": "components/systaliko-ui/utils/transitions.tsx"
         }
       ]
     },
     {
       "name": "shadcn-default-transitions",
-      "type": "registry:lib",
+      "type": "registry:item",
       "title": "Transitions",
       "description": "Multiple transitions for your motion components, to animate depending on the animated property with shadcn-default style.",
       "files": [
         {
           "path": "__registry__/utils/transitions/shadcn-default/index.tsx",
-          "type": "registry:lib",
+          "type": "registry:item",
           "target": "components/systaliko-ui/utils/transitions.tsx"
         }
       ]
     },
     {
       "name": "shadcn-new-york-transitions",
-      "type": "registry:lib",
+      "type": "registry:item",
       "title": "Transitions",
       "description": "Multiple transitions for your motion components, to animate depending on the animated property with shadcn-new-york style.",
       "files": [
         {
           "path": "__registry__/utils/transitions/shadcn-new-york/index.tsx",
-          "type": "registry:lib",
+          "type": "registry:item",
           "target": "components/systaliko-ui/utils/transitions.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-use-animation-variants",
-      "type": "registry:hook",
-      "title": "Use Animation Variants",
-      "description": "Use animation variants hook, for your motion components, allows to animate component with transforms, opacity, and blur with default style.",
-      "files": [
-        {
-          "path": "__registry__/utils/use-animation-variants/default/index.tsx",
-          "type": "registry:hook",
-          "target": "components/systaliko-ui/utils/use-animation-variants.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-default-use-animation-variants",
-      "type": "registry:hook",
-      "title": "Use Animation Variants",
-      "description": "Use animation variants hook, for your motion components, allows to animate component with transforms, opacity, and blur with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/utils/use-animation-variants/shadcn-default/index.tsx",
-          "type": "registry:hook",
-          "target": "components/systaliko-ui/utils/use-animation-variants.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-use-animation-variants",
-      "type": "registry:hook",
-      "title": "Use Animation Variants",
-      "description": "Use animation variants hook, for your motion components, allows to animate component with transforms, opacity, and blur with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/utils/use-animation-variants/shadcn-new-york/index.tsx",
-          "type": "registry:hook",
-          "target": "components/systaliko-ui/utils/use-animation-variants.tsx"
         }
       ]
     },

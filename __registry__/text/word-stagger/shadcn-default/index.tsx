@@ -1,8 +1,8 @@
 import { cn } from '@/lib/utils';
 import {
   AnimationT,
-  useAnimationVariants,
-} from '@/__registry__/utils/use-animation-variants/shadcn-default';
+  ANIMATION_VARIANTS,
+} from '@/__registry__/utils/animation-variants/shadcn-default';
 import { motion } from 'motion/react';
 
 interface WordProps extends React.HTMLAttributes<HTMLSpanElement> {
@@ -16,7 +16,7 @@ export function WordStagger({
   ...props
 }: WordProps) {
   const characters = String(children).split('');
-  const animationVariants = useAnimationVariants(animation);
+  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];
   return (
     <span className={cn('inline-block text-nowrap', className)} {...props}>
       {characters.map((char, index) => (

@@ -1,7 +1,7 @@
 'use client';
 import { ContainerStagger } from '@/registry/blocks/container-stagger';
 import { Button } from '@/registry/shadcn/button';
-import { useAnimationVariants } from '@/registry/utils/use-animation-variants';
+import { ANIMATION_VARIANTS } from '@/registry/utils/animation-variants';
 import { ArrowUpRightIcon, ComponentIcon } from 'lucide-react';
 import { motion, MotionConfig } from 'motion/react';
 import Link from 'next/link';
@@ -41,7 +41,7 @@ const TECH_STACK = [
 ];
 
 export function Hero() {
-  const animationVariants = useAnimationVariants('blur');
+  const animationVariants = ANIMATION_VARIANTS['blur'];
 
   return (
     <section className="relative max-w-7xl place-content-center min-h-[90vh] px-6 py-12 w-full">

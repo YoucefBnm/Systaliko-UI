@@ -7,17 +7,23 @@ import {
 } from '@/__registry__/blocks/parallax/shadcn-new-york';
 import { Button } from '@/__registry__/shadcn/button/shadcn-new-york';
 import { TextStaggerInview } from '@/__registry__/text/text-stagger-inview/shadcn-new-york';
-import { useAnimationVariants } from '@/__registry__/utils/use-animation-variants/shadcn-new-york';
+import { ANIMATION_VARIANTS } from '@/__registry__/utils/animation-variants/shadcn-new-york';
 import { motion } from 'motion/react';
 
 export function ParallaxDemo() {
-  const animationVariants = useAnimationVariants('z');
+  const animationVariants = ANIMATION_VARIANTS['z'];
   return (
     <Parallax className="h-[3600px] md:h-[2000px] p-12">
       <ContainerStagger className="sticky top-0 h-screen space-y-4 w-full flex flex-col justify-center items-center text-center">
         <TextStaggerInview
           as="h2"
           className="text-5xl font-bold tracking-tighter md:w-2/3 mx-auto"
+          transition={{
+            type: 'spring',
+            stiffness: 1000,
+            damping: 28,
+            mass: 0.9,
+          }}
           animation="z"
         >
           Creating brands that brings people to the shop

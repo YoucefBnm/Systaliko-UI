@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animation-variants",
+  "type": "registry:item",
+  "title": "Animation Variants",
+  "description": "animation variants, for your motion components, allows to animate component with transforms, opacity, and blur.",
+  "files": [
+    {
+      "path": "registry/utils/animation-variants/index.tsx",
+      "type": "registry:item",
+      "target": "components/systaliko-ui/utils/animation-variants.tsx"
+    }
+  ]
+}

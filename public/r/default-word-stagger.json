@@ -8,12 +8,12 @@
     "motion"
   ],
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/default-use-animation-variants"
+    "https://systaliko-ui.vercel.app/r/default-animation-variants"
   ],
   "files": [
     {
       "path": "__registry__/text/word-stagger/default/index.tsx",
-      "content": "import { cn } from '@/lib/utils';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}\n",
+      "content": "import { cn } from '@/lib/utils';\nimport {\n  AnimationT,\n  ANIMATION_VARIANTS,\n} from '@/components/systaliko-ui/utils/animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}\n",
       "type": "registry:ui",
       "target": "components/systaliko-ui/text/word-stagger.tsx"
     }

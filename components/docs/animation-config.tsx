@@ -6,17 +6,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/registry/shadcn/select';
-import { AnimationT } from '@/registry/utils/use-animation-variants';
+import { AnimationT } from '@/registry/utils/animation-variants';
 import { createContext, useContext, useState } from 'react';
 import { StaggerDirection } from '@/registry/utils/set-stagger-direction';
 
 const animations: { value: AnimationT; label: string }[] = [
+  { value: 'default', label: 'Opacity' },
+  { value: 'blur', label: 'Blur' },
   { value: 'left', label: 'Slide from Left' },
   { value: 'right', label: 'Slide from Right' },
   { value: 'top', label: 'Slide from Top' },
   { value: 'bottom', label: 'Slide from Bottom' },
   { value: 'z', label: 'Scale' },
-  { value: 'blur', label: 'Blur' },
 ];
 
 const staggerDirections: { value: StaggerDirection; label: string }[] = [

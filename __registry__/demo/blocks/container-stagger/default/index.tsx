@@ -3,13 +3,13 @@ import { ContainerStagger } from '@/__registry__/blocks/container-stagger/defaul
 import { Badge } from '@/__registry__/shadcn/badge/default';
 import { Button } from '@/__registry__/shadcn/button/default';
 import { TRANSITIONS } from '@/__registry__/utils/transitions/default';
-import { useAnimationVariants } from '@/__registry__/utils/use-animation-variants/default';
+import { ANIMATION_VARIANTS } from '@/__registry__/utils/animation-variants/default';
 import { ArrowUpRightIcon, ComponentIcon } from 'lucide-react';
 import { motion, MotionConfig } from 'motion/react';
 import Link from 'next/link';
 
 export function ContainerStaggerDemo() {
-  const animationVariants = useAnimationVariants('blur');
+  const animationVariants = ANIMATION_VARIANTS.blur;
   return (
     <section className="relative max-w-7xl place-content-center  px-6 py-12 w-full">
       <ContainerStagger className="flex flex-col items-center text-center justify-center space-y-5">

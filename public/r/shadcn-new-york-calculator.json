@@ -1,15 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "shadcn-new-york-calculator",
-  "type": "registry:lib",
-  "title": "calculator",
-  "description": "calculator utils, for calculator component with shadcn-new-york style.",
+  "type": "registry:block",
+  "title": "Calculator",
+  "description": "Calculator, for your custom pricing, or to extend your existing pricing with shadcn-new-york style.",
   "files": [
     {
-      "path": "__registry__/utils/calculator/shadcn-new-york/index.ts",
-      "content": "",
-      "type": "registry:lib",
-      "target": "components/systaliko-ui/utils/calculator.ts"
+      "path": "__registry__/blocks/calculator/shadcn-new-york/index.tsx",
+      "content": "export function Calculator() {\n  return <div>Calculator</div>;\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/blocks/calculator.tsx"
     }
   ]
 }

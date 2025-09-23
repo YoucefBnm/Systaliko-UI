@@ -25,24 +25,25 @@ export const index: Record<string, any> = {
   'default-calculator': {
     name: 'default-calculator',
     description:
-      'calculator utils, for calculator component with default style.',
-    type: 'registry:lib',
+      'Calculator, for your custom pricing, or to extend your existing pricing with default style.',
+    type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
     files: [
       {
-        path: '__registry__/utils/calculator/default/index.ts',
-        type: 'registry:lib',
-        target: 'components/systaliko-ui/utils/calculator.ts',
-        content: '',
+        path: '__registry__/blocks/calculator/default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/blocks/calculator.tsx',
+        content:
+          'export function Calculator() {\n  return <div>Calculator</div>;\n}',
       },
     ],
     component: (function () {
       const LazyComp = React.lazy(async () => {
         const mod = await import(
-          '@/__registry__/utils/calculator/default/index.ts'
+          '@/__registry__/blocks/calculator/default/index.tsx'
         );
         const exportName =
           Object.keys(mod).find(
@@ -60,24 +61,25 @@ export const index: Record<string, any> = {
   'shadcn-default-calculator': {
     name: 'shadcn-default-calculator',
     description:
-      'calculator utils, for calculator component with shadcn-default style.',
-    type: 'registry:lib',
+      'Calculator, for your custom pricing, or to extend your existing pricing with shadcn-default style.',
+    type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
     files: [
       {
-        path: '__registry__/utils/calculator/shadcn-default/index.ts',
-        type: 'registry:lib',
-        target: 'components/systaliko-ui/utils/calculator.ts',
-        content: '',
+        path: '__registry__/blocks/calculator/shadcn-default/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/blocks/calculator.tsx',
+        content:
+          'export function Calculator() {\n  return <div>Calculator</div>;\n}',
       },
     ],
     component: (function () {
       const LazyComp = React.lazy(async () => {
         const mod = await import(
-          '@/__registry__/utils/calculator/shadcn-default/index.ts'
+          '@/__registry__/blocks/calculator/shadcn-default/index.tsx'
         );
         const exportName =
           Object.keys(mod).find(
@@ -95,24 +97,25 @@ export const index: Record<string, any> = {
   'shadcn-new-york-calculator': {
     name: 'shadcn-new-york-calculator',
     description:
-      'calculator utils, for calculator component with shadcn-new-york style.',
-    type: 'registry:lib',
+      'Calculator, for your custom pricing, or to extend your existing pricing with shadcn-new-york style.',
+    type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
     styles: undefined,
     files: [
       {
-        path: '__registry__/utils/calculator/shadcn-new-york/index.ts',
-        type: 'registry:lib',
-        target: 'components/systaliko-ui/utils/calculator.ts',
-        content: '',
+        path: '__registry__/blocks/calculator/shadcn-new-york/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/blocks/calculator.tsx',
+        content:
+          'export function Calculator() {\n  return <div>Calculator</div>;\n}',
       },
     ],
     component: (function () {
       const LazyComp = React.lazy(async () => {
         const mod = await import(
-          '@/__registry__/utils/calculator/shadcn-new-york/index.ts'
+          '@/__registry__/blocks/calculator/shadcn-new-york/index.tsx'
         );
         const exportName =
           Object.keys(mod).find(
@@ -2231,7 +2234,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/blocks/container-stagger.tsx',
         content:
-          "'use client';\nimport { ContainerStagger } from '@/components/systaliko-ui/blocks/container-stagger';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { ArrowUpRightIcon, ComponentIcon } from 'lucide-react';\nimport { motion, MotionConfig } from 'motion/react';\nimport Link from 'next/link';\n\nexport function ContainerStaggerDemo() {\n  const animationVariants = useAnimationVariants('blur');\n  return (\n    <section className=\"relative max-w-7xl place-content-center  px-6 py-12 w-full\">\n      <ContainerStagger className=\"flex flex-col items-center text-center justify-center space-y-5\">\n        <MotionConfig transition={TRANSITIONS.filter}>\n          <motion.div variants={animationVariants}>\n            <Link href=\"https://systaliko-ui.vercel.app/docs/containers/container-stagger\">\n              <Badge variant=\"secondary\">100% free and open source</Badge>\n            </Link>\n          </motion.div>\n\n          <motion.h1\n            variants={animationVariants}\n            className=\"text-4xl font-semibold tracking-tight max-w-[25ch]\"\n          >\n            Beautiful animated components, easy to change and adapt to your\n            design.\n          </motion.h1>\n\n          <motion.p variants={animationVariants} className=\"max-w-prose\">\n            A modern component library built on top of Shadcn registry. Designed\n            for flexibility, built for customization, and crafted to scale\n            across variants and use cases.\n          </motion.p>\n\n          <motion.div\n            variants={animationVariants}\n            className=\"flex items-center gap-2 justify-center\"\n          >\n            <Button>\n              <Link href=\"/docs\">Browse Components</Link>\n              <ComponentIcon />\n            </Button>\n            <Button variant={'outline'}>\n              <Link href=\"/docs/heros/hero-gradient\">Browse Templates</Link>\n              <ArrowUpRightIcon />\n            </Button>\n          </motion.div>\n        </MotionConfig>\n      </ContainerStagger>\n    </section>\n  );\n}",
+          "'use client';\nimport { ContainerStagger } from '@/components/systaliko-ui/blocks/container-stagger';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\nimport { ANIMATION_VARIANTS } from '@/components/systaliko-ui/utils/animation-variants';\nimport { ArrowUpRightIcon, ComponentIcon } from 'lucide-react';\nimport { motion, MotionConfig } from 'motion/react';\nimport Link from 'next/link';\n\nexport function ContainerStaggerDemo() {\n  const animationVariants = ANIMATION_VARIANTS.blur;\n  return (\n    <section className=\"relative max-w-7xl place-content-center  px-6 py-12 w-full\">\n      <ContainerStagger className=\"flex flex-col items-center text-center justify-center space-y-5\">\n        <MotionConfig transition={TRANSITIONS.filter}>\n          <motion.div variants={animationVariants}>\n            <Link href=\"https://systaliko-ui.vercel.app/docs/containers/container-stagger\">\n              <Badge variant=\"secondary\">100% free and open source</Badge>\n            </Link>\n          </motion.div>\n\n          <motion.h1\n            variants={animationVariants}\n            className=\"text-4xl font-semibold tracking-tight max-w-[25ch]\"\n          >\n            Beautiful animated components, easy to change and adapt to your\n            design.\n          </motion.h1>\n\n          <motion.p variants={animationVariants} className=\"max-w-prose\">\n            A modern component library built on top of Shadcn registry. Designed\n            for flexibility, built for customization, and crafted to scale\n            across variants and use cases.\n          </motion.p>\n\n          <motion.div\n            variants={animationVariants}\n            className=\"flex items-center gap-2 justify-center\"\n          >\n            <Button>\n              <Link href=\"/docs\">Browse Components</Link>\n              <ComponentIcon />\n            </Button>\n            <Button variant={'outline'}>\n              <Link href=\"/docs/heros/hero-gradient\">Browse Templates</Link>\n              <ArrowUpRightIcon />\n            </Button>\n          </motion.div>\n        </MotionConfig>\n      </ContainerStagger>\n    </section>\n  );\n}",
       },
     ],
     component: (function () {
@@ -2270,7 +2273,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/blocks/container-stagger.tsx',
         content:
-          "'use client';\nimport { ContainerStagger } from '@/components/systaliko-ui/blocks/container-stagger';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { ArrowUpRightIcon, ComponentIcon } from 'lucide-react';\nimport { motion, MotionConfig } from 'motion/react';\nimport Link from 'next/link';\n\nexport function ContainerStaggerDemo() {\n  const animationVariants = useAnimationVariants('blur');\n  return (\n    <section className=\"relative max-w-7xl place-content-center  px-6 py-12 w-full\">\n      <ContainerStagger className=\"flex flex-col items-center text-center justify-center space-y-5\">\n        <MotionConfig transition={TRANSITIONS.filter}>\n          <motion.div variants={animationVariants}>\n            <Link href=\"https://systaliko-ui.vercel.app/docs/containers/container-stagger\">\n              <Badge variant=\"secondary\">100% free and open source</Badge>\n            </Link>\n          </motion.div>\n\n          <motion.h1\n            variants={animationVariants}\n            className=\"text-4xl font-semibold tracking-tight max-w-[25ch]\"\n          >\n            Beautiful animated components, easy to change and adapt to your\n            design.\n          </motion.h1>\n\n          <motion.p variants={animationVariants} className=\"max-w-prose\">\n            A modern component library built on top of Shadcn registry. Designed\n            for flexibility, built for customization, and crafted to scale\n            across variants and use cases.\n          </motion.p>\n\n          <motion.div\n            variants={animationVariants}\n            className=\"flex items-center gap-2 justify-center\"\n          >\n            <Button>\n              <Link href=\"/docs\">Browse Components</Link>\n              <ComponentIcon />\n            </Button>\n            <Button variant={'outline'}>\n              <Link href=\"/docs/heros/hero-gradient\">Browse Templates</Link>\n              <ArrowUpRightIcon />\n            </Button>\n          </motion.div>\n        </MotionConfig>\n      </ContainerStagger>\n    </section>\n  );\n}",
+          "'use client';\nimport { ContainerStagger } from '@/components/systaliko-ui/blocks/container-stagger';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\nimport { ANIMATION_VARIANTS } from '@/components/systaliko-ui/utils/animation-variants';\nimport { ArrowUpRightIcon, ComponentIcon } from 'lucide-react';\nimport { motion, MotionConfig } from 'motion/react';\nimport Link from 'next/link';\n\nexport function ContainerStaggerDemo() {\n  const animationVariants = ANIMATION_VARIANTS.blur;\n  return (\n    <section className=\"relative max-w-7xl place-content-center  px-6 py-12 w-full\">\n      <ContainerStagger className=\"flex flex-col items-center text-center justify-center space-y-5\">\n        <MotionConfig transition={TRANSITIONS.filter}>\n          <motion.div variants={animationVariants}>\n            <Link href=\"https://systaliko-ui.vercel.app/docs/containers/container-stagger\">\n              <Badge variant=\"secondary\">100% free and open source</Badge>\n            </Link>\n          </motion.div>\n\n          <motion.h1\n            variants={animationVariants}\n            className=\"text-4xl font-semibold tracking-tight max-w-[25ch]\"\n          >\n            Beautiful animated components, easy to change and adapt to your\n            design.\n          </motion.h1>\n\n          <motion.p variants={animationVariants} className=\"max-w-prose\">\n            A modern component library built on top of Shadcn registry. Designed\n            for flexibility, built for customization, and crafted to scale\n            across variants and use cases.\n          </motion.p>\n\n          <motion.div\n            variants={animationVariants}\n            className=\"flex items-center gap-2 justify-center\"\n          >\n            <Button>\n              <Link href=\"/docs\">Browse Components</Link>\n              <ComponentIcon />\n            </Button>\n            <Button variant={'outline'}>\n              <Link href=\"/docs/heros/hero-gradient\">Browse Templates</Link>\n              <ArrowUpRightIcon />\n            </Button>\n          </motion.div>\n        </MotionConfig>\n      </ContainerStagger>\n    </section>\n  );\n}",
       },
     ],
     component: (function () {
@@ -2310,7 +2313,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/blocks/container-stagger.tsx',
         content:
-          "'use client';\nimport { ContainerStagger } from '@/components/systaliko-ui/blocks/container-stagger';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { ArrowUpRightIcon, ComponentIcon } from 'lucide-react';\nimport { motion, MotionConfig } from 'motion/react';\nimport Link from 'next/link';\n\nexport function ContainerStaggerDemo() {\n  const animationVariants = useAnimationVariants('blur');\n  return (\n    <section className=\"relative max-w-7xl place-content-center  px-6 py-12 w-full\">\n      <ContainerStagger className=\"flex flex-col items-center text-center justify-center space-y-5\">\n        <MotionConfig transition={TRANSITIONS.filter}>\n          <motion.div variants={animationVariants}>\n            <Link href=\"https://systaliko-ui.vercel.app/docs/containers/container-stagger\">\n              <Badge variant=\"secondary\">100% free and open source</Badge>\n            </Link>\n          </motion.div>\n\n          <motion.h1\n            variants={animationVariants}\n            className=\"text-4xl font-semibold tracking-tight max-w-[25ch]\"\n          >\n            Beautiful animated components, easy to change and adapt to your\n            design.\n          </motion.h1>\n\n          <motion.p variants={animationVariants} className=\"max-w-prose\">\n            A modern component library built on top of Shadcn registry. Designed\n            for flexibility, built for customization, and crafted to scale\n            across variants and use cases.\n          </motion.p>\n\n          <motion.div\n            variants={animationVariants}\n            className=\"flex items-center gap-2 justify-center\"\n          >\n            <Button>\n              <Link href=\"/docs\">Browse Components</Link>\n              <ComponentIcon />\n            </Button>\n            <Button variant={'outline'}>\n              <Link href=\"/docs/heros/hero-gradient\">Browse Templates</Link>\n              <ArrowUpRightIcon />\n            </Button>\n          </motion.div>\n        </MotionConfig>\n      </ContainerStagger>\n    </section>\n  );\n}",
+          "'use client';\nimport { ContainerStagger } from '@/components/systaliko-ui/blocks/container-stagger';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\nimport { ANIMATION_VARIANTS } from '@/components/systaliko-ui/utils/animation-variants';\nimport { ArrowUpRightIcon, ComponentIcon } from 'lucide-react';\nimport { motion, MotionConfig } from 'motion/react';\nimport Link from 'next/link';\n\nexport function ContainerStaggerDemo() {\n  const animationVariants = ANIMATION_VARIANTS.blur;\n  return (\n    <section className=\"relative max-w-7xl place-content-center  px-6 py-12 w-full\">\n      <ContainerStagger className=\"flex flex-col items-center text-center justify-center space-y-5\">\n        <MotionConfig transition={TRANSITIONS.filter}>\n          <motion.div variants={animationVariants}>\n            <Link href=\"https://systaliko-ui.vercel.app/docs/containers/container-stagger\">\n              <Badge variant=\"secondary\">100% free and open source</Badge>\n            </Link>\n          </motion.div>\n\n          <motion.h1\n            variants={animationVariants}\n            className=\"text-4xl font-semibold tracking-tight max-w-[25ch]\"\n          >\n            Beautiful animated components, easy to change and adapt to your\n            design.\n          </motion.h1>\n\n          <motion.p variants={animationVariants} className=\"max-w-prose\">\n            A modern component library built on top of Shadcn registry. Designed\n            for flexibility, built for customization, and crafted to scale\n            across variants and use cases.\n          </motion.p>\n\n          <motion.div\n            variants={animationVariants}\n            className=\"flex items-center gap-2 justify-center\"\n          >\n            <Button>\n              <Link href=\"/docs\">Browse Components</Link>\n              <ComponentIcon />\n            </Button>\n            <Button variant={'outline'}>\n              <Link href=\"/docs/heros/hero-gradient\">Browse Templates</Link>\n              <ArrowUpRightIcon />\n            </Button>\n          </motion.div>\n        </MotionConfig>\n      </ContainerStagger>\n    </section>\n  );\n}",
       },
     ],
     component: (function () {
@@ -2341,7 +2344,7 @@ export const index: Record<string, any> = {
     devDependencies: undefined,
     registryDependencies: [
       'https://systaliko-ui.vercel.app/r/container-stagger',
-      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/animation-variants',
     ],
     styles: undefined,
     files: [
@@ -2350,7 +2353,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/blocks/container-stagger.tsx',
         content:
-          '\'use client\';\nimport { ContainerStagger } from \'@/components/systaliko-ui/blocks/container-stagger\';\nimport { useAnimationVariants } from \'@/components/systaliko-ui/utils/use-animation-variants\';\nimport { motion, MotionConfig } from \'motion/react\';\n\nexport function ContainerStagger2Demo() {\n  const animationVariants = useAnimationVariants();\n  return (\n    <div className="p-8">\n      <div className="h-dvh place-content-center place-items-center">\n        <h1 className="text-4xl">Scroll to see the animation 👇🏻</h1>\n      </div>\n      <ContainerStagger\n        staggerChildren={0.4}\n        className="flex overflow-hidden gap-4 justify-center"\n      >\n        <MotionConfig transition={{ duration: 0.3, ease: \'easeIn\' }}>\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-pink-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-emerald-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-indigo-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-yellow-500 rounded"\n          />\n        </MotionConfig>\n      </ContainerStagger>\n    </div>\n  );\n}',
+          '\'use client\';\nimport { ContainerStagger } from \'@/components/systaliko-ui/blocks/container-stagger\';\nimport { ANIMATION_VARIANTS } from \'@/components/systaliko-ui/utils/animation-variants\';\nimport { motion, MotionConfig } from \'motion/react\';\n\nexport function ContainerStagger2Demo() {\n  const animationVariants = ANIMATION_VARIANTS.default;\n  return (\n    <div className="p-8">\n      <div className="h-dvh place-content-center place-items-center">\n        <h1 className="text-4xl">Scroll to see the animation 👇🏻</h1>\n      </div>\n      <ContainerStagger\n        staggerChildren={0.4}\n        className="flex overflow-hidden gap-4 justify-center"\n      >\n        <MotionConfig transition={{ duration: 0.3, ease: \'easeIn\' }}>\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-pink-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-emerald-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-indigo-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-yellow-500 rounded"\n          />\n        </MotionConfig>\n      </ContainerStagger>\n    </div>\n  );\n}',
       },
     ],
     component: (function () {
@@ -2381,7 +2384,7 @@ export const index: Record<string, any> = {
     devDependencies: undefined,
     registryDependencies: [
       'https://systaliko-ui.vercel.app/r/container-stagger',
-      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/animation-variants',
     ],
     styles: undefined,
     files: [
@@ -2390,7 +2393,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/blocks/container-stagger.tsx',
         content:
-          '\'use client\';\nimport { ContainerStagger } from \'@/components/systaliko-ui/blocks/container-stagger\';\nimport { useAnimationVariants } from \'@/components/systaliko-ui/utils/use-animation-variants\';\nimport { motion, MotionConfig } from \'motion/react\';\n\nexport function ContainerStagger2Demo() {\n  const animationVariants = useAnimationVariants();\n  return (\n    <div className="p-8">\n      <div className="h-dvh place-content-center place-items-center">\n        <h1 className="text-4xl">Scroll to see the animation 👇🏻</h1>\n      </div>\n      <ContainerStagger\n        staggerChildren={0.4}\n        className="flex overflow-hidden gap-4 justify-center"\n      >\n        <MotionConfig transition={{ duration: 0.3, ease: \'easeIn\' }}>\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-pink-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-emerald-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-indigo-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-yellow-500 rounded"\n          />\n        </MotionConfig>\n      </ContainerStagger>\n    </div>\n  );\n}',
+          '\'use client\';\nimport { ContainerStagger } from \'@/components/systaliko-ui/blocks/container-stagger\';\nimport { ANIMATION_VARIANTS } from \'@/components/systaliko-ui/utils/animation-variants\';\nimport { motion, MotionConfig } from \'motion/react\';\n\nexport function ContainerStagger2Demo() {\n  const animationVariants = ANIMATION_VARIANTS.default;\n  return (\n    <div className="p-8">\n      <div className="h-dvh place-content-center place-items-center">\n        <h1 className="text-4xl">Scroll to see the animation 👇🏻</h1>\n      </div>\n      <ContainerStagger\n        staggerChildren={0.4}\n        className="flex overflow-hidden gap-4 justify-center"\n      >\n        <MotionConfig transition={{ duration: 0.3, ease: \'easeIn\' }}>\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-pink-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-emerald-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-indigo-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-yellow-500 rounded"\n          />\n        </MotionConfig>\n      </ContainerStagger>\n    </div>\n  );\n}',
       },
     ],
     component: (function () {
@@ -2421,7 +2424,7 @@ export const index: Record<string, any> = {
     devDependencies: undefined,
     registryDependencies: [
       'https://systaliko-ui.vercel.app/r/container-stagger',
-      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/animation-variants',
     ],
     styles: undefined,
     files: [
@@ -2430,7 +2433,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/blocks/container-stagger.tsx',
         content:
-          '\'use client\';\nimport { ContainerStagger } from \'@/components/systaliko-ui/blocks/container-stagger\';\nimport { useAnimationVariants } from \'@/components/systaliko-ui/utils/use-animation-variants\';\nimport { motion, MotionConfig } from \'motion/react\';\n\nexport function ContainerStagger2Demo() {\n  const animationVariants = useAnimationVariants();\n  return (\n    <div className="p-8">\n      <div className="h-dvh place-content-center place-items-center">\n        <h1 className="text-4xl">Scroll to see the animation 👇🏻</h1>\n      </div>\n      <ContainerStagger\n        staggerChildren={0.4}\n        className="flex overflow-hidden gap-4 justify-center"\n      >\n        <MotionConfig transition={{ duration: 0.3, ease: \'easeIn\' }}>\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-pink-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-emerald-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-indigo-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-yellow-500 rounded"\n          />\n        </MotionConfig>\n      </ContainerStagger>\n    </div>\n  );\n}',
+          '\'use client\';\nimport { ContainerStagger } from \'@/components/systaliko-ui/blocks/container-stagger\';\nimport { ANIMATION_VARIANTS } from \'@/components/systaliko-ui/utils/animation-variants\';\nimport { motion, MotionConfig } from \'motion/react\';\n\nexport function ContainerStagger2Demo() {\n  const animationVariants = ANIMATION_VARIANTS.default;\n  return (\n    <div className="p-8">\n      <div className="h-dvh place-content-center place-items-center">\n        <h1 className="text-4xl">Scroll to see the animation 👇🏻</h1>\n      </div>\n      <ContainerStagger\n        staggerChildren={0.4}\n        className="flex overflow-hidden gap-4 justify-center"\n      >\n        <MotionConfig transition={{ duration: 0.3, ease: \'easeIn\' }}>\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-pink-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-emerald-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-indigo-500 rounded"\n          />\n\n          <motion.div\n            variants={animationVariants}\n            className=" size-16 bg-yellow-500 rounded"\n          />\n        </MotionConfig>\n      </ContainerStagger>\n    </div>\n  );\n}',
       },
     ],
     component: (function () {
@@ -2916,7 +2919,7 @@ export const index: Record<string, any> = {
       'https://systaliko-ui.vercel.app/r/parallax',
       'https://systaliko-ui.vercel.app/r/container-stagger',
       'https://systaliko-ui.vercel.app/r/text-stagger-inview',
-      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/animation-variants',
       'https://systaliko-ui.vercel.app/r/button',
     ],
     styles: undefined,
@@ -2926,7 +2929,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/blocks/parallax.tsx',
         content:
-          '\'use client\';\nimport { ContainerStagger } from \'@/components/systaliko-ui/blocks/container-stagger\';\nimport {\n  Parallax,\n  ParallaxItem,\n  PrallaxContainer,\n} from \'@/components/systaliko-ui/blocks/parallax\';\nimport { Button } from \'@/components/systaliko-ui/shadcn/button\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\nimport { useAnimationVariants } from \'@/components/systaliko-ui/utils/use-animation-variants\';\nimport { motion } from \'motion/react\';\n\nexport function ParallaxDemo() {\n  const animationVariants = useAnimationVariants(\'z\');\n  return (\n    <Parallax className="h-[3600px] md:h-[2000px] p-12">\n      <ContainerStagger className="sticky top-0 h-screen space-y-4 w-full flex flex-col justify-center items-center text-center">\n        <TextStaggerInview\n          as="h2"\n          className="text-5xl font-bold tracking-tighter md:w-2/3 mx-auto"\n          animation="z"\n        >\n          Creating brands that brings people to the shop\n        </TextStaggerInview>\n\n        <motion.p\n          variants={animationVariants}\n          transition={{\n            type: \'spring\',\n            stiffness: 1000,\n            damping: 28,\n            mass: 0.9,\n          }}\n          className="max-w-prose  "\n        >\n          Defining the brand’s unique value proposition and positioning it in\n          the market, creating a brand identity that resonates with the target\n          audience.\n        </motion.p>\n\n        <motion.div\n          variants={animationVariants}\n          transition={{\n            type: \'spring\',\n            stiffness: 1000,\n            damping: 28,\n            mass: 0.9,\n          }}\n        >\n          <Button size="lg">Get Started</Button>\n        </motion.div>\n      </ContainerStagger>\n      <PrallaxContainer className="flex flex-wrap justify-between gap-4 w-full">\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={200}\n          end={-200}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1508849789987-4e5333c12b78?q=80&w=1593&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={500}\n          end={20}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1666053691228-5f2c957b1755?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={800}\n          end={50}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1705693346612-bbc9f38f1621?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={500}\n          end={50}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1534270804882-6b5048b1c1fc?q=80&w=706&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={800}\n          end={70}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1643451481461-f73ff49a3f93?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n      </PrallaxContainer>\n    </Parallax>\n  );\n}',
+          '\'use client\';\nimport { ContainerStagger } from \'@/components/systaliko-ui/blocks/container-stagger\';\nimport {\n  Parallax,\n  ParallaxItem,\n  PrallaxContainer,\n} from \'@/components/systaliko-ui/blocks/parallax\';\nimport { Button } from \'@/components/systaliko-ui/shadcn/button\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\nimport { ANIMATION_VARIANTS } from \'@/components/systaliko-ui/utils/animation-variants\';\nimport { motion } from \'motion/react\';\n\nexport function ParallaxDemo() {\n  const animationVariants = ANIMATION_VARIANTS[\'z\'];\n  return (\n    <Parallax className="h-[3600px] md:h-[2000px] p-12">\n      <ContainerStagger className="sticky top-0 h-screen space-y-4 w-full flex flex-col justify-center items-center text-center">\n        <TextStaggerInview\n          as="h2"\n          className="text-5xl font-bold tracking-tighter md:w-2/3 mx-auto"\n          transition={{\n            type: \'spring\',\n            stiffness: 1000,\n            damping: 28,\n            mass: 0.9,\n          }}\n          animation="z"\n        >\n          Creating brands that brings people to the shop\n        </TextStaggerInview>\n\n        <motion.p\n          variants={animationVariants}\n          transition={{\n            type: \'spring\',\n            stiffness: 1000,\n            damping: 28,\n            mass: 0.9,\n          }}\n          className="max-w-prose  "\n        >\n          Defining the brand’s unique value proposition and positioning it in\n          the market, creating a brand identity that resonates with the target\n          audience.\n        </motion.p>\n\n        <motion.div\n          variants={animationVariants}\n          transition={{\n            type: \'spring\',\n            stiffness: 1000,\n            damping: 28,\n            mass: 0.9,\n          }}\n        >\n          <Button size="lg">Get Started</Button>\n        </motion.div>\n      </ContainerStagger>\n      <PrallaxContainer className="flex flex-wrap justify-between gap-4 w-full">\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={200}\n          end={-200}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1508849789987-4e5333c12b78?q=80&w=1593&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={500}\n          end={20}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1666053691228-5f2c957b1755?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={800}\n          end={50}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1705693346612-bbc9f38f1621?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={500}\n          end={50}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1534270804882-6b5048b1c1fc?q=80&w=706&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={800}\n          end={70}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1643451481461-f73ff49a3f93?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n      </PrallaxContainer>\n    </Parallax>\n  );\n}',
       },
     ],
     component: (function () {
@@ -2957,7 +2960,7 @@ export const index: Record<string, any> = {
       'https://systaliko-ui.vercel.app/r/parallax',
       'https://systaliko-ui.vercel.app/r/container-stagger',
       'https://systaliko-ui.vercel.app/r/text-stagger-inview',
-      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/animation-variants',
       'https://systaliko-ui.vercel.app/r/button',
     ],
     styles: undefined,
@@ -2967,7 +2970,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/blocks/parallax.tsx',
         content:
-          '\'use client\';\nimport { ContainerStagger } from \'@/components/systaliko-ui/blocks/container-stagger\';\nimport {\n  Parallax,\n  ParallaxItem,\n  PrallaxContainer,\n} from \'@/components/systaliko-ui/blocks/parallax\';\nimport { Button } from \'@/components/systaliko-ui/shadcn/button\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\nimport { useAnimationVariants } from \'@/components/systaliko-ui/utils/use-animation-variants\';\nimport { motion } from \'motion/react\';\n\nexport function ParallaxDemo() {\n  const animationVariants = useAnimationVariants(\'z\');\n  return (\n    <Parallax className="h-[3600px] md:h-[2000px] p-12">\n      <ContainerStagger className="sticky top-0 h-screen space-y-4 w-full flex flex-col justify-center items-center text-center">\n        <TextStaggerInview\n          as="h2"\n          className="text-5xl font-bold tracking-tighter md:w-2/3 mx-auto"\n          animation="z"\n        >\n          Creating brands that brings people to the shop\n        </TextStaggerInview>\n\n        <motion.p\n          variants={animationVariants}\n          transition={{\n            type: \'spring\',\n            stiffness: 1000,\n            damping: 28,\n            mass: 0.9,\n          }}\n          className="max-w-prose  "\n        >\n          Defining the brand’s unique value proposition and positioning it in\n          the market, creating a brand identity that resonates with the target\n          audience.\n        </motion.p>\n\n        <motion.div\n          variants={animationVariants}\n          transition={{\n            type: \'spring\',\n            stiffness: 1000,\n            damping: 28,\n            mass: 0.9,\n          }}\n        >\n          <Button size="lg">Get Started</Button>\n        </motion.div>\n      </ContainerStagger>\n      <PrallaxContainer className="flex flex-wrap justify-between gap-4 w-full">\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={200}\n          end={-200}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1508849789987-4e5333c12b78?q=80&w=1593&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={500}\n          end={20}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1666053691228-5f2c957b1755?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={800}\n          end={50}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1705693346612-bbc9f38f1621?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={500}\n          end={50}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1534270804882-6b5048b1c1fc?q=80&w=706&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={800}\n          end={70}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1643451481461-f73ff49a3f93?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n      </PrallaxContainer>\n    </Parallax>\n  );\n}',
+          '\'use client\';\nimport { ContainerStagger } from \'@/components/systaliko-ui/blocks/container-stagger\';\nimport {\n  Parallax,\n  ParallaxItem,\n  PrallaxContainer,\n} from \'@/components/systaliko-ui/blocks/parallax\';\nimport { Button } from \'@/components/systaliko-ui/shadcn/button\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\nimport { ANIMATION_VARIANTS } from \'@/components/systaliko-ui/utils/animation-variants\';\nimport { motion } from \'motion/react\';\n\nexport function ParallaxDemo() {\n  const animationVariants = ANIMATION_VARIANTS[\'z\'];\n  return (\n    <Parallax className="h-[3600px] md:h-[2000px] p-12">\n      <ContainerStagger className="sticky top-0 h-screen space-y-4 w-full flex flex-col justify-center items-center text-center">\n        <TextStaggerInview\n          as="h2"\n          className="text-5xl font-bold tracking-tighter md:w-2/3 mx-auto"\n          transition={{\n            type: \'spring\',\n            stiffness: 1000,\n            damping: 28,\n            mass: 0.9,\n          }}\n          animation="z"\n        >\n          Creating brands that brings people to the shop\n        </TextStaggerInview>\n\n        <motion.p\n          variants={animationVariants}\n          transition={{\n            type: \'spring\',\n            stiffness: 1000,\n            damping: 28,\n            mass: 0.9,\n          }}\n          className="max-w-prose  "\n        >\n          Defining the brand’s unique value proposition and positioning it in\n          the market, creating a brand identity that resonates with the target\n          audience.\n        </motion.p>\n\n        <motion.div\n          variants={animationVariants}\n          transition={{\n            type: \'spring\',\n            stiffness: 1000,\n            damping: 28,\n            mass: 0.9,\n          }}\n        >\n          <Button size="lg">Get Started</Button>\n        </motion.div>\n      </ContainerStagger>\n      <PrallaxContainer className="flex flex-wrap justify-between gap-4 w-full">\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={200}\n          end={-200}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1508849789987-4e5333c12b78?q=80&w=1593&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={500}\n          end={20}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1666053691228-5f2c957b1755?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={800}\n          end={50}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1705693346612-bbc9f38f1621?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={500}\n          end={50}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1534270804882-6b5048b1c1fc?q=80&w=706&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={800}\n          end={70}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1643451481461-f73ff49a3f93?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n      </PrallaxContainer>\n    </Parallax>\n  );\n}',
       },
     ],
     component: (function () {
@@ -2998,7 +3001,7 @@ export const index: Record<string, any> = {
       'https://systaliko-ui.vercel.app/r/parallax',
       'https://systaliko-ui.vercel.app/r/container-stagger',
       'https://systaliko-ui.vercel.app/r/text-stagger-inview',
-      'https://systaliko-ui.vercel.app/r/use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/animation-variants',
       'https://systaliko-ui.vercel.app/r/button',
     ],
     styles: undefined,
@@ -3008,7 +3011,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/blocks/parallax.tsx',
         content:
-          '\'use client\';\nimport { ContainerStagger } from \'@/components/systaliko-ui/blocks/container-stagger\';\nimport {\n  Parallax,\n  ParallaxItem,\n  PrallaxContainer,\n} from \'@/components/systaliko-ui/blocks/parallax\';\nimport { Button } from \'@/components/systaliko-ui/shadcn/button\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\nimport { useAnimationVariants } from \'@/components/systaliko-ui/utils/use-animation-variants\';\nimport { motion } from \'motion/react\';\n\nexport function ParallaxDemo() {\n  const animationVariants = useAnimationVariants(\'z\');\n  return (\n    <Parallax className="h-[3600px] md:h-[2000px] p-12">\n      <ContainerStagger className="sticky top-0 h-screen space-y-4 w-full flex flex-col justify-center items-center text-center">\n        <TextStaggerInview\n          as="h2"\n          className="text-5xl font-bold tracking-tighter md:w-2/3 mx-auto"\n          animation="z"\n        >\n          Creating brands that brings people to the shop\n        </TextStaggerInview>\n\n        <motion.p\n          variants={animationVariants}\n          transition={{\n            type: \'spring\',\n            stiffness: 1000,\n            damping: 28,\n            mass: 0.9,\n          }}\n          className="max-w-prose  "\n        >\n          Defining the brand’s unique value proposition and positioning it in\n          the market, creating a brand identity that resonates with the target\n          audience.\n        </motion.p>\n\n        <motion.div\n          variants={animationVariants}\n          transition={{\n            type: \'spring\',\n            stiffness: 1000,\n            damping: 28,\n            mass: 0.9,\n          }}\n        >\n          <Button size="lg">Get Started</Button>\n        </motion.div>\n      </ContainerStagger>\n      <PrallaxContainer className="flex flex-wrap justify-between gap-4 w-full">\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={200}\n          end={-200}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1508849789987-4e5333c12b78?q=80&w=1593&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={500}\n          end={20}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1666053691228-5f2c957b1755?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={800}\n          end={50}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1705693346612-bbc9f38f1621?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={500}\n          end={50}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1534270804882-6b5048b1c1fc?q=80&w=706&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={800}\n          end={70}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1643451481461-f73ff49a3f93?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n      </PrallaxContainer>\n    </Parallax>\n  );\n}',
+          '\'use client\';\nimport { ContainerStagger } from \'@/components/systaliko-ui/blocks/container-stagger\';\nimport {\n  Parallax,\n  ParallaxItem,\n  PrallaxContainer,\n} from \'@/components/systaliko-ui/blocks/parallax\';\nimport { Button } from \'@/components/systaliko-ui/shadcn/button\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\nimport { ANIMATION_VARIANTS } from \'@/components/systaliko-ui/utils/animation-variants\';\nimport { motion } from \'motion/react\';\n\nexport function ParallaxDemo() {\n  const animationVariants = ANIMATION_VARIANTS[\'z\'];\n  return (\n    <Parallax className="h-[3600px] md:h-[2000px] p-12">\n      <ContainerStagger className="sticky top-0 h-screen space-y-4 w-full flex flex-col justify-center items-center text-center">\n        <TextStaggerInview\n          as="h2"\n          className="text-5xl font-bold tracking-tighter md:w-2/3 mx-auto"\n          transition={{\n            type: \'spring\',\n            stiffness: 1000,\n            damping: 28,\n            mass: 0.9,\n          }}\n          animation="z"\n        >\n          Creating brands that brings people to the shop\n        </TextStaggerInview>\n\n        <motion.p\n          variants={animationVariants}\n          transition={{\n            type: \'spring\',\n            stiffness: 1000,\n            damping: 28,\n            mass: 0.9,\n          }}\n          className="max-w-prose  "\n        >\n          Defining the brand’s unique value proposition and positioning it in\n          the market, creating a brand identity that resonates with the target\n          audience.\n        </motion.p>\n\n        <motion.div\n          variants={animationVariants}\n          transition={{\n            type: \'spring\',\n            stiffness: 1000,\n            damping: 28,\n            mass: 0.9,\n          }}\n        >\n          <Button size="lg">Get Started</Button>\n        </motion.div>\n      </ContainerStagger>\n      <PrallaxContainer className="flex flex-wrap justify-between gap-4 w-full">\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={200}\n          end={-200}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1508849789987-4e5333c12b78?q=80&w=1593&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={500}\n          end={20}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1666053691228-5f2c957b1755?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={800}\n          end={50}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1705693346612-bbc9f38f1621?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={500}\n          end={50}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1534270804882-6b5048b1c1fc?q=80&w=706&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={800}\n          end={70}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1643451481461-f73ff49a3f93?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n      </PrallaxContainer>\n    </Parallax>\n  );\n}',
       },
     ],
     component: (function () {
@@ -6809,6 +6812,123 @@ export const index: Record<string, any> = {
     command:
       'https://systaliko-ui.vercel.app/r/shadcn-new-york-text-vertical-demo',
   },
+  'default-animation-variants-demo': {
+    name: 'default-animation-variants-demo',
+    description:
+      'Demo showing how to use animation-variants hook with default style.',
+    type: 'registry:hook',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/animation-variants',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/utils/animation-variants/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/animation-variants-demo.tsx',
+        content:
+          "'use client';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  useSetAnimationConfig,\n} from '@/components/docs/animation-config';\nimport { ANIMATION_VARIANTS } from '@/components/systaliko-ui/utils/animation-variants';\nimport { motion } from 'motion/react';\n\nexport const AnimationVariantsDemo = () => {\n  return (\n    <AnimationConfig>\n      <AnimationVariantsDemoContent />\n    </AnimationConfig>\n  );\n};\n\nconst AnimationVariantsDemoContent = () => {\n  const { animation } = useSetAnimationConfig();\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <AnimationSelector />\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Animation variants demo\n      </motion.h2>\n    </div>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/utils/animation-variants/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-animation-variants-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/default-animation-variants-demo',
+  },
+  'shadcn-default-animation-variants-demo': {
+    name: 'shadcn-default-animation-variants-demo',
+    description:
+      'Demo showing how to use animation-variants hook with shadcn-default style.',
+    type: 'registry:hook',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/animation-variants',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/utils/animation-variants/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/animation-variants-demo.tsx',
+        content:
+          "'use client';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  useSetAnimationConfig,\n} from '@/components/docs/animation-config';\nimport { ANIMATION_VARIANTS } from '@/components/systaliko-ui/utils/animation-variants';\nimport { motion } from 'motion/react';\n\nexport const AnimationVariantsDemo = () => {\n  return (\n    <AnimationConfig>\n      <AnimationVariantsDemoContent />\n    </AnimationConfig>\n  );\n};\n\nconst AnimationVariantsDemoContent = () => {\n  const { animation } = useSetAnimationConfig();\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <AnimationSelector />\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Animation variants demo\n      </motion.h2>\n    </div>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/utils/animation-variants/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-animation-variants-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-animation-variants-demo',
+  },
+  'shadcn-new-york-animation-variants-demo': {
+    name: 'shadcn-new-york-animation-variants-demo',
+    description:
+      'Demo showing how to use animation-variants hook with shadcn-new-york style.',
+    type: 'registry:hook',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/animation-variants',
+    ],
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/demo/utils/animation-variants/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/animation-variants-demo.tsx',
+        content:
+          "'use client';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  useSetAnimationConfig,\n} from '@/components/docs/animation-config';\nimport { ANIMATION_VARIANTS } from '@/components/systaliko-ui/utils/animation-variants';\nimport { motion } from 'motion/react';\n\nexport const AnimationVariantsDemo = () => {\n  return (\n    <AnimationConfig>\n      <AnimationVariantsDemoContent />\n    </AnimationConfig>\n  );\n};\n\nconst AnimationVariantsDemoContent = () => {\n  const { animation } = useSetAnimationConfig();\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <AnimationSelector />\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Animation variants demo\n      </motion.h2>\n    </div>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/demo/utils/animation-variants/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-animation-variants-demo';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-animation-variants-demo',
+  },
   'default-set-stagger-direction-demo': {
     name: 'default-set-stagger-direction-demo',
     description:
@@ -6827,7 +6947,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/utils/set-stagger-direction.ts',
         content:
-          "'use client';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  StaggerInput,\n  StaggerSelector,\n  useSetAnimationConfig,\n} from '@/components/docs/animation-config';\nimport { setStaggerDirection } from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\nconst ITEMS = [\n  {\n    bg: 'bg-green-500',\n  },\n  {\n    bg: 'bg-indigo-500',\n  },\n  {\n    bg: 'bg-rose-500',\n  },\n  {\n    bg: 'bg-yellow-500',\n  },\n];\n\nexport const SetStaggerDirectionDemo = () => {\n  return (\n    <AnimationConfig>\n      <SetStaggerDirectionDemoContent />\n    </AnimationConfig>\n  );\n};\nconst SetStaggerDirectionDemoContent = () => {\n  const { animation, staggerDirection, staggerValue } = useSetAnimationConfig();\n\n  const animationVariants = useAnimationVariants(animation);\n\n  return (\n    <div className=\"flex flex-col justify-between gap-8\">\n      <div className=\"flex flex-wrap  gap-4 items-center justify-center\">\n        <AnimationSelector />\n        <StaggerSelector />\n        <StaggerInput />\n      </div>\n\n      <div className=\"flex gap-4 flex-wrap\">\n        {ITEMS.map(({ bg }, index) => (\n          <motion.div\n            className={`${bg} size-16 rounded-md`}\n            key={`${index}-${animation}-${staggerDirection}-${staggerValue}`}\n            variants={animationVariants}\n            initial=\"hidden\"\n            animate=\"visible\"\n            transition={{\n              duration: 0.3,\n              ease: 'easeIn',\n              delay: setStaggerDirection({\n                direction: staggerDirection,\n                staggerValue: staggerValue,\n                totalItems: ITEMS.length,\n                index: index,\n              }),\n            }}\n          />\n        ))}\n      </div>\n    </div>\n  );\n};",
+          "'use client';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  StaggerInput,\n  StaggerSelector,\n  useSetAnimationConfig,\n} from '@/components/docs/animation-config';\nimport { setStaggerDirection } from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { ANIMATION_VARIANTS } from '@/components/systaliko-ui/utils/animation-variants';\nimport { motion } from 'motion/react';\n\nconst ITEMS = [\n  {\n    bg: 'bg-green-500',\n  },\n  {\n    bg: 'bg-indigo-500',\n  },\n  {\n    bg: 'bg-rose-500',\n  },\n  {\n    bg: 'bg-yellow-500',\n  },\n];\n\nexport const SetStaggerDirectionDemo = () => {\n  return (\n    <AnimationConfig>\n      <SetStaggerDirectionDemoContent />\n    </AnimationConfig>\n  );\n};\nconst SetStaggerDirectionDemoContent = () => {\n  const { animation, staggerDirection, staggerValue } = useSetAnimationConfig();\n\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n\n  return (\n    <div className=\"flex flex-col justify-between gap-8\">\n      <div className=\"flex flex-wrap  gap-4 items-center justify-center\">\n        <AnimationSelector />\n        <StaggerSelector />\n        <StaggerInput />\n      </div>\n\n      <div className=\"flex gap-4 flex-wrap\">\n        {ITEMS.map(({ bg }, index) => (\n          <motion.div\n            className={`${bg} size-16 rounded-md`}\n            key={`${index}-${animation}-${staggerDirection}-${staggerValue}`}\n            variants={animationVariants}\n            initial=\"hidden\"\n            animate=\"visible\"\n            transition={{\n              duration: 0.3,\n              ease: 'easeIn',\n              delay: setStaggerDirection({\n                direction: staggerDirection,\n                staggerValue: staggerValue,\n                totalItems: ITEMS.length,\n                index: index,\n              }),\n            }}\n          />\n        ))}\n      </div>\n    </div>\n  );\n};",
       },
     ],
     component: (function () {
@@ -6867,7 +6987,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/utils/set-stagger-direction.ts',
         content:
-          "'use client';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  StaggerInput,\n  StaggerSelector,\n  useSetAnimationConfig,\n} from '@/components/docs/animation-config';\nimport { setStaggerDirection } from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\nconst ITEMS = [\n  {\n    bg: 'bg-green-500',\n  },\n  {\n    bg: 'bg-indigo-500',\n  },\n  {\n    bg: 'bg-rose-500',\n  },\n  {\n    bg: 'bg-yellow-500',\n  },\n];\n\nexport const SetStaggerDirectionDemo = () => {\n  return (\n    <AnimationConfig>\n      <SetStaggerDirectionDemoContent />\n    </AnimationConfig>\n  );\n};\nconst SetStaggerDirectionDemoContent = () => {\n  const { animation, staggerDirection, staggerValue } = useSetAnimationConfig();\n\n  const animationVariants = useAnimationVariants(animation);\n\n  return (\n    <div className=\"flex flex-col justify-between gap-8\">\n      <div className=\"flex flex-wrap  gap-4 items-center justify-center\">\n        <AnimationSelector />\n        <StaggerSelector />\n        <StaggerInput />\n      </div>\n\n      <div className=\"flex gap-4 flex-wrap\">\n        {ITEMS.map(({ bg }, index) => (\n          <motion.div\n            className={`${bg} size-16 rounded-md`}\n            key={`${index}-${animation}-${staggerDirection}-${staggerValue}`}\n            variants={animationVariants}\n            initial=\"hidden\"\n            animate=\"visible\"\n            transition={{\n              duration: 0.3,\n              ease: 'easeIn',\n              delay: setStaggerDirection({\n                direction: staggerDirection,\n                staggerValue: staggerValue,\n                totalItems: ITEMS.length,\n                index: index,\n              }),\n            }}\n          />\n        ))}\n      </div>\n    </div>\n  );\n};",
+          "'use client';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  StaggerInput,\n  StaggerSelector,\n  useSetAnimationConfig,\n} from '@/components/docs/animation-config';\nimport { setStaggerDirection } from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { ANIMATION_VARIANTS } from '@/components/systaliko-ui/utils/animation-variants';\nimport { motion } from 'motion/react';\n\nconst ITEMS = [\n  {\n    bg: 'bg-green-500',\n  },\n  {\n    bg: 'bg-indigo-500',\n  },\n  {\n    bg: 'bg-rose-500',\n  },\n  {\n    bg: 'bg-yellow-500',\n  },\n];\n\nexport const SetStaggerDirectionDemo = () => {\n  return (\n    <AnimationConfig>\n      <SetStaggerDirectionDemoContent />\n    </AnimationConfig>\n  );\n};\nconst SetStaggerDirectionDemoContent = () => {\n  const { animation, staggerDirection, staggerValue } = useSetAnimationConfig();\n\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n\n  return (\n    <div className=\"flex flex-col justify-between gap-8\">\n      <div className=\"flex flex-wrap  gap-4 items-center justify-center\">\n        <AnimationSelector />\n        <StaggerSelector />\n        <StaggerInput />\n      </div>\n\n      <div className=\"flex gap-4 flex-wrap\">\n        {ITEMS.map(({ bg }, index) => (\n          <motion.div\n            className={`${bg} size-16 rounded-md`}\n            key={`${index}-${animation}-${staggerDirection}-${staggerValue}`}\n            variants={animationVariants}\n            initial=\"hidden\"\n            animate=\"visible\"\n            transition={{\n              duration: 0.3,\n              ease: 'easeIn',\n              delay: setStaggerDirection({\n                direction: staggerDirection,\n                staggerValue: staggerValue,\n                totalItems: ITEMS.length,\n                index: index,\n              }),\n            }}\n          />\n        ))}\n      </div>\n    </div>\n  );\n};",
       },
     ],
     component: (function () {
@@ -6907,7 +7027,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/utils/set-stagger-direction.ts',
         content:
-          "'use client';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  StaggerInput,\n  StaggerSelector,\n  useSetAnimationConfig,\n} from '@/components/docs/animation-config';\nimport { setStaggerDirection } from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\nconst ITEMS = [\n  {\n    bg: 'bg-green-500',\n  },\n  {\n    bg: 'bg-indigo-500',\n  },\n  {\n    bg: 'bg-rose-500',\n  },\n  {\n    bg: 'bg-yellow-500',\n  },\n];\n\nexport const SetStaggerDirectionDemo = () => {\n  return (\n    <AnimationConfig>\n      <SetStaggerDirectionDemoContent />\n    </AnimationConfig>\n  );\n};\nconst SetStaggerDirectionDemoContent = () => {\n  const { animation, staggerDirection, staggerValue } = useSetAnimationConfig();\n\n  const animationVariants = useAnimationVariants(animation);\n\n  return (\n    <div className=\"flex flex-col justify-between gap-8\">\n      <div className=\"flex flex-wrap  gap-4 items-center justify-center\">\n        <AnimationSelector />\n        <StaggerSelector />\n        <StaggerInput />\n      </div>\n\n      <div className=\"flex gap-4 flex-wrap\">\n        {ITEMS.map(({ bg }, index) => (\n          <motion.div\n            className={`${bg} size-16 rounded-md`}\n            key={`${index}-${animation}-${staggerDirection}-${staggerValue}`}\n            variants={animationVariants}\n            initial=\"hidden\"\n            animate=\"visible\"\n            transition={{\n              duration: 0.3,\n              ease: 'easeIn',\n              delay: setStaggerDirection({\n                direction: staggerDirection,\n                staggerValue: staggerValue,\n                totalItems: ITEMS.length,\n                index: index,\n              }),\n            }}\n          />\n        ))}\n      </div>\n    </div>\n  );\n};",
+          "'use client';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  StaggerInput,\n  StaggerSelector,\n  useSetAnimationConfig,\n} from '@/components/docs/animation-config';\nimport { setStaggerDirection } from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { ANIMATION_VARIANTS } from '@/components/systaliko-ui/utils/animation-variants';\nimport { motion } from 'motion/react';\n\nconst ITEMS = [\n  {\n    bg: 'bg-green-500',\n  },\n  {\n    bg: 'bg-indigo-500',\n  },\n  {\n    bg: 'bg-rose-500',\n  },\n  {\n    bg: 'bg-yellow-500',\n  },\n];\n\nexport const SetStaggerDirectionDemo = () => {\n  return (\n    <AnimationConfig>\n      <SetStaggerDirectionDemoContent />\n    </AnimationConfig>\n  );\n};\nconst SetStaggerDirectionDemoContent = () => {\n  const { animation, staggerDirection, staggerValue } = useSetAnimationConfig();\n\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n\n  return (\n    <div className=\"flex flex-col justify-between gap-8\">\n      <div className=\"flex flex-wrap  gap-4 items-center justify-center\">\n        <AnimationSelector />\n        <StaggerSelector />\n        <StaggerInput />\n      </div>\n\n      <div className=\"flex gap-4 flex-wrap\">\n        {ITEMS.map(({ bg }, index) => (\n          <motion.div\n            className={`${bg} size-16 rounded-md`}\n            key={`${index}-${animation}-${staggerDirection}-${staggerValue}`}\n            variants={animationVariants}\n            initial=\"hidden\"\n            animate=\"visible\"\n            transition={{\n              duration: 0.3,\n              ease: 'easeIn',\n              delay: setStaggerDirection({\n                direction: staggerDirection,\n                staggerValue: staggerValue,\n                totalItems: ITEMS.length,\n                index: index,\n              }),\n            }}\n          />\n        ))}\n      </div>\n    </div>\n  );\n};",
       },
     ],
     component: (function () {
@@ -6928,123 +7048,6 @@ export const index: Record<string, any> = {
     })(),
     command:
       'https://systaliko-ui.vercel.app/r/shadcn-new-york-set-stagger-direction-demo',
-  },
-  'default-use-animation-variants-demo': {
-    name: 'default-use-animation-variants-demo',
-    description:
-      'Demo showing how to use use-animation-variants hook with default style.',
-    type: 'registry:hook',
-    dependencies: ['motion'],
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/use-animation-variants',
-    ],
-    styles: undefined,
-    files: [
-      {
-        path: '__registry__/demo/utils/use-animation-variants/default/index.tsx',
-        type: 'registry:ui',
-        target: 'components/systaliko-ui/use-animation-variants-demo.tsx',
-        content:
-          "'use client';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  useSetAnimationConfig,\n} from '@/components/docs/animation-config';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\nexport const AnimationVariantsDemo = () => {\n  return (\n    <AnimationConfig>\n      <AnimationVariantsDemoContent />\n    </AnimationConfig>\n  );\n};\n\nconst AnimationVariantsDemoContent = () => {\n  const { animation } = useSetAnimationConfig();\n  const animationVariants = useAnimationVariants(animation);\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <AnimationSelector />\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Animation variants demo\n      </motion.h2>\n    </div>\n  );\n};",
-      },
-    ],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/__registry__/demo/utils/use-animation-variants/default/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'default-use-animation-variants-demo';
-        const Comp = mod.default || mod[exportName];
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command:
-      'https://systaliko-ui.vercel.app/r/default-use-animation-variants-demo',
-  },
-  'shadcn-default-use-animation-variants-demo': {
-    name: 'shadcn-default-use-animation-variants-demo',
-    description:
-      'Demo showing how to use use-animation-variants hook with shadcn-default style.',
-    type: 'registry:hook',
-    dependencies: ['motion'],
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/use-animation-variants',
-    ],
-    styles: undefined,
-    files: [
-      {
-        path: '__registry__/demo/utils/use-animation-variants/shadcn-default/index.tsx',
-        type: 'registry:ui',
-        target: 'components/systaliko-ui/use-animation-variants-demo.tsx',
-        content:
-          "'use client';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  useSetAnimationConfig,\n} from '@/components/docs/animation-config';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\nexport const AnimationVariantsDemo = () => {\n  return (\n    <AnimationConfig>\n      <AnimationVariantsDemoContent />\n    </AnimationConfig>\n  );\n};\n\nconst AnimationVariantsDemoContent = () => {\n  const { animation } = useSetAnimationConfig();\n  const animationVariants = useAnimationVariants(animation);\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <AnimationSelector />\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Animation variants demo\n      </motion.h2>\n    </div>\n  );\n};",
-      },
-    ],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/__registry__/demo/utils/use-animation-variants/shadcn-default/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'shadcn-default-use-animation-variants-demo';
-        const Comp = mod.default || mod[exportName];
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command:
-      'https://systaliko-ui.vercel.app/r/shadcn-default-use-animation-variants-demo',
-  },
-  'shadcn-new-york-use-animation-variants-demo': {
-    name: 'shadcn-new-york-use-animation-variants-demo',
-    description:
-      'Demo showing how to use use-animation-variants hook with shadcn-new-york style.',
-    type: 'registry:hook',
-    dependencies: ['motion'],
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/use-animation-variants',
-    ],
-    styles: undefined,
-    files: [
-      {
-        path: '__registry__/demo/utils/use-animation-variants/shadcn-new-york/index.tsx',
-        type: 'registry:ui',
-        target: 'components/systaliko-ui/use-animation-variants-demo.tsx',
-        content:
-          "'use client';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  useSetAnimationConfig,\n} from '@/components/docs/animation-config';\nimport { useAnimationVariants } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\nexport const AnimationVariantsDemo = () => {\n  return (\n    <AnimationConfig>\n      <AnimationVariantsDemoContent />\n    </AnimationConfig>\n  );\n};\n\nconst AnimationVariantsDemoContent = () => {\n  const { animation } = useSetAnimationConfig();\n  const animationVariants = useAnimationVariants(animation);\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <AnimationSelector />\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Animation variants demo\n      </motion.h2>\n    </div>\n  );\n};",
-      },
-    ],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/__registry__/demo/utils/use-animation-variants/shadcn-new-york/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'shadcn-new-york-use-animation-variants-demo';
-        const Comp = mod.default || mod[exportName];
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command:
-      'https://systaliko-ui.vercel.app/r/shadcn-new-york-use-animation-variants-demo',
   },
   'default-avatar': {
     name: 'default-avatar',
@@ -7796,7 +7799,7 @@ export const index: Record<string, any> = {
     registryDependencies: [
       'https://systaliko-ui.vercel.app/r/default-set-stagger-direction',
       'https://systaliko-ui.vercel.app/r/default-split-text',
-      'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-animation-variants',
     ],
     styles: undefined,
     files: [
@@ -7805,7 +7808,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-hover.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  StaggerDirection,\n  setStaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\n\ninterface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n}\n\ninterface TextStaggerHoverContextValue {\n  isMouseIn: boolean;\n}\nconst TextStaggerHoverContext = React.createContext<\n  TextStaggerHoverContextValue | undefined\n>(undefined);\nfunction useTextStaggerHoverContext() {\n  const context = React.useContext(TextStaggerHoverContext);\n  if (!context) {\n    throw new Error(\n      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const TextStaggerHover = ({\n  as: Component = 'span',\n  children,\n  className,\n  ...props\n}: TextStaggerHoverProps) => {\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  const handleMouse = () => setIsMouseIn((prevState) => !prevState);\n\n  return (\n    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>\n      <Component\n        className={cn('relative inline-block overflow-hidden', className)}\n        {...props}\n        onMouseEnter={handleMouse}\n        onMouseLeave={handleMouse}\n      >\n        {children}\n      </Component>\n    </TextStaggerHoverContext.Provider>\n  );\n};\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport const TextStaggerHoverActive = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block text-nowrap\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'hidden' : 'visible'}\n            transition={{\n              delay: staggerDelay,\n              ease: [0.25, 0.46, 0.45, 0.94],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};\n\nexport const TextStaggerHoverHidden = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'visible' : 'hidden'}\n            transition={{\n              delay: staggerDelay,\n              ease: [0.25, 0.46, 0.45, 0.94],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};",
+          "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  StaggerDirection,\n  setStaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\nimport {\n  AnimationT,\n  ANIMATION_VARIANTS,\n} from '@/components/systaliko-ui/utils/animation-variants';\n\ninterface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n}\n\ninterface TextStaggerHoverContextValue {\n  isMouseIn: boolean;\n}\nconst TextStaggerHoverContext = React.createContext<\n  TextStaggerHoverContextValue | undefined\n>(undefined);\nfunction useTextStaggerHoverContext() {\n  const context = React.useContext(TextStaggerHoverContext);\n  if (!context) {\n    throw new Error(\n      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const TextStaggerHover = ({\n  as: Component = 'span',\n  children,\n  className,\n  ...props\n}: TextStaggerHoverProps) => {\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  const handleMouse = () => setIsMouseIn((prevState) => !prevState);\n\n  return (\n    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>\n      <Component\n        className={cn('relative inline-block overflow-hidden', className)}\n        {...props}\n        onMouseEnter={handleMouse}\n        onMouseLeave={handleMouse}\n      >\n        {children}\n      </Component>\n    </TextStaggerHoverContext.Provider>\n  );\n};\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport const TextStaggerHoverActive = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block text-nowrap\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'hidden' : 'visible'}\n            transition={{\n              delay: staggerDelay,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};\n\nexport const TextStaggerHoverHidden = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'visible' : 'hidden'}\n            transition={{\n              delay: staggerDelay,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};",
       },
     ],
     component: (function () {
@@ -7836,7 +7839,7 @@ export const index: Record<string, any> = {
     registryDependencies: [
       'https://systaliko-ui.vercel.app/r/default-set-stagger-direction',
       'https://systaliko-ui.vercel.app/r/default-split-text',
-      'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-animation-variants',
     ],
     styles: undefined,
     files: [
@@ -7845,7 +7848,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-hover.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  StaggerDirection,\n  setStaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\n\ninterface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n}\n\ninterface TextStaggerHoverContextValue {\n  isMouseIn: boolean;\n}\nconst TextStaggerHoverContext = React.createContext<\n  TextStaggerHoverContextValue | undefined\n>(undefined);\nfunction useTextStaggerHoverContext() {\n  const context = React.useContext(TextStaggerHoverContext);\n  if (!context) {\n    throw new Error(\n      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const TextStaggerHover = ({\n  as: Component = 'span',\n  children,\n  className,\n  ...props\n}: TextStaggerHoverProps) => {\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  const handleMouse = () => setIsMouseIn((prevState) => !prevState);\n\n  return (\n    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>\n      <Component\n        className={cn('relative inline-block overflow-hidden', className)}\n        {...props}\n        onMouseEnter={handleMouse}\n        onMouseLeave={handleMouse}\n      >\n        {children}\n      </Component>\n    </TextStaggerHoverContext.Provider>\n  );\n};\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport const TextStaggerHoverActive = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block text-nowrap\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'hidden' : 'visible'}\n            transition={{\n              delay: staggerDelay,\n              ease: [0.25, 0.46, 0.45, 0.94],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};\n\nexport const TextStaggerHoverHidden = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'visible' : 'hidden'}\n            transition={{\n              delay: staggerDelay,\n              ease: [0.25, 0.46, 0.45, 0.94],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};",
+          "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  StaggerDirection,\n  setStaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\nimport {\n  AnimationT,\n  ANIMATION_VARIANTS,\n} from '@/components/systaliko-ui/utils/animation-variants';\n\ninterface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n}\n\ninterface TextStaggerHoverContextValue {\n  isMouseIn: boolean;\n}\nconst TextStaggerHoverContext = React.createContext<\n  TextStaggerHoverContextValue | undefined\n>(undefined);\nfunction useTextStaggerHoverContext() {\n  const context = React.useContext(TextStaggerHoverContext);\n  if (!context) {\n    throw new Error(\n      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const TextStaggerHover = ({\n  as: Component = 'span',\n  children,\n  className,\n  ...props\n}: TextStaggerHoverProps) => {\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  const handleMouse = () => setIsMouseIn((prevState) => !prevState);\n\n  return (\n    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>\n      <Component\n        className={cn('relative inline-block overflow-hidden', className)}\n        {...props}\n        onMouseEnter={handleMouse}\n        onMouseLeave={handleMouse}\n      >\n        {children}\n      </Component>\n    </TextStaggerHoverContext.Provider>\n  );\n};\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport const TextStaggerHoverActive = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block text-nowrap\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'hidden' : 'visible'}\n            transition={{\n              delay: staggerDelay,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};\n\nexport const TextStaggerHoverHidden = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'visible' : 'hidden'}\n            transition={{\n              delay: staggerDelay,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};",
       },
     ],
     component: (function () {
@@ -7877,7 +7880,7 @@ export const index: Record<string, any> = {
     registryDependencies: [
       'https://systaliko-ui.vercel.app/r/default-set-stagger-direction',
       'https://systaliko-ui.vercel.app/r/default-split-text',
-      'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-animation-variants',
     ],
     styles: undefined,
     files: [
@@ -7886,7 +7889,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-hover.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  StaggerDirection,\n  setStaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\n\ninterface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n}\n\ninterface TextStaggerHoverContextValue {\n  isMouseIn: boolean;\n}\nconst TextStaggerHoverContext = React.createContext<\n  TextStaggerHoverContextValue | undefined\n>(undefined);\nfunction useTextStaggerHoverContext() {\n  const context = React.useContext(TextStaggerHoverContext);\n  if (!context) {\n    throw new Error(\n      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const TextStaggerHover = ({\n  as: Component = 'span',\n  children,\n  className,\n  ...props\n}: TextStaggerHoverProps) => {\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  const handleMouse = () => setIsMouseIn((prevState) => !prevState);\n\n  return (\n    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>\n      <Component\n        className={cn('relative inline-block overflow-hidden', className)}\n        {...props}\n        onMouseEnter={handleMouse}\n        onMouseLeave={handleMouse}\n      >\n        {children}\n      </Component>\n    </TextStaggerHoverContext.Provider>\n  );\n};\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport const TextStaggerHoverActive = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block text-nowrap\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'hidden' : 'visible'}\n            transition={{\n              delay: staggerDelay,\n              ease: [0.25, 0.46, 0.45, 0.94],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};\n\nexport const TextStaggerHoverHidden = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = useAnimationVariants(animation);\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'visible' : 'hidden'}\n            transition={{\n              delay: staggerDelay,\n              ease: [0.25, 0.46, 0.45, 0.94],\n              duration: 0.3,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};",
+          "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  StaggerDirection,\n  setStaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\nimport {\n  AnimationT,\n  ANIMATION_VARIANTS,\n} from '@/components/systaliko-ui/utils/animation-variants';\n\ninterface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n}\n\ninterface TextStaggerHoverContextValue {\n  isMouseIn: boolean;\n}\nconst TextStaggerHoverContext = React.createContext<\n  TextStaggerHoverContextValue | undefined\n>(undefined);\nfunction useTextStaggerHoverContext() {\n  const context = React.useContext(TextStaggerHoverContext);\n  if (!context) {\n    throw new Error(\n      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const TextStaggerHover = ({\n  as: Component = 'span',\n  children,\n  className,\n  ...props\n}: TextStaggerHoverProps) => {\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  const handleMouse = () => setIsMouseIn((prevState) => !prevState);\n\n  return (\n    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>\n      <Component\n        className={cn('relative inline-block overflow-hidden', className)}\n        {...props}\n        onMouseEnter={handleMouse}\n        onMouseLeave={handleMouse}\n      >\n        {children}\n      </Component>\n    </TextStaggerHoverContext.Provider>\n  );\n};\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport const TextStaggerHoverActive = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block text-nowrap\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'hidden' : 'visible'}\n            transition={{\n              delay: staggerDelay,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};\n\nexport const TextStaggerHoverHidden = ({\n  animation,\n  staggerDirection = 'start',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}`}\n            variants={animationVariants}\n            animate={isMouseIn ? 'visible' : 'hidden'}\n            transition={{\n              delay: staggerDelay,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};",
       },
     ],
     component: (function () {
@@ -7917,7 +7920,7 @@ export const index: Record<string, any> = {
     devDependencies: undefined,
     registryDependencies: [
       'https://systaliko-ui.vercel.app/r/default-word-stagger',
-      'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-animation-variants',
       'https://systaliko-ui.vercel.app/r/default-transitions',
     ],
     styles: undefined,
@@ -7927,7 +7930,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  Transition,\n} from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  staggerDirection?: 1 | -1;\n  animation?: AnimationT;\n  characterTransition?: Transition;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  staggerDirection,\n  animation,\n  characterTransition = TRANSITIONS,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion.create(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{\n        staggerChildren: stagger,\n        staggerDirection: staggerDirection,\n        ...transition,\n      }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <MotionConfig transition={characterTransition}>\n            <WordStagger data-word={word} animation={animation}>\n              {word}\n            </WordStagger>\n          </MotionConfig>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  Transition,\n  Variants,\n} from 'motion/react';\nimport { cn } from '@/lib/utils';\nimport {\n  ANIMATION_VARIANTS,\n  AnimationT,\n} from '@/components/systaliko-ui/utils/animation-variants';\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  staggerDirection?: 1 | -1;\n  animation?: AnimationT;\n  characterTransition?: Transition;\n  as?: React.ElementType;\n}\nfunction useParseText(text: React.ReactNode) {\n  return React.useMemo(() => {\n    const stringText = String(text);\n    return {\n      words: stringText.split(' '),\n      characters: stringText.split(''),\n    };\n  }, [text]);\n}\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n  word: string;\n  wordIndex: number;\n}\n\nconst Character = React.memo(\n  ({\n    char,\n    variants,\n  }: {\n    char: string;\n    index: number;\n    variants?: Variants;\n  }) => (\n    <motion.span\n      className=\"inline-block\"\n      variants={variants}\n      style={{ display: 'inline-block' }}\n    >\n      {char === ' ' ? '\\u00A0' : char}\n    </motion.span>\n  ),\n);\nCharacter.displayName = 'Character';\n\nexport const WordStagger = React.memo(\n  ({ word, wordIndex, animation, className, ...props }: WordProps) => {\n    const characters = React.useMemo(() => word.split(''), [word]);\n    const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n\n    return (\n      <span\n        className={cn('inline-block text-nowrap', className)}\n        data-word={word}\n        {...props}\n      >\n        {characters.map((char, index) => (\n          <Character\n            key={`${wordIndex}-${index}`}\n            char={char}\n            index={index}\n            variants={animationVariants}\n          />\n        ))}\n      </span>\n    );\n  },\n);\nWordStagger.displayName = 'WordStagger';\n\nconst WordWrapper = React.memo(\n  ({\n    word,\n    index,\n    animation,\n    characterTransition,\n    showSpace,\n  }: {\n    word: string;\n    index: number;\n    animation?: AnimationT;\n    characterTransition: Transition;\n    showSpace: boolean;\n  }) => (\n    <>\n      <MotionConfig transition={characterTransition}>\n        <WordStagger word={word} wordIndex={index} animation={animation} />\n      </MotionConfig>\n      {showSpace && ' '}\n    </>\n  ),\n);\nWordWrapper.displayName = 'WordWrapper';\n\nexport const TextStaggerInview = React.memo(\n  ({\n    children,\n    transition,\n    className,\n    viewport = { once: true, amount: 0.4 },\n    stagger = 0.02,\n    staggerDirection = 1,\n    animation,\n    characterTransition = { ease: 'easeOut', duration: 0.25 },\n    as: Component = 'span',\n    ...props\n  }: TextStaggerProps) => {\n    const { words } = useParseText(children as React.ReactNode);\n\n    const MotionComponent = React.useMemo(() => motion(Component), [Component]);\n\n    const containerTransition = React.useMemo(\n      () => ({\n        staggerChildren: stagger,\n        staggerDirection,\n        ...transition,\n      }),\n      [stagger, staggerDirection, transition],\n    );\n\n    return (\n      <MotionComponent\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={viewport}\n        className={className}\n        transition={containerTransition}\n        {...props}\n      >\n        {words.map((word, index) => (\n          <WordWrapper\n            key={`${index}-${word.slice(0, 3)}`} // Better key strategy\n            word={word}\n            index={index}\n            animation={animation}\n            characterTransition={characterTransition}\n            showSpace={index < words.length - 1}\n          />\n        ))}\n      </MotionComponent>\n    );\n  },\n);\nTextStaggerInview.displayName = 'TextStaggerInview';",
       },
     ],
     component: (function () {
@@ -7957,7 +7960,7 @@ export const index: Record<string, any> = {
     devDependencies: undefined,
     registryDependencies: [
       'https://systaliko-ui.vercel.app/r/default-word-stagger',
-      'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-animation-variants',
       'https://systaliko-ui.vercel.app/r/default-transitions',
     ],
     styles: undefined,
@@ -7967,7 +7970,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  Transition,\n} from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  staggerDirection?: 1 | -1;\n  animation?: AnimationT;\n  characterTransition?: Transition;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  staggerDirection,\n  animation,\n  characterTransition = TRANSITIONS,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion.create(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{\n        staggerChildren: stagger,\n        staggerDirection: staggerDirection,\n        ...transition,\n      }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <MotionConfig transition={characterTransition}>\n            <WordStagger data-word={word} animation={animation}>\n              {word}\n            </WordStagger>\n          </MotionConfig>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  Transition,\n  Variants,\n} from 'motion/react';\nimport { cn } from '@/lib/utils';\nimport {\n  ANIMATION_VARIANTS,\n  AnimationT,\n} from '@/components/systaliko-ui/utils/animation-variants';\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  staggerDirection?: 1 | -1;\n  animation?: AnimationT;\n  characterTransition?: Transition;\n  as?: React.ElementType;\n}\nfunction useParseText(text: React.ReactNode) {\n  return React.useMemo(() => {\n    const stringText = String(text);\n    return {\n      words: stringText.split(' '),\n      characters: stringText.split(''),\n    };\n  }, [text]);\n}\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n  word: string;\n  wordIndex: number;\n}\n\nconst Character = React.memo(\n  ({\n    char,\n    variants,\n  }: {\n    char: string;\n    index: number;\n    variants?: Variants;\n  }) => (\n    <motion.span\n      className=\"inline-block\"\n      variants={variants}\n      style={{ display: 'inline-block' }}\n    >\n      {char === ' ' ? '\\u00A0' : char}\n    </motion.span>\n  ),\n);\nCharacter.displayName = 'Character';\n\nexport const WordStagger = React.memo(\n  ({ word, wordIndex, animation, className, ...props }: WordProps) => {\n    const characters = React.useMemo(() => word.split(''), [word]);\n    const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n\n    return (\n      <span\n        className={cn('inline-block text-nowrap', className)}\n        data-word={word}\n        {...props}\n      >\n        {characters.map((char, index) => (\n          <Character\n            key={`${wordIndex}-${index}`}\n            char={char}\n            index={index}\n            variants={animationVariants}\n          />\n        ))}\n      </span>\n    );\n  },\n);\nWordStagger.displayName = 'WordStagger';\n\nconst WordWrapper = React.memo(\n  ({\n    word,\n    index,\n    animation,\n    characterTransition,\n    showSpace,\n  }: {\n    word: string;\n    index: number;\n    animation?: AnimationT;\n    characterTransition: Transition;\n    showSpace: boolean;\n  }) => (\n    <>\n      <MotionConfig transition={characterTransition}>\n        <WordStagger word={word} wordIndex={index} animation={animation} />\n      </MotionConfig>\n      {showSpace && ' '}\n    </>\n  ),\n);\nWordWrapper.displayName = 'WordWrapper';\n\nexport const TextStaggerInview = React.memo(\n  ({\n    children,\n    transition,\n    className,\n    viewport = { once: true, amount: 0.4 },\n    stagger = 0.02,\n    staggerDirection = 1,\n    animation,\n    characterTransition = { ease: 'easeOut', duration: 0.25 },\n    as: Component = 'span',\n    ...props\n  }: TextStaggerProps) => {\n    const { words } = useParseText(children as React.ReactNode);\n\n    const MotionComponent = React.useMemo(() => motion(Component), [Component]);\n\n    const containerTransition = React.useMemo(\n      () => ({\n        staggerChildren: stagger,\n        staggerDirection,\n        ...transition,\n      }),\n      [stagger, staggerDirection, transition],\n    );\n\n    return (\n      <MotionComponent\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={viewport}\n        className={className}\n        transition={containerTransition}\n        {...props}\n      >\n        {words.map((word, index) => (\n          <WordWrapper\n            key={`${index}-${word.slice(0, 3)}`} // Better key strategy\n            word={word}\n            index={index}\n            animation={animation}\n            characterTransition={characterTransition}\n            showSpace={index < words.length - 1}\n          />\n        ))}\n      </MotionComponent>\n    );\n  },\n);\nTextStaggerInview.displayName = 'TextStaggerInview';",
       },
     ],
     component: (function () {
@@ -7998,7 +8001,7 @@ export const index: Record<string, any> = {
     devDependencies: undefined,
     registryDependencies: [
       'https://systaliko-ui.vercel.app/r/default-word-stagger',
-      'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-animation-variants',
       'https://systaliko-ui.vercel.app/r/default-transitions',
     ],
     styles: undefined,
@@ -8008,7 +8011,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport { AnimationT } from '@/components/systaliko-ui/utils/use-animation-variants';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  Transition,\n} from 'motion/react';\nimport { WordStagger } from '@/components/systaliko-ui/text/word-stagger';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  staggerDirection?: 1 | -1;\n  animation?: AnimationT;\n  characterTransition?: Transition;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  stagger = 0.02,\n  staggerDirection,\n  animation,\n  characterTransition = TRANSITIONS,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion.create(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={{ once: true }}\n      className={className}\n      transition={{\n        staggerChildren: stagger,\n        staggerDirection: staggerDirection,\n        ...transition,\n      }}\n      {...props}\n    >\n      {words.map((word, index) => (\n        <React.Fragment key={`${word}-${index}`}>\n          <MotionConfig transition={characterTransition}>\n            <WordStagger data-word={word} animation={animation}>\n              {word}\n            </WordStagger>\n          </MotionConfig>\n          {index < words.length - 1 && ' '}\n        </React.Fragment>\n      ))}\n    </MotionComponent>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  Transition,\n  Variants,\n} from 'motion/react';\nimport { cn } from '@/lib/utils';\nimport {\n  ANIMATION_VARIANTS,\n  AnimationT,\n} from '@/components/systaliko-ui/utils/animation-variants';\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  stagger?: number;\n  staggerDirection?: 1 | -1;\n  animation?: AnimationT;\n  characterTransition?: Transition;\n  as?: React.ElementType;\n}\nfunction useParseText(text: React.ReactNode) {\n  return React.useMemo(() => {\n    const stringText = String(text);\n    return {\n      words: stringText.split(' '),\n      characters: stringText.split(''),\n    };\n  }, [text]);\n}\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n  word: string;\n  wordIndex: number;\n}\n\nconst Character = React.memo(\n  ({\n    char,\n    variants,\n  }: {\n    char: string;\n    index: number;\n    variants?: Variants;\n  }) => (\n    <motion.span\n      className=\"inline-block\"\n      variants={variants}\n      style={{ display: 'inline-block' }}\n    >\n      {char === ' ' ? '\\u00A0' : char}\n    </motion.span>\n  ),\n);\nCharacter.displayName = 'Character';\n\nexport const WordStagger = React.memo(\n  ({ word, wordIndex, animation, className, ...props }: WordProps) => {\n    const characters = React.useMemo(() => word.split(''), [word]);\n    const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n\n    return (\n      <span\n        className={cn('inline-block text-nowrap', className)}\n        data-word={word}\n        {...props}\n      >\n        {characters.map((char, index) => (\n          <Character\n            key={`${wordIndex}-${index}`}\n            char={char}\n            index={index}\n            variants={animationVariants}\n          />\n        ))}\n      </span>\n    );\n  },\n);\nWordStagger.displayName = 'WordStagger';\n\nconst WordWrapper = React.memo(\n  ({\n    word,\n    index,\n    animation,\n    characterTransition,\n    showSpace,\n  }: {\n    word: string;\n    index: number;\n    animation?: AnimationT;\n    characterTransition: Transition;\n    showSpace: boolean;\n  }) => (\n    <>\n      <MotionConfig transition={characterTransition}>\n        <WordStagger word={word} wordIndex={index} animation={animation} />\n      </MotionConfig>\n      {showSpace && ' '}\n    </>\n  ),\n);\nWordWrapper.displayName = 'WordWrapper';\n\nexport const TextStaggerInview = React.memo(\n  ({\n    children,\n    transition,\n    className,\n    viewport = { once: true, amount: 0.4 },\n    stagger = 0.02,\n    staggerDirection = 1,\n    animation,\n    characterTransition = { ease: 'easeOut', duration: 0.25 },\n    as: Component = 'span',\n    ...props\n  }: TextStaggerProps) => {\n    const { words } = useParseText(children as React.ReactNode);\n\n    const MotionComponent = React.useMemo(() => motion(Component), [Component]);\n\n    const containerTransition = React.useMemo(\n      () => ({\n        staggerChildren: stagger,\n        staggerDirection,\n        ...transition,\n      }),\n      [stagger, staggerDirection, transition],\n    );\n\n    return (\n      <MotionComponent\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={viewport}\n        className={className}\n        transition={containerTransition}\n        {...props}\n      >\n        {words.map((word, index) => (\n          <WordWrapper\n            key={`${index}-${word.slice(0, 3)}`} // Better key strategy\n            word={word}\n            index={index}\n            animation={animation}\n            characterTransition={characterTransition}\n            showSpace={index < words.length - 1}\n          />\n        ))}\n      </MotionComponent>\n    );\n  },\n);\nTextStaggerInview.displayName = 'TextStaggerInview';",
       },
     ],
     component: (function () {
@@ -8146,7 +8149,7 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-animation-variants',
     ],
     styles: undefined,
     files: [
@@ -8155,7 +8158,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/word-stagger.tsx',
         content:
-          "import { cn } from '@/lib/utils';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}",
+          "import { cn } from '@/lib/utils';\nimport {\n  AnimationT,\n  ANIMATION_VARIANTS,\n} from '@/components/systaliko-ui/utils/animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}",
       },
     ],
     component: (function () {
@@ -8184,7 +8187,7 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-animation-variants',
     ],
     styles: undefined,
     files: [
@@ -8193,7 +8196,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/word-stagger.tsx',
         content:
-          "import { cn } from '@/lib/utils';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}",
+          "import { cn } from '@/lib/utils';\nimport {\n  AnimationT,\n  ANIMATION_VARIANTS,\n} from '@/components/systaliko-ui/utils/animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}",
       },
     ],
     component: (function () {
@@ -8222,7 +8225,7 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
+      'https://systaliko-ui.vercel.app/r/default-animation-variants',
     ],
     styles: undefined,
     files: [
@@ -8231,7 +8234,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/word-stagger.tsx',
         content:
-          "import { cn } from '@/lib/utils';\nimport {\n  AnimationT,\n  useAnimationVariants,\n} from '@/components/systaliko-ui/utils/use-animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = useAnimationVariants(animation);\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}",
+          "import { cn } from '@/lib/utils';\nimport {\n  AnimationT,\n  ANIMATION_VARIANTS,\n} from '@/components/systaliko-ui/utils/animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}",
       },
     ],
     component: (function () {
@@ -8251,6 +8254,116 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-word-stagger',
+  },
+  'default-animation-variants': {
+    name: 'default-animation-variants',
+    description:
+      'animation variants, for your motion components, allows to animate component with transforms, opacity, and blur with default style.',
+    type: 'registry:item',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/utils/animation-variants/default/index.tsx',
+        type: 'registry:item',
+        target: 'components/systaliko-ui/utils/animation-variants.tsx',
+        content:
+          "export type AnimationT =\n  | 'left'\n  | 'right'\n  | 'top'\n  | 'bottom'\n  | 'z'\n  | 'blur'\n  | 'default';\n\nexport const ANIMATION_VARIANTS = {\n  left: {\n    hidden: { x: '-100%', opacity: 0 },\n    visible: { x: 0, opacity: 1 },\n  },\n  right: {\n    hidden: { x: '100%', opacity: 0 },\n    visible: { x: 0, opacity: 1 },\n  },\n  top: {\n    hidden: { y: '-100%', opacity: 0 },\n    visible: { y: 0, opacity: 1 },\n  },\n  bottom: {\n    hidden: { y: '100%', opacity: 0 },\n    visible: { y: 0, opacity: 1 },\n  },\n  z: {\n    hidden: { scale: 0, opacity: 0 },\n    visible: { scale: 1, opacity: 1 },\n  },\n  blur: {\n    hidden: { filter: 'blur(10px)', opacity: 0 },\n    visible: { filter: 'blur(0px)', opacity: 1 },\n  },\n  default: {\n    hidden: { opacity: 0 },\n    visible: { opacity: 1 },\n  },\n} as const;",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/utils/animation-variants/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-animation-variants';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/default-animation-variants',
+  },
+  'shadcn-default-animation-variants': {
+    name: 'shadcn-default-animation-variants',
+    description:
+      'animation variants, for your motion components, allows to animate component with transforms, opacity, and blur with shadcn-default style.',
+    type: 'registry:item',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/utils/animation-variants/shadcn-default/index.tsx',
+        type: 'registry:item',
+        target: 'components/systaliko-ui/utils/animation-variants.tsx',
+        content:
+          "export type AnimationT =\n  | 'left'\n  | 'right'\n  | 'top'\n  | 'bottom'\n  | 'z'\n  | 'blur'\n  | 'default';\n\nexport const ANIMATION_VARIANTS = {\n  left: {\n    hidden: { x: '-100%', opacity: 0 },\n    visible: { x: 0, opacity: 1 },\n  },\n  right: {\n    hidden: { x: '100%', opacity: 0 },\n    visible: { x: 0, opacity: 1 },\n  },\n  top: {\n    hidden: { y: '-100%', opacity: 0 },\n    visible: { y: 0, opacity: 1 },\n  },\n  bottom: {\n    hidden: { y: '100%', opacity: 0 },\n    visible: { y: 0, opacity: 1 },\n  },\n  z: {\n    hidden: { scale: 0, opacity: 0 },\n    visible: { scale: 1, opacity: 1 },\n  },\n  blur: {\n    hidden: { filter: 'blur(10px)', opacity: 0 },\n    visible: { filter: 'blur(0px)', opacity: 1 },\n  },\n  default: {\n    hidden: { opacity: 0 },\n    visible: { opacity: 1 },\n  },\n} as const;",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/utils/animation-variants/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-animation-variants';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-default-animation-variants',
+  },
+  'shadcn-new-york-animation-variants': {
+    name: 'shadcn-new-york-animation-variants',
+    description:
+      'animation variants, for your motion components, allows to animate component with transforms, opacity, and blur with shadcn-new-york style.',
+    type: 'registry:item',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/utils/animation-variants/shadcn-new-york/index.tsx',
+        type: 'registry:item',
+        target: 'components/systaliko-ui/utils/animation-variants.tsx',
+        content:
+          "export type AnimationT =\n  | 'left'\n  | 'right'\n  | 'top'\n  | 'bottom'\n  | 'z'\n  | 'blur'\n  | 'default';\n\nexport const ANIMATION_VARIANTS = {\n  left: {\n    hidden: { x: '-100%', opacity: 0 },\n    visible: { x: 0, opacity: 1 },\n  },\n  right: {\n    hidden: { x: '100%', opacity: 0 },\n    visible: { x: 0, opacity: 1 },\n  },\n  top: {\n    hidden: { y: '-100%', opacity: 0 },\n    visible: { y: 0, opacity: 1 },\n  },\n  bottom: {\n    hidden: { y: '100%', opacity: 0 },\n    visible: { y: 0, opacity: 1 },\n  },\n  z: {\n    hidden: { scale: 0, opacity: 0 },\n    visible: { scale: 1, opacity: 1 },\n  },\n  blur: {\n    hidden: { filter: 'blur(10px)', opacity: 0 },\n    visible: { filter: 'blur(0px)', opacity: 1 },\n  },\n  default: {\n    hidden: { opacity: 0 },\n    visible: { opacity: 1 },\n  },\n} as const;",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/utils/animation-variants/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-animation-variants';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command:
+      'https://systaliko-ui.vercel.app/r/shadcn-new-york-animation-variants',
   },
   'default-set-stagger-direction': {
     name: 'default-set-stagger-direction',
@@ -8474,7 +8587,7 @@ export const index: Record<string, any> = {
     name: 'default-transitions',
     description:
       'Multiple transitions for your motion components, to animate depending on the animated property with default style.',
-    type: 'registry:lib',
+    type: 'registry:item',
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
@@ -8482,7 +8595,7 @@ export const index: Record<string, any> = {
     files: [
       {
         path: '__registry__/utils/transitions/default/index.tsx',
-        type: 'registry:lib',
+        type: 'registry:item',
         target: 'components/systaliko-ui/utils/transitions.tsx',
         content:
           "export const TRANSITIONS = {\n  y: { duration: 0.62, ease: [0.22, 1, 0.36, 1] },\n  x: { duration: 0.56, ease: [0.22, 1, 0.36, 1] },\n  scale: { type: 'spring', stiffness: 1000, damping: 28, mass: 0.9 },\n  filter: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },\n  opacity: { duration: 0.36, ease: 'easeOut' },\n} as const;",
@@ -8510,7 +8623,7 @@ export const index: Record<string, any> = {
     name: 'shadcn-default-transitions',
     description:
       'Multiple transitions for your motion components, to animate depending on the animated property with shadcn-default style.',
-    type: 'registry:lib',
+    type: 'registry:item',
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
@@ -8518,7 +8631,7 @@ export const index: Record<string, any> = {
     files: [
       {
         path: '__registry__/utils/transitions/shadcn-default/index.tsx',
-        type: 'registry:lib',
+        type: 'registry:item',
         target: 'components/systaliko-ui/utils/transitions.tsx',
         content:
           "export const TRANSITIONS = {\n  y: { duration: 0.62, ease: [0.22, 1, 0.36, 1] },\n  x: { duration: 0.56, ease: [0.22, 1, 0.36, 1] },\n  scale: { type: 'spring', stiffness: 1000, damping: 28, mass: 0.9 },\n  filter: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },\n  opacity: { duration: 0.36, ease: 'easeOut' },\n} as const;",
@@ -8546,7 +8659,7 @@ export const index: Record<string, any> = {
     name: 'shadcn-new-york-transitions',
     description:
       'Multiple transitions for your motion components, to animate depending on the animated property with shadcn-new-york style.',
-    type: 'registry:lib',
+    type: 'registry:item',
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
@@ -8554,7 +8667,7 @@ export const index: Record<string, any> = {
     files: [
       {
         path: '__registry__/utils/transitions/shadcn-new-york/index.tsx',
-        type: 'registry:lib',
+        type: 'registry:item',
         target: 'components/systaliko-ui/utils/transitions.tsx',
         content:
           "export const TRANSITIONS = {\n  y: { duration: 0.62, ease: [0.22, 1, 0.36, 1] },\n  x: { duration: 0.56, ease: [0.22, 1, 0.36, 1] },\n  scale: { type: 'spring', stiffness: 1000, damping: 28, mass: 0.9 },\n  filter: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },\n  opacity: { duration: 0.36, ease: 'easeOut' },\n} as const;",
@@ -8577,116 +8690,6 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-transitions',
-  },
-  'default-use-animation-variants': {
-    name: 'default-use-animation-variants',
-    description:
-      'Use animation variants hook, for your motion components, allows to animate component with transforms, opacity, and blur with default style.',
-    type: 'registry:hook',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: undefined,
-    styles: undefined,
-    files: [
-      {
-        path: '__registry__/utils/use-animation-variants/default/index.tsx',
-        type: 'registry:hook',
-        target: 'components/systaliko-ui/utils/use-animation-variants.tsx',
-        content:
-          "import * as React from 'react';\n\nexport type AnimationT =\n  | 'left'\n  | 'right'\n  | 'top'\n  | 'bottom'\n  | 'z'\n  | 'blur'\n  | undefined;\n\nexport function useAnimationVariants(animation?: AnimationT) {\n  return React.useMemo(\n    () => ({\n      hidden: {\n        x: animation === 'left' ? '-100%' : animation === 'right' ? '100%' : 0,\n        y: animation === 'top' ? '-100%' : animation === 'bottom' ? '100%' : 0,\n        scale: animation === 'z' ? 0 : 1,\n        filter: animation === 'blur' ? 'blur(10px)' : 'blur(0px)',\n        opacity: 0,\n      },\n      visible: {\n        x: 0,\n        y: 0,\n        scale: 1,\n        filter: 'blur(0px)',\n        opacity: 1,\n      },\n    }),\n    [animation],\n  );\n}",
-      },
-    ],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/__registry__/utils/use-animation-variants/default/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'default-use-animation-variants';
-        const Comp = mod.default || mod[exportName];
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: 'https://systaliko-ui.vercel.app/r/default-use-animation-variants',
-  },
-  'shadcn-default-use-animation-variants': {
-    name: 'shadcn-default-use-animation-variants',
-    description:
-      'Use animation variants hook, for your motion components, allows to animate component with transforms, opacity, and blur with shadcn-default style.',
-    type: 'registry:hook',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: undefined,
-    styles: undefined,
-    files: [
-      {
-        path: '__registry__/utils/use-animation-variants/shadcn-default/index.tsx',
-        type: 'registry:hook',
-        target: 'components/systaliko-ui/utils/use-animation-variants.tsx',
-        content:
-          "import * as React from 'react';\n\nexport type AnimationT =\n  | 'left'\n  | 'right'\n  | 'top'\n  | 'bottom'\n  | 'z'\n  | 'blur'\n  | undefined;\n\nexport function useAnimationVariants(animation?: AnimationT) {\n  return React.useMemo(\n    () => ({\n      hidden: {\n        x: animation === 'left' ? '-100%' : animation === 'right' ? '100%' : 0,\n        y: animation === 'top' ? '-100%' : animation === 'bottom' ? '100%' : 0,\n        scale: animation === 'z' ? 0 : 1,\n        filter: animation === 'blur' ? 'blur(10px)' : 'blur(0px)',\n        opacity: 0,\n      },\n      visible: {\n        x: 0,\n        y: 0,\n        scale: 1,\n        filter: 'blur(0px)',\n        opacity: 1,\n      },\n    }),\n    [animation],\n  );\n}",
-      },
-    ],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/__registry__/utils/use-animation-variants/shadcn-default/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'shadcn-default-use-animation-variants';
-        const Comp = mod.default || mod[exportName];
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command:
-      'https://systaliko-ui.vercel.app/r/shadcn-default-use-animation-variants',
-  },
-  'shadcn-new-york-use-animation-variants': {
-    name: 'shadcn-new-york-use-animation-variants',
-    description:
-      'Use animation variants hook, for your motion components, allows to animate component with transforms, opacity, and blur with shadcn-new-york style.',
-    type: 'registry:hook',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: undefined,
-    styles: undefined,
-    files: [
-      {
-        path: '__registry__/utils/use-animation-variants/shadcn-new-york/index.tsx',
-        type: 'registry:hook',
-        target: 'components/systaliko-ui/utils/use-animation-variants.tsx',
-        content:
-          "import * as React from 'react';\n\nexport type AnimationT =\n  | 'left'\n  | 'right'\n  | 'top'\n  | 'bottom'\n  | 'z'\n  | 'blur'\n  | undefined;\n\nexport function useAnimationVariants(animation?: AnimationT) {\n  return React.useMemo(\n    () => ({\n      hidden: {\n        x: animation === 'left' ? '-100%' : animation === 'right' ? '100%' : 0,\n        y: animation === 'top' ? '-100%' : animation === 'bottom' ? '100%' : 0,\n        scale: animation === 'z' ? 0 : 1,\n        filter: animation === 'blur' ? 'blur(10px)' : 'blur(0px)',\n        opacity: 0,\n      },\n      visible: {\n        x: 0,\n        y: 0,\n        scale: 1,\n        filter: 'blur(0px)',\n        opacity: 1,\n      },\n    }),\n    [animation],\n  );\n}",
-      },
-    ],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/__registry__/utils/use-animation-variants/shadcn-new-york/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'shadcn-new-york-use-animation-variants';
-        const Comp = mod.default || mod[exportName];
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command:
-      'https://systaliko-ui.vercel.app/r/shadcn-new-york-use-animation-variants',
   },
   'default-use-follow-mouse': {
     name: 'default-use-follow-mouse',

@@ -20,7 +20,6 @@
     "blocks/container-stagger",
     "blocks/scroll-x-carousel",
     "blocks/story",
-    "blocks/team",
 
     "---Cards---",
     "cards/card-flip",

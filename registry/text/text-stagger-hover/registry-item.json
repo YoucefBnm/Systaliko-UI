@@ -8,7 +8,7 @@
   "registryDependencies": [
     "https://systaliko-ui.vercel.app/r/default-set-stagger-direction",
     "https://systaliko-ui.vercel.app/r/default-split-text",
-    "https://systaliko-ui.vercel.app/r/default-use-animation-variants"
+    "https://systaliko-ui.vercel.app/r/default-animation-variants"
   ],
   "files": [
     {

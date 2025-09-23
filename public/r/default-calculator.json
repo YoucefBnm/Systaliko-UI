@@ -1,15 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "default-calculator",
-  "type": "registry:lib",
-  "title": "calculator",
-  "description": "calculator utils, for calculator component with default style.",
+  "type": "registry:block",
+  "title": "Calculator",
+  "description": "Calculator, for your custom pricing, or to extend your existing pricing with default style.",
   "files": [
     {
-      "path": "__registry__/utils/calculator/default/index.ts",
-      "content": "",
-      "type": "registry:lib",
-      "target": "components/systaliko-ui/utils/calculator.ts"
+      "path": "__registry__/blocks/calculator/default/index.tsx",
+      "content": "export function Calculator() {\n  return <div>Calculator</div>;\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/blocks/calculator.tsx"
     }
   ]
 }

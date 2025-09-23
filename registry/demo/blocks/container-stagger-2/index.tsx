@@ -1,10 +1,10 @@
 'use client';
 import { ContainerStagger } from '@/registry/blocks/container-stagger';
-import { useAnimationVariants } from '@/registry/utils/use-animation-variants';
+import { ANIMATION_VARIANTS } from '@/registry/utils/animation-variants';
 import { motion, MotionConfig } from 'motion/react';
 
 export function ContainerStagger2Demo() {
-  const animationVariants = useAnimationVariants();
+  const animationVariants = ANIMATION_VARIANTS.default;
   return (
     <div className="p-8">
       <div className="h-dvh place-content-center place-items-center">
