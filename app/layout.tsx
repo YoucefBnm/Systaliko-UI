@@ -14,7 +14,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: {
     template: '%s - Systaliko UI',
-    default: 'Systaliko UI - Component distribution',
+    default:
+      'Systaliko UI - Copy/Past or Install React components compatible with Shadcn Registry',
   },
   description:
     'Collection of fully customizable, animated, free UI components built with React, TypeScript, Tailwind CSS, and Motion.',
@@ -25,6 +26,9 @@ export const metadata: Metadata = {
     'Tailwind CSS',
     'Motion',
     'Free UI components',
+    'copy past components',
+    'cli install components',
+    'shadcn registry components',
     'Animated UI components',
     'UI distribution',
     'Open-source components',
