@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-menu",
+  "type": "registry:block",
+  "title": "Animated Menu",
+  "description": "Animated menu, with orchestrated children animation, fully customizable.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "registry/blocks/animated-menu/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/blocks/animated-menu.tsx"
+    }
+  ]
+}

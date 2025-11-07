@@ -20,7 +20,6 @@ export function DesktopNav() {
         className="p-2 text-sm transition-colors hover:text-accent-foreground"
       >
         Templates
-        <sup className="text-primary ml-0.5">New</sup>
       </Link>
 
       <Button variant="outline" size="sm">

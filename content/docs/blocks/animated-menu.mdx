@@ -1,0 +1,119 @@
+---
+title: Animated Menu
+description: Animated Menu component with orchestrated children animation, fully customizable.
+new: true
+---
+
+<ComponentPreview name="animated-menu-demo" />
+
+## Installation
+
+<ComponentInstallation name="animated-menu" />
+
+## Usage
+
+```tsx
+<AnimatedMenu className="relative">
+  <AnimatedMenuButton>
+    <AnimatedMenuButtonToggleIcon className="*:rounded *:bg-accent-foreground" />
+    <AnimatedMenuButtonLabel className="text-accent-foreground" />
+  </AnimatedMenuButton>
+  <AnimatedMenuList className="absolute right-0 top-0 bg-secondary/50 border border-secondary-foreground/5 backdrop-blur rounded-3xl">
+    <div className="flex flex-col px-6 justify-evenly gap-6 items-start size-full">
+      <div className="flex flex-col items-start gap-4 *:transition-blur *:duration-300 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
+        {menuItems.map((item, i) => (
+          <AnimatedMenuItem key={i} order={i}>
+            <Link
+              className="text-2xl font-medium text-secondary-foreground hover:text-foreground"
+              href={item.href}
+              title={item.title}
+            >
+              {item.title}
+            </Link>
+          </AnimatedMenuItem>
+        ))}
+      </div>
+      <div className="flex gap-4 *:transition-blur *:duration-300 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
+        {socialLinks.map((item, i) => (
+          <AnimatedMenuItem key={item.title} order={i + menuItems.length}>
+            <Link
+              className=" font-medium text-primary"
+              href={item.href}
+              title={item.title}
+            >
+              {item.title}
+            </Link>
+          </AnimatedMenuItem>
+        ))}
+      </div>
+    </div>
+  </AnimatedMenuList>
+</AnimatedMenu>
+```
+
+## Examples
+
+### with different reveal variants
+
+<ComponentPreview name="animated-menu-2-demo" />
+
+## Props
+
+`AnimatedMenuButtonToggleIcon`
+
+<TypeTable
+  type={{
+    size: {
+      description: 'size of the hamburger icon.',
+      type: '"sm" | "md" | "lg" | "xl" | null',
+      required: false,
+      default: 'sm',
+    },
+  }}
+/>
+
+`AnimatedMenuButtonLabel`
+
+<TypeTable
+  type={{
+    closeLabel: {
+      description: 'label showed when menu is closed.',
+      type: 'string',
+      required: false,
+      default: 'menu',
+    },
+    openLabel: {
+      description: 'label showed when menu is open.',
+      type: 'string',
+      required: false,
+      default: 'close',
+    },
+  }}
+/>
+
+`AnimatedMenuList`
+
+<TypeTable
+  type={{
+    menuListVariants: {
+      description: 'motion variants of open and close states.',
+      type: 'Variants',
+      required: false,
+      default: 'variants',
+    },
+  }}
+/>
+
+`AnimatedMenuItem`
+
+<TypeTable
+  type={{
+    menuListVariants: {
+      description:
+        'motion reveal variants of the menu item at initial and enter and exit states.',
+      type: 'Variants',
+      required: false,
+      default: 'itemVariants',
+    },
+  }}
+/>

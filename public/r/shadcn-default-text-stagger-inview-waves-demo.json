@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-default-text-stagger-inview-waves-demo",
+  "type": "registry:ui",
+  "title": "Text Stagger Inview Waves Demo",
+  "description": "Demo showing another use of text stagger in view demo with waves with shadcn-default style.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/text-stagger-inview"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/text/text-stagger-inview-waves/shadcn-default/index.tsx",
+      "content": "'use client';\n\nimport { TextStaggerInview } from '@/components/systaliko-ui/text/text-stagger-inview';\n\nexport const TextStaggerInvieWaveswDemo = () => {\n  return (\n    <div className=\"p-6 flex flex-col justify-center items-center\">\n      <TextStaggerInview\n        animation=\"bottom\"\n        staggerValue={0.05}\n        transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}\n        className=\"text-4xl font-bold tracking-tighter uppercase\"\n      >\n        Let&apos;s create a wave with letters\n      </TextStaggerInview>\n      <TextStaggerInview\n        animation=\"top\"\n        staggerValue={0.05}\n        transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}\n        className=\"text-4xl font-bold tracking-tighter uppercase\"\n      >\n        Let&apos;s create a wave with letters\n      </TextStaggerInview>\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/text/text-stagger-inview-waves.tsx"
+    }
+  ]
+}

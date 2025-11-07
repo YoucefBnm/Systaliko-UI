@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pulse",
+  "type": "registry:ui",
+  "title": "Pulse",
+  "description": "Pulse effect for attracting user attention.",
+  "files": [
+    {
+      "path": "registry/components/pulse/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/pulse.tsx"
+    }
+  ]
+}

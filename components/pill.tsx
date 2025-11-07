@@ -1,16 +1,22 @@
 import { cn } from '@/lib/utils';
+import { Pulse } from '@/registry/components/pulse';
 import Link from 'next/link';
+import React from 'react';
 
 interface PillProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
   label: string;
-  announcement?: string;
+  announcement?: React.ReactNode;
 }
 
 export function Pill({
   href,
   label,
-  announcement = '📣 Announcement',
+  announcement = (
+    <div className="flex gap-1 items-center">
+      <Pulse className="size-2.5" /> Announcement
+    </div>
+  ),
   className,
   ...props
 }: PillProps) {

@@ -1,0 +1,44 @@
+---
+title: Wavy Block
+description: Wavy Block animates its children in waves pattern on scroll.
+new: true
+---
+
+<ComponentPreview name="wavy-block-demo" />
+
+## Installation
+
+<ComponentInstallation name="wavy-block" />
+
+## Usage
+
+```tsx
+<WavyBlock className="flex flex-col justify-start items-start gap-6">
+  {titles.map((title, index) => (
+    <WavyBlockItem key={title} index={index}>
+      <h2 className=" text-[8.3vw] font-bold leading-none tracking-tighter uppercase whitespace-nowrap">
+        {title}
+      </h2>
+    </WavyBlockItem>
+  ))}
+</WavyBlock>
+```
+
+## Props
+
+`WavyBlockItem`
+
+<TypeTable
+  type={{
+    config: {
+      description: 'the config effect of the wavy block.',
+      type: 'object',
+      required: false,
+    },
+    index: {
+      description: 'the order of the item in the list.',
+      type: 'number',
+      required: true,
+    },
+  }}
+/>

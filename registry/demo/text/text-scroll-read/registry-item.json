@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-scroll-read-demo",
+  "type": "registry:ui",
+  "title": "Text Scroll Read Demo",
+  "description": "Demo showing Text scroll read component.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/text-scroll-read"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/text/text-scroll-read/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/text/text-scroll-read.tsx"
+    }
+  ]
+}

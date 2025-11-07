@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-default-pulse",
+  "type": "registry:ui",
+  "title": "Pulse",
+  "description": "Pulse effect for attracting user attention with shadcn-default style.",
+  "files": [
+    {
+      "path": "__registry__/components/pulse/shadcn-default/index.tsx",
+      "content": "import { cn } from '@/lib/utils';\nimport React from 'react';\n\nexport function Pulse({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn(\n        'relative flex h-2 w-2 [&>*:first-child]:bg-indigo-300 [&>*:last-child]:bg-indigo-500',\n        className,\n      )}\n      {...props}\n    >\n      <span className=\"animate-ping absolute inline-flex h-full w-full rounded-full\" />\n      <span className=\"relative inline-flex rounded-full size-full \" />\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/pulse.tsx"
+    }
+  ]
+}

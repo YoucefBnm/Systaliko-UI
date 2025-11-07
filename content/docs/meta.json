@@ -10,6 +10,7 @@
     "templates/portfolio",
 
     "---Blocks---",
+    "blocks/animated-menu",
     "blocks/grid-bento",
     "blocks/image-player",
     "blocks/parallax",
@@ -20,6 +21,7 @@
     "blocks/container-stagger",
     "blocks/scroll-x-carousel",
     "blocks/story",
+    "blocks/wavy-block",
 
     "---Cards---",
     "cards/card-flip",
@@ -34,6 +36,7 @@
     "components/rating-stars",
 
     "---Text---",
+    "text/text-scroll-read",
     "text/text-stagger-hover",
     "text/text-stagger-inview",
     "text/text-vertical",

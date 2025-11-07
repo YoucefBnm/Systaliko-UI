@@ -1,0 +1,64 @@
+---
+title: Text Scroll Read
+description: Splited text reads depending on the scroll progress.
+new: true
+---
+
+<ComponentPreview name="text-scroll-read-demo" />
+
+## Installation
+
+<ComponentInstallation name="text-scroll-read-demo" />
+
+## Usage
+
+```tsx
+<TextScrollRead>
+  <TextScrollReadWrap className="h-screen my-12 place-content-center md:w-4/5 mx-auto">
+    <ClipText className="text-3xl md:text-4xl font-bold leading-normal uppercase bg-[linear-gradient(-90deg,rgba(0,0,0,0.05)_50%,rgb(0,0,0)_50%)]">
+      multidisciplinary creative studio specializing in brand strategy, product
+      design, and digital experiences.
+    </ClipText>
+  </TextScrollReadWrap>
+</TextScrollRead>
+```
+
+## Props
+
+`TextScrollRead`
+
+<TypeTable
+  type={{
+    offset: {
+      description: 'scroll offset of the container',
+      type: 'ScrollOffset',
+      required: false,
+      default: 'undefined',
+    },
+    spaceClass: {
+      description: 'the class to be applied to the spacer element on bottom',
+      type: 'tailwind class',
+      required: false,
+      default: 'h-80',
+    },
+  }}
+/>
+
+`TextScrollReadWrap`
+
+<TypeTable
+  type={{
+    yInput: {
+      description: 'the range of the parent scroll progress.',
+      type: 'array',
+      required: false,
+      default: '[0, 1]',
+    },
+    yRange: {
+      description: 'the value of the y translate range',
+      type: 'array',
+      required: false,
+      default: '[0,320]',
+    },
+  }}
+/>

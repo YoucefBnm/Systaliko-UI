@@ -60,15 +60,15 @@ interface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {
   staggerDirection?: StaggerDirection;
 }
 export const TextStaggerHoverActive = ({
-  animation,
-  staggerDirection = 'start',
+  animation = 'top',
+  staggerDirection = 'first',
   children,
   className,
   transition,
   ...props
 }: TextStaggerHoverContentProps) => {
   const { characters, characterCount } = splitText(String(children));
-  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];
+  const animationVariants = ANIMATION_VARIANTS[animation];
   const { isMouseIn } = useTextStaggerHoverContext();
   return (
     <span className={cn('inline-block', className)}>
@@ -83,6 +83,7 @@ export const TextStaggerHoverActive = ({
             className="inline-block text-nowrap"
             key={`${char}-${index}`}
             variants={animationVariants}
+            initial="visible"
             animate={isMouseIn ? 'hidden' : 'visible'}
             transition={{
               delay: staggerDelay,
@@ -100,15 +101,15 @@ export const TextStaggerHoverActive = ({
 };
 
 export const TextStaggerHoverHidden = ({
-  animation,
-  staggerDirection = 'start',
+  animation = 'top',
+  staggerDirection = 'first',
   children,
   className,
   transition,
   ...props
 }: TextStaggerHoverContentProps) => {
   const { characters, characterCount } = splitText(String(children));
-  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];
+  const animationVariants = ANIMATION_VARIANTS[animation];
   const { isMouseIn } = useTextStaggerHoverContext();
   return (
     <span className={cn('inline-block absolute left-0 top-0', className)}>
@@ -123,6 +124,7 @@ export const TextStaggerHoverHidden = ({
             className="inline-block"
             key={`${char}-${index}`}
             variants={animationVariants}
+            initial="hidden"
             animate={isMouseIn ? 'visible' : 'hidden'}
             transition={{
               delay: staggerDelay,

@@ -25,7 +25,7 @@ const IMAGES_3 = [
 
 export function ScrollAnimationRotateDemo() {
   return (
-    <ScrollAnimationRotate>
+    <ScrollAnimationRotate className="overflow-hidden">
       <ScrollAnimationRotateContainer
         yRange={[-100, 400]}
         className="h-dvh gap-2"

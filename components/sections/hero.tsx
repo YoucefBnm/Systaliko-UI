@@ -11,6 +11,8 @@ import TailwindIcon from '../icons/tailwind-icon';
 import ShadcnIcon from '../icons/shadcn-icon copy';
 import MotionIcon from '../icons/motion-icon';
 import { Pill } from '../pill';
+import { Pulse } from '@/registry/components/pulse';
+import { Showcase } from './showcase';
 
 const TECH_STACK = [
   {
@@ -44,40 +46,48 @@ export function Hero() {
   const animationVariants = ANIMATION_VARIANTS['blur'];
 
   return (
-    <section className="relative max-w-7xl place-content-center min-h-[90vh] px-6 py-12 w-full">
-      <ContainerStagger className="flex flex-col items-center text-center justify-center space-y-5">
-        <MotionConfig transition={{ duration: 0.3, ease: 'easeIn' }}>
-          <motion.div className="" variants={animationVariants}>
+    <section className="relative max-w-7xl place-content-center w-full overflow-hidden">
+      <ContainerStagger className="flex px-6 pt-12  flex-col items-center text-center justify-center space-y-6">
+        <MotionConfig transition={{ duration: 0.4, ease: 'easeOut' }}>
+          <motion.div variants={animationVariants}>
             <Pill
-              href="/docs/templates/abla"
-              label="Introducing Abla Studio Template"
-              announcement="🎉 New Template"
+              href="/docs"
+              label="and new components"
+              announcement={
+                <div className="flex gap-2 items-center">
+                  <Pulse className="[&>*:first-child]:bg-foreground/50 [&>*:last-child]:bg-secondary-foreground/80" />{' '}
+                  New Synco AI Agent Template
+                </div>
+              }
             />
           </motion.div>
 
           <motion.h1
             variants={animationVariants}
-            className="text-4xl text-foreground/80 font-semibold tracking-tight max-w-[25ch]"
+            className="text-5xl pb-1 font-semibold tracking-tight max-w-[25ch] bg-clip-text text-transparent bg-linear-180 from-foreground via-foreground/80 to-foreground/60"
           >
-            <span className="text-foreground font-bold">Copy/Paste React</span>{' '}
-            components easy to change and adapt to your design
+            <span className="font-bold">
+              Copy Paste or install via shadcn registry
+            </span>{' '}
+            React blocks/components
           </motion.h1>
 
           <motion.p variants={animationVariants} className="max-w-prose">
-            A modern component library built on top of Shadcn registry. Designed
-            for flexibility, built for customization, and crafted to scale
-            across variants and use cases.
+            Collection of UI blocks and components to create your website in no
+            time, animated and interactive, with a focus on animations, built
+            for customization, and crafted to scale across variants and use
+            cases.
           </motion.p>
 
           <motion.div
             variants={animationVariants}
             className="flex items-center gap-2 justify-center"
           >
-            <Button>
+            <Button size="lg">
               <Link href="/docs">Browse Components</Link>
               <ComponentIcon />
             </Button>
-            <Button variant={'secondary'}>
+            <Button size="lg" variant={'secondary'}>
               <Link href="/docs/templates">Browse Templates</Link>
               <ArrowUpRightIcon />
             </Button>
@@ -101,6 +111,7 @@ export function Hero() {
           </motion.div>
         </MotionConfig>
       </ContainerStagger>
+      <Showcase />
     </section>
   );
 }

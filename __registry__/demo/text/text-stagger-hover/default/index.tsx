@@ -28,6 +28,7 @@ const TextStaggerHoverDemoContent = () => {
         <TextStaggerHoverActive
           key={`${animation}-${staggerDirection}`}
           className="opacity-20"
+          transition={{ duration: 0.3, ease: 'easeOut' }}
           animation={animation}
           staggerDirection={staggerDirection}
         >
@@ -37,6 +38,7 @@ const TextStaggerHoverDemoContent = () => {
         <TextStaggerHoverHidden
           key={`${animation}-${staggerDirection}-2`}
           animation={animation}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
           staggerDirection={staggerDirection}
         >
           Text Stagger Hover Demo

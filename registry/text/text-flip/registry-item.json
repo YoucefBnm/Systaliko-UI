@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-flip",
+  "type": "registry:ui",
+  "title": "Flip Text",
+  "description": "Flipped text animation, flips the text",
+  "files": [
+    {
+      "path": "registry/text/text-flip/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/text/text-flip.tsx"
+    }
+  ]
+}

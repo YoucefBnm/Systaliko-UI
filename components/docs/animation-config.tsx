@@ -21,9 +21,9 @@ const animations: { value: AnimationT; label: string }[] = [
 ];
 
 const staggerDirections: { value: StaggerDirection; label: string }[] = [
-  { value: 'start', label: 'Start' },
-  { value: 'middle', label: 'Middle' },
-  { value: 'end', label: 'End' },
+  { value: 'first', label: 'Start' },
+  { value: 'center', label: 'Middle' },
+  { value: 'last', label: 'End' },
   { value: 'random', label: 'Random' },
 ];
 
@@ -44,7 +44,7 @@ export function AnimationConfig({ children }: { children: React.ReactNode }) {
   const [animation, setAnimation] = useState<AnimationT>();
   const [staggerValue, setStaggerValue] = useState<number>(0.02);
   const [staggerDirection, setStaggerDirection] =
-    useState<StaggerDirection>('start');
+    useState<StaggerDirection>('first');
   return (
     <AnimationConfigContext.Provider
       value={{

@@ -2,6 +2,7 @@
 title: Text Stagger Inview
 description: Splitted text animation with staggered reveal animation triggered by view, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition.
 url: https://21st.dev/youcefbnm/stagger-text/stagger-text-animation/?ref=systaliko-ui
+updated: true
 ---
 
 <ComponentPreview name="text-stagger-inview-demo" />
@@ -22,28 +23,32 @@ url: https://21st.dev/youcefbnm/stagger-text/stagger-text-animation/?ref=systali
 </TextStaggerInview>
 ```
 
+## Waves Example
+
+<ComponentPreview name="text-stagger-inview-waves-demo" />
+
 ## Props
 
 <TypeTable
   type={{
-    stagger: {
+    staggerValue: {
       description: 'the delay duration value, between each letter.',
       type: 'number',
       required: false,
       default: '0.02',
     },
-    staggerDirection: {
+    staggerStart: {
       description: 'the stagger direction to start animating from.',
-      type: '1 | -1',
+      type: 'first | center | last | number',
       required: false,
-      default: '1',
+      default: 'first',
     },
     animation: {
       description:
         'the animation property, whether animate transform, blur, or opacity if left undefined.',
-      type: 'left | right | top | bottom | z | blur | undefined;',
+      type: 'left | right | top | bottom | z | blur | default;',
       required: false,
-      default: 'opacity',
+      default: 'default',
     },
     as: {
       description: 'the component to render',

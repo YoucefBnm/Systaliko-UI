@@ -71,12 +71,14 @@ export const SlideshowIndicator = React.forwardRef<
           className="opacity-20"
           animation={'top'}
           animate={isActive ? 'hidden' : 'visible'}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
         >
           {String(children)}
         </TextStaggerHoverActive>
         <TextStaggerHoverHidden
           animation={'bottom'}
           animate={isActive ? 'visible' : 'hidden'}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
         >
           {String(children)}
         </TextStaggerHoverHidden>

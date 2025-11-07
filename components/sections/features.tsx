@@ -58,14 +58,12 @@ export function Features() {
             animation="bottom"
             as="h2"
           >
-            Fully customizable and flexible components to different usecases
+            Fully customizable and flexible components
           </TextStaggerInview>
 
           <p className="max-w-prose text-muted-foreground">
-            Components distribution not &quot;npm install&quot; where you
-            install only the components you want not the whole library. Creating
-            components fully customizable and flexible to different usecases,
-            and easy to adapt to your design and brand.
+            No <code>npm-install</code> a whole library install only the
+            components you want, easy to adapt to your design and brand.
           </p>
           <Button variant={'link'}>
             <Link href="/docs/cards/cards-stack">Use this Component</Link>
@@ -79,7 +77,7 @@ export function Features() {
               index={index}
               className="supports-[backdrop-blur]:bg-background/90 rounded-2xl w-4/5 border p-8  shadow-md backdrop-blur-md"
             >
-              <feature.icon className="justify-self-end size-8 text-primary" />
+              <feature.icon className="justify-self-end size-8" />
               <h2 className="my-6 text-2xl font-bold tracking-tighter">
                 {feature.title}
               </h2>

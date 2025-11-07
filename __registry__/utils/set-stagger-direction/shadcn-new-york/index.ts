@@ -1,4 +1,4 @@
-export type StaggerDirection = 'start' | 'middle' | 'end' | 'random';
+export type StaggerDirection = 'first' | 'center' | 'last' | 'random';
 
 export interface StaggerOptions {
   direction?: StaggerDirection;
@@ -8,22 +8,22 @@ export interface StaggerOptions {
 }
 
 export function setStaggerDirection({
-  direction = 'start',
+  direction = 'first',
   staggerValue = 0.02,
   totalItems,
   index,
 }: StaggerOptions): number {
   switch (direction) {
-    case 'start':
+    case 'first':
       // Linear progression from start
       return index * staggerValue;
 
-    case 'middle':
+    case 'center':
       // Stagger from the middle outward
       const middleIndex = Math.floor(totalItems / 2);
       return Math.abs(index - middleIndex) * staggerValue;
 
-    case 'end':
+    case 'last':
       // Linear progression from end
       return (totalItems - 1 - index) * staggerValue;
 

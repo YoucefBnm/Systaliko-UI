@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-default-animated-menu-demo",
+  "type": "registry:block",
+  "title": "Animated Menu Demo",
+  "description": "Demo showing animated menu component with shadcn-default style.",
+  "registryDependencies": [
+    "http://localhost:3000/r/animated-menu"
+  ],
+  "files": [
+    {
+      "path": "__registry__/demo/blocks/animated-menu/shadcn-default/index.tsx",
+      "content": "import {\n  AnimatedMenu,\n  AnimatedMenuButton,\n  AnimatedMenuButtonToggleIcon,\n  AnimatedMenuButtonLabel,\n  AnimatedMenuList,\n  AnimatedMenuItem,\n} from '@/components/systaliko-ui/blocks/animated-menu';\nimport Link from 'next/link';\n\nconst menuItems = [\n  {\n    title: 'Home',\n    href: '/#home',\n  },\n  {\n    title: 'About',\n    href: '/#about',\n  },\n  {\n    title: 'Services',\n    href: '/#Services',\n  },\n  {\n    title: 'Portfolio',\n    href: '/portfolio',\n  },\n  {\n    title: 'Contact',\n    href: '/contact',\n  },\n];\nconst socialLinks = [\n  {\n    title: 'Github',\n    href: 'https://github.com/YoucefBnm/',\n  },\n  {\n    title: 'Linkedin',\n    href: 'https://www.linkedin.com/in/',\n  },\n  {\n    title: 'X',\n    href: 'https://x.com/lbnm_yussef',\n  },\n  {\n    title: '21st',\n    href: 'https://21st.dev/community/YoucefBnm',\n  },\n];\nexport function AnimatedMenuDemo() {\n  return (\n    <div className=\"self-start h-svh w-full z-[999] flex items-start justify-between px-8 py-2\">\n      <span className=\"text-xl font-bold tracking-tight\">Systaliko UI</span>\n      <div className=\"flex gap-4\">\n        <AnimatedMenu className=\"relative\">\n          <AnimatedMenuButton className=\"mr-4.5 text-zinc-50\">\n            <AnimatedMenuButtonToggleIcon className=\"*:rounded *:bg-zinc-50\" />\n            <AnimatedMenuButtonLabel />\n          </AnimatedMenuButton>\n          <AnimatedMenuList className=\"absolute right-0 top-0 bg-zinc-950/90  border border-secondary-foreground/5 backdrop-blur rounded-3xl\">\n            <div className=\"flex flex-col px-6 justify-evenly gap-6 items-start size-full\">\n              <div className=\"flex flex-col items-start gap-4 *:transition-blur *:duration-300 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none\">\n                {menuItems.map((item, i) => (\n                  <AnimatedMenuItem key={i} order={i}>\n                    <Link\n                      className=\"text-2xl font-medium text-white \"\n                      href={item.href}\n                      title={item.title}\n                    >\n                      {item.title}\n                    </Link>\n                  </AnimatedMenuItem>\n                ))}\n              </div>\n              <div className=\"flex gap-4 *:transition-blur *:duration-300 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none\">\n                {socialLinks.map((item, i) => (\n                  <AnimatedMenuItem\n                    key={item.title}\n                    order={i + menuItems.length}\n                  >\n                    <Link\n                      className=\" font-medium text-muted\"\n                      href={item.href}\n                      title={item.title}\n                    >\n                      {item.title}\n                    </Link>\n                  </AnimatedMenuItem>\n                ))}\n              </div>\n            </div>\n          </AnimatedMenuList>\n        </AnimatedMenu>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/blocks/animated-menu.tsx"
+    }
+  ]
+}
