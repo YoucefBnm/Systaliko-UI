@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-wavy",
+  "type": "registry:ui",
+  "title": "Text Wavy",
+  "description": "Infinite text animation with wavy effect.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "registry/text/text-wavy/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/text-wavy.tsx"
+    }
+  ]
+}

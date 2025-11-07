@@ -1240,7 +1240,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/blocks/wavy-block.tsx',
         content:
-          "'use client';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  SpringOptions,\n  useMotionValue,\n  useReducedMotion,\n  useScroll,\n  useSpring,\n} from 'motion/react';\nimport React from 'react';\n\ninterface WavyTextsConfig {\n  baseOffsetFactor: number;\n  baseExtra: number;\n  baseAmplitude: number;\n  lengthEffect: number;\n  frequency: number;\n  progressScale: number;\n  phaseShiftDeg: number;\n  spring: SpringOptions;\n}\ninterface WavyBlockItemProps extends HTMLMotionProps<'div'> {\n  index: number;\n  config?: WavyTextsConfig;\n}\ninterface WavyBlockContextValue {\n  scrollYProgress: MotionValue<number>;\n  maxLen: number;\n}\n\nconst WavyBlockContext = React.createContext<WavyBlockContextValue | undefined>(\n  undefined,\n);\n\nfunction useWavyBlockContext() {\n  const context = React.useContext(WavyBlockContext);\n  if (context === undefined) {\n    throw new Error('useWavyBlockContext must be used within a WavyBlock');\n  }\n  return context;\n}\nconst toRadian = (deg: number) => (deg * Math.PI) / 180;\n\nexport function WavyBlockItem({\n  index,\n  config = {\n    baseOffsetFactor: 0.1,\n    baseExtra: 0,\n    baseAmplitude: 160,\n    lengthEffect: 0.6,\n    frequency: 35,\n    progressScale: 6,\n    phaseShiftDeg: -180,\n    spring: { damping: 22, stiffness: 300 },\n  },\n  style,\n  ...props\n}: WavyBlockItemProps) {\n  const { scrollYProgress, maxLen } = useWavyBlockContext();\n  const reducedMotion = useReducedMotion();\n  const lengthFactor = Math.min(1, Math.max(0, maxLen / (maxLen || 1)));\n\n  const [isMounted, setIsMounted] = React.useState<boolean>(false);\n\n  const calculateX = React.useCallback(\n    (p: number, windowWidth?: number) => {\n      const phase = config.progressScale * p;\n\n      const width =\n        windowWidth ??\n        (typeof window !== 'undefined' ? window.innerWidth : 1200);\n      const baseOffset = config.baseOffsetFactor * width + config.baseExtra;\n\n      const amplitudeScale = 1 - config.lengthEffect * lengthFactor;\n      const amplitude = config.baseAmplitude * amplitudeScale;\n\n      const angle =\n        toRadian(config.frequency * index) +\n        phase +\n        toRadian(config.phaseShiftDeg);\n\n      return baseOffset + amplitude * Math.cos(angle);\n    },\n    [config, lengthFactor, index],\n  );\n\n  const initialX = calculateX(0, 1200);\n  const rawX = useMotionValue(initialX);\n  const springX = useSpring(rawX, config.spring);\n  const x = reducedMotion ? rawX : springX;\n\n  React.useLayoutEffect(() => {\n    setIsMounted(true);\n  }, []);\n\n  React.useEffect(() => {\n    if (!scrollYProgress || !isMounted) return;\n\n    const unsub = scrollYProgress.onChange((p) => {\n      const windowWidth =\n        typeof window !== 'undefined' ? window.innerWidth : 1200;\n      const newX = calculateX(p, windowWidth);\n      rawX.set(newX);\n    });\n\n    return () => {\n      if (unsub) unsub();\n    };\n  }, [scrollYProgress, rawX, calculateX, isMounted]);\n\n  return (\n    <motion.div style={{ x, ...style }} suppressHydrationWarning {...props} />\n  );\n}\n\nexport function WavyBlock({ ...props }: React.ComponentPropsWithRef<'div'>) {\n  const containerRef = React.useRef<HTMLDivElement>(null);\n  const { current } = containerRef;\n\n  const maxLen = React.useMemo(() => {\n    if (!current?.children || current.children.length === 0) return 1;\n    const childrenArray = Array.from(current.children);\n    return Math.max(\n      ...childrenArray.map((child) => (child ? String(child).length : 0)),\n    );\n  }, [current?.children]);\n\n  const { scrollYProgress } = useScroll({\n    target: containerRef,\n    offset: ['start end', 'end start'],\n  });\n  return (\n    <WavyBlockContext.Provider value={{ scrollYProgress, maxLen }}>\n      <div ref={containerRef} {...props} />\n    </WavyBlockContext.Provider>\n  );\n}",
+          "'use client';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  SpringOptions,\n  useMotionValue,\n  useReducedMotion,\n  useScroll,\n  useSpring,\n} from 'motion/react';\nimport React from 'react';\n\ninterface WavyTextsConfig {\n  baseOffsetFactor: number;\n  baseExtra: number;\n  baseAmplitude: number;\n  lengthEffect: number;\n  frequency: number;\n  progressScale: number;\n  phaseShiftDeg: number;\n  spring: SpringOptions;\n}\ninterface WavyBlockItemProps extends HTMLMotionProps<'div'> {\n  index: number;\n  config?: WavyTextsConfig;\n}\ninterface WavyBlockContextValue {\n  scrollYProgress: MotionValue<number>;\n  maxLen: number;\n}\n\nconst WavyBlockContext = React.createContext<WavyBlockContextValue | undefined>(\n  undefined,\n);\n\nfunction useWavyBlockContext() {\n  const context = React.useContext(WavyBlockContext);\n  if (context === undefined) {\n    throw new Error('useWavyBlockContext must be used within a WavyBlock');\n  }\n  return context;\n}\nconst toRadian = (deg: number) => (deg * Math.PI) / 180;\n\nexport function WavyBlockItem({\n  index,\n  config = {\n    baseOffsetFactor: 0.1,\n    baseExtra: 0,\n    baseAmplitude: 160,\n    lengthEffect: 0.6,\n    frequency: 35,\n    progressScale: 6,\n    phaseShiftDeg: -180,\n    spring: { damping: 22, stiffness: 300 },\n  },\n  style,\n  ...props\n}: WavyBlockItemProps) {\n  const { scrollYProgress, maxLen } = useWavyBlockContext();\n  const reducedMotion = useReducedMotion();\n  const lengthFactor = Math.min(1, Math.max(0, maxLen / (maxLen || 1)));\n\n  const [isMounted, setIsMounted] = React.useState<boolean>(false);\n\n  const calculateX = React.useCallback(\n    (p: number, windowWidth?: number) => {\n      const phase = config.progressScale * p;\n\n      const width =\n        windowWidth ??\n        (typeof window !== 'undefined' ? window.innerWidth : 1200);\n      const baseOffset = config.baseOffsetFactor * width + config.baseExtra;\n\n      const amplitudeScale = 1 - config.lengthEffect * lengthFactor;\n      const amplitude = config.baseAmplitude * amplitudeScale;\n\n      const angle =\n        toRadian(config.frequency * index) +\n        phase +\n        toRadian(config.phaseShiftDeg);\n\n      return baseOffset + amplitude * Math.cos(angle);\n    },\n    [config, lengthFactor, index],\n  );\n\n  const initialX = calculateX(0, 1200);\n  const rawX = useMotionValue(initialX);\n  const springX = useSpring(rawX, config.spring);\n  const x = reducedMotion ? rawX : springX;\n\n  React.useLayoutEffect(() => {\n    setIsMounted(true);\n  }, []);\n\n  React.useEffect(() => {\n    if (!scrollYProgress || !isMounted) return;\n\n    const unsub = scrollYProgress.onChange((p) => {\n      const windowWidth =\n        typeof window !== 'undefined' ? window.innerWidth : 1200;\n      const newX = calculateX(p, windowWidth);\n      rawX.set(newX);\n    });\n\n    return () => {\n      if (unsub) unsub();\n    };\n  }, [scrollYProgress, rawX, calculateX, isMounted]);\n\n  return (\n    <motion.div style={{ x, ...style }} suppressHydrationWarning {...props} />\n  );\n}\n\nexport function WavyBlock({\n  offset = ['start end', 'end start'],\n  ...props\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n}: React.ComponentPropsWithRef<'div'> & { offset?: any }) {\n  const containerRef = React.useRef<HTMLDivElement>(null);\n  const { current } = containerRef;\n\n  const maxLen = React.useMemo(() => {\n    if (!current?.children || current.children.length === 0) return 1;\n    const childrenArray = Array.from(current.children);\n    return Math.max(\n      ...childrenArray.map((child) => (child ? String(child).length : 0)),\n    );\n  }, [current?.children]);\n\n  const { scrollYProgress } = useScroll({\n    target: containerRef,\n    offset: offset,\n  });\n  return (\n    <WavyBlockContext.Provider value={{ scrollYProgress, maxLen }}>\n      <div ref={containerRef} {...props} />\n    </WavyBlockContext.Provider>\n  );\n}",
       },
     ],
     component: (function () {
@@ -1276,7 +1276,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/blocks/wavy-block.tsx',
         content:
-          "'use client';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  SpringOptions,\n  useMotionValue,\n  useReducedMotion,\n  useScroll,\n  useSpring,\n} from 'motion/react';\nimport React from 'react';\n\ninterface WavyTextsConfig {\n  baseOffsetFactor: number;\n  baseExtra: number;\n  baseAmplitude: number;\n  lengthEffect: number;\n  frequency: number;\n  progressScale: number;\n  phaseShiftDeg: number;\n  spring: SpringOptions;\n}\ninterface WavyBlockItemProps extends HTMLMotionProps<'div'> {\n  index: number;\n  config?: WavyTextsConfig;\n}\ninterface WavyBlockContextValue {\n  scrollYProgress: MotionValue<number>;\n  maxLen: number;\n}\n\nconst WavyBlockContext = React.createContext<WavyBlockContextValue | undefined>(\n  undefined,\n);\n\nfunction useWavyBlockContext() {\n  const context = React.useContext(WavyBlockContext);\n  if (context === undefined) {\n    throw new Error('useWavyBlockContext must be used within a WavyBlock');\n  }\n  return context;\n}\nconst toRadian = (deg: number) => (deg * Math.PI) / 180;\n\nexport function WavyBlockItem({\n  index,\n  config = {\n    baseOffsetFactor: 0.1,\n    baseExtra: 0,\n    baseAmplitude: 160,\n    lengthEffect: 0.6,\n    frequency: 35,\n    progressScale: 6,\n    phaseShiftDeg: -180,\n    spring: { damping: 22, stiffness: 300 },\n  },\n  style,\n  ...props\n}: WavyBlockItemProps) {\n  const { scrollYProgress, maxLen } = useWavyBlockContext();\n  const reducedMotion = useReducedMotion();\n  const lengthFactor = Math.min(1, Math.max(0, maxLen / (maxLen || 1)));\n\n  const [isMounted, setIsMounted] = React.useState<boolean>(false);\n\n  const calculateX = React.useCallback(\n    (p: number, windowWidth?: number) => {\n      const phase = config.progressScale * p;\n\n      const width =\n        windowWidth ??\n        (typeof window !== 'undefined' ? window.innerWidth : 1200);\n      const baseOffset = config.baseOffsetFactor * width + config.baseExtra;\n\n      const amplitudeScale = 1 - config.lengthEffect * lengthFactor;\n      const amplitude = config.baseAmplitude * amplitudeScale;\n\n      const angle =\n        toRadian(config.frequency * index) +\n        phase +\n        toRadian(config.phaseShiftDeg);\n\n      return baseOffset + amplitude * Math.cos(angle);\n    },\n    [config, lengthFactor, index],\n  );\n\n  const initialX = calculateX(0, 1200);\n  const rawX = useMotionValue(initialX);\n  const springX = useSpring(rawX, config.spring);\n  const x = reducedMotion ? rawX : springX;\n\n  React.useLayoutEffect(() => {\n    setIsMounted(true);\n  }, []);\n\n  React.useEffect(() => {\n    if (!scrollYProgress || !isMounted) return;\n\n    const unsub = scrollYProgress.onChange((p) => {\n      const windowWidth =\n        typeof window !== 'undefined' ? window.innerWidth : 1200;\n      const newX = calculateX(p, windowWidth);\n      rawX.set(newX);\n    });\n\n    return () => {\n      if (unsub) unsub();\n    };\n  }, [scrollYProgress, rawX, calculateX, isMounted]);\n\n  return (\n    <motion.div style={{ x, ...style }} suppressHydrationWarning {...props} />\n  );\n}\n\nexport function WavyBlock({ ...props }: React.ComponentPropsWithRef<'div'>) {\n  const containerRef = React.useRef<HTMLDivElement>(null);\n  const { current } = containerRef;\n\n  const maxLen = React.useMemo(() => {\n    if (!current?.children || current.children.length === 0) return 1;\n    const childrenArray = Array.from(current.children);\n    return Math.max(\n      ...childrenArray.map((child) => (child ? String(child).length : 0)),\n    );\n  }, [current?.children]);\n\n  const { scrollYProgress } = useScroll({\n    target: containerRef,\n    offset: ['start end', 'end start'],\n  });\n  return (\n    <WavyBlockContext.Provider value={{ scrollYProgress, maxLen }}>\n      <div ref={containerRef} {...props} />\n    </WavyBlockContext.Provider>\n  );\n}",
+          "'use client';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  SpringOptions,\n  useMotionValue,\n  useReducedMotion,\n  useScroll,\n  useSpring,\n} from 'motion/react';\nimport React from 'react';\n\ninterface WavyTextsConfig {\n  baseOffsetFactor: number;\n  baseExtra: number;\n  baseAmplitude: number;\n  lengthEffect: number;\n  frequency: number;\n  progressScale: number;\n  phaseShiftDeg: number;\n  spring: SpringOptions;\n}\ninterface WavyBlockItemProps extends HTMLMotionProps<'div'> {\n  index: number;\n  config?: WavyTextsConfig;\n}\ninterface WavyBlockContextValue {\n  scrollYProgress: MotionValue<number>;\n  maxLen: number;\n}\n\nconst WavyBlockContext = React.createContext<WavyBlockContextValue | undefined>(\n  undefined,\n);\n\nfunction useWavyBlockContext() {\n  const context = React.useContext(WavyBlockContext);\n  if (context === undefined) {\n    throw new Error('useWavyBlockContext must be used within a WavyBlock');\n  }\n  return context;\n}\nconst toRadian = (deg: number) => (deg * Math.PI) / 180;\n\nexport function WavyBlockItem({\n  index,\n  config = {\n    baseOffsetFactor: 0.1,\n    baseExtra: 0,\n    baseAmplitude: 160,\n    lengthEffect: 0.6,\n    frequency: 35,\n    progressScale: 6,\n    phaseShiftDeg: -180,\n    spring: { damping: 22, stiffness: 300 },\n  },\n  style,\n  ...props\n}: WavyBlockItemProps) {\n  const { scrollYProgress, maxLen } = useWavyBlockContext();\n  const reducedMotion = useReducedMotion();\n  const lengthFactor = Math.min(1, Math.max(0, maxLen / (maxLen || 1)));\n\n  const [isMounted, setIsMounted] = React.useState<boolean>(false);\n\n  const calculateX = React.useCallback(\n    (p: number, windowWidth?: number) => {\n      const phase = config.progressScale * p;\n\n      const width =\n        windowWidth ??\n        (typeof window !== 'undefined' ? window.innerWidth : 1200);\n      const baseOffset = config.baseOffsetFactor * width + config.baseExtra;\n\n      const amplitudeScale = 1 - config.lengthEffect * lengthFactor;\n      const amplitude = config.baseAmplitude * amplitudeScale;\n\n      const angle =\n        toRadian(config.frequency * index) +\n        phase +\n        toRadian(config.phaseShiftDeg);\n\n      return baseOffset + amplitude * Math.cos(angle);\n    },\n    [config, lengthFactor, index],\n  );\n\n  const initialX = calculateX(0, 1200);\n  const rawX = useMotionValue(initialX);\n  const springX = useSpring(rawX, config.spring);\n  const x = reducedMotion ? rawX : springX;\n\n  React.useLayoutEffect(() => {\n    setIsMounted(true);\n  }, []);\n\n  React.useEffect(() => {\n    if (!scrollYProgress || !isMounted) return;\n\n    const unsub = scrollYProgress.onChange((p) => {\n      const windowWidth =\n        typeof window !== 'undefined' ? window.innerWidth : 1200;\n      const newX = calculateX(p, windowWidth);\n      rawX.set(newX);\n    });\n\n    return () => {\n      if (unsub) unsub();\n    };\n  }, [scrollYProgress, rawX, calculateX, isMounted]);\n\n  return (\n    <motion.div style={{ x, ...style }} suppressHydrationWarning {...props} />\n  );\n}\n\nexport function WavyBlock({\n  offset = ['start end', 'end start'],\n  ...props\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n}: React.ComponentPropsWithRef<'div'> & { offset?: any }) {\n  const containerRef = React.useRef<HTMLDivElement>(null);\n  const { current } = containerRef;\n\n  const maxLen = React.useMemo(() => {\n    if (!current?.children || current.children.length === 0) return 1;\n    const childrenArray = Array.from(current.children);\n    return Math.max(\n      ...childrenArray.map((child) => (child ? String(child).length : 0)),\n    );\n  }, [current?.children]);\n\n  const { scrollYProgress } = useScroll({\n    target: containerRef,\n    offset: offset,\n  });\n  return (\n    <WavyBlockContext.Provider value={{ scrollYProgress, maxLen }}>\n      <div ref={containerRef} {...props} />\n    </WavyBlockContext.Provider>\n  );\n}",
       },
     ],
     component: (function () {
@@ -1312,7 +1312,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/blocks/wavy-block.tsx',
         content:
-          "'use client';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  SpringOptions,\n  useMotionValue,\n  useReducedMotion,\n  useScroll,\n  useSpring,\n} from 'motion/react';\nimport React from 'react';\n\ninterface WavyTextsConfig {\n  baseOffsetFactor: number;\n  baseExtra: number;\n  baseAmplitude: number;\n  lengthEffect: number;\n  frequency: number;\n  progressScale: number;\n  phaseShiftDeg: number;\n  spring: SpringOptions;\n}\ninterface WavyBlockItemProps extends HTMLMotionProps<'div'> {\n  index: number;\n  config?: WavyTextsConfig;\n}\ninterface WavyBlockContextValue {\n  scrollYProgress: MotionValue<number>;\n  maxLen: number;\n}\n\nconst WavyBlockContext = React.createContext<WavyBlockContextValue | undefined>(\n  undefined,\n);\n\nfunction useWavyBlockContext() {\n  const context = React.useContext(WavyBlockContext);\n  if (context === undefined) {\n    throw new Error('useWavyBlockContext must be used within a WavyBlock');\n  }\n  return context;\n}\nconst toRadian = (deg: number) => (deg * Math.PI) / 180;\n\nexport function WavyBlockItem({\n  index,\n  config = {\n    baseOffsetFactor: 0.1,\n    baseExtra: 0,\n    baseAmplitude: 160,\n    lengthEffect: 0.6,\n    frequency: 35,\n    progressScale: 6,\n    phaseShiftDeg: -180,\n    spring: { damping: 22, stiffness: 300 },\n  },\n  style,\n  ...props\n}: WavyBlockItemProps) {\n  const { scrollYProgress, maxLen } = useWavyBlockContext();\n  const reducedMotion = useReducedMotion();\n  const lengthFactor = Math.min(1, Math.max(0, maxLen / (maxLen || 1)));\n\n  const [isMounted, setIsMounted] = React.useState<boolean>(false);\n\n  const calculateX = React.useCallback(\n    (p: number, windowWidth?: number) => {\n      const phase = config.progressScale * p;\n\n      const width =\n        windowWidth ??\n        (typeof window !== 'undefined' ? window.innerWidth : 1200);\n      const baseOffset = config.baseOffsetFactor * width + config.baseExtra;\n\n      const amplitudeScale = 1 - config.lengthEffect * lengthFactor;\n      const amplitude = config.baseAmplitude * amplitudeScale;\n\n      const angle =\n        toRadian(config.frequency * index) +\n        phase +\n        toRadian(config.phaseShiftDeg);\n\n      return baseOffset + amplitude * Math.cos(angle);\n    },\n    [config, lengthFactor, index],\n  );\n\n  const initialX = calculateX(0, 1200);\n  const rawX = useMotionValue(initialX);\n  const springX = useSpring(rawX, config.spring);\n  const x = reducedMotion ? rawX : springX;\n\n  React.useLayoutEffect(() => {\n    setIsMounted(true);\n  }, []);\n\n  React.useEffect(() => {\n    if (!scrollYProgress || !isMounted) return;\n\n    const unsub = scrollYProgress.onChange((p) => {\n      const windowWidth =\n        typeof window !== 'undefined' ? window.innerWidth : 1200;\n      const newX = calculateX(p, windowWidth);\n      rawX.set(newX);\n    });\n\n    return () => {\n      if (unsub) unsub();\n    };\n  }, [scrollYProgress, rawX, calculateX, isMounted]);\n\n  return (\n    <motion.div style={{ x, ...style }} suppressHydrationWarning {...props} />\n  );\n}\n\nexport function WavyBlock({ ...props }: React.ComponentPropsWithRef<'div'>) {\n  const containerRef = React.useRef<HTMLDivElement>(null);\n  const { current } = containerRef;\n\n  const maxLen = React.useMemo(() => {\n    if (!current?.children || current.children.length === 0) return 1;\n    const childrenArray = Array.from(current.children);\n    return Math.max(\n      ...childrenArray.map((child) => (child ? String(child).length : 0)),\n    );\n  }, [current?.children]);\n\n  const { scrollYProgress } = useScroll({\n    target: containerRef,\n    offset: ['start end', 'end start'],\n  });\n  return (\n    <WavyBlockContext.Provider value={{ scrollYProgress, maxLen }}>\n      <div ref={containerRef} {...props} />\n    </WavyBlockContext.Provider>\n  );\n}",
+          "'use client';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  SpringOptions,\n  useMotionValue,\n  useReducedMotion,\n  useScroll,\n  useSpring,\n} from 'motion/react';\nimport React from 'react';\n\ninterface WavyTextsConfig {\n  baseOffsetFactor: number;\n  baseExtra: number;\n  baseAmplitude: number;\n  lengthEffect: number;\n  frequency: number;\n  progressScale: number;\n  phaseShiftDeg: number;\n  spring: SpringOptions;\n}\ninterface WavyBlockItemProps extends HTMLMotionProps<'div'> {\n  index: number;\n  config?: WavyTextsConfig;\n}\ninterface WavyBlockContextValue {\n  scrollYProgress: MotionValue<number>;\n  maxLen: number;\n}\n\nconst WavyBlockContext = React.createContext<WavyBlockContextValue | undefined>(\n  undefined,\n);\n\nfunction useWavyBlockContext() {\n  const context = React.useContext(WavyBlockContext);\n  if (context === undefined) {\n    throw new Error('useWavyBlockContext must be used within a WavyBlock');\n  }\n  return context;\n}\nconst toRadian = (deg: number) => (deg * Math.PI) / 180;\n\nexport function WavyBlockItem({\n  index,\n  config = {\n    baseOffsetFactor: 0.1,\n    baseExtra: 0,\n    baseAmplitude: 160,\n    lengthEffect: 0.6,\n    frequency: 35,\n    progressScale: 6,\n    phaseShiftDeg: -180,\n    spring: { damping: 22, stiffness: 300 },\n  },\n  style,\n  ...props\n}: WavyBlockItemProps) {\n  const { scrollYProgress, maxLen } = useWavyBlockContext();\n  const reducedMotion = useReducedMotion();\n  const lengthFactor = Math.min(1, Math.max(0, maxLen / (maxLen || 1)));\n\n  const [isMounted, setIsMounted] = React.useState<boolean>(false);\n\n  const calculateX = React.useCallback(\n    (p: number, windowWidth?: number) => {\n      const phase = config.progressScale * p;\n\n      const width =\n        windowWidth ??\n        (typeof window !== 'undefined' ? window.innerWidth : 1200);\n      const baseOffset = config.baseOffsetFactor * width + config.baseExtra;\n\n      const amplitudeScale = 1 - config.lengthEffect * lengthFactor;\n      const amplitude = config.baseAmplitude * amplitudeScale;\n\n      const angle =\n        toRadian(config.frequency * index) +\n        phase +\n        toRadian(config.phaseShiftDeg);\n\n      return baseOffset + amplitude * Math.cos(angle);\n    },\n    [config, lengthFactor, index],\n  );\n\n  const initialX = calculateX(0, 1200);\n  const rawX = useMotionValue(initialX);\n  const springX = useSpring(rawX, config.spring);\n  const x = reducedMotion ? rawX : springX;\n\n  React.useLayoutEffect(() => {\n    setIsMounted(true);\n  }, []);\n\n  React.useEffect(() => {\n    if (!scrollYProgress || !isMounted) return;\n\n    const unsub = scrollYProgress.onChange((p) => {\n      const windowWidth =\n        typeof window !== 'undefined' ? window.innerWidth : 1200;\n      const newX = calculateX(p, windowWidth);\n      rawX.set(newX);\n    });\n\n    return () => {\n      if (unsub) unsub();\n    };\n  }, [scrollYProgress, rawX, calculateX, isMounted]);\n\n  return (\n    <motion.div style={{ x, ...style }} suppressHydrationWarning {...props} />\n  );\n}\n\nexport function WavyBlock({\n  offset = ['start end', 'end start'],\n  ...props\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n}: React.ComponentPropsWithRef<'div'> & { offset?: any }) {\n  const containerRef = React.useRef<HTMLDivElement>(null);\n  const { current } = containerRef;\n\n  const maxLen = React.useMemo(() => {\n    if (!current?.children || current.children.length === 0) return 1;\n    const childrenArray = Array.from(current.children);\n    return Math.max(\n      ...childrenArray.map((child) => (child ? String(child).length : 0)),\n    );\n  }, [current?.children]);\n\n  const { scrollYProgress } = useScroll({\n    target: containerRef,\n    offset: offset,\n  });\n  return (\n    <WavyBlockContext.Provider value={{ scrollYProgress, maxLen }}>\n      <div ref={containerRef} {...props} />\n    </WavyBlockContext.Provider>\n  );\n}",
       },
     ],
     component: (function () {
@@ -5564,7 +5564,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/blocks/wavy-block.tsx',
         content:
-          "import { WavyBlock, WavyBlockItem } from '@/components/systaliko-ui/blocks/wavy-block';\n\nconst titles = [\n  'Flexible',\n  'Animated',\n  'Customizable',\n  'Optimized',\n  'Lightweight',\n  'Responsive',\n  'UI Blocks',\n];\n\nexport function WavyBlockDemo() {\n  return (\n    <div className=\"max-w-6xl\">\n      <WavyBlock className=\"flex flex-col justify-start items-start gap-6\">\n        {titles.map((title, index) => (\n          <WavyBlockItem key={title} index={index}>\n            <h2 className=\" text-[5.3vw] font-bold leading-none tracking-tighter uppercase whitespace-nowrap\">\n              {title}\n            </h2>\n          </WavyBlockItem>\n        ))}\n      </WavyBlock>\n    </div>\n  );\n}",
+          "import { WavyBlock, WavyBlockItem } from '@/components/systaliko-ui/blocks/wavy-block';\n\nconst titles = [\n  'Flexible',\n  'Animated',\n  'Customizable',\n  'Optimized',\n  'Lightweight',\n  'Responsive',\n  'UI Blocks',\n];\n\nexport function WavyBlockDemo() {\n  return (\n    <div className=\"w-full overflow-hidden\">\n      <WavyBlock className=\"flex flex-col justify-start items-start gap-6\">\n        {titles.map((title, index) => (\n          <WavyBlockItem key={title} index={index}>\n            <h2 className=\" text-[4.3vw] font-bold leading-none tracking-tighter uppercase whitespace-nowrap\">\n              {title}\n            </h2>\n          </WavyBlockItem>\n        ))}\n      </WavyBlock>\n    </div>\n  );\n}",
       },
     ],
     component: (function () {
@@ -5599,7 +5599,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/blocks/wavy-block.tsx',
         content:
-          "import { WavyBlock, WavyBlockItem } from '@/components/systaliko-ui/blocks/wavy-block';\n\nconst titles = [\n  'Flexible',\n  'Animated',\n  'Customizable',\n  'Optimized',\n  'Lightweight',\n  'Responsive',\n  'UI Blocks',\n];\n\nexport function WavyBlockDemo() {\n  return (\n    <div className=\"max-w-6xl\">\n      <WavyBlock className=\"flex flex-col justify-start items-start gap-6\">\n        {titles.map((title, index) => (\n          <WavyBlockItem key={title} index={index}>\n            <h2 className=\" text-[5.3vw] font-bold leading-none tracking-tighter uppercase whitespace-nowrap\">\n              {title}\n            </h2>\n          </WavyBlockItem>\n        ))}\n      </WavyBlock>\n    </div>\n  );\n}",
+          "import { WavyBlock, WavyBlockItem } from '@/components/systaliko-ui/blocks/wavy-block';\n\nconst titles = [\n  'Flexible',\n  'Animated',\n  'Customizable',\n  'Optimized',\n  'Lightweight',\n  'Responsive',\n  'UI Blocks',\n];\n\nexport function WavyBlockDemo() {\n  return (\n    <div className=\"w-full overflow-hidden\">\n      <WavyBlock className=\"flex flex-col justify-start items-start gap-6\">\n        {titles.map((title, index) => (\n          <WavyBlockItem key={title} index={index}>\n            <h2 className=\" text-[4.3vw] font-bold leading-none tracking-tighter uppercase whitespace-nowrap\">\n              {title}\n            </h2>\n          </WavyBlockItem>\n        ))}\n      </WavyBlock>\n    </div>\n  );\n}",
       },
     ],
     component: (function () {
@@ -5635,7 +5635,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/blocks/wavy-block.tsx',
         content:
-          "import { WavyBlock, WavyBlockItem } from '@/components/systaliko-ui/blocks/wavy-block';\n\nconst titles = [\n  'Flexible',\n  'Animated',\n  'Customizable',\n  'Optimized',\n  'Lightweight',\n  'Responsive',\n  'UI Blocks',\n];\n\nexport function WavyBlockDemo() {\n  return (\n    <div className=\"max-w-6xl\">\n      <WavyBlock className=\"flex flex-col justify-start items-start gap-6\">\n        {titles.map((title, index) => (\n          <WavyBlockItem key={title} index={index}>\n            <h2 className=\" text-[5.3vw] font-bold leading-none tracking-tighter uppercase whitespace-nowrap\">\n              {title}\n            </h2>\n          </WavyBlockItem>\n        ))}\n      </WavyBlock>\n    </div>\n  );\n}",
+          "import { WavyBlock, WavyBlockItem } from '@/components/systaliko-ui/blocks/wavy-block';\n\nconst titles = [\n  'Flexible',\n  'Animated',\n  'Customizable',\n  'Optimized',\n  'Lightweight',\n  'Responsive',\n  'UI Blocks',\n];\n\nexport function WavyBlockDemo() {\n  return (\n    <div className=\"w-full overflow-hidden\">\n      <WavyBlock className=\"flex flex-col justify-start items-start gap-6\">\n        {titles.map((title, index) => (\n          <WavyBlockItem key={title} index={index}>\n            <h2 className=\" text-[4.3vw] font-bold leading-none tracking-tighter uppercase whitespace-nowrap\">\n              {title}\n            </h2>\n          </WavyBlockItem>\n        ))}\n      </WavyBlock>\n    </div>\n  );\n}",
       },
     ],
     component: (function () {
@@ -7251,7 +7251,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/text/text-scroll-read.tsx',
         content:
-          'import {\n  ClipText,\n  TextScrollRead,\n  TextScrollReadWrap,\n} from \'@/components/systaliko-ui/text/text-scroll-read\';\n\nexport function TextScrollReadDemo() {\n  return (\n    <div className="relative min-h-screen px-6 md:px-12">\n      <TextScrollRead offset={[\'0% 50%\', \'50% 50%\']}>\n        <TextScrollReadWrap className="h-screen my-12 place-content-center md:w-4/5 mx-auto">\n          <ClipText className="text-3xl md:text-4xl font-bold leading-normal uppercase bg-[linear-gradient(-90deg,rgba(0,0,0,0.05)_50%,rgb(0,0,0)_50%)]">\n            multidisciplinary creative studio specializing in brand strategy,\n            product design, and digital experiences.\n          </ClipText>\n        </TextScrollReadWrap>\n      </TextScrollRead>\n    </div>\n  );\n}',
+          'import {\n  ClipText,\n  TextScrollRead,\n  TextScrollReadWrap,\n} from \'@/components/systaliko-ui/text/text-scroll-read\';\n\nexport function TextScrollReadDemo() {\n  return (\n    <div className="relative min-h-screen px-6 md:px-12">\n      <TextScrollRead>\n        <TextScrollReadWrap className="h-screen my-12 place-content-center md:w-4/5 mx-auto">\n          <ClipText className="text-3xl md:text-4xl font-bold leading-normal uppercase bg-[linear-gradient(-90deg,rgba(0,0,0,0.05)_50%,rgb(0,0,0)_50%)]">\n            multidisciplinary creative studio specializing in brand strategy,\n            product design, and digital experiences.\n          </ClipText>\n        </TextScrollReadWrap>\n      </TextScrollRead>\n    </div>\n  );\n}',
       },
     ],
     component: (function () {
@@ -7289,7 +7289,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/text/text-scroll-read.tsx',
         content:
-          'import {\n  ClipText,\n  TextScrollRead,\n  TextScrollReadWrap,\n} from \'@/components/systaliko-ui/text/text-scroll-read\';\n\nexport function TextScrollReadDemo() {\n  return (\n    <div className="relative min-h-screen px-6 md:px-12">\n      <TextScrollRead offset={[\'0% 50%\', \'50% 50%\']}>\n        <TextScrollReadWrap className="h-screen my-12 place-content-center md:w-4/5 mx-auto">\n          <ClipText className="text-3xl md:text-4xl font-bold leading-normal uppercase bg-[linear-gradient(-90deg,rgba(0,0,0,0.05)_50%,rgb(0,0,0)_50%)]">\n            multidisciplinary creative studio specializing in brand strategy,\n            product design, and digital experiences.\n          </ClipText>\n        </TextScrollReadWrap>\n      </TextScrollRead>\n    </div>\n  );\n}',
+          'import {\n  ClipText,\n  TextScrollRead,\n  TextScrollReadWrap,\n} from \'@/components/systaliko-ui/text/text-scroll-read\';\n\nexport function TextScrollReadDemo() {\n  return (\n    <div className="relative min-h-screen px-6 md:px-12">\n      <TextScrollRead>\n        <TextScrollReadWrap className="h-screen my-12 place-content-center md:w-4/5 mx-auto">\n          <ClipText className="text-3xl md:text-4xl font-bold leading-normal uppercase bg-[linear-gradient(-90deg,rgba(0,0,0,0.05)_50%,rgb(0,0,0)_50%)]">\n            multidisciplinary creative studio specializing in brand strategy,\n            product design, and digital experiences.\n          </ClipText>\n        </TextScrollReadWrap>\n      </TextScrollRead>\n    </div>\n  );\n}',
       },
     ],
     component: (function () {
@@ -7328,7 +7328,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/demo/text/text-scroll-read.tsx',
         content:
-          'import {\n  ClipText,\n  TextScrollRead,\n  TextScrollReadWrap,\n} from \'@/components/systaliko-ui/text/text-scroll-read\';\n\nexport function TextScrollReadDemo() {\n  return (\n    <div className="relative min-h-screen px-6 md:px-12">\n      <TextScrollRead offset={[\'0% 50%\', \'50% 50%\']}>\n        <TextScrollReadWrap className="h-screen my-12 place-content-center md:w-4/5 mx-auto">\n          <ClipText className="text-3xl md:text-4xl font-bold leading-normal uppercase bg-[linear-gradient(-90deg,rgba(0,0,0,0.05)_50%,rgb(0,0,0)_50%)]">\n            multidisciplinary creative studio specializing in brand strategy,\n            product design, and digital experiences.\n          </ClipText>\n        </TextScrollReadWrap>\n      </TextScrollRead>\n    </div>\n  );\n}',
+          'import {\n  ClipText,\n  TextScrollRead,\n  TextScrollReadWrap,\n} from \'@/components/systaliko-ui/text/text-scroll-read\';\n\nexport function TextScrollReadDemo() {\n  return (\n    <div className="relative min-h-screen px-6 md:px-12">\n      <TextScrollRead>\n        <TextScrollReadWrap className="h-screen my-12 place-content-center md:w-4/5 mx-auto">\n          <ClipText className="text-3xl md:text-4xl font-bold leading-normal uppercase bg-[linear-gradient(-90deg,rgba(0,0,0,0.05)_50%,rgb(0,0,0)_50%)]">\n            multidisciplinary creative studio specializing in brand strategy,\n            product design, and digital experiences.\n          </ClipText>\n        </TextScrollReadWrap>\n      </TextScrollRead>\n    </div>\n  );\n}',
       },
     ],
     component: (function () {
@@ -7811,113 +7811,110 @@ export const index: Record<string, any> = {
     command:
       'https://systaliko-ui.vercel.app/r/shadcn-new-york-text-vertical-demo',
   },
-  'default-wavy-texts-demo': {
-    name: 'default-wavy-texts-demo',
-    description: 'Demo showing a Wavy Texts component with default style.',
+  'default-text-wavy-demo': {
+    name: 'default-text-wavy-demo',
+    description: 'Demo showing text wavy component with default style.',
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/wavy-texts'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/text-wavy'],
     styles: undefined,
     files: [
       {
-        path: '__registry__/demo/text/wavy-texts/default/index.tsx',
+        path: '__registry__/demo/text/text-wavy/default/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/demo/text/wavy-texts.tsx',
+        target: 'components/systaliko-ui/demo/text-wavy.tsx',
         content:
-          "import { WavyTexts } from '@/components/systaliko-ui/text/wavy-texts';\n\nexport const WavyTextsDemo = () => {\n  return (\n    <WavyTexts\n      titles={[\n        'Experince',\n        'Empathetic',\n        'Creatively',\n        'Rational',\n        'Long-lasting',\n        'Optimal',\n        'Articulate',\n      ]}\n    />\n  );\n};",
+          "import { TextWavy } from '@/components/systaliko-ui/text/text-wavy';\n\nexport function TextWavyDemo() {\n  return (\n    <div className=\"flex justify-center items-center size-full\">\n      <TextWavy\n        delayTime={1}\n        colors={['rgba(0,0,0,0.5)', 'black', 'rgba(0,0,0,0.5)']}\n        fontSizes={['16px', '20px', '16px']}\n        className=\"uppercase  tracking-wider\"\n        text={\"Let's create a wave effect\"}\n      />\n    </div>\n  );\n}",
       },
     ],
     component: (function () {
       const LazyComp = React.lazy(async () => {
         const mod = await import(
-          '@/__registry__/demo/text/wavy-texts/default/index.tsx'
+          '@/__registry__/demo/text/text-wavy/default/index.tsx'
         );
         const exportName =
           Object.keys(mod).find(
             (key) =>
               typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'default-wavy-texts-demo';
+          ) || 'default-text-wavy-demo';
         const Comp = mod.default || mod[exportName];
         return { default: Comp };
       });
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.vercel.app/r/default-wavy-texts-demo',
+    command: 'https://systaliko-ui.vercel.app/r/default-text-wavy-demo',
   },
-  'shadcn-default-wavy-texts-demo': {
-    name: 'shadcn-default-wavy-texts-demo',
-    description:
-      'Demo showing a Wavy Texts component with shadcn-default style.',
+  'shadcn-default-text-wavy-demo': {
+    name: 'shadcn-default-text-wavy-demo',
+    description: 'Demo showing text wavy component with shadcn-default style.',
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/wavy-texts'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/text-wavy'],
     styles: undefined,
     files: [
       {
-        path: '__registry__/demo/text/wavy-texts/shadcn-default/index.tsx',
+        path: '__registry__/demo/text/text-wavy/shadcn-default/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/demo/text/wavy-texts.tsx',
+        target: 'components/systaliko-ui/demo/text-wavy.tsx',
         content:
-          "import { WavyTexts } from '@/components/systaliko-ui/text/wavy-texts';\n\nexport const WavyTextsDemo = () => {\n  return (\n    <WavyTexts\n      titles={[\n        'Experince',\n        'Empathetic',\n        'Creatively',\n        'Rational',\n        'Long-lasting',\n        'Optimal',\n        'Articulate',\n      ]}\n    />\n  );\n};",
+          "import { TextWavy } from '@/components/systaliko-ui/text/text-wavy';\n\nexport function TextWavyDemo() {\n  return (\n    <div className=\"flex justify-center items-center size-full\">\n      <TextWavy\n        delayTime={1}\n        colors={['rgba(0,0,0,0.5)', 'black', 'rgba(0,0,0,0.5)']}\n        fontSizes={['16px', '20px', '16px']}\n        className=\"uppercase  tracking-wider\"\n        text={\"Let's create a wave effect\"}\n      />\n    </div>\n  );\n}",
       },
     ],
     component: (function () {
       const LazyComp = React.lazy(async () => {
         const mod = await import(
-          '@/__registry__/demo/text/wavy-texts/shadcn-default/index.tsx'
+          '@/__registry__/demo/text/text-wavy/shadcn-default/index.tsx'
         );
         const exportName =
           Object.keys(mod).find(
             (key) =>
               typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'shadcn-default-wavy-texts-demo';
+          ) || 'shadcn-default-text-wavy-demo';
         const Comp = mod.default || mod[exportName];
         return { default: Comp };
       });
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-wavy-texts-demo',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-text-wavy-demo',
   },
-  'shadcn-new-york-wavy-texts-demo': {
-    name: 'shadcn-new-york-wavy-texts-demo',
-    description:
-      'Demo showing a Wavy Texts component with shadcn-new-york style.',
+  'shadcn-new-york-text-wavy-demo': {
+    name: 'shadcn-new-york-text-wavy-demo',
+    description: 'Demo showing text wavy component with shadcn-new-york style.',
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/wavy-texts'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/text-wavy'],
     styles: undefined,
     files: [
       {
-        path: '__registry__/demo/text/wavy-texts/shadcn-new-york/index.tsx',
+        path: '__registry__/demo/text/text-wavy/shadcn-new-york/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/demo/text/wavy-texts.tsx',
+        target: 'components/systaliko-ui/demo/text-wavy.tsx',
         content:
-          "import { WavyTexts } from '@/components/systaliko-ui/text/wavy-texts';\n\nexport const WavyTextsDemo = () => {\n  return (\n    <WavyTexts\n      titles={[\n        'Experince',\n        'Empathetic',\n        'Creatively',\n        'Rational',\n        'Long-lasting',\n        'Optimal',\n        'Articulate',\n      ]}\n    />\n  );\n};",
+          "import { TextWavy } from '@/components/systaliko-ui/text/text-wavy';\n\nexport function TextWavyDemo() {\n  return (\n    <div className=\"flex justify-center items-center size-full\">\n      <TextWavy\n        delayTime={1}\n        colors={['rgba(0,0,0,0.5)', 'black', 'rgba(0,0,0,0.5)']}\n        fontSizes={['16px', '20px', '16px']}\n        className=\"uppercase  tracking-wider\"\n        text={\"Let's create a wave effect\"}\n      />\n    </div>\n  );\n}",
       },
     ],
     component: (function () {
       const LazyComp = React.lazy(async () => {
         const mod = await import(
-          '@/__registry__/demo/text/wavy-texts/shadcn-new-york/index.tsx'
+          '@/__registry__/demo/text/text-wavy/shadcn-new-york/index.tsx'
         );
         const exportName =
           Object.keys(mod).find(
             (key) =>
               typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'shadcn-new-york-wavy-texts-demo';
+          ) || 'shadcn-new-york-text-wavy-demo';
         const Comp = mod.default || mod[exportName];
         return { default: Comp };
       });
       LazyComp.demoProps = {};
       return LazyComp;
     })(),
-    command:
-      'https://systaliko-ui.vercel.app/r/shadcn-new-york-wavy-texts-demo',
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-text-wavy-demo',
   },
   'default-animation-variants-demo': {
     name: 'default-animation-variants-demo',
@@ -8908,7 +8905,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-scroll-read.tsx',
         content:
-          "'use client';\nimport { cn } from '@/lib/utils';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useScroll,\n  useTransform,\n} from 'motion/react';\nimport * as React from 'react';\n\ninterface TextScrollReadProps extends React.HTMLAttributes<HTMLDivElement> {\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  offset?: any;\n  yRange?: number[];\n  wrapperClassName?: string;\n  spaceClass?: string;\n}\ninterface TextScrollReadContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst TextScrollReadContext = React.createContext<\n  TextScrollReadContextValue | undefined\n>(undefined);\nexport function useTextScrollReadContext() {\n  const context = React.useContext(TextScrollReadContext);\n  if (!context) {\n    throw new Error(\n      'useTextScrollReadContext must be used within a TextScrollReadContextProvider',\n    );\n  }\n  return context;\n}\nexport function TextScrollRead({\n  spaceClass = 'h-80',\n  offset,\n  children,\n  className,\n  ...props\n}: TextScrollReadProps) {\n  const ref = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: ref,\n    offset: offset,\n  });\n  return (\n    <TextScrollReadContext.Provider value={{ scrollYProgress }}>\n      <div ref={ref} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={spaceClass} />\n      </div>\n    </TextScrollReadContext.Provider>\n  );\n}\n\nexport function TextScrollReadWrap({\n  yInput = [0, 1],\n  yRange = [0, 320],\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  yInput?: number[];\n  yRange?: number[];\n  style?: React.CSSProperties;\n}) {\n  const { scrollYProgress } = useTextScrollReadContext();\n  const y = useTransform(scrollYProgress, yInput, yRange);\n\n  return (\n    <motion.div\n      style={{\n        y,\n        willChange: 'transform',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}\n\nexport function ClipText({\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'span'>) {\n  const { scrollYProgress } = useTextScrollReadContext();\n  const backgroundPositionX = useTransform(\n    scrollYProgress,\n    [0, 1],\n    ['100%', '0%'],\n  );\n  return (\n    <motion.span\n      className={cn(\n        'bg-[length:200%_100%] text-transparent bg-clip-text bg-no-repeat bg-scroll',\n        className,\n      )}\n      style={{\n        backgroundPositionX,\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}",
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useScroll,\n  useTransform,\n} from 'motion/react';\nimport * as React from 'react';\n\ninterface TextScrollReadProps extends React.HTMLAttributes<HTMLDivElement> {\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  offset?: any;\n  yRange?: number[];\n  wrapperClassName?: string;\n  spaceClass?: string;\n}\ninterface TextScrollReadContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst TextScrollReadContext = React.createContext<\n  TextScrollReadContextValue | undefined\n>(undefined);\nexport function useTextScrollReadContext() {\n  const context = React.useContext(TextScrollReadContext);\n  if (!context) {\n    throw new Error(\n      'useTextScrollReadContext must be used within a TextScrollReadContextProvider',\n    );\n  }\n  return context;\n}\nexport function TextScrollRead({\n  spaceClass = 'h-80',\n  offset = ['start end', 'center start'],\n  children,\n  className,\n  ...props\n}: TextScrollReadProps) {\n  const ref = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: ref,\n    offset: offset,\n  });\n  return (\n    <TextScrollReadContext.Provider value={{ scrollYProgress }}>\n      <div ref={ref} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={spaceClass} />\n      </div>\n    </TextScrollReadContext.Provider>\n  );\n}\n\nexport function TextScrollReadWrap({\n  yInput = [0, 1],\n  yRange = [0, 320],\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  yInput?: number[];\n  yRange?: number[];\n  style?: React.CSSProperties;\n}) {\n  const { scrollYProgress } = useTextScrollReadContext();\n  const y = useTransform(scrollYProgress, yInput, yRange);\n\n  return (\n    <motion.div\n      style={{\n        y,\n        willChange: 'transform',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}\n\nexport function ClipText({\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'span'>) {\n  const { scrollYProgress } = useTextScrollReadContext();\n  const backgroundPositionX = useTransform(\n    scrollYProgress,\n    [0, 1],\n    ['100%', '0%'],\n  );\n  return (\n    <motion.span\n      className={cn(\n        'bg-[length:200%_100%] text-transparent bg-clip-text bg-no-repeat bg-scroll',\n        className,\n      )}\n      style={{\n        backgroundPositionX,\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}",
       },
     ],
     component: (function () {
@@ -8944,7 +8941,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-scroll-read.tsx',
         content:
-          "'use client';\nimport { cn } from '@/lib/utils';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useScroll,\n  useTransform,\n} from 'motion/react';\nimport * as React from 'react';\n\ninterface TextScrollReadProps extends React.HTMLAttributes<HTMLDivElement> {\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  offset?: any;\n  yRange?: number[];\n  wrapperClassName?: string;\n  spaceClass?: string;\n}\ninterface TextScrollReadContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst TextScrollReadContext = React.createContext<\n  TextScrollReadContextValue | undefined\n>(undefined);\nexport function useTextScrollReadContext() {\n  const context = React.useContext(TextScrollReadContext);\n  if (!context) {\n    throw new Error(\n      'useTextScrollReadContext must be used within a TextScrollReadContextProvider',\n    );\n  }\n  return context;\n}\nexport function TextScrollRead({\n  spaceClass = 'h-80',\n  offset,\n  children,\n  className,\n  ...props\n}: TextScrollReadProps) {\n  const ref = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: ref,\n    offset: offset,\n  });\n  return (\n    <TextScrollReadContext.Provider value={{ scrollYProgress }}>\n      <div ref={ref} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={spaceClass} />\n      </div>\n    </TextScrollReadContext.Provider>\n  );\n}\n\nexport function TextScrollReadWrap({\n  yInput = [0, 1],\n  yRange = [0, 320],\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  yInput?: number[];\n  yRange?: number[];\n  style?: React.CSSProperties;\n}) {\n  const { scrollYProgress } = useTextScrollReadContext();\n  const y = useTransform(scrollYProgress, yInput, yRange);\n\n  return (\n    <motion.div\n      style={{\n        y,\n        willChange: 'transform',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}\n\nexport function ClipText({\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'span'>) {\n  const { scrollYProgress } = useTextScrollReadContext();\n  const backgroundPositionX = useTransform(\n    scrollYProgress,\n    [0, 1],\n    ['100%', '0%'],\n  );\n  return (\n    <motion.span\n      className={cn(\n        'bg-[length:200%_100%] text-transparent bg-clip-text bg-no-repeat bg-scroll',\n        className,\n      )}\n      style={{\n        backgroundPositionX,\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}",
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useScroll,\n  useTransform,\n} from 'motion/react';\nimport * as React from 'react';\n\ninterface TextScrollReadProps extends React.HTMLAttributes<HTMLDivElement> {\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  offset?: any;\n  yRange?: number[];\n  wrapperClassName?: string;\n  spaceClass?: string;\n}\ninterface TextScrollReadContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst TextScrollReadContext = React.createContext<\n  TextScrollReadContextValue | undefined\n>(undefined);\nexport function useTextScrollReadContext() {\n  const context = React.useContext(TextScrollReadContext);\n  if (!context) {\n    throw new Error(\n      'useTextScrollReadContext must be used within a TextScrollReadContextProvider',\n    );\n  }\n  return context;\n}\nexport function TextScrollRead({\n  spaceClass = 'h-80',\n  offset = ['start end', 'center start'],\n  children,\n  className,\n  ...props\n}: TextScrollReadProps) {\n  const ref = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: ref,\n    offset: offset,\n  });\n  return (\n    <TextScrollReadContext.Provider value={{ scrollYProgress }}>\n      <div ref={ref} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={spaceClass} />\n      </div>\n    </TextScrollReadContext.Provider>\n  );\n}\n\nexport function TextScrollReadWrap({\n  yInput = [0, 1],\n  yRange = [0, 320],\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  yInput?: number[];\n  yRange?: number[];\n  style?: React.CSSProperties;\n}) {\n  const { scrollYProgress } = useTextScrollReadContext();\n  const y = useTransform(scrollYProgress, yInput, yRange);\n\n  return (\n    <motion.div\n      style={{\n        y,\n        willChange: 'transform',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}\n\nexport function ClipText({\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'span'>) {\n  const { scrollYProgress } = useTextScrollReadContext();\n  const backgroundPositionX = useTransform(\n    scrollYProgress,\n    [0, 1],\n    ['100%', '0%'],\n  );\n  return (\n    <motion.span\n      className={cn(\n        'bg-[length:200%_100%] text-transparent bg-clip-text bg-no-repeat bg-scroll',\n        className,\n      )}\n      style={{\n        backgroundPositionX,\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}",
       },
     ],
     component: (function () {
@@ -8981,7 +8978,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-scroll-read.tsx',
         content:
-          "'use client';\nimport { cn } from '@/lib/utils';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useScroll,\n  useTransform,\n} from 'motion/react';\nimport * as React from 'react';\n\ninterface TextScrollReadProps extends React.HTMLAttributes<HTMLDivElement> {\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  offset?: any;\n  yRange?: number[];\n  wrapperClassName?: string;\n  spaceClass?: string;\n}\ninterface TextScrollReadContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst TextScrollReadContext = React.createContext<\n  TextScrollReadContextValue | undefined\n>(undefined);\nexport function useTextScrollReadContext() {\n  const context = React.useContext(TextScrollReadContext);\n  if (!context) {\n    throw new Error(\n      'useTextScrollReadContext must be used within a TextScrollReadContextProvider',\n    );\n  }\n  return context;\n}\nexport function TextScrollRead({\n  spaceClass = 'h-80',\n  offset,\n  children,\n  className,\n  ...props\n}: TextScrollReadProps) {\n  const ref = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: ref,\n    offset: offset,\n  });\n  return (\n    <TextScrollReadContext.Provider value={{ scrollYProgress }}>\n      <div ref={ref} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={spaceClass} />\n      </div>\n    </TextScrollReadContext.Provider>\n  );\n}\n\nexport function TextScrollReadWrap({\n  yInput = [0, 1],\n  yRange = [0, 320],\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  yInput?: number[];\n  yRange?: number[];\n  style?: React.CSSProperties;\n}) {\n  const { scrollYProgress } = useTextScrollReadContext();\n  const y = useTransform(scrollYProgress, yInput, yRange);\n\n  return (\n    <motion.div\n      style={{\n        y,\n        willChange: 'transform',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}\n\nexport function ClipText({\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'span'>) {\n  const { scrollYProgress } = useTextScrollReadContext();\n  const backgroundPositionX = useTransform(\n    scrollYProgress,\n    [0, 1],\n    ['100%', '0%'],\n  );\n  return (\n    <motion.span\n      className={cn(\n        'bg-[length:200%_100%] text-transparent bg-clip-text bg-no-repeat bg-scroll',\n        className,\n      )}\n      style={{\n        backgroundPositionX,\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}",
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useScroll,\n  useTransform,\n} from 'motion/react';\nimport * as React from 'react';\n\ninterface TextScrollReadProps extends React.HTMLAttributes<HTMLDivElement> {\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  offset?: any;\n  yRange?: number[];\n  wrapperClassName?: string;\n  spaceClass?: string;\n}\ninterface TextScrollReadContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst TextScrollReadContext = React.createContext<\n  TextScrollReadContextValue | undefined\n>(undefined);\nexport function useTextScrollReadContext() {\n  const context = React.useContext(TextScrollReadContext);\n  if (!context) {\n    throw new Error(\n      'useTextScrollReadContext must be used within a TextScrollReadContextProvider',\n    );\n  }\n  return context;\n}\nexport function TextScrollRead({\n  spaceClass = 'h-80',\n  offset = ['start end', 'center start'],\n  children,\n  className,\n  ...props\n}: TextScrollReadProps) {\n  const ref = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: ref,\n    offset: offset,\n  });\n  return (\n    <TextScrollReadContext.Provider value={{ scrollYProgress }}>\n      <div ref={ref} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={spaceClass} />\n      </div>\n    </TextScrollReadContext.Provider>\n  );\n}\n\nexport function TextScrollReadWrap({\n  yInput = [0, 1],\n  yRange = [0, 320],\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  yInput?: number[];\n  yRange?: number[];\n  style?: React.CSSProperties;\n}) {\n  const { scrollYProgress } = useTextScrollReadContext();\n  const y = useTransform(scrollYProgress, yInput, yRange);\n\n  return (\n    <motion.div\n      style={{\n        y,\n        willChange: 'transform',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}\n\nexport function ClipText({\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'span'>) {\n  const { scrollYProgress } = useTextScrollReadContext();\n  const backgroundPositionX = useTransform(\n    scrollYProgress,\n    [0, 1],\n    ['100%', '0%'],\n  );\n  return (\n    <motion.span\n      className={cn(\n        'bg-[length:200%_100%] text-transparent bg-clip-text bg-no-repeat bg-scroll',\n        className,\n      )}\n      style={{\n        backgroundPositionX,\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}",
       },
     ],
     component: (function () {
@@ -9348,6 +9345,113 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-text-vertical',
+  },
+  'default-text-wavy': {
+    name: 'default-text-wavy',
+    description: 'Infinite text animation with wavy effect with default style.',
+    type: 'registry:ui',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/text/text-wavy/default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/text-wavy.tsx',
+        content:
+          "'use client';\nimport {\n  motion,\n  useReducedMotion,\n  ValueKeyframesDefinition,\n  Variants,\n} from 'motion/react';\n\ninterface PropsTextWave extends React.HtmlHTMLAttributes<HTMLSpanElement> {\n  text: string;\n  as?: React.ElementType;\n  colors?: ValueKeyframesDefinition[];\n  fontSizes?: ValueKeyframesDefinition[];\n  fontWeights?: ValueKeyframesDefinition[];\n  delayTime?: number;\n}\n\nexport const TextWavy = ({\n  text,\n  as: Component = 'span',\n  colors = ['var(--foreground)', 'var(--primary)', 'var(--foreground)'],\n  fontSizes = ['12px', '14px', '12px'],\n  fontWeights = [400, 600, 400],\n  delayTime = 5,\n  ...props\n}: PropsTextWave) => {\n  const letters = text.split('');\n  const reducedMotion = useReducedMotion();\n  const perspective = {\n    initial: {\n      fontSize: fontSizes[0],\n      fontWeight: fontWeights[0],\n      color: colors[0],\n    },\n    enter: (i: number) => ({\n      fontSize: fontSizes,\n      fontWeight: fontWeights,\n      color: colors,\n      transition: {\n        delay: delayTime + i * 0.05,\n        duration: 0.7,\n        ease: 'easeIn',\n        repeat: reducedMotion ? 0 : Infinity, // Repeat the animation infinitely\n        repeatDelay: 5, // Delay of 5 seconds between repeats\n      },\n    }),\n  } as Variants;\n\n  return (\n    <Component {...props}>\n      {letters.map((letter, i) => (\n        <motion.span\n          key={i}\n          custom={i}\n          variants={perspective}\n          initial=\"initial\"\n          animate=\"enter\"\n        >\n          {letter}\n        </motion.span>\n      ))}\n    </Component>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/text/text-wavy/default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'default-text-wavy';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/default-text-wavy',
+  },
+  'shadcn-default-text-wavy': {
+    name: 'shadcn-default-text-wavy',
+    description:
+      'Infinite text animation with wavy effect with shadcn-default style.',
+    type: 'registry:ui',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/text/text-wavy/shadcn-default/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/text-wavy.tsx',
+        content:
+          "'use client';\nimport {\n  motion,\n  useReducedMotion,\n  ValueKeyframesDefinition,\n  Variants,\n} from 'motion/react';\n\ninterface PropsTextWave extends React.HtmlHTMLAttributes<HTMLSpanElement> {\n  text: string;\n  as?: React.ElementType;\n  colors?: ValueKeyframesDefinition[];\n  fontSizes?: ValueKeyframesDefinition[];\n  fontWeights?: ValueKeyframesDefinition[];\n  delayTime?: number;\n}\n\nexport const TextWavy = ({\n  text,\n  as: Component = 'span',\n  colors = ['var(--foreground)', 'var(--primary)', 'var(--foreground)'],\n  fontSizes = ['12px', '14px', '12px'],\n  fontWeights = [400, 600, 400],\n  delayTime = 5,\n  ...props\n}: PropsTextWave) => {\n  const letters = text.split('');\n  const reducedMotion = useReducedMotion();\n  const perspective = {\n    initial: {\n      fontSize: fontSizes[0],\n      fontWeight: fontWeights[0],\n      color: colors[0],\n    },\n    enter: (i: number) => ({\n      fontSize: fontSizes,\n      fontWeight: fontWeights,\n      color: colors,\n      transition: {\n        delay: delayTime + i * 0.05,\n        duration: 0.7,\n        ease: 'easeIn',\n        repeat: reducedMotion ? 0 : Infinity, // Repeat the animation infinitely\n        repeatDelay: 5, // Delay of 5 seconds between repeats\n      },\n    }),\n  } as Variants;\n\n  return (\n    <Component {...props}>\n      {letters.map((letter, i) => (\n        <motion.span\n          key={i}\n          custom={i}\n          variants={perspective}\n          initial=\"initial\"\n          animate=\"enter\"\n        >\n          {letter}\n        </motion.span>\n      ))}\n    </Component>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/text/text-wavy/shadcn-default/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-default-text-wavy';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-default-text-wavy',
+  },
+  'shadcn-new-york-text-wavy': {
+    name: 'shadcn-new-york-text-wavy',
+    description:
+      'Infinite text animation with wavy effect with shadcn-new-york style.',
+    type: 'registry:ui',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    styles: undefined,
+    files: [
+      {
+        path: '__registry__/text/text-wavy/shadcn-new-york/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/text-wavy.tsx',
+        content:
+          "'use client';\nimport {\n  motion,\n  useReducedMotion,\n  ValueKeyframesDefinition,\n  Variants,\n} from 'motion/react';\n\ninterface PropsTextWave extends React.HtmlHTMLAttributes<HTMLSpanElement> {\n  text: string;\n  as?: React.ElementType;\n  colors?: ValueKeyframesDefinition[];\n  fontSizes?: ValueKeyframesDefinition[];\n  fontWeights?: ValueKeyframesDefinition[];\n  delayTime?: number;\n}\n\nexport const TextWavy = ({\n  text,\n  as: Component = 'span',\n  colors = ['var(--foreground)', 'var(--primary)', 'var(--foreground)'],\n  fontSizes = ['12px', '14px', '12px'],\n  fontWeights = [400, 600, 400],\n  delayTime = 5,\n  ...props\n}: PropsTextWave) => {\n  const letters = text.split('');\n  const reducedMotion = useReducedMotion();\n  const perspective = {\n    initial: {\n      fontSize: fontSizes[0],\n      fontWeight: fontWeights[0],\n      color: colors[0],\n    },\n    enter: (i: number) => ({\n      fontSize: fontSizes,\n      fontWeight: fontWeights,\n      color: colors,\n      transition: {\n        delay: delayTime + i * 0.05,\n        duration: 0.7,\n        ease: 'easeIn',\n        repeat: reducedMotion ? 0 : Infinity, // Repeat the animation infinitely\n        repeatDelay: 5, // Delay of 5 seconds between repeats\n      },\n    }),\n  } as Variants;\n\n  return (\n    <Component {...props}>\n      {letters.map((letter, i) => (\n        <motion.span\n          key={i}\n          custom={i}\n          variants={perspective}\n          initial=\"initial\"\n          animate=\"enter\"\n        >\n          {letter}\n        </motion.span>\n      ))}\n    </Component>\n  );\n};",
+      },
+    ],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/__registry__/text/text-wavy/shadcn-new-york/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shadcn-new-york-text-wavy';
+        const Comp = mod.default || mod[exportName];
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: 'https://systaliko-ui.vercel.app/r/shadcn-new-york-text-wavy',
   },
   'default-wavy-texts': {
     name: 'default-wavy-texts',

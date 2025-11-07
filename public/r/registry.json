@@ -3363,50 +3363,50 @@
       ]
     },
     {
-      "name": "default-wavy-texts-demo",
+      "name": "default-text-wavy-demo",
       "type": "registry:ui",
-      "title": "Wavy Texts Demo",
-      "description": "Demo showing a Wavy Texts component with default style.",
+      "title": "Text Wavy Demo",
+      "description": "Demo showing text wavy component with default style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/wavy-texts"
+        "https://systaliko-ui.vercel.app/r/text-wavy"
       ],
       "files": [
         {
-          "path": "__registry__/demo/text/wavy-texts/default/index.tsx",
+          "path": "__registry__/demo/text/text-wavy/default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/text/wavy-texts.tsx"
+          "target": "components/systaliko-ui/demo/text-wavy.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-wavy-texts-demo",
+      "name": "shadcn-default-text-wavy-demo",
       "type": "registry:ui",
-      "title": "Wavy Texts Demo",
-      "description": "Demo showing a Wavy Texts component with shadcn-default style.",
+      "title": "Text Wavy Demo",
+      "description": "Demo showing text wavy component with shadcn-default style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/wavy-texts"
+        "https://systaliko-ui.vercel.app/r/text-wavy"
       ],
       "files": [
         {
-          "path": "__registry__/demo/text/wavy-texts/shadcn-default/index.tsx",
+          "path": "__registry__/demo/text/text-wavy/shadcn-default/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/text/wavy-texts.tsx"
+          "target": "components/systaliko-ui/demo/text-wavy.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-new-york-wavy-texts-demo",
+      "name": "shadcn-new-york-text-wavy-demo",
       "type": "registry:ui",
-      "title": "Wavy Texts Demo",
-      "description": "Demo showing a Wavy Texts component with shadcn-new-york style.",
+      "title": "Text Wavy Demo",
+      "description": "Demo showing text wavy component with shadcn-new-york style.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/wavy-texts"
+        "https://systaliko-ui.vercel.app/r/text-wavy"
       ],
       "files": [
         {
-          "path": "__registry__/demo/text/wavy-texts/shadcn-new-york/index.tsx",
+          "path": "__registry__/demo/text/text-wavy/shadcn-new-york/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/text/wavy-texts.tsx"
+          "target": "components/systaliko-ui/demo/text-wavy.tsx"
         }
       ]
     },
@@ -4037,6 +4037,54 @@
           "path": "__registry__/text/text-vertical/shadcn-new-york/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/text/text-vertical.tsx"
+        }
+      ]
+    },
+    {
+      "name": "default-text-wavy",
+      "type": "registry:ui",
+      "title": "Text Wavy",
+      "description": "Infinite text animation with wavy effect with default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/text/text-wavy/default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/text-wavy.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-default-text-wavy",
+      "type": "registry:ui",
+      "title": "Text Wavy",
+      "description": "Infinite text animation with wavy effect with shadcn-default style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/text/text-wavy/shadcn-default/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/text-wavy.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-new-york-text-wavy",
+      "type": "registry:ui",
+      "title": "Text Wavy",
+      "description": "Infinite text animation with wavy effect with shadcn-new-york style.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "__registry__/text/text-wavy/shadcn-new-york/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/text-wavy.tsx"
         }
       ]
     },

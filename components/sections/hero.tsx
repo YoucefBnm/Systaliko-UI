@@ -56,7 +56,7 @@ export function Hero() {
               announcement={
                 <div className="flex gap-2 items-center">
                   <Pulse className="[&>*:first-child]:bg-foreground/50 [&>*:last-child]:bg-secondary-foreground/80" />{' '}
-                  New Synco AI Agent Template
+                  New Motus Studio templates
                 </div>
               }
             />
@@ -64,7 +64,7 @@ export function Hero() {
 
           <motion.h1
             variants={animationVariants}
-            className="text-5xl pb-1 font-semibold tracking-tight max-w-[25ch] bg-clip-text text-transparent bg-linear-180 from-foreground via-foreground/80 to-foreground/60"
+            className="text-4xl pb-1 font-semibold tracking-tight max-w-[25ch]"
           >
             <span className="font-bold">
               Copy Paste or install via shadcn registry
@@ -72,11 +72,13 @@ export function Hero() {
             React blocks/components
           </motion.h1>
 
-          <motion.p variants={animationVariants} className="max-w-prose">
+          <motion.p
+            variants={animationVariants}
+            className="max-w-[55ch] text-muted-foreground"
+          >
             Collection of UI blocks and components to create your website in no
-            time, animated and interactive, with a focus on animations, built
-            for customization, and crafted to scale across variants and use
-            cases.
+            time, animated and interactive, built for customization, and crafted
+            to scale across variants and use cases.
           </motion.p>
 
           <motion.div

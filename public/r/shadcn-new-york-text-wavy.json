@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-new-york-text-wavy",
+  "type": "registry:ui",
+  "title": "Text Wavy",
+  "description": "Infinite text animation with wavy effect with shadcn-new-york style.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "__registry__/text/text-wavy/shadcn-new-york/index.tsx",
+      "content": "'use client';\nimport {\n  motion,\n  useReducedMotion,\n  ValueKeyframesDefinition,\n  Variants,\n} from 'motion/react';\n\ninterface PropsTextWave extends React.HtmlHTMLAttributes<HTMLSpanElement> {\n  text: string;\n  as?: React.ElementType;\n  colors?: ValueKeyframesDefinition[];\n  fontSizes?: ValueKeyframesDefinition[];\n  fontWeights?: ValueKeyframesDefinition[];\n  delayTime?: number;\n}\n\nexport const TextWavy = ({\n  text,\n  as: Component = 'span',\n  colors = ['var(--foreground)', 'var(--primary)', 'var(--foreground)'],\n  fontSizes = ['12px', '14px', '12px'],\n  fontWeights = [400, 600, 400],\n  delayTime = 5,\n  ...props\n}: PropsTextWave) => {\n  const letters = text.split('');\n  const reducedMotion = useReducedMotion();\n  const perspective = {\n    initial: {\n      fontSize: fontSizes[0],\n      fontWeight: fontWeights[0],\n      color: colors[0],\n    },\n    enter: (i: number) => ({\n      fontSize: fontSizes,\n      fontWeight: fontWeights,\n      color: colors,\n      transition: {\n        delay: delayTime + i * 0.05,\n        duration: 0.7,\n        ease: 'easeIn',\n        repeat: reducedMotion ? 0 : Infinity, // Repeat the animation infinitely\n        repeatDelay: 5, // Delay of 5 seconds between repeats\n      },\n    }),\n  } as Variants;\n\n  return (\n    <Component {...props}>\n      {letters.map((letter, i) => (\n        <motion.span\n          key={i}\n          custom={i}\n          variants={perspective}\n          initial=\"initial\"\n          animate=\"enter\"\n        >\n          {letter}\n        </motion.span>\n      ))}\n    </Component>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/text-wavy.tsx"
+    }
+  ]
+}

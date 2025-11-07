@@ -57,6 +57,7 @@ export function Contact() {
                   >
                     <MailIcon className="size-5 text-white" />
                   </Link>
+
                   <Link
                     href={siteConfig.links.github}
                     aria-label="contribute on github"
@@ -80,20 +81,26 @@ export function Contact() {
             target="_blank"
           >
             <TwentyFirstIcon className="size-4" />
-            <p className="opacity-80 transition-opacity duration-200 group-hover:opacity-100">
+            <p className="text-sm opacity-80 transition-opacity duration-200 group-hover:opacity-100">
               Twenty first partner
             </p>
 
             <ArrowUpRightIcon className="ml-auto size-4 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
           </Link>
           <Separator className="my-4" />
-          <div className="flex items-center gap-2">
+          <Link
+            rel="noreferrer"
+            target="_blank"
+            href="https://ui.shadcn.com/docs/directory"
+            className="group flex items-center gap-2"
+          >
             <ShadcnIcon className="size-5" />
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm opacity-80 transition-opacity duration-200 group-hover:opacity-100">
               built into the Shadcn CLI with no additional configuration
               required
             </p>
-          </div>
+            <ArrowUpRightIcon className="ml-auto size-4 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
+          </Link>
         </div>
       </div>
     </section>

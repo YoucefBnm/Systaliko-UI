@@ -3,14 +3,14 @@
   "root": true,
   "pages": [
     "index",
-
     "---Templates---",
-    "templates/veo",
+    "templates/motus",
     "templates/abla",
     "templates/portfolio",
+    "templates/veo",
 
     "---Blocks---",
-    "blocks/animated-menu",
+    "blocks/wavy-block",
     "blocks/grid-bento",
     "blocks/image-player",
     "blocks/parallax",
@@ -21,7 +21,6 @@
     "blocks/container-stagger",
     "blocks/scroll-x-carousel",
     "blocks/story",
-    "blocks/wavy-block",
 
     "---Cards---",
     "cards/card-flip",
@@ -36,6 +35,7 @@
     "components/rating-stars",
 
     "---Text---",
+    "text/text-wavy",
     "text/text-scroll-read",
     "text/text-stagger-hover",
     "text/text-stagger-inview",

@@ -33,7 +33,7 @@ export function useTextScrollReadContext() {
 }
 export function TextScrollRead({
   spaceClass = 'h-80',
-  offset,
+  offset = ['start end', 'center start'],
   children,
   className,
   ...props

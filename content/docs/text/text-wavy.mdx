@@ -1,0 +1,66 @@
+---
+title: Wavy Text
+description: Infinite text animation with wavy effect.
+new: true
+---
+
+<ComponentPreview name="text-wavy-demo" />
+
+## Installation
+
+<ComponentInstallation name="text-wavy" />
+
+## Usage
+
+```tsx
+<TextWavy
+  delayTime={1}
+  colors={['rgba(0,0,0,0.5)', 'black', 'rgba(0,0,0,0.5)']}
+  fontSizes={['16px', '20px', '16px']}
+  className="uppercase  tracking-wider"
+  text={"Let's create a wave effect"}
+/>
+```
+
+## Props
+
+<TypeTable
+  type={{
+    text: {
+      description: 'the text to be animated',
+      type: 'string',
+      required: true,
+      default: 'undefined',
+    },
+    colors: {
+      description: 'the color of the text',
+      type: 'array',
+      required: false,
+      default: '["var(--foreground)", "var(--primary)", "var(--foreground)"]',
+    },
+    fontSizes: {
+      description: 'the font size of the text',
+      type: 'array',
+      required: false,
+      default: '["12px", "14px", "12px"]',
+    },
+    fontWeights: {
+      description: 'the font weight of the text',
+      type: 'array',
+      required: false,
+      default: '[400, 600, 400]',
+    },
+    delayTime: {
+      description: 'the delay time of the animation',
+      type: 'number',
+      required: false,
+      default: '5',
+    },
+    as: {
+      description: 'the component to render',
+      type: 'ReactNode',
+      required: false,
+      default: 'span',
+    },
+  }}
+/>

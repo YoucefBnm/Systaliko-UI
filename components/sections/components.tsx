@@ -67,13 +67,13 @@ const featuredComponents: FeaturedCoponentProps[] = [
       'Carousel that transforms on the x-axis, showing items depnding on the scroll position, with a progress indicator.',
   },
   {
-    id: 'featured-component-scroll-animations',
-    componentLink: '/docs/blocks/scroll-animations',
+    id: 'featured-component-curtain-card',
+    componentLink: '/docs/cards/card-curtain-reveal',
     videoUrl:
-      'https://cdn.21st.dev/youcefbnm/scroll-trigger-animations/default/video.1751383795251.mp4',
-    title: 'Scroll Animations',
+      'https://cdn.21st.dev/user_2sdAd21yCZlZRkVtZyf4K8ogkBh/card-curtain-reveal/card-curtain-reveal/video.mp4?v=1',
+    title: 'Curtain Reveal Card',
     description:
-      'Scroll triggerd animations never been easier, now you can animate transforms, and roundness and positioning.',
+      'Interactive card component with open curtain to see content on hover.',
   },
   {
     id: 'featured-component-story',

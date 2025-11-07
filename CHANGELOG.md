@@ -10,8 +10,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - 🎨 Complete redesign of the Veo template for improved aesthetics and user experience
+- 🏠 Updated the home page: added a featured components showcase and contact information
+- ⚡️ Optimized performance in `text-stagger-inview` (reduced layout thrashing and improved intersection handling)
 - 🔄 Modified animation range in `scroll-reverse-scale-animation` component
 - 🏷️ Renamed `use-animation-variants` to `animation-variants` for better semantic clarity
+
+### Added
+
+- ✨ New components:
+  - `text-scroll-read` — readable-on-scroll text reveal
+  - `wavy-text` — animated wavy typography
+  - `wavy-block` — a content block with wavy reveal/clip animations
+- 🧩 New template: `motus-studio` — opinionated starter template showcasing the component registry and layouts
 
 ### Fixed
 
