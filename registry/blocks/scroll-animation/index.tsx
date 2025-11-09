@@ -36,7 +36,7 @@ interface ScrollAnimationProps extends React.ComponentProps<'div'> {
 }
 export function ScrollAnimation({
   spacerClass,
-  offset = ['start end', 'end start'],
+  offset,
   className,
   children,
   ...props

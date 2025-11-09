@@ -1,37 +1,37 @@
 // @ts-nocheck -- skip type checking
-import * as docs_36 from '../content/docs/utils/set-stagger-direction.mdx?collection=docs&hash=1758311029134';
-import * as docs_35 from '../content/docs/utils/animation-variants.mdx?collection=docs&hash=1758311029134';
-import * as docs_34 from '../content/docs/text/text-wavy.mdx?collection=docs&hash=1758311029134';
-import * as docs_33 from '../content/docs/text/text-vertical.mdx?collection=docs&hash=1758311029134';
-import * as docs_32 from '../content/docs/text/text-stagger-inview.mdx?collection=docs&hash=1758311029134';
-import * as docs_31 from '../content/docs/text/text-stagger-hover.mdx?collection=docs&hash=1758311029134';
-import * as docs_30 from '../content/docs/text/text-scroll-read.mdx?collection=docs&hash=1758311029134';
-import * as docs_29 from '../content/docs/templates/veo.mdx?collection=docs&hash=1758311029134';
-import * as docs_28 from '../content/docs/templates/portfolio.mdx?collection=docs&hash=1758311029134';
-import * as docs_27 from '../content/docs/templates/motus.mdx?collection=docs&hash=1758311029134';
-import * as docs_26 from '../content/docs/templates/carecover.mdx?collection=docs&hash=1758311029134';
-import * as docs_25 from '../content/docs/templates/abla.mdx?collection=docs&hash=1758311029134';
-import * as docs_24 from '../content/docs/components/rating-stars.mdx?collection=docs&hash=1758311029134';
-import * as docs_23 from '../content/docs/components/custom-cursor.mdx?collection=docs&hash=1758311029134';
-import * as docs_22 from '../content/docs/cards/cards-stack.mdx?collection=docs&hash=1758311029134';
-import * as docs_21 from '../content/docs/cards/cards-stack-rotated.mdx?collection=docs&hash=1758311029134';
-import * as docs_20 from '../content/docs/cards/card-testimonial.mdx?collection=docs&hash=1758311029134';
-import * as docs_19 from '../content/docs/cards/card-hover-reveal.mdx?collection=docs&hash=1758311029134';
-import * as docs_18 from '../content/docs/cards/card-flip.mdx?collection=docs&hash=1758311029134';
-import * as docs_17 from '../content/docs/cards/card-curtain-reveal.mdx?collection=docs&hash=1758311029134';
-import * as docs_16 from '../content/docs/blocks/wavy-block.mdx?collection=docs&hash=1758311029134';
-import * as docs_15 from '../content/docs/blocks/team.mdx?collection=docs&hash=1758311029134';
-import * as docs_14 from '../content/docs/blocks/story.mdx?collection=docs&hash=1758311029134';
-import * as docs_13 from '../content/docs/blocks/slideshow.mdx?collection=docs&hash=1758311029134';
-import * as docs_12 from '../content/docs/blocks/scroll-x-carousel.mdx?collection=docs&hash=1758311029134';
-import * as docs_11 from '../content/docs/blocks/scroll-reverse-animation.mdx?collection=docs&hash=1758311029134';
-import * as docs_10 from '../content/docs/blocks/scroll-animations.mdx?collection=docs&hash=1758311029134';
-import * as docs_9 from '../content/docs/blocks/scroll-animations-rotate.mdx?collection=docs&hash=1758311029134';
-import * as docs_8 from '../content/docs/blocks/parallax.mdx?collection=docs&hash=1758311029134';
-import * as docs_7 from '../content/docs/blocks/image-player.mdx?collection=docs&hash=1758311029134';
-import * as docs_6 from '../content/docs/blocks/grid-bento.mdx?collection=docs&hash=1758311029134';
-import * as docs_5 from '../content/docs/blocks/container-stagger.mdx?collection=docs&hash=1758311029134';
-import * as docs_4 from '../content/docs/blocks/animated-menu.mdx?collection=docs&hash=1758311029134';
+import * as docs_36 from '../content/docs/blocks/wavy-block.mdx?collection=docs&hash=1758311029134';
+import * as docs_35 from '../content/docs/blocks/team.mdx?collection=docs&hash=1758311029134';
+import * as docs_34 from '../content/docs/blocks/story.mdx?collection=docs&hash=1758311029134';
+import * as docs_33 from '../content/docs/blocks/slideshow.mdx?collection=docs&hash=1758311029134';
+import * as docs_32 from '../content/docs/blocks/scroll-x-carousel.mdx?collection=docs&hash=1758311029134';
+import * as docs_31 from '../content/docs/blocks/scroll-reverse-animation.mdx?collection=docs&hash=1758311029134';
+import * as docs_30 from '../content/docs/blocks/scroll-animations.mdx?collection=docs&hash=1758311029134';
+import * as docs_29 from '../content/docs/blocks/scroll-animations-rotate.mdx?collection=docs&hash=1758311029134';
+import * as docs_28 from '../content/docs/blocks/parallax.mdx?collection=docs&hash=1758311029134';
+import * as docs_27 from '../content/docs/blocks/image-player.mdx?collection=docs&hash=1758311029134';
+import * as docs_26 from '../content/docs/blocks/grid-bento.mdx?collection=docs&hash=1758311029134';
+import * as docs_25 from '../content/docs/blocks/container-stagger.mdx?collection=docs&hash=1758311029134';
+import * as docs_24 from '../content/docs/blocks/animated-menu.mdx?collection=docs&hash=1758311029134';
+import * as docs_23 from '../content/docs/utils/set-stagger-direction.mdx?collection=docs&hash=1758311029134';
+import * as docs_22 from '../content/docs/utils/animation-variants.mdx?collection=docs&hash=1758311029134';
+import * as docs_21 from '../content/docs/templates/veo.mdx?collection=docs&hash=1758311029134';
+import * as docs_20 from '../content/docs/templates/portfolio.mdx?collection=docs&hash=1758311029134';
+import * as docs_19 from '../content/docs/templates/motus.mdx?collection=docs&hash=1758311029134';
+import * as docs_18 from '../content/docs/templates/carecover.mdx?collection=docs&hash=1758311029134';
+import * as docs_17 from '../content/docs/templates/abla.mdx?collection=docs&hash=1758311029134';
+import * as docs_16 from '../content/docs/text/text-wavy.mdx?collection=docs&hash=1758311029134';
+import * as docs_15 from '../content/docs/text/text-vertical.mdx?collection=docs&hash=1758311029134';
+import * as docs_14 from '../content/docs/text/text-stagger-inview.mdx?collection=docs&hash=1758311029134';
+import * as docs_13 from '../content/docs/text/text-stagger-hover.mdx?collection=docs&hash=1758311029134';
+import * as docs_12 from '../content/docs/text/text-scroll-read.mdx?collection=docs&hash=1758311029134';
+import * as docs_11 from '../content/docs/cards/cards-stack.mdx?collection=docs&hash=1758311029134';
+import * as docs_10 from '../content/docs/cards/cards-stack-rotated.mdx?collection=docs&hash=1758311029134';
+import * as docs_9 from '../content/docs/cards/card-testimonial.mdx?collection=docs&hash=1758311029134';
+import * as docs_8 from '../content/docs/cards/card-hover-reveal.mdx?collection=docs&hash=1758311029134';
+import * as docs_7 from '../content/docs/cards/card-flip.mdx?collection=docs&hash=1758311029134';
+import * as docs_6 from '../content/docs/cards/card-curtain-reveal.mdx?collection=docs&hash=1758311029134';
+import * as docs_5 from '../content/docs/components/rating-stars.mdx?collection=docs&hash=1758311029134';
+import * as docs_4 from '../content/docs/components/custom-cursor.mdx?collection=docs&hash=1758311029134';
 import * as docs_3 from '../content/docs/templates.mdx?collection=docs&hash=1758311029134';
 import * as docs_2 from '../content/docs/pages.mdx?collection=docs&hash=1758311029134';
 import * as docs_1 from '../content/docs/mcp.mdx?collection=docs&hash=1758311029134';
@@ -73,163 +73,11 @@ export const docs = _runtime.docs<typeof _source.docs>(
     },
     {
       info: {
-        path: 'blocks/animated-menu.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/animated-menu.mdx',
-      },
-      data: docs_4,
-    },
-    {
-      info: {
-        path: 'blocks/container-stagger.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/container-stagger.mdx',
-      },
-      data: docs_5,
-    },
-    {
-      info: {
-        path: 'blocks/grid-bento.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/grid-bento.mdx',
-      },
-      data: docs_6,
-    },
-    {
-      info: {
-        path: 'blocks/image-player.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/image-player.mdx',
-      },
-      data: docs_7,
-    },
-    {
-      info: {
-        path: 'blocks/parallax.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/parallax.mdx',
-      },
-      data: docs_8,
-    },
-    {
-      info: {
-        path: 'blocks/scroll-animations-rotate.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/scroll-animations-rotate.mdx',
-      },
-      data: docs_9,
-    },
-    {
-      info: {
-        path: 'blocks/scroll-animations.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/scroll-animations.mdx',
-      },
-      data: docs_10,
-    },
-    {
-      info: {
-        path: 'blocks/scroll-reverse-animation.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/scroll-reverse-animation.mdx',
-      },
-      data: docs_11,
-    },
-    {
-      info: {
-        path: 'blocks/scroll-x-carousel.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/scroll-x-carousel.mdx',
-      },
-      data: docs_12,
-    },
-    {
-      info: {
-        path: 'blocks/slideshow.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/slideshow.mdx',
-      },
-      data: docs_13,
-    },
-    {
-      info: {
-        path: 'blocks/story.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/story.mdx',
-      },
-      data: docs_14,
-    },
-    {
-      info: {
-        path: 'blocks/team.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/team.mdx',
-      },
-      data: docs_15,
-    },
-    {
-      info: {
-        path: 'blocks/wavy-block.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/wavy-block.mdx',
-      },
-      data: docs_16,
-    },
-    {
-      info: {
-        path: 'cards/card-curtain-reveal.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/cards/card-curtain-reveal.mdx',
-      },
-      data: docs_17,
-    },
-    {
-      info: {
-        path: 'cards/card-flip.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/cards/card-flip.mdx',
-      },
-      data: docs_18,
-    },
-    {
-      info: {
-        path: 'cards/card-hover-reveal.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/cards/card-hover-reveal.mdx',
-      },
-      data: docs_19,
-    },
-    {
-      info: {
-        path: 'cards/card-testimonial.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/cards/card-testimonial.mdx',
-      },
-      data: docs_20,
-    },
-    {
-      info: {
-        path: 'cards/cards-stack-rotated.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/cards/cards-stack-rotated.mdx',
-      },
-      data: docs_21,
-    },
-    {
-      info: {
-        path: 'cards/cards-stack.mdx',
-        absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/cards/cards-stack.mdx',
-      },
-      data: docs_22,
-    },
-    {
-      info: {
         path: 'components/custom-cursor.mdx',
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/components/custom-cursor.mdx',
       },
-      data: docs_23,
+      data: docs_4,
     },
     {
       info: {
@@ -237,47 +85,55 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/components/rating-stars.mdx',
       },
-      data: docs_24,
+      data: docs_5,
     },
     {
       info: {
-        path: 'templates/abla.mdx',
+        path: 'cards/card-curtain-reveal.mdx',
         absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/templates/abla.mdx',
+          '/Users/ycf/Documents/systaliko-ui/content/docs/cards/card-curtain-reveal.mdx',
       },
-      data: docs_25,
+      data: docs_6,
     },
     {
       info: {
-        path: 'templates/carecover.mdx',
+        path: 'cards/card-flip.mdx',
         absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/templates/carecover.mdx',
+          '/Users/ycf/Documents/systaliko-ui/content/docs/cards/card-flip.mdx',
       },
-      data: docs_26,
+      data: docs_7,
     },
     {
       info: {
-        path: 'templates/motus.mdx',
+        path: 'cards/card-hover-reveal.mdx',
         absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/templates/motus.mdx',
+          '/Users/ycf/Documents/systaliko-ui/content/docs/cards/card-hover-reveal.mdx',
       },
-      data: docs_27,
+      data: docs_8,
     },
     {
       info: {
-        path: 'templates/portfolio.mdx',
+        path: 'cards/card-testimonial.mdx',
         absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/templates/portfolio.mdx',
+          '/Users/ycf/Documents/systaliko-ui/content/docs/cards/card-testimonial.mdx',
       },
-      data: docs_28,
+      data: docs_9,
     },
     {
       info: {
-        path: 'templates/veo.mdx',
+        path: 'cards/cards-stack-rotated.mdx',
         absolutePath:
-          '/Users/ycf/Documents/systaliko-ui/content/docs/templates/veo.mdx',
+          '/Users/ycf/Documents/systaliko-ui/content/docs/cards/cards-stack-rotated.mdx',
       },
-      data: docs_29,
+      data: docs_10,
+    },
+    {
+      info: {
+        path: 'cards/cards-stack.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/cards/cards-stack.mdx',
+      },
+      data: docs_11,
     },
     {
       info: {
@@ -285,7 +141,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/text/text-scroll-read.mdx',
       },
-      data: docs_30,
+      data: docs_12,
     },
     {
       info: {
@@ -293,7 +149,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/text/text-stagger-hover.mdx',
       },
-      data: docs_31,
+      data: docs_13,
     },
     {
       info: {
@@ -301,7 +157,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/text/text-stagger-inview.mdx',
       },
-      data: docs_32,
+      data: docs_14,
     },
     {
       info: {
@@ -309,7 +165,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/text/text-vertical.mdx',
       },
-      data: docs_33,
+      data: docs_15,
     },
     {
       info: {
@@ -317,7 +173,47 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/text/text-wavy.mdx',
       },
-      data: docs_34,
+      data: docs_16,
+    },
+    {
+      info: {
+        path: 'templates/abla.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/templates/abla.mdx',
+      },
+      data: docs_17,
+    },
+    {
+      info: {
+        path: 'templates/carecover.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/templates/carecover.mdx',
+      },
+      data: docs_18,
+    },
+    {
+      info: {
+        path: 'templates/motus.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/templates/motus.mdx',
+      },
+      data: docs_19,
+    },
+    {
+      info: {
+        path: 'templates/portfolio.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/templates/portfolio.mdx',
+      },
+      data: docs_20,
+    },
+    {
+      info: {
+        path: 'templates/veo.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/templates/veo.mdx',
+      },
+      data: docs_21,
     },
     {
       info: {
@@ -325,13 +221,117 @@ export const docs = _runtime.docs<typeof _source.docs>(
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/utils/animation-variants.mdx',
       },
-      data: docs_35,
+      data: docs_22,
     },
     {
       info: {
         path: 'utils/set-stagger-direction.mdx',
         absolutePath:
           '/Users/ycf/Documents/systaliko-ui/content/docs/utils/set-stagger-direction.mdx',
+      },
+      data: docs_23,
+    },
+    {
+      info: {
+        path: 'blocks/animated-menu.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/animated-menu.mdx',
+      },
+      data: docs_24,
+    },
+    {
+      info: {
+        path: 'blocks/container-stagger.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/container-stagger.mdx',
+      },
+      data: docs_25,
+    },
+    {
+      info: {
+        path: 'blocks/grid-bento.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/grid-bento.mdx',
+      },
+      data: docs_26,
+    },
+    {
+      info: {
+        path: 'blocks/image-player.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/image-player.mdx',
+      },
+      data: docs_27,
+    },
+    {
+      info: {
+        path: 'blocks/parallax.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/parallax.mdx',
+      },
+      data: docs_28,
+    },
+    {
+      info: {
+        path: 'blocks/scroll-animations-rotate.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/scroll-animations-rotate.mdx',
+      },
+      data: docs_29,
+    },
+    {
+      info: {
+        path: 'blocks/scroll-animations.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/scroll-animations.mdx',
+      },
+      data: docs_30,
+    },
+    {
+      info: {
+        path: 'blocks/scroll-reverse-animation.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/scroll-reverse-animation.mdx',
+      },
+      data: docs_31,
+    },
+    {
+      info: {
+        path: 'blocks/scroll-x-carousel.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/scroll-x-carousel.mdx',
+      },
+      data: docs_32,
+    },
+    {
+      info: {
+        path: 'blocks/slideshow.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/slideshow.mdx',
+      },
+      data: docs_33,
+    },
+    {
+      info: {
+        path: 'blocks/story.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/story.mdx',
+      },
+      data: docs_34,
+    },
+    {
+      info: {
+        path: 'blocks/team.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/team.mdx',
+      },
+      data: docs_35,
+    },
+    {
+      info: {
+        path: 'blocks/wavy-block.mdx',
+        absolutePath:
+          '/Users/ycf/Documents/systaliko-ui/content/docs/blocks/wavy-block.mdx',
       },
       data: docs_36,
     },
