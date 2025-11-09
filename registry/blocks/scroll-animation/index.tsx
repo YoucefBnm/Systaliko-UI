@@ -29,16 +29,22 @@ export function useScrollAnimationContext() {
   }
   return context;
 }
-
+interface ScrollAnimationProps extends React.ComponentProps<'div'> {
+  spacerClass?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  offset?: any[];
+}
 export function ScrollAnimation({
   spacerClass,
+  offset = ['start end', 'end start'],
   className,
   children,
   ...props
-}: React.ComponentProps<'div'> & { spacerClass?: string }) {
+}: ScrollAnimationProps) {
   const scrollRef = React.useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: scrollRef,
+    offset: offset,
   });
   const smoothProgress = useSpring(scrollYProgress, {
     damping: 30,

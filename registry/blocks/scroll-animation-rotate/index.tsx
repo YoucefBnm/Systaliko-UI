@@ -36,7 +36,7 @@ export function useScrollAnimationRotateContext() {
 
 export const ScrollAnimationRotate = ({
   spacerClass,
-  offset,
+  offset = ['0% 50%', '50% 50%'],
   children,
   className,
   style,
