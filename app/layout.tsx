@@ -25,6 +25,8 @@ export const metadata: Metadata = {
     'TypeScript',
     'Tailwind CSS',
     'Motion',
+    'Next js templates',
+    'Shadcn registry components',
     'Free UI components',
     'copy past components',
     'cli install components',

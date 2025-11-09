@@ -3,12 +3,7 @@
 
 import { promises as fs } from 'fs';
 import path from 'path';
-import {
-  AUTO_REGISTRY_DIR,
-  AUTO_REGISTRY_DIR_NAME,
-  REGISTRY_DIR,
-  Styles,
-} from './constants.mts';
+import { AUTO_REGISTRY_DIR, REGISTRY_DIR } from './constants.mts';
 
 async function buildComponents() {
   // Ensure __registry__ directory exists
@@ -67,48 +62,9 @@ async function processRegistryFolder(dir: string) {
     | undefined;
 
   // Component template
-  const variants = Object.entries(Styles).map(([_, style]) =>
-    styles?.[style] ? [style, styles[style]] : [style, styles?.default ?? {}],
-  ) as [string, Record<string, string>][];
-
-  for (const file of item.files) {
-    const compTplRel = file.path as string;
-    const compTplAbs = path.join(process.cwd(), compTplRel);
-
-    for (const [variant, styleObj] of variants) {
-      // Generate the component
-      const relDir = path.relative(REGISTRY_DIR, dir);
-      const relCompOut = path.posix.join(
-        AUTO_REGISTRY_DIR_NAME,
-        relDir,
-        variant,
-      );
-      await fs.mkdir(path.join(process.cwd(), relCompOut), { recursive: true });
-      let compContent = await fs.readFile(compTplAbs, 'utf-8');
-
-      // 1) Replace the placeholders {{styles.xxx}}
-      compContent = applyConditionals(compContent, variant);
-
-      for (const [key, classes] of Object.entries(styleObj)) {
-        const re = new RegExp(`{{styles\\.${key}}}`, 'g');
-        compContent = compContent.replace(re, classes);
-      }
-
-      // 2) Update the imports and add "/[variant]" :
-      //    '@/registry/foo/bar'  →  '@/AUTO_REGISTRY_DIR_NAME/foo/bar/[variant]'
-      compContent = compContent.replace(
-        /@\/registry\/([^'";\n\r ]+)/g,
-        `@/${AUTO_REGISTRY_DIR_NAME}/$1/${variant}`,
-      );
-
-      // 3) Write the file
-      const outputName = path.basename(compTplRel);
-      await fs.writeFile(
-        path.join(process.cwd(), relCompOut, outputName),
-        compContent,
-      );
-    }
-  }
+  // const variants = Object.entries(Styles).map(([_, style]) =>
+  //   styles?.[style] ? [style, styles[style]] : [style, styles?.default ?? {}],
+  // ) as [string, Record<string, string>][];
 }
 
 function applyConditionals(content: string, variant: string): string {

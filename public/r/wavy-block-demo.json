@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "wavy-block-demo",
+  "type": "registry:block",
+  "title": "Wavy Block Demo",
+  "description": "Demo showing Wavy Block component.",
+  "registryDependencies": [
+    "http://localhost:3000/r/wavy-block"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/blocks/wavy-block/index.tsx",
+      "content": "import { WavyBlock, WavyBlockItem } from '@/components/systaliko-ui/blocks/wavy-block';\n\nconst titles = [\n  'Flexible',\n  'Animated',\n  'Customizable',\n  'Optimized',\n  'Lightweight',\n  'Responsive',\n  'UI Blocks',\n];\n\nexport function WavyBlockDemo() {\n  return (\n    <div className=\"w-full overflow-hidden\">\n      <WavyBlock className=\"flex flex-col justify-start items-start gap-6\">\n        {titles.map((title, index) => (\n          <WavyBlockItem key={title} index={index}>\n            <h2 className=\" text-[7.3vw] font-bold leading-none tracking-tighter uppercase whitespace-nowrap\">\n              {title}\n            </h2>\n          </WavyBlockItem>\n        ))}\n      </WavyBlock>\n    </div>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/blocks/wavy-block.tsx"
+    }
+  ]
+}

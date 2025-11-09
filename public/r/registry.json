@@ -14,419 +14,149 @@
       "registryDependencies": [
         "utils"
       ],
-      "files": [],
-      "cssVars": {}
+      "cssVars": {},
+      "files": []
     },
     {
-      "name": "default-animated-menu",
+      "name": "animated-menu",
       "type": "registry:block",
       "title": "Animated Menu",
-      "description": "Animated menu, with orchestrated children animation, fully customizable with default style.",
+      "description": "Animated menu, with orchestrated children animation, fully customizable.",
       "dependencies": [
         "motion"
       ],
       "files": [
         {
-          "path": "__registry__/blocks/animated-menu/default/index.tsx",
+          "path": "registry/blocks/animated-menu/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/blocks/animated-menu.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-animated-menu",
-      "type": "registry:block",
-      "title": "Animated Menu",
-      "description": "Animated menu, with orchestrated children animation, fully customizable with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/blocks/animated-menu/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/animated-menu.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-animated-menu",
-      "type": "registry:block",
-      "title": "Animated Menu",
-      "description": "Animated menu, with orchestrated children animation, fully customizable with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/blocks/animated-menu/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/animated-menu.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-calculator",
+      "name": "calculator",
       "type": "registry:block",
       "title": "Calculator",
-      "description": "Calculator, for your custom pricing, or to extend your existing pricing with default style.",
+      "description": "Calculator, for your custom pricing, or to extend your existing pricing.",
       "files": [
         {
-          "path": "__registry__/blocks/calculator/default/index.tsx",
+          "path": "registry/blocks/calculator/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/blocks/calculator.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-calculator",
-      "type": "registry:block",
-      "title": "Calculator",
-      "description": "Calculator, for your custom pricing, or to extend your existing pricing with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/blocks/calculator/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/calculator.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-calculator",
-      "type": "registry:block",
-      "title": "Calculator",
-      "description": "Calculator, for your custom pricing, or to extend your existing pricing with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/blocks/calculator/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/calculator.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-container-stagger",
+      "name": "container-stagger",
       "type": "registry:block",
       "title": "Stagger Animations",
-      "description": "Animated Block with orchestrated stagger animations, for your motion components, the animations are triggered by view with default style.",
+      "description": "Animated Block with orchestrated stagger animations, for your motion components, the animations are triggered by view.",
       "dependencies": [
         "motion"
       ],
       "files": [
         {
-          "path": "__registry__/blocks/container-stagger/default/index.tsx",
+          "path": "registry/blocks/container-stagger/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/blocks/container-stagger.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-container-stagger",
-      "type": "registry:block",
-      "title": "Stagger Animations",
-      "description": "Animated Block with orchestrated stagger animations, for your motion components, the animations are triggered by view with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/blocks/container-stagger/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/container-stagger.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-container-stagger",
-      "type": "registry:block",
-      "title": "Stagger Animations",
-      "description": "Animated Block with orchestrated stagger animations, for your motion components, the animations are triggered by view with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/blocks/container-stagger/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/container-stagger.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-grid-bento",
+      "name": "grid-bento",
       "type": "registry:block",
       "title": "Grid Bento",
-      "description": "Bento Grid, layout with multiple variants and displays with default style.",
+      "description": "Bento Grid, layout with multiple variants and displays.",
       "files": [
         {
-          "path": "__registry__/blocks/grid-bento/default/index.tsx",
+          "path": "registry/blocks/grid-bento/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/blocks/grid-bento.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-grid-bento",
-      "type": "registry:block",
-      "title": "Grid Bento",
-      "description": "Bento Grid, layout with multiple variants and displays with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/blocks/grid-bento/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/grid-bento.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-grid-bento",
-      "type": "registry:block",
-      "title": "Grid Bento",
-      "description": "Bento Grid, layout with multiple variants and displays with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/blocks/grid-bento/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/grid-bento.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-image-player",
+      "name": "image-player",
       "type": "registry:block",
       "title": "Image Player",
-      "description": "Create your own image player GIF/video, with image player component with default style.",
+      "description": "Create your own image player GIF/video, with image player component.",
       "files": [
         {
-          "path": "__registry__/blocks/image-player/default/index.tsx",
+          "path": "registry/blocks/image-player/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/blocks/image-player.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-image-player",
-      "type": "registry:block",
-      "title": "Image Player",
-      "description": "Create your own image player GIF/video, with image player component with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/blocks/image-player/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/image-player.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-image-player",
-      "type": "registry:block",
-      "title": "Image Player",
-      "description": "Create your own image player GIF/video, with image player component with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/blocks/image-player/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/image-player.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-parallax",
+      "name": "parallax",
       "type": "registry:block",
       "title": "Parallax",
-      "description": "Parallax block, creates a parallax effect with default style.",
+      "description": "Parallax block, creates a parallax effect.",
       "dependencies": [
         "motion"
       ],
       "files": [
         {
-          "path": "__registry__/blocks/parallax/default/index.tsx",
+          "path": "registry/blocks/parallax/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/blocks/parallax.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-parallax",
-      "type": "registry:block",
-      "title": "Parallax",
-      "description": "Parallax block, creates a parallax effect with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/blocks/parallax/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/parallax.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-parallax",
-      "type": "registry:block",
-      "title": "Parallax",
-      "description": "Parallax block, creates a parallax effect with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/blocks/parallax/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/parallax.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-scroll-animation",
+      "name": "scroll-animation",
       "type": "registry:block",
       "title": "Scroll Animation",
-      "description": "Collection of scroll triggered animations, Triggering the animation by scroll event with default style.",
+      "description": "Collection of scroll triggered animations, Triggering the animation by scroll event.",
       "dependencies": [
         "motion"
       ],
       "files": [
         {
-          "path": "__registry__/blocks/scroll-animation/default/index.tsx",
+          "path": "registry/blocks/scroll-animation/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/blocks/scroll-animation.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-scroll-animation",
-      "type": "registry:block",
-      "title": "Scroll Animation",
-      "description": "Collection of scroll triggered animations, Triggering the animation by scroll event with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/blocks/scroll-animation/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/scroll-animation.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-scroll-animation",
-      "type": "registry:block",
-      "title": "Scroll Animation",
-      "description": "Collection of scroll triggered animations, Triggering the animation by scroll event with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/blocks/scroll-animation/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/scroll-animation.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-scroll-animation-rotate",
+      "name": "scroll-animation-rotate",
       "type": "registry:block",
       "title": "Scroll Rotation Animation",
-      "description": "Collection of scroll rotation animations, Triggering the animation by scroll event with default style.",
+      "description": "Collection of scroll rotation animations, Triggering the animation by scroll event.",
       "dependencies": [
         "motion"
       ],
       "files": [
         {
-          "path": "__registry__/blocks/scroll-animation-rotate/default/index.tsx",
+          "path": "registry/blocks/scroll-animation-rotate/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/blocks/scroll-animation-rotate.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-scroll-animation-rotate",
-      "type": "registry:block",
-      "title": "Scroll Rotation Animation",
-      "description": "Collection of scroll rotation animations, Triggering the animation by scroll event with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/blocks/scroll-animation-rotate/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/scroll-animation-rotate.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-scroll-animation-rotate",
-      "type": "registry:block",
-      "title": "Scroll Rotation Animation",
-      "description": "Collection of scroll rotation animations, Triggering the animation by scroll event with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/blocks/scroll-animation-rotate/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/scroll-animation-rotate.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-scroll-x-carousel",
+      "name": "scroll-x-carousel",
       "type": "registry:block",
       "title": "Scroll X Carousel",
-      "description": "Scroll carousel on x axis, with optional progress indicator with default style.",
+      "description": "Scroll carousel on x axis, with optional progress indicator.",
       "dependencies": [
         "motion"
       ],
       "files": [
         {
-          "path": "__registry__/blocks/scroll-x-carousel/default/index.tsx",
+          "path": "registry/blocks/scroll-x-carousel/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/blocks/scroll-x-carousel.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-scroll-x-carousel",
-      "type": "registry:block",
-      "title": "Scroll X Carousel",
-      "description": "Scroll carousel on x axis, with optional progress indicator with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/blocks/scroll-x-carousel/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/scroll-x-carousel.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-scroll-x-carousel",
-      "type": "registry:block",
-      "title": "Scroll X Carousel",
-      "description": "Scroll carousel on x axis, with optional progress indicator with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/blocks/scroll-x-carousel/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/scroll-x-carousel.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-slideshow",
+      "name": "slideshow",
       "type": "registry:block",
       "title": "Slideshow",
-      "description": "Display the active image and activate the next image with hovering the text indicator with default style.",
+      "description": "Display the active image and activate the next image with hovering the text indicator.",
       "dependencies": [
         "motion"
       ],
@@ -435,325 +165,123 @@
       ],
       "files": [
         {
-          "path": "__registry__/blocks/slideshow/default/index.tsx",
+          "path": "registry/blocks/slideshow/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/blocks/slideshow.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-slideshow",
-      "type": "registry:block",
-      "title": "Slideshow",
-      "description": "Display the active image and activate the next image with hovering the text indicator with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-text-stagger-hover"
-      ],
-      "files": [
-        {
-          "path": "__registry__/blocks/slideshow/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/blocks/slideshow.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-slideshow",
-      "type": "registry:block",
-      "title": "Slideshow",
-      "description": "Display the active image and activate the next image with hovering the text indicator with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-text-stagger-hover"
-      ],
-      "files": [
-        {
-          "path": "__registry__/blocks/slideshow/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/blocks/slideshow.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-story",
+      "name": "story",
       "type": "registry:block",
       "title": "Story",
-      "description": "Simillar to IG story, Story is a component that allows you to display a collection of components in a single view with default style.",
+      "description": "Simillar to IG story, Story is a component that allows you to display a collection of components in a single view.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/default-button"
       ],
       "files": [
         {
-          "path": "__registry__/blocks/story/default/index.tsx",
+          "path": "registry/blocks/story/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/blocks/story.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-story",
+      "name": "timeline",
       "type": "registry:block",
-      "title": "Story",
-      "description": "Simillar to IG story, Story is a component that allows you to display a collection of components in a single view with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-button"
-      ],
-      "files": [
-        {
-          "path": "__registry__/blocks/story/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/story.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-story",
-      "type": "registry:block",
-      "title": "Story",
-      "description": "Simillar to IG story, Story is a component that allows you to display a collection of components in a single view with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-button"
-      ],
-      "files": [
-        {
-          "path": "__registry__/blocks/story/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/story.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-wavy-block",
-      "type": "registry:block",
-      "title": "Wavy Block",
-      "description": "block animates its children in waves pattern with default style.",
+      "title": "Timeline",
+      "description": "Timeline, where you can showcase history (like your work) or a process (like a project).",
       "dependencies": [
         "motion"
       ],
       "files": [
         {
-          "path": "__registry__/blocks/wavy-block/default/index.tsx",
+          "path": "registry/blocks/timeline/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/timeline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "wavy-block",
+      "type": "registry:block",
+      "title": "Wavy Block",
+      "description": "block animates its children in waves pattern.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/wavy-block/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/blocks/wavy-block.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-wavy-block",
-      "type": "registry:block",
-      "title": "Wavy Block",
-      "description": "block animates its children in waves pattern with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/blocks/wavy-block/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/wavy-block.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-wavy-block",
-      "type": "registry:block",
-      "title": "Wavy Block",
-      "description": "block animates its children in waves pattern with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/blocks/wavy-block/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/wavy-block.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-card",
+      "name": "card",
       "type": "registry:ui",
       "title": "Card",
-      "description": "Card component with variants with default style.",
+      "description": "Card component with variants.",
       "files": [
         {
-          "path": "__registry__/cards/card/default/index.tsx",
+          "path": "registry/cards/card/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/cards/card.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-card",
-      "type": "registry:ui",
-      "title": "Card",
-      "description": "Card component with variants with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/cards/card/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/cards/card.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-card",
-      "type": "registry:ui",
-      "title": "Card",
-      "description": "Card component with variants with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/cards/card/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/cards/card.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-card-curtain-reveal",
+      "name": "card-curtain-reveal",
       "type": "registry:ui",
       "title": "Curtain Reveal Card",
-      "description": "Interactive card component with open curtain to see content on hover gesture with default style.",
+      "description": "Interactive card component with open curtain to see content on hover gesture.",
       "dependencies": [
         "motion"
       ],
       "files": [
         {
-          "path": "__registry__/cards/card-curtain-reveal/default/index.tsx",
+          "path": "registry/cards/card-curtain-reveal/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/cards/card-curtain-reveal.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-card-curtain-reveal",
-      "type": "registry:ui",
-      "title": "Curtain Reveal Card",
-      "description": "Interactive card component with open curtain to see content on hover gesture with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/cards/card-curtain-reveal/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/cards/card-curtain-reveal.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-card-curtain-reveal",
-      "type": "registry:ui",
-      "title": "Curtain Reveal Card",
-      "description": "Interactive card component with open curtain to see content on hover gesture with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/cards/card-curtain-reveal/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/cards/card-curtain-reveal.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-card-flip",
+      "name": "card-flip",
       "type": "registry:ui",
       "title": "3d Flip Card",
-      "description": "An interactive card component that flips on hover with smooth 3D transitions with default style.",
+      "description": "An interactive card component that flips on hover with smooth 3D transitions.",
       "dependencies": [
         "motion"
       ],
       "files": [
         {
-          "path": "__registry__/cards/card-flip/default/index.tsx",
+          "path": "registry/cards/card-flip/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/cards/card-flip.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-card-flip",
-      "type": "registry:ui",
-      "title": "3d Flip Card",
-      "description": "An interactive card component that flips on hover with smooth 3D transitions with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/cards/card-flip/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/cards/card-flip.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-card-flip",
-      "type": "registry:ui",
-      "title": "3d Flip Card",
-      "description": "An interactive card component that flips on hover with smooth 3D transitions with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/cards/card-flip/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/cards/card-flip.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-card-hover-reveal",
+      "name": "card-hover-reveal",
       "type": "registry:ui",
       "title": "Hover Reveal Details Card",
-      "description": "Animated card with gesture animations,  Reveals hidden content and scale main image on hover with default style.",
+      "description": "Animated card with gesture animations,  Reveals hidden content and scale main image on hover.",
       "files": [
         {
-          "path": "__registry__/cards/card-hover-reveal/default/index.tsx",
+          "path": "registry/cards/card-hover-reveal/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/cards/card-hover-reveal.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-card-hover-reveal",
-      "type": "registry:ui",
-      "title": "Hover Reveal Details Card",
-      "description": "Animated card with gesture animations,  Reveals hidden content and scale main image on hover with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/cards/card-hover-reveal/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/cards/card-hover-reveal.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-card-hover-reveal",
-      "type": "registry:ui",
-      "title": "Hover Reveal Details Card",
-      "description": "Animated card with gesture animations,  Reveals hidden content and scale main image on hover with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/cards/card-hover-reveal/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/cards/card-hover-reveal.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-card-testimonial",
+      "name": "card-testimonial",
       "type": "registry:ui",
       "title": "Card Testimonial",
-      "description": "Card Testimonial, with rating, block quote, and author's informations with default style.",
+      "description": "Card Testimonial, with rating, block quote, and author's informations.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/default-avatar",
         "https://systaliko-ui.vercel.app/r/default-rating-stars",
@@ -761,101 +289,33 @@
       ],
       "files": [
         {
-          "path": "__registry__/cards/card-testimonial/default/index.tsx",
+          "path": "registry/cards/card-testimonial/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/cards/card-testimonial.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-card-testimonial",
-      "type": "registry:ui",
-      "title": "Card Testimonial",
-      "description": "Card Testimonial, with rating, block quote, and author's informations with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-avatar",
-        "https://systaliko-ui.vercel.app/r/default-rating-stars",
-        "https://systaliko-ui.vercel.app/r/default-card"
-      ],
-      "files": [
-        {
-          "path": "__registry__/cards/card-testimonial/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/cards/card-testimonial.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-card-testimonial",
-      "type": "registry:ui",
-      "title": "Card Testimonial",
-      "description": "Card Testimonial, with rating, block quote, and author's informations with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-avatar",
-        "https://systaliko-ui.vercel.app/r/default-rating-stars",
-        "https://systaliko-ui.vercel.app/r/default-card"
-      ],
-      "files": [
-        {
-          "path": "__registry__/cards/card-testimonial/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/cards/card-testimonial.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-cards-stack",
+      "name": "cards-stack",
       "type": "registry:block",
       "title": "Cards Stack",
-      "description": "Stack of cards to showcase a related set of element, like your services, your work, features, process of work, timeline, etc with default style.",
+      "description": "Stack of cards to showcase a related set of element, like your services, your work, features, process of work, timeline, etc.",
       "dependencies": [
         "motion"
       ],
       "files": [
         {
-          "path": "__registry__/cards/cards-stack/default/index.tsx",
+          "path": "registry/cards/cards-stack/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/cards/cards-stack.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-cards-stack",
-      "type": "registry:block",
-      "title": "Cards Stack",
-      "description": "Stack of cards to showcase a related set of element, like your services, your work, features, process of work, timeline, etc with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/cards/cards-stack/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/cards/cards-stack.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-cards-stack",
-      "type": "registry:block",
-      "title": "Cards Stack",
-      "description": "Stack of cards to showcase a related set of element, like your services, your work, features, process of work, timeline, etc with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/cards/cards-stack/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/cards/cards-stack.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-cards-stack-rotated",
+      "name": "cards-stack-rotated",
       "type": "registry:block",
       "title": "Cards Stack Rotated",
-      "description": "Stack of cards rotated by a defined index value to rotate in sequence, it show one card at a time depending on the scroll position with default style.",
+      "description": "Stack of cards rotated by a defined index value to rotate in sequence, it show one card at a time depending on the scroll position.",
       "dependencies": [
         "motion"
       ],
@@ -864,55 +324,17 @@
       ],
       "files": [
         {
-          "path": "__registry__/cards/cards-stack-rotated/default/index.tsx",
+          "path": "registry/cards/cards-stack-rotated/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/cards/cards-stack-rotated.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-cards-stack-rotated",
-      "type": "registry:block",
-      "title": "Cards Stack Rotated",
-      "description": "Stack of cards rotated by a defined index value to rotate in sequence, it show one card at a time depending on the scroll position with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "registry/cards/card-testimonial/index.tsx"
-      ],
-      "files": [
-        {
-          "path": "__registry__/cards/cards-stack-rotated/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/cards/cards-stack-rotated.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-cards-stack-rotated",
-      "type": "registry:block",
-      "title": "Cards Stack Rotated",
-      "description": "Stack of cards rotated by a defined index value to rotate in sequence, it show one card at a time depending on the scroll position with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "registry/cards/card-testimonial/index.tsx"
-      ],
-      "files": [
-        {
-          "path": "__registry__/cards/cards-stack-rotated/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/cards/cards-stack-rotated.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-custom-cursor",
+      "name": "custom-cursor",
       "type": "registry:ui",
       "title": "Custom Cursor",
-      "description": "Turn your cursor into any element your want, text, image, video, or a shape with default style.",
+      "description": "Turn your cursor into any element your want, text, image, video, or a shape.",
       "dependencies": [
         "motion"
       ],
@@ -921,376 +343,124 @@
       ],
       "files": [
         {
-          "path": "__registry__/components/custom-cursor/default/index.tsx",
+          "path": "registry/components/custom-cursor/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/ui/custom-cursor.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-custom-cursor",
-      "type": "registry:ui",
-      "title": "Custom Cursor",
-      "description": "Turn your cursor into any element your want, text, image, video, or a shape with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-use-follow-mouse"
-      ],
-      "files": [
-        {
-          "path": "__registry__/components/custom-cursor/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/ui/custom-cursor.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-custom-cursor",
-      "type": "registry:ui",
-      "title": "Custom Cursor",
-      "description": "Turn your cursor into any element your want, text, image, video, or a shape with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-use-follow-mouse"
-      ],
-      "files": [
-        {
-          "path": "__registry__/components/custom-cursor/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/ui/custom-cursor.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-pulse",
+      "name": "pulse",
       "type": "registry:ui",
       "title": "Pulse",
-      "description": "Pulse effect for attracting user attention with default style.",
+      "description": "Pulse effect for attracting user attention.",
       "files": [
         {
-          "path": "__registry__/components/pulse/default/index.tsx",
+          "path": "registry/components/pulse/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/pulse.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-pulse",
-      "type": "registry:ui",
-      "title": "Pulse",
-      "description": "Pulse effect for attracting user attention with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/components/pulse/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/pulse.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-pulse",
-      "type": "registry:ui",
-      "title": "Pulse",
-      "description": "Pulse effect for attracting user attention with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/components/pulse/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/pulse.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-rating-stars",
+      "name": "rating-stars",
       "type": "registry:ui",
       "title": "Rating Stars",
-      "description": "Stars rating component with customizable color, depending on average rating with default style.",
+      "description": "Stars rating component with customizable color, depending on average rating.",
       "files": [
         {
-          "path": "__registry__/components/rating-stars/default/index.tsx",
+          "path": "registry/components/rating-stars/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/rating-stars.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-rating-stars",
-      "type": "registry:ui",
-      "title": "Rating Stars",
-      "description": "Stars rating component with customizable color, depending on average rating with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/components/rating-stars/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/rating-stars.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-rating-stars",
-      "type": "registry:ui",
-      "title": "Rating Stars",
-      "description": "Stars rating component with customizable color, depending on average rating with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/components/rating-stars/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/rating-stars.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-animated-menu-demo",
+      "name": "animated-menu-demo",
       "type": "registry:block",
       "title": "Animated Menu Demo",
-      "description": "Demo showing animated menu component with default style.",
+      "description": "Demo showing animated menu component.",
       "registryDependencies": [
         "http://localhost:3000/r/animated-menu"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/animated-menu/default/index.tsx",
+          "path": "registry/demo/blocks/animated-menu/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/blocks/animated-menu.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-animated-menu-demo",
-      "type": "registry:block",
-      "title": "Animated Menu Demo",
-      "description": "Demo showing animated menu component with shadcn-default style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/animated-menu"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/animated-menu/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/animated-menu.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-animated-menu-demo",
-      "type": "registry:block",
-      "title": "Animated Menu Demo",
-      "description": "Demo showing animated menu component with shadcn-new-york style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/animated-menu"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/animated-menu/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/animated-menu.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-animated-menu-2-demo",
+      "name": "animated-menu-2-demo",
       "type": "registry:block",
       "title": "Animated Menu 2 Demo",
-      "description": "another demo showing animated menu component with default style.",
+      "description": "another demo showing animated menu component.",
       "registryDependencies": [
         "http://localhost:3000/r/animated-menu"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/animated-menu-2/default/index.tsx",
+          "path": "registry/demo/blocks/animated-menu-2/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/blocks/animated-menu-2.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-animated-menu-2-demo",
-      "type": "registry:block",
-      "title": "Animated Menu 2 Demo",
-      "description": "another demo showing animated menu component with shadcn-default style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/animated-menu"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/animated-menu-2/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/animated-menu-2.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-animated-menu-2-demo",
-      "type": "registry:block",
-      "title": "Animated Menu 2 Demo",
-      "description": "another demo showing animated menu component with shadcn-new-york style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/animated-menu"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/animated-menu-2/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/animated-menu-2.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-animated-menu-full-screen-demo",
+      "name": "animated-menu-full-screen-demo",
       "type": "registry:block",
       "title": "Animated Menu Demo",
-      "description": "another demo showing animated menu component in full screen mode with default style.",
+      "description": "another demo showing animated menu component in full screen mode.",
       "registryDependencies": [
         "http://localhost:3000/r/animated-menu-full-screen"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/animated-menu-full-screen/default/index.tsx",
+          "path": "registry/demo/blocks/animated-menu-full-screen/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/blocks/animated-menu-full-screen.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-animated-menu-full-screen-demo",
-      "type": "registry:block",
-      "title": "Animated Menu Demo",
-      "description": "another demo showing animated menu component in full screen mode with shadcn-default style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/animated-menu-full-screen"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/animated-menu-full-screen/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/animated-menu-full-screen.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-animated-menu-full-screen-demo",
-      "type": "registry:block",
-      "title": "Animated Menu Demo",
-      "description": "another demo showing animated menu component in full screen mode with shadcn-new-york style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/animated-menu-full-screen"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/animated-menu-full-screen/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/animated-menu-full-screen.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-calculator-demo",
+      "name": "calculator-demo",
       "type": "registry:block",
       "title": "Calculator Demo",
-      "description": "Demo showing calculator component with default style.",
+      "description": "Demo showing calculator component.",
       "registryDependencies": [
         "http://localhost:3000/r/calculator"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/calculator/default/index.tsx",
+          "path": "registry/demo/blocks/calculator/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/blocks/calculator.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-calculator-demo",
-      "type": "registry:block",
-      "title": "Calculator Demo",
-      "description": "Demo showing calculator component with shadcn-default style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/calculator"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/calculator/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/calculator.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-calculator-demo",
-      "type": "registry:block",
-      "title": "Calculator Demo",
-      "description": "Demo showing calculator component with shadcn-new-york style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/calculator"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/calculator/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/calculator.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-container-stagger-demo",
+      "name": "container-stagger-demo",
       "type": "registry:block",
       "title": "Stagger Container Demo",
-      "description": "Demo showing stagger container component with default style.",
+      "description": "Demo showing stagger container component.",
       "registryDependencies": [
         "http://localhost:3000/r/container-stagger",
         "https://systaliko-ui.vercel.app/r/transitions"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/container-stagger/default/index.tsx",
+          "path": "registry/demo/blocks/container-stagger/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/blocks/container-stagger.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-container-stagger-demo",
-      "type": "registry:block",
-      "title": "Stagger Container Demo",
-      "description": "Demo showing stagger container component with shadcn-default style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/container-stagger",
-        "https://systaliko-ui.vercel.app/r/transitions"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/container-stagger/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/container-stagger.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-container-stagger-demo",
-      "type": "registry:block",
-      "title": "Stagger Container Demo",
-      "description": "Demo showing stagger container component with shadcn-new-york style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/container-stagger",
-        "https://systaliko-ui.vercel.app/r/transitions"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/container-stagger/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/container-stagger.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-container-stagger-2-demo",
+      "name": "container-stagger-2-demo",
       "type": "registry:block",
       "title": "Container Stagger Demo",
-      "description": "Demo showing another use case for container stagger with your motion components with default style.",
+      "description": "Demo showing another use case for container stagger with your motion components.",
       "dependencies": [
         "motion"
       ],
@@ -1300,249 +470,81 @@
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/container-stagger-2/default/index.tsx",
+          "path": "registry/demo/blocks/container-stagger-2/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/blocks/container-stagger.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-container-stagger-2-demo",
-      "type": "registry:block",
-      "title": "Container Stagger Demo",
-      "description": "Demo showing another use case for container stagger with your motion components with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/container-stagger",
-        "https://systaliko-ui.vercel.app/r/animation-variants"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/container-stagger-2/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/container-stagger.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-container-stagger-2-demo",
-      "type": "registry:block",
-      "title": "Container Stagger Demo",
-      "description": "Demo showing another use case for container stagger with your motion components with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/container-stagger",
-        "https://systaliko-ui.vercel.app/r/animation-variants"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/container-stagger-2/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/container-stagger.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-grid-bento-demo",
+      "name": "grid-bento-demo",
       "type": "registry:block",
       "title": "Grid Bento Demos",
-      "description": "Grid Bento Demo with multiple variants with default style.",
+      "description": "Grid Bento Demo with multiple variants.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/grid-bento"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/grid-bento/default/index.tsx",
+          "path": "registry/demo/blocks/grid-bento/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/blocks/grid-bento.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-grid-bento-demo",
+      "name": "grid-bento-four-cells-demo",
       "type": "registry:block",
       "title": "Grid Bento Demos",
-      "description": "Grid Bento Demo with multiple variants with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/grid-bento"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/grid-bento/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/grid-bento.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-grid-bento-demo",
-      "type": "registry:block",
-      "title": "Grid Bento Demos",
-      "description": "Grid Bento Demo with multiple variants with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/grid-bento"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/grid-bento/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/grid-bento.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-grid-bento-four-cells-demo",
-      "type": "registry:block",
-      "title": "Grid Bento Demos",
-      "description": "Grid Bento Demo with multiple variants with default style.",
+      "description": "Grid Bento Demo with multiple variants.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/grid-bento-four-cells"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/grid-bento-four-cells/default/index.tsx",
+          "path": "registry/demo/blocks/grid-bento-four-cells/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/blocks/grid-bento-four-cells.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-grid-bento-four-cells-demo",
-      "type": "registry:block",
-      "title": "Grid Bento Demos",
-      "description": "Grid Bento Demo with multiple variants with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/grid-bento-four-cells"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/grid-bento-four-cells/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/grid-bento-four-cells.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-grid-bento-four-cells-demo",
-      "type": "registry:block",
-      "title": "Grid Bento Demos",
-      "description": "Grid Bento Demo with multiple variants with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/grid-bento-four-cells"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/grid-bento-four-cells/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/grid-bento-four-cells.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-grid-bento-three-cells-demo",
+      "name": "grid-bento-three-cells-demo",
       "type": "registry:block",
       "title": "Grid Bento Three Cells Demo",
-      "description": "Demo showing another variant of grid bento component with default style.",
+      "description": "Demo showing another variant of grid bento component.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/grid-bento-three-cells"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/grid-bento-three-cells/default/index.tsx",
+          "path": "registry/demo/blocks/grid-bento-three-cells/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/blocks/grid-bento-three-cells.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-grid-bento-three-cells-demo",
-      "type": "registry:block",
-      "title": "Grid Bento Three Cells Demo",
-      "description": "Demo showing another variant of grid bento component with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/grid-bento-three-cells"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/grid-bento-three-cells/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/grid-bento-three-cells.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-grid-bento-three-cells-demo",
-      "type": "registry:block",
-      "title": "Grid Bento Three Cells Demo",
-      "description": "Demo showing another variant of grid bento component with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/grid-bento-three-cells"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/grid-bento-three-cells/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/grid-bento-three-cells.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-image-player-demo",
+      "name": "image-player-demo",
       "type": "registry:block",
       "title": "Image Player Demo",
-      "description": "Demo showing how to use image player component with default style.",
+      "description": "Demo showing how to use image player component.",
       "registryDependencies": [
         "http://localhost:3000/r/image-player"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/image-player/default/index.tsx",
+          "path": "registry/demo/blocks/image-player/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/blocks/image-player.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-image-player-demo",
-      "type": "registry:block",
-      "title": "Image Player Demo",
-      "description": "Demo showing how to use image player component with shadcn-default style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/image-player"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/image-player/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/image-player.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-image-player-demo",
-      "type": "registry:block",
-      "title": "Image Player Demo",
-      "description": "Demo showing how to use image player component with shadcn-new-york style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/image-player"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/image-player/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/image-player.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-parallax-demo",
+      "name": "parallax-demo",
       "type": "registry:block",
       "title": "Parallax Demo",
-      "description": "Demo showing parallax component with default style.",
+      "description": "Demo showing parallax component.",
       "dependencies": [
         "motion"
       ],
@@ -1555,63 +557,17 @@
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/parallax/default/index.tsx",
+          "path": "registry/demo/blocks/parallax/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/blocks/parallax.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-parallax-demo",
-      "type": "registry:block",
-      "title": "Parallax Demo",
-      "description": "Demo showing parallax component with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/parallax",
-        "https://systaliko-ui.vercel.app/r/container-stagger",
-        "https://systaliko-ui.vercel.app/r/text-stagger-inview",
-        "https://systaliko-ui.vercel.app/r/animation-variants",
-        "https://systaliko-ui.vercel.app/r/button"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/parallax/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/parallax.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-parallax-demo",
-      "type": "registry:block",
-      "title": "Parallax Demo",
-      "description": "Demo showing parallax component with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/parallax",
-        "https://systaliko-ui.vercel.app/r/container-stagger",
-        "https://systaliko-ui.vercel.app/r/text-stagger-inview",
-        "https://systaliko-ui.vercel.app/r/animation-variants",
-        "https://systaliko-ui.vercel.app/r/button"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/parallax/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/parallax.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-scroll-animation-combo-demo",
+      "name": "scroll-animation-combo-demo",
       "type": "registry:block",
       "title": "scroll-animation-combo Demo",
-      "description": "Demo showing scroll-animation-combo component with default style.",
+      "description": "Demo showing scroll-animation-combo component.",
       "dependencies": [
         "motion"
       ],
@@ -1620,682 +576,226 @@
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/scroll-animation-combo/default/index.tsx",
+          "path": "registry/demo/blocks/scroll-animation-combo/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/scroll-animation-combo.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-scroll-animation-combo-demo",
-      "type": "registry:block",
-      "title": "scroll-animation-combo Demo",
-      "description": "Demo showing scroll-animation-combo component with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animation"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-combo/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/scroll-animation-combo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-scroll-animation-combo-demo",
-      "type": "registry:block",
-      "title": "scroll-animation-combo Demo",
-      "description": "Demo showing scroll-animation-combo component with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animation"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-combo/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/scroll-animation-combo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-scroll-animation-inset-demo",
+      "name": "scroll-animation-inset-demo",
       "type": "registry:block",
       "title": "Scroll Trigger inset Animations Demo",
-      "description": "Demo showing how to implement scroll triggred animations with default style.",
+      "description": "Demo showing how to implement scroll triggred animations.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/scroll-animations"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/scroll-animation-inset/default/index.tsx",
+          "path": "registry/demo/blocks/scroll-animation-inset/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/scroll-animation-inset-demo.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-scroll-animation-inset-demo",
-      "type": "registry:block",
-      "title": "Scroll Trigger inset Animations Demo",
-      "description": "Demo showing how to implement scroll triggred animations with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animations"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-inset/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/scroll-animation-inset-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-scroll-animation-inset-demo",
-      "type": "registry:block",
-      "title": "Scroll Trigger inset Animations Demo",
-      "description": "Demo showing how to implement scroll triggred animations with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animations"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-inset/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/scroll-animation-inset-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-scroll-animation-inset-x-demo",
+      "name": "scroll-animation-inset-x-demo",
       "type": "registry:block",
       "title": "Scroll Trigger Inset-X Animations Demo",
-      "description": "Demo showing how to implement scroll triggred animations with default style.",
+      "description": "Demo showing how to implement scroll triggred animations.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/scroll-animations"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/scroll-animation-inset-x/default/index.tsx",
+          "path": "registry/demo/blocks/scroll-animation-inset-x/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/scroll-animation-inset-x.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-scroll-animation-inset-x-demo",
-      "type": "registry:block",
-      "title": "Scroll Trigger Inset-X Animations Demo",
-      "description": "Demo showing how to implement scroll triggred animations with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animations"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-inset-x/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/scroll-animation-inset-x.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-scroll-animation-inset-x-demo",
-      "type": "registry:block",
-      "title": "Scroll Trigger Inset-X Animations Demo",
-      "description": "Demo showing how to implement scroll triggred animations with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animations"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-inset-x/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/scroll-animation-inset-x.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-scroll-animation-inset-y-demo",
+      "name": "scroll-animation-inset-y-demo",
       "type": "registry:block",
       "title": "Scroll Trigger X-inset Animations Demo",
-      "description": "Demo showing how to implement scroll triggred animations with default style.",
+      "description": "Demo showing how to implement scroll triggred animations.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/scroll-animations"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/scroll-animation-inset-y/default/index.tsx",
+          "path": "registry/demo/blocks/scroll-animation-inset-y/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/scroll-animation-inset-y.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-scroll-animation-inset-y-demo",
-      "type": "registry:block",
-      "title": "Scroll Trigger X-inset Animations Demo",
-      "description": "Demo showing how to implement scroll triggred animations with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animations"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-inset-y/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/scroll-animation-inset-y.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-scroll-animation-inset-y-demo",
-      "type": "registry:block",
-      "title": "Scroll Trigger X-inset Animations Demo",
-      "description": "Demo showing how to implement scroll triggred animations with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animations"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-inset-y/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/scroll-animation-inset-y.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-scroll-animation-radius-demo",
+      "name": "scroll-animation-radius-demo",
       "type": "registry:block",
       "title": "scroll-animation-radius Demo",
-      "description": "Demo showing how to use scroll animations with default style.",
+      "description": "Demo showing how to use scroll animations.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/scroll-animations"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/scroll-animation-radius/default/index.tsx",
+          "path": "registry/demo/blocks/scroll-animation-radius/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/scroll-animation-radius.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-scroll-animation-radius-demo",
-      "type": "registry:block",
-      "title": "scroll-animation-radius Demo",
-      "description": "Demo showing how to use scroll animations with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animations"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-radius/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/scroll-animation-radius.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-scroll-animation-radius-demo",
-      "type": "registry:block",
-      "title": "scroll-animation-radius Demo",
-      "description": "Demo showing how to use scroll animations with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animations"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-radius/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/scroll-animation-radius.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-scroll-animation-rotate-demo",
+      "name": "scroll-animation-rotate-demo",
       "type": "registry:block",
       "title": "scroll rotate animation Demo",
-      "description": "Demo showing how to use scroll rotate animations with default style.",
+      "description": "Demo showing how to use scroll rotate animations.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/scroll-animation-rotate"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/scroll-animation-rotate/default/index.tsx",
+          "path": "registry/demo/blocks/scroll-animation-rotate/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/scroll-animation-rotate-demo.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-scroll-animation-rotate-demo",
-      "type": "registry:block",
-      "title": "scroll rotate animation Demo",
-      "description": "Demo showing how to use scroll rotate animations with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animation-rotate"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-rotate/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/scroll-animation-rotate-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-scroll-animation-rotate-demo",
-      "type": "registry:block",
-      "title": "scroll rotate animation Demo",
-      "description": "Demo showing how to use scroll rotate animations with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animation-rotate"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-rotate/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/scroll-animation-rotate-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-scroll-animation-rotate-x-demo",
+      "name": "scroll-animation-rotate-x-demo",
       "type": "registry:block",
       "title": "scroll rotate animation device Demo",
-      "description": "Demo showing how to use scroll rotate animations with default style.",
+      "description": "Demo showing how to use scroll rotate animations.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/scroll-animation-rotate"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/scroll-animation-rotate-x/default/index.tsx",
+          "path": "registry/demo/blocks/scroll-animation-rotate-x/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/scroll-animation-rotate-demo.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-scroll-animation-rotate-x-demo",
+      "name": "scroll-animation-rotate-y-demo",
       "type": "registry:block",
       "title": "scroll rotate animation device Demo",
-      "description": "Demo showing how to use scroll rotate animations with shadcn-default style.",
+      "description": "Demo showing how to use scroll rotate animations.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/scroll-animation-rotate"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/scroll-animation-rotate-x/shadcn-default/index.tsx",
+          "path": "registry/demo/blocks/scroll-animation-rotate-y/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/scroll-animation-rotate-demo.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-new-york-scroll-animation-rotate-x-demo",
-      "type": "registry:block",
-      "title": "scroll rotate animation device Demo",
-      "description": "Demo showing how to use scroll rotate animations with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animation-rotate"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-rotate-x/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/scroll-animation-rotate-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-scroll-animation-rotate-y-demo",
-      "type": "registry:block",
-      "title": "scroll rotate animation device Demo",
-      "description": "Demo showing how to use scroll rotate animations with default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animation-rotate"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-rotate-y/default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/scroll-animation-rotate-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-default-scroll-animation-rotate-y-demo",
-      "type": "registry:block",
-      "title": "scroll rotate animation device Demo",
-      "description": "Demo showing how to use scroll rotate animations with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animation-rotate"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-rotate-y/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/scroll-animation-rotate-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-scroll-animation-rotate-y-demo",
-      "type": "registry:block",
-      "title": "scroll rotate animation device Demo",
-      "description": "Demo showing how to use scroll rotate animations with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animation-rotate"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-rotate-y/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/scroll-animation-rotate-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-scroll-animation-scale-demo",
+      "name": "scroll-animation-scale-demo",
       "type": "registry:block",
       "title": "Scroll Trigger Scale Animations Demo",
-      "description": "Demo showing how to implement scroll triggred animations with default style.",
+      "description": "Demo showing how to implement scroll triggred animations.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/scroll-animations"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/scroll-animation-scale/default/index.tsx",
+          "path": "registry/demo/blocks/scroll-animation-scale/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/scroll-animation-scale.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-scroll-animation-scale-demo",
-      "type": "registry:block",
-      "title": "Scroll Trigger Scale Animations Demo",
-      "description": "Demo showing how to implement scroll triggred animations with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animations"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-scale/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/scroll-animation-scale.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-scroll-animation-scale-demo",
-      "type": "registry:block",
-      "title": "Scroll Trigger Scale Animations Demo",
-      "description": "Demo showing how to implement scroll triggred animations with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animations"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-scale/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/scroll-animation-scale.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-scroll-animation-translate-x-demo",
+      "name": "scroll-animation-translate-x-demo",
       "type": "registry:block",
       "title": "Scroll Trigger inset Animations Demo",
-      "description": "Demo showing how to implement scroll triggred animations with default style.",
+      "description": "Demo showing how to implement scroll triggred animations.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/scroll-animations"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/scroll-animation-translate-x/default/index.tsx",
+          "path": "registry/demo/blocks/scroll-animation-translate-x/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/scroll-animation-translate-x-demo.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-scroll-animation-translate-x-demo",
-      "type": "registry:block",
-      "title": "Scroll Trigger inset Animations Demo",
-      "description": "Demo showing how to implement scroll triggred animations with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animations"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-translate-x/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/scroll-animation-translate-x-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-scroll-animation-translate-x-demo",
-      "type": "registry:block",
-      "title": "Scroll Trigger inset Animations Demo",
-      "description": "Demo showing how to implement scroll triggred animations with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animations"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-animation-translate-x/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/scroll-animation-translate-x-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-scroll-reverse-scale-animation-demo",
+      "name": "scroll-reverse-scale-animation-demo",
       "type": "registry:block",
       "title": "Scroll Reverce Scale Animation Demo",
-      "description": "Demo scroll animations component with default style.",
+      "description": "Demo scroll animations component.",
       "registryDependencies": [
         "http://localhost:3000/r/scroll-animations",
         "http://localhost:3000/r/grid-bento"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/scroll-reverse-scale-animation/default/index.tsx",
+          "path": "registry/demo/blocks/scroll-reverse-scale-animation/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/blocks/scroll-reverse-scale-animation.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-scroll-reverse-scale-animation-demo",
-      "type": "registry:block",
-      "title": "Scroll Reverce Scale Animation Demo",
-      "description": "Demo scroll animations component with shadcn-default style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/scroll-animations",
-        "http://localhost:3000/r/grid-bento"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-reverse-scale-animation/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/scroll-reverse-scale-animation.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-scroll-reverse-scale-animation-demo",
-      "type": "registry:block",
-      "title": "Scroll Reverce Scale Animation Demo",
-      "description": "Demo scroll animations component with shadcn-new-york style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/scroll-animations",
-        "http://localhost:3000/r/grid-bento"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-reverse-scale-animation/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/scroll-reverse-scale-animation.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-scroll-x-carousel-demo",
+      "name": "scroll-x-carousel-demo",
       "type": "registry:block",
       "title": "scroll x carousel Demo",
-      "description": "Demo showing how to use scroll x carousel component with default style.",
+      "description": "Demo showing how to use scroll x carousel component.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/scroll-x-carousel"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/scroll-x-carousel/default/index.tsx",
+          "path": "registry/demo/blocks/scroll-x-carousel/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/scroll-x-carousel-demo.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-scroll-x-carousel-demo",
-      "type": "registry:block",
-      "title": "scroll x carousel Demo",
-      "description": "Demo showing how to use scroll x carousel component with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-x-carousel"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-x-carousel/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/scroll-x-carousel-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-scroll-x-carousel-demo",
-      "type": "registry:block",
-      "title": "scroll x carousel Demo",
-      "description": "Demo showing how to use scroll x carousel component with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-x-carousel"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-x-carousel/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/scroll-x-carousel-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-scroll-x-carousel-reverse-demo",
+      "name": "scroll-x-carousel-reverse-demo",
       "type": "registry:block",
       "title": "scroll x carousel reversed Demo",
-      "description": "another Demo showing how to use scroll x carousel component in a reversed with default style.",
+      "description": "another Demo showing how to use scroll x carousel component in a reversed.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/scroll-x-carousel"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/scroll-x-carousel-reverse/default/index.tsx",
+          "path": "registry/demo/blocks/scroll-x-carousel-reverse/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/scroll-x-carousel-reverse-demo.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-scroll-x-carousel-reverse-demo",
-      "type": "registry:block",
-      "title": "scroll x carousel reversed Demo",
-      "description": "another Demo showing how to use scroll x carousel component in a reversed with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-x-carousel"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-x-carousel-reverse/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/scroll-x-carousel-reverse-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-scroll-x-carousel-reverse-demo",
-      "type": "registry:block",
-      "title": "scroll x carousel reversed Demo",
-      "description": "another Demo showing how to use scroll x carousel component in a reversed with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-x-carousel"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/scroll-x-carousel-reverse/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/scroll-x-carousel-reverse-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-slideshow-demo",
+      "name": "slideshow-demo",
       "type": "registry:block",
       "title": "Slideshow Demo",
-      "description": "Demo showing how to use slideshow component with default style.",
+      "description": "Demo showing how to use slideshow component.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/slideshow"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/slideshow/default/index.tsx",
+          "path": "registry/demo/blocks/slideshow/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/slideshow-demo.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-slideshow-demo",
-      "type": "registry:block",
-      "title": "Slideshow Demo",
-      "description": "Demo showing how to use slideshow component with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/slideshow"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/slideshow/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/slideshow-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-slideshow-demo",
-      "type": "registry:block",
-      "title": "Slideshow Demo",
-      "description": "Demo showing how to use slideshow component with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/slideshow"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/slideshow/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/slideshow-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-story-demo",
+      "name": "story-demo",
       "type": "registry:block",
       "title": "Story Demo",
-      "description": "Demo showing how to use story component with default style.",
+      "description": "Demo showing how to use story component.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/story",
         "https://systaliko-ui.vercel.app/r/dialog",
@@ -2303,1118 +803,388 @@
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/story/default/index.tsx",
+          "path": "registry/demo/blocks/story/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/story-demo.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-story-demo",
-      "type": "registry:block",
-      "title": "Story Demo",
-      "description": "Demo showing how to use story component with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/story",
-        "https://systaliko-ui.vercel.app/r/dialog",
-        "https://systaliko-ui.vercel.app/r/avatar"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/story/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/story-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-story-demo",
-      "type": "registry:block",
-      "title": "Story Demo",
-      "description": "Demo showing how to use story component with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/story",
-        "https://systaliko-ui.vercel.app/r/dialog",
-        "https://systaliko-ui.vercel.app/r/avatar"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/story/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/story-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-team-demo",
+      "name": "team-demo",
       "type": "registry:block",
       "title": "Team Demo",
-      "description": "Demo showing team component with default style.",
+      "description": "Demo showing team component.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/scroll-animation"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/team/default/index.tsx",
+          "path": "registry/demo/blocks/team/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/blocks/team.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-team-demo",
+      "name": "timeline-demo",
       "type": "registry:block",
-      "title": "Team Demo",
-      "description": "Demo showing team component with shadcn-default style.",
+      "title": "Timeline Demo",
+      "description": "Demo showing timeline component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animation"
+        "http://localhost:3000/r/timeline"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/team/shadcn-default/index.tsx",
+          "path": "registry/demo/blocks/timeline/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/team.tsx"
+          "target": "components/systaliko-ui/demo/timeline.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-new-york-team-demo",
-      "type": "registry:block",
-      "title": "Team Demo",
-      "description": "Demo showing team component with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animation"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/team/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/team.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-wavy-block-demo",
+      "name": "wavy-block-demo",
       "type": "registry:block",
       "title": "Wavy Block Demo",
-      "description": "Demo showing Wavy Block component with default style.",
+      "description": "Demo showing Wavy Block component.",
       "registryDependencies": [
         "http://localhost:3000/r/wavy-block"
       ],
       "files": [
         {
-          "path": "__registry__/demo/blocks/wavy-block/default/index.tsx",
+          "path": "registry/demo/blocks/wavy-block/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/blocks/wavy-block.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-wavy-block-demo",
-      "type": "registry:block",
-      "title": "Wavy Block Demo",
-      "description": "Demo showing Wavy Block component with shadcn-default style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/wavy-block"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/wavy-block/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/wavy-block.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-wavy-block-demo",
-      "type": "registry:block",
-      "title": "Wavy Block Demo",
-      "description": "Demo showing Wavy Block component with shadcn-new-york style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/wavy-block"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/blocks/wavy-block/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/wavy-block.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-card-curtain-reveal-demo",
+      "name": "card-curtain-reveal-demo",
       "type": "registry:ui",
       "title": "Card Curtain Reveal Demo",
-      "description": "Demo showing Card Curtain Reveal Component with default style.",
+      "description": "Demo showing Card Curtain Reveal Component.",
       "registryDependencies": [
         "systaliko-ui.vercel.app/r/card-curtain-reveal"
       ],
       "files": [
         {
-          "path": "__registry__/demo/cards/card-curtain-reveal/default/index.tsx",
+          "path": "registry/demo/cards/card-curtain-reveal/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/cards/card-curtain-reveal.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-card-curtain-reveal-demo",
-      "type": "registry:ui",
-      "title": "Card Curtain Reveal Demo",
-      "description": "Demo showing Card Curtain Reveal Component with shadcn-default style.",
-      "registryDependencies": [
-        "systaliko-ui.vercel.app/r/card-curtain-reveal"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/card-curtain-reveal/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/cards/card-curtain-reveal.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-card-curtain-reveal-demo",
-      "type": "registry:ui",
-      "title": "Card Curtain Reveal Demo",
-      "description": "Demo showing Card Curtain Reveal Component with shadcn-new-york style.",
-      "registryDependencies": [
-        "systaliko-ui.vercel.app/r/card-curtain-reveal"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/card-curtain-reveal/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/cards/card-curtain-reveal.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-card-flip-demo",
+      "name": "card-flip-demo",
       "type": "registry:ui",
       "title": "Flip Card Demo",
-      "description": "Demo showing Flip Card Component with default style.",
+      "description": "Demo showing Flip Card Component.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/card-flip"
       ],
       "files": [
         {
-          "path": "__registry__/demo/cards/card-flip/default/index.tsx",
+          "path": "registry/demo/cards/card-flip/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/cards/card-flip.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-card-flip-demo",
-      "type": "registry:ui",
-      "title": "Flip Card Demo",
-      "description": "Demo showing Flip Card Component with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/card-flip"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/card-flip/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/cards/card-flip.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-card-flip-demo",
-      "type": "registry:ui",
-      "title": "Flip Card Demo",
-      "description": "Demo showing Flip Card Component with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/card-flip"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/card-flip/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/cards/card-flip.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-card-hover-reveal-demo",
+      "name": "card-hover-reveal-demo",
       "type": "registry:ui",
       "title": "Card Hover Reveal Demo",
-      "description": "Demo showing Card Hover Reveal Component with default style.",
+      "description": "Demo showing Card Hover Reveal Component.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/card-hover-reveal"
       ],
       "files": [
         {
-          "path": "__registry__/demo/cards/card-hover-reveal/default/index.tsx",
+          "path": "registry/demo/cards/card-hover-reveal/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/cards/card-hover-reveal.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-card-hover-reveal-demo",
-      "type": "registry:ui",
-      "title": "Card Hover Reveal Demo",
-      "description": "Demo showing Card Hover Reveal Component with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/card-hover-reveal"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/card-hover-reveal/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/cards/card-hover-reveal.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-card-hover-reveal-demo",
-      "type": "registry:ui",
-      "title": "Card Hover Reveal Demo",
-      "description": "Demo showing Card Hover Reveal Component with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/card-hover-reveal"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/card-hover-reveal/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/cards/card-hover-reveal.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-card-hover-reveal-full-demo",
+      "name": "card-hover-reveal-full-demo",
       "type": "registry:ui",
       "title": "Card Hover Reveal Full Demo",
-      "description": "Demo showing another usecase of Card Hover Reveal Component with default style.",
+      "description": "Demo showing another usecase of Card Hover Reveal Component.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/card-hover-reveal"
       ],
       "files": [
         {
-          "path": "__registry__/demo/cards/card-hover-reveal-full/default/index.tsx",
+          "path": "registry/demo/cards/card-hover-reveal-full/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/cards/card-hover-reveal.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-card-hover-reveal-full-demo",
-      "type": "registry:ui",
-      "title": "Card Hover Reveal Full Demo",
-      "description": "Demo showing another usecase of Card Hover Reveal Component with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/card-hover-reveal"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/card-hover-reveal-full/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/cards/card-hover-reveal.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-card-hover-reveal-full-demo",
-      "type": "registry:ui",
-      "title": "Card Hover Reveal Full Demo",
-      "description": "Demo showing another usecase of Card Hover Reveal Component with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/card-hover-reveal"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/card-hover-reveal-full/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/cards/card-hover-reveal.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-card-testimonial-demo",
+      "name": "card-testimonial-demo",
       "type": "registry:ui",
       "title": "Card Testimonial Demo",
-      "description": "Demo showing Card Testimonial Component with default style.",
+      "description": "Demo showing Card Testimonial Component.",
       "registryDependencies": [
         "http://localhost:3000/r/card-testimonial"
       ],
       "files": [
         {
-          "path": "__registry__/demo/cards/card-testimonial/default/index.tsx",
+          "path": "registry/demo/cards/card-testimonial/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/cards/card-testimonial.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-card-testimonial-demo",
+      "name": "card-testimonial-2-demo",
       "type": "registry:ui",
       "title": "Card Testimonial Demo",
-      "description": "Demo showing Card Testimonial Component with shadcn-default style.",
+      "description": "Demo showing Card Testimonial Component.",
       "registryDependencies": [
         "http://localhost:3000/r/card-testimonial"
       ],
       "files": [
         {
-          "path": "__registry__/demo/cards/card-testimonial/shadcn-default/index.tsx",
+          "path": "registry/demo/cards/card-testimonial-2/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/cards/card-testimonial.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-new-york-card-testimonial-demo",
-      "type": "registry:ui",
-      "title": "Card Testimonial Demo",
-      "description": "Demo showing Card Testimonial Component with shadcn-new-york style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/card-testimonial"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/card-testimonial/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/cards/card-testimonial.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-card-testimonial-2-demo",
-      "type": "registry:ui",
-      "title": "Card Testimonial Demo",
-      "description": "Demo showing Card Testimonial Component with default style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/card-testimonial"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/card-testimonial-2/default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/cards/card-testimonial.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-default-card-testimonial-2-demo",
-      "type": "registry:ui",
-      "title": "Card Testimonial Demo",
-      "description": "Demo showing Card Testimonial Component with shadcn-default style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/card-testimonial"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/card-testimonial-2/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/cards/card-testimonial.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-card-testimonial-2-demo",
-      "type": "registry:ui",
-      "title": "Card Testimonial Demo",
-      "description": "Demo showing Card Testimonial Component with shadcn-new-york style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/card-testimonial"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/card-testimonial-2/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/cards/card-testimonial.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-cards-stack-demo",
+      "name": "cards-stack-demo",
       "type": "registry:block",
       "title": "Sticky Cards stack Demo",
-      "description": "Demo of sticky cards stack with default style.",
+      "description": "Demo of sticky cards stack.",
       "registryDependencies": [
         "http://localhost:3000/r/cards-stack"
       ],
       "files": [
         {
-          "path": "__registry__/demo/cards/cards-stack/default/index.tsx",
+          "path": "registry/demo/cards/cards-stack/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/cards/cards-stack.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-cards-stack-demo",
-      "type": "registry:block",
-      "title": "Sticky Cards stack Demo",
-      "description": "Demo of sticky cards stack with shadcn-default style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/cards-stack"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/cards-stack/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/cards/cards-stack.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-cards-stack-demo",
-      "type": "registry:block",
-      "title": "Sticky Cards stack Demo",
-      "description": "Demo of sticky cards stack with shadcn-new-york style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/cards-stack"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/cards-stack/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/cards/cards-stack.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-cards-stack-achievements-demo",
+      "name": "cards-stack-achievements-demo",
       "type": "registry:block",
       "title": "Stack small cards Demo",
-      "description": "Demo showing different usecase of Cards Stack component with smaller cards with default style.",
+      "description": "Demo showing different usecase of Cards Stack component with smaller cards.",
       "registryDependencies": [
         "http://localhost:3000/r/cards-stack"
       ],
       "files": [
         {
-          "path": "__registry__/demo/cards/cards-stack-achievements/default/index.tsx",
+          "path": "registry/demo/cards/cards-stack-achievements/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/cards/cards-stack-achievements.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-cards-stack-achievements-demo",
-      "type": "registry:block",
-      "title": "Stack small cards Demo",
-      "description": "Demo showing different usecase of Cards Stack component with smaller cards with shadcn-default style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/cards-stack"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/cards-stack-achievements/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/cards/cards-stack-achievements.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-cards-stack-achievements-demo",
-      "type": "registry:block",
-      "title": "Stack small cards Demo",
-      "description": "Demo showing different usecase of Cards Stack component with smaller cards with shadcn-new-york style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/cards-stack"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/cards-stack-achievements/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/cards/cards-stack-achievements.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-cards-stack-rotated-demo",
+      "name": "cards-stack-rotated-demo",
       "type": "registry:block",
       "title": "Cards Stack Rotated Demo",
-      "description": "Demo showing Cards Stack Rotated component with default style.",
+      "description": "Demo showing Cards Stack Rotated component.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/cards-stack-rotated",
         "https://systaliko-ui.vercel.app/r/card-testimonial"
       ],
       "files": [
         {
-          "path": "__registry__/demo/cards/cards-stack-rotated/default/index.tsx",
+          "path": "registry/demo/cards/cards-stack-rotated/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/cards/cards-stack-rotated.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-cards-stack-rotated-demo",
-      "type": "registry:block",
-      "title": "Cards Stack Rotated Demo",
-      "description": "Demo showing Cards Stack Rotated component with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/cards-stack-rotated",
-        "https://systaliko-ui.vercel.app/r/card-testimonial"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/cards-stack-rotated/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/cards/cards-stack-rotated.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-cards-stack-rotated-demo",
-      "type": "registry:block",
-      "title": "Cards Stack Rotated Demo",
-      "description": "Demo showing Cards Stack Rotated component with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/cards-stack-rotated",
-        "https://systaliko-ui.vercel.app/r/card-testimonial"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/cards-stack-rotated/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/cards/cards-stack-rotated.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-cards-stack-rotated-recognitions-demo",
+      "name": "cards-stack-rotated-recognitions-demo",
       "type": "registry:block",
       "title": "Stack small cards Demo",
-      "description": "Demo showing different usecase of Cards Rotated Stack component with default style.",
+      "description": "Demo showing different usecase of Cards Rotated Stack component.",
       "registryDependencies": [
         "http://localhost:3000/r/cards-stack-rotated"
       ],
       "files": [
         {
-          "path": "__registry__/demo/cards/cards-stack-rotated-recognitions/default/index.tsx",
+          "path": "registry/demo/cards/cards-stack-rotated-recognitions/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/cards/cards-stack-rotated-recognitions.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-cards-stack-rotated-recognitions-demo",
-      "type": "registry:block",
-      "title": "Stack small cards Demo",
-      "description": "Demo showing different usecase of Cards Rotated Stack component with shadcn-default style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/cards-stack-rotated"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/cards-stack-rotated-recognitions/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/cards/cards-stack-rotated-recognitions.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-cards-stack-rotated-recognitions-demo",
-      "type": "registry:block",
-      "title": "Stack small cards Demo",
-      "description": "Demo showing different usecase of Cards Rotated Stack component with shadcn-new-york style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/cards-stack-rotated"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/cards-stack-rotated-recognitions/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/cards/cards-stack-rotated-recognitions.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-cards-stack-full-demo",
+      "name": "cards-stack-full-demo",
       "type": "registry:block",
       "title": "Cards stack full screen Demo",
-      "description": "Demo showing different usecase of Cards Stack component with default style.",
+      "description": "Demo showing different usecase of Cards Stack component.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/cards-stack",
         "https://systaliko-ui.vercel.app/r/badge"
       ],
       "files": [
         {
-          "path": "__registry__/demo/cards/cards-stack-work/default/index.tsx",
+          "path": "registry/demo/cards/cards-stack-work/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/cards/cards-stack-work.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-cards-stack-full-demo",
-      "type": "registry:block",
-      "title": "Cards stack full screen Demo",
-      "description": "Demo showing different usecase of Cards Stack component with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/cards-stack",
-        "https://systaliko-ui.vercel.app/r/badge"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/cards-stack-work/shadcn-default/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/cards/cards-stack-work.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-cards-stack-full-demo",
-      "type": "registry:block",
-      "title": "Cards stack full screen Demo",
-      "description": "Demo showing different usecase of Cards Stack component with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/cards-stack",
-        "https://systaliko-ui.vercel.app/r/badge"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/cards/cards-stack-work/shadcn-new-york/index.tsx",
-          "type": "registry:block",
-          "target": "components/systaliko-ui/demo/cards/cards-stack-work.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-custom-cursor-demo",
+      "name": "custom-cursor-demo",
       "type": "registry:ui",
       "title": "Custom Cursor Demo",
-      "description": "Demo showing Custom Cursor component with default style.",
+      "description": "Demo showing Custom Cursor component.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/custom-cursor",
         "https://systaliko-ui.vercel.app/r/button"
       ],
       "files": [
         {
-          "path": "__registry__/demo/components/custom-cursor/default/index.tsx",
+          "path": "registry/demo/components/custom-cursor/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/custom-cursor-demo.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-custom-cursor-demo",
-      "type": "registry:ui",
-      "title": "Custom Cursor Demo",
-      "description": "Demo showing Custom Cursor component with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/custom-cursor",
-        "https://systaliko-ui.vercel.app/r/button"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/components/custom-cursor/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/custom-cursor-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-custom-cursor-demo",
-      "type": "registry:ui",
-      "title": "Custom Cursor Demo",
-      "description": "Demo showing Custom Cursor component with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/custom-cursor",
-        "https://systaliko-ui.vercel.app/r/button"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/components/custom-cursor/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/custom-cursor-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-custom-cursor-2-demo",
+      "name": "custom-cursor-2-demo",
       "type": "registry:ui",
       "title": "Custom Cursor 2 Demo",
-      "description": "Demo showing another usecase of Custom Cursor component with default style.",
+      "description": "Demo showing another usecase of Custom Cursor component.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/custom-cursor"
       ],
       "files": [
         {
-          "path": "__registry__/demo/components/custom-cursor-2/default/index.tsx",
+          "path": "registry/demo/components/custom-cursor-2/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/custom-cursor.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-custom-cursor-2-demo",
-      "type": "registry:ui",
-      "title": "Custom Cursor 2 Demo",
-      "description": "Demo showing another usecase of Custom Cursor component with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/custom-cursor"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/components/custom-cursor-2/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/custom-cursor.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-custom-cursor-2-demo",
-      "type": "registry:ui",
-      "title": "Custom Cursor 2 Demo",
-      "description": "Demo showing another usecase of Custom Cursor component with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/custom-cursor"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/components/custom-cursor-2/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/custom-cursor.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-rating-stars-demo",
+      "name": "rating-stars-demo",
       "type": "registry:ui",
       "title": "Rating stars Demo",
-      "description": "Demo showing Rating stars component with default style.",
+      "description": "Demo showing Rating stars component.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/rating-stars"
       ],
       "files": [
         {
-          "path": "__registry__/demo/components/rating-stars/default/index.tsx",
+          "path": "registry/demo/components/rating-stars/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/rating-stars.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-rating-stars-demo",
-      "type": "registry:ui",
-      "title": "Rating stars Demo",
-      "description": "Demo showing Rating stars component with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/rating-stars"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/components/rating-stars/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/rating-stars.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-rating-stars-demo",
-      "type": "registry:ui",
-      "title": "Rating stars Demo",
-      "description": "Demo showing Rating stars component with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/rating-stars"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/components/rating-stars/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/rating-stars.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-text-scroll-read-demo",
+      "name": "text-scroll-read-demo",
       "type": "registry:ui",
       "title": "Text Scroll Read Demo",
-      "description": "Demo showing Text scroll read component with default style.",
+      "description": "Demo showing Text scroll read component.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/text-scroll-read"
       ],
       "files": [
         {
-          "path": "__registry__/demo/text/text-scroll-read/default/index.tsx",
+          "path": "registry/demo/text/text-scroll-read/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/text/text-scroll-read.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-text-scroll-read-demo",
-      "type": "registry:ui",
-      "title": "Text Scroll Read Demo",
-      "description": "Demo showing Text scroll read component with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-scroll-read"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/text/text-scroll-read/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/text/text-scroll-read.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-text-scroll-read-demo",
-      "type": "registry:ui",
-      "title": "Text Scroll Read Demo",
-      "description": "Demo showing Text scroll read component with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-scroll-read"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/text/text-scroll-read/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/text/text-scroll-read.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-text-stagger-hover-demo",
+      "name": "text-stagger-hover-demo",
       "type": "registry:ui",
       "title": "Text Stagger Hover Demo",
-      "description": "Demo showing a split text with stagger animation on hover with default style.",
+      "description": "Demo showing a split text with stagger animation on hover.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/text-stagger-hover"
       ],
       "files": [
         {
-          "path": "__registry__/demo/text/text-stagger-hover/default/index.tsx",
+          "path": "registry/demo/text/text-stagger-hover/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/text/text-stagger-hover.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-text-stagger-hover-demo",
-      "type": "registry:ui",
-      "title": "Text Stagger Hover Demo",
-      "description": "Demo showing a split text with stagger animation on hover with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-stagger-hover"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/text/text-stagger-hover/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/text/text-stagger-hover.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-text-stagger-hover-demo",
-      "type": "registry:ui",
-      "title": "Text Stagger Hover Demo",
-      "description": "Demo showing a split text with stagger animation on hover with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-stagger-hover"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/text/text-stagger-hover/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/text/text-stagger-hover.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-text-stagger-inview-demo",
+      "name": "text-stagger-inview-demo",
       "type": "registry:ui",
       "title": "Text Stagger Inview Demo",
-      "description": "Demo showing a split text with stagger animation with default style.",
+      "description": "Demo showing a split text with stagger animation.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/text-stagger-inview"
       ],
       "files": [
         {
-          "path": "__registry__/demo/text/text-stagger-inview/default/index.tsx",
+          "path": "registry/demo/text/text-stagger-inview/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/text/text-stagger-inview.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-text-stagger-inview-demo",
-      "type": "registry:ui",
-      "title": "Text Stagger Inview Demo",
-      "description": "Demo showing a split text with stagger animation with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-stagger-inview"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/text/text-stagger-inview/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/text/text-stagger-inview.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-text-stagger-inview-demo",
-      "type": "registry:ui",
-      "title": "Text Stagger Inview Demo",
-      "description": "Demo showing a split text with stagger animation with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-stagger-inview"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/text/text-stagger-inview/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/text/text-stagger-inview.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-text-stagger-inview-waves-demo",
+      "name": "text-stagger-inview-waves-demo",
       "type": "registry:ui",
       "title": "Text Stagger Inview Waves Demo",
-      "description": "Demo showing another use of text stagger in view demo with waves with default style.",
+      "description": "Demo showing another use of text stagger in view demo with waves.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/text-stagger-inview"
       ],
       "files": [
         {
-          "path": "__registry__/demo/text/text-stagger-inview-waves/default/index.tsx",
+          "path": "registry/demo/text/text-stagger-inview-waves/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/text/text-stagger-inview-waves.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-text-stagger-inview-waves-demo",
-      "type": "registry:ui",
-      "title": "Text Stagger Inview Waves Demo",
-      "description": "Demo showing another use of text stagger in view demo with waves with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-stagger-inview"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/text/text-stagger-inview-waves/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/text/text-stagger-inview-waves.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-text-stagger-inview-waves-demo",
-      "type": "registry:ui",
-      "title": "Text Stagger Inview Waves Demo",
-      "description": "Demo showing another use of text stagger in view demo with waves with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-stagger-inview"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/text/text-stagger-inview-waves/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/text/text-stagger-inview-waves.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-text-vertical-demo",
+      "name": "text-vertical-demo",
       "type": "registry:ui",
       "title": "Vertical Text Demo",
-      "description": "Demo showing a vertical text with default style.",
+      "description": "Demo showing a vertical text.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/text-vertical"
       ],
       "files": [
         {
-          "path": "__registry__/demo/text/text-vertical/default/index.tsx",
+          "path": "registry/demo/text/text-vertical/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/text/text-vertical.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-text-vertical-demo",
-      "type": "registry:ui",
-      "title": "Vertical Text Demo",
-      "description": "Demo showing a vertical text with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-vertical"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/text/text-vertical/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/text/text-vertical.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-text-vertical-demo",
-      "type": "registry:ui",
-      "title": "Vertical Text Demo",
-      "description": "Demo showing a vertical text with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-vertical"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/text/text-vertical/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/text/text-vertical.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-text-wavy-demo",
+      "name": "text-wavy-demo",
       "type": "registry:ui",
       "title": "Text Wavy Demo",
-      "description": "Demo showing text wavy component with default style.",
+      "description": "Demo showing text wavy component.",
       "registryDependencies": [
         "https://systaliko-ui.vercel.app/r/text-wavy"
       ],
       "files": [
         {
-          "path": "__registry__/demo/text/text-wavy/default/index.tsx",
+          "path": "registry/demo/text/text-wavy/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/text-wavy.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-text-wavy-demo",
-      "type": "registry:ui",
-      "title": "Text Wavy Demo",
-      "description": "Demo showing text wavy component with shadcn-default style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-wavy"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/text/text-wavy/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/text-wavy.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-text-wavy-demo",
-      "type": "registry:ui",
-      "title": "Text Wavy Demo",
-      "description": "Demo showing text wavy component with shadcn-new-york style.",
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-wavy"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/text/text-wavy/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/text-wavy.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-animation-variants-demo",
+      "name": "animation-variants-demo",
       "type": "registry:hook",
       "title": "Use Animation Variants Demo",
-      "description": "Demo showing how to use animation-variants hook with default style.",
+      "description": "Demo showing how to use animation-variants hook.",
       "dependencies": [
         "motion"
       ],
@@ -3423,469 +1193,155 @@
       ],
       "files": [
         {
-          "path": "__registry__/demo/utils/animation-variants/default/index.tsx",
+          "path": "registry/demo/utils/animation-variants/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/animation-variants-demo.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-animation-variants-demo",
-      "type": "registry:hook",
-      "title": "Use Animation Variants Demo",
-      "description": "Demo showing how to use animation-variants hook with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/animation-variants"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/utils/animation-variants/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/animation-variants-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-animation-variants-demo",
-      "type": "registry:hook",
-      "title": "Use Animation Variants Demo",
-      "description": "Demo showing how to use animation-variants hook with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/animation-variants"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/utils/animation-variants/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/animation-variants-demo.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-set-stagger-direction-demo",
+      "name": "set-stagger-direction-demo",
       "type": "registry:hook",
       "title": "Set Stagger Direction Demo",
-      "description": "Demo showing how to use set-stagger-direction utility with default style.",
+      "description": "Demo showing how to use set-stagger-direction utility.",
       "registryDependencies": [
         "http://localhost:3000/r/set-stagger-direction",
         "motion"
       ],
       "files": [
         {
-          "path": "__registry__/demo/utils/set-stagger-direction/default/index.tsx",
+          "path": "registry/demo/utils/set-stagger-direction/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/utils/set-stagger-direction.ts"
         }
       ]
     },
     {
-      "name": "shadcn-default-set-stagger-direction-demo",
-      "type": "registry:hook",
-      "title": "Set Stagger Direction Demo",
-      "description": "Demo showing how to use set-stagger-direction utility with shadcn-default style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/set-stagger-direction",
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/utils/set-stagger-direction/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/utils/set-stagger-direction.ts"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-set-stagger-direction-demo",
-      "type": "registry:hook",
-      "title": "Set Stagger Direction Demo",
-      "description": "Demo showing how to use set-stagger-direction utility with shadcn-new-york style.",
-      "registryDependencies": [
-        "http://localhost:3000/r/set-stagger-direction",
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/demo/utils/set-stagger-direction/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/demo/utils/set-stagger-direction.ts"
-        }
-      ]
-    },
-    {
-      "name": "default-avatar",
+      "name": "avatar",
       "type": "registry:ui",
       "title": "avatar",
-      "description": "avatar component with variants with default style.",
+      "description": "avatar component with variants.",
       "files": [
         {
-          "path": "__registry__/shadcn/avatar/default/index.tsx",
+          "path": "registry/shadcn/avatar/index.tsx",
           "type": "registry:ui",
           "target": "components/avatar.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-avatar",
-      "type": "registry:ui",
-      "title": "avatar",
-      "description": "avatar component with variants with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/shadcn/avatar/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/avatar.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-avatar",
-      "type": "registry:ui",
-      "title": "avatar",
-      "description": "avatar component with variants with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/shadcn/avatar/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/avatar.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-badge",
+      "name": "badge",
       "type": "registry:ui",
       "title": "Badge",
-      "description": "Badge component with variants with default style.",
+      "description": "Badge component with variants.",
       "files": [
         {
-          "path": "__registry__/shadcn/badge/default/index.tsx",
+          "path": "registry/shadcn/badge/index.tsx",
           "type": "registry:ui",
           "target": "components/badge.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-badge",
-      "type": "registry:ui",
-      "title": "Badge",
-      "description": "Badge component with variants with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/shadcn/badge/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/badge.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-badge",
-      "type": "registry:ui",
-      "title": "Badge",
-      "description": "Badge component with variants with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/shadcn/badge/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/badge.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-badge",
+      "name": "badge",
       "type": "registry:ui",
       "title": "Button",
-      "description": "Button component with variants with default style.",
+      "description": "Button component with variants.",
       "files": [
         {
-          "path": "__registry__/shadcn/button/default/index.tsx",
+          "path": "registry/shadcn/button/index.tsx",
           "type": "registry:ui",
           "target": "components/button.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-badge",
-      "type": "registry:ui",
-      "title": "Button",
-      "description": "Button component with variants with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/shadcn/button/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/button.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-badge",
-      "type": "registry:ui",
-      "title": "Button",
-      "description": "Button component with variants with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/shadcn/button/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/button.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-dialog",
+      "name": "dialog",
       "type": "registry:ui",
       "title": "Dialog",
-      "description": "Dialog component with default style.",
+      "description": "Dialog component.",
       "files": [
         {
-          "path": "__registry__/shadcn/dialog/default/index.tsx",
+          "path": "registry/shadcn/dialog/index.tsx",
           "type": "registry:ui",
           "target": "components/dialog.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-dialog",
-      "type": "registry:ui",
-      "title": "Dialog",
-      "description": "Dialog component with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/shadcn/dialog/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/dialog.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-dialog",
-      "type": "registry:ui",
-      "title": "Dialog",
-      "description": "Dialog component with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/shadcn/dialog/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/dialog.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-input",
+      "name": "input",
       "type": "registry:ui",
       "title": "input",
-      "description": "input component with variants with default style.",
+      "description": "input component with variants.",
       "files": [
         {
-          "path": "__registry__/shadcn/input/default/index.tsx",
+          "path": "registry/shadcn/input/index.tsx",
           "type": "registry:ui",
           "target": "components/input.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-input",
-      "type": "registry:ui",
-      "title": "input",
-      "description": "input component with variants with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/shadcn/input/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/input.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-input",
-      "type": "registry:ui",
-      "title": "input",
-      "description": "input component with variants with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/shadcn/input/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/input.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-scroll-area",
+      "name": "scroll-area",
       "type": "registry:ui",
       "title": "Scroll Area",
-      "description": "Scroll Area component with default style.",
+      "description": "Scroll Area component.",
       "files": [
         {
-          "path": "__registry__/shadcn/scroll-area/default/index.tsx",
+          "path": "registry/shadcn/scroll-area/index.tsx",
           "type": "registry:ui",
           "target": "components/scroll-area.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-scroll-area",
-      "type": "registry:ui",
-      "title": "Scroll Area",
-      "description": "Scroll Area component with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/shadcn/scroll-area/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/scroll-area.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-scroll-area",
-      "type": "registry:ui",
-      "title": "Scroll Area",
-      "description": "Scroll Area component with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/shadcn/scroll-area/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/scroll-area.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-select",
+      "name": "select",
       "type": "registry:ui",
       "title": "Select",
-      "description": "Select component with variants with default style.",
+      "description": "Select component with variants.",
       "files": [
         {
-          "path": "__registry__/shadcn/select/default/index.tsx",
+          "path": "registry/shadcn/select/index.tsx",
           "type": "registry:ui",
           "target": "components/select.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-select",
-      "type": "registry:ui",
-      "title": "Select",
-      "description": "Select component with variants with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/shadcn/select/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/select.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-select",
-      "type": "registry:ui",
-      "title": "Select",
-      "description": "Select component with variants with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/shadcn/select/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/select.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-text-flip",
+      "name": "text-flip",
       "type": "registry:ui",
       "title": "Flip Text",
-      "description": "Flipped text animation, flips the text with default style.",
+      "description": "Flipped text animation, flips the text",
       "files": [
         {
-          "path": "__registry__/text/text-flip/default/index.tsx",
+          "path": "registry/text/text-flip/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/text/text-flip.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-text-flip",
-      "type": "registry:ui",
-      "title": "Flip Text",
-      "description": "Flipped text animation, flips the text with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/text/text-flip/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/text/text-flip.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-text-flip",
-      "type": "registry:ui",
-      "title": "Flip Text",
-      "description": "Flipped text animation, flips the text with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/text/text-flip/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/text/text-flip.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-text-scroll-read",
+      "name": "text-scroll-read",
       "type": "registry:ui",
       "title": "Text Scroll Read",
-      "description": "Text component allows you to read the text by scrolling with default style.",
+      "description": "Text component allows you to read the text by scrolling.",
       "dependencies": [
         "motion"
       ],
       "registryDependencies": [],
       "files": [
         {
-          "path": "__registry__/text/text-scroll-read/default/index.tsx",
+          "path": "registry/text/text-scroll-read/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/text/text-scroll-read.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-text-scroll-read",
-      "type": "registry:ui",
-      "title": "Text Scroll Read",
-      "description": "Text component allows you to read the text by scrolling with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "__registry__/text/text-scroll-read/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/text/text-scroll-read.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-text-scroll-read",
-      "type": "registry:ui",
-      "title": "Text Scroll Read",
-      "description": "Text component allows you to read the text by scrolling with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "__registry__/text/text-scroll-read/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/text/text-scroll-read.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-text-stagger-hover",
+      "name": "text-stagger-hover",
       "type": "registry:ui",
       "title": "Text Stagger Hover",
-      "description": "Splitted text animation with staggered effect triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur), the stagger value, and the transition with default style.",
+      "description": "Splitted text animation with staggered effect triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur), the stagger value, and the transition.",
       "dependencies": [
         "motion"
       ],
@@ -3896,59 +1352,17 @@
       ],
       "files": [
         {
-          "path": "__registry__/text/text-stagger-hover/default/index.tsx",
+          "path": "registry/text/text-stagger-hover/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/text/text-stagger-hover.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-text-stagger-hover",
-      "type": "registry:ui",
-      "title": "Text Stagger Hover",
-      "description": "Splitted text animation with staggered effect triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur), the stagger value, and the transition with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-set-stagger-direction",
-        "https://systaliko-ui.vercel.app/r/default-split-text",
-        "https://systaliko-ui.vercel.app/r/default-animation-variants"
-      ],
-      "files": [
-        {
-          "path": "__registry__/text/text-stagger-hover/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/text/text-stagger-hover.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-text-stagger-hover",
-      "type": "registry:ui",
-      "title": "Text Stagger Hover",
-      "description": "Splitted text animation with staggered effect triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur), the stagger value, and the transition with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-set-stagger-direction",
-        "https://systaliko-ui.vercel.app/r/default-split-text",
-        "https://systaliko-ui.vercel.app/r/default-animation-variants"
-      ],
-      "files": [
-        {
-          "path": "__registry__/text/text-stagger-hover/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/text/text-stagger-hover.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-text-stagger-inview",
+      "name": "text-stagger-inview",
       "type": "registry:ui",
       "title": "Text Stagger Inview",
-      "description": "Splitted text animation with staggered reveal triggered by view, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition with default style.",
+      "description": "Splitted text animation with staggered reveal triggered by view, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition.",
       "dependencies": [
         "motion"
       ],
@@ -3957,181 +1371,59 @@
       ],
       "files": [
         {
-          "path": "__registry__/text/text-stagger-inview/default/index.tsx",
+          "path": "registry/text/text-stagger-inview/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/text/text-stagger-inview.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-text-stagger-inview",
-      "type": "registry:ui",
-      "title": "Text Stagger Inview",
-      "description": "Splitted text animation with staggered reveal triggered by view, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-animation-variants"
-      ],
-      "files": [
-        {
-          "path": "__registry__/text/text-stagger-inview/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/text/text-stagger-inview.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-text-stagger-inview",
-      "type": "registry:ui",
-      "title": "Text Stagger Inview",
-      "description": "Splitted text animation with staggered reveal triggered by view, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-animation-variants"
-      ],
-      "files": [
-        {
-          "path": "__registry__/text/text-stagger-inview/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/text/text-stagger-inview.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-text-vertical",
+      "name": "text-vertical",
       "type": "registry:ui",
       "title": "Vertical Text",
-      "description": "Text with vertical display, Can be used as a title or a subtitle with default style.",
+      "description": "Text with vertical display, Can be used as a title or a subtitle.",
       "files": [
         {
-          "path": "__registry__/text/text-vertical/default/index.tsx",
+          "path": "registry/text/text-vertical/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/text/text-vertical.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-text-vertical",
-      "type": "registry:ui",
-      "title": "Vertical Text",
-      "description": "Text with vertical display, Can be used as a title or a subtitle with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/text/text-vertical/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/text/text-vertical.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-text-vertical",
-      "type": "registry:ui",
-      "title": "Vertical Text",
-      "description": "Text with vertical display, Can be used as a title or a subtitle with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/text/text-vertical/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/text/text-vertical.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-text-wavy",
+      "name": "text-wavy",
       "type": "registry:ui",
       "title": "Text Wavy",
-      "description": "Infinite text animation with wavy effect with default style.",
+      "description": "Infinite text animation with wavy effect.",
       "dependencies": [
         "motion"
       ],
       "files": [
         {
-          "path": "__registry__/text/text-wavy/default/index.tsx",
+          "path": "registry/text/text-wavy/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/text-wavy.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-text-wavy",
-      "type": "registry:ui",
-      "title": "Text Wavy",
-      "description": "Infinite text animation with wavy effect with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/text/text-wavy/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/text-wavy.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-text-wavy",
-      "type": "registry:ui",
-      "title": "Text Wavy",
-      "description": "Infinite text animation with wavy effect with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/text/text-wavy/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/text-wavy.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-wavy-texts",
+      "name": "wavy-texts",
       "type": "registry:ui",
       "title": "Wavy Texts",
-      "description": "Wavy texts wrap, animates collection of texts in wavy motion on scroll with default style.",
+      "description": "Wavy texts wrap, animates a set of texts in wavy motion on scroll.",
       "files": [
         {
-          "path": "__registry__/text/wavy-texts/default/index.tsx",
+          "path": "registry/text/wavy-texts/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/text/wavy-texts.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-wavy-texts",
-      "type": "registry:ui",
-      "title": "Wavy Texts",
-      "description": "Wavy texts wrap, animates collection of texts in wavy motion on scroll with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/text/wavy-texts/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/text/wavy-texts.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-wavy-texts",
-      "type": "registry:ui",
-      "title": "Wavy Texts",
-      "description": "Wavy texts wrap, animates collection of texts in wavy motion on scroll with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/text/wavy-texts/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/text/wavy-texts.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-word-stagger",
+      "name": "word-stagger",
       "type": "registry:ui",
       "title": "Word Stagger",
-      "description": "Alternative to text-stagger-inview and text-stagger-hover, in case you have one word or you want more custom text animations, use this component, it is used in the same way as text-stagger-inview and text-stagger-hover with default style.",
+      "description": "Alternative to text-stagger-inview and text-stagger-hover, in case you have one word or you want more custom text animations, use this component, it is used in the same way as text-stagger-inview and text-stagger-hover.",
       "dependencies": [
         "motion"
       ],
@@ -4140,249 +1432,75 @@
       ],
       "files": [
         {
-          "path": "__registry__/text/word-stagger/default/index.tsx",
+          "path": "registry/text/word-stagger/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/text/word-stagger.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-word-stagger",
-      "type": "registry:ui",
-      "title": "Word Stagger",
-      "description": "Alternative to text-stagger-inview and text-stagger-hover, in case you have one word or you want more custom text animations, use this component, it is used in the same way as text-stagger-inview and text-stagger-hover with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-animation-variants"
-      ],
-      "files": [
-        {
-          "path": "__registry__/text/word-stagger/shadcn-default/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/text/word-stagger.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-word-stagger",
-      "type": "registry:ui",
-      "title": "Word Stagger",
-      "description": "Alternative to text-stagger-inview and text-stagger-hover, in case you have one word or you want more custom text animations, use this component, it is used in the same way as text-stagger-inview and text-stagger-hover with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-animation-variants"
-      ],
-      "files": [
-        {
-          "path": "__registry__/text/word-stagger/shadcn-new-york/index.tsx",
-          "type": "registry:ui",
-          "target": "components/systaliko-ui/text/word-stagger.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-animation-variants",
+      "name": "animation-variants",
       "type": "registry:item",
       "title": "Animation Variants",
-      "description": "animation variants, for your motion components, allows to animate component with transforms, opacity, and blur with default style.",
+      "description": "animation variants, for your motion components, allows to animate component with transforms, opacity, and blur.",
       "files": [
         {
-          "path": "__registry__/utils/animation-variants/default/index.tsx",
+          "path": "registry/utils/animation-variants/index.tsx",
           "type": "registry:item",
           "target": "components/systaliko-ui/utils/animation-variants.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-animation-variants",
-      "type": "registry:item",
-      "title": "Animation Variants",
-      "description": "animation variants, for your motion components, allows to animate component with transforms, opacity, and blur with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/utils/animation-variants/shadcn-default/index.tsx",
-          "type": "registry:item",
-          "target": "components/systaliko-ui/utils/animation-variants.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-animation-variants",
-      "type": "registry:item",
-      "title": "Animation Variants",
-      "description": "animation variants, for your motion components, allows to animate component with transforms, opacity, and blur with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/utils/animation-variants/shadcn-new-york/index.tsx",
-          "type": "registry:item",
-          "target": "components/systaliko-ui/utils/animation-variants.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-set-stagger-direction",
+      "name": "set-stagger-direction",
       "type": "registry:lib",
       "title": "stagger direction",
-      "description": "stagger direction, Allow to animate in orchestrated order depending on the order, can animate from the start item, middle item, last item with default style.",
+      "description": "stagger direction, Allow to animate in orchestrated order depending on the order, can animate from the start item, middle item, last item.",
       "files": [
         {
-          "path": "__registry__/utils/set-stagger-direction/default/index.ts",
+          "path": "registry/utils/set-stagger-direction/index.ts",
           "type": "registry:lib",
           "target": "components/systaliko-ui/utils/set-stagger-direction.ts"
         }
       ]
     },
     {
-      "name": "shadcn-default-set-stagger-direction",
-      "type": "registry:lib",
-      "title": "stagger direction",
-      "description": "stagger direction, Allow to animate in orchestrated order depending on the order, can animate from the start item, middle item, last item with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/utils/set-stagger-direction/shadcn-default/index.ts",
-          "type": "registry:lib",
-          "target": "components/systaliko-ui/utils/set-stagger-direction.ts"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-set-stagger-direction",
-      "type": "registry:lib",
-      "title": "stagger direction",
-      "description": "stagger direction, Allow to animate in orchestrated order depending on the order, can animate from the start item, middle item, last item with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/utils/set-stagger-direction/shadcn-new-york/index.ts",
-          "type": "registry:lib",
-          "target": "components/systaliko-ui/utils/set-stagger-direction.ts"
-        }
-      ]
-    },
-    {
-      "name": "default-split-text",
+      "name": "split-text",
       "type": "registry:lib",
       "title": "split text",
-      "description": "split text utility function, allows to split text into characters, words, returns (characters, words, characterCount, wordCount) with default style.",
+      "description": "split text utility function, allows to split text into characters, words, returns (characters, words, characterCount, wordCount).",
       "files": [
         {
-          "path": "__registry__/utils/split-text/default/index.ts",
+          "path": "registry/utils/split-text/index.ts",
           "type": "registry:lib",
           "target": "components/systaliko-ui/utils/split-text.ts"
         }
       ]
     },
     {
-      "name": "shadcn-default-split-text",
-      "type": "registry:lib",
-      "title": "split text",
-      "description": "split text utility function, allows to split text into characters, words, returns (characters, words, characterCount, wordCount) with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/utils/split-text/shadcn-default/index.ts",
-          "type": "registry:lib",
-          "target": "components/systaliko-ui/utils/split-text.ts"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-split-text",
-      "type": "registry:lib",
-      "title": "split text",
-      "description": "split text utility function, allows to split text into characters, words, returns (characters, words, characterCount, wordCount) with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/utils/split-text/shadcn-new-york/index.ts",
-          "type": "registry:lib",
-          "target": "components/systaliko-ui/utils/split-text.ts"
-        }
-      ]
-    },
-    {
-      "name": "default-transitions",
+      "name": "transitions",
       "type": "registry:item",
       "title": "Transitions",
-      "description": "Multiple transitions for your motion components, to animate depending on the animated property with default style.",
+      "description": "Multiple transitions for your motion components, to animate depending on the animated property.",
       "files": [
         {
-          "path": "__registry__/utils/transitions/default/index.tsx",
+          "path": "registry/utils/transitions/index.tsx",
           "type": "registry:item",
           "target": "components/systaliko-ui/utils/transitions.tsx"
         }
       ]
     },
     {
-      "name": "shadcn-default-transitions",
-      "type": "registry:item",
-      "title": "Transitions",
-      "description": "Multiple transitions for your motion components, to animate depending on the animated property with shadcn-default style.",
-      "files": [
-        {
-          "path": "__registry__/utils/transitions/shadcn-default/index.tsx",
-          "type": "registry:item",
-          "target": "components/systaliko-ui/utils/transitions.tsx"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-transitions",
-      "type": "registry:item",
-      "title": "Transitions",
-      "description": "Multiple transitions for your motion components, to animate depending on the animated property with shadcn-new-york style.",
-      "files": [
-        {
-          "path": "__registry__/utils/transitions/shadcn-new-york/index.tsx",
-          "type": "registry:item",
-          "target": "components/systaliko-ui/utils/transitions.tsx"
-        }
-      ]
-    },
-    {
-      "name": "default-use-follow-mouse",
+      "name": "use-follow-mouse",
       "type": "registry:hook",
       "title": "Use Follow Mouse Hook",
-      "description": "As the name suggests, this hook will follow the mouse position with default style.",
+      "description": "As the name suggests, this hook will follow the mouse position.",
       "dependencies": [
         "motion"
       ],
       "files": [
         {
-          "path": "__registry__/utils/use-follow-mouse/default/index.ts",
-          "type": "registry:hook",
-          "target": "components/systaliko-ui/utils/use-follow-mouse.ts"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-default-use-follow-mouse",
-      "type": "registry:hook",
-      "title": "Use Follow Mouse Hook",
-      "description": "As the name suggests, this hook will follow the mouse position with shadcn-default style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/utils/use-follow-mouse/shadcn-default/index.ts",
-          "type": "registry:hook",
-          "target": "components/systaliko-ui/utils/use-follow-mouse.ts"
-        }
-      ]
-    },
-    {
-      "name": "shadcn-new-york-use-follow-mouse",
-      "type": "registry:hook",
-      "title": "Use Follow Mouse Hook",
-      "description": "As the name suggests, this hook will follow the mouse position with shadcn-new-york style.",
-      "dependencies": [
-        "motion"
-      ],
-      "files": [
-        {
-          "path": "__registry__/utils/use-follow-mouse/shadcn-new-york/index.ts",
+          "path": "registry/utils/use-follow-mouse/index.ts",
           "type": "registry:hook",
           "target": "components/systaliko-ui/utils/use-follow-mouse.ts"
         }

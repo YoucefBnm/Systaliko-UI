@@ -59,7 +59,7 @@ export const ScrollAnimationRotate = ({
     <ScrollAnimationRotateContext.Provider value={{ scrollProgress }}>
       <div
         ref={scrollRef}
-        className={cn('relative', className)}
+        className={cn('relative ', className)}
         style={{
           perspective: '1000px',
           perspectiveOrigin: 'center top',

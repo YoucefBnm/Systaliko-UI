@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animation-variants-demo",
+  "type": "registry:hook",
+  "title": "Use Animation Variants Demo",
+  "description": "Demo showing how to use animation-variants hook.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/animation-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/utils/animation-variants/index.tsx",
+      "content": "'use client';\n\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  useSetAnimationConfig,\n} from '@/components/docs/animation-config';\nimport { ANIMATION_VARIANTS } from '@/components/systaliko-ui/utils/animation-variants';\nimport { motion } from 'motion/react';\n\nexport const AnimationVariantsDemo = () => {\n  return (\n    <AnimationConfig>\n      <AnimationVariantsDemoContent />\n    </AnimationConfig>\n  );\n};\n\nconst AnimationVariantsDemoContent = () => {\n  const { animation } = useSetAnimationConfig();\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <AnimationSelector />\n\n      <motion.h2\n        key={animation}\n        variants={animationVariants}\n        transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: false }}\n        className=\"text-4xl tracking-tight font-bold\"\n      >\n        Animation variants demo\n      </motion.h2>\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/animation-variants-demo.tsx"
+    }
+  ]
+}

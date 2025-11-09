@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-wavy-demo",
+  "type": "registry:ui",
+  "title": "Text Wavy Demo",
+  "description": "Demo showing text wavy component.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/text-wavy"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/text/text-wavy/index.tsx",
+      "content": "import { TextWavy } from '@/components/systaliko-ui/text/text-wavy';\n\nexport function TextWavyDemo() {\n  return (\n    <div className=\"flex justify-center items-center size-full\">\n      <TextWavy\n        delayTime={1}\n        colors={['rgba(0,0,0,0.5)', 'black', 'rgba(0,0,0,0.5)']}\n        fontSizes={['16px', '20px', '16px']}\n        className=\"uppercase  tracking-wider\"\n        text={\"Let's create a wave effect\"}\n      />\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/text-wavy.tsx"
+    }
+  ]
+}

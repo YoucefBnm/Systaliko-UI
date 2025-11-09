@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-vertical-demo",
+  "type": "registry:ui",
+  "title": "Vertical Text Demo",
+  "description": "Demo showing a vertical text.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/text-vertical"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/text/text-vertical/index.tsx",
+      "content": "import { TextVertical } from '@/components/systaliko-ui/text/text-vertical';\n\nexport const TextVerticalDemo = () => {\n  return (\n    <TextVertical\n      className=\"uppercase text-2xl tracking-wider font-bold\"\n      as=\"h4\"\n    >\n      our summer collection\n    </TextVertical>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/text/text-vertical.tsx"
+    }
+  ]
+}

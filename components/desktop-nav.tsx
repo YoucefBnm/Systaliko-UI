@@ -4,6 +4,7 @@ import { ModeToggle } from './mode-toggle';
 import { siteConfig } from '@/config/site';
 import XIcon from './icons/x-icon';
 import GithubIcon from './icons/github-icon';
+import { Button } from './ui/button';
 
 export function DesktopNav() {
   return (
@@ -21,7 +22,7 @@ export function DesktopNav() {
         Templates
       </Link>
 
-      {/* <Button variant="outline" size="sm">
+      <Button variant="outline" size="sm">
         <Link
           target="_blank"
           href={siteConfig.links.repo}
@@ -34,7 +35,7 @@ export function DesktopNav() {
           </div>
           <span className="ml-2 ">⭐️</span>
         </Link>
-      </Button> */}
+      </Button>
 
       <Link
         target="_blank"

@@ -52,11 +52,11 @@ export function Hero() {
           <motion.div variants={animationVariants}>
             <Pill
               href="/docs"
-              label="and new components"
+              label="and new components availables"
               announcement={
                 <div className="flex gap-2 items-center">
-                  <Pulse className="[&>*:first-child]:bg-foreground/50 [&>*:last-child]:bg-secondary-foreground/80" />{' '}
-                  New Motus Studio templates
+                  <Pulse className="[&>*:first-child]:bg-emerald-500/50 [&>*:last-child]:bg-emerald-400" />{' '}
+                  New Motus Studio template
                 </div>
               }
             />
@@ -74,11 +74,11 @@ export function Hero() {
 
           <motion.p
             variants={animationVariants}
-            className="max-w-[55ch] text-muted-foreground"
+            className="max-w-[75ch] text-muted-foreground"
           >
-            Collection of UI blocks and components to create your website in no
-            time, animated and interactive, built for customization, and crafted
-            to scale across variants and use cases.
+            Collection of UI blocks and components and templates to easly craft
+            your website, interactive and animated, built for customization.
+            built into the Shadcn CLI with no additional configuration required
           </motion.p>
 
           <motion.div

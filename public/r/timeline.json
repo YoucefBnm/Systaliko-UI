@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "timeline",
+  "type": "registry:block",
+  "title": "Timeline",
+  "description": "Timeline, where you can showcase history (like your work) or a process (like a project).",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/timeline/index.tsx",
+      "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport {\n  motion,\n  MotionValue,\n  useReducedMotion,\n  useScroll,\n  useSpring,\n  useTransform,\n} from 'motion/react';\nimport React from 'react';\n\ninterface TimelineProps extends React.ComponentPropsWithRef<'div'> {\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  offset?: any[];\n}\ninterface TimelineContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst TimelineContext = React.createContext<TimelineContextValue | undefined>(\n  undefined,\n);\nfunction useTimelineContext() {\n  const context = React.useContext(TimelineContext);\n  if (!context) {\n    throw new Error('TimelineContext must be used within a TimelineProvider');\n  }\n  return context;\n}\nexport function Timeline({\n  offset = ['start center', 'end end'],\n  className,\n  ...props\n}: TimelineProps) {\n  const containerRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: containerRef,\n    offset: offset,\n  });\n  return (\n    <TimelineContext.Provider value={{ scrollYProgress }}>\n      <div\n        ref={containerRef}\n        className={cn(\n          'relative grid grid-cols-[64px_1fr] [&>*]:col-start-1 [&>*]:row-start-1',\n          className,\n        )}\n        {...props}\n      />\n    </TimelineContext.Provider>\n  );\n}\nexport function TimelineContainer({\n  className,\n  ...props\n}: React.HtmlHTMLAttributes<HTMLDivElement>) {\n  return <div className={cn('col-span-2', className)} {...props} />;\n}\nexport function TimelineCard({\n  className,\n  ...props\n}: React.HtmlHTMLAttributes<HTMLDivElement>) {\n  return <div className={cn('flex relative z-10', className)} {...props} />;\n}\nexport function TimelineCardIndex({\n  className,\n  ...props\n}: React.HtmlHTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn(\n        'size-16 *:bg-background flex justify-center items-center',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\nexport function TimelineCardBody({\n  className,\n  ...props\n}: React.HtmlHTMLAttributes<HTMLDivElement>) {\n  return <div className={cn('flex-1 p-4', className)} {...props} />;\n}\n\nexport function TimelineProgress({\n  className,\n  ...props\n}: React.HtmlHTMLAttributes<HTMLDivElement>) {\n  const reducedMotion = useReducedMotion();\n  const { scrollYProgress } = useTimelineContext();\n  const springConfig = {\n    damping: 50,\n    stiffness: 300,\n    restDelta: 0.001,\n  };\n  const scaleYTransform = useTransform(scrollYProgress, [0, 1], [0, 1]);\n  const scaleYSpring = useSpring(scaleYTransform, springConfig);\n  const scaleY = reducedMotion ? scaleYTransform : scaleYSpring;\n\n  return (\n    <div\n      className={cn(\n        'relative  *:bg-primary justify-self-center h-full min-w-px bg-muted-foreground',\n        className,\n      )}\n      {...props}\n    >\n      <motion.div className=\"size-full origin-top\" style={{ scaleY }} />\n    </div>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/timeline.tsx"
+    }
+  ]
+}

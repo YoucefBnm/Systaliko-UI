@@ -3,7 +3,7 @@
   "name": "wavy-texts",
   "type": "registry:ui",
   "title": "Wavy Texts",
-  "description": "Wavy texts wrap, animates collection of texts in wavy motion on scroll.",
+  "description": "Wavy texts wrap, animates a set of texts in wavy motion on scroll.",
   "files": [
     {
       "path": "registry/text/wavy-texts/index.tsx",

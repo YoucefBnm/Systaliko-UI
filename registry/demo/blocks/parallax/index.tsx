@@ -5,56 +5,38 @@ import {
   ParallaxItem,
   PrallaxContainer,
 } from '@/registry/blocks/parallax';
-import { Button } from '@/registry/shadcn/button';
 import { TextStaggerInview } from '@/registry/text/text-stagger-inview';
 import { ANIMATION_VARIANTS } from '@/registry/utils/animation-variants';
-import { motion } from 'motion/react';
+import { motion, MotionConfig } from 'motion/react';
 
 export function ParallaxDemo() {
   const animationVariants = ANIMATION_VARIANTS['z'];
   return (
     <Parallax className="h-[3600px] md:h-[2000px] p-12">
       <ContainerStagger className="sticky top-0 h-screen space-y-4 w-full flex flex-col justify-center items-center text-center">
-        <TextStaggerInview
-          as="h2"
-          className="text-5xl font-bold tracking-tighter md:w-2/3 mx-auto"
+        <MotionConfig
           transition={{
-            type: 'spring',
-            stiffness: 1000,
-            damping: 28,
-            mass: 0.9,
+            ease: 'easeOut',
+            duration: 0.3,
           }}
-          animation="z"
         >
-          Creating brands that brings people to the shop
-        </TextStaggerInview>
+          <TextStaggerInview
+            as="h2"
+            className="text-5xl font-bold tracking-tighter max-w-[20ch] mx-auto"
+            animation="z"
+          >
+            Creating brands that brings people to the shop
+          </TextStaggerInview>
 
-        <motion.p
-          variants={animationVariants}
-          transition={{
-            type: 'spring',
-            stiffness: 1000,
-            damping: 28,
-            mass: 0.9,
-          }}
-          className="max-w-prose  "
-        >
-          Defining the brand’s unique value proposition and positioning it in
-          the market, creating a brand identity that resonates with the target
-          audience.
-        </motion.p>
-
-        <motion.div
-          variants={animationVariants}
-          transition={{
-            type: 'spring',
-            stiffness: 1000,
-            damping: 28,
-            mass: 0.9,
-          }}
-        >
-          <Button size="lg">Get Started</Button>
-        </motion.div>
+          <motion.p
+            variants={animationVariants}
+            className="max-w-[55ch] text-muted-foreground"
+          >
+            Defining the brand’s unique value proposition and positioning it in
+            the market, creating a brand identity that resonates with the target
+            audience.
+          </motion.p>
+        </MotionConfig>
       </ContainerStagger>
       <PrallaxContainer className="flex flex-wrap justify-between gap-4 w-full">
         <ParallaxItem
