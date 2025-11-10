@@ -1,11 +1,13 @@
+'use client';
 import {
   Slideshow,
   SlideshowImageContainer,
   SlideshowImageWrap,
   SlideshowIndicator,
 } from '@/registry/blocks/slideshow';
+import React from 'react';
 
-const SLIDES = [
+const slides = [
   {
     id: 'slide-6',
     title: 'UI UX design',
@@ -39,6 +41,60 @@ const SLIDES = [
 ];
 
 export function SlideshowDemo() {
+  const imageUrls = React.useMemo(() => slides.map((s) => s.imageUrl), []);
+
+  function usePreloadImages(urls: string[]) {
+    const imagesRef = React.useRef<HTMLImageElement[]>([]);
+    const [loaded, setLoaded] = React.useState(false);
+    const [progress, setProgress] = React.useState(0);
+
+    React.useEffect(() => {
+      if (!urls || urls.length === 0) {
+        setLoaded(true);
+        return;
+      }
+
+      let mounted = true;
+      let completed = 0;
+      const created: HTMLImageElement[] = [];
+
+      const settle = () => {
+        completed += 1;
+        if (!mounted) return;
+        setProgress((completed / urls.length) * 100);
+        if (completed >= urls.length) {
+          imagesRef.current = created.filter(Boolean) as HTMLImageElement[];
+          setLoaded(true);
+        }
+      };
+
+      urls.forEach((url) => {
+        try {
+          const img = new Image();
+          created.push(img);
+          img.onload = () => settle();
+          img.onerror = () => settle();
+          img.src = url;
+        } catch (e) {
+          console.log(e);
+          settle();
+        }
+      });
+
+      return () => {
+        mounted = false;
+        // cleanup event handlers
+        created.forEach((i) => {
+          i.onload = null;
+          i.onerror = null;
+        });
+      };
+    }, [urls]);
+
+    return { loaded, progress, imagesRef } as const;
+  }
+
+  usePreloadImages(imageUrls);
   return (
     <Slideshow className="min-h-svh place-content-center p-6 md:px-12">
       <h3 className="mb-6 text-primary text-xs font-medium capitalize tracking-wide">
@@ -46,7 +102,7 @@ export function SlideshowDemo() {
       </h3>
       <div className="flex flex-wrap items-center justify-evenly gap-6 md:gap-12">
         <div className="flex  flex-col space-y-2 md:space-y-4   ">
-          {SLIDES.map((slide, index) => (
+          {slides.map((slide, index) => (
             <SlideshowIndicator
               key={slide.title}
               index={index}
@@ -57,7 +113,7 @@ export function SlideshowDemo() {
           ))}
         </div>
         <SlideshowImageContainer>
-          {SLIDES.map((slide, index) => (
+          {slides.map((slide, index) => (
             <div key={slide.id} className="  ">
               <SlideshowImageWrap
                 index={index}

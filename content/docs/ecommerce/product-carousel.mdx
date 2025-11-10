@@ -49,7 +49,26 @@ new: true
           />
       </ProductImage>
     </ProductCarouselSlide>
-  </ProductCarousel>
+  </ProductCarouselWrapper>
+   <div className="py-1 px-3 inline-flex items-center space-x-2">
+    <ProductCarouselThumbnail
+      index={0}
+      className=" bg-blue-600 rounded"
+      layoutId="product-carousel"
+    />
+    <ProductCarouselThumbnail
+      index={1}
+      className="bg-red-600 rounded"
+      layoutId="product-carousel"
+    />
+
+    <ProductCarouselThumbnail
+      index={2}
+      className="bg-yellow-600 rounded"
+      layoutId="product-carousel"
+    />
+  </div>
+</<ProductCarousel>
 ```
 
 ## Props
