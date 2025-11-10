@@ -365,6 +365,7 @@ export const docs = _runtime.docs<typeof _source.docs>(
           '---Ecommerce---',
           'ecommerce/product-carousel',
           '---Blocks---',
+          'blocks/animated-menu',
           'blocks/wavy-block',
           'blocks/grid-bento',
           'blocks/image-player',

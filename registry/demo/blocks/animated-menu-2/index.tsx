@@ -91,12 +91,12 @@ export function AnimatedMenu2Demo() {
       <span className="text-xl font-bold tracking-tight">Systaliko UI</span>
       <div className="flex gap-4">
         <AnimatedMenu className="relative ">
-          <AnimatedMenuButton className="h-12 w-12">
-            <AnimatedMenuButtonToggleIcon size="md" className="*:bg-zinc-50" />
+          <AnimatedMenuButton className="size-12 text-white">
+            <AnimatedMenuButtonToggleIcon size="md" className="*:rounded" />
           </AnimatedMenuButton>
           <AnimatedMenuList
             variants={menuListvariants}
-            className="absolute right-0 top-0 bg-zinc-950/90 border border-zinc-50/50 backdrop-blur rounded-3xl"
+            className="absolute right-0 top-0 bg-linear-to-bl from-black/80 to-black border border-border/50 shadow-md rounded-3xl"
           >
             <div className="flex flex-col px-6 justify-evenly gap-6 items-start size-full">
               <div className="flex flex-col items-start gap-4 *:transition-blur *:duration-300 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">

@@ -71,7 +71,7 @@ export function ProductCarouselSlide({
   return (
     <div
       className={cn(
-        `size-full ${isActive ? 'opacity-100' : 'opacity-0'}`,
+        `size-full transition-opacity duration-300 ease-out ${isActive ? 'opacity-100' : 'opacity-0'}`,
         className,
       )}
       {...props}
@@ -88,6 +88,7 @@ export function ProductCarouselThumbnail({
   layoutId,
   activeLayoutClassName,
   className,
+  children,
   ...props
 }: ProductCarouselThumbnailProps) {
   const { activeSlide, setActiveSlide } = useProductCarouselContext();
@@ -118,6 +119,7 @@ export function ProductCarouselThumbnail({
           }}
         />
       )}
+      {children}
     </button>
   );
 }

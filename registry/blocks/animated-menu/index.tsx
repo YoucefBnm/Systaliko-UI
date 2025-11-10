@@ -10,15 +10,15 @@ import {
 } from 'motion/react';
 import React from 'react';
 
-const variants = {
+const menuListVariants = {
   open: {
     width: 320,
     height: 420,
     transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },
   },
   close: {
-    width: 104,
-    height: 40,
+    width: 112,
+    height: 48,
     transition: { duration: 0.75, delay: 0.2, ease: [0.76, 0, 0.24, 1] },
   },
 } as Variants;
@@ -86,7 +86,7 @@ const buttonIconVariants = cva(
     variants: {
       size: {
         sm: '*:w-4 *:h-px *:w-4 *:h-px *:origin-[20%]',
-        md: '*:w-6 *:h-0.5  *:origin-[28%]',
+        md: '*:w-6 *:h-0.5  *:origin-[25%]',
         lg: '*:w-8 *:h-0.5  *:origin-[33%]',
         xl: '*:w-10 *:h-1 *:origin-[31%]',
       },
@@ -184,7 +184,7 @@ export function AnimatedMenuButton({
 }
 
 export function AnimatedMenuList({
-  menuListVariants = variants,
+  variants = menuListVariants,
   className,
   children,
   ...props
@@ -193,7 +193,7 @@ export function AnimatedMenuList({
   return (
     <motion.div
       className={cn('z-[800] ', className)}
-      variants={menuListVariants}
+      variants={variants}
       initial="close"
       animate={isOpen ? 'open' : 'close'}
       {...props}
