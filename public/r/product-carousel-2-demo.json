@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "product-carousel-2-demo",
+  "type": "registry:block",
+  "title": "Product Carousel Demo",
+  "description": "Another Demo showing product carousel component.",
+  "registryDependencies": [
+    "http://localhost:3000/r/product-carousel"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/ecommerce/product-carousel-2/index.tsx",
+      "content": "'use client';\nimport {\n  ProductCarousel,\n  ProductCarouselSlide,\n  ProductCarouselWrapper,\n  ProductImage,\n} from '@/components/systaliko-ui/ecommerce/product-carousel';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport Image from 'next/image';\nimport React from 'react';\n\nexport function ProductCarousel2Demo() {\n  const videoRef = React.useRef<HTMLVideoElement>(null);\n\n  const handleMouseEnter = () => {\n    if (videoRef.current) {\n      videoRef.current.play().catch((error) => {\n        // Handle play errors silently\n        console.debug('Video play error:', error);\n      });\n    }\n  };\n\n  const handleMouseLeave = () => {\n    if (videoRef.current) {\n      videoRef.current.pause();\n      videoRef.current.currentTime = 0; // Reset to start\n    }\n  };\n  return (\n    <div className=\"h-svh place-content-center place-items-center\">\n      <ProductCarousel\n        id=\"product-carousel-2\"\n        className=\"bg-card border border-border/50 w-xs md:w-md shadow overflow-hidden space-y-4\"\n      >\n        <ProductCarouselWrapper className=\"aspect-[3/2] shadow border overflow-hidden rounded-[inherit]\">\n          <ProductCarouselSlide\n            className=\"flex justify-center items-end\"\n            index={0}\n          >\n            <ProductImage className=\"justify-center items-start\">\n              <Image\n                src=\"https://images.pexels.com/photos/5488927/pexels-photo-5488927.jpeg\"\n                width={6000}\n                height={4000}\n                className=\"inline-block align-middle w-full mx-auto h-auto max-h-full object-contain\"\n                alt=\"yacht\"\n              />\n              <video\n                ref={videoRef}\n                onMouseEnter={handleMouseEnter}\n                onMouseLeave={handleMouseLeave}\n                playsInline\n                muted\n                autoPlay\n                src=\"https://videos.pexels.com/video-files/4415852/4415852-uhd_2560_1440_30fps.mp4\"\n                preload=\"metadata\"\n                className=\"w-full h-auto max-h-full aspect-[3/2] object-cover\"\n              />\n            </ProductImage>\n          </ProductCarouselSlide>\n        </ProductCarouselWrapper>\n\n        <div className=\"space-y-3 p-4\">\n          <div className=\"flex items-center justify-between gap-4\">\n            <h2 className=\"font-semibold tracking-tight \">\n              2023 Fairline F-Line 33\n            </h2>\n            <Badge\n              variant={'outline'}\n              className=\"shadow-xs text-amber-500 border rounded-full\"\n            >\n              Luxury\n            </Badge>\n          </div>\n          <p className=\"text-muted-foreground text-sm font-light tabular-nums tracking-tighter\">\n            $buy the jordan\n          </p>\n          <Button className=\"w-full rounded-none\" size={'lg'}>\n            Buy Now\n          </Button>\n        </div>\n      </ProductCarousel>\n    </div>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/product-carousel-2.tsx"
+    }
+  ]
+}

@@ -2579,6 +2579,82 @@ export const index: Record<string, any> = {
     })(),
     command: '@systaliko-ui/rating-stars-demo',
   },
+  'product-carousel-demo': {
+    name: 'product-carousel-demo',
+    description: 'Demo showing product carousel component.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/product-carousel'],
+    files: [
+      {
+        path: 'registry/demo/ecommerce/product-carousel/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/product-carousel.tsx',
+        content:
+          'import {\n  ProductCarousel,\n  ProductCarouselSlide,\n  ProductCarouselThumbnail,\n  ProductCarouselWrapper,\n  ProductImage,\n} from \'@/components/systaliko-ui/ecommerce/product-carousel\';\nimport { Badge } from \'@/components/systaliko-ui/shadcn/badge\';\nimport { Button } from \'@/components/systaliko-ui/shadcn/button\';\nimport Image from \'next/image\';\n\nfunction NikeIcon(props: React.SVGProps<SVGSVGElement>) {\n  return (\n    <svg\n      xmlns="http://www.w3.org/2000/svg"\n      viewBox="0 0 50 50"\n      fill="currentColor"\n      {...props}\n    >\n      <path\n        fillRule="evenodd"\n        d="M 6.40625 16.800781 C 3.152344 20.621094 0 25.234375 0 28.902344 C 0 31.019531 1.78125 33.996094 6.132813 33.996094 C 8.484375 33.996094 10.820313 33.050781 12.648438 32.320313 C 15.730469 31.085938 49.789063 16.296875 49.789063 16.296875 C 50.117188 16.132813 50.058594 15.925781 49.644531 16.027344 C 49.480469 16.070313 12.566406 26.074219 12.566406 26.074219 C 11.855469 26.273438 11.128906 26.382813 10.421875 26.382813 C 7.230469 26.382813 5.078125 24.851563 5.078125 21.503906 C 5.078125 20.207031 5.484375 18.640625 6.40625 16.800781 Z"\n      />\n    </svg>\n  );\n}\nexport function ProductCarouselDemo() {\n  return (\n    <div className="h-svh place-content-center place-items-center">\n      <ProductCarousel\n        id="product-carousel"\n        className="bg-card border w-xs shadow rounded-3xl p-4 overflow-hidden space-y-4"\n      >\n        <ProductCarouselWrapper>\n          <div className="bg-card/80 border px-3 rounded-full shadow-xs shadow-black/15 absolute top-1 left-1 z-20">\n            <NikeIcon className="size-6" />\n          </div>\n\n          <ProductCarouselSlide\n            className="flex justify-center items-end  "\n            index={0}\n          >\n            <ProductImage className="justify-center items-center">\n              <Image\n                src="https://m.media-amazon.com/images/I/51idMcfqaeL._AC_SX695_.jpg"\n                width={695}\n                height={390}\n                className="inline-block align-middle w-4/5 mx-auto h-auto max-h-full object-contain"\n                alt="nike air jordan"\n              />\n              <Image\n                src="https://m.media-amazon.com/images/I/51o7G1R81ML._AC_SX695_.jpg"\n                width={695}\n                height={385}\n                className="inline-block align-middle w-4/5 mx-auto h-auto max-h-full object-contain"\n                alt="nike air jordan"\n              />\n            </ProductImage>\n          </ProductCarouselSlide>\n\n          <ProductCarouselSlide\n            className="flex justify-center items-end size-full  "\n            index={1}\n          >\n            <ProductImage className="size-full justify-center items-center ">\n              <Image\n                src="https://m.media-amazon.com/images/I/51sOQ6HcnZL._AC_SX695_.jpg"\n                width={695}\n                height={395}\n                className="inline-block align-middle w-4/5 mx-auto h-auto max-h-full object-contain"\n                alt="nike air jordan"\n              />\n              <Image\n                src="https://m.media-amazon.com/images/I/512tyq4RP5L._AC_SX695_.jpg"\n                width={695}\n                height={393}\n                className="inline-block align-middle w-4/5 mx-auto h-auto max-h-full object-contain"\n                alt="nike air jordan"\n              />\n            </ProductImage>\n          </ProductCarouselSlide>\n\n          <ProductCarouselSlide\n            className="flex justify-center items-end size-full  "\n            index={2}\n          >\n            <ProductImage className="size-full justify-center items-center ">\n              <Image\n                src="https://m.media-amazon.com/images/I/61KH6jsAjFL._AC_SX695_.jpg"\n                width={695}\n                height={376}\n                className="inline-block align-middle w-4/5 mx-auto h-auto max-h-full object-contain"\n                alt="nike air jordan"\n              />\n              <Image\n                src="https://m.media-amazon.com/images/I/61adCwX-wwL._AC_SX695_.jpg"\n                width={695}\n                height={376}\n                className="inline-block align-middle w-4/5 mx-auto h-auto max-h-full object-contain"\n                alt="nike air jordan"\n              />\n            </ProductImage>\n          </ProductCarouselSlide>\n        </ProductCarouselWrapper>\n        <div className="py-1 px-3 inline-flex items-center space-x-2">\n          <ProductCarouselThumbnail\n            index={0}\n            className=" bg-blue-600 rounded"\n            layoutId="product-carousel"\n          />\n          <ProductCarouselThumbnail\n            index={1}\n            className="bg-red-600 rounded"\n            layoutId="product-carousel"\n          />\n\n          <ProductCarouselThumbnail\n            index={2}\n            className="bg-yellow-600 rounded"\n            layoutId="product-carousel"\n          />\n        </div>\n\n        <div className="space-y-3">\n          <div className="flex items-center justify-between gap-4">\n            <h2 className="font-semibold tracking-tight ">Air Jordan 1</h2>\n            <Badge\n              variant={\'secondary\'}\n              className="shadow-xs border rounded-full"\n            >\n              Best Seller\n            </Badge>\n          </div>\n          <p className="text-muted-foreground text-sm font-light tabular-nums tracking-tighter">\n            $120.00\n          </p>\n          <Button className="rounded-xl w-full" size={\'lg\'}>\n            Buy Now\n          </Button>\n        </div>\n      </ProductCarousel>\n    </div>\n  );\n}',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/ecommerce/product-carousel/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'product-carousel-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/product-carousel-demo',
+  },
+  'product-carousel-2-demo': {
+    name: 'product-carousel-2-demo',
+    description: 'Another Demo showing product carousel component.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/product-carousel'],
+    files: [
+      {
+        path: 'registry/demo/ecommerce/product-carousel-2/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/product-carousel-2.tsx',
+        content:
+          '\'use client\';\nimport {\n  ProductCarousel,\n  ProductCarouselSlide,\n  ProductCarouselWrapper,\n  ProductImage,\n} from \'@/components/systaliko-ui/ecommerce/product-carousel\';\nimport { Badge } from \'@/components/systaliko-ui/shadcn/badge\';\nimport { Button } from \'@/components/systaliko-ui/shadcn/button\';\nimport Image from \'next/image\';\nimport React from \'react\';\n\nexport function ProductCarousel2Demo() {\n  const videoRef = React.useRef<HTMLVideoElement>(null);\n\n  const handleMouseEnter = () => {\n    if (videoRef.current) {\n      videoRef.current.play().catch((error) => {\n        // Handle play errors silently\n        console.debug(\'Video play error:\', error);\n      });\n    }\n  };\n\n  const handleMouseLeave = () => {\n    if (videoRef.current) {\n      videoRef.current.pause();\n      videoRef.current.currentTime = 0; // Reset to start\n    }\n  };\n  return (\n    <div className="h-svh place-content-center place-items-center">\n      <ProductCarousel\n        id="product-carousel-2"\n        className="bg-card border border-border/50 w-xs md:w-md shadow overflow-hidden space-y-4"\n      >\n        <ProductCarouselWrapper className="aspect-[3/2] shadow border overflow-hidden rounded-[inherit]">\n          <ProductCarouselSlide\n            className="flex justify-center items-end"\n            index={0}\n          >\n            <ProductImage className="justify-center items-start">\n              <Image\n                src="https://images.pexels.com/photos/5488927/pexels-photo-5488927.jpeg"\n                width={6000}\n                height={4000}\n                className="inline-block align-middle w-full mx-auto h-auto max-h-full object-contain"\n                alt="yacht"\n              />\n              <video\n                ref={videoRef}\n                onMouseEnter={handleMouseEnter}\n                onMouseLeave={handleMouseLeave}\n                playsInline\n                muted\n                autoPlay\n                src="https://videos.pexels.com/video-files/4415852/4415852-uhd_2560_1440_30fps.mp4"\n                preload="metadata"\n                className="w-full h-auto max-h-full aspect-[3/2] object-cover"\n              />\n            </ProductImage>\n          </ProductCarouselSlide>\n        </ProductCarouselWrapper>\n\n        <div className="space-y-3 p-4">\n          <div className="flex items-center justify-between gap-4">\n            <h2 className="font-semibold tracking-tight ">\n              2023 Fairline F-Line 33\n            </h2>\n            <Badge\n              variant={\'outline\'}\n              className="shadow-xs text-amber-500 border rounded-full"\n            >\n              Luxury\n            </Badge>\n          </div>\n          <p className="text-muted-foreground text-sm font-light tabular-nums tracking-tighter">\n            $buy the jordan\n          </p>\n          <Button className="w-full rounded-none" size={\'lg\'}>\n            Buy Now\n          </Button>\n        </div>\n      </ProductCarousel>\n    </div>\n  );\n}',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/ecommerce/product-carousel-2/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'product-carousel-2-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/product-carousel-2-demo',
+  },
   'text-scroll-read-demo': {
     name: 'text-scroll-read-demo',
     description: 'Demo showing Text scroll read component.',
@@ -2895,6 +2971,45 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@systaliko-ui/set-stagger-direction-demo',
+  },
+  'product-carousel': {
+    name: 'product-carousel',
+    description:
+      'Showcase your products with preview image for each product and display your different product colors.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+      {
+        path: 'registry/ecommerce/product-carousel/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/ecommerce/product-carousel.tsx',
+        content:
+          "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { cva, VariantProps } from 'class-variance-authority';\nimport { motion } from 'motion/react';\nimport React from 'react';\n\nconst productCarouselWrapperVariants = cva(\n  'relative size-full aspect-square grid grid-cols-1 grid-rows-1 *:row-start-1 *:col-start-1 overflow-hidden',\n  {\n    variants: {\n      variant: {\n        default: '',\n        withOverlay:\n          'after:absolute after:rounded-[inherit] after:inset-0 after:bg-gray-950/5 after:z-10 after:pointer-events-none',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\nexport interface ProductCarouselWrapperProps\n  extends React.HTMLAttributes<HTMLDivElement>,\n    VariantProps<typeof productCarouselWrapperVariants> {}\ninterface ProductCarouselProps extends React.ComponentProps<'div'> {\n  className?: string;\n}\ninterface ProductCarouselContextValue {\n  activeSlide: number;\n  setActiveSlide: React.Dispatch<React.SetStateAction<number>>;\n}\nconst ProductCarouselContext = React.createContext<\n  ProductCarouselContextValue | undefined\n>(undefined);\n\nfunction useProductCarouselContext() {\n  const context = React.useContext(ProductCarouselContext);\n  if (context === undefined) {\n    throw new Error(\n      'useProductCarouselContext must be used within a ProductCarousel',\n    );\n  }\n  return context;\n}\nexport function ProductImage({\n  className,\n  ...props\n}: React.ComponentProps<'div'>) {\n  return (\n    <div\n      className={cn(\n        'group size-full relative z-10 inline-grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1 *:will-change-[opacity] *:transition-opacity *:duration-300 *:ease-out',\n        '[&>:first-child]:opacity-100 [&>:first-child]:group-hover:opacity-0',\n        '[&>:nth-child(2)]:opacity-0 [&>:nth-child(2)]:group-hover:opacity-100',\n        'after:pointer-events-none',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport function ProductCarouselSlide({\n  className,\n  index,\n  ...props\n}: React.ComponentPropsWithRef<'div'> & { index: number }) {\n  const { activeSlide } = useProductCarouselContext();\n  const isActive = activeSlide === index;\n  return (\n    <div\n      className={cn(\n        `size-full ${isActive ? 'opacity-100' : 'opacity-0'}`,\n        className,\n      )}\n      {...props}\n    />\n  );\n}\ninterface ProductCarouselThumbnailProps extends React.ComponentProps<'button'> {\n  index: number;\n  layoutId: string;\n  activeLayoutClassName?: string;\n}\nexport function ProductCarouselThumbnail({\n  index,\n  layoutId,\n  activeLayoutClassName,\n  className,\n  ...props\n}: ProductCarouselThumbnailProps) {\n  const { activeSlide, setActiveSlide } = useProductCarouselContext();\n  const isActive = activeSlide === index;\n  const handleMouseEnter = () => setActiveSlide(index);\n\n  return (\n    <button\n      className={cn(\n        'size-4 border border-border/50 cursor-pointer relative',\n        className,\n      )}\n      onMouseEnter={handleMouseEnter}\n      {...props}\n    >\n      {isActive && (\n        <motion.div\n          layoutId={layoutId}\n          className={cn(\n            'absolute border border-foreground/30 rounded-[inherit] -left-[3px] z-10 -top-[3px] size-5',\n            activeLayoutClassName,\n          )}\n          transition={{\n            type: 'spring',\n            stiffness: 500,\n            damping: 50,\n            mass: 1,\n          }}\n        />\n      )}\n    </button>\n  );\n}\nexport function ProductCarouselWrapper({\n  className,\n  variant,\n  ...props\n}: ProductCarouselWrapperProps) {\n  return (\n    <div\n      className={cn(productCarouselWrapperVariants({ variant, className }))}\n      {...props}\n    />\n  );\n}\n\nexport function ProductCarousel({ className, ...props }: ProductCarouselProps) {\n  const [activeSlide, setActiveSlide] = React.useState<number>(0);\n  return (\n    <ProductCarouselContext.Provider value={{ activeSlide, setActiveSlide }}>\n      <div className={cn('relative ', className)} {...props} />\n    </ProductCarouselContext.Provider>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/ecommerce/product-carousel/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'product-carousel';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/product-carousel',
   },
   avatar: {
     name: 'avatar',

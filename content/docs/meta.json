@@ -10,6 +10,9 @@
     "templates/veo",
     "templates/carecover",
 
+    "---Ecommerce---",
+    "ecommerce/product-carousel",
+
     "---Blocks---",
     "blocks/wavy-block",
     "blocks/grid-bento",

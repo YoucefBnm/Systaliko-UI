@@ -1085,6 +1085,38 @@
       ]
     },
     {
+      "name": "product-carousel-demo",
+      "type": "registry:block",
+      "title": "Product Carousel Demo",
+      "description": "Demo showing product carousel component.",
+      "registryDependencies": [
+        "http://localhost:3000/r/product-carousel"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/ecommerce/product-carousel/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/product-carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "product-carousel-2-demo",
+      "type": "registry:block",
+      "title": "Product Carousel Demo",
+      "description": "Another Demo showing product carousel component.",
+      "registryDependencies": [
+        "http://localhost:3000/r/product-carousel"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/ecommerce/product-carousel-2/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/product-carousel-2.tsx"
+        }
+      ]
+    },
+    {
       "name": "text-scroll-read-demo",
       "type": "registry:ui",
       "title": "Text Scroll Read Demo",
@@ -1213,6 +1245,22 @@
           "path": "registry/demo/utils/set-stagger-direction/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/utils/set-stagger-direction.ts"
+        }
+      ]
+    },
+    {
+      "name": "product-carousel",
+      "type": "registry:block",
+      "title": "Product Carousel",
+      "description": "Showcase your products with preview image for each product and display your different product colors.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/ecommerce/product-carousel/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/ecommerce/product-carousel.tsx"
         }
       ]
     },

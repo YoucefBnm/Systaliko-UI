@@ -25,7 +25,7 @@ export function Pill({
     <Link
       href={href}
       className={cn(
-        'shadow-sm shadow-black/15 dark:shadow-white/15',
+        'shadow-sm shadow-black/15',
         'flex w-auto items-center space-x-2 rounded-full',
         'ring-1 ring-ring/20',
         'px-2 py-1 whitespace-pre',

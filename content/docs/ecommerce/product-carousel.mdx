@@ -1,0 +1,100 @@
+---
+title: Product Carousel
+description: Showcase your products with preview image/video for each product and display your different product colors or categories.
+new: true
+---
+
+<ComponentPreview name="product-carousel-demo" />
+
+## Installation
+
+<ComponentInstallation name="product-carousel" />
+
+## Examples
+
+### with video preview
+
+<ComponentPreview name="product-carousel-2-demo" />
+
+## Usage
+
+```tsx
+ <ProductCarousel
+    id="product-carousel"
+    className="bg-card border w-xs shadow rounded-3xl p-4 overflow-hidden space-y-4"
+  >
+    <ProductCarouselWrapper>
+      <div className="bg-card/80 border px-3 rounded-full shadow-xs shadow-black/15 absolute top-1 left-1 z-20">
+        <NikeIcon className="size-6" />
+      </div>
+
+      <ProductCarouselSlide
+        className="flex justify-center items-end  "
+        index={0}
+      >
+        <ProductImage className="justify-center items-center">
+          <Image
+            src="https://m.media-amazon.com/images/I/51idMcfqaeL._AC_SX695_.jpg"
+            width={695}
+            height={390}
+            className="inline-block align-middle w-4/5 mx-auto h-auto max-h-full object-contain"
+            alt="nike air jordan"
+          />
+          <Image
+            src="https://m.media-amazon.com/images/I/51o7G1R81ML._AC_SX695_.jpg"
+            width={695}
+            height={385}
+            className="inline-block align-middle w-4/5 mx-auto h-auto max-h-full object-contain"
+            alt="nike air jordan"
+          />
+      </ProductImage>
+    </ProductCarouselSlide>
+  </ProductCarousel>
+```
+
+## Props
+
+`ProductCarouselWrapper`
+
+<TypeTable
+  type={{
+    variant: {
+      description: 'variant class of the parent container of the slides',
+      type: 'default | withOverlay',
+      required: false,
+      default: 'default',
+    },
+  }}
+/>
+
+`ProductCarouselSlide`
+
+<TypeTable
+  type={{
+    index: {
+      description:
+        'index/order of the slide when mapping through an array you can use index.',
+      type: 'number',
+      required: true,
+    },
+  }}
+/>
+
+`ProductCarouselThumbnail`
+
+<TypeTable
+  type={{
+    index: {
+      description:
+        'index/order of the slide when mapping through an array you can use index.',
+      type: 'number',
+      required: true,
+    },
+    layoutId: {
+      description:
+        'id of the `ProductCarousel` element use a unique id do no use similar ids cause it can cause the layout active element to a wierd behaviour .',
+      type: 'string',
+      required: true,
+    },
+  }}
+/>
