@@ -1,0 +1,73 @@
+---
+title: Scroll Autoplay
+description: Displaying different content depending on order and scroll position.
+new: true
+---
+
+<ComponentPreview name="scroll-autoplay-demo" />
+
+## Installation
+
+<ComponentInstallation name="scroll-autoplay" />
+
+## Usage
+
+```tsx
+<ScrollAutoplay className="h-[300vh]">
+  <ScrollAutoplayContainer className="sticky top-0 right-0 w-full md:h-screen place-content-center">
+    <div className="relative w-3/5 mx-auto aspect-video p-2 bg-linear-120 from-muted-foreground/30 to-muted/40 bg-no-repeat border border-foreground/10 rounded-3xl shadow-[inset_0_.450581px_#ffffff4d,0_0_36.0465px_#ffffff0f]">
+      <div className="size-full border-16 border-zinc-800 ring ring-black rounded-[19px] relative">
+        {IMAGES.map((imageUrl, index) => {
+          const start = index / (IMAGES.length + 1);
+          const end = (index + 1) / (IMAGES.length + 1);
+          const range = [start, end];
+
+          return (
+            <ScrollAutoplayItem key={index} inputRange={range}>
+              <Image
+                fill
+                alt="tokyo city"
+                src={imageUrl}
+                className="size-full object-cover "
+              />
+            </ScrollAutoplayItem>
+          );
+        })}
+      </div>
+    </div>
+  </ScrollAutoplayContainer>
+</ScrollAutoplay>
+```
+
+## Props
+
+`ScrollAutoplay`
+
+<TypeTable
+  type={{
+    offset: {
+      description: 'offset scroll of where the animation starts and ends',
+      type: 'ScrollOffset',
+      required: false,
+      default: '["0% 50%", "100% 50%"]',
+    },
+  }}
+/>
+
+`ScrollAutoplayItem`
+
+<TypeTable
+  type={{
+    outputRange: {
+      description: 'The range of opacity per item.',
+      type: 'unknown[]',
+      required: false,
+      default: '[0, 1]',
+    },
+    inputRange: {
+      description: 'The range of the scroll range minimum 0 and max 1.',
+      type: 'MapInputRange',
+      required: true,
+    },
+  }}
+/>

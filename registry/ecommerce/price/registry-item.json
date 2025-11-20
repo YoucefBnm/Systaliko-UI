@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "price",
+  "type": "registry:block",
+  "title": "price",
+  "description": "Flexible price component with customizable features and options to display the amount and currency.",
+  "registryDependencies": ["http://localhost:3000/r/price"],
+
+  "files": [
+    {
+      "path": "registry/ecommerce/price/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/ecommerce/price.tsx"
+    }
+  ]
+}

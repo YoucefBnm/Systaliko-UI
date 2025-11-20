@@ -4,18 +4,21 @@
   "pages": [
     "index",
     "---Templates---",
-    "templates/motus",
+    "templates/carecover",
     "templates/abla",
+    "templates/motus",
     "templates/portfolio",
     "templates/veo",
-    "templates/carecover",
 
     "---Ecommerce---",
+    "ecommerce/pricing",
+    "ecommerce/toggle-layout",
     "ecommerce/product-carousel",
 
     "---Blocks---",
+    "blocks/header",
+    "blocks/scroll-autoplay",
     "blocks/animated-menu",
-    "blocks/wavy-block",
     "blocks/grid-bento",
     "blocks/image-player",
     "blocks/parallax",
@@ -26,6 +29,7 @@
     "blocks/container-stagger",
     "blocks/scroll-x-carousel",
     "blocks/story",
+    "blocks/wavy-block",
 
     "---Cards---",
     "cards/card-flip",
@@ -40,11 +44,11 @@
     "components/rating-stars",
 
     "---Text---",
-    "text/text-wavy",
     "text/text-scroll-read",
     "text/text-stagger-hover",
     "text/text-stagger-inview",
     "text/text-vertical",
+    "text/text-wavy",
 
     "---Utils---",
     "utils/animation-variants",

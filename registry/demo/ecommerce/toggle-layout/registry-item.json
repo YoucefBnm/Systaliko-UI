@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toggle-layout-demo",
+  "type": "registry:block",
+  "title": "Pricing Demo",
+  "description": "Demo showing toggle layout view component.",
+  "registryDependencies": ["http://localhost:3000/r/toggle-layout"],
+  "files": [
+    {
+      "path": "registry/demo/ecommerce/toggle-layout/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/toggle-layout.tsx"
+    }
+  ]
+}

@@ -76,6 +76,25 @@
       ]
     },
     {
+      "name": "header",
+      "type": "registry:block",
+      "title": "Header",
+      "description": "Responsive Header, with a logo and navigation links, supporting both desktop and mobile layouts, and toggles on scroll.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/use-toggle-onscroll"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/header/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/blocks/header.tsx"
+        }
+      ]
+    },
+    {
       "name": "image-player",
       "type": "registry:block",
       "title": "Image Player",
@@ -133,6 +152,22 @@
           "path": "registry/blocks/scroll-animation-rotate/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/blocks/scroll-animation-rotate.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-autoplay",
+      "type": "registry:block",
+      "title": "Scroll Autoplay",
+      "description": "Displaying different content depending on order and scroll position.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/scroll-autoplay/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/scroll-autoplay.tsx"
         }
       ]
     },
@@ -525,6 +560,24 @@
       ]
     },
     {
+      "name": "header-demo",
+      "type": "registry:block",
+      "title": "Header Demo",
+      "description": "Demo showing Header component.",
+      "registryDependencies": [
+        "http://localhost:3000/r/header",
+        "http://localhost:3000/r/animated-menu",
+        "http://localhost:3000/r/use-mobile"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/blocks/header/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/blocks/header.tsx"
+        }
+      ]
+    },
+    {
       "name": "image-player-demo",
       "type": "registry:block",
       "title": "Image Player Demo",
@@ -723,6 +776,22 @@
           "path": "registry/demo/blocks/scroll-animation-translate-x/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/scroll-animation-translate-x-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-autoplay-demo",
+      "type": "registry:block",
+      "title": "scroll autoplay Demo",
+      "description": "Demo showing scroll-autoplay component.",
+      "registryDependencies": [
+        "http://localhost:3000/r/scroll-autoplay"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/blocks/scroll-autoplay/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/blocks/scroll-autoplay.tsx"
         }
       ]
     },
@@ -1085,6 +1154,41 @@
       ]
     },
     {
+      "name": "pricing-demo",
+      "type": "registry:block",
+      "title": "Pricing Demo",
+      "description": "Demo showing pricing component.",
+      "registryDependencies": [
+        "http://localhost:3000/r/pricing",
+        "http://localhost:3000/r/badge",
+        "http://localhost:3000/r/button",
+        "http://localhost:3000/r/label"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/ecommerce/pricing/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/pricing.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing-2-demo",
+      "type": "registry:block",
+      "title": "Pricing-2 Demo",
+      "description": "Demo showing pricing-2 component.",
+      "registryDependencies": [
+        "http://localhost:3000/r/pricing"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/ecommerce/pricing-2/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/pricing-2.tsx"
+        }
+      ]
+    },
+    {
       "name": "product-carousel-demo",
       "type": "registry:block",
       "title": "Product Carousel Demo",
@@ -1129,6 +1233,22 @@
           "path": "registry/demo/ecommerce/product-carousel-3/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/product-carousel-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle-layout-demo",
+      "type": "registry:block",
+      "title": "Pricing Demo",
+      "description": "Demo showing toggle layout view component.",
+      "registryDependencies": [
+        "http://localhost:3000/r/toggle-layout"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/ecommerce/toggle-layout/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/toggle-layout.tsx"
         }
       ]
     },
@@ -1265,6 +1385,35 @@
       ]
     },
     {
+      "name": "price",
+      "type": "registry:block",
+      "title": "price",
+      "description": "Flexible price component with customizable features and options to display the amount and currency.",
+      "registryDependencies": [
+        "http://localhost:3000/r/price"
+      ],
+      "files": [
+        {
+          "path": "registry/ecommerce/price/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/ecommerce/price.tsx"
+        }
+      ]
+    },
+    {
+      "name": "pricing",
+      "type": "registry:block",
+      "title": "Pricing",
+      "description": "Flexible pricing component with customizable features and options.",
+      "files": [
+        {
+          "path": "registry/ecommerce/pricing/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/ecommerce/pricing.tsx"
+        }
+      ]
+    },
+    {
       "name": "product-carousel",
       "type": "registry:block",
       "title": "Product Carousel",
@@ -1277,6 +1426,22 @@
           "path": "registry/ecommerce/product-carousel/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/ecommerce/product-carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle-layout",
+      "type": "registry:block",
+      "title": "Toggle list layout",
+      "description": "Toggle list layout, toggling between a list and a grid view.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/ecommerce/toggle-layout/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/ecommerce/toggle-layout.tsx"
         }
       ]
     },
@@ -1333,6 +1498,19 @@
       ]
     },
     {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "field",
+      "description": "field component.",
+      "files": [
+        {
+          "path": "registry/shadcn/field/index.tsx",
+          "type": "registry:ui",
+          "target": "components/field.tsx"
+        }
+      ]
+    },
+    {
       "name": "input",
       "type": "registry:ui",
       "title": "input",
@@ -1368,6 +1546,19 @@
           "path": "registry/shadcn/select/index.tsx",
           "type": "registry:ui",
           "target": "components/select.tsx"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "switch",
+      "description": "switch component with variants.",
+      "files": [
+        {
+          "path": "registry/shadcn/switch/index.tsx",
+          "type": "registry:ui",
+          "target": "components/switch.tsx"
         }
       ]
     },
@@ -1567,6 +1758,32 @@
           "path": "registry/utils/use-follow-mouse/index.ts",
           "type": "registry:hook",
           "target": "components/systaliko-ui/utils/use-follow-mouse.ts"
+        }
+      ]
+    },
+    {
+      "name": "use-mobile",
+      "type": "registry:hook",
+      "title": "Use mobile Hook",
+      "description": "use mobile hook allows you to check if the user is on a mobile device.",
+      "files": [
+        {
+          "path": "registry/utils/use-mobile/index.ts",
+          "type": "registry:hook",
+          "target": "components/systaliko-ui/utils/use-mobile.ts"
+        }
+      ]
+    },
+    {
+      "name": "use-toggle-onscroll",
+      "type": "registry:hook",
+      "title": "Use Toggle on Scroll Hook",
+      "description": "use toggle onscroll hook allows to toggle element position on scroll (down hide, up show).",
+      "files": [
+        {
+          "path": "registry/utils/use-toggle-onscroll/index.ts",
+          "type": "registry:hook",
+          "target": "components/systaliko-ui/utils/use-toggle-onscroll.ts"
         }
       ]
     }

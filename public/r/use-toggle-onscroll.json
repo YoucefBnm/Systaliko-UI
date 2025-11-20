@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-toggle-onscroll",
+  "type": "registry:hook",
+  "title": "Use Toggle on Scroll Hook",
+  "description": "use toggle onscroll hook allows to toggle element position on scroll (down hide, up show).",
+  "files": [
+    {
+      "path": "registry/utils/use-toggle-onscroll/index.ts",
+      "content": "import React from 'react';\nimport { useMotionValueEvent, useScroll } from 'motion/react';\n\nexport function useToggleOnScroll() {\n  const [isHidden, setIsHidden] = React.useState<boolean>(false);\n\n  const { scrollY } = useScroll();\n  const latestYRef = React.useRef(0);\n\n  useMotionValueEvent(scrollY, 'change', (y) => {\n    const difference = y - latestYRef.current;\n\n    if (Math.abs(difference) > 50) {\n      setIsHidden(difference > 0);\n\n      latestYRef.current = y;\n    }\n  });\n\n  return {\n    isHidden,\n    setIsHidden,\n  };\n}\n",
+      "type": "registry:hook",
+      "target": "components/systaliko-ui/utils/use-toggle-onscroll.ts"
+    }
+  ]
+}

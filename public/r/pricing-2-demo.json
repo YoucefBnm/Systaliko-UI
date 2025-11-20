@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "pricing-2-demo",
+  "type": "registry:block",
+  "title": "Pricing-2 Demo",
+  "description": "Demo showing pricing-2 component.",
+  "registryDependencies": [
+    "http://localhost:3000/r/pricing"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/ecommerce/pricing-2/index.tsx",
+      "content": "'use client';\nimport {\n  Pricing,\n  PricingCard,\n  PricingExclude,\n  PricingFeature,\n  PricingPackage,\n  PricingValue,\n} from '@/components/systaliko-ui/ecommerce/pricing';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport { ArrowUpRightIcon, SquareIcon, UserIcon } from 'lucide-react';\n\nconst plan = {\n  id: 'plan-basic',\n  name: 'Basic',\n  icon: SquareIcon,\n  pricing: { monthly: 19, yearly: 199 },\n  features: [\n    'Unlimited projects and tasks',\n    'Team workspaces with roles & permissions',\n    'Real-time collaboration & comments',\n    'Kanban, calendar & timeline views',\n    'File sharing + integrations (Google Drive, Slack...)',\n    'Priority email & chat support',\n  ],\n  excludes: [\n    'Workflow automations (triggers & actions)',\n    'Advanced reporting dashboards',\n    'Custom fields & templates',\n  ],\n};\nexport function Pricing2Demo() {\n  return (\n    <Pricing>\n      <PricingCard className=\"w-full max-w-md border-muted mx-auto rounded-xl bg-primary text-primary-foreground\">\n        <PricingPackage className=\"justify-between\">\n          <h3 className=\"text-xl font-medium\">Basic</h3>\n          <UserIcon className=\"size-8\" />\n        </PricingPackage>\n        <div className=\"space-y-2\">\n          <PricingValue yearlyValue={200} monthlyValue={19} />\n          <p className=\"text-sm text-muted-foreground\">\n            Best for freelancers, students, and people organizing their personal\n            workflow.\n          </p>\n        </div>\n        <div className=\"flex flex-col items-start gap-2\">\n          {plan.features.map((feature) => (\n            <PricingFeature\n              className=\"text-sm text-muted-foreground\"\n              key={feature}\n            >\n              {feature}\n            </PricingFeature>\n          ))}\n          {plan.excludes.map((exclude) => (\n            <PricingExclude\n              className=\"text-sm text-muted-foreground/60\"\n              key={exclude}\n            >\n              {exclude}\n            </PricingExclude>\n          ))}\n        </div>\n\n        <Button className=\"w-full\" variant={'secondary'}>\n          Get Started\n          <ArrowUpRightIcon className=\"size-4\" />\n        </Button>\n      </PricingCard>\n    </Pricing>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/pricing-2.tsx"
+    }
+  ]
+}

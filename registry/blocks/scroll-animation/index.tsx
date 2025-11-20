@@ -29,7 +29,7 @@ export function useScrollAnimationContext() {
   }
   return context;
 }
-interface ScrollAnimationProps extends React.ComponentProps<'div'> {
+interface ScrollAnimationProps extends React.ComponentPropsWithRef<'div'> {
   spacerClass?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   offset?: any[];
@@ -169,7 +169,24 @@ export function ScrollTranslateX({
     />
   );
 }
-
+export function ScrollOpacity({
+  opacityRange = [0, 1],
+  inputRange = [0, 1],
+  style,
+  ...props
+}: HTMLMotionProps<'div'> & {
+  opacityRange?: unknown[];
+  inputRange?: number[];
+}) {
+  const { scrollProgress } = useScrollAnimationContext();
+  const opacity = useTransform(scrollProgress, inputRange, opacityRange);
+  return (
+    <motion.div
+      style={{ opacity, willChange: 'opacity', ...style }}
+      {...props}
+    />
+  );
+}
 export function ScrollScale({
   scaleRange = [1.2, 1],
   inputRange = [0, 1],

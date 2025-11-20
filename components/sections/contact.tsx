@@ -121,7 +121,7 @@ export function Contact() {
                 </motion.div>
                 <Separator className="my-4 bg-muted-foreground/20 w-11/12 mx-auto" />
                 <motion.div
-                  className="flex items-center flex-wrap flex-11/12 mx-auto  gap-6"
+                  className="flex items-center justify-center flex-wrap flex-11/12 mx-auto  gap-6"
                   variants={variants}
                 >
                   <Link

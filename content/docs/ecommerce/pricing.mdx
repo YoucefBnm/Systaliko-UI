@@ -1,0 +1,92 @@
+---
+title: Pricing
+description: Flexible pricing component with customizable features and options.
+new: true
+---
+
+<ComponentPreview name="pricing-demo" />
+
+## Installation
+
+<ComponentInstallation name="pricing" />
+
+## Usage
+
+```tsx
+const savings = calculateYearlySavings({ monthly: 12, yearly: 100 });
+
+<Pricing className="space-y-4">
+  <div className="mt-6 flex items-center justify-center gap-2">
+    <PricingIntervalSwitch />
+    <Label className="text-muted-foreground">Billed annually</Label>
+    <Badge
+      className="border-emerald-600 rounded-full text-emerald-600"
+      variant={'outline'}
+    >
+      💰 Save up to {savings}% with annual billing
+    </Badge>
+  </div>
+  <PricingCard
+    variant={plan.featured ? 'featured' : 'default'}
+    className="md:flex-1 max-w-md gap-6 rounded"
+    key={plan.id}
+  >
+    <PricingPackage className="justify-between">
+      <h3 className="text-xl font-medium">Premium</h3>
+      <Icon className="size-6 text-primary" />
+    </PricingPackage>
+
+    <PricingValue yearlyValue={100} monthlyValue={12} />
+
+    <div className="flex flex-col items-start gap-2 text-sm text-muted-foreground">
+      <PricingIncludesPrevious>Everything basic plan</PricingIncludesPrevious>
+      <PricingFeature>Unlimited projects and tasks</PricingFeature>
+      <PricingFeature>Up to 3 active projects</PricingFeature>
+      <PricingFeature>Solo workspace</PricingFeature>
+      <PricingFeature>Basic reminders and due dates</PricingFeature>
+    </div>
+
+    <Button className="w-full">
+      Get Started
+      <ArrowUpRightIcon className="size-4" />
+    </Button>
+  </PricingCard>
+</Pricing>;
+```
+
+## Examples
+
+### with excludes
+
+<ComponentPreview name="pricing-2-demo" />
+
+## Props
+
+`PricingCard`
+
+<TypeTable
+  type={{
+    variant: {
+      description:
+        'style of the pricing card, default is default, featured is used for the featured plan.',
+      type: 'default | featured',
+      required: false,
+      default: 'default',
+    },
+  }}
+/>
+`PricingValue`
+<TypeTable
+  type={{
+    yearlyValue: {
+      description: 'the yearly value of the plan',
+      type: 'number',
+      required: true,
+    },
+    monthlyValue: {
+      description: 'the monthly value of the plan',
+      type: 'number',
+      required: true,
+    },
+  }}
+/>

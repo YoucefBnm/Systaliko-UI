@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 export function Showcase() {
   return (
-    <section className="">
+    <div className="mx-auto max-w-7xl">
       <ScrollAnimationRotate offset={['0% 50%', '50% 50%']}>
         <div className="pointer-events-none absolute w-[103%] h-1/6 top-0 left-0 z-10 bg-linear-180 from-red-transparent via-background/50 to-transparent" />
         <ScrollAnimationRotateContainer
@@ -75,6 +75,6 @@ export function Showcase() {
           </ScrollAnimationRotateCol>
         </ScrollAnimationRotateContainer>
       </ScrollAnimationRotate>
-    </section>
+    </div>
   );
 }

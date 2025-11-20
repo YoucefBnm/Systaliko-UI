@@ -1,0 +1,59 @@
+---
+title: Toggle Layout
+description: Toggle list layout, between a list and a grid view, best for large lists in ecommerce, blogs.
+new: true
+---
+
+<ComponentPreview name="toggle-layout-demo" />
+
+## Installation
+
+<ComponentInstallation name="toggle-layout" />
+
+## Usage
+
+```tsx
+<ToggleLayout>
+  <SelectLayoutGroup className="mb-8" />
+  <ToggleLayoutContainer>
+    {products.map((product) => (
+      <ToggleLayoutCell
+        key={product.id}
+        className="w-full min-h-96 flex flex-col justify-between max-w-sm mx-auto py-6 px-4 space-y-8 border border-border/20 rounded-3xl shadow-2xs"
+      >
+        <div className="w-fit mx-auto h-full flex justify-center items-center">
+          <Image
+            src={product.imageUrl}
+            width={695}
+            height={390}
+            className="inline-block align-middle w-4/5 mx-auto h-auto max-h-full object-contain"
+            alt="nike air jordan"
+          />
+        </div>
+
+        <div className="space-y-3">
+          <div className="flex items-center justify-between gap-4">
+            <h2 className="font-semibold text-sm tracking-tight ">
+              {product.name}
+            </h2>
+            <Badge
+              variant={'secondary'}
+              className="shadow-xs border rounded-full"
+            >
+              {product.category}
+            </Badge>
+          </div>
+          <div className="flex items-center justify-between gap-4">
+            <p className="text-muted-foreground text-sm font-light tabular-nums tracking-tighter">
+              $120.00
+            </p>
+            <Button variant={'link'} size={'sm'}>
+              Buy Now
+            </Button>
+          </div>
+        </div>
+      </ToggleLayoutCell>
+    ))}
+  </ToggleLayoutContainer>
+</ToggleLayout>
+```

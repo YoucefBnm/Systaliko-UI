@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-mobile",
+  "type": "registry:hook",
+  "title": "Use mobile Hook",
+  "description": "use mobile hook allows you to check if the user is on a mobile device.",
+  "files": [
+    {
+      "path": "registry/utils/use-mobile/index.ts",
+      "type": "registry:hook",
+      "target": "components/systaliko-ui/utils/use-mobile.ts"
+    }
+  ]
+}

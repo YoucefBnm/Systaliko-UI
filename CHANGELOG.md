@@ -23,6 +23,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `wavy-block` — a content block with wavy reveal/clip animations
 - 🧩 New template: `motus-studio` — opinionated starter template showcasing the component registry and layouts
 
+## [0.2.0] - 2025-11-20
+
+### Added
+
+- 🧩 New template: `carecover` — CareCover health startup template (Next.js + Tailwind) with animated pricing, responsive header navigation, and scroll autoplay components
+- ✨ New component: `pricing` — Pricing component with monthly/yearly toggle and sliding animation
+- ✨ New component: `toggle-layout-view` — Toggle layout view component for pricing and layouts
+- ✨ New component: `responsive-header-nav` — Responsive Header Navigation component (mobile-first)
+- ✨ New component: `scroll-autoplay` — Scroll autoplay animation component used in hero/demo sections
+
 ### Fixed
 
 - ⚡️ Improved performance of text animation components
