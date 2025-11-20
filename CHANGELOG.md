@@ -27,7 +27,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- 🧩 New template: `carecover` — CareCover health startup template (Next.js + Tailwind) with animated pricing, responsive header navigation, and scroll autoplay components
+- 🧩 New template: `carecover` — CareCover health startup templagit add systaliko-ui/CHANGELOG.md carecover/CHANGELOG.md
+  git commit -m "chore(release): prepare v0.2.0 — add CareCover template and components"
+  git tag -a v0.2.0 -m "v0.2.0 — CareCover template + new components"
+  git push origin HEAD
+  git push origin v0.2.0t.js + Tailwind) with animated pricing, responsive header navigation, and scroll autoplay components
 - ✨ New component: `pricing` — Pricing component with monthly/yearly toggle and sliding animation
 - ✨ New component: `toggle-layout-view` — Toggle layout view component for pricing and layouts
 - ✨ New component: `responsive-header-nav` — Responsive Header Navigation component (mobile-first)
