@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ⚡️ Optimized performance in `text-stagger-inview` (reduced layout thrashing and improved intersection handling)
 - 🔄 Modified animation range in `scroll-reverse-scale-animation` component
 - 🏷️ Renamed `use-animation-variants` to `animation-variants` for better semantic clarity
+- 🏠 Redesign demo: `header` — updated header demo layout and accessibility improvements
+- 🏡 Redesign home page — updates to hero and layout for improved visual hierarchy
 
 ### Added
 
@@ -27,11 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- 🧩 New template: `carecover` — CareCover health startup templagit add systaliko-ui/CHANGELOG.md carecover/CHANGELOG.md
-  git commit -m "chore(release): prepare v0.2.0 — add CareCover template and components"
-  git tag -a v0.2.0 -m "v0.2.0 — CareCover template + new components"
-  git push origin HEAD
-  git push origin v0.2.0t.js + Tailwind) with animated pricing, responsive header navigation, and scroll autoplay components
+- 🧩 New template: `carecover` — CareCover health startup template (Next.js + Tailwind) with animated pricing, responsive header navigation, and scroll autoplay components
 - ✨ New component: `pricing` — Pricing component with monthly/yearly toggle and sliding animation
 - ✨ New component: `toggle-layout-view` — Toggle layout view component for pricing and layouts
 - ✨ New component: `responsive-header-nav` — Responsive Header Navigation component (mobile-first)
@@ -42,6 +40,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ⚡️ Improved performance of text animation components
   - Optimized `text-stagger-inview` component
   - Enhanced `text-stagger-hover` component efficiency
+- 🐛 Fix: slideshow images — improved preload/mount order to avoid flicker when slides become active
+- 🐛 Fix: pricing demo responsiveness — adjusted breakpoints and toggle layout to prevent overflow and layout breaking
 
 ## [0.1.0] - 2025-09-23
 
