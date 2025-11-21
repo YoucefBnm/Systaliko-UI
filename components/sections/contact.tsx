@@ -14,48 +14,14 @@ import { Pill } from '../pill';
 import { Pulse } from '@/registry/components/pulse';
 import { Button } from '../ui/button';
 import LinkedinIcon from '../icons/linkedin-icon';
-{
-  /* <motion.div
-                  variants={variants}
-                  className="flex gap-2 items-center"
-                >
-                  <Link
-                    href={siteConfig.links.x}
-                    aria-label="reach on x"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="p-1 rounded hover:bg-white/50"
-                  >
-                    <XIcon className="size-5 text-white" />
-                  </Link>
-                  <Link
-                    aria-label="contribute on github"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="p-1 rounded hover:bg-white/50"
-                    href={`mailto:${siteConfig.links.email}`}
-                  >
-                    <MailIcon className="size-5 text-white" />
-                  </Link>
 
-                  <Link
-                    href={siteConfig.links.github}
-                    aria-label="contribute on github"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="p-1 rounded hover:bg-white/50"
-                  >
-                    <GithubIcon className="size-5 text-white" />
-                  </Link>
-                </motion.div> */
-}
 export function Contact() {
   const variants = ANIMATION_VARIANTS['blur'];
   return (
     <section className="py-12 px-6">
       <div className="mx-auto md:w-4/5 relative p-2 bg-linear-120 text-white from-zinc-900/30 to-zinc-800/40 bg-no-repeat border border-foreground/10 rounded-3xl shadow-[inset_0_.450581px_#ffffff4d,0_0_36.0465px_#ffffff0f]">
         <div className="border border-black rounded-[19px] shadow-[inset_0_1px_#ffffff1a,0_0_1.8px_#ffffff30]">
-          <ContainerStagger className="flex justify-center items-center gap-8 flex-wrap size-full py-12 px-6  bg-linear-180 via-10% from-zinc-700 to-zinc-950 bg-no-repeat rounded-[19px] p-0.5 relative">
+          <ContainerStagger className="flex justify-center items-center gap-8 flex-wrap size-full py-12 px-6  bg-linear-180  from-zinc-800  to-zinc-950 bg-no-repeat rounded-[19px] p-0.5 relative">
             <div className="flex flex-col space-y-6  justify-center items-start md:items-center">
               <MotionConfig transition={{ duration: 0.4, ease: 'easeOut' }}>
                 <motion.div variants={variants}>

@@ -33,7 +33,7 @@ export function DesktopNav() {
             <span className="ml-1 lg:hidden">Star</span>
             <span className="ml-1 hidden lg:inline">Star on GitHub</span>{' '}
           </div>
-          <span className="ml-2 ">⭐️</span>
+          <span className="ml-2">⭐️</span>
         </Link>
       </Button>
 

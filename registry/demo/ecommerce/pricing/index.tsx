@@ -99,7 +99,7 @@ export function PricingDemo() {
             return (
               <PricingCard
                 variant={plan.featured ? 'featured' : 'default'}
-                className="md:flex-1 max-w-md gap-6 rounded"
+                className="md:flex-1 max-w-md min-w-2xs gap-6 rounded"
                 key={plan.id}
               >
                 <PricingPackage className="justify-between">

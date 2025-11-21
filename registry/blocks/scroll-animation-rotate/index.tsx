@@ -59,9 +59,8 @@ export const ScrollAnimationRotate = ({
     <ScrollAnimationRotateContext.Provider value={{ scrollProgress }}>
       <div
         ref={scrollRef}
-        className={cn('relative ', className)}
+        className={cn('relative perspective-distant', className)}
         style={{
-          perspective: '1000px',
           perspectiveOrigin: 'center top',
           transformStyle: 'preserve-3d',
           transformOrigin: '50% 50%',
@@ -105,21 +104,12 @@ export const ScrollAnimationRotateContainer = React.forwardRef<
 
     const rotate = useTransform(scrollProgress, [0, 0.5], rotateRange);
     const scale = useTransform(scrollProgress, [0.5, 0.9], scaleRange);
-
     const transform = useMotionTemplate`rotate${rotationDirection.toUpperCase()}(${rotate}deg) scale(${scale}) translateY(${y}px)`;
-
     return (
       <motion.div
         ref={ref}
         className={cn('flex relative', className)}
         style={{
-          perspective: '1000px',
-          perspectiveOrigin: 'center top',
-          transformStyle: 'preserve-3d',
-          transformOrigin: '50% 50%',
-          willChange: 'transform',
-          backfaceVisibility: 'hidden',
-          top: 0,
           transform,
           ...style,
         }}
@@ -137,7 +127,7 @@ export const ScrollAnimationRotateCol = React.forwardRef<
   const { scrollProgress } = useScrollAnimationRotateContext();
 
   const y = useTransform(scrollProgress, [0.4, 0.8], yRange);
-
+  // 0 25px 50px -12px rgb(0 0 0 / 0.25)
   return (
     <motion.div
       ref={ref}

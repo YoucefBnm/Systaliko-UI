@@ -16,26 +16,26 @@ export function Showcase() {
           rotateRange={[70, 0]}
           className="gap-4 px-4"
         >
-          <ScrollAnimationRotateCol className="hidden lg:block relative border shadow-2xl h-svh mt-[-10%]">
+          <ScrollAnimationRotateCol className="hidden lg:block relative h-fit max-h-screenm mt-[-10%] border border-border/50 shadow">
             <Link
-              aria-label="view abla template"
-              title="abla template"
+              aria-label="view carecover template"
+              title="carecover template"
               className="block"
-              href="/docs/templates/abla"
+              href="/docs/templates/carecover"
             >
               <Image
-                src="/showcase-abla.png"
+                src="/showcase-carecover.png"
                 className="object-contain w-full h-auto max-w-full"
                 sizes="(max-width: 1000px) 50vw, 300px"
-                alt="abla template"
+                alt="carecover template"
                 width={1440}
-                height={3950}
+                height={2260}
               />
             </Link>
           </ScrollAnimationRotateCol>
           <ScrollAnimationRotateCol
             yRange={['15%', '-5%']}
-            className="relative border shadow-2xl h-svh mt-[-20%] "
+            className="relative h-fit max-h-screen mt-[-20%] border border-border/50 shadow "
           >
             <Link
               aria-label="view veo template"
@@ -47,14 +47,14 @@ export function Showcase() {
                 src="/showcase-veo.png"
                 className=" object-contain w-full h-auto max-w-full"
                 sizes="(max-width: 742px) 100vw, 300px"
-                alt="abla template"
+                alt="veo template"
                 width={1440}
-                height={3950}
+                height={2260}
               />
             </Link>
           </ScrollAnimationRotateCol>
           <ScrollAnimationRotateCol
-            className="relative border shadow-2xl h-svh mt-[-10%]"
+            className="relative h-fit max-h-screen mt-[-10%] border border-border/50 shadow"
             yRange={['-10%', '2%']}
           >
             <Link
@@ -65,11 +65,11 @@ export function Showcase() {
             >
               <Image
                 src="/showcase-portfolio-light.png"
-                className=" object-contain w-full h-auto max-w-full"
+                className="object-contain w-full h-auto max-w-full"
                 sizes="(max-width: 742px) 100vw, 300px"
-                alt="abla template"
+                alt="portfolio template"
                 width={1440}
-                height={3950}
+                height={2260}
               />
             </Link>
           </ScrollAnimationRotateCol>

@@ -30,6 +30,7 @@ export function ScrollAutoplayDemo() {
                     alt="tokyo city"
                     src={imageUrl}
                     className="size-full inset-0 object-cover "
+                    priority
                   />
                 </ScrollAutoplayItem>
               );

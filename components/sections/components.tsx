@@ -4,6 +4,11 @@ import { ArrowUpRightIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useRef } from 'react';
 import { Button } from '../ui/button';
+import {
+  TextStaggerHover,
+  TextStaggerHoverActive,
+  TextStaggerHoverHidden,
+} from '@/registry/text/text-stagger-hover';
 
 interface FeaturedCoponentProps {
   id: string;
@@ -40,13 +45,28 @@ const featuredComponents: FeaturedCoponentProps[] = [
     description: 'Stack of rotated cards show, rotate one element at a time.',
   },
   {
-    id: 'featured-component-scroll-animation-rotate',
-    componentLink: '/docs/blocks/scroll-animations-rotate',
-    videoUrl:
-      'https://cdn.21st.dev/user_2sdAd21yCZlZRkVtZyf4K8ogkBh/animated-gallery/animated-scroll-gallery/video.mp4?v=1',
-    title: 'Scroll Rotation Animation',
+    id: 'featured-component-product-card',
+    componentLink: '/docs/ecommerce/product-carousel',
+    videoUrl: '/videos/product-card-component-preview.mp4',
+    title: 'Product Card',
     description:
-      'Animated gallery images, with scroll triggered animations, rotates and translates on the Y axis on scroll.',
+      'Showcase your products with preview image/video for each product and display your different product colors or categories.',
+  },
+  {
+    id: 'featured-component-curtain-card',
+    componentLink: '/docs/cards/card-curtain-reveal',
+    videoUrl:
+      'https://cdn.21st.dev/user_2sdAd21yCZlZRkVtZyf4K8ogkBh/card-curtain-reveal/card-curtain-reveal/video.mp4?v=1',
+    title: 'Curtain Reveal Card',
+    description:
+      'Interactive card component with open curtain to see content on hover.',
+  },
+  {
+    id: 'featured-component-wavy-block',
+    componentLink: '/docs/blocks/wavy-block',
+    videoUrl: '/videos/wavy-block-component-preview.mp4',
+    title: 'Wavy Block',
+    description: 'Wavy Block animates its children in waves pattern on scroll.',
   },
   {
     id: 'featured-component-text-stagger-hover',
@@ -65,23 +85,6 @@ const featuredComponents: FeaturedCoponentProps[] = [
     title: 'Scroll X Carousel',
     description:
       'Carousel that transforms on the x-axis, showing items depnding on the scroll position, with a progress indicator.',
-  },
-  {
-    id: 'featured-component-curtain-card',
-    componentLink: '/docs/cards/card-curtain-reveal',
-    videoUrl:
-      'https://cdn.21st.dev/user_2sdAd21yCZlZRkVtZyf4K8ogkBh/card-curtain-reveal/card-curtain-reveal/video.mp4?v=1',
-    title: 'Curtain Reveal Card',
-    description:
-      'Interactive card component with open curtain to see content on hover.',
-  },
-  {
-    id: 'featured-component-story',
-    componentLink: '/docs/blocks/story',
-    videoUrl:
-      'https://cdn.21st.dev/youcefbnm/story/default/video.1749513788082.mp4',
-    title: 'Story',
-    description: 'Autoplay carousel similar to IG story.',
   },
 ];
 interface ComponentCardProps
@@ -178,7 +181,21 @@ export function Components() {
         ))}
         <Button size="lg" variant={'link'} className="self-center">
           <Link className="inline-flex items-center gap-1" href="/docs">
-            View all components <ArrowUpRightIcon />
+            <TextStaggerHover>
+              <TextStaggerHoverActive
+                transition={{ ease: 'easeOut', duration: 0.3 }}
+                animation={'bottom'}
+              >
+                View all components
+              </TextStaggerHoverActive>
+              <TextStaggerHoverHidden
+                transition={{ ease: 'easeOut', duration: 0.3 }}
+                animation={'top'}
+              >
+                View all components
+              </TextStaggerHoverHidden>
+            </TextStaggerHover>{' '}
+            <ArrowUpRightIcon className="size-5" />
           </Link>
         </Button>
       </div>

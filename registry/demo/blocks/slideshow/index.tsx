@@ -5,7 +5,7 @@ import {
   SlideshowImageWrap,
   SlideshowIndicator,
 } from '@/registry/blocks/slideshow';
-import React from 'react';
+import Image from 'next/image';
 
 const slides = [
   {
@@ -41,60 +41,6 @@ const slides = [
 ];
 
 export function SlideshowDemo() {
-  const imageUrls = React.useMemo(() => slides.map((s) => s.imageUrl), []);
-
-  function usePreloadImages(urls: string[]) {
-    const imagesRef = React.useRef<HTMLImageElement[]>([]);
-    const [loaded, setLoaded] = React.useState(false);
-    const [progress, setProgress] = React.useState(0);
-
-    React.useEffect(() => {
-      if (!urls || urls.length === 0) {
-        setLoaded(true);
-        return;
-      }
-
-      let mounted = true;
-      let completed = 0;
-      const created: HTMLImageElement[] = [];
-
-      const settle = () => {
-        completed += 1;
-        if (!mounted) return;
-        setProgress((completed / urls.length) * 100);
-        if (completed >= urls.length) {
-          imagesRef.current = created.filter(Boolean) as HTMLImageElement[];
-          setLoaded(true);
-        }
-      };
-
-      urls.forEach((url) => {
-        try {
-          const img = new Image();
-          created.push(img);
-          img.onload = () => settle();
-          img.onerror = () => settle();
-          img.src = url;
-        } catch (e) {
-          console.log(e);
-          settle();
-        }
-      });
-
-      return () => {
-        mounted = false;
-        // cleanup event handlers
-        created.forEach((i) => {
-          i.onload = null;
-          i.onerror = null;
-        });
-      };
-    }, [urls]);
-
-    return { loaded, progress, imagesRef } as const;
-  }
-
-  usePreloadImages(imageUrls);
   return (
     <Slideshow className="min-h-svh place-content-center p-6 md:px-12">
       <h3 className="mb-6 text-primary text-xs font-medium capitalize tracking-wide">
@@ -112,21 +58,18 @@ export function SlideshowDemo() {
             </SlideshowIndicator>
           ))}
         </div>
-        <SlideshowImageContainer>
+        <SlideshowImageContainer className="relative h-96 aspect-[9/14]">
           {slides.map((slide, index) => (
-            <div key={slide.id} className="  ">
-              <SlideshowImageWrap
-                index={index}
-                className="size-full max-h-96 object-cover"
-              >
-                <img
-                  src={slide.imageUrl}
-                  alt={slide.title}
-                  loading="eager"
-                  className="size-full object-cover"
-                />
-              </SlideshowImageWrap>
-            </div>
+            <SlideshowImageWrap key={index} index={index} className="relative">
+              <Image
+                src={slide.imageUrl}
+                alt={slide.title}
+                fill
+                priority={true}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="size-full object-cover"
+              />
+            </SlideshowImageWrap>
           ))}
         </SlideshowImageContainer>
       </div>

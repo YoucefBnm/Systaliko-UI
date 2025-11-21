@@ -104,7 +104,7 @@ export const SlideshowImageContainer = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        'grid  overflow-hidden [&>*]:col-start-1 [&>*]:col-end-1 [&>*]:row-start-1 [&>*]:row-end-1 [&>*]:size-full',
+        'grid  overflow-hidden *:col-start-1 *:col-end-1 *:row-start-1 *:row-end-1 *:size-full',
         className,
       )}
       {...props}

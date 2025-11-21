@@ -52,11 +52,10 @@ export function Hero() {
           <motion.div variants={animationVariants}>
             <Pill
               href="/docs"
-              label="and new components availables"
+              label="and components availables"
               announcement={
                 <div className="flex gap-2 items-center">
-                  <Pulse className="[&>*:first-child]:bg-emerald-500/50 [&>*:last-child]:bg-emerald-400" />{' '}
-                  New Motus Studio template
+                  <Pulse /> New Startup template
                 </div>
               }
             />
@@ -64,17 +63,14 @@ export function Hero() {
 
           <motion.h1
             variants={animationVariants}
-            className="text-4xl pb-1 font-semibold tracking-tight max-w-[25ch]"
+            className="pb-px text-5xl font-semibold tracking-tight max-w-[25ch] text-transparent bg-clip-text bg-linear-to-b from-foreground to-foreground/50"
           >
-            <span className="font-bold">
-              Copy Paste or install via shadcn registry
-            </span>{' '}
-            React blocks/components
+            Copy Paste or install via shadcn registry React blocks/components
           </motion.h1>
 
           <motion.p
             variants={animationVariants}
-            className="max-w-[75ch] text-muted-foreground"
+            className="max-w-[70ch] text-lg text-muted-foreground"
           >
             Collection of UI blocks and components and templates to easly craft
             your website, interactive and animated, built for customization.
@@ -97,7 +93,7 @@ export function Hero() {
 
           <motion.div
             variants={animationVariants}
-            className="flex flex-wrap mt-4 items-center justify-center gap-4"
+            className="flex flex-wrap items-center justify-center gap-4"
           >
             {TECH_STACK.map((tech) => (
               <div

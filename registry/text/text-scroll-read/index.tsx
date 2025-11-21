@@ -32,7 +32,7 @@ export function useTextScrollReadContext() {
   return context;
 }
 export function TextScrollRead({
-  spaceClass = 'h-80',
+  spaceClass,
   offset = ['start end', 'center start'],
   children,
   className,
@@ -47,7 +47,7 @@ export function TextScrollRead({
     <TextScrollReadContext.Provider value={{ scrollYProgress }}>
       <div ref={ref} className={cn('relative', className)} {...props}>
         {children}
-        <div className={spaceClass} />
+        <div className={cn('h-80', spaceClass)} />
       </div>
     </TextScrollReadContext.Provider>
   );

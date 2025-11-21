@@ -66,7 +66,7 @@ const NavMobile = () => {
       </AnimatedMenuButton>
       <AnimatedMenuList
         layout
-        className="absolute right-0 top-0 bg-secondary/70 backdrop-blur border border-border/10 shadow rounded-3xl"
+        className="absolute right-0 top-0 bg-secondary/80 backdrop-blur border border-border/10 shadow rounded-3xl"
       >
         <div className="flex flex-col px-6 justify-evenly gap-6 items-start size-full">
           <div className="flex flex-col items-start gap-4 *:transition-opacity *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
@@ -134,11 +134,11 @@ const NavDesktop = () => {
   );
 };
 export function HeaderDemo() {
-  const isMobile = useIsMobile(920);
+  const isMobile = useIsMobile(960);
 
   return (
-    <div className="h-[250vh]">
-      <Header className="sticky top-2 left-0 w-full h-16 z-999">
+    <div className="h-[180vh]">
+      <Header className="sticky top-2 left-0 w-full h-16 z-999 bg-card/90 border-b border-b-border/50 p-4">
         <HeaderLogo>
           <span className="text-xl tracking-tighter font-bold">
             systaliko ui

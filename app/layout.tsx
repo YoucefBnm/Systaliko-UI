@@ -1,13 +1,13 @@
 import { RootProvider } from 'fumadocs-ui/provider';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Geist } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 
 import './globals.css';
 import { StyleProvider } from '@/providers/style-provider';
 import { siteConfig } from '@/config/site';
 
-const inter = Inter({
+const geist = Geist({
   subsets: ['latin'],
 });
 
@@ -82,7 +82,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} antialiased flex flex-col min-h-dvh`}
+        className={`${geist.className} antialiased flex flex-col min-h-dvh`}
       >
         <StyleProvider>
           <RootProvider>{children}</RootProvider>
