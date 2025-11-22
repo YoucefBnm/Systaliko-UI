@@ -9,6 +9,7 @@
     "templates/motus",
     "templates/portfolio",
     "templates/veo",
+    "templates/cognify",
 
     "---Ecommerce---",
     "ecommerce/pricing",
