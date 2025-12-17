@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "card-flip",
-  "type": "registry:ui",
   "title": "3d Flip Card",
   "description": "An interactive card component that flips on hover with smooth 3D transitions.",
   "dependencies": [
@@ -14,5 +13,6 @@
       "type": "registry:ui",
       "target": "components/systaliko-ui/cards/card-flip.tsx"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

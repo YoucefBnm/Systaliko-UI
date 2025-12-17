@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "wavy-texts",
-  "type": "registry:ui",
   "title": "Wavy Texts",
   "description": "Wavy texts wrap, animates a set of texts in wavy motion on scroll.",
   "files": [
@@ -11,5 +10,6 @@
       "type": "registry:ui",
       "target": "components/systaliko-ui/text/wavy-texts.tsx"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

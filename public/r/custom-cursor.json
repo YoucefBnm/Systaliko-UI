@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "custom-cursor",
-  "type": "registry:ui",
   "title": "Custom Cursor",
   "description": "Turn your cursor into any element your want, text, image, video, or a shape.",
   "dependencies": [
@@ -17,5 +16,6 @@
       "type": "registry:ui",
       "target": "components/systaliko-ui/ui/custom-cursor.tsx"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

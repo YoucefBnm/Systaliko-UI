@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cards-stack-demo",
-  "type": "registry:block",
   "title": "Sticky Cards stack Demo",
   "description": "Demo of sticky cards stack.",
   "registryDependencies": [
@@ -14,5 +13,6 @@
       "type": "registry:block",
       "target": "components/systaliko-ui/demo/cards/cards-stack.tsx"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

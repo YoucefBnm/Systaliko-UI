@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "card-curtain-reveal",
-  "type": "registry:ui",
   "title": "Curtain Reveal Card",
   "description": "Interactive card component with open curtain to see content on hover gesture.",
   "dependencies": [
@@ -14,5 +13,6 @@
       "type": "registry:ui",
       "target": "components/systaliko-ui/cards/card-curtain-reveal.tsx"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

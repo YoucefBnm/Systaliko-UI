@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "calculator-demo",
-  "type": "registry:block",
   "title": "Calculator Demo",
   "description": "Demo showing calculator component.",
   "registryDependencies": [
@@ -14,5 +13,6 @@
       "type": "registry:block",
       "target": "components/systaliko-ui/demo/blocks/calculator.tsx"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

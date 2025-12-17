@@ -4,7 +4,6 @@
   "type": "registry:block",
   "title": "price",
   "description": "Flexible price component with customizable features and options to display the amount and currency.",
-  "registryDependencies": ["http://localhost:3000/r/price"],
 
   "files": [
     {

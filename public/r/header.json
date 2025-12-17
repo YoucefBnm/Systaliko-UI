@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "header",
-  "type": "registry:block",
   "title": "Header",
   "description": "Responsive Header, with a logo and navigation links, supporting both desktop and mobile layouts, and toggles on scroll.",
   "dependencies": [
@@ -13,9 +12,10 @@
   "files": [
     {
       "path": "registry/blocks/header/index.tsx",
-      "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport { useToggleOnScroll } from '@/components/systaliko-ui/utils/use-toggle-onscroll';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport Link from 'next/link';\n\nexport function HeaderLogo({\n  ...props\n}: React.AnchorHTMLAttributes<HTMLAnchorElement>) {\n  return <Link href=\"/\" {...props} />;\n}\n\nexport function Header({ className, ...props }: HTMLMotionProps<'header'>) {\n  const { isHidden, setIsHidden } = useToggleOnScroll();\n  const showHeader = () => setIsHidden(false);\n\n  return (\n    <motion.header\n      className={cn('flex justify-between items-center', className)}\n      animate={isHidden ? { y: '-100%' } : { y: '0%' }}\n      transition={{ duration: 0.5, ease: 'easeOut' }}\n      whileHover={{ y: '0%' }}\n      onFocusCapture={showHeader}\n      {...props}\n    />\n  );\n}\n",
+      "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport { useToggleOnScroll } from '@/components/systaliko-ui/utils/use-toggle-onscroll';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport Link from 'next/link';\n\nexport function HeaderLogo({\n  ...props\n}: React.AnchorHTMLAttributes<HTMLAnchorElement>) {\n  return <Link aria-label=\"logo\" href=\"/\" {...props} />;\n}\n\nexport function Header({\n  toggleOnScroll = true,\n  className,\n  ...props\n}: HTMLMotionProps<'header'> & { toggleOnScroll?: boolean }) {\n  const { isHidden, setIsHidden } = toggleOnScroll\n    ? useToggleOnScroll()\n    : { isHidden: false, setIsHidden: () => {} };\n  const showHeader = () => setIsHidden(false);\n\n  return (\n    <motion.header\n      className={cn('flex justify-between items-center', className)}\n      animate={isHidden ? { y: '-100%' } : { y: '0%' }}\n      transition={{ duration: 0.4, ease: 'easeOut' }}\n      whileHover={{ y: '0%' }}\n      onFocusCapture={showHeader}\n      {...props}\n    />\n  );\n}\n",
       "type": "registry:block",
       "target": "components/systaliko-ui/blocks/header.tsx"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

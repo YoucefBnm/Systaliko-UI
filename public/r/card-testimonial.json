@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "card-testimonial",
-  "type": "registry:ui",
   "title": "Card Testimonial",
   "description": "Card Testimonial, with rating, block quote, and author's informations.",
   "registryDependencies": [
@@ -16,5 +15,6 @@
       "type": "registry:ui",
       "target": "components/systaliko-ui/cards/card-testimonial.tsx"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

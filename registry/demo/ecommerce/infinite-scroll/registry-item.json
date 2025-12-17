@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "infinite-scroll-demo",
+  "type": "registry:block",
+  "title": "Infinite Scroll Demo",
+  "description": "Demo showing infinite scroll component.",
+  "registryDependencies": ["http://localhost:3000/r/infinite-scroll"],
+  "files": [
+    {
+      "path": "registry/demo/ecommerce/infinite-scroll/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/infinite-scroll.tsx"
+    }
+  ]
+}

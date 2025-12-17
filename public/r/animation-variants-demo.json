@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "animation-variants-demo",
-  "type": "registry:hook",
   "title": "Use Animation Variants Demo",
   "description": "Demo showing how to use animation-variants hook.",
   "dependencies": [
@@ -17,5 +16,6 @@
       "type": "registry:ui",
       "target": "components/systaliko-ui/animation-variants-demo.tsx"
     }
-  ]
+  ],
+  "type": "registry:hook"
 }

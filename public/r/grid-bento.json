@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "grid-bento",
-  "type": "registry:block",
   "title": "Grid Bento",
   "description": "Bento Grid, layout with multiple variants and displays.",
   "files": [
@@ -11,5 +10,6 @@
       "type": "registry:block",
       "target": "components/systaliko-ui/blocks/grid-bento.tsx"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

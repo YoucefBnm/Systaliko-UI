@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "text-stagger-hover",
-  "type": "registry:ui",
   "title": "Text Stagger Hover",
   "description": "Splitted text animation with staggered effect triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur), the stagger value, and the transition.",
   "dependencies": [
@@ -19,5 +18,6 @@
       "type": "registry:ui",
       "target": "components/systaliko-ui/text/text-stagger-hover.tsx"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

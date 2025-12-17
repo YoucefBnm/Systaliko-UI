@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "story",
-  "type": "registry:block",
   "title": "Story",
   "description": "Simillar to IG story, Story is a component that allows you to display a collection of components in a single view.",
   "registryDependencies": [
@@ -14,5 +13,6 @@
       "type": "registry:block",
       "target": "components/systaliko-ui/blocks/story.tsx"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

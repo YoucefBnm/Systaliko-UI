@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "card-hover-reveal",
-  "type": "registry:ui",
   "title": "Hover Reveal Details Card",
   "description": "Animated card with gesture animations,  Reveals hidden content and scale main image on hover.",
   "files": [
@@ -11,5 +10,6 @@
       "type": "registry:ui",
       "target": "components/systaliko-ui/cards/card-hover-reveal.tsx"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

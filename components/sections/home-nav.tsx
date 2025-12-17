@@ -7,8 +7,11 @@ import { Header } from '@/registry/blocks/header';
 
 export function HomeNav() {
   return (
-    <Header className="sticky top-0 left-0 z-999 w-full supports-[backdrop-blur]:bg-background/90 backdrop-blur-lg border-b border-b-border/25">
-      <div className="container flex justify-between h-16 items-center">
+    <Header
+      toggleOnScroll={false}
+      className="sticky top-0 left-0 z-999 w-full supports-[backdrop-blur]:bg-background/90 backdrop-blur-lg border-b border-b-border/25"
+    >
+      <div className="container mx-auto flex justify-between h-16 items-center">
         <Link href="/">
           <Logo />
         </Link>

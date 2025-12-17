@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "use-follow-mouse",
-  "type": "registry:hook",
   "title": "Use Follow Mouse Hook",
   "description": "As the name suggests, this hook will follow the mouse position.",
   "dependencies": [
@@ -14,5 +13,6 @@
       "type": "registry:hook",
       "target": "components/systaliko-ui/utils/use-follow-mouse.ts"
     }
-  ]
+  ],
+  "type": "registry:hook"
 }

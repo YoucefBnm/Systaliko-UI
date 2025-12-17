@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spinner",
+  "type": "registry:ui",
+  "title": "spinner",
+  "description": "spinner component with variants.",
+  "files": [
+    {
+      "path": "registry/shadcn/spinner/index.tsx",
+      "type": "registry:ui",
+      "target": "components/spinner.tsx"
+    }
+  ]
+}

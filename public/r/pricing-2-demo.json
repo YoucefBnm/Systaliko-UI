@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "pricing-2-demo",
-  "type": "registry:block",
   "title": "Pricing-2 Demo",
   "description": "Demo showing pricing-2 component.",
   "registryDependencies": [
@@ -14,5 +13,6 @@
       "type": "registry:block",
       "target": "components/systaliko-ui/demo/pricing-2.tsx"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

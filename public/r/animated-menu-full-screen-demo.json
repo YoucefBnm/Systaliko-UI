@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "animated-menu-full-screen-demo",
-  "type": "registry:block",
   "title": "Animated Menu Demo",
   "description": "another demo showing animated menu component in full screen mode.",
   "registryDependencies": [
@@ -14,5 +13,6 @@
       "type": "registry:block",
       "target": "components/systaliko-ui/demo/blocks/animated-menu-full-screen.tsx"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

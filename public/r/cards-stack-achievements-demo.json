@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cards-stack-achievements-demo",
-  "type": "registry:block",
   "title": "Stack small cards Demo",
   "description": "Demo showing different usecase of Cards Stack component with smaller cards.",
   "registryDependencies": [
@@ -14,5 +13,6 @@
       "type": "registry:block",
       "target": "components/systaliko-ui/demo/cards/cards-stack-achievements.tsx"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

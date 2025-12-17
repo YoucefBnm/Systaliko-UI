@@ -2,7 +2,7 @@ import {
   ScrollAnimationRotate,
   ScrollAnimationRotateCol,
   ScrollAnimationRotateContainer,
-} from '@/registry/blocks/scroll-animation-rotate';
+} from '@/registry/scroll-animations/scroll-animation-rotate';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -12,7 +12,7 @@ export function Showcase() {
       <ScrollAnimationRotate offset={['0% 50%', '50% 50%']}>
         <div className="pointer-events-none absolute w-[103%] h-1/6 top-0 left-0 z-10 bg-linear-180 from-red-transparent via-background/50 to-transparent" />
         <ScrollAnimationRotateContainer
-          yRange={[-100, 400]}
+          yRange={[-50, 400]}
           rotateRange={[70, 0]}
           className="gap-4 px-4"
         >

@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "story-demo",
-  "type": "registry:block",
   "title": "Story Demo",
   "description": "Demo showing how to use story component.",
   "registryDependencies": [
@@ -16,5 +15,6 @@
       "type": "registry:block",
       "target": "components/systaliko-ui/story-demo.tsx"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

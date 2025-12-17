@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "grid-bento-three-cells-demo",
-  "type": "registry:block",
   "title": "Grid Bento Three Cells Demo",
   "description": "Demo showing another variant of grid bento component.",
   "registryDependencies": [
@@ -14,5 +13,6 @@
       "type": "registry:block",
       "target": "components/systaliko-ui/demo/blocks/grid-bento-three-cells.tsx"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

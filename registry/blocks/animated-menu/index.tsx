@@ -17,8 +17,8 @@ const menuListVariants = {
     transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },
   },
   close: {
-    width: 112,
-    height: 48,
+    width: 102,
+    height: 40,
     transition: { duration: 0.75, delay: 0.2, ease: [0.76, 0, 0.24, 1] },
   },
 } as Variants;

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "wavy-block-demo",
+  "type": "registry:block",
+  "title": "Wavy Block Demo",
+  "description": "Demo showing Wavy Block component.",
+  "registryDependencies": ["http://localhost:3000/r/wavy-block"],
+  "files": [
+    {
+      "path": "registry/demo/scroll-animations/wavy-block/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/wavy-block.tsx"
+    }
+  ]
+}

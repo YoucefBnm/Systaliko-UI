@@ -1,0 +1,107 @@
+---
+title: Distributed Cards
+description: Distributed cards, same as soliter, starts all at one position then animates to its position.
+url: https://21st.dev/youcefbnm/
+new: true
+---
+
+<ComponentPreview name="distributed-cards-demo" />
+
+## Installation
+
+<ComponentInstallation name="distributed-cards" />
+
+## Usage
+
+```tsx
+<DistributedCards>
+  <DistributedCardsContainer className="h-screen flex items-center justify-center overflow-hidden">
+    <div className="grid w-full aspect-video max-w-5xl grid-cols-3 grid-rows-2 justify-center items-center gap-4 py-16 px-8">
+      {CARDS.map((card, i) => (
+        <DistributedCardCell
+          className="relative size-full shadow-xl rounded border border-border/30 overflow-hidden"
+          yRange={[card.startY, '0%']}
+          xRange={[card.startX, '0%']}
+          key={card.id}
+        >
+          <Image
+            src={card.imageUrl}
+            fill
+            alt={'tokyo'}
+            className="object-cover size-full"
+            sizes="(max-width: 768px) 80vw, 768px"
+          />
+        </DistributedCardCell>
+      ))}
+    </div>
+  </DistributedCardsContainer>
+</DistributedCards>
+```
+
+## Examples
+
+#### One at a time
+
+<ComponentPreview name="distributed-cards-2-demo" />
+## Props
+
+`DistributedCards`
+
+<TypeTable
+  type={{
+    offset: {
+      description: 'offset scroll of where the animation starts and ends',
+      type: 'ScrollOffset',
+      required: false,
+      default: '["start start", "end end"]',
+    },
+    spacerClass: {
+      description: 'the class to be applied to the spacer element on bottom',
+      type: 'string',
+      required: false,
+      default: 'h-96',
+    },
+  }}
+/>
+
+`DistributedCardsContainer`
+
+<TypeTable
+  type={{
+    yRange: {
+      description: 'the range of the y-axis',
+      type: 'number',
+      required: false,
+      default: '[0, 300]',
+    },
+    inputRange: {
+      description: 'mapping intput range to the y values',
+      type: 'MapInputRange',
+      required: false,
+      default: '[0, 1]',
+    },
+  }}
+/>
+
+`DistributedCardCell`
+
+<TypeTable
+  type={{
+    yRange: {
+      description: 'the range of the y values',
+      type: 'number',
+      required: true,
+    },
+    xRange: {
+      description: 'the range of the x values',
+      type: 'number',
+      required: true,
+    },
+    inputRange: {
+      description: 'mapping intput range to the y-axis',
+      type: 'MapInputRange',
+      required: false,
+      default: '[0, 1]',
+    },
+  }}
+/>

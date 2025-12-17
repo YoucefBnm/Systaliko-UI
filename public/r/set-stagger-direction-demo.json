@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "set-stagger-direction-demo",
-  "type": "registry:hook",
   "title": "Set Stagger Direction Demo",
   "description": "Demo showing how to use set-stagger-direction utility.",
   "registryDependencies": [
@@ -15,5 +14,6 @@
       "type": "registry:ui",
       "target": "components/systaliko-ui/demo/utils/set-stagger-direction.ts"
     }
-  ]
+  ],
+  "type": "registry:hook"
 }

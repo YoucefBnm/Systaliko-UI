@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "parallax",
+  "type": "registry:block",
+  "title": "Parallax",
+  "description": "Parallax block, creates a parallax effect.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "registry/scroll-animations/parallax/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/parallax.tsx"
+    }
+  ]
+}

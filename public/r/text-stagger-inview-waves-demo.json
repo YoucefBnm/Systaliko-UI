@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "text-stagger-inview-waves-demo",
-  "type": "registry:ui",
   "title": "Text Stagger Inview Waves Demo",
   "description": "Demo showing another use of text stagger in view demo with waves.",
   "registryDependencies": [
@@ -14,5 +13,6 @@
       "type": "registry:ui",
       "target": "components/systaliko-ui/demo/text/text-stagger-inview-waves.tsx"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

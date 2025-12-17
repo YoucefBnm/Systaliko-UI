@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cards-stack-rotated-demo",
-  "type": "registry:block",
   "title": "Cards Stack Rotated Demo",
   "description": "Demo showing Cards Stack Rotated component.",
   "registryDependencies": [
@@ -15,5 +14,6 @@
       "type": "registry:block",
       "target": "components/systaliko-ui/demo/cards/cards-stack-rotated.tsx"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

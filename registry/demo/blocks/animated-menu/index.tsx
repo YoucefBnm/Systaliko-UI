@@ -50,14 +50,14 @@ const socialLinks = [
 ];
 export function AnimatedMenuDemo() {
   return (
-    <div className="self-start h-screen py-4 w-full z-[999] flex items-start justify-between px-8 ">
+    <div className="self-start h-screen w-full z-[999] flex items-start justify-between px-8 ">
       <span className="text-xl font-bold tracking-tight">Systaliko UI</span>
       <AnimatedMenu className="relative">
-        <AnimatedMenuButton className="w-28 h-12 inline-flex rounded-full justify-center items-center text-primary-foreground">
-          <AnimatedMenuButtonToggleIcon className="*:rounded " />
+        <AnimatedMenuButton className="w-[102px] h-[40px] text-primary-foreground">
+          <AnimatedMenuButtonToggleIcon />
           <AnimatedMenuButtonLabel />
         </AnimatedMenuButton>
-        <AnimatedMenuList className="absolute right-0 top-0 bg-linear-to-bl from-primary/95 to-primary border shadow-md inset-shadow-xs inset-shadow-muted rounded-3xl">
+        <AnimatedMenuList className="absolute right-0 top-0.5 bg-linear-to-bl from-primary/95 to-primary border shadow-md inset-shadow-xs inset-shadow-muted rounded-3xl">
           <div className="flex flex-col px-6 justify-evenly gap-6 items-start size-full">
             <div className="flex flex-col items-start gap-4 *:transition-blur *:duration-300 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
               {menuItems.map((item, i) => (

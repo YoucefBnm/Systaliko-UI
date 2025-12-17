@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "use-toggle-onscroll",
   "type": "registry:hook",
-  "title": "Use Toggle on Scroll Hook",
+  "title": "use toggle onscroll",
   "description": "use toggle onscroll hook allows to toggle element position on scroll (down hide, up show).",
   "files": [
     {

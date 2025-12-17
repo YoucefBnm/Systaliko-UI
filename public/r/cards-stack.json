@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "cards-stack",
-  "type": "registry:block",
   "title": "Cards Stack",
   "description": "Stack of cards to showcase a related set of element, like your services, your work, features, process of work, timeline, etc.",
   "dependencies": [
@@ -14,5 +13,6 @@
       "type": "registry:block",
       "target": "components/systaliko-ui/cards/cards-stack.tsx"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

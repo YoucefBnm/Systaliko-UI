@@ -1,0 +1,55 @@
+---
+title: Price
+description: Flexible price component with customizable features and options and currency support.
+new: true
+---
+
+<ComponentPreview name="price-demo" />
+
+## Installation
+
+<ComponentInstallation name="price" />
+
+## Usage
+
+```tsx
+<Price
+  className="tabular-nums tracking-tighter space-x-2"
+  amount={1999}
+  compareAt={2499}
+  currency="USD"
+>
+  <PriceCurrent className="font-semibold" />
+  <PriceCompareAt className="text-sm line-through text-muted-foreground" />
+  <PriceSavings
+    className={`${badgeVariants({ variant: 'outline' })} text-emerald-500 bg-emerald-100 border-none`}
+  >
+    Save
+  </PriceSavings>
+</Price>
+```
+
+## Props
+
+`Price`
+
+<TypeTable
+  type={{
+    amount: {
+      description: 'amount value of the final price.',
+      type: 'number',
+      required: true,
+    },
+    compareAt: {
+      description: 'if there is a sale, the old price.',
+      type: 'number',
+      required: true,
+    },
+    currency: {
+      description: 'currency of the price.',
+      type: 'USD | EUR | GBP | JPY',
+      required: false,
+      default: 'USD',
+    },
+  }}
+/>

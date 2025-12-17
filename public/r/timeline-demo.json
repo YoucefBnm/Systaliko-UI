@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "timeline-demo",
-  "type": "registry:block",
   "title": "Timeline Demo",
   "description": "Demo showing timeline component.",
   "registryDependencies": [
@@ -14,5 +13,6 @@
       "type": "registry:block",
       "target": "components/systaliko-ui/demo/timeline.tsx"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

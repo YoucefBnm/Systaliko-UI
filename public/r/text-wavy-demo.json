@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "text-wavy-demo",
-  "type": "registry:ui",
   "title": "Text Wavy Demo",
   "description": "Demo showing text wavy component.",
   "registryDependencies": [
@@ -14,5 +13,6 @@
       "type": "registry:ui",
       "target": "components/systaliko-ui/demo/text-wavy.tsx"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "price-demo",
+  "type": "registry:block",
+  "title": "price Demo",
+  "description": "Demo showing price component.",
+  "registryDependencies": [
+    "http://localhost:3000/r/badge",
+    "http://localhost:3000/r/price"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/ecommerce/price/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/price.tsx"
+    }
+  ]
+}

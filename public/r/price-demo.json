@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "price-demo",
+  "title": "price Demo",
+  "description": "Demo showing price component.",
+  "registryDependencies": [
+    "http://localhost:3000/r/badge",
+    "http://localhost:3000/r/price"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/ecommerce/price/index.tsx",
+      "content": "import {\n  Price,\n  PriceCompareAt,\n  PriceCurrent,\n  PriceSavings,\n} from '@/components/systaliko-ui/ecommerce/price';\nimport { badgeVariants } from '@/components/systaliko-ui/shadcn/badge';\n\nexport function PriceDemo() {\n  return (\n    <div className=\"p-8 space-y-6\">\n      <div className=\"space-y-2\">\n        <h3 className=\"font-semibold\">Price with sale</h3>\n        <Price\n          className=\"tabular-nums tracking-tighter space-x-2\"\n          amount={1999}\n          compareAt={2499}\n          currency=\"USD\"\n        >\n          <PriceCurrent className=\"font-semibold\" />\n          <PriceCompareAt className=\"text-sm line-through text-muted-foreground\" />\n          <PriceSavings\n            className={`${badgeVariants({ variant: 'outline' })} text-emerald-500 bg-emerald-100 border-none`}\n          >\n            Save\n          </PriceSavings>\n        </Price>\n      </div>\n\n      <div className=\"space-y-2\">\n        <h3 className=\" font-semibold\">Price with diffrent currency</h3>\n        <div className=\"flex gap-2\">\n          <Price\n            className=\"tabular-nums tracking-tighter space-x-2\"\n            amount={2000}\n            currency=\"GBP\"\n          >\n            <PriceCurrent className=\"font-semibold\" />\n          </Price>\n          <Price\n            className=\"tabular-nums tracking-tighter space-x-2\"\n            amount={1999}\n            currency=\"EUR\"\n          >\n            <PriceCurrent className=\"font-semibold\" />\n          </Price>\n          <Price\n            className=\"tabular-nums tracking-tighter space-x-2\"\n            amount={20000}\n            currency=\"JPY\"\n          >\n            <PriceCurrent className=\"font-semibold\" />\n          </Price>\n        </div>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/price.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

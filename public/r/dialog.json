@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "dialog",
-  "type": "registry:ui",
   "title": "Dialog",
   "description": "Dialog component.",
   "files": [
@@ -11,5 +10,6 @@
       "type": "registry:ui",
       "target": "components/dialog.tsx"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

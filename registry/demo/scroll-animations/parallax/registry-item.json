@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "parallax-demo",
+  "type": "registry:block",
+  "title": "Parallax Demo",
+  "description": "Demo showing parallax component.",
+  "dependencies": ["motion"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/parallax",
+    "https://systaliko-ui.vercel.app/r/container-stagger",
+    "https://systaliko-ui.vercel.app/r/text-stagger-inview",
+    "https://systaliko-ui.vercel.app/r/animation-variants",
+    "https://systaliko-ui.vercel.app/r/button"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/scroll-animations/parallax/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/parallax.tsx"
+    }
+  ]
+}

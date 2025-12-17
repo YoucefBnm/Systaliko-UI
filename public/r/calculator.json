@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "calculator",
-  "type": "registry:block",
   "title": "Calculator",
   "description": "Calculator, for your custom pricing, or to extend your existing pricing.",
   "files": [
@@ -11,5 +10,6 @@
       "type": "registry:block",
       "target": "components/systaliko-ui/blocks/calculator.tsx"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

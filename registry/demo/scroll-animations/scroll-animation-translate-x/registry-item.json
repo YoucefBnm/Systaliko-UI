@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-animation-translate-x-demo",
+  "type": "registry:block",
+  "title": "Scroll Trigger inset Animations Demo",
+  "description": "Demo showing how to implement scroll triggred animations.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/scroll-animations"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/scroll-animations/scroll-animation-translate-x/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/scroll-animation-translate-x-demo.tsx"
+    }
+  ]
+}

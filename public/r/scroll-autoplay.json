@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "scroll-autoplay",
-  "type": "registry:block",
   "title": "Scroll Autoplay",
   "description": "Displaying different content depending on order and scroll position.",
   "dependencies": [
@@ -9,10 +8,11 @@
   ],
   "files": [
     {
-      "path": "registry/blocks/scroll-autoplay/index.tsx",
+      "path": "registry/scroll-animations/scroll-autoplay/index.tsx",
       "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport {\n  motion,\n  HTMLMotionProps,\n  MotionValue,\n  MapInputRange,\n  useScroll,\n  useTransform,\n} from 'motion/react';\nimport React from 'react';\n\ninterface ScrollAutoplayProps extends HTMLMotionProps<'div'> {\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  offset?: any[];\n}\ninterface ScrollAutoPlayItemProps extends HTMLMotionProps<'div'> {\n  inputRange: MapInputRange;\n  outputRange?: unknown[];\n}\ninterface ScrollAutoplayContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst ScrollAutoplayContext = React.createContext<\n  ScrollAutoplayContextValue | undefined\n>(undefined);\nfunction useScrollAutoplayContext() {\n  const context = React.useContext(ScrollAutoplayContext);\n  if (context === undefined) {\n    throw new Error(\n      'useScrollAutoplayContext must be used within a ScrollAutoplayContextProvider',\n    );\n  }\n  return context;\n}\n\nexport function ScrollAutoplay({\n  offset = ['0% 50%', '100% 50%'],\n  className,\n  ...props\n}: ScrollAutoplayProps) {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n    offset: offset,\n  });\n\n  return (\n    <ScrollAutoplayContext.Provider value={{ scrollYProgress }}>\n      <motion.div\n        ref={scrollRef}\n        className={cn('relative min-h-screen', className)}\n        {...props}\n      />\n    </ScrollAutoplayContext.Provider>\n  );\n}\n\nexport function ScrollAutoplayContainer({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn('sticky top-0 left-0 w-full min-h-fit', className)}\n      {...props}\n    />\n  );\n}\n\nexport function ScrollAutoplayItem({\n  inputRange,\n  outputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: ScrollAutoPlayItemProps) {\n  const { scrollYProgress } = useScrollAutoplayContext();\n  const opacity = useTransform(scrollYProgress, inputRange, outputRange);\n\n  return (\n    <motion.div\n      className={cn('absolute inset-0 size-full', className)}\n      style={{\n        opacity,\n        willChange: 'opacity',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}\n",
       "type": "registry:block",
       "target": "components/systaliko-ui/scroll-autoplay.tsx"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

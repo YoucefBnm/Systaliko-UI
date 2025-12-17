@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "field",
-  "type": "registry:ui",
   "title": "field",
   "description": "field component.",
   "files": [
@@ -11,5 +10,6 @@
       "type": "registry:ui",
       "target": "components/field.tsx"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

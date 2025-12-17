@@ -36,7 +36,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/blocks/animated-menu.tsx',
         content:
-          "'use client';\nimport { cn } from '@/lib/utils';\nimport { cva, VariantProps } from 'class-variance-authority';\nimport {\n  AnimatePresence,\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  Variants,\n} from 'motion/react';\nimport React from 'react';\n\nconst menuListVariants = {\n  open: {\n    width: 320,\n    height: 420,\n    transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },\n  },\n  close: {\n    width: 112,\n    height: 48,\n    transition: { duration: 0.75, delay: 0.2, ease: [0.76, 0, 0.24, 1] },\n  },\n} as Variants;\n\nconst itemVariants = {\n  initial: {\n    opacity: 0,\n  },\n  enter: (i: number) => ({\n    opacity: 1,\n    transition: {\n      delay: 0.55 + i * 0.1,\n      duration: 0.75,\n    },\n  }),\n  exit: (i: number) => ({\n    opacity: 0,\n    transition: {\n      delay: 0.25 + -i * 0.1,\n    },\n  }),\n} as Variants;\ninterface AnimatedMenuContextValue {\n  isOpen: boolean;\n  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;\n}\ninterface AnimatedMenuListProps extends HTMLMotionProps<'div'> {\n  menuListVariants?: Variants;\n}\ninterface AnimatedMenuItemProps extends HTMLMotionProps<'div'> {\n  order?: number;\n  variants?: Variants;\n}\ninterface AnimatedMenuButtonLabelProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  closeLabel?: string;\n  openLabel?: string;\n}\nconst AnimatedMenuContext = React.createContext<\n  AnimatedMenuContextValue | undefined\n>(undefined);\nfunction useAnimatedMenuContext() {\n  const context = React.useContext(AnimatedMenuContext);\n  if (context === undefined) {\n    throw new Error(\n      'useAnimatedMenuContext must be used within an AnimatedMenuProvider',\n    );\n  }\n  return context;\n}\nexport function AnimatedMenu({\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  const [isOpen, setIsOpen] = React.useState<boolean>(false);\n\n  return (\n    <AnimatedMenuContext.Provider value={{ isOpen, setIsOpen }}>\n      <div {...props} />\n    </AnimatedMenuContext.Provider>\n  );\n}\nconst buttonIconVariants = cva(\n  'flex flex-col gap-1.5 justify-center items-center p-1 relative *:bg-current',\n  {\n    variants: {\n      size: {\n        sm: '*:w-4 *:h-px *:w-4 *:h-px *:origin-[20%]',\n        md: '*:w-6 *:h-0.5  *:origin-[25%]',\n        lg: '*:w-8 *:h-0.5  *:origin-[33%]',\n        xl: '*:w-10 *:h-1 *:origin-[31%]',\n      },\n    },\n    defaultVariants: {\n      size: 'sm',\n    },\n  },\n);\nexport function AnimatedMenuButtonToggleIcon({\n  className,\n  size = 'sm',\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> &\n  VariantProps<typeof buttonIconVariants>) {\n  const { isOpen } = useAnimatedMenuContext();\n  return (\n    <div\n      className={cn(\n        buttonIconVariants({\n          size,\n          className,\n        }),\n      )}\n      {...props}\n    >\n      <motion.span animate={isOpen ? { rotate: 45 } : { rotate: 0 }} />\n      <motion.span animate={isOpen ? { rotate: -45 } : { rotate: 0 }} />\n    </div>\n  );\n}\nexport function AnimatedMenuButtonLabel({\n  closeLabel = 'Menu',\n  openLabel = 'Close',\n  className,\n  ...props\n}: AnimatedMenuButtonLabelProps) {\n  const { isOpen } = useAnimatedMenuContext();\n  return (\n    <div\n      className={cn(\n        'overflow-hidden shrink-0 inline-grid grid-rows-1 grid-cols-1',\n        className,\n      )}\n      {...props}\n    >\n      <AnimatePresence>\n        <motion.span\n          key={closeLabel}\n          className=\"will-change-transform col-start-1 row-start-1\"\n          initial={{ y: '0%' }}\n          animate={isOpen ? { y: '-100%' } : { y: '0%' }}\n          exit={{ y: '-100%' }}\n        >\n          {closeLabel}\n        </motion.span>\n        <motion.span\n          key={openLabel}\n          className=\"will-change-transform col-start-1 row-start-1\"\n          initial={{ y: '100%' }}\n          animate={isOpen ? { y: '0%' } : { y: '100%' }}\n          exit={{ y: '100%' }}\n        >\n          {openLabel}\n        </motion.span>\n      </AnimatePresence>\n    </div>\n  );\n}\n\nexport function AnimatedMenuButton({\n  className,\n  children,\n  ...props\n}: React.HTMLAttributes<HTMLButtonElement>) {\n  const { setIsOpen } = useAnimatedMenuContext();\n  const toggleMenu = () => setIsOpen((prevState) => !prevState);\n  return (\n    <button\n      className={cn(\n        'appearance-none relative z-[999] bg-none inline-flex gap-0.5 justify-center items-center',\n        '[&:hover>*]:scale-90 *:transition-transform *:duration-300',\n        className,\n      )}\n      onClick={toggleMenu}\n      {...props}\n    >\n      <MotionConfig\n        transition={{ duration: 0.35, ease: [0.445, 0.05, 0.55, 0.95] }}\n      >\n        {children}\n      </MotionConfig>\n    </button>\n  );\n}\n\nexport function AnimatedMenuList({\n  variants = menuListVariants,\n  className,\n  children,\n  ...props\n}: AnimatedMenuListProps) {\n  const { isOpen } = useAnimatedMenuContext();\n  return (\n    <motion.div\n      className={cn('z-[800] ', className)}\n      variants={variants}\n      initial=\"close\"\n      animate={isOpen ? 'open' : 'close'}\n      {...props}\n    >\n      <AnimatePresence>\n        {isOpen && (children as React.ReactNode)}\n      </AnimatePresence>\n    </motion.div>\n  );\n}\n\nexport function AnimatedMenuItem({\n  order = 0,\n  variants = itemVariants,\n  ...props\n}: AnimatedMenuItemProps) {\n  return (\n    <motion.div\n      custom={order}\n      variants={variants}\n      initial=\"initial\"\n      animate=\"enter\"\n      exit=\"exit\"\n      {...props}\n    />\n  );\n}\n\nexport function CloseAnimatedMenu({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLButtonElement>) {\n  const { setIsOpen } = useAnimatedMenuContext();\n  const closeMenu = () => setIsOpen(false);\n  return (\n    <button\n      className={cn(\n        'appearance-none bg-none outline-none border-none',\n        className,\n      )}\n      onClick={closeMenu}\n      {...props}\n    />\n  );\n}",
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport { cva, VariantProps } from 'class-variance-authority';\nimport {\n  AnimatePresence,\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  Variants,\n} from 'motion/react';\nimport React from 'react';\n\nconst menuListVariants = {\n  open: {\n    width: 320,\n    height: 420,\n    transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },\n  },\n  close: {\n    width: 102,\n    height: 40,\n    transition: { duration: 0.75, delay: 0.2, ease: [0.76, 0, 0.24, 1] },\n  },\n} as Variants;\n\nconst itemVariants = {\n  initial: {\n    opacity: 0,\n  },\n  enter: (i: number) => ({\n    opacity: 1,\n    transition: {\n      delay: 0.55 + i * 0.1,\n      duration: 0.75,\n    },\n  }),\n  exit: (i: number) => ({\n    opacity: 0,\n    transition: {\n      delay: 0.25 + -i * 0.1,\n    },\n  }),\n} as Variants;\ninterface AnimatedMenuContextValue {\n  isOpen: boolean;\n  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;\n}\ninterface AnimatedMenuListProps extends HTMLMotionProps<'div'> {\n  menuListVariants?: Variants;\n}\ninterface AnimatedMenuItemProps extends HTMLMotionProps<'div'> {\n  order?: number;\n  variants?: Variants;\n}\ninterface AnimatedMenuButtonLabelProps\n  extends React.HTMLAttributes<HTMLDivElement> {\n  closeLabel?: string;\n  openLabel?: string;\n}\nconst AnimatedMenuContext = React.createContext<\n  AnimatedMenuContextValue | undefined\n>(undefined);\nfunction useAnimatedMenuContext() {\n  const context = React.useContext(AnimatedMenuContext);\n  if (context === undefined) {\n    throw new Error(\n      'useAnimatedMenuContext must be used within an AnimatedMenuProvider',\n    );\n  }\n  return context;\n}\nexport function AnimatedMenu({\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  const [isOpen, setIsOpen] = React.useState<boolean>(false);\n\n  return (\n    <AnimatedMenuContext.Provider value={{ isOpen, setIsOpen }}>\n      <div {...props} />\n    </AnimatedMenuContext.Provider>\n  );\n}\nconst buttonIconVariants = cva(\n  'flex flex-col gap-1.5 justify-center items-center p-1 relative *:bg-current',\n  {\n    variants: {\n      size: {\n        sm: '*:w-4 *:h-px *:w-4 *:h-px *:origin-[20%]',\n        md: '*:w-6 *:h-0.5  *:origin-[25%]',\n        lg: '*:w-8 *:h-0.5  *:origin-[33%]',\n        xl: '*:w-10 *:h-1 *:origin-[31%]',\n      },\n    },\n    defaultVariants: {\n      size: 'sm',\n    },\n  },\n);\nexport function AnimatedMenuButtonToggleIcon({\n  className,\n  size = 'sm',\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> &\n  VariantProps<typeof buttonIconVariants>) {\n  const { isOpen } = useAnimatedMenuContext();\n  return (\n    <div\n      className={cn(\n        buttonIconVariants({\n          size,\n          className,\n        }),\n      )}\n      {...props}\n    >\n      <motion.span animate={isOpen ? { rotate: 45 } : { rotate: 0 }} />\n      <motion.span animate={isOpen ? { rotate: -45 } : { rotate: 0 }} />\n    </div>\n  );\n}\nexport function AnimatedMenuButtonLabel({\n  closeLabel = 'Menu',\n  openLabel = 'Close',\n  className,\n  ...props\n}: AnimatedMenuButtonLabelProps) {\n  const { isOpen } = useAnimatedMenuContext();\n  return (\n    <div\n      className={cn(\n        'overflow-hidden shrink-0 inline-grid grid-rows-1 grid-cols-1',\n        className,\n      )}\n      {...props}\n    >\n      <AnimatePresence>\n        <motion.span\n          key={closeLabel}\n          className=\"will-change-transform col-start-1 row-start-1\"\n          initial={{ y: '0%' }}\n          animate={isOpen ? { y: '-100%' } : { y: '0%' }}\n          exit={{ y: '-100%' }}\n        >\n          {closeLabel}\n        </motion.span>\n        <motion.span\n          key={openLabel}\n          className=\"will-change-transform col-start-1 row-start-1\"\n          initial={{ y: '100%' }}\n          animate={isOpen ? { y: '0%' } : { y: '100%' }}\n          exit={{ y: '100%' }}\n        >\n          {openLabel}\n        </motion.span>\n      </AnimatePresence>\n    </div>\n  );\n}\n\nexport function AnimatedMenuButton({\n  className,\n  children,\n  ...props\n}: React.HTMLAttributes<HTMLButtonElement>) {\n  const { setIsOpen } = useAnimatedMenuContext();\n  const toggleMenu = () => setIsOpen((prevState) => !prevState);\n  return (\n    <button\n      className={cn(\n        'appearance-none relative z-[999] bg-none inline-flex gap-0.5 justify-center items-center',\n        '[&:hover>*]:scale-90 *:transition-transform *:duration-300',\n        className,\n      )}\n      onClick={toggleMenu}\n      {...props}\n    >\n      <MotionConfig\n        transition={{ duration: 0.35, ease: [0.445, 0.05, 0.55, 0.95] }}\n      >\n        {children}\n      </MotionConfig>\n    </button>\n  );\n}\n\nexport function AnimatedMenuList({\n  variants = menuListVariants,\n  className,\n  children,\n  ...props\n}: AnimatedMenuListProps) {\n  const { isOpen } = useAnimatedMenuContext();\n  return (\n    <motion.div\n      className={cn('z-[800] ', className)}\n      variants={variants}\n      initial=\"close\"\n      animate={isOpen ? 'open' : 'close'}\n      {...props}\n    >\n      <AnimatePresence>\n        {isOpen && (children as React.ReactNode)}\n      </AnimatePresence>\n    </motion.div>\n  );\n}\n\nexport function AnimatedMenuItem({\n  order = 0,\n  variants = itemVariants,\n  ...props\n}: AnimatedMenuItemProps) {\n  return (\n    <motion.div\n      custom={order}\n      variants={variants}\n      initial=\"initial\"\n      animate=\"enter\"\n      exit=\"exit\"\n      {...props}\n    />\n  );\n}\n\nexport function CloseAnimatedMenu({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLButtonElement>) {\n  const { setIsOpen } = useAnimatedMenuContext();\n  const closeMenu = () => setIsOpen(false);\n  return (\n    <button\n      className={cn(\n        'appearance-none bg-none outline-none border-none',\n        className,\n      )}\n      onClick={closeMenu}\n      {...props}\n    />\n  );\n}",
       },
     ],
     keywords: [],
@@ -135,6 +135,45 @@ export const index: Record<string, any> = {
     })(),
     command: '@systaliko-ui/container-stagger',
   },
+  'distributed-cards': {
+    name: 'distributed-cards',
+    description:
+      'Distributed cards, same as soliter, starts all at one position then animates to its position.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+      {
+        path: 'registry/blocks/distributed-cards/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/blocks/distributed-cards.tsx',
+        content:
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport type { ClassValue } from 'clsx';\nimport {\n  motion,\n  HTMLMotionProps,\n  MotionValue,\n  useScroll,\n  useTransform,\n  MapInputRange,\n  useMotionTemplate,\n} from 'motion/react';\nimport React from 'react';\n\ninterface DistributedCardsProps extends React.ComponentPropsWithRef<'div'> {\n  offset?: any;\n  spacerClassName?: ClassValue;\n}\ninterface DistributedCardsContextValue {\n  scrollYProgress: MotionValue<number>;\n}\ninterface DistributedCardsContainerProps extends HTMLMotionProps<'div'> {\n  yRange?: unknown[];\n  inputRange?: MapInputRange;\n}\ninterface DistributedCardCellProps extends HTMLMotionProps<'div'> {\n  yRange: unknown[];\n  xRange: unknown[];\n  inputRange?: MapInputRange;\n}\n\nconst DistributedCardsContext = React.createContext<\n  DistributedCardsContextValue | undefined\n>(undefined);\nexport function useDistributedCardsContext() {\n  const context = React.useContext(DistributedCardsContext);\n  if (!context) {\n    throw new Error(\n      'useDistributedCardsContext must be used within a DistributedCardsContextProvider',\n    );\n  }\n  return context;\n}\nexport function DistributedCards({\n  offset = ['start start', 'end end'],\n  spacerClassName,\n  className,\n  children,\n  ...props\n}: DistributedCardsProps) {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n    offset: ['start start', 'end end'],\n  });\n\n  return (\n    <DistributedCardsContext.Provider value={{ scrollYProgress }}>\n      <div ref={scrollRef} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={cn('h-96', className)} />\n      </div>\n    </DistributedCardsContext.Provider>\n  );\n}\n\nexport function DistributedCardsContainer({\n  yRange = [0, 384],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: DistributedCardsContainerProps) {\n  const { scrollYProgress } = useDistributedCardsContext();\n  const y = useTransform(scrollYProgress, inputRange, yRange);\n  return (\n    <motion.div\n      className={cn('w-full', className)}\n      style={{ y, ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function DistributedCardCell({\n  yRange,\n  xRange,\n  inputRange = [0, 1],\n  style,\n  ...props\n}: DistributedCardCellProps) {\n  const { scrollYProgress } = useDistributedCardsContext();\n  const x = useTransform(scrollYProgress, inputRange, xRange);\n  const y = useTransform(scrollYProgress, inputRange, yRange);\n\n  const transform = useMotionTemplate`translateX(${x}) translateY(${y})`;\n  return (\n    <motion.div\n      style={{\n        transform,\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/blocks/distributed-cards/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'distributed-cards';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/distributed-cards',
+  },
   'grid-bento': {
     name: 'grid-bento',
     description: 'Bento Grid, layout with multiple variants and displays.',
@@ -185,7 +224,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/blocks/header.tsx',
         content:
-          "'use client';\nimport { cn } from '@/lib/utils';\nimport { useToggleOnScroll } from '@/components/systaliko-ui/utils/use-toggle-onscroll';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport Link from 'next/link';\n\nexport function HeaderLogo({\n  ...props\n}: React.AnchorHTMLAttributes<HTMLAnchorElement>) {\n  return <Link href=\"/\" {...props} />;\n}\n\nexport function Header({ className, ...props }: HTMLMotionProps<'header'>) {\n  const { isHidden, setIsHidden } = useToggleOnScroll();\n  const showHeader = () => setIsHidden(false);\n\n  return (\n    <motion.header\n      className={cn('flex justify-between items-center', className)}\n      animate={isHidden ? { y: '-100%' } : { y: '0%' }}\n      transition={{ duration: 0.5, ease: 'easeOut' }}\n      whileHover={{ y: '0%' }}\n      onFocusCapture={showHeader}\n      {...props}\n    />\n  );\n}",
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport { useToggleOnScroll } from '@/components/systaliko-ui/utils/use-toggle-onscroll';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport Link from 'next/link';\n\nexport function HeaderLogo({\n  ...props\n}: React.AnchorHTMLAttributes<HTMLAnchorElement>) {\n  return <Link aria-label=\"logo\" href=\"/\" {...props} />;\n}\n\nexport function Header({\n  toggleOnScroll = true,\n  className,\n  ...props\n}: HTMLMotionProps<'header'> & { toggleOnScroll?: boolean }) {\n  const { isHidden, setIsHidden } = toggleOnScroll\n    ? useToggleOnScroll()\n    : { isHidden: false, setIsHidden: () => {} };\n  const showHeader = () => setIsHidden(false);\n\n  return (\n    <motion.header\n      className={cn('flex justify-between items-center', className)}\n      animate={isHidden ? { y: '-100%' } : { y: '0%' }}\n      transition={{ duration: 0.4, ease: 'easeOut' }}\n      whileHover={{ y: '0%' }}\n      onFocusCapture={showHeader}\n      {...props}\n    />\n  );\n}",
       },
     ],
     keywords: [],
@@ -245,195 +284,6 @@ export const index: Record<string, any> = {
     })(),
     command: '@systaliko-ui/image-player',
   },
-  parallax: {
-    name: 'parallax',
-    description: 'Parallax block, creates a parallax effect.',
-    type: 'registry:block',
-    dependencies: ['motion'],
-    devDependencies: undefined,
-    registryDependencies: undefined,
-    files: [
-      {
-        path: 'registry/blocks/parallax/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/blocks/parallax.tsx',
-        content:
-          "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  motion,\n  HTMLMotionProps,\n  useMotionTemplate,\n  useScroll,\n  useTransform,\n} from 'motion/react';\n\ninterface ParallaxItemProps extends HTMLMotionProps<'div'> {\n  start: number;\n  end: number;\n}\n\nexport function Parallax({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div className={cn('relative min-h-dvh w-full', className)} {...props} />\n  );\n}\n\nexport function PrallaxContainer({\n  className,\n  ...props\n}: React.ComponentProps<'div'>) {\n  return (\n    <div className={cn('px-default min-h-screen', className)} {...props} />\n  );\n}\nexport function ParallaxItem({\n  start,\n  end,\n  className,\n  style,\n  ...props\n}: ParallaxItemProps) {\n  const ref = React.useRef(null);\n\n  const { scrollYProgress } = useScroll({\n    target: ref,\n    offset: [`${start}px end`, `end ${end * -1}px`],\n  });\n\n  const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0]);\n  const scale = useTransform(scrollYProgress, [0.6, 1], [1, 0.7]);\n\n  const y = useTransform(scrollYProgress, [0, 1], [start, end]);\n  const transform = useMotionTemplate`translateY(${y}px) scale(${scale})`;\n\n  return (\n    <motion.div\n      className={className}\n      ref={ref}\n      style={{ transform, opacity, ...style }}\n      {...props}\n    />\n  );\n}",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import('@/registry/blocks/parallax/index.tsx');
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'parallax';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/parallax',
-  },
-  'scroll-animation': {
-    name: 'scroll-animation',
-    description:
-      'Collection of scroll triggered animations, Triggering the animation by scroll event.',
-    type: 'registry:block',
-    dependencies: ['motion'],
-    devDependencies: undefined,
-    registryDependencies: undefined,
-    files: [
-      {
-        path: 'registry/blocks/scroll-animation/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/blocks/scroll-animation.tsx',
-        content:
-          "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport {\n  HTMLMotionProps,\n  MapInputRange,\n  motion,\n  MotionValue,\n  useMotionTemplate,\n  useReducedMotion,\n  useScroll,\n  useSpring,\n  useTransform,\n} from 'motion/react';\n\ninterface ScrollAnimationContextValue {\n  scrollProgress: MotionValue<number>;\n}\nconst ScrollAnimationContext = React.createContext<\n  ScrollAnimationContextValue | undefined\n>(undefined);\n\nexport function useScrollAnimationContext() {\n  const context = React.useContext(ScrollAnimationContext);\n  if (!context) {\n    throw new Error(\n      'useScrollAnimationContext must be used within a ScrollAnimationContextProvider',\n    );\n  }\n  return context;\n}\ninterface ScrollAnimationProps extends React.ComponentPropsWithRef<'div'> {\n  spacerClass?: string;\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  offset?: any[];\n}\nexport function ScrollAnimation({\n  spacerClass,\n  offset,\n  className,\n  children,\n  ...props\n}: ScrollAnimationProps) {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n    offset: offset,\n  });\n  const smoothProgress = useSpring(scrollYProgress, {\n    damping: 30,\n    stiffness: 400,\n    restDelta: 0.001,\n  });\n  const reducedMotion = useReducedMotion();\n  const scrollProgress = reducedMotion ? scrollYProgress : smoothProgress;\n\n  return (\n    <ScrollAnimationContext.Provider value={{ scrollProgress }}>\n      <div ref={scrollRef} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={cn('w-full h-96', spacerClass)} />\n      </div>\n    </ScrollAnimationContext.Provider>\n  );\n}\n\nexport function ScrollInsetX({\n  insetRange = [48, 0],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { insetRange?: number[]; inputRange?: number[] }) {\n  const { scrollProgress } = useScrollAnimationContext();\n  const xInset = useTransform(scrollProgress, inputRange, insetRange);\n  const clipPath = useMotionTemplate`inset(0px ${xInset}px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, willChange: 'clip-path', ...style }}\n      {...props}\n    />\n  );\n}\nexport function ScrollInsetY({\n  insetRange = [48, 0],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { insetRange?: number[]; inputRange?: number[] }) {\n  const { scrollProgress } = useScrollAnimationContext();\n  const yInset = useTransform(scrollProgress, inputRange, insetRange);\n  const clipPath = useMotionTemplate`inset(${yInset}px 0px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, willChange: 'clip-path', ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function ScrollInset({\n  inputRange = [0, 1],\n  insetRangeY = [45, 0],\n  insetXRange = [45, 0],\n  roundednessRange = [16, 16],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  inputRange?: MapInputRange;\n  insetRangeY?: unknown[];\n  insetXRange?: unknown[];\n  roundednessRange?: unknown[];\n}) {\n  const { scrollProgress } = useScrollAnimationContext();\n  const insetY = useTransform(scrollProgress, inputRange, insetRangeY);\n  const insetX = useTransform(scrollProgress, inputRange, insetXRange);\n  const roundedness = useTransform(\n    scrollProgress,\n    inputRange,\n    roundednessRange,\n  );\n\n  const clipPath = useMotionTemplate`inset(${insetY}% ${insetX}% ${insetY}% ${insetX}% round ${roundedness}px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, willChange: 'clip-path', ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function ScrollTranslateY({\n  yRange = [0, 384],\n  inputRange = [0, 1],\n  style,\n  className,\n  ...props\n}: HTMLMotionProps<'div'> & { yRange?: unknown[]; inputRange?: number[] }) {\n  const { scrollProgress } = useScrollAnimationContext();\n  const y = useTransform(scrollProgress, inputRange, yRange);\n  return (\n    <motion.div\n      style={{ y, willChange: 'transform', ...style }}\n      className={cn('relative origin-top', className)}\n      {...props}\n    />\n  );\n}\n\nexport function ScrollTranslateX({\n  xRange = [0, 100],\n  inputRange = [0, 1],\n  style,\n  className,\n  ...props\n}: HTMLMotionProps<'div'> & { xRange?: unknown[]; inputRange?: number[] }) {\n  const { scrollProgress } = useScrollAnimationContext();\n  const x = useTransform(scrollProgress, inputRange, xRange);\n  return (\n    <motion.div\n      style={{ x, willChange: 'transform', ...style }}\n      className={cn('relative origin-top', className)}\n      {...props}\n    />\n  );\n}\nexport function ScrollOpacity({\n  opacityRange = [0, 1],\n  inputRange = [0, 1],\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  opacityRange?: unknown[];\n  inputRange?: number[];\n}) {\n  const { scrollProgress } = useScrollAnimationContext();\n  const opacity = useTransform(scrollProgress, inputRange, opacityRange);\n  return (\n    <motion.div\n      style={{ opacity, willChange: 'opacity', ...style }}\n      {...props}\n    />\n  );\n}\nexport function ScrollScale({\n  scaleRange = [1.2, 1],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { scaleRange?: unknown[]; inputRange?: number[] }) {\n  const { scrollProgress } = useScrollAnimationContext();\n  const scale = useTransform(scrollProgress, inputRange, scaleRange);\n  return (\n    <motion.div\n      className={className}\n      style={{ scale, willChange: 'transform', ...style }}\n      {...props}\n    />\n  );\n}\nexport function ScrollRadius({\n  radiusRange = [9999, 16],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  radiusRange?: unknown[];\n  inputRange?: number[];\n}) {\n  const { scrollProgress } = useScrollAnimationContext();\n  const borderRadius = useTransform(scrollProgress, inputRange, radiusRange);\n  return (\n    <motion.div\n      layout\n      className={className}\n      style={{ borderRadius, willChange: 'border-radius', ...style }}\n      {...props}\n    />\n  );\n}",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/blocks/scroll-animation/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'scroll-animation';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/scroll-animation',
-  },
-  'scroll-animation-rotate': {
-    name: 'scroll-animation-rotate',
-    description:
-      'Collection of scroll rotation animations, Triggering the animation by scroll event.',
-    type: 'registry:block',
-    dependencies: ['motion'],
-    devDependencies: undefined,
-    registryDependencies: undefined,
-    files: [
-      {
-        path: 'registry/blocks/scroll-animation-rotate/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/blocks/scroll-animation-rotate.tsx',
-        content:
-          "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useMotionTemplate,\n  useReducedMotion,\n  useScroll,\n  useSpring,\n  useTransform,\n} from 'motion/react';\n\ninterface ScrollAnimationRotateContextValue {\n  scrollProgress: MotionValue<number>;\n}\ninterface ScrollAnimationRotateProps {\n  spacerClass?: string;\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  offset?: any;\n}\nconst ScrollAnimationRotateContext = React.createContext<\n  ScrollAnimationRotateContextValue | undefined\n>(undefined);\nexport function useScrollAnimationRotateContext() {\n  const context = React.useContext(ScrollAnimationRotateContext);\n  if (!context) {\n    throw new Error(\n      'useScrollAnimationRotateContext must be used within a GalleryRotatedScrollContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const ScrollAnimationRotate = ({\n  spacerClass,\n  offset = ['0% 50%', '50% 50%'],\n  children,\n  className,\n  style,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & ScrollAnimationRotateProps) => {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n    offset: offset,\n  });\n  const smoothProgress = useSpring(scrollYProgress, {\n    damping: 30,\n    stiffness: 400,\n    restDelta: 0.001,\n  });\n  const reducedMotion = useReducedMotion();\n  const scrollProgress = reducedMotion ? scrollYProgress : smoothProgress;\n\n  return (\n    <ScrollAnimationRotateContext.Provider value={{ scrollProgress }}>\n      <div\n        ref={scrollRef}\n        className={cn('relative ', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n        <div className={cn('w-full h-96', spacerClass)} />\n      </div>\n    </ScrollAnimationRotateContext.Provider>\n  );\n};\nScrollAnimationRotate.displayName = 'ScrollAnimationRotate';\n\ninterface ScrollAnimationRotateContainerProps extends HTMLMotionProps<'div'> {\n  yRange?: [number, number];\n  rotateRange?: [number, number];\n  scaleRange?: [number, number];\n  rotationDirection?: 'x' | 'y' | 'z';\n}\nexport const ScrollAnimationRotateContainer = React.forwardRef<\n  HTMLDivElement,\n  ScrollAnimationRotateContainerProps\n>(\n  (\n    {\n      yRange = [0, 350],\n      rotateRange = [80, 0],\n      scaleRange = [1.1, 1],\n      className,\n      rotationDirection = 'x',\n      style,\n      ...props\n    },\n    ref,\n  ) => {\n    const { scrollProgress } = useScrollAnimationRotateContext();\n\n    const y = useTransform(scrollProgress, [0, 1], yRange);\n\n    const rotate = useTransform(scrollProgress, [0, 0.5], rotateRange);\n    const scale = useTransform(scrollProgress, [0.5, 0.9], scaleRange);\n\n    const transform = useMotionTemplate`rotate${rotationDirection.toUpperCase()}(${rotate}deg) scale(${scale}) translateY(${y}px)`;\n\n    return (\n      <motion.div\n        ref={ref}\n        className={cn('flex relative', className)}\n        style={{\n          perspective: '1000px',\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          willChange: 'transform',\n          backfaceVisibility: 'hidden',\n          top: 0,\n          transform,\n          ...style,\n        }}\n        {...props}\n      />\n    );\n  },\n);\nScrollAnimationRotateContainer.displayName = 'ScrollAnimationRotateContainer';\n\nexport const ScrollAnimationRotateCol = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { yRange?: [string, string] }\n>(({ yRange = ['-5%', '1%'], className, style, ...props }, ref) => {\n  const { scrollProgress } = useScrollAnimationRotateContext();\n\n  const y = useTransform(scrollProgress, [0.4, 0.8], yRange);\n\n  return (\n    <motion.div\n      ref={ref}\n      className={cn('relative flex flex-col w-full', className)}\n      style={{\n        y,\n        backfaceVisibility: 'hidden',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n});\nScrollAnimationRotateCol.displayName = 'ScrollAnimationRotateCol';",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/blocks/scroll-animation-rotate/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'scroll-animation-rotate';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/scroll-animation-rotate',
-  },
-  'scroll-autoplay': {
-    name: 'scroll-autoplay',
-    description:
-      'Displaying different content depending on order and scroll position.',
-    type: 'registry:block',
-    dependencies: ['motion'],
-    devDependencies: undefined,
-    registryDependencies: undefined,
-    files: [
-      {
-        path: 'registry/blocks/scroll-autoplay/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/scroll-autoplay.tsx',
-        content:
-          "'use client';\nimport { cn } from '@/lib/utils';\nimport {\n  motion,\n  HTMLMotionProps,\n  MotionValue,\n  MapInputRange,\n  useScroll,\n  useTransform,\n} from 'motion/react';\nimport React from 'react';\n\ninterface ScrollAutoplayProps extends HTMLMotionProps<'div'> {\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  offset?: any[];\n}\ninterface ScrollAutoPlayItemProps extends HTMLMotionProps<'div'> {\n  inputRange: MapInputRange;\n  outputRange?: unknown[];\n}\ninterface ScrollAutoplayContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst ScrollAutoplayContext = React.createContext<\n  ScrollAutoplayContextValue | undefined\n>(undefined);\nfunction useScrollAutoplayContext() {\n  const context = React.useContext(ScrollAutoplayContext);\n  if (context === undefined) {\n    throw new Error(\n      'useScrollAutoplayContext must be used within a ScrollAutoplayContextProvider',\n    );\n  }\n  return context;\n}\n\nexport function ScrollAutoplay({\n  offset = ['0% 50%', '100% 50%'],\n  className,\n  ...props\n}: ScrollAutoplayProps) {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n    offset: offset,\n  });\n\n  return (\n    <ScrollAutoplayContext.Provider value={{ scrollYProgress }}>\n      <motion.div\n        ref={scrollRef}\n        className={cn('relative min-h-screen', className)}\n        {...props}\n      />\n    </ScrollAutoplayContext.Provider>\n  );\n}\n\nexport function ScrollAutoplayContainer({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn('sticky top-0 left-0 w-full min-h-fit', className)}\n      {...props}\n    />\n  );\n}\n\nexport function ScrollAutoplayItem({\n  inputRange,\n  outputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: ScrollAutoPlayItemProps) {\n  const { scrollYProgress } = useScrollAutoplayContext();\n  const opacity = useTransform(scrollYProgress, inputRange, outputRange);\n\n  return (\n    <motion.div\n      className={cn('absolute inset-0 size-full', className)}\n      style={{\n        opacity,\n        willChange: 'opacity',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import('@/registry/blocks/scroll-autoplay/index.tsx');
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'scroll-autoplay';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/scroll-autoplay',
-  },
-  'scroll-x-carousel': {
-    name: 'scroll-x-carousel',
-    description: 'Scroll carousel on x axis, with optional progress indicator.',
-    type: 'registry:block',
-    dependencies: ['motion'],
-    devDependencies: undefined,
-    registryDependencies: undefined,
-    files: [
-      {
-        path: 'registry/blocks/scroll-x-carousel/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/blocks/scroll-x-carousel.tsx',
-        content:
-          "'use client';\n\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useReducedMotion,\n  useScroll,\n  useSpring,\n  useTransform,\n} from 'motion/react';\n\ninterface ScrollXCarouselContextValue {\n  scrollYProgress: MotionValue<number>;\n}\n\nconst ScrollXCarouselContext =\n  React.createContext<ScrollXCarouselContextValue | null>(null);\nfunction useScrollXCarousel() {\n  const context = React.useContext(ScrollXCarouselContext);\n  if (!context) {\n    throw new Error('useScrollXCarousel must be used within a ScrollXCarousel');\n  }\n  return context;\n}\nexport function ScrollXCarousel({\n  children,\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  const carouselRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: carouselRef,\n  });\n  return (\n    <ScrollXCarouselContext.Provider value={{ scrollYProgress }}>\n      <div\n        ref={carouselRef}\n        className={cn('relative max-w-full', className)}\n        {...props}\n      >\n        {children}\n      </div>\n    </ScrollXCarouselContext.Provider>\n  );\n}\n\nexport function ScrollXCarouselContainer({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn('sticky overflow-hidden w-full top-0 left-0', className)}\n      {...props}\n    />\n  );\n}\nexport function ScrollXCarouselWrap({\n  className,\n  style,\n  xRagnge = ['-0%', '-80%'],\n  ...props\n}: HTMLMotionProps<'div'> & { xRagnge?: unknown[] }) {\n  const { scrollYProgress } = useScrollXCarousel();\n  const reducedMotion = useReducedMotion();\n  const smoothProgress = useSpring(scrollYProgress, {\n    damping: 30,\n    stiffness: 400,\n    restDelta: 0.001, // Important for stopping micro-animations\n  });\n\n  const scrollProgress = reducedMotion ? scrollYProgress : smoothProgress;\n\n  const x = useTransform(scrollProgress, [0, 1], xRagnge);\n\n  return (\n    <motion.div\n      className={cn('w-fit', className)}\n      style={{ x, willChange: 'transform', ...style }}\n      {...props}\n    />\n  );\n}\nexport function ScrollXCarouselProgress({\n  className,\n  style,\n  progressStyle,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { progressStyle?: string }) {\n  const { scrollYProgress } = useScrollXCarousel();\n  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);\n  return (\n    <div className={cn('max-w-screen overflow-hidden', className)} {...props}>\n      <motion.div\n        className={cn('origin-left', progressStyle)}\n        style={{ scaleX, ...style }}\n      />\n    </div>\n  );\n}",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/blocks/scroll-x-carousel/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'scroll-x-carousel';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/scroll-x-carousel',
-  },
   slideshow: {
     name: 'slideshow',
     description:
@@ -450,7 +300,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/blocks/slideshow.tsx',
         content:
-          "'use client';\n\nimport * as React from 'react';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { cn } from '@/lib/utils';\nimport {\n  TextStaggerHover,\n  TextStaggerHoverActive,\n  TextStaggerHoverHidden,\n} from '@/components/systaliko-ui/text/text-stagger-hover';\n\ninterface SlideshowContextValue {\n  activeSlide: number;\n  changeSlide: (index: number) => void;\n}\n\nconst SlideshowContext = React.createContext<SlideshowContextValue | undefined>(\n  undefined,\n);\nfunction useSlideshowContext() {\n  const context = React.useContext(SlideshowContext);\n  if (context === undefined) {\n    throw new Error(\n      'useSlideshowContext must be used within a SlideshowProvider',\n    );\n  }\n  return context;\n}\n\nexport const Slideshow = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ children, className, ...props }, ref) => {\n  const [activeSlide, setActiveSlide] = React.useState<number>(0);\n  const changeSlide = React.useCallback(\n    (index: number) => setActiveSlide(index),\n    [setActiveSlide],\n  );\n  return (\n    <SlideshowContext.Provider value={{ activeSlide, changeSlide }}>\n      <div className={className} ref={ref} {...props}>\n        {children}\n      </div>\n    </SlideshowContext.Provider>\n  );\n});\nSlideshow.displayName = 'Slideshow';\n\nexport const SlideshowIndicator = React.forwardRef<\n  HTMLElement,\n  React.HTMLAttributes<HTMLElement> & { index: number }\n>(({ index, children, className, ...props }, ref) => {\n  const { activeSlide, changeSlide } = useSlideshowContext();\n  const isActive = activeSlide === index;\n  const handleMouse = () => changeSlide(index);\n  return (\n    <span\n      className={cn(\n        'relative inline-block origin-bottom overflow-hidden',\n        className,\n      )}\n      {...props}\n      ref={ref}\n      onMouseEnter={handleMouse}\n    >\n      <TextStaggerHover\n        as={'h2'}\n        className=\"cursor-pointer text-4xl font-bold uppercase tracking-tighter\"\n      >\n        <TextStaggerHoverActive\n          className=\"opacity-20\"\n          animation={'top'}\n          animate={isActive ? 'hidden' : 'visible'}\n          transition={{ duration: 0.3, ease: 'easeOut' }}\n        >\n          {String(children)}\n        </TextStaggerHoverActive>\n        <TextStaggerHoverHidden\n          animation={'bottom'}\n          animate={isActive ? 'visible' : 'hidden'}\n          transition={{ duration: 0.3, ease: 'easeOut' }}\n        >\n          {String(children)}\n        </TextStaggerHoverHidden>\n      </TextStaggerHover>\n    </span>\n  );\n});\nSlideshowIndicator.displayName = 'SlideshowIndicator';\n\nexport const clipPathVariants = {\n  visible: {\n    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',\n  },\n  hidden: {\n    clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0px)',\n  },\n};\nexport const SlideshowImageContainer = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(\n        'grid  overflow-hidden [&>*]:col-start-1 [&>*]:col-end-1 [&>*]:row-start-1 [&>*]:row-end-1 [&>*]:size-full',\n        className,\n      )}\n      {...props}\n    />\n  );\n});\nSlideshowImageContainer.displayName = 'SlideshowImageContainer';\n\nexport const SlideshowImageWrap = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { index: number }\n>(({ index, className, ...props }, ref) => {\n  const { activeSlide } = useSlideshowContext();\n  return (\n    <motion.div\n      className={cn('inline-block align-middle', className)}\n      transition={{ ease: [0.33, 1, 0.68, 1], duration: 0.8 }}\n      variants={clipPathVariants}\n      animate={activeSlide === index ? 'visible' : 'hidden'}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nSlideshowImageWrap.displayName = 'SlideshowImageWrap';",
+          "'use client';\n\nimport * as React from 'react';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { cn } from '@/lib/utils';\nimport {\n  TextStaggerHover,\n  TextStaggerHoverActive,\n  TextStaggerHoverHidden,\n} from '@/components/systaliko-ui/text/text-stagger-hover';\n\ninterface SlideshowContextValue {\n  activeSlide: number;\n  changeSlide: (index: number) => void;\n}\n\nconst SlideshowContext = React.createContext<SlideshowContextValue | undefined>(\n  undefined,\n);\nfunction useSlideshowContext() {\n  const context = React.useContext(SlideshowContext);\n  if (context === undefined) {\n    throw new Error(\n      'useSlideshowContext must be used within a SlideshowProvider',\n    );\n  }\n  return context;\n}\n\nexport const Slideshow = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ children, className, ...props }, ref) => {\n  const [activeSlide, setActiveSlide] = React.useState<number>(0);\n  const changeSlide = React.useCallback(\n    (index: number) => setActiveSlide(index),\n    [setActiveSlide],\n  );\n  return (\n    <SlideshowContext.Provider value={{ activeSlide, changeSlide }}>\n      <div className={className} ref={ref} {...props}>\n        {children}\n      </div>\n    </SlideshowContext.Provider>\n  );\n});\nSlideshow.displayName = 'Slideshow';\n\nexport const SlideshowIndicator = React.forwardRef<\n  HTMLElement,\n  React.HTMLAttributes<HTMLElement> & { index: number }\n>(({ index, children, className, ...props }, ref) => {\n  const { activeSlide, changeSlide } = useSlideshowContext();\n  const isActive = activeSlide === index;\n  const handleMouse = () => changeSlide(index);\n  return (\n    <span\n      className={cn(\n        'relative inline-block origin-bottom overflow-hidden',\n        className,\n      )}\n      {...props}\n      ref={ref}\n      onMouseEnter={handleMouse}\n    >\n      <TextStaggerHover\n        as={'h2'}\n        className=\"cursor-pointer text-4xl font-bold uppercase tracking-tighter\"\n      >\n        <TextStaggerHoverActive\n          className=\"opacity-20\"\n          animation={'top'}\n          animate={isActive ? 'hidden' : 'visible'}\n          transition={{ duration: 0.3, ease: 'easeOut' }}\n        >\n          {String(children)}\n        </TextStaggerHoverActive>\n        <TextStaggerHoverHidden\n          animation={'bottom'}\n          animate={isActive ? 'visible' : 'hidden'}\n          transition={{ duration: 0.3, ease: 'easeOut' }}\n        >\n          {String(children)}\n        </TextStaggerHoverHidden>\n      </TextStaggerHover>\n    </span>\n  );\n});\nSlideshowIndicator.displayName = 'SlideshowIndicator';\n\nexport const clipPathVariants = {\n  visible: {\n    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',\n  },\n  hidden: {\n    clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0px)',\n  },\n};\nexport const SlideshowImageContainer = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(\n        'grid  overflow-hidden *:col-start-1 *:col-end-1 *:row-start-1 *:row-end-1 *:size-full',\n        className,\n      )}\n      {...props}\n    />\n  );\n});\nSlideshowImageContainer.displayName = 'SlideshowImageContainer';\n\nexport const SlideshowImageWrap = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { index: number }\n>(({ index, className, ...props }, ref) => {\n  const { activeSlide } = useSlideshowContext();\n  return (\n    <motion.div\n      className={cn('inline-block align-middle', className)}\n      transition={{ ease: [0.33, 1, 0.68, 1], duration: 0.8 }}\n      variants={clipPathVariants}\n      animate={activeSlide === index ? 'visible' : 'hidden'}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nSlideshowImageWrap.displayName = 'SlideshowImageWrap';",
       },
     ],
     keywords: [],
@@ -546,42 +396,6 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@systaliko-ui/timeline',
-  },
-  'wavy-block': {
-    name: 'wavy-block',
-    description: 'block animates its children in waves pattern.',
-    type: 'registry:block',
-    dependencies: ['motion'],
-    devDependencies: undefined,
-    registryDependencies: undefined,
-    files: [
-      {
-        path: 'registry/blocks/wavy-block/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/blocks/wavy-block.tsx',
-        content:
-          "'use client';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  SpringOptions,\n  useMotionValue,\n  useReducedMotion,\n  useScroll,\n  useSpring,\n} from 'motion/react';\nimport React from 'react';\n\ninterface WavyTextsConfig {\n  baseOffsetFactor: number;\n  baseExtra: number;\n  baseAmplitude: number;\n  lengthEffect: number;\n  frequency: number;\n  progressScale: number;\n  phaseShiftDeg: number;\n  spring: SpringOptions;\n}\ninterface WavyBlockItemProps extends HTMLMotionProps<'div'> {\n  index: number;\n  config?: WavyTextsConfig;\n}\ninterface WavyBlockContextValue {\n  scrollYProgress: MotionValue<number>;\n  maxLen: number;\n}\n\nconst WavyBlockContext = React.createContext<WavyBlockContextValue | undefined>(\n  undefined,\n);\n\nfunction useWavyBlockContext() {\n  const context = React.useContext(WavyBlockContext);\n  if (context === undefined) {\n    throw new Error('useWavyBlockContext must be used within a WavyBlock');\n  }\n  return context;\n}\nconst toRadian = (deg: number) => (deg * Math.PI) / 180;\n\nexport function WavyBlockItem({\n  index,\n  config = {\n    baseOffsetFactor: 0.1,\n    baseExtra: 0,\n    baseAmplitude: 160,\n    lengthEffect: 0.6,\n    frequency: 35,\n    progressScale: 6,\n    phaseShiftDeg: -180,\n    spring: { damping: 22, stiffness: 300 },\n  },\n  style,\n  ...props\n}: WavyBlockItemProps) {\n  const { scrollYProgress, maxLen } = useWavyBlockContext();\n  const reducedMotion = useReducedMotion();\n  const lengthFactor = Math.min(1, Math.max(0, maxLen / (maxLen || 1)));\n\n  const [isMounted, setIsMounted] = React.useState<boolean>(false);\n\n  const calculateX = React.useCallback(\n    (p: number, windowWidth?: number) => {\n      const phase = config.progressScale * p;\n\n      const width =\n        windowWidth ??\n        (typeof window !== 'undefined' ? window.innerWidth : 1200);\n      const baseOffset = config.baseOffsetFactor * width + config.baseExtra;\n\n      const amplitudeScale = 1 - config.lengthEffect * lengthFactor;\n      const amplitude = config.baseAmplitude * amplitudeScale;\n\n      const angle =\n        toRadian(config.frequency * index) +\n        phase +\n        toRadian(config.phaseShiftDeg);\n\n      return baseOffset + amplitude * Math.cos(angle);\n    },\n    [config, lengthFactor, index],\n  );\n\n  const initialX = calculateX(0, 1200);\n  const rawX = useMotionValue(initialX);\n  const springX = useSpring(rawX, config.spring);\n  const x = reducedMotion ? rawX : springX;\n\n  React.useLayoutEffect(() => {\n    setIsMounted(true);\n  }, []);\n\n  React.useEffect(() => {\n    if (!scrollYProgress || !isMounted) return;\n\n    const unsub = scrollYProgress.onChange((p) => {\n      const windowWidth =\n        typeof window !== 'undefined' ? window.innerWidth : 1200;\n      const newX = calculateX(p, windowWidth);\n      rawX.set(newX);\n    });\n\n    return () => {\n      if (unsub) unsub();\n    };\n  }, [scrollYProgress, rawX, calculateX, isMounted]);\n\n  return (\n    <motion.div style={{ x, ...style }} suppressHydrationWarning {...props} />\n  );\n}\n\nexport function WavyBlock({\n  offset = ['start end', 'end start'],\n  ...props\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n}: React.ComponentPropsWithRef<'div'> & { offset?: any }) {\n  const containerRef = React.useRef<HTMLDivElement>(null);\n  const { current } = containerRef;\n\n  const maxLen = React.useMemo(() => {\n    if (!current?.children || current.children.length === 0) return 1;\n    const childrenArray = Array.from(current.children);\n    return Math.max(\n      ...childrenArray.map((child) => (child ? String(child).length : 0)),\n    );\n  }, [current?.children]);\n\n  const { scrollYProgress } = useScroll({\n    target: containerRef,\n    offset: offset,\n  });\n  return (\n    <WavyBlockContext.Provider value={{ scrollYProgress, maxLen }}>\n      <div ref={containerRef} {...props} />\n    </WavyBlockContext.Provider>\n  );\n}",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import('@/registry/blocks/wavy-block/index.tsx');
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'wavy-block';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/wavy-block',
   },
   card: {
     name: 'card',
@@ -905,7 +719,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/pulse.tsx',
         content:
-          "import { cn } from '@/lib/utils';\nimport React from 'react';\n\nexport function Pulse({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn(\n        'relative flex h-2 w-2 [&>*:first-child]:bg-indigo-300 [&>*:last-child]:bg-indigo-500',\n        className,\n      )}\n      {...props}\n    >\n      <span className=\"animate-ping absolute inline-flex h-full w-full rounded-full\" />\n      <span className=\"relative inline-flex rounded-full size-full \" />\n    </div>\n  );\n}",
+          "import { cn } from '@/lib/utils';\nimport React from 'react';\n\nexport function Pulse({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn(\n        'relative flex h-2 w-2 [&>*:first-child]:bg-primary/50 [&>*:last-child]:bg-primary',\n        className,\n      )}\n      {...props}\n    >\n      <span className=\"animate-ping absolute inline-flex h-full w-full rounded-full\" />\n      <span className=\"relative inline-flex rounded-full size-full \" />\n    </div>\n  );\n}",
       },
     ],
     keywords: [],
@@ -980,7 +794,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/blocks/animated-menu.tsx',
         content:
-          "import {\n  AnimatedMenu,\n  AnimatedMenuButton,\n  AnimatedMenuButtonToggleIcon,\n  AnimatedMenuButtonLabel,\n  AnimatedMenuList,\n  AnimatedMenuItem,\n} from '@/components/systaliko-ui/blocks/animated-menu';\nimport Link from 'next/link';\n\nconst menuItems = [\n  {\n    title: 'Home',\n    href: '/#home',\n  },\n  {\n    title: 'About',\n    href: '/#about',\n  },\n  {\n    title: 'Services',\n    href: '/#Services',\n  },\n  {\n    title: 'Portfolio',\n    href: '/portfolio',\n  },\n  {\n    title: 'Contact',\n    href: '/contact',\n  },\n];\nconst socialLinks = [\n  {\n    title: 'Github',\n    href: 'https://github.com/YoucefBnm/',\n  },\n  {\n    title: 'Linkedin',\n    href: 'https://www.linkedin.com/in/',\n  },\n  {\n    title: 'X',\n    href: 'https://x.com/lbnm_yussef',\n  },\n  {\n    title: '21st',\n    href: 'https://21st.dev/community/YoucefBnm',\n  },\n];\nexport function AnimatedMenuDemo() {\n  return (\n    <div className=\"self-start h-screen py-4 w-full z-[999] flex items-start justify-between px-8 \">\n      <span className=\"text-xl font-bold tracking-tight\">Systaliko UI</span>\n      <AnimatedMenu className=\"relative\">\n        <AnimatedMenuButton className=\"w-28 h-12 inline-flex rounded-full justify-center items-center text-primary-foreground\">\n          <AnimatedMenuButtonToggleIcon className=\"*:rounded \" />\n          <AnimatedMenuButtonLabel />\n        </AnimatedMenuButton>\n        <AnimatedMenuList className=\"absolute right-0 top-0 bg-linear-to-bl from-primary/95 to-primary border shadow-md inset-shadow-xs inset-shadow-muted rounded-3xl\">\n          <div className=\"flex flex-col px-6 justify-evenly gap-6 items-start size-full\">\n            <div className=\"flex flex-col items-start gap-4 *:transition-blur *:duration-300 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none\">\n              {menuItems.map((item, i) => (\n                <AnimatedMenuItem key={i} order={i}>\n                  <Link\n                    className=\"text-2xl font-medium text-muted\"\n                    href={item.href}\n                    title={item.title}\n                  >\n                    {item.title}\n                  </Link>\n                </AnimatedMenuItem>\n              ))}\n            </div>\n            <div className=\"flex gap-4 *:transition-blur *:duration-300 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none\">\n              {socialLinks.map((item, i) => (\n                <AnimatedMenuItem key={item.title} order={i + menuItems.length}>\n                  <Link\n                    className=\" font-medium text-muted/80 text-sm tracking-wide uppercase\"\n                    href={item.href}\n                    title={item.title}\n                  >\n                    {item.title}\n                  </Link>\n                </AnimatedMenuItem>\n              ))}\n            </div>\n          </div>\n        </AnimatedMenuList>\n      </AnimatedMenu>\n    </div>\n  );\n}",
+          "import {\n  AnimatedMenu,\n  AnimatedMenuButton,\n  AnimatedMenuButtonToggleIcon,\n  AnimatedMenuButtonLabel,\n  AnimatedMenuList,\n  AnimatedMenuItem,\n} from '@/components/systaliko-ui/blocks/animated-menu';\nimport Link from 'next/link';\n\nconst menuItems = [\n  {\n    title: 'Home',\n    href: '/#home',\n  },\n  {\n    title: 'About',\n    href: '/#about',\n  },\n  {\n    title: 'Services',\n    href: '/#Services',\n  },\n  {\n    title: 'Portfolio',\n    href: '/portfolio',\n  },\n  {\n    title: 'Contact',\n    href: '/contact',\n  },\n];\nconst socialLinks = [\n  {\n    title: 'Github',\n    href: 'https://github.com/YoucefBnm/',\n  },\n  {\n    title: 'Linkedin',\n    href: 'https://www.linkedin.com/in/',\n  },\n  {\n    title: 'X',\n    href: 'https://x.com/lbnm_yussef',\n  },\n  {\n    title: '21st',\n    href: 'https://21st.dev/community/YoucefBnm',\n  },\n];\nexport function AnimatedMenuDemo() {\n  return (\n    <div className=\"self-start h-screen w-full z-[999] flex items-start justify-between px-8 \">\n      <span className=\"text-xl font-bold tracking-tight\">Systaliko UI</span>\n      <AnimatedMenu className=\"relative\">\n        <AnimatedMenuButton className=\"w-[102px] h-[40px] text-primary-foreground\">\n          <AnimatedMenuButtonToggleIcon />\n          <AnimatedMenuButtonLabel />\n        </AnimatedMenuButton>\n        <AnimatedMenuList className=\"absolute right-0 top-0.5 bg-linear-to-bl from-primary/95 to-primary border shadow-md inset-shadow-xs inset-shadow-muted rounded-3xl\">\n          <div className=\"flex flex-col px-6 justify-evenly gap-6 items-start size-full\">\n            <div className=\"flex flex-col items-start gap-4 *:transition-blur *:duration-300 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none\">\n              {menuItems.map((item, i) => (\n                <AnimatedMenuItem key={i} order={i}>\n                  <Link\n                    className=\"text-2xl font-medium text-muted\"\n                    href={item.href}\n                    title={item.title}\n                  >\n                    {item.title}\n                  </Link>\n                </AnimatedMenuItem>\n              ))}\n            </div>\n            <div className=\"flex gap-4 *:transition-blur *:duration-300 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none\">\n              {socialLinks.map((item, i) => (\n                <AnimatedMenuItem key={item.title} order={i + menuItems.length}>\n                  <Link\n                    className=\" font-medium text-muted/80 text-sm tracking-wide uppercase\"\n                    href={item.href}\n                    title={item.title}\n                  >\n                    {item.title}\n                  </Link>\n                </AnimatedMenuItem>\n              ))}\n            </div>\n          </div>\n        </AnimatedMenuList>\n      </AnimatedMenu>\n    </div>\n  );\n}",
       },
     ],
     keywords: [],
@@ -1336,7 +1150,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/blocks/header.tsx',
         content:
-          "'use client';\nimport { useIsMobile } from '@/hooks/use-mobile';\nimport {\n  AnimatedMenu,\n  AnimatedMenuButton,\n  AnimatedMenuButtonLabel,\n  AnimatedMenuButtonToggleIcon,\n  AnimatedMenuItem,\n  AnimatedMenuList,\n  CloseAnimatedMenu,\n} from '@/components/systaliko-ui/blocks/animated-menu';\nimport { Header, HeaderLogo } from '@/components/systaliko-ui/blocks/header';\nimport Link from 'next/link';\n\nconst nav_links = [\n  {\n    id: 'nav-link-about',\n    label: 'About',\n    href: '#',\n  },\n  {\n    id: 'nav-link-features',\n    label: 'Features',\n    href: '#',\n  },\n  {\n    id: 'nav-link-pricing',\n    label: 'Pricing',\n    href: '#',\n  },\n  {\n    id: 'nav-link-faq',\n    label: 'FAQ',\n    href: '#',\n  },\n  {\n    id: 'nav-link-contact',\n    label: 'Contact',\n    href: '#',\n  },\n];\nconst nav_socials = [\n  {\n    id: 'nav-social-x',\n    label: 'x',\n    href: 'https://x.com',\n  },\n  {\n    id: 'nav-social-instagram',\n    label: 'Instagram',\n    href: 'https://instagram.com',\n  },\n  {\n    id: 'nav-social-linkedin',\n    label: 'LinkedIn',\n    href: 'https://linkedin.com',\n  },\n];\n\nconst NavMobile = () => {\n  return (\n    <AnimatedMenu className=\"self-center relative\">\n      <AnimatedMenuButton className=\"w-28 h-12 text-secondary-foreground font-medium\">\n        <AnimatedMenuButtonToggleIcon className=\"*:h-[1.5px] *:origin-[17.5%]\" />\n        <AnimatedMenuButtonLabel />\n      </AnimatedMenuButton>\n      <AnimatedMenuList\n        layout\n        className=\"absolute right-0 top-0 bg-secondary/70 backdrop-blur border border-border/10 shadow rounded-3xl\"\n      >\n        <div className=\"flex flex-col px-6 justify-evenly gap-6 items-start size-full\">\n          <div className=\"flex flex-col items-start gap-4 *:transition-opacity *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none\">\n            {nav_links.map((navLink, i) => (\n              <AnimatedMenuItem\n                key={navLink.id}\n                className=\"perspective-dramatic perspective-origin-bottom\"\n                order={i}\n              >\n                <CloseAnimatedMenu>\n                  <Link\n                    className=\"text-2xl font-medium p-2\"\n                    href={navLink.href}\n                    title={navLink.label}\n                    aria-label={`navigate to ${navLink.label}`}\n                  >\n                    {navLink.label}\n                  </Link>\n                </CloseAnimatedMenu>\n              </AnimatedMenuItem>\n            ))}\n          </div>\n          <div className=\"flex gap-3 *:transition-blur *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none\">\n            {nav_socials.map((navSocial, i) => (\n              <AnimatedMenuItem\n                key={navSocial.id}\n                className=\"text-primary\"\n                order={i + nav_links.length}\n              >\n                <CloseAnimatedMenu>\n                  <Link\n                    className=\"p-1\"\n                    href={navSocial.href}\n                    title={navSocial.label}\n                    target=\"_blank\"\n                    rel=\"noopener noreferrer\"\n                    aria-label={`navigate to ${navSocial.label}`}\n                  >\n                    {navSocial.label}\n                  </Link>\n                </CloseAnimatedMenu>\n              </AnimatedMenuItem>\n            ))}\n          </div>\n        </div>\n      </AnimatedMenuList>\n    </AnimatedMenu>\n  );\n};\nconst NavDesktop = () => {\n  return (\n    <nav className=\"flex border border-border/50 bg-card/50 backdrop-blur-xs gap-4 px-6 rounded-4xl items-center justify-between *:transition-opacity *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none\">\n      {nav_links.map((navLink) => (\n        <Link\n          key={navLink.id}\n          className=\"font-medium text-sm p-2\"\n          href={navLink.href}\n          title={navLink.label}\n          aria-label={`navigate to ${navLink.label}`}\n        >\n          {navLink.label}\n        </Link>\n      ))}\n    </nav>\n  );\n};\nexport function HeaderDemo() {\n  const isMobile = useIsMobile(920);\n\n  return (\n    <div className=\"h-[250vh]\">\n      <Header className=\"sticky top-2 left-0 w-full h-16 z-999\">\n        <HeaderLogo>\n          <span className=\"text-xl tracking-tighter font-bold\">\n            systaliko ui\n          </span>\n        </HeaderLogo>\n\n        {isMobile ? <NavMobile /> : <NavDesktop />}\n      </Header>\n      <div className=\"w-4/5 mx-auto text-center h-[50vh] place-content-center\">\n        <h2 className=\"text-2xl font-bold\">\n          Scroll down 👇🏻 to hide header, scroll up ☝️ to show it again. resize\n          ↔️ to check responsivity.\n        </h2>\n      </div>\n    </div>\n  );\n}",
+          "'use client';\nimport { useIsMobile } from '@/hooks/use-mobile';\nimport {\n  AnimatedMenu,\n  AnimatedMenuButton,\n  AnimatedMenuButtonLabel,\n  AnimatedMenuButtonToggleIcon,\n  AnimatedMenuItem,\n  AnimatedMenuList,\n  CloseAnimatedMenu,\n} from '@/components/systaliko-ui/blocks/animated-menu';\nimport { Header, HeaderLogo } from '@/components/systaliko-ui/blocks/header';\nimport Link from 'next/link';\n\nconst nav_links = [\n  {\n    id: 'nav-link-about',\n    label: 'About',\n    href: '#',\n  },\n  {\n    id: 'nav-link-features',\n    label: 'Features',\n    href: '#',\n  },\n  {\n    id: 'nav-link-pricing',\n    label: 'Pricing',\n    href: '#',\n  },\n  {\n    id: 'nav-link-faq',\n    label: 'FAQ',\n    href: '#',\n  },\n  {\n    id: 'nav-link-contact',\n    label: 'Contact',\n    href: '#',\n  },\n];\nconst nav_socials = [\n  {\n    id: 'nav-social-x',\n    label: 'x',\n    href: 'https://x.com',\n  },\n  {\n    id: 'nav-social-instagram',\n    label: 'Instagram',\n    href: 'https://instagram.com',\n  },\n  {\n    id: 'nav-social-linkedin',\n    label: 'LinkedIn',\n    href: 'https://linkedin.com',\n  },\n];\n\nconst NavMobile = () => {\n  return (\n    <AnimatedMenu className=\"self-center relative\">\n      <AnimatedMenuButton className=\"w-28 h-12 text-secondary-foreground font-medium\">\n        <AnimatedMenuButtonToggleIcon className=\"*:h-[1.5px] *:origin-[17.5%]\" />\n        <AnimatedMenuButtonLabel />\n      </AnimatedMenuButton>\n      <AnimatedMenuList\n        layout\n        className=\"absolute right-0 top-0 bg-secondary/80 backdrop-blur border border-border/10 shadow rounded-3xl\"\n      >\n        <div className=\"flex flex-col px-6 justify-evenly gap-6 items-start size-full\">\n          <div className=\"flex flex-col items-start gap-4 *:transition-opacity *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none\">\n            {nav_links.map((navLink, i) => (\n              <AnimatedMenuItem\n                key={navLink.id}\n                className=\"perspective-dramatic perspective-origin-bottom\"\n                order={i}\n              >\n                <CloseAnimatedMenu>\n                  <Link\n                    className=\"text-2xl font-medium p-2\"\n                    href={navLink.href}\n                    title={navLink.label}\n                    aria-label={`navigate to ${navLink.label}`}\n                  >\n                    {navLink.label}\n                  </Link>\n                </CloseAnimatedMenu>\n              </AnimatedMenuItem>\n            ))}\n          </div>\n          <div className=\"flex gap-3 *:transition-blur *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none\">\n            {nav_socials.map((navSocial, i) => (\n              <AnimatedMenuItem\n                key={navSocial.id}\n                className=\"text-primary\"\n                order={i + nav_links.length}\n              >\n                <CloseAnimatedMenu>\n                  <Link\n                    className=\"p-1\"\n                    href={navSocial.href}\n                    title={navSocial.label}\n                    target=\"_blank\"\n                    rel=\"noopener noreferrer\"\n                    aria-label={`navigate to ${navSocial.label}`}\n                  >\n                    {navSocial.label}\n                  </Link>\n                </CloseAnimatedMenu>\n              </AnimatedMenuItem>\n            ))}\n          </div>\n        </div>\n      </AnimatedMenuList>\n    </AnimatedMenu>\n  );\n};\nconst NavDesktop = () => {\n  return (\n    <nav className=\"flex border border-border/50 bg-card/50 backdrop-blur-xs gap-4 px-6 rounded-4xl items-center justify-between *:transition-opacity *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none\">\n      {nav_links.map((navLink) => (\n        <Link\n          key={navLink.id}\n          className=\"font-medium text-sm p-2\"\n          href={navLink.href}\n          title={navLink.label}\n          aria-label={`navigate to ${navLink.label}`}\n        >\n          {navLink.label}\n        </Link>\n      ))}\n    </nav>\n  );\n};\nexport function HeaderDemo() {\n  const isMobile = useIsMobile(960);\n\n  return (\n    <div className=\"h-[180vh]\">\n      <Header className=\"sticky top-2 left-0 w-full h-16 z-999 bg-card/90 border-b border-b-border/50 p-4\">\n        <HeaderLogo>\n          <span className=\"text-xl tracking-tighter font-bold\">\n            systaliko ui\n          </span>\n        </HeaderLogo>\n\n        {isMobile ? <NavMobile /> : <NavDesktop />}\n      </Header>\n      <div className=\"w-4/5 mx-auto text-center h-[50vh] place-content-center\">\n        <h2 className=\"text-2xl font-bold\">\n          Scroll down 👇🏻 to hide header, scroll up ☝️ to show it again. resize\n          ↔️ to check responsivity.\n        </h2>\n      </div>\n    </div>\n  );\n}",
       },
     ],
     keywords: [],
@@ -1397,609 +1211,6 @@ export const index: Record<string, any> = {
     })(),
     command: '@systaliko-ui/image-player-demo',
   },
-  'parallax-demo': {
-    name: 'parallax-demo',
-    description: 'Demo showing parallax component.',
-    type: 'registry:block',
-    dependencies: ['motion'],
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/parallax',
-      'https://systaliko-ui.vercel.app/r/container-stagger',
-      'https://systaliko-ui.vercel.app/r/text-stagger-inview',
-      'https://systaliko-ui.vercel.app/r/animation-variants',
-      'https://systaliko-ui.vercel.app/r/button',
-    ],
-    files: [
-      {
-        path: 'registry/demo/blocks/parallax/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/demo/blocks/parallax.tsx',
-        content:
-          '\'use client\';\nimport { ContainerStagger } from \'@/components/systaliko-ui/blocks/container-stagger\';\nimport {\n  Parallax,\n  ParallaxItem,\n  PrallaxContainer,\n} from \'@/components/systaliko-ui/blocks/parallax\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\nimport { ANIMATION_VARIANTS } from \'@/components/systaliko-ui/utils/animation-variants\';\nimport { motion, MotionConfig } from \'motion/react\';\n\nexport function ParallaxDemo() {\n  const animationVariants = ANIMATION_VARIANTS[\'z\'];\n  return (\n    <Parallax className="h-[3600px] md:h-[2000px] p-12">\n      <ContainerStagger className="sticky top-0 h-screen space-y-4 w-full flex flex-col justify-center items-center text-center">\n        <MotionConfig\n          transition={{\n            ease: \'easeOut\',\n            duration: 0.3,\n          }}\n        >\n          <TextStaggerInview\n            as="h2"\n            className="text-5xl font-bold tracking-tighter max-w-[20ch] mx-auto"\n            animation="z"\n          >\n            Creating brands that brings people to the shop\n          </TextStaggerInview>\n\n          <motion.p\n            variants={animationVariants}\n            className="max-w-[55ch] text-muted-foreground"\n          >\n            Defining the brand’s unique value proposition and positioning it in\n            the market, creating a brand identity that resonates with the target\n            audience.\n          </motion.p>\n        </MotionConfig>\n      </ContainerStagger>\n      <PrallaxContainer className="flex flex-wrap justify-between gap-4 w-full">\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={200}\n          end={-200}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1508849789987-4e5333c12b78?q=80&w=1593&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={500}\n          end={20}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1666053691228-5f2c957b1755?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={800}\n          end={50}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1705693346612-bbc9f38f1621?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={500}\n          end={50}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1534270804882-6b5048b1c1fc?q=80&w=706&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={800}\n          end={70}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1643451481461-f73ff49a3f93?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n      </PrallaxContainer>\n    </Parallax>\n  );\n}',
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import('@/registry/demo/blocks/parallax/index.tsx');
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'parallax-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/parallax-demo',
-  },
-  'scroll-animation-combo-demo': {
-    name: 'scroll-animation-combo-demo',
-    description: 'Demo showing scroll-animation-combo component.',
-    type: 'registry:block',
-    dependencies: ['motion'],
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animation',
-    ],
-    files: [
-      {
-        path: 'registry/demo/blocks/scroll-animation-combo/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/demo/scroll-animation-combo.tsx',
-        content:
-          "import {\n  ScrollAnimation,\n  ScrollInsetX,\n  ScrollScale,\n  ScrollTranslateY,\n} from '@/components/systaliko-ui/blocks/scroll-animation';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1717008303072-88c8ad26c3ff?q=80&w=2663&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1716855048433-50d4db79ba14?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608501078713-8e445a709b39?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1560360482-d5588f13d530?q=80&w=2687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1687647849698-e54685db9ae3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1658195686058-3b790484ae7e?q=80&w=2452&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1629692905066-d202dad72ebf?q=80&w=2678&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const ScrollAnimationComboDemo = () => {\n  return (\n    <ScrollAnimation className=\"overflow-hidden\">\n      <ScrollTranslateY className=\"h-dvh relative\">\n        <ScrollInsetX className=\"h-full relative\">\n          <ScrollScale className=\"flex bg-secondary gap-2 overflow-hidden px-6\">\n            <ScrollTranslateY\n              yRange={['0%', '-10%']}\n              className=\"flex flex-col gap-2\"\n            >\n              {IMAGES_1.map((imageUrl, index) => (\n                <img\n                  key={index}\n                  className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                  src={imageUrl}\n                  alt=\"gallery item\"\n                />\n              ))}\n            </ScrollTranslateY>\n\n            <ScrollTranslateY\n              yRange={['0%', '20%']}\n              className=\"flex mt-[-20%] relative flex-col gap-2\"\n            >\n              {IMAGES_2.map((imageUrl, index) => (\n                <img\n                  key={index}\n                  className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                  src={imageUrl}\n                  alt=\"gallery item\"\n                />\n              ))}\n            </ScrollTranslateY>\n\n            <ScrollTranslateY\n              yRange={['0%', '-10%']}\n              className=\"hidden md:flex flex-col gap-2\"\n            >\n              {IMAGES_3.map((imageUrl, index) => (\n                <img\n                  key={index}\n                  className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                  src={imageUrl}\n                  alt=\"gallery item\"\n                />\n              ))}\n            </ScrollTranslateY>\n          </ScrollScale>\n        </ScrollInsetX>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n};",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/blocks/scroll-animation-combo/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'scroll-animation-combo-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/scroll-animation-combo-demo',
-  },
-  'scroll-animation-inset-demo': {
-    name: 'scroll-animation-inset-demo',
-    description: 'Demo showing how to implement scroll triggred animations.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animations',
-    ],
-    files: [
-      {
-        path: 'registry/demo/blocks/scroll-animation-inset/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/scroll-animation-inset-demo.tsx',
-        content:
-          'import {\n  ScrollAnimation,\n  ScrollInset,\n  ScrollTranslateY,\n} from \'@/components/systaliko-ui/blocks/scroll-animation\';\n\nexport function ScrollAnimationInsetDemo() {\n  return (\n    <ScrollAnimation>\n      <ScrollTranslateY className="h-dvh  py-8 px-6 flex justify-center items-center">\n        <ScrollInset\n          className="overflow-hidden w-full flex justify-center items-center"\n          insetRangeY={[20, 0]}\n          insetXRange={[20, 0]}\n          roundednessRange={[999, 16]}\n        >\n          <video\n            className="relative z-10  max-h-full max-w-full "\n            src="https://videos.pexels.com/video-files/8086711/8086711-uhd_2560_1440_25fps.mp4"\n            autoPlay\n            muted\n            loop\n            playsInline\n          />\n        </ScrollInset>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}',
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/blocks/scroll-animation-inset/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'scroll-animation-inset-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/scroll-animation-inset-demo',
-  },
-  'scroll-animation-inset-x-demo': {
-    name: 'scroll-animation-inset-x-demo',
-    description: 'Demo showing how to implement scroll triggred animations.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animations',
-    ],
-    files: [
-      {
-        path: 'registry/demo/blocks/scroll-animation-inset-x/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/demo/scroll-animation-inset-x.tsx',
-        content:
-          'import {\n  ScrollAnimation,\n  ScrollInsetX,\n  ScrollTranslateY,\n} from \'@/components/systaliko-ui/blocks/scroll-animation\';\n\nexport function ScrollAnimationInsetXDemo() {\n  return (\n    <ScrollAnimation>\n      <ScrollTranslateY className="h-dvh  py-8 px-6 flex justify-center items-center">\n        <ScrollInsetX\n          className="overflow-hidden w-4/5 mx-auto  rounded-md flex justify-center items-center"\n          insetRange={[120, 0]}\n        >\n          <video\n            className="relative z-10  max-h-full max-w-full "\n            src="https://videos.pexels.com/video-files/8086711/8086711-uhd_2560_1440_25fps.mp4"\n            autoPlay\n            muted\n            loop\n            playsInline\n          />\n        </ScrollInsetX>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}',
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/blocks/scroll-animation-inset-x/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'scroll-animation-inset-x-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/scroll-animation-inset-x-demo',
-  },
-  'scroll-animation-inset-y-demo': {
-    name: 'scroll-animation-inset-y-demo',
-    description: 'Demo showing how to implement scroll triggred animations.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animations',
-    ],
-    files: [
-      {
-        path: 'registry/demo/blocks/scroll-animation-inset-y/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/demo/scroll-animation-inset-y.tsx',
-        content:
-          'import {\n  ScrollAnimation,\n  ScrollInsetY,\n  ScrollTranslateY,\n} from \'@/components/systaliko-ui/blocks/scroll-animation\';\n\nexport function ScrollAnimationInsetYDemo() {\n  return (\n    <ScrollAnimation>\n      <ScrollTranslateY className="h-dvh  py-8 px-6 flex justify-center items-center">\n        <ScrollInsetY\n          className="overflow-hidden w-4/5 mx-auto  rounded-md flex justify-center items-center"\n          insetRange={[80, 0]}\n        >\n          <video\n            className="relative z-10  max-h-full max-w-full "\n            src="https://videos.pexels.com/video-files/8086711/8086711-uhd_2560_1440_25fps.mp4"\n            autoPlay\n            muted\n            loop\n            playsInline\n          />\n        </ScrollInsetY>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}',
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/blocks/scroll-animation-inset-y/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'scroll-animation-inset-y-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/scroll-animation-inset-y-demo',
-  },
-  'scroll-animation-radius-demo': {
-    name: 'scroll-animation-radius-demo',
-    description: 'Demo showing how to use scroll animations.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animations',
-    ],
-    files: [
-      {
-        path: 'registry/demo/blocks/scroll-animation-radius/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/demo/scroll-animation-radius.tsx',
-        content:
-          'import {\n  ScrollAnimation,\n  ScrollInset,\n  ScrollTranslateY,\n} from \'@/components/systaliko-ui/blocks/scroll-animation\';\n\nexport function ScrollRadiusDemo() {\n  return (\n    <ScrollAnimation>\n      <ScrollTranslateY className="h-dvh  py-8 px-6 flex justify-center items-center">\n        <ScrollInset\n          className="overflow-hidden size-96"\n          insetRangeY={[0, 0]}\n          insetXRange={[0, 0]}\n          roundednessRange={[1000, 16]}\n        >\n          <img\n            src="https://images.unsplash.com/photo-1608501078713-8e445a709b39?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="tokyo"\n            className="size-full object-cover"\n          />\n        </ScrollInset>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}',
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/blocks/scroll-animation-radius/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'scroll-animation-radius-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/scroll-animation-radius-demo',
-  },
-  'scroll-animation-rotate-demo': {
-    name: 'scroll-animation-rotate-demo',
-    description: 'Demo showing how to use scroll rotate animations.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animation-rotate',
-    ],
-    files: [
-      {
-        path: 'registry/demo/blocks/scroll-animation-rotate/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/scroll-animation-rotate-demo.tsx',
-        content:
-          "import {\n  ScrollAnimationRotate,\n  ScrollAnimationRotateCol,\n  ScrollAnimationRotateContainer,\n} from '@/components/systaliko-ui/blocks/scroll-animation-rotate';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1717008303072-88c8ad26c3ff?q=80&w=2663&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1716855048433-50d4db79ba14?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608501078713-8e445a709b39?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1560360482-d5588f13d530?q=80&w=2687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1687647849698-e54685db9ae3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1658195686058-3b790484ae7e?q=80&w=2452&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1629692905066-d202dad72ebf?q=80&w=2678&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport function ScrollAnimationRotateDemo() {\n  return (\n    <ScrollAnimationRotate className=\"overflow-hidden\">\n      <ScrollAnimationRotateContainer\n        yRange={[-100, 400]}\n        className=\"h-dvh gap-2\"\n      >\n        <ScrollAnimationRotateCol className=\"gap-2 mt-[-10%]\">\n          {IMAGES_1.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </ScrollAnimationRotateCol>\n        <ScrollAnimationRotateCol\n          className=\"gap-2 mt-[-20%]\"\n          yRange={['15%', '5%']}\n        >\n          {IMAGES_2.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </ScrollAnimationRotateCol>\n        <ScrollAnimationRotateCol\n          yRange={['-10%', '2%']}\n          className=\"gap-2 mt-[-10%]\"\n        >\n          {IMAGES_3.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </ScrollAnimationRotateCol>\n      </ScrollAnimationRotateContainer>\n    </ScrollAnimationRotate>\n  );\n}",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/blocks/scroll-animation-rotate/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'scroll-animation-rotate-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/scroll-animation-rotate-demo',
-  },
-  'scroll-animation-rotate-x-demo': {
-    name: 'scroll-animation-rotate-x-demo',
-    description: 'Demo showing how to use scroll rotate animations.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animation-rotate',
-    ],
-    files: [
-      {
-        path: 'registry/demo/blocks/scroll-animation-rotate-x/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/scroll-animation-rotate-demo.tsx',
-        content:
-          'import {\n  ScrollAnimationRotate,\n  ScrollAnimationRotateContainer,\n} from \'@/components/systaliko-ui/blocks/scroll-animation-rotate\';\n\nexport const ScrollAnimationRotateXDemo = () => {\n  return (\n    <ScrollAnimationRotate>\n      <ScrollAnimationRotateContainer\n        rotationDirection="y"\n        rotateRange={[0, 180]}\n        className="h-96 w-2/6 mx-auto"\n      >\n        <div className="absolute inset-0 z-20 size-full">\n          <img\n            width={1015}\n            height={678}\n            src="https://images.unsplash.com/photo-1655853548169-646b6e0f15ca?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="nike air jordan"\n            className="size-full object-cover"\n          />\n        </div>\n      </ScrollAnimationRotateContainer>\n    </ScrollAnimationRotate>\n  );\n};',
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/blocks/scroll-animation-rotate-x/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'scroll-animation-rotate-x-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/scroll-animation-rotate-x-demo',
-  },
-  'scroll-animation-rotate-y-demo': {
-    name: 'scroll-animation-rotate-y-demo',
-    description: 'Demo showing how to use scroll rotate animations.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animation-rotate',
-    ],
-    files: [
-      {
-        path: 'registry/demo/blocks/scroll-animation-rotate-y/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/scroll-animation-rotate-demo.tsx',
-        content:
-          'import {\n  ScrollAnimationRotate,\n  ScrollAnimationRotateContainer,\n} from \'@/components/systaliko-ui/blocks/scroll-animation-rotate\';\n\nexport const ScrollAnimationRotateYDemo = () => {\n  return (\n    <ScrollAnimationRotate>\n      <ScrollAnimationRotateContainer\n        className={`\n        w-4/5 aspect-video mx-auto bg-border relative border-[20px] rounded-xl shadow-2xl\n        after:block after:absolute after:top-[3%] after:left-[36%] after:h-[0.5%] after:w-[28%] after:rounded-full after:shadow-[0_0_3px_0_white] after:z-20\n        `}\n        rotateRange={[65, 0]}\n      >\n        <div className="rounded-md size-full overflow-hidden">\n          <video\n            className="relative z-10  size-full object-cover"\n            src="https://videos.pexels.com/video-files/8084614/8084614-uhd_2560_1440_25fps.mp4"\n            autoPlay\n            muted\n            loop\n            playsInline\n          />\n        </div>\n      </ScrollAnimationRotateContainer>\n    </ScrollAnimationRotate>\n  );\n};',
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/blocks/scroll-animation-rotate-y/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'scroll-animation-rotate-y-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/scroll-animation-rotate-y-demo',
-  },
-  'scroll-animation-scale-demo': {
-    name: 'scroll-animation-scale-demo',
-    description: 'Demo showing how to implement scroll triggred animations.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animations',
-    ],
-    files: [
-      {
-        path: 'registry/demo/blocks/scroll-animation-scale/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/demo/scroll-animation-scale.tsx',
-        content:
-          'import {\n  ScrollAnimation,\n  ScrollScale,\n  ScrollTranslateY,\n} from \'@/components/systaliko-ui/blocks/scroll-animation\';\n\nexport const ScrollAnimationScaleDemo = () => {\n  return (\n    <ScrollAnimation>\n      <ScrollTranslateY className="h-dvh  py-8 px-6 flex justify-center items-center">\n        <ScrollScale\n          className="overflow-hidden rounded-4xl shadow"\n          scaleRange={[0.4, 1]}\n        >\n          <img\n            src="https://images.unsplash.com/photo-1608501078713-8e445a709b39?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="tokyo"\n            className="max-w-full max-h-full"\n          />\n        </ScrollScale>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n};',
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/blocks/scroll-animation-scale/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'scroll-animation-scale-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/scroll-animation-scale-demo',
-  },
-  'scroll-animation-translate-x-demo': {
-    name: 'scroll-animation-translate-x-demo',
-    description: 'Demo showing how to implement scroll triggred animations.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animations',
-    ],
-    files: [
-      {
-        path: 'registry/demo/blocks/scroll-animation-translate-x/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/scroll-animation-translate-x-demo.tsx',
-        content:
-          'import {\n  ScrollAnimation,\n  ScrollTranslateX,\n  ScrollTranslateY,\n} from \'@/components/systaliko-ui/blocks/scroll-animation\';\n\nexport function ScrollAnimationTranslateXDemo() {\n  return (\n    <ScrollAnimation>\n      <ScrollTranslateY className="h-dvh py-8 px-6 place-content-center">\n        <ScrollTranslateX className=" w-full">\n          <h1 className="text-5xl not-first:font-bold tracking-tight uppercase">\n            Crafting websites\n          </h1>\n        </ScrollTranslateX>\n        <ScrollTranslateX xRange={[0, -150]} className=" w-full text-right">\n          <h1 className="text-primary text-4xl font-bold tracking-tight uppercase">\n            in no time\n          </h1>\n        </ScrollTranslateX>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}',
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/blocks/scroll-animation-translate-x/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'scroll-animation-translate-x-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/scroll-animation-translate-x-demo',
-  },
-  'scroll-autoplay-demo': {
-    name: 'scroll-autoplay-demo',
-    description: 'Demo showing scroll-autoplay component.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/scroll-autoplay'],
-    files: [
-      {
-        path: 'registry/demo/blocks/scroll-autoplay/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/demo/blocks/scroll-autoplay.tsx',
-        content:
-          "import {\n  ScrollAutoplay,\n  ScrollAutoplayContainer,\n  ScrollAutoplayItem,\n} from '@/components/systaliko-ui/blocks/scroll-autoplay';\nimport Image from 'next/image';\n\nconst IMAGES = [\n  'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=2368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D',\n  'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww',\n];\nexport function ScrollAutoplayDemo() {\n  return (\n    <ScrollAutoplay className=\"h-[300vh]\">\n      <ScrollAutoplayContainer className=\"sticky top-0 right-0 w-full md:h-screen place-content-center\">\n        <div className=\"relative w-3/5 mx-auto aspect-video p-2 bg-linear-120 from-muted-foreground/30 to-muted/40 bg-no-repeat border border-foreground/10 rounded-3xl shadow-[inset_0_.450581px_#ffffff4d,0_0_36.0465px_#ffffff0f]\">\n          <div className=\"size-full border-16 border-zinc-800 ring ring-black rounded-[19px] relative\">\n            {IMAGES.map((imageUrl, index) => {\n              const start = index / (IMAGES.length + 1);\n              const end = (index + 1) / (IMAGES.length + 1);\n              const range = [start, end];\n\n              return (\n                <ScrollAutoplayItem key={index} inputRange={range}>\n                  <Image\n                    fill\n                    alt=\"tokyo city\"\n                    src={imageUrl}\n                    className=\"size-full object-cover \"\n                  />\n                </ScrollAutoplayItem>\n              );\n            })}\n          </div>\n        </div>\n      </ScrollAutoplayContainer>\n    </ScrollAutoplay>\n  );\n}",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/blocks/scroll-autoplay/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'scroll-autoplay-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/scroll-autoplay-demo',
-  },
-  'scroll-reverse-scale-animation-demo': {
-    name: 'scroll-reverse-scale-animation-demo',
-    description: 'Demo scroll animations component.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'http://localhost:3000/r/scroll-animations',
-      'http://localhost:3000/r/grid-bento',
-    ],
-    files: [
-      {
-        path: 'registry/demo/blocks/scroll-reverse-scale-animation/index.tsx',
-        type: 'registry:block',
-        target:
-          'components/systaliko-ui/demo/blocks/scroll-reverse-scale-animation.tsx',
-        content:
-          '\'use client\';\n\nimport { GridBento } from \'@/components/systaliko-ui/blocks/grid-bento\';\nimport {\n  ScrollAnimation,\n  ScrollScale,\n  ScrollTranslateY,\n} from \'@/components/systaliko-ui/blocks/scroll-animation\';\nimport { Button } from \'@/components/systaliko-ui/shadcn/button\';\n\nconst IMAGES = [\n  \'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=2368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D\',\n  \'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww\',\n];\n\nexport function ScrollReverseScaleAnimationDemo() {\n  return (\n    <ScrollAnimation className="p-8">\n      <ScrollTranslateY className="h-dvh grid grid-cols-12 grid-rows-1">\n        <ScrollScale\n          className="col-start-2 col-end-12 row-start-1 row-end-2 flex flex-col justify-center items-center space-y-6 text-center"\n          scaleRange={[0, 1]}\n          inputRange={[0.4, 0.9]}\n        >\n          <h1 className="text-5xl font-bold tracking-tighter">\n            Your Animated Hero\n          </h1>\n          <p className="mx-auto text-sm md:text-base">\n            Yet another hero section, this time with scroll trigger animations,{\' \'}\n            <br />\n            animating the hero content with motion.\n          </p>\n          <div className="flex items-center justify-center gap-4">\n            <Button>Get Started</Button>\n            <Button variant="link">Learn more</Button>\n          </div>\n        </ScrollScale>\n        <GridBento className="[&>*:first-child]:origin-[10%_0%] col-start-1 row-start-1 pointer-events-none row-end-2 col-end-13">\n          {IMAGES.map((imageUrl, index) => (\n            <ScrollScale\n              key={index}\n              inputRange={[0, 0.5]}\n              scaleRange={[1, 0.5]}\n              className="overflow-hidden"\n            >\n              <img\n                className="size-full object-cover rounded-xl shadow-xl"\n                src={imageUrl}\n                alt="tokyo city"\n              />\n            </ScrollScale>\n          ))}\n        </GridBento>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}',
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/blocks/scroll-reverse-scale-animation/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'scroll-reverse-scale-animation-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/scroll-reverse-scale-animation-demo',
-  },
-  'scroll-x-carousel-demo': {
-    name: 'scroll-x-carousel-demo',
-    description: 'Demo showing how to use scroll x carousel component.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-x-carousel',
-    ],
-    files: [
-      {
-        path: 'registry/demo/blocks/scroll-x-carousel/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/scroll-x-carousel-demo.tsx',
-        content:
-          "import { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from '@/components/systaliko-ui/cards/card-hover-reveal';\nimport {\n  ScrollXCarousel,\n  ScrollXCarouselContainer,\n  ScrollXCarouselProgress,\n  ScrollXCarouselWrap,\n} from '@/components/systaliko-ui/blocks/scroll-x-carousel';\n\nconst SLIDES = [\n  {\n    id: 'slide-6',\n    title: 'UI UX design',\n    description:\n      'We build a car rental platform for the masses, with a focus on user experience and security, and data privacy.',\n    services: ['branding', 'design'],\n    type: 'Agency',\n    imageUrl:\n      'https://images.unsplash.com/photo-1688733720228-4f7a18681c4f?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-2',\n    title: 'Blockchain wallet',\n    description:\n      'We build a Blockchain wallet for the masses, with a focus on security and usability.',\n    services: ['branding', 'design', 'development'],\n    type: 'blockchain',\n    imageUrl:\n      'https://images.unsplash.com/photo-1624996752380-8ec242e0f85d?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-3',\n    title: 'ecommerce store',\n    description:\n      'We build an ecommerce store for the masses, with a focus on performance and user experience.',\n    services: ['branding', 'design', 'payment getaway', 'development'],\n    type: 'ecommerce',\n    imageUrl:\n      'https://images.unsplash.com/photo-1574717025058-2f8737d2e2b7?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-1',\n    title: 'SaaS platform',\n    description:\n      'We build a SaaS platform for the masses, with a focus on user experience and security, and data privacy.',\n    services: ['branding', 'design', 'development'],\n    type: 'SaaS',\n    imageUrl:\n      'https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?q=80&w=2486&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-4',\n    title: 'SEO Optimization',\n    description:\n      'We build a SaaS platform for the masses, with a focus on user experience and security, and data privacy.',\n    services: ['branding', 'design', 'development'],\n    type: 'SaaS',\n    imageUrl:\n      'https://images.unsplash.com/photo-1726066012698-bb7a3abce786?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n];\n\nexport function ScrollXCarouselDemo() {\n  return (\n    <ScrollXCarousel className=\"h-[150vh]\">\n      <ScrollXCarouselContainer className=\"h-dvh place-content-center flex flex-col gap-8 py-12\">\n        <ScrollXCarouselWrap className=\"flex-4/5 flex space-x-8 [&>*:first-child]:ml-8\">\n          {SLIDES.map((slide) => (\n            <CardHoverReveal\n              key={slide.id}\n              className=\"min-w-[70vw] md:min-w-[38vw] shadow-xl border xl:min-w-[30vw] rounded-xl\"\n            >\n              <CardHoverRevealMain>\n                <img\n                  alt={slide.title}\n                  src={slide.imageUrl}\n                  className=\"size-full aspect-square object-cover\"\n                />\n              </CardHoverRevealMain>\n              <CardHoverRevealContent className=\"space-y-4 rounded-2xl bg-[rgba(0,0,0,.5)] backdrop-blur-3xl p-4\">\n                <div className=\"space-y-2\">\n                  <h3 className=\"text-sm text-white/80\">Type</h3>\n                  <div className=\"flex flex-wrap gap-2\">\n                    <Badge className=\"capitalize rounded-full\">\n                      {slide.type}\n                    </Badge>\n                  </div>\n                </div>\n                <div className=\"space-y-2\">\n                  <h3 className=\"text-sm text-white/80\">Services</h3>\n                  <div className=\"flex flex-wrap gap-2\">\n                    {slide.services.map((service) => (\n                      <Badge\n                        key={service}\n                        className=\"capitalize rounded-full\"\n                        variant={'secondary'}\n                      >\n                        {service}\n                      </Badge>\n                    ))}\n                  </div>\n                </div>\n\n                <div className=\"space-y-2 mt-2\">\n                  <h3 className=\"text-white capitalize font-medium\">\n                    {slide.title}\n                  </h3>\n                  <p className=\"text-white/80 text-sm\">{slide.description}</p>\n                </div>\n              </CardHoverRevealContent>\n            </CardHoverReveal>\n          ))}\n        </ScrollXCarouselWrap>\n        <ScrollXCarouselProgress\n          className=\"bg-secondary mx-8 h-1 rounded-full overflow-hidden\"\n          progressStyle=\"size-full bg-primary/70 rounded-full\"\n        />\n      </ScrollXCarouselContainer>\n    </ScrollXCarousel>\n  );\n}",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/blocks/scroll-x-carousel/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'scroll-x-carousel-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/scroll-x-carousel-demo',
-  },
-  'scroll-x-carousel-reverse-demo': {
-    name: 'scroll-x-carousel-reverse-demo',
-    description:
-      'another Demo showing how to use scroll x carousel component in a reversed.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-x-carousel',
-    ],
-    files: [
-      {
-        path: 'registry/demo/blocks/scroll-x-carousel-reverse/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/scroll-x-carousel-reverse-demo.tsx',
-        content:
-          'import {\n  ScrollXCarousel,\n  ScrollXCarouselContainer,\n  ScrollXCarouselWrap,\n} from \'@/components/systaliko-ui/blocks/scroll-x-carousel\';\n\nconst SHOWCASE_IMAGES = [\n  \'https://images.unsplash.com/photo-1688733720228-4f7a18681c4f?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1624996752380-8ec242e0f85d?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1574717025058-2f8737d2e2b7?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?q=80&w=2486&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1726066012698-bb7a3abce786?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n];\n\nexport function ScrollXCarouselReverseDemo() {\n  return (\n    <ScrollXCarousel>\n      <ScrollXCarouselContainer className=" place-content-center flex flex-col gap-4">\n        <div className=" pointer-events-none w-[12vw] h-[103%] absolute inset-[0_auto_0_0] z-10 bg-[linear-gradient(90deg,_var(--background)_35%,_transparent)]" />\n        <div className="pointer-events-none bg-[linear-gradient(270deg,_var(--background)_35%,_transparent)] w-[15vw] h-[103%] absolute inset-[0_0_0_auto] z-10" />\n        <ScrollXCarouselWrap\n          xRagnge={[\'5%\', \'-40%\']}\n          className="relative flex gap-4 [&>*:first-child]:ml-8"\n        >\n          {SHOWCASE_IMAGES.map((imageUrl, index) => (\n            <div\n              className="min-w-[50vw] md:min-w-[30vw] aspect-video rounded overflow-hidden"\n              key={index}\n            >\n              <img\n                alt="agency showcase"\n                src={imageUrl}\n                className="size-full object-cover"\n              />\n            </div>\n          ))}\n        </ScrollXCarouselWrap>\n        <ScrollXCarouselWrap\n          xRagnge={[\'-50%\', \'10%\']}\n          className="relative flex gap-4 [&>*:first-child]:ml-8"\n        >\n          {SHOWCASE_IMAGES.map((imageUrl, index) => (\n            <div\n              className="min-w-[50vw] md:min-w-[30vw] aspect-video rounded overflow-hidden"\n              key={index}\n            >\n              <img\n                alt="agency showcase"\n                src={imageUrl}\n                className="size-full object-cover"\n              />\n            </div>\n          ))}\n        </ScrollXCarouselWrap>\n      </ScrollXCarouselContainer>\n    </ScrollXCarousel>\n  );\n}',
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/blocks/scroll-x-carousel-reverse/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'scroll-x-carousel-reverse-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/scroll-x-carousel-reverse-demo',
-  },
   'slideshow-demo': {
     name: 'slideshow-demo',
     description: 'Demo showing how to use slideshow component.',
@@ -2013,7 +1224,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/slideshow-demo.tsx',
         content:
-          "'use client';\nimport {\n  Slideshow,\n  SlideshowImageContainer,\n  SlideshowImageWrap,\n  SlideshowIndicator,\n} from '@/components/systaliko-ui/blocks/slideshow';\nimport React from 'react';\n\nconst slides = [\n  {\n    id: 'slide-6',\n    title: 'UI UX design',\n    imageUrl:\n      'https://images.unsplash.com/photo-1688733720228-4f7a18681c4f?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-1',\n    title: 'frontend dev',\n    imageUrl:\n      'https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?q=80&w=2486&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-2',\n    title: 'backend dev',\n    imageUrl:\n      'https://images.unsplash.com/photo-1624996752380-8ec242e0f85d?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-3',\n    title: 'video editing',\n    imageUrl:\n      'https://images.unsplash.com/photo-1574717025058-2f8737d2e2b7?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-4',\n    title: 'SEO optimization',\n    imageUrl:\n      'https://images.unsplash.com/photo-1726066012698-bb7a3abce786?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n];\n\nexport function SlideshowDemo() {\n  const imageUrls = React.useMemo(() => slides.map((s) => s.imageUrl), []);\n\n  function usePreloadImages(urls: string[]) {\n    const imagesRef = React.useRef<HTMLImageElement[]>([]);\n    const [loaded, setLoaded] = React.useState(false);\n    const [progress, setProgress] = React.useState(0);\n\n    React.useEffect(() => {\n      if (!urls || urls.length === 0) {\n        setLoaded(true);\n        return;\n      }\n\n      let mounted = true;\n      let completed = 0;\n      const created: HTMLImageElement[] = [];\n\n      const settle = () => {\n        completed += 1;\n        if (!mounted) return;\n        setProgress((completed / urls.length) * 100);\n        if (completed >= urls.length) {\n          imagesRef.current = created.filter(Boolean) as HTMLImageElement[];\n          setLoaded(true);\n        }\n      };\n\n      urls.forEach((url) => {\n        try {\n          const img = new Image();\n          created.push(img);\n          img.onload = () => settle();\n          img.onerror = () => settle();\n          img.src = url;\n        } catch (e) {\n          console.log(e);\n          settle();\n        }\n      });\n\n      return () => {\n        mounted = false;\n        // cleanup event handlers\n        created.forEach((i) => {\n          i.onload = null;\n          i.onerror = null;\n        });\n      };\n    }, [urls]);\n\n    return { loaded, progress, imagesRef } as const;\n  }\n\n  usePreloadImages(imageUrls);\n  return (\n    <Slideshow className=\"min-h-svh place-content-center p-6 md:px-12\">\n      <h3 className=\"mb-6 text-primary text-xs font-medium capitalize tracking-wide\">\n        / our services\n      </h3>\n      <div className=\"flex flex-wrap items-center justify-evenly gap-6 md:gap-12\">\n        <div className=\"flex  flex-col space-y-2 md:space-y-4   \">\n          {slides.map((slide, index) => (\n            <SlideshowIndicator\n              key={slide.title}\n              index={index}\n              className=\"cursor-pointer text-4xl font-bold uppercase tracking-tighter\"\n            >\n              {slide.title}\n            </SlideshowIndicator>\n          ))}\n        </div>\n        <SlideshowImageContainer>\n          {slides.map((slide, index) => (\n            <div key={slide.id} className=\"  \">\n              <SlideshowImageWrap\n                index={index}\n                className=\"size-full max-h-96 object-cover\"\n              >\n                <img\n                  src={slide.imageUrl}\n                  alt={slide.title}\n                  loading=\"eager\"\n                  className=\"size-full object-cover\"\n                />\n              </SlideshowImageWrap>\n            </div>\n          ))}\n        </SlideshowImageContainer>\n      </div>\n    </Slideshow>\n  );\n}",
+          "'use client';\nimport {\n  Slideshow,\n  SlideshowImageContainer,\n  SlideshowImageWrap,\n  SlideshowIndicator,\n} from '@/components/systaliko-ui/blocks/slideshow';\nimport Image from 'next/image';\n\nconst slides = [\n  {\n    id: 'slide-6',\n    title: 'UI UX design',\n    imageUrl:\n      'https://images.unsplash.com/photo-1688733720228-4f7a18681c4f?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-1',\n    title: 'frontend dev',\n    imageUrl:\n      'https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?q=80&w=2486&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-2',\n    title: 'backend dev',\n    imageUrl:\n      'https://images.unsplash.com/photo-1624996752380-8ec242e0f85d?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-3',\n    title: 'video editing',\n    imageUrl:\n      'https://images.unsplash.com/photo-1574717025058-2f8737d2e2b7?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-4',\n    title: 'SEO optimization',\n    imageUrl:\n      'https://images.unsplash.com/photo-1726066012698-bb7a3abce786?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n];\n\nexport function SlideshowDemo() {\n  return (\n    <Slideshow className=\"min-h-svh place-content-center p-6 md:px-12\">\n      <h3 className=\"mb-6 text-primary text-xs font-medium capitalize tracking-wide\">\n        / our services\n      </h3>\n      <div className=\"flex flex-wrap items-center justify-evenly gap-6 md:gap-12\">\n        <div className=\"flex  flex-col space-y-2 md:space-y-4   \">\n          {slides.map((slide, index) => (\n            <SlideshowIndicator\n              key={slide.title}\n              index={index}\n              className=\"cursor-pointer text-4xl font-bold uppercase tracking-tighter\"\n            >\n              {slide.title}\n            </SlideshowIndicator>\n          ))}\n        </div>\n        <SlideshowImageContainer className=\"relative h-96 aspect-[9/14]\">\n          {slides.map((slide, index) => (\n            <SlideshowImageWrap key={index} index={index} className=\"relative\">\n              <Image\n                src={slide.imageUrl}\n                alt={slide.title}\n                fill\n                priority={true}\n                sizes=\"(max-width: 768px) 100vw, 50vw\"\n                className=\"size-full object-cover\"\n              />\n            </SlideshowImageWrap>\n          ))}\n        </SlideshowImageContainer>\n      </div>\n    </Slideshow>\n  );\n}",
       },
     ],
     keywords: [],
@@ -2076,44 +1287,6 @@ export const index: Record<string, any> = {
     })(),
     command: '@systaliko-ui/story-demo',
   },
-  'team-demo': {
-    name: 'team-demo',
-    description: 'Demo showing team component.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animation',
-    ],
-    files: [
-      {
-        path: 'registry/demo/blocks/team/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/demo/blocks/team.tsx',
-        content:
-          "import { cn } from '@/lib/utils';\nimport {\n  ScrollAnimation,\n  ScrollScale,\n  ScrollTranslateX,\n  ScrollTranslateY,\n} from '@/components/systaliko-ui/blocks/scroll-animation';\nimport Image from 'next/image';\n\ninterface TeamMember {\n  avatar: string;\n  name: string;\n  role: string;\n}\nconst TEAM_MEMBERS: TeamMember[] = [\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Magdalina',\n    role: 'CEO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Jamie',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Emilio',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Samia',\n    role: 'COO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Alex',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Ema',\n    role: 'Head of Product',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Carlos',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Campos',\n    role: 'Engineer',\n  },\n];\n\nexport function TeamCard({\n  member,\n  className,\n  ...props\n}: React.ComponentProps<'div'> & { member: TeamMember }) {\n  return (\n    <div className={cn('space-y-6', className)} {...props}>\n      <Image\n        src={member.avatar}\n        alt={member.name}\n        width={200}\n        height={200}\n        className=\"aspect-square w-full\"\n      />\n\n      <div className=\"space-y-1 pb-4 px-4\">\n        <h3 className=\"text-xl font-medium\">{member.name}</h3>\n        <h4>{member.role}</h4>\n      </div>\n    </div>\n  );\n}\nexport function Team() {\n  return (\n    <ScrollAnimation className=\"overflow-hidden\">\n      <ScrollTranslateY className=\"min-h-svh flex flex-col justify-center items-center gap-6\">\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            xRange={['-200%', '0%']}\n            inputRange={[0.4, 0.9]}\n            className=\"origin-bottom flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n        <ScrollScale\n          inputRange={[0, 0.5]}\n          scaleRange={[1.4, 1]}\n          className=\"w-10/12 flex flex-col justify-center text-center items-center mx-auto origin-center\"\n        >\n          <h2 className=\"text-4xl md:text-5xl font-bold\">\n            Compact team of <span className=\"text-primary\">strategists</span>\n          </h2>\n        </ScrollScale>\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            inputRange={[0.4, 0.9]}\n            xRange={['100%', '-50%']}\n            className=\"flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import('@/registry/demo/blocks/team/index.tsx');
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'team-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/team-demo',
-  },
   'timeline-demo': {
     name: 'timeline-demo',
     description: 'Demo showing timeline component.',
@@ -2149,42 +1322,6 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@systaliko-ui/timeline-demo',
-  },
-  'wavy-block-demo': {
-    name: 'wavy-block-demo',
-    description: 'Demo showing Wavy Block component.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: ['http://localhost:3000/r/wavy-block'],
-    files: [
-      {
-        path: 'registry/demo/blocks/wavy-block/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/demo/blocks/wavy-block.tsx',
-        content:
-          "import { WavyBlock, WavyBlockItem } from '@/components/systaliko-ui/blocks/wavy-block';\n\nconst titles = [\n  'Flexible',\n  'Animated',\n  'Customizable',\n  'Optimized',\n  'Lightweight',\n  'Responsive',\n  'UI Blocks',\n];\n\nexport function WavyBlockDemo() {\n  return (\n    <div className=\"w-full overflow-hidden\">\n      <WavyBlock className=\"flex flex-col justify-start items-start gap-6\">\n        {titles.map((title, index) => (\n          <WavyBlockItem key={title} index={index}>\n            <h2 className=\" text-[7.3vw] font-bold leading-none tracking-tighter uppercase whitespace-nowrap\">\n              {title}\n            </h2>\n          </WavyBlockItem>\n        ))}\n      </WavyBlock>\n    </div>\n  );\n}",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import('@/registry/demo/blocks/wavy-block/index.tsx');
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'wavy-block-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/wavy-block-demo',
   },
   'card-curtain-reveal-demo': {
     name: 'card-curtain-reveal-demo',
@@ -2731,6 +1868,83 @@ export const index: Record<string, any> = {
     })(),
     command: '@systaliko-ui/rating-stars-demo',
   },
+  'infinite-scroll-demo': {
+    name: 'infinite-scroll-demo',
+    description: 'Demo showing infinite scroll component.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/infinite-scroll'],
+    files: [
+      {
+        path: 'registry/demo/ecommerce/infinite-scroll/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/infinite-scroll.tsx',
+        content:
+          '\'use client\';\nimport { Skeleton } from \'@/components/ui/skeleton\';\nimport {\n  InfiniteScroll,\n  InfiniteScrollCell,\n} from \'@/components/systaliko-ui/ecommerce/infinite-scroll\';\nimport { useEffect, useCallback, useState } from \'react\';\n\ninterface Post {\n  id: number;\n  userId: number;\n  title: string;\n  body: string;\n}\n\nfunction CardSkelton() {\n  return (\n    <div className="flex flex-col space-y-6">\n      <div className="flex items-center gap-2">\n        <Skeleton className="size-8 rounded-full" />\n        <Skeleton className="w-full h-6 rounded" />\n      </div>\n      <Skeleton className="w-full h-24 rounded" />\n    </div>\n  );\n}\nexport function InfiniteScrollDemo() {\n  const BASE_URL = \'https://jsonplaceholder.typicode.com/posts\';\n  const LIMIT = 6;\n\n  const [posts, setPosts] = useState<Post[]>([]);\n  const [page, setPage] = useState<number>(0);\n  const [totalCount, setTotalCount] = useState<number | null>();\n  const [isPending, setIsPending] = useState<boolean>(false);\n\n  const fetchData = useCallback(async () => {\n    if (isPending) return;\n\n    setIsPending(true);\n    const start = page * LIMIT;\n\n    try {\n      const response = await fetch(\n        `${BASE_URL}?_start=${start}&_limit=${LIMIT}`,\n      );\n      const totalItems = response.headers.get(\'x-total-count\');\n      const data = await response.json();\n\n      setTotalCount(Number(totalItems));\n      setPosts((prevPosts) => [...prevPosts, ...data]);\n      setPage((prevPage) => prevPage + 1);\n    } catch (error) {\n      console.error(\'Error fetching data:\', error);\n    } finally {\n      setIsPending(false);\n    }\n  }, [page, isPending]);\n\n  useEffect(() => {\n    fetchData();\n  }, []);\n  return (\n    <InfiniteScroll\n      isPending={isPending}\n      currentItemsLength={posts.length}\n      allItemsCount={totalCount}\n      loadMore={fetchData}\n      className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] justify-center items-start gap-4 p-8"\n    >\n      {posts.map((post) => (\n        <InfiniteScrollCell\n          className="p-6 bg-card border border-border/50 rounded-xl shadow-2xs"\n          key={post.id}\n          amount={0.2}\n          skelton={<CardSkelton />}\n        >\n          <div className="flex flex-col space-y-6 ">\n            <div className="flex items-center gap-2">\n              <div className="font-semibold text-sm text-muted-foreground">\n                #{post.id}\n              </div>\n              <h2\n                title={post.title}\n                className="font-medium max-w-[15ch] capitalize line-clamp-1"\n              >\n                {post.title}\n              </h2>\n            </div>\n            <p className="text-sm text-muted-foreground">{post.body}</p>\n          </div>\n        </InfiniteScrollCell>\n      ))}\n    </InfiniteScroll>\n  );\n}',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/ecommerce/infinite-scroll/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'infinite-scroll-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/infinite-scroll-demo',
+  },
+  'price-demo': {
+    name: 'price-demo',
+    description: 'Demo showing price component.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'http://localhost:3000/r/badge',
+      'http://localhost:3000/r/price',
+    ],
+    files: [
+      {
+        path: 'registry/demo/ecommerce/price/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/price.tsx',
+        content:
+          'import {\n  Price,\n  PriceCompareAt,\n  PriceCurrent,\n  PriceSavings,\n} from \'@/components/systaliko-ui/ecommerce/price\';\nimport { badgeVariants } from \'@/components/systaliko-ui/shadcn/badge\';\n\nexport function PriceDemo() {\n  return (\n    <div className="p-8 space-y-6">\n      <div className="space-y-2">\n        <h3 className="font-semibold">Price with sale</h3>\n        <Price\n          className="tabular-nums tracking-tighter space-x-2"\n          amount={1999}\n          compareAt={2499}\n          currency="USD"\n        >\n          <PriceCurrent className="font-semibold" />\n          <PriceCompareAt className="text-sm line-through text-muted-foreground" />\n          <PriceSavings\n            className={`${badgeVariants({ variant: \'outline\' })} text-emerald-500 bg-emerald-100 border-none`}\n          >\n            Save\n          </PriceSavings>\n        </Price>\n      </div>\n\n      <div className="space-y-2">\n        <h3 className=" font-semibold">Price with diffrent currency</h3>\n        <div className="flex gap-2">\n          <Price\n            className="tabular-nums tracking-tighter space-x-2"\n            amount={2000}\n            currency="GBP"\n          >\n            <PriceCurrent className="font-semibold" />\n          </Price>\n          <Price\n            className="tabular-nums tracking-tighter space-x-2"\n            amount={1999}\n            currency="EUR"\n          >\n            <PriceCurrent className="font-semibold" />\n          </Price>\n          <Price\n            className="tabular-nums tracking-tighter space-x-2"\n            amount={20000}\n            currency="JPY"\n          >\n            <PriceCurrent className="font-semibold" />\n          </Price>\n        </div>\n      </div>\n    </div>\n  );\n}',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import('@/registry/demo/ecommerce/price/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'price-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/price-demo',
+  },
   'pricing-demo': {
     name: 'pricing-demo',
     description: 'Demo showing pricing component.',
@@ -2749,7 +1963,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/pricing.tsx',
         content:
-          "'use client';\nimport {\n  calculateYearlySavings,\n  Pricing,\n  PricingCard,\n  PricingFeature,\n  PricingIncludesPrevious,\n  PricingIntervalSwitch,\n  PricingPackage,\n  PricingValue,\n} from '@/components/systaliko-ui/ecommerce/pricing';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport { Label } from '@/components/systaliko-ui/shadcn/field';\nimport {\n  ArrowUpRightIcon,\n  Building2Icon,\n  Tally3Icon,\n  UserRoundIcon,\n  UsersRoundIcon,\n} from 'lucide-react';\n\ninterface PlanConfig {\n  id: string;\n  name: string;\n  icon: typeof Tally3Icon;\n  pricing: { monthly: number; yearly: number };\n  features: string[];\n  includesPrevious?: boolean;\n  featured?: boolean;\n}\n\nconst plans: PlanConfig[] = [\n  {\n    id: 'plan-free',\n    name: 'Free',\n    icon: UserRoundIcon,\n    pricing: { monthly: 0, yearly: 0 },\n    features: [\n      '30 monthly tasks',\n      'Up to 3 active projects',\n      'Solo workspace',\n      'Basic reminders and due dates',\n      'Mobile + desktop app',\n      'Community support',\n    ],\n  },\n  {\n    id: 'plan-team',\n    name: 'Team',\n    icon: UsersRoundIcon,\n    pricing: { monthly: 12, yearly: 100 },\n    features: [\n      'Unlimited projects and tasks',\n      'Team workspaces with roles & permissions',\n      'Real-time collaboration & comments',\n      'Kanban, calendar & timeline views',\n      'File sharing + integrations (Google Drive, Slack...)',\n      'Priority email & chat support',\n    ],\n    includesPrevious: true,\n    featured: true,\n  },\n  {\n    id: 'plan-enterprise',\n    name: 'Enterprise',\n    icon: Building2Icon,\n    pricing: { monthly: 24, yearly: 200 },\n    features: [\n      'Workflow automations (triggers & actions)',\n      'Advanced reporting dashboards',\n      'Custom fields & templates',\n      'Time tracking & workload view',\n      'External client access',\n      'SSO + enhanced security',\n    ],\n    includesPrevious: true,\n  },\n];\nexport function PricingDemo() {\n  const savings = calculateYearlySavings(plans[1].pricing);\n\n  return (\n    <div>\n      <Pricing className=\"space-y-4\">\n        <div className=\"mt-6 flex items-center justify-center gap-2\">\n          <PricingIntervalSwitch />\n          <Label className=\"text-muted-foreground\">Billed annually</Label>\n          <Badge\n            className=\"border-emerald-600 rounded-full text-emerald-600\"\n            variant={'outline'}\n          >\n            💰 Save up to {savings}% with annual billing\n          </Badge>\n        </div>\n        <div className=\"flex flex-wrap gap-y-4 -space-x-0.5 justify-center items-end\">\n          {plans.map((plan) => {\n            const Icon = plan.icon;\n            return (\n              <PricingCard\n                variant={plan.featured ? 'featured' : 'default'}\n                className=\"md:flex-1 max-w-md gap-6 rounded\"\n                key={plan.id}\n              >\n                <PricingPackage className=\"justify-between\">\n                  <h3 className=\"text-xl font-medium\">{plan.name}</h3>\n                  <Icon className=\"size-6 text-primary\" />\n                </PricingPackage>\n\n                <PricingValue\n                  yearlyValue={plan.pricing.yearly}\n                  monthlyValue={plan.pricing.monthly}\n                />\n\n                <div className=\"flex flex-col items-start gap-2\">\n                  {plan.includesPrevious && (\n                    <PricingIncludesPrevious className=\"text-sm text-muted-foreground\">\n                      Everything in previous plan\n                    </PricingIncludesPrevious>\n                  )}\n                  {plan.features.map((feature) => (\n                    <PricingFeature\n                      className=\"text-sm text-muted-foreground\"\n                      key={feature}\n                    >\n                      {feature}\n                    </PricingFeature>\n                  ))}\n                </div>\n\n                <Button\n                  className=\"w-full\"\n                  variant={plan.featured ? 'default' : 'outline'}\n                >\n                  Get Started\n                  <ArrowUpRightIcon className=\"size-4\" />\n                </Button>\n              </PricingCard>\n            );\n          })}\n        </div>\n        <div className=\" text-center text-sm text-muted-foreground\">\n          <p>\n            All plans include a 30-day money-back guarantee. No hidden fees.\n          </p>\n        </div>\n      </Pricing>\n    </div>\n  );\n}",
+          "'use client';\nimport {\n  calculateYearlySavings,\n  Pricing,\n  PricingCard,\n  PricingFeature,\n  PricingIncludesPrevious,\n  PricingIntervalSwitch,\n  PricingPackage,\n  PricingValue,\n} from '@/components/systaliko-ui/ecommerce/pricing';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport { Label } from '@/components/systaliko-ui/shadcn/field';\nimport {\n  ArrowUpRightIcon,\n  Building2Icon,\n  Tally3Icon,\n  UserRoundIcon,\n  UsersRoundIcon,\n} from 'lucide-react';\n\ninterface PlanConfig {\n  id: string;\n  name: string;\n  icon: typeof Tally3Icon;\n  pricing: { monthly: number; yearly: number };\n  features: string[];\n  includesPrevious?: boolean;\n  featured?: boolean;\n}\n\nconst plans: PlanConfig[] = [\n  {\n    id: 'plan-free',\n    name: 'Free',\n    icon: UserRoundIcon,\n    pricing: { monthly: 0, yearly: 0 },\n    features: [\n      '30 monthly tasks',\n      'Up to 3 active projects',\n      'Solo workspace',\n      'Basic reminders and due dates',\n      'Mobile + desktop app',\n      'Community support',\n    ],\n  },\n  {\n    id: 'plan-team',\n    name: 'Team',\n    icon: UsersRoundIcon,\n    pricing: { monthly: 12, yearly: 100 },\n    features: [\n      'Unlimited projects and tasks',\n      'Team workspaces with roles & permissions',\n      'Real-time collaboration & comments',\n      'Kanban, calendar & timeline views',\n      'File sharing + integrations (Google Drive, Slack...)',\n      'Priority email & chat support',\n    ],\n    includesPrevious: true,\n    featured: true,\n  },\n  {\n    id: 'plan-enterprise',\n    name: 'Enterprise',\n    icon: Building2Icon,\n    pricing: { monthly: 24, yearly: 200 },\n    features: [\n      'Workflow automations (triggers & actions)',\n      'Advanced reporting dashboards',\n      'Custom fields & templates',\n      'Time tracking & workload view',\n      'External client access',\n      'SSO + enhanced security',\n    ],\n    includesPrevious: true,\n  },\n];\nexport function PricingDemo() {\n  const savings = calculateYearlySavings(plans[1].pricing);\n\n  return (\n    <div>\n      <Pricing className=\"space-y-4\">\n        <div className=\"mt-6 flex items-center justify-center gap-2\">\n          <PricingIntervalSwitch />\n          <Label className=\"text-muted-foreground\">Billed annually</Label>\n          <Badge\n            className=\"border-emerald-600 rounded-full text-emerald-600\"\n            variant={'outline'}\n          >\n            💰 Save up to {savings}% with annual billing\n          </Badge>\n        </div>\n        <div className=\"flex flex-wrap gap-y-4 -space-x-0.5 justify-center items-end\">\n          {plans.map((plan) => {\n            const Icon = plan.icon;\n            return (\n              <PricingCard\n                variant={plan.featured ? 'featured' : 'default'}\n                className=\"md:flex-1 max-w-md min-w-2xs gap-6 rounded\"\n                key={plan.id}\n              >\n                <PricingPackage className=\"justify-between\">\n                  <h3 className=\"text-xl font-medium\">{plan.name}</h3>\n                  <Icon className=\"size-6 text-primary\" />\n                </PricingPackage>\n\n                <PricingValue\n                  yearlyValue={plan.pricing.yearly}\n                  monthlyValue={plan.pricing.monthly}\n                />\n\n                <div className=\"flex flex-col items-start gap-2\">\n                  {plan.includesPrevious && (\n                    <PricingIncludesPrevious className=\"text-sm text-muted-foreground\">\n                      Everything in previous plan\n                    </PricingIncludesPrevious>\n                  )}\n                  {plan.features.map((feature) => (\n                    <PricingFeature\n                      className=\"text-sm text-muted-foreground\"\n                      key={feature}\n                    >\n                      {feature}\n                    </PricingFeature>\n                  ))}\n                </div>\n\n                <Button\n                  className=\"w-full\"\n                  variant={plan.featured ? 'default' : 'outline'}\n                >\n                  Get Started\n                  <ArrowUpRightIcon className=\"size-4\" />\n                </Button>\n              </PricingCard>\n            );\n          })}\n        </div>\n        <div className=\" text-center text-sm text-muted-foreground\">\n          <p>\n            All plans include a 30-day money-back guarantee. No hidden fees.\n          </p>\n        </div>\n      </Pricing>\n    </div>\n  );\n}",
       },
     ],
     keywords: [],
@@ -2938,7 +2152,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/toggle-layout.tsx',
         content:
-          "import {\n  SelectLayoutGroup,\n  ToggleLayout,\n  ToggleLayoutCell,\n  ToggleLayoutContainer,\n} from '@/components/systaliko-ui/ecommerce/toggle-layout';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport Image from 'next/image';\n\nconst products = [\n  {\n    id: 'product-1',\n    name: 'Air Jordan',\n    category: 'Shoes',\n    price: 19,\n    imageUrl: 'https://m.media-amazon.com/images/I/51idMcfqaeL._AC_SX695_.jpg',\n  },\n  {\n    id: 'product-2',\n    name: 'Air Jordan',\n    category: 'Shoes',\n    price: 29,\n    imageUrl: 'https://m.media-amazon.com/images/I/51T3fRu8BwL._AC_SY695_.jpg',\n  },\n  {\n    id: 'product-3',\n    name: 'Better than lebron',\n    category: 'Shirt',\n    price: 9.99,\n    imageUrl: 'https://m.media-amazon.com/images/I/51Dw3+xtbwL._AC_SY879_.jpg',\n  },\n  {\n    id: 'product-4',\n    name: 'Air Jordan',\n    category: 'Shoes',\n    price: 19,\n    imageUrl: 'https://m.media-amazon.com/images/I/51sOQ6HcnZL._AC_SX695_.jpg',\n  },\n  {\n    id: 'product-5',\n    name: 'Air Jordan',\n    category: 'Shoes',\n    price: 19,\n    imageUrl: 'https://m.media-amazon.com/images/I/61KH6jsAjFL._AC_SX695_.jpg',\n  },\n  {\n    id: 'product-6',\n    name: 'Better than lebron',\n    category: 'Shirt',\n    price: 9.99,\n    imageUrl: 'https://m.media-amazon.com/images/I/71+aB8Kqx4L._AC_SX679_.jpg',\n  },\n  {\n    id: 'product-7',\n    name: 'Air Jordan',\n    category: 'Shoes',\n    price: 19,\n    imageUrl: 'https://m.media-amazon.com/images/I/51usDI-P8+L._AC_SX695_.jpg',\n  },\n  {\n    id: 'product-8',\n    name: 'Air Jordan',\n    category: 'Shorts',\n    price: 19,\n    imageUrl: 'https://m.media-amazon.com/images/I/613m241hJvL._AC_SX679_.jpg',\n  },\n  {\n    id: 'product-9',\n    name: 'Air Jordan',\n    category: 'Shorts',\n    price: 19,\n    imageUrl: 'https://m.media-amazon.com/images/I/61Fchml2nkL._AC_SX695_.jpg',\n  },\n];\n\nexport function ToggleLayoutDemo() {\n  return (\n    <section className=\"py-12 px-6\">\n      <ToggleLayout>\n        <SelectLayoutGroup className=\"mb-8\" />\n        <ToggleLayoutContainer>\n          {products.map((product) => (\n            <ToggleLayoutCell\n              key={product.id}\n              className=\"w-full min-h-96 flex flex-col justify-between max-w-sm mx-auto py-6 px-4 space-y-8 border border-border/20 rounded-3xl shadow-2xs\"\n            >\n              <div className=\"w-fit mx-auto h-full flex justify-center items-center\">\n                <Image\n                  src={product.imageUrl}\n                  width={695}\n                  height={390}\n                  className=\"inline-block align-middle w-4/5 mx-auto h-auto max-h-full object-contain\"\n                  alt=\"nike air jordan\"\n                />\n              </div>\n\n              <div className=\"space-y-3\">\n                <div className=\"flex items-center justify-between gap-4\">\n                  <h2 className=\"font-semibold text-sm tracking-tight \">\n                    {product.name}\n                  </h2>\n                  <Badge\n                    variant={'secondary'}\n                    className=\"shadow-xs border rounded-full\"\n                  >\n                    {product.category}\n                  </Badge>\n                </div>\n                <div className=\"flex items-center justify-between gap-4\">\n                  <p className=\"text-muted-foreground text-sm font-light tabular-nums tracking-tighter\">\n                    $120.00\n                  </p>\n                  <Button variant={'link'} size={'sm'}>\n                    Buy Now\n                  </Button>\n                </div>\n              </div>\n            </ToggleLayoutCell>\n          ))}\n        </ToggleLayoutContainer>\n      </ToggleLayout>\n    </section>\n  );\n}",
+          "import {\n  SelectLayoutGroup,\n  ToggleLayout,\n  ToggleLayoutCell,\n  ToggleLayoutContainer,\n} from '@/components/systaliko-ui/ecommerce/toggle-layout';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport Image from 'next/image';\n\nconst products = [\n  {\n    id: 'product-1',\n    name: 'Air Jordan',\n    category: 'Shoes',\n    price: 19,\n    imageUrl: 'https://m.media-amazon.com/images/I/51idMcfqaeL._AC_SX695_.jpg',\n  },\n  {\n    id: 'product-2',\n    name: 'Air Jordan',\n    category: 'Shoes',\n    price: 29,\n    imageUrl: 'https://m.media-amazon.com/images/I/51T3fRu8BwL._AC_SY695_.jpg',\n  },\n  {\n    id: 'product-3',\n    name: 'Better than lebron',\n    category: 'Shirt',\n    price: 9.99,\n    imageUrl: 'https://m.media-amazon.com/images/I/51Dw3+xtbwL._AC_SY879_.jpg',\n  },\n  {\n    id: 'product-4',\n    name: 'Air Jordan',\n    category: 'Shoes',\n    price: 19,\n    imageUrl: 'https://m.media-amazon.com/images/I/51sOQ6HcnZL._AC_SX695_.jpg',\n  },\n  {\n    id: 'product-5',\n    name: 'Air Jordan',\n    category: 'Shoes',\n    price: 19,\n    imageUrl: 'https://m.media-amazon.com/images/I/61KH6jsAjFL._AC_SX695_.jpg',\n  },\n  {\n    id: 'product-6',\n    name: 'Better than lebron',\n    category: 'Shirt',\n    price: 9.99,\n    imageUrl: 'https://m.media-amazon.com/images/I/71+aB8Kqx4L._AC_SX679_.jpg',\n  },\n  {\n    id: 'product-7',\n    name: 'Air Jordan',\n    category: 'Shoes',\n    price: 19,\n    imageUrl: 'https://m.media-amazon.com/images/I/51usDI-P8+L._AC_SX695_.jpg',\n  },\n  {\n    id: 'product-8',\n    name: 'Air Jordan',\n    category: 'Shorts',\n    price: 19,\n    imageUrl: 'https://m.media-amazon.com/images/I/613m241hJvL._AC_SX679_.jpg',\n  },\n  {\n    id: 'product-9',\n    name: 'Air Jordan',\n    category: 'Shorts',\n    price: 19,\n    imageUrl: 'https://m.media-amazon.com/images/I/61Fchml2nkL._AC_SX695_.jpg',\n  },\n];\n\nexport function ToggleLayoutDemo() {\n  return (\n    <section className=\"py-12 px-6\">\n      <ToggleLayout>\n        <SelectLayoutGroup className=\"mb-8\" />\n        <ToggleLayoutContainer>\n          {products.map((product) => (\n            <ToggleLayoutCell\n              key={product.id}\n              className=\"w-full min-h-96 flex flex-col  max-w-sm mx-auto py-6 px-4 space-y-8 border border-border/20 rounded-3xl shadow-2xs\"\n            >\n              <div className=\"w-fit mx-auto h-full flex  items-center\">\n                <Image\n                  src={product.imageUrl}\n                  width={695}\n                  height={390}\n                  className=\"inline-block align-middle w-4/5 mx-auto h-auto max-h-full object-contain\"\n                  alt=\"nike air jordan\"\n                />\n              </div>\n\n              <div className=\"space-y-3\">\n                <div className=\"flex items-center justify-between gap-4\">\n                  <h2 className=\"font-semibold text-sm tracking-tight \">\n                    {product.name}\n                  </h2>\n                  <Badge\n                    variant={'secondary'}\n                    className=\"shadow-xs border rounded-full\"\n                  >\n                    {product.category}\n                  </Badge>\n                </div>\n                <div className=\"flex items-center justify-between gap-4\">\n                  <p className=\"text-muted-foreground text-sm font-light tabular-nums tracking-tighter\">\n                    $120.00\n                  </p>\n                  <Button variant={'link'} size={'sm'}>\n                    Buy Now\n                  </Button>\n                </div>\n              </div>\n            </ToggleLayoutCell>\n          ))}\n        </ToggleLayoutContainer>\n      </ToggleLayout>\n    </section>\n  );\n}",
       },
     ],
     keywords: [],
@@ -2962,6 +2176,765 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@systaliko-ui/toggle-layout-demo',
+  },
+  'distributed-cards-demo': {
+    name: 'distributed-cards-demo',
+    description: 'Demo showing distributed cards component.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/distributed-cards'],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/distributed-cards/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/distributed-cards.tsx',
+        content:
+          "import {\n  DistributedCardCell,\n  DistributedCards,\n  DistributedCardsContainer,\n} from '@/components/systaliko-ui/blocks/distributed-cards';\nimport Image from 'next/image';\n\nconst CARDS = [\n  {\n    id: 'distributed-card-1',\n    imageUrl:\n      'https://images.unsplash.com/photo-1557409518-691ebcd96038?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n    startX: '100%',\n    startY: '50%',\n  },\n  {\n    id: 'distributed-card-2',\n    imageUrl:\n      'https://images.unsplash.com/photo-1513407030348-c983a97b98d8?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n    startX: '0%',\n    startY: '50%',\n  },\n  {\n    id: 'distributed-card-3',\n    imageUrl:\n      'https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=1484&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n    startX: '-100%',\n    startY: '50%',\n  },\n  {\n    id: 'distributed-card-4',\n    imageUrl:\n      'https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n    startX: '100%',\n    startY: '-50%',\n  },\n  {\n    id: 'distributed-card-5',\n    imageUrl:\n      'https://images.unsplash.com/photo-1677652704119-1497d836c396?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n    startX: '0%',\n    startY: '-50%',\n  },\n  {\n    id: 'distributed-card-6',\n    imageUrl:\n      'https://images.unsplash.com/photo-1525230071276-4a87f42f469e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n    startX: '-100%',\n    startY: '-50%',\n  },\n];\nexport function DistributedCardsDemo() {\n  return (\n    <DistributedCards className=\"w-full\">\n      <DistributedCardsContainer className=\"h-screen flex items-center justify-center overflow-hidden\">\n        <div className=\"grid w-full h-full md:h-auto md:aspect-video max-w-5xl grid-cols-3 grid-rows-2 justify-center items-center gap-4 py-16 px-8\">\n          {CARDS.map((card, i) => (\n            <DistributedCardCell\n              className=\"relative size-full shadow-xl rounded border border-border/20 overflow-hidden\"\n              yRange={[card.startY, '0%']}\n              xRange={[card.startX, '0%']}\n              key={card.id}\n            >\n              <Image\n                src={card.imageUrl}\n                fill\n                alt={'tokyo'}\n                className=\"object-cover size-full\"\n                sizes=\"(max-width: 768px) 80vw, 768px\"\n              />\n            </DistributedCardCell>\n          ))}\n        </div>\n      </DistributedCardsContainer>\n    </DistributedCards>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/distributed-cards/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'distributed-cards-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/distributed-cards-demo',
+  },
+  'distributed-cards-2-demo': {
+    name: 'distributed-cards-2-demo',
+    description: 'Another Demo showing distributed cards component.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/distributed-cards-2'],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/distributed-cards-2/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/distributed-cards-2.tsx',
+        content:
+          "import {\n  DistributedCardCell,\n  DistributedCards,\n  DistributedCardsContainer,\n} from '@/components/systaliko-ui/blocks/distributed-cards';\nimport Image from 'next/image';\n\nconst CARDS = [\n  {\n    id: 'distributed-card-1',\n    imageUrl:\n      'https://images.unsplash.com/photo-1557409518-691ebcd96038?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n    startX: '100%',\n    startY: '50%',\n  },\n  {\n    id: 'distributed-card-2',\n    imageUrl:\n      'https://images.unsplash.com/photo-1513407030348-c983a97b98d8?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n    startX: '0%',\n    startY: '50%',\n  },\n  {\n    id: 'distributed-card-3',\n    imageUrl:\n      'https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=1484&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n    startX: '-100%',\n    startY: '50%',\n  },\n  {\n    id: 'distributed-card-4',\n    imageUrl:\n      'https://images.unsplash.com/photo-1542051841857-5f90071e7989?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n    startX: '100%',\n    startY: '-50%',\n  },\n  {\n    id: 'distributed-card-5',\n    imageUrl:\n      'https://images.unsplash.com/photo-1677652704119-1497d836c396?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n    startX: '0%',\n    startY: '-50%',\n  },\n  {\n    id: 'distributed-card-6',\n    imageUrl:\n      'https://images.unsplash.com/photo-1525230071276-4a87f42f469e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n    startX: '-100%',\n    startY: '-50%',\n  },\n];\nexport function DistributedCards2Demo() {\n  return (\n    <DistributedCards className=\"w-full\">\n      <DistributedCardsContainer className=\"h-screen flex items-center justify-center overflow-hidden\">\n        <div className=\"grid w-full h-full md:h-auto md:aspect-video max-w-5xl grid-cols-3 grid-rows-2 justify-center items-center gap-4 py-16 px-8\">\n          {CARDS.map((card, i) => {\n            const start = i / (CARDS.length + 1);\n            const end = (i + 1) / (CARDS.length + 1);\n            const range = [start, end];\n            return (\n              <DistributedCardCell\n                className=\"relative size-full shadow-xl rounded border border-border/20 overflow-hidden\"\n                inputRange={range}\n                yRange={[card.startY, '0%']}\n                xRange={[card.startX, '0%']}\n                key={card.id}\n              >\n                <Image\n                  src={card.imageUrl}\n                  fill\n                  alt={'tokyo'}\n                  className=\"object-cover size-full\"\n                  sizes=\"(max-width: 768px) 80vw, 768px\"\n                />\n              </DistributedCardCell>\n            );\n          })}\n        </div>\n      </DistributedCardsContainer>\n    </DistributedCards>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/distributed-cards-2/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'distributed-cards-2-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/distributed-cards-2-demo',
+  },
+  'parallax-demo': {
+    name: 'parallax-demo',
+    description: 'Demo showing parallax component.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/parallax',
+      'https://systaliko-ui.vercel.app/r/container-stagger',
+      'https://systaliko-ui.vercel.app/r/text-stagger-inview',
+      'https://systaliko-ui.vercel.app/r/animation-variants',
+      'https://systaliko-ui.vercel.app/r/button',
+    ],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/parallax/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/parallax.tsx',
+        content:
+          '\'use client\';\nimport { ContainerStagger } from \'@/components/systaliko-ui/blocks/container-stagger\';\nimport {\n  Parallax,\n  ParallaxItem,\n  PrallaxContainer,\n} from \'@/components/systaliko-ui/scroll-animations/parallax\';\nimport { TextStaggerInview } from \'@/components/systaliko-ui/text/text-stagger-inview\';\nimport { ANIMATION_VARIANTS } from \'@/components/systaliko-ui/utils/animation-variants\';\nimport { motion, MotionConfig } from \'motion/react\';\n\nexport function ParallaxDemo() {\n  const animationVariants = ANIMATION_VARIANTS[\'z\'];\n  return (\n    <Parallax className="h-[3600px] md:h-[2000px] p-12">\n      <ContainerStagger className="sticky top-0 h-screen space-y-4 w-full flex flex-col justify-center items-center text-center">\n        <MotionConfig\n          transition={{\n            ease: \'easeOut\',\n            duration: 0.3,\n          }}\n        >\n          <TextStaggerInview\n            as="h2"\n            className="text-5xl font-bold tracking-tighter max-w-[20ch] mx-auto"\n            animation="z"\n          >\n            Creating brands that brings people to the shop\n          </TextStaggerInview>\n\n          <motion.p\n            variants={animationVariants}\n            className="max-w-[55ch] text-muted-foreground"\n          >\n            Defining the brand’s unique value proposition and positioning it in\n            the market, creating a brand identity that resonates with the target\n            audience.\n          </motion.p>\n        </MotionConfig>\n      </ContainerStagger>\n      <PrallaxContainer className="flex flex-wrap justify-between gap-4 w-full">\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={200}\n          end={-200}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1508849789987-4e5333c12b78?q=80&w=1593&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={500}\n          end={20}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1666053691228-5f2c957b1755?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={800}\n          end={50}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1705693346612-bbc9f38f1621?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={500}\n          end={50}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1534270804882-6b5048b1c1fc?q=80&w=706&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n\n        <ParallaxItem\n          className="w-11/12 md:w-1/4 max-h-96"\n          start={800}\n          end={70}\n        >\n          <img\n            className="size-full object-cover object-[50%_50%]"\n            src="https://images.unsplash.com/photo-1643451481461-f73ff49a3f93?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="street"\n          />\n        </ParallaxItem>\n      </PrallaxContainer>\n    </Parallax>\n  );\n}',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/parallax/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'parallax-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/parallax-demo',
+  },
+  'scroll-animation-combo-demo': {
+    name: 'scroll-animation-combo-demo',
+    description: 'Demo showing scroll-animation-combo component.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animation',
+    ],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/scroll-animation-combo/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/scroll-animation-combo.tsx',
+        content:
+          "import {\n  ScrollAnimation,\n  ScrollInsetX,\n  ScrollScale,\n  ScrollTranslateY,\n} from '@/components/systaliko-ui/scroll-animations/scroll-animation';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1717008303072-88c8ad26c3ff?q=80&w=2663&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1716855048433-50d4db79ba14?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608501078713-8e445a709b39?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1560360482-d5588f13d530?q=80&w=2687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1687647849698-e54685db9ae3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1658195686058-3b790484ae7e?q=80&w=2452&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1629692905066-d202dad72ebf?q=80&w=2678&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport const ScrollAnimationComboDemo = () => {\n  return (\n    <ScrollAnimation className=\"overflow-hidden\">\n      <ScrollTranslateY className=\"h-dvh relative\">\n        <ScrollInsetX className=\"h-full relative\">\n          <ScrollScale className=\"flex bg-secondary gap-2 overflow-hidden px-6\">\n            <ScrollTranslateY\n              yRange={['0%', '-10%']}\n              className=\"flex flex-col gap-2\"\n            >\n              {IMAGES_1.map((imageUrl, index) => (\n                <img\n                  key={index}\n                  className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                  src={imageUrl}\n                  alt=\"gallery item\"\n                />\n              ))}\n            </ScrollTranslateY>\n\n            <ScrollTranslateY\n              yRange={['0%', '20%']}\n              className=\"flex mt-[-20%] relative flex-col gap-2\"\n            >\n              {IMAGES_2.map((imageUrl, index) => (\n                <img\n                  key={index}\n                  className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                  src={imageUrl}\n                  alt=\"gallery item\"\n                />\n              ))}\n            </ScrollTranslateY>\n\n            <ScrollTranslateY\n              yRange={['0%', '-10%']}\n              className=\"hidden md:flex flex-col gap-2\"\n            >\n              {IMAGES_3.map((imageUrl, index) => (\n                <img\n                  key={index}\n                  className=\"aspect-[4/2.5] inline-block align-middle h-auto max-h-full w-full  object-cover\"\n                  src={imageUrl}\n                  alt=\"gallery item\"\n                />\n              ))}\n            </ScrollTranslateY>\n          </ScrollScale>\n        </ScrollInsetX>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n};",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/scroll-animation-combo/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'scroll-animation-combo-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/scroll-animation-combo-demo',
+  },
+  'scroll-animation-inset-demo': {
+    name: 'scroll-animation-inset-demo',
+    description: 'Demo showing how to implement scroll triggred animations.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animations',
+    ],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/scroll-animation-inset/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/scroll-animation-inset-demo.tsx',
+        content:
+          'import {\n  ScrollAnimation,\n  ScrollInset,\n  ScrollTranslateY,\n} from \'@/components/systaliko-ui/scroll-animations/scroll-animation\';\n\nexport function ScrollAnimationInsetDemo() {\n  return (\n    <ScrollAnimation>\n      <ScrollTranslateY className="h-dvh  py-8 px-6 flex justify-center items-center">\n        <ScrollInset\n          className="overflow-hidden w-full flex justify-center items-center"\n          insetRangeY={[20, 0]}\n          insetXRange={[20, 0]}\n          roundednessRange={[999, 16]}\n        >\n          <video\n            className="relative z-10  max-h-full max-w-full "\n            src="https://videos.pexels.com/video-files/8086711/8086711-uhd_2560_1440_25fps.mp4"\n            autoPlay\n            muted\n            loop\n            playsInline\n          />\n        </ScrollInset>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/scroll-animation-inset/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'scroll-animation-inset-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/scroll-animation-inset-demo',
+  },
+  'scroll-animation-inset-x-demo': {
+    name: 'scroll-animation-inset-x-demo',
+    description: 'Demo showing how to implement scroll triggred animations.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animations',
+    ],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/scroll-animation-inset-x/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/scroll-animation-inset-x.tsx',
+        content:
+          'import {\n  ScrollAnimation,\n  ScrollInsetX,\n  ScrollTranslateY,\n} from \'@/components/systaliko-ui/scroll-animations/scroll-animation\';\n\nexport function ScrollAnimationInsetXDemo() {\n  return (\n    <ScrollAnimation>\n      <ScrollTranslateY className="h-dvh  py-8 px-6 flex justify-center items-center">\n        <ScrollInsetX\n          className="overflow-hidden w-4/5 mx-auto  rounded-md flex justify-center items-center"\n          insetRange={[120, 0]}\n        >\n          <video\n            className="relative z-10  max-h-full max-w-full "\n            src="https://videos.pexels.com/video-files/8086711/8086711-uhd_2560_1440_25fps.mp4"\n            autoPlay\n            muted\n            loop\n            playsInline\n          />\n        </ScrollInsetX>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/scroll-animation-inset-x/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'scroll-animation-inset-x-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/scroll-animation-inset-x-demo',
+  },
+  'scroll-animation-inset-y-demo': {
+    name: 'scroll-animation-inset-y-demo',
+    description: 'Demo showing how to implement scroll triggred animations.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animations',
+    ],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/scroll-animation-inset-y/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/scroll-animation-inset-y.tsx',
+        content:
+          'import {\n  ScrollAnimation,\n  ScrollInsetY,\n  ScrollTranslateY,\n} from \'@/components/systaliko-ui/scroll-animations/scroll-animation\';\n\nexport function ScrollAnimationInsetYDemo() {\n  return (\n    <ScrollAnimation>\n      <ScrollTranslateY className="h-dvh  py-8 px-6 flex justify-center items-center">\n        <ScrollInsetY\n          className="overflow-hidden w-4/5 mx-auto  rounded-md flex justify-center items-center"\n          insetRange={[80, 0]}\n        >\n          <video\n            className="relative z-10  max-h-full max-w-full "\n            src="https://videos.pexels.com/video-files/8086711/8086711-uhd_2560_1440_25fps.mp4"\n            autoPlay\n            muted\n            loop\n            playsInline\n          />\n        </ScrollInsetY>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/scroll-animation-inset-y/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'scroll-animation-inset-y-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/scroll-animation-inset-y-demo',
+  },
+  'scroll-animation-radius-demo': {
+    name: 'scroll-animation-radius-demo',
+    description: 'Demo showing how to use scroll animations.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animations',
+    ],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/scroll-animation-radius/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/scroll-animation-radius.tsx',
+        content:
+          'import {\n  ScrollAnimation,\n  ScrollInset,\n  ScrollTranslateY,\n} from \'@/components/systaliko-ui/scroll-animations/scroll-animation\';\n\nexport function ScrollRadiusDemo() {\n  return (\n    <ScrollAnimation>\n      <ScrollTranslateY className="h-dvh  py-8 px-6 flex justify-center items-center">\n        <ScrollInset\n          className="overflow-hidden size-96"\n          insetRangeY={[0, 0]}\n          insetXRange={[0, 0]}\n          roundednessRange={[1000, 16]}\n        >\n          <img\n            src="https://images.unsplash.com/photo-1608501078713-8e445a709b39?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="tokyo"\n            className="size-full object-cover"\n          />\n        </ScrollInset>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/scroll-animation-radius/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'scroll-animation-radius-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/scroll-animation-radius-demo',
+  },
+  'scroll-animation-rotate-demo': {
+    name: 'scroll-animation-rotate-demo',
+    description: 'Demo showing how to use scroll rotate animations.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animation-rotate',
+    ],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/scroll-animation-rotate/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/scroll-animation-rotate-demo.tsx',
+        content:
+          "import {\n  ScrollAnimationRotate,\n  ScrollAnimationRotateCol,\n  ScrollAnimationRotateContainer,\n} from '@/components/systaliko-ui/scroll-animations/scroll-animation-rotate';\n\nconst IMAGES_1 = [\n  'https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww',\n  'https://images.unsplash.com/photo-1717008303072-88c8ad26c3ff?q=80&w=2663&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1716855048433-50d4db79ba14?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608501078713-8e445a709b39?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\nconst IMAGES_2 = [\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1560360482-d5588f13d530?q=80&w=2687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1712183465613-555424cf0e69?q=80&w=2661&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1493515322954-4fa727e97985?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRva3lvfGVufDB8MHwwfHx8Mg%3D%3D',\n];\nconst IMAGES_3 = [\n  'https://images.unsplash.com/photo-1687647849698-e54685db9ae3?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1658195686058-3b790484ae7e?q=80&w=2452&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1629692905066-d202dad72ebf?q=80&w=2678&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1608875004752-2fdb6a39ba4c?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n];\n\nexport function ScrollAnimationRotateDemo() {\n  return (\n    <ScrollAnimationRotate className=\"overflow-hidden\">\n      <ScrollAnimationRotateContainer\n        yRange={[-100, 400]}\n        className=\"h-dvh gap-2\"\n      >\n        <ScrollAnimationRotateCol className=\"gap-2 mt-[-10%]\">\n          {IMAGES_1.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </ScrollAnimationRotateCol>\n        <ScrollAnimationRotateCol\n          className=\"gap-2 mt-[-20%]\"\n          yRange={['15%', '5%']}\n        >\n          {IMAGES_2.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </ScrollAnimationRotateCol>\n        <ScrollAnimationRotateCol\n          yRange={['-10%', '2%']}\n          className=\"gap-2 mt-[-10%]\"\n        >\n          {IMAGES_3.map((imageUrl, index) => (\n            <img\n              key={index}\n              className=\"aspect-video block h-auto max-h-full w-full  rounded-md  object-cover shadow\"\n              src={imageUrl}\n              alt=\"gallery item\"\n            />\n          ))}\n        </ScrollAnimationRotateCol>\n      </ScrollAnimationRotateContainer>\n    </ScrollAnimationRotate>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/scroll-animation-rotate/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'scroll-animation-rotate-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/scroll-animation-rotate-demo',
+  },
+  'scroll-animation-rotate-x-demo': {
+    name: 'scroll-animation-rotate-x-demo',
+    description: 'Demo showing how to use scroll rotate animations.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animation-rotate',
+    ],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/scroll-animation-rotate-x/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/scroll-animation-rotate-demo.tsx',
+        content:
+          'import {\n  ScrollAnimationRotate,\n  ScrollAnimationRotateContainer,\n} from \'@/components/systaliko-ui/scroll-animations/scroll-animation-rotate\';\n\nexport const ScrollAnimationRotateXDemo = () => {\n  return (\n    <ScrollAnimationRotate>\n      <ScrollAnimationRotateContainer\n        rotationDirection="y"\n        rotateRange={[0, 180]}\n        className="h-96 w-2/6 mx-auto"\n      >\n        <div className="absolute inset-0 z-20 size-full">\n          <img\n            width={1015}\n            height={678}\n            src="https://images.unsplash.com/photo-1655853548169-646b6e0f15ca?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="nike air jordan"\n            className="size-full object-cover"\n          />\n        </div>\n      </ScrollAnimationRotateContainer>\n    </ScrollAnimationRotate>\n  );\n};',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/scroll-animation-rotate-x/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'scroll-animation-rotate-x-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/scroll-animation-rotate-x-demo',
+  },
+  'scroll-animation-rotate-y-demo': {
+    name: 'scroll-animation-rotate-y-demo',
+    description: 'Demo showing how to use scroll rotate animations.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animation-rotate',
+    ],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/scroll-animation-rotate-y/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/scroll-animation-rotate-demo.tsx',
+        content:
+          'import {\n  ScrollAnimationRotate,\n  ScrollAnimationRotateContainer,\n} from \'@/components/systaliko-ui/scroll-animations/scroll-animation-rotate\';\n\nexport const ScrollAnimationRotateYDemo = () => {\n  return (\n    <ScrollAnimationRotate>\n      <ScrollAnimationRotateContainer\n        className={`\n        w-4/5 aspect-video mx-auto bg-border relative border-[20px] rounded-xl shadow-2xl\n        after:block after:absolute after:top-[3%] after:left-[36%] after:h-[0.5%] after:w-[28%] after:rounded-full after:shadow-[0_0_3px_0_white] after:z-20\n        `}\n        rotateRange={[65, 0]}\n      >\n        <div className="rounded-md size-full overflow-hidden">\n          <video\n            className="relative z-10  size-full object-cover"\n            src="https://videos.pexels.com/video-files/8084614/8084614-uhd_2560_1440_25fps.mp4"\n            autoPlay\n            muted\n            loop\n            playsInline\n          />\n        </div>\n      </ScrollAnimationRotateContainer>\n    </ScrollAnimationRotate>\n  );\n};',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/scroll-animation-rotate-y/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'scroll-animation-rotate-y-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/scroll-animation-rotate-y-demo',
+  },
+  'scroll-animation-scale-demo': {
+    name: 'scroll-animation-scale-demo',
+    description: 'Demo showing how to implement scroll triggred animations.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animations',
+    ],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/scroll-animation-scale/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/scroll-animation-scale.tsx',
+        content:
+          'import {\n  ScrollAnimation,\n  ScrollScale,\n  ScrollTranslateY,\n} from \'@/components/systaliko-ui/scroll-animations/scroll-animation\';\n\nexport const ScrollAnimationScaleDemo = () => {\n  return (\n    <ScrollAnimation>\n      <ScrollTranslateY className="h-dvh  py-8 px-6 flex justify-center items-center">\n        <ScrollScale\n          className="overflow-hidden rounded-4xl shadow"\n          scaleRange={[0.4, 1]}\n        >\n          <img\n            src="https://images.unsplash.com/photo-1608501078713-8e445a709b39?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"\n            alt="tokyo"\n            className="max-w-full max-h-full"\n          />\n        </ScrollScale>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n};',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/scroll-animation-scale/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'scroll-animation-scale-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/scroll-animation-scale-demo',
+  },
+  'scroll-animation-translate-x-demo': {
+    name: 'scroll-animation-translate-x-demo',
+    description: 'Demo showing how to implement scroll triggred animations.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animations',
+    ],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/scroll-animation-translate-x/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/scroll-animation-translate-x-demo.tsx',
+        content:
+          'import {\n  ScrollAnimation,\n  ScrollTranslateX,\n  ScrollTranslateY,\n} from \'@/components/systaliko-ui/scroll-animations/scroll-animation\';\n\nexport function ScrollAnimationTranslateXDemo() {\n  return (\n    <ScrollAnimation>\n      <ScrollTranslateY className="h-dvh py-8 px-6 place-content-center">\n        <ScrollTranslateX className=" w-full">\n          <h1 className="text-5xl not-first:font-bold tracking-tight uppercase">\n            Crafting websites\n          </h1>\n        </ScrollTranslateX>\n        <ScrollTranslateX xRange={[0, -150]} className=" w-full text-right">\n          <h1 className="text-primary text-4xl font-bold tracking-tight uppercase">\n            in no time\n          </h1>\n        </ScrollTranslateX>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/scroll-animation-translate-x/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'scroll-animation-translate-x-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/scroll-animation-translate-x-demo',
+  },
+  'scroll-autoplay-demo': {
+    name: 'scroll-autoplay-demo',
+    description: 'Demo showing scroll-autoplay component.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/scroll-autoplay'],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/scroll-autoplay/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/scroll-autoplay.tsx',
+        content:
+          "import {\n  ScrollAutoplay,\n  ScrollAutoplayContainer,\n  ScrollAutoplayItem,\n} from '@/components/systaliko-ui/scroll-animations/scroll-autoplay';\nimport Image from 'next/image';\n\nconst IMAGES = [\n  'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=2368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D',\n  'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww',\n];\nexport function ScrollAutoplayDemo() {\n  return (\n    <ScrollAutoplay className=\"h-[300vh]\">\n      <ScrollAutoplayContainer className=\"sticky top-0 left-0 w-full h-screen place-content-center\">\n        <div className=\"relative w-full min-w-3xs md:min-w-md aspect-video  p-2 bg-linear-120 from-muted-foreground/30 to-muted/40 bg-no-repeat border border-foreground/10 rounded-3xl shadow-[inset_0_.450581px_#ffffff4d,0_0_36.0465px_#ffffff0f]\">\n          <div className=\"size-full border-16 border-zinc-800 ring ring-black rounded-[19px] relative\">\n            {IMAGES.map((imageUrl, index) => {\n              const start = index / (IMAGES.length + 1);\n              const end = (index + 1) / (IMAGES.length + 1);\n              const range = [start, end];\n\n              return (\n                <ScrollAutoplayItem key={index} inputRange={range}>\n                  <Image\n                    fill\n                    alt=\"tokyo city\"\n                    src={imageUrl}\n                    className=\"size-full inset-0 object-cover \"\n                    priority\n                  />\n                </ScrollAutoplayItem>\n              );\n            })}\n          </div>\n        </div>\n      </ScrollAutoplayContainer>\n    </ScrollAutoplay>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/scroll-autoplay/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'scroll-autoplay-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/scroll-autoplay-demo',
+  },
+  'scroll-reverse-scale-animation-demo': {
+    name: 'scroll-reverse-scale-animation-demo',
+    description: 'Demo scroll animations component.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'http://localhost:3000/r/scroll-animations',
+      'http://localhost:3000/r/grid-bento',
+    ],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/scroll-reverse-scale-animation/index.tsx',
+        type: 'registry:block',
+        target:
+          'components/systaliko-ui/demo/scroll-reverse-scale-animation.tsx',
+        content:
+          '\'use client\';\n\nimport { GridBento } from \'@/components/systaliko-ui/blocks/grid-bento\';\nimport {\n  ScrollAnimation,\n  ScrollScale,\n  ScrollTranslateY,\n} from \'@/components/systaliko-ui/scroll-animations/scroll-animation\';\nimport { Button } from \'@/components/systaliko-ui/shadcn/button\';\n\nconst IMAGES = [\n  \'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=2368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D\',\n  \'https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww\',\n];\n\nexport function ScrollReverseScaleAnimationDemo() {\n  return (\n    <ScrollAnimation className="p-8">\n      <ScrollTranslateY className="h-dvh grid grid-cols-12 grid-rows-1">\n        <ScrollScale\n          className="col-start-2 col-end-12 row-start-1 row-end-2 flex flex-col justify-center items-center space-y-6 text-center"\n          scaleRange={[0, 1]}\n          inputRange={[0.4, 0.9]}\n        >\n          <h1 className="text-5xl font-bold tracking-tighter">\n            Your Animated Hero\n          </h1>\n          <p className="mx-auto text-sm md:text-base">\n            Yet another hero section, this time with scroll trigger animations,{\' \'}\n            <br />\n            animating the hero content with motion.\n          </p>\n          <div className="flex items-center justify-center gap-4">\n            <Button>Get Started</Button>\n            <Button variant="link">Learn more</Button>\n          </div>\n        </ScrollScale>\n        <GridBento className="[&>*:first-child]:origin-[10%_0%] col-start-1 row-start-1 pointer-events-none row-end-2 col-end-13">\n          {IMAGES.map((imageUrl, index) => (\n            <ScrollScale\n              key={index}\n              inputRange={[0, 0.5]}\n              scaleRange={[1, 0.5]}\n              className="overflow-hidden"\n            >\n              <img\n                className="size-full object-cover rounded-xl shadow-xl"\n                src={imageUrl}\n                alt="tokyo city"\n              />\n            </ScrollScale>\n          ))}\n        </GridBento>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/scroll-reverse-scale-animation/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'scroll-reverse-scale-animation-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/scroll-reverse-scale-animation-demo',
+  },
+  'scroll-x-carousel-demo': {
+    name: 'scroll-x-carousel-demo',
+    description: 'Demo showing how to use scroll x carousel component.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-x-carousel',
+    ],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/scroll-x-carousel/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/scroll-x-carousel-demo.tsx',
+        content:
+          "import { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport {\n  CardHoverReveal,\n  CardHoverRevealContent,\n  CardHoverRevealMain,\n} from '@/components/systaliko-ui/cards/card-hover-reveal';\nimport {\n  ScrollXCarousel,\n  ScrollXCarouselContainer,\n  ScrollXCarouselProgress,\n  ScrollXCarouselWrap,\n} from '@/components/systaliko-ui/scroll-animations/scroll-x-carousel';\n\nconst SLIDES = [\n  {\n    id: 'slide-6',\n    title: 'UI UX design',\n    description:\n      'We build a car rental platform for the masses, with a focus on user experience and security, and data privacy.',\n    services: ['branding', 'design'],\n    type: 'Agency',\n    imageUrl:\n      'https://images.unsplash.com/photo-1688733720228-4f7a18681c4f?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-2',\n    title: 'Blockchain wallet',\n    description:\n      'We build a Blockchain wallet for the masses, with a focus on security and usability.',\n    services: ['branding', 'design', 'development'],\n    type: 'blockchain',\n    imageUrl:\n      'https://images.unsplash.com/photo-1624996752380-8ec242e0f85d?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-3',\n    title: 'ecommerce store',\n    description:\n      'We build an ecommerce store for the masses, with a focus on performance and user experience.',\n    services: ['branding', 'design', 'payment getaway', 'development'],\n    type: 'ecommerce',\n    imageUrl:\n      'https://images.unsplash.com/photo-1574717025058-2f8737d2e2b7?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-1',\n    title: 'SaaS platform',\n    description:\n      'We build a SaaS platform for the masses, with a focus on user experience and security, and data privacy.',\n    services: ['branding', 'design', 'development'],\n    type: 'SaaS',\n    imageUrl:\n      'https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?q=80&w=2486&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n  {\n    id: 'slide-4',\n    title: 'SEO Optimization',\n    description:\n      'We build a SaaS platform for the masses, with a focus on user experience and security, and data privacy.',\n    services: ['branding', 'design', 'development'],\n    type: 'SaaS',\n    imageUrl:\n      'https://images.unsplash.com/photo-1726066012698-bb7a3abce786?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  },\n];\n\nexport function ScrollXCarouselDemo() {\n  return (\n    <ScrollXCarousel className=\"h-[150vh]\">\n      <ScrollXCarouselContainer className=\"h-dvh place-content-center flex flex-col gap-8 py-12\">\n        <ScrollXCarouselWrap className=\"flex-4/5 flex space-x-8 [&>*:first-child]:ml-8\">\n          {SLIDES.map((slide) => (\n            <CardHoverReveal\n              key={slide.id}\n              className=\"min-w-[70vw] md:min-w-[38vw] shadow-xl border xl:min-w-[30vw] rounded-xl\"\n            >\n              <CardHoverRevealMain>\n                <img\n                  alt={slide.title}\n                  src={slide.imageUrl}\n                  className=\"size-full aspect-square object-cover\"\n                />\n              </CardHoverRevealMain>\n              <CardHoverRevealContent className=\"space-y-4 rounded-2xl bg-[rgba(0,0,0,.5)] backdrop-blur-3xl p-4\">\n                <div className=\"space-y-2\">\n                  <h3 className=\"text-sm text-white/80\">Type</h3>\n                  <div className=\"flex flex-wrap gap-2\">\n                    <Badge className=\"capitalize rounded-full\">\n                      {slide.type}\n                    </Badge>\n                  </div>\n                </div>\n                <div className=\"space-y-2\">\n                  <h3 className=\"text-sm text-white/80\">Services</h3>\n                  <div className=\"flex flex-wrap gap-2\">\n                    {slide.services.map((service) => (\n                      <Badge\n                        key={service}\n                        className=\"capitalize rounded-full\"\n                        variant={'secondary'}\n                      >\n                        {service}\n                      </Badge>\n                    ))}\n                  </div>\n                </div>\n\n                <div className=\"space-y-2 mt-2\">\n                  <h3 className=\"text-white capitalize font-medium\">\n                    {slide.title}\n                  </h3>\n                  <p className=\"text-white/80 text-sm\">{slide.description}</p>\n                </div>\n              </CardHoverRevealContent>\n            </CardHoverReveal>\n          ))}\n        </ScrollXCarouselWrap>\n        <ScrollXCarouselProgress\n          className=\"bg-secondary mx-8 h-1 rounded-full overflow-hidden\"\n          progressStyle=\"size-full bg-primary/70 rounded-full\"\n        />\n      </ScrollXCarouselContainer>\n    </ScrollXCarousel>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/scroll-x-carousel/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'scroll-x-carousel-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/scroll-x-carousel-demo',
+  },
+  'scroll-x-carousel-reverse-demo': {
+    name: 'scroll-x-carousel-reverse-demo',
+    description:
+      'another Demo showing how to use scroll x carousel component in a reversed.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-x-carousel',
+    ],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/scroll-x-carousel-reverse/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/scroll-x-carousel-reverse-demo.tsx',
+        content:
+          'import {\n  ScrollXCarousel,\n  ScrollXCarouselContainer,\n  ScrollXCarouselWrap,\n} from \'@/components/systaliko-ui/scroll-animations/scroll-x-carousel\';\n\nconst SHOWCASE_IMAGES = [\n  \'https://images.unsplash.com/photo-1688733720228-4f7a18681c4f?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1624996752380-8ec242e0f85d?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1574717025058-2f8737d2e2b7?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?q=80&w=2486&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n  \'https://images.unsplash.com/photo-1726066012698-bb7a3abce786?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\',\n];\n\nexport function ScrollXCarouselReverseDemo() {\n  return (\n    <ScrollXCarousel>\n      <ScrollXCarouselContainer className=" place-content-center flex flex-col gap-4">\n        <div className=" pointer-events-none w-[12vw] h-[103%] absolute inset-[0_auto_0_0] z-10 bg-[linear-gradient(90deg,_var(--background)_35%,_transparent)]" />\n        <div className="pointer-events-none bg-[linear-gradient(270deg,_var(--background)_35%,_transparent)] w-[15vw] h-[103%] absolute inset-[0_0_0_auto] z-10" />\n        <ScrollXCarouselWrap\n          xRagnge={[\'5%\', \'-40%\']}\n          className="relative flex gap-4 [&>*:first-child]:ml-8"\n        >\n          {SHOWCASE_IMAGES.map((imageUrl, index) => (\n            <div\n              className="min-w-[50vw] md:min-w-[30vw] aspect-video rounded overflow-hidden"\n              key={index}\n            >\n              <img\n                alt="agency showcase"\n                src={imageUrl}\n                className="size-full object-cover"\n              />\n            </div>\n          ))}\n        </ScrollXCarouselWrap>\n        <ScrollXCarouselWrap\n          xRagnge={[\'-50%\', \'10%\']}\n          className="relative flex gap-4 [&>*:first-child]:ml-8"\n        >\n          {SHOWCASE_IMAGES.map((imageUrl, index) => (\n            <div\n              className="min-w-[50vw] md:min-w-[30vw] aspect-video rounded overflow-hidden"\n              key={index}\n            >\n              <img\n                alt="agency showcase"\n                src={imageUrl}\n                className="size-full object-cover"\n              />\n            </div>\n          ))}\n        </ScrollXCarouselWrap>\n      </ScrollXCarouselContainer>\n    </ScrollXCarousel>\n  );\n}',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/scroll-x-carousel-reverse/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'scroll-x-carousel-reverse-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/scroll-x-carousel-reverse-demo',
+  },
+  'team-demo': {
+    name: 'team-demo',
+    description: 'Demo showing team component.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animation',
+    ],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/team/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/team.tsx',
+        content:
+          "import { cn } from '@/lib/utils';\nimport {\n  ScrollAnimation,\n  ScrollScale,\n  ScrollTranslateX,\n  ScrollTranslateY,\n} from '@/components/systaliko-ui/scroll-animations/scroll-animation';\nimport Image from 'next/image';\n\ninterface TeamMember {\n  avatar: string;\n  name: string;\n  role: string;\n}\nconst TEAM_MEMBERS: TeamMember[] = [\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Magdalina',\n    role: 'CEO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVvcGxlfGVufDB8fDB8fHww',\n    name: 'Jamie',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Emilio',\n    role: 'CTO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Samia',\n    role: 'COO',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Alex',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDl8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Ema',\n    role: 'Head of Product',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Carlos',\n    role: 'Engineer',\n  },\n  {\n    avatar:\n      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D',\n    name: 'Campos',\n    role: 'Engineer',\n  },\n];\n\nexport function TeamCard({\n  member,\n  className,\n  ...props\n}: React.ComponentProps<'div'> & { member: TeamMember }) {\n  return (\n    <div className={cn('space-y-6', className)} {...props}>\n      <Image\n        src={member.avatar}\n        alt={member.name}\n        width={200}\n        height={200}\n        className=\"aspect-square w-full\"\n      />\n\n      <div className=\"space-y-1 pb-4 px-4\">\n        <h3 className=\"text-xl font-medium\">{member.name}</h3>\n        <h4>{member.role}</h4>\n      </div>\n    </div>\n  );\n}\nexport function Team() {\n  return (\n    <ScrollAnimation className=\"overflow-hidden\">\n      <ScrollTranslateY className=\"min-h-svh flex flex-col justify-center items-center gap-6\">\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            xRange={['-200%', '0%']}\n            inputRange={[0.4, 0.9]}\n            className=\"origin-bottom flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n        <ScrollScale\n          inputRange={[0, 0.5]}\n          scaleRange={[1.4, 1]}\n          className=\"w-10/12 flex flex-col justify-center text-center items-center mx-auto origin-center\"\n        >\n          <h2 className=\"text-4xl md:text-5xl font-bold\">\n            Compact team of <span className=\"text-primary\">strategists</span>\n          </h2>\n        </ScrollScale>\n        <div className=\"w-full \">\n          <ScrollTranslateX\n            inputRange={[0.4, 0.9]}\n            xRange={['100%', '-50%']}\n            className=\"flex flex-nowrap gap-4\"\n          >\n            {TEAM_MEMBERS.map((member, index) => (\n              <TeamCard\n                className=\"min-w-[48vw] md:min-w-[20vw] bg-card border\"\n                key={index}\n                member={member}\n              />\n            ))}\n          </ScrollTranslateX>\n        </div>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/team/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'team-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/team-demo',
+  },
+  'wavy-block-demo': {
+    name: 'wavy-block-demo',
+    description: 'Demo showing Wavy Block component.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['http://localhost:3000/r/wavy-block'],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/wavy-block/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/wavy-block.tsx',
+        content:
+          "import {\n  WavyBlock,\n  WavyBlockItem,\n} from '@/components/systaliko-ui/scroll-animations/wavy-block';\n\nconst titles = [\n  'Flexible',\n  'Animated',\n  'Customizable',\n  'Optimized',\n  'Lightweight',\n  'Responsive',\n  'UI Blocks',\n];\n\nexport function WavyBlockDemo() {\n  return (\n    <div className=\"w-full overflow-hidden\">\n      <WavyBlock className=\"flex flex-col justify-start items-start gap-6\">\n        {titles.map((title, index) => (\n          <WavyBlockItem key={title} index={index}>\n            <h2 className=\" text-[7.3vw] font-bold leading-none tracking-tighter uppercase whitespace-nowrap\">\n              {title}\n            </h2>\n          </WavyBlockItem>\n        ))}\n      </WavyBlock>\n    </div>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/wavy-block/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'wavy-block-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/wavy-block-demo',
   },
   'text-scroll-read-demo': {
     name: 'text-scroll-read-demo',
@@ -3280,6 +3253,45 @@ export const index: Record<string, any> = {
     })(),
     command: '@systaliko-ui/set-stagger-direction-demo',
   },
+  'infinite-scroll': {
+    name: 'infinite-scroll',
+    description:
+      'infinite scroll container instead of pagination, for large lists and fetching data.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+      {
+        path: 'registry/ecommerce/infinite-scroll/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/ecommerce/infinite-scroll.tsx',
+        content:
+          "'use client';\nimport { Spinner } from '@/components/systaliko-ui/shadcn/spinner';\nimport {\n  AnimatePresence,\n  motion,\n  useInView,\n  UseInViewOptions,\n} from 'motion/react';\nimport React from 'react';\n\ninterface InfiniteScrollProps extends React.ComponentPropsWithRef<'div'> {\n  isPending: boolean;\n  currentItemsLength: number;\n  allItemsCount: number | null | undefined;\n  loadMore: () => void;\n}\ninterface InfiniteScrollCellProps extends React.ComponentPropsWithRef<'div'> {\n  skelton?: React.ReactNode;\n  amount?: UseInViewOptions['amount'];\n}\n\nexport function InfiniteScrollCell({\n  skelton,\n  amount,\n  children,\n  ...props\n}: InfiniteScrollCellProps) {\n  const ref = React.useRef<HTMLDivElement>(null);\n  const isInView = useInView(ref, {\n    once: true,\n    amount,\n  });\n\n  return (\n    <div ref={ref} {...props}>\n      <AnimatePresence mode=\"wait\">\n        {!isInView ? (\n          <motion.div\n            key=\"skeleton\"\n            initial={{ opacity: 1 }}\n            exit={{ opacity: 0 }}\n            transition={{\n              ease: 'easeOut',\n            }}\n          >\n            {skelton}\n          </motion.div>\n        ) : (\n          <motion.div\n            key=\"content\"\n            initial={{ opacity: 0, y: 5 }}\n            animate={{ opacity: 1, y: 0 }}\n            transition={{\n              ease: 'easeOut',\n            }}\n          >\n            {children}\n          </motion.div>\n        )}\n      </AnimatePresence>\n    </div>\n  );\n}\n\nexport function InfiniteScroll({\n  currentItemsLength,\n  isPending,\n  allItemsCount,\n  loadMore,\n  children,\n  ...props\n}: InfiniteScrollProps) {\n  const ref = React.useRef<HTMLDivElement | null>(null);\n  const allLoaded = currentItemsLength === allItemsCount;\n  const hasMore = !allLoaded && currentItemsLength > 0;\n\n  React.useEffect(() => {\n    const { current } = ref;\n\n    if (isPending || allLoaded || !current) {\n      return;\n    }\n\n    const observer = new IntersectionObserver(\n      (entries) => {\n        if (entries[0].isIntersecting && !isPending && !allLoaded) {\n          loadMore();\n        }\n      },\n      { threshold: 1 },\n    );\n\n    observer.observe(current);\n\n    return () => {\n      observer.disconnect();\n    };\n  }, [isPending, allLoaded, currentItemsLength, loadMore]);\n\n  return (\n    <div {...props}>\n      {children}\n      {isPending && hasMore && (\n        <div className=\"flex justify-center py-4\">\n          <Spinner />\n        </div>\n      )}\n      {hasMore && <div ref={ref} />}\n    </div>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/ecommerce/infinite-scroll/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'infinite-scroll';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/infinite-scroll',
+  },
   price: {
     name: 'price',
     description:
@@ -3294,7 +3306,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/ecommerce/price.tsx',
         content:
-          "'use client';\nimport { cn } from '@/lib/utils';\nimport React from 'react';\n\ninterface Price {\n  amount: number;\n  currency: string;\n  interval?: 'month' | 'year' | 'week' | 'day' | 'one-time';\n  discount?: number;\n}\n\ninterface PriceFormatOptions {\n  locale?: string;\n  showCurrency?: boolean;\n  showDecimals?: boolean;\n  compact?: boolean;\n  notation?: 'standard' | 'compact' | 'scientific' | 'engineering';\n}\n\nfunction formatPrice(price: Price, options: PriceFormatOptions = {}): string {\n  const {\n    locale = 'en-US',\n    showCurrency = true,\n    showDecimals = true,\n    compact = false,\n    notation = 'standard',\n  } = options;\n\n  const formatter = new Intl.NumberFormat(locale, {\n    style: showCurrency ? 'currency' : 'decimal',\n    currency: price.currency,\n    minimumFractionDigits: showDecimals ? 2 : 0,\n    maximumFractionDigits: showDecimals ? 2 : 0,\n    notation: compact ? 'compact' : notation,\n  });\n\n  return formatter.format(price.amount);\n}\n\nfunction calculateFinalPrice(price: Price): number {\n  if (price.discount) {\n    return price.amount * (1 - price.discount / 100);\n  }\n  return price.amount;\n}\n\nexport interface PriceProps extends React.HTMLAttributes<HTMLDivElement> {\n  price: Price;\n  options?: PriceFormatOptions;\n  animated?: boolean;\n}\n\nexport function Price({\n  price,\n  options,\n  className,\n  children,\n  animated = false,\n  ...props\n}: PriceProps) {\n  const finalPrice = calculateFinalPrice(price);\n  const [displayValue, setDisplayValue] = React.useState(finalPrice);\n  const [isAnimating, setIsAnimating] = React.useState(false);\n  const prevValueRef = React.useRef(finalPrice);\n\n  React.useEffect(() => {\n    if (animated && prevValueRef.current !== finalPrice) {\n      setIsAnimating(true);\n      const duration = 400;\n      const steps = 20;\n      const stepDuration = duration / steps;\n      const diff = finalPrice - prevValueRef.current;\n      const stepValue = diff / steps;\n\n      let currentStep = 0;\n      const timer = setInterval(() => {\n        currentStep++;\n        if (currentStep === steps) {\n          setDisplayValue(finalPrice);\n          setIsAnimating(false);\n          clearInterval(timer);\n        } else {\n          setDisplayValue(prevValueRef.current + stepValue * currentStep);\n        }\n      }, stepDuration);\n\n      prevValueRef.current = finalPrice;\n      return () => clearInterval(timer);\n    } else if (!animated) {\n      setDisplayValue(finalPrice);\n    }\n  }, [finalPrice, animated]);\n\n  const displayPrice = animated ? displayValue : finalPrice;\n\n  return (\n    <div className={cn('tabular-nums', className)} {...props}>\n      {price.discount ? (\n        <div className=\"flex items-baseline gap-2\">\n          <span className=\"text-muted-foreground/60 line-through text-sm\">\n            {formatPrice(price, options)}\n          </span>\n          <span\n            className={cn(\n              'transition-transform duration-300',\n              isAnimating && 'scale-105',\n            )}\n          >\n            {formatPrice({ ...price, amount: displayPrice }, options)}\n          </span>\n        </div>\n      ) : (\n        <span\n          className={cn(\n            'transition-transform duration-300',\n            isAnimating && 'scale-105',\n          )}\n        >\n          {formatPrice({ ...price, amount: displayPrice }, options)}\n        </span>\n      )}\n      {children}\n    </div>\n  );\n}",
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport React from 'react';\n\nexport const currencyMinorUnits: Record<string, number> = {\n  USD: 2,\n  EUR: 2,\n  GBP: 2,\n  JPY: 0,\n};\n\ninterface PriceContextValue {\n  amount: number | null;\n  compareAt?: number | null;\n  savingsPercent?: number | null;\n  currency?: string;\n  locale?: string;\n}\nconst PriceContext = React.createContext<PriceContextValue | undefined>(\n  undefined,\n);\nfunction usePriceContext() {\n  const context = React.useContext(PriceContext);\n  if (context === undefined) {\n    throw new Error('usePriceContext must be used within a PriceProvider');\n  }\n  return context;\n}\n/**\n * Returns the divider to convert minor units to major units.\n * e.g. USD -> 100, JPY -> 1\n */\nexport function minorUnitDivider(currency?: string): number {\n  const code = (currency ?? 'USD').toUpperCase();\n  const digits = currencyMinorUnits[code] ?? 2;\n  return Math.pow(10, digits);\n}\n\n/**\n * Memoized Intl.NumberFormat factory keyed by locale|currency|digits.\n */\nconst nfCache = new Map<string, Intl.NumberFormat>();\nfunction getNumberFormatter(\n  locale: string,\n  currency: string,\n  fractionDigits: number,\n) {\n  const key = `${locale}|${currency}|${fractionDigits}`;\n  const cached = nfCache.get(key);\n  if (cached) return cached;\n  const nf = new Intl.NumberFormat(locale, {\n    style: 'currency',\n    currency,\n    minimumFractionDigits: fractionDigits,\n    maximumFractionDigits: fractionDigits,\n    currencyDisplay: 'symbol',\n  });\n  nfCache.set(key, nf);\n  return nf;\n}\n\n/**\n * Format an integer minor-unit amount (e.g. cents) to a localized currency string.\n * - amountMinor: integer (may be negative)\n * - currency: ISO code, defaults to USD\n * - locale: BCP47 locale, defaults to en-US\n */\nexport function formatCurrencyFromMinor(\n  amountMinor: number,\n  currency = 'USD',\n  locale = 'en-US',\n): string {\n  if (!Number.isInteger(amountMinor)) {\n    console.warn('amountMinor should be an integer');\n    amountMinor = Math.round(amountMinor);\n  }\n  const digits = currencyMinorUnits[currency.toUpperCase()] ?? 2;\n  const divider = minorUnitDivider(currency);\n  // Use exact division (no floating rounding) then delegate to Intl for display.\n  const amountMajor = amountMinor / divider;\n  const nf = getNumberFormatter(locale, currency, digits);\n  return nf.format(amountMajor);\n}\n\n// components/Price.tsx\n\ninterface PriceProps extends React.ComponentProps<'div'> {\n  amount: number | null; // minor units\n  currency?: 'USD' | 'EUR' | 'GBP' | 'JPY';\n  locale?: string;\n  compareAt?: number | null; // minor units\n  range?: { min: number | null; max: number | null } | null;\n}\nconst format = (amt: number | null, currency?: string, locale?: string) => {\n  if (amt === null) return '';\n  return formatCurrencyFromMinor(amt, currency ?? 'USD', locale ?? 'en-US');\n};\n\nexport function Price({\n  amount,\n  currency = 'USD',\n  locale = 'en-US',\n  compareAt = null,\n  range = null,\n  className,\n  ...props\n}: PriceProps) {\n  // Range handling\n  if (range) {\n    if (range.min === null || range.max === null) return null;\n    if (range.min === range.max) {\n      return (\n        <span {...props}>\n          <span className=\"sr-only\">Price: </span>\n          {format(range.min)}\n        </span>\n      );\n    }\n    return (\n      <span {...props}>\n        <span className=\"sr-only\">Price range: </span>\n        {format(range.min)}&nbsp;–&nbsp;{format(range.max)}\n      </span>\n    );\n  }\n\n  // Unavailable / Free\n  if (amount == null) {\n    return (\n      <span aria-hidden={false} {...props}>\n        <span className=\"sr-only\">Price not available</span>\n      </span>\n    );\n  }\n  if (amount === 0) {\n    return (\n      <span {...props}>\n        <span className=\"sr-only\">Free</span>\n        Free\n      </span>\n    );\n  }\n\n  const isOnSale = compareAt != null && compareAt > amount;\n  let savingsPercent: number | null = null;\n  if (isOnSale) {\n    // integer math to avoid float errors:\n    savingsPercent = Math.round(((compareAt - amount) * 100) / compareAt);\n  }\n  return (\n    <PriceContext.Provider\n      value={{ amount, compareAt, savingsPercent, currency, locale }}\n    >\n      <span\n        className={cn('inline-flex items-baseline', className)}\n        {...props}\n      />\n    </PriceContext.Provider>\n  );\n}\n\nexport function PriceCurrent({ ...props }: React.ComponentProps<'span'>) {\n  const { amount, currency, locale } = usePriceContext();\n  return (\n    <span {...props}>\n      <span className=\"sr-only\">Price: </span>\n      {format(amount, currency, locale)}\n    </span>\n  );\n}\n\nexport function PriceCompareAt({ ...props }: React.ComponentProps<'span'>) {\n  const { compareAt, currency, locale } = usePriceContext();\n  return (\n    <span {...props}>\n      <span className=\"sr-only\">Old Price: </span>\n      {format(compareAt!, currency, locale)}\n    </span>\n  );\n}\n\nexport function PriceSavings({\n  children,\n  ...props\n}: React.ComponentProps<'span'>) {\n  const { savingsPercent } = usePriceContext();\n  return (\n    <span aria-hidden=\"true\" {...props}>\n      <span className=\"sr-only\">Save: </span>\n      {children} {savingsPercent}%\n    </span>\n  );\n}",
       },
     ],
     keywords: [],
@@ -3331,7 +3343,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/ecommerce/pricing.tsx',
         content:
-          "'use client';\nimport { cn } from '@/lib/utils';\nimport { Switch } from '@/components/systaliko-ui/shadcn/switch';\nimport { cva, VariantProps } from 'class-variance-authority';\nimport { CheckIcon, PlusIcon, XIcon } from 'lucide-react';\nimport React from 'react';\nimport { Price } from '@/components/systaliko-ui/ecommerce/price';\n\nconst pricingCardVariants = cva(\n  'group relative border-2 p-6 flex flex-col space-y-6 bg-card transition-all duration-300 hover:shadow-[0_8px_40px_-12px_rgba(0,0,0,0.1)]',\n  {\n    variants: {\n      variant: {\n        default: 'border-border/20 hover:border-border/50 ',\n        featured: 'border-primary/50 z-2 hover:border-primary',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\ntype PricingInterval = 'monthly' | 'yearly';\ninterface PricingDuration {\n  monthly: number;\n  yearly: number;\n}\n\ninterface PricingContextValue {\n  interval: PricingInterval;\n  toggleInterval: () => void;\n  savings?: number;\n}\nconst PricingContext = React.createContext<PricingContextValue | undefined>(\n  undefined,\n);\nfunction usePricingContext() {\n  const context = React.useContext(PricingContext);\n  if (context === undefined) {\n    throw new Error('usePricingContext must be used within a PricingProvider');\n  }\n  return context;\n}\nexport function calculateYearlySavings(pricing: PricingDuration): number {\n  const yearlyTotal = pricing.monthly * 12;\n  const savings = yearlyTotal - pricing.yearly;\n  return Math.round((savings / yearlyTotal) * 100);\n}\n\nexport function Pricing({ ...props }: React.HTMLAttributes<HTMLDivElement>) {\n  const [interval, setInterval] = React.useState<PricingInterval>('monthly');\n\n  const toggleInterval = () => {\n    setInterval((prevState) =>\n      prevState === 'monthly' ? 'yearly' : 'monthly',\n    );\n  };\n  return (\n    <PricingContext.Provider value={{ interval, toggleInterval }}>\n      <div {...props} />\n    </PricingContext.Provider>\n  );\n}\n\nexport function PricingCard({\n  className,\n  variant,\n  ...props\n}: React.ComponentProps<'div'> & VariantProps<typeof pricingCardVariants>) {\n  return (\n    <div\n      className={cn(pricingCardVariants({ variant, className }))}\n      {...props}\n    />\n  );\n}\n\nexport function PricingFeature({\n  children,\n  className,\n  ...props\n}: React.HtmlHTMLAttributes<HTMLDivElement>) {\n  return (\n    <div className={cn('inline-flex items-center gap-3', className)} {...props}>\n      <div className=\"shrink-0 size-5 rounded-full inline-flex items-center justify-center\">\n        <CheckIcon className=\"size-3.5\" />\n      </div>\n      {children}\n    </div>\n  );\n}\nexport function PricingIncludesPrevious({\n  children,\n  className,\n  ...props\n}: React.HtmlHTMLAttributes<HTMLDivElement>) {\n  return (\n    <div className={cn('inline-flex items-center gap-3', className)} {...props}>\n      <div className=\"shrink-0 size-5 rounded-full inline-flex items-center justify-center\">\n        <PlusIcon className=\"size-3.5\" />\n      </div>\n      {children}\n    </div>\n  );\n}\nexport function PricingExclude({\n  children,\n  className,\n  ...props\n}: React.HtmlHTMLAttributes<HTMLDivElement>) {\n  return (\n    <div className={cn('inline-flex items-center gap-3', className)} {...props}>\n      <div className=\"shrink-0 size-5 rounded-full inline-flex items-center justify-center\">\n        <XIcon className=\"size-3.5\" />\n      </div>\n      {children}\n    </div>\n  );\n}\nexport function PricingPackage({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn('inline-flex items-center gap-1', className)}\n      {...props}\n    />\n  );\n}\nexport function PricingIntervalSwitch({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLButtonElement>) {\n  const { toggleInterval } = usePricingContext();\n  return (\n    <Switch\n      className={cn('inline-flex items-center gap-1', className)}\n      id=\"yearly-pricing\"\n      onCheckedChange={toggleInterval}\n      {...props}\n    />\n  );\n}\ninterface PricingValueProps extends React.HTMLAttributes<HTMLDivElement> {\n  monthlyValue: number;\n  yearlyValue: number;\n}\nexport function PricingValue({\n  monthlyValue,\n  yearlyValue,\n\n  ...props\n}: PricingValueProps) {\n  const { interval } = usePricingContext();\n  const currentPrice = interval === 'monthly' ? monthlyValue : yearlyValue;\n\n  return (\n    <Price\n      {...props}\n      price={{\n        amount: currentPrice,\n        currency: 'USD',\n        interval: interval === 'monthly' ? 'month' : 'year',\n      }}\n      options={{ showDecimals: false }}\n      animated={true}\n      className=\"inline-flex gap-1 tracking-tighter items-center text-4xl\"\n    >\n      <span className=\"text-muted-foreground text-sm font-normal tracking-normal\">\n        /{interval === 'monthly' ? 'per month' : 'per year'}\n      </span>\n    </Price>\n  );\n}",
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport { Switch } from '@/components/systaliko-ui/shadcn/switch';\nimport { cva, VariantProps } from 'class-variance-authority';\nimport { CheckIcon, PlusIcon, XIcon } from 'lucide-react';\nimport React from 'react';\ninterface Price {\n  amount: number;\n  currency: string;\n  interval?: 'month' | 'year' | 'week' | 'day' | 'one-time';\n  discount?: number;\n}\n\ninterface PriceFormatOptions {\n  locale?: string;\n  showCurrency?: boolean;\n  showDecimals?: boolean;\n  compact?: boolean;\n  notation?: 'standard' | 'compact' | 'scientific' | 'engineering';\n}\n\nfunction formatPrice(price: Price, options: PriceFormatOptions = {}): string {\n  const {\n    locale = 'en-US',\n    showCurrency = true,\n    showDecimals = true,\n    compact = false,\n    notation = 'standard',\n  } = options;\n\n  const formatter = new Intl.NumberFormat(locale, {\n    style: showCurrency ? 'currency' : 'decimal',\n    currency: price.currency,\n    minimumFractionDigits: showDecimals ? 2 : 0,\n    maximumFractionDigits: showDecimals ? 2 : 0,\n    notation: compact ? 'compact' : notation,\n  });\n\n  return formatter.format(price.amount);\n}\n\nfunction calculateFinalPrice(price: Price): number {\n  if (price.discount) {\n    return price.amount * (1 - price.discount / 100);\n  }\n  return price.amount;\n}\n\nexport interface PriceProps extends React.HTMLAttributes<HTMLDivElement> {\n  price: Price;\n  options?: PriceFormatOptions;\n  animated?: boolean;\n}\n\nexport function Price({\n  price,\n  options,\n  className,\n  children,\n  animated = false,\n  ...props\n}: PriceProps) {\n  const finalPrice = calculateFinalPrice(price);\n  const [displayValue, setDisplayValue] = React.useState(finalPrice);\n  const [isAnimating, setIsAnimating] = React.useState(false);\n  const prevValueRef = React.useRef(finalPrice);\n\n  React.useEffect(() => {\n    if (animated && prevValueRef.current !== finalPrice) {\n      setIsAnimating(true);\n      const duration = 400;\n      const steps = 20;\n      const stepDuration = duration / steps;\n      const diff = finalPrice - prevValueRef.current;\n      const stepValue = diff / steps;\n\n      let currentStep = 0;\n      const timer = setInterval(() => {\n        currentStep++;\n        if (currentStep === steps) {\n          setDisplayValue(finalPrice);\n          setIsAnimating(false);\n          clearInterval(timer);\n        } else {\n          setDisplayValue(prevValueRef.current + stepValue * currentStep);\n        }\n      }, stepDuration);\n\n      prevValueRef.current = finalPrice;\n      return () => clearInterval(timer);\n    } else if (!animated) {\n      setDisplayValue(finalPrice);\n    }\n  }, [finalPrice, animated]);\n\n  const displayPrice = animated ? displayValue : finalPrice;\n\n  return (\n    <div className={cn('tabular-nums', className)} {...props}>\n      {price.discount ? (\n        <div className=\"flex items-baseline gap-2\">\n          <span className=\"text-muted-foreground/60 line-through text-sm\">\n            {formatPrice(price, options)}\n          </span>\n          <span\n            className={cn(\n              'transition-transform duration-300',\n              isAnimating && 'scale-105',\n            )}\n          >\n            {formatPrice({ ...price, amount: displayPrice }, options)}\n          </span>\n        </div>\n      ) : (\n        <span\n          className={cn(\n            'transition-transform duration-300',\n            isAnimating && 'scale-105',\n          )}\n        >\n          {formatPrice({ ...price, amount: displayPrice }, options)}\n        </span>\n      )}\n      {children}\n    </div>\n  );\n}\n\nconst pricingCardVariants = cva(\n  'group relative border-2 p-6 flex flex-col space-y-6 bg-card transition-all duration-300 hover:shadow-[0_8px_40px_-12px_rgba(0,0,0,0.1)]',\n  {\n    variants: {\n      variant: {\n        default: 'border-border/20 hover:border-border/50 ',\n        featured: 'border-primary/50 z-2 hover:border-primary',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\ntype PricingInterval = 'monthly' | 'yearly';\ninterface PricingDuration {\n  monthly: number;\n  yearly: number;\n}\n\ninterface PricingContextValue {\n  interval: PricingInterval;\n  toggleInterval: () => void;\n  savings?: number;\n}\nconst PricingContext = React.createContext<PricingContextValue | undefined>(\n  undefined,\n);\nfunction usePricingContext() {\n  const context = React.useContext(PricingContext);\n  if (context === undefined) {\n    throw new Error('usePricingContext must be used within a PricingProvider');\n  }\n  return context;\n}\nexport function calculateYearlySavings(pricing: PricingDuration): number {\n  const yearlyTotal = pricing.monthly * 12;\n  const savings = yearlyTotal - pricing.yearly;\n  return Math.round((savings / yearlyTotal) * 100);\n}\n\nexport function Pricing({ ...props }: React.HTMLAttributes<HTMLDivElement>) {\n  const [interval, setInterval] = React.useState<PricingInterval>('monthly');\n\n  const toggleInterval = () => {\n    setInterval((prevState) =>\n      prevState === 'monthly' ? 'yearly' : 'monthly',\n    );\n  };\n  return (\n    <PricingContext.Provider value={{ interval, toggleInterval }}>\n      <div {...props} />\n    </PricingContext.Provider>\n  );\n}\n\nexport function PricingCard({\n  className,\n  variant,\n  ...props\n}: React.ComponentProps<'div'> & VariantProps<typeof pricingCardVariants>) {\n  return (\n    <div\n      className={cn(pricingCardVariants({ variant, className }))}\n      {...props}\n    />\n  );\n}\n\nexport function PricingFeature({\n  children,\n  className,\n  ...props\n}: React.HtmlHTMLAttributes<HTMLDivElement>) {\n  return (\n    <div className={cn('inline-flex items-center gap-3', className)} {...props}>\n      <div className=\"shrink-0 size-5 rounded-full inline-flex items-center justify-center\">\n        <CheckIcon className=\"size-3.5\" />\n      </div>\n      {children}\n    </div>\n  );\n}\nexport function PricingIncludesPrevious({\n  children,\n  className,\n  ...props\n}: React.HtmlHTMLAttributes<HTMLDivElement>) {\n  return (\n    <div className={cn('inline-flex items-center gap-3', className)} {...props}>\n      <div className=\"shrink-0 size-5 rounded-full inline-flex items-center justify-center\">\n        <PlusIcon className=\"size-3.5\" />\n      </div>\n      {children}\n    </div>\n  );\n}\nexport function PricingExclude({\n  children,\n  className,\n  ...props\n}: React.HtmlHTMLAttributes<HTMLDivElement>) {\n  return (\n    <div className={cn('inline-flex items-center gap-3', className)} {...props}>\n      <div className=\"shrink-0 size-5 rounded-full inline-flex items-center justify-center\">\n        <XIcon className=\"size-3.5\" />\n      </div>\n      {children}\n    </div>\n  );\n}\nexport function PricingPackage({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn('inline-flex items-center gap-1', className)}\n      {...props}\n    />\n  );\n}\nexport function PricingIntervalSwitch({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLButtonElement>) {\n  const { toggleInterval } = usePricingContext();\n  return (\n    <Switch\n      className={cn('inline-flex items-center gap-1', className)}\n      id=\"yearly-pricing\"\n      onCheckedChange={toggleInterval}\n      {...props}\n    />\n  );\n}\ninterface PricingValueProps extends React.HTMLAttributes<HTMLDivElement> {\n  monthlyValue: number;\n  yearlyValue: number;\n}\nexport function PricingValue({\n  monthlyValue,\n  yearlyValue,\n\n  ...props\n}: PricingValueProps) {\n  const { interval } = usePricingContext();\n  const currentPrice = interval === 'monthly' ? monthlyValue : yearlyValue;\n\n  return (\n    <Price\n      {...props}\n      price={{\n        amount: currentPrice,\n        currency: 'USD',\n        interval: interval === 'monthly' ? 'month' : 'year',\n      }}\n      options={{ showDecimals: false }}\n      animated={true}\n      className=\"inline-flex gap-1 tracking-tighter items-center text-4xl\"\n    >\n      <span className=\"text-muted-foreground text-sm font-normal tracking-normal\">\n        /{interval === 'monthly' ? 'per month' : 'per year'}\n      </span>\n    </Price>\n  );\n}",
       },
     ],
     keywords: [],
@@ -3430,6 +3442,237 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@systaliko-ui/toggle-layout',
+  },
+  parallax: {
+    name: 'parallax',
+    description: 'Parallax block, creates a parallax effect.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+      {
+        path: 'registry/scroll-animations/parallax/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/parallax.tsx',
+        content:
+          "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport {\n  motion,\n  HTMLMotionProps,\n  useMotionTemplate,\n  useScroll,\n  useTransform,\n} from 'motion/react';\n\ninterface ParallaxItemProps extends HTMLMotionProps<'div'> {\n  start: number;\n  end: number;\n}\n\nexport function Parallax({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div className={cn('relative min-h-dvh w-full', className)} {...props} />\n  );\n}\n\nexport function PrallaxContainer({\n  className,\n  ...props\n}: React.ComponentProps<'div'>) {\n  return (\n    <div className={cn('px-default min-h-screen', className)} {...props} />\n  );\n}\nexport function ParallaxItem({\n  start,\n  end,\n  className,\n  style,\n  ...props\n}: ParallaxItemProps) {\n  const ref = React.useRef(null);\n\n  const { scrollYProgress } = useScroll({\n    target: ref,\n    offset: [`${start}px end`, `end ${end * -1}px`],\n  });\n\n  const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0]);\n  const scale = useTransform(scrollYProgress, [0.6, 1], [1, 0.7]);\n\n  const y = useTransform(scrollYProgress, [0, 1], [start, end]);\n  const transform = useMotionTemplate`translateY(${y}px) scale(${scale})`;\n\n  return (\n    <motion.div\n      className={className}\n      ref={ref}\n      style={{ transform, opacity, ...style }}\n      {...props}\n    />\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/scroll-animations/parallax/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'parallax';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/parallax',
+  },
+  'scroll-animation': {
+    name: 'scroll-animation',
+    description:
+      'Collection of scroll triggered animations, Triggering the animation by scroll event.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+      {
+        path: 'registry/scroll-animations/scroll-animation/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/scroll-animation.tsx',
+        content:
+          "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport {\n  HTMLMotionProps,\n  MapInputRange,\n  motion,\n  MotionValue,\n  useMotionTemplate,\n  useReducedMotion,\n  useScroll,\n  useSpring,\n  useTransform,\n} from 'motion/react';\n\ninterface ScrollAnimationContextValue {\n  scrollProgress: MotionValue<number>;\n}\nconst ScrollAnimationContext = React.createContext<\n  ScrollAnimationContextValue | undefined\n>(undefined);\n\nexport function useScrollAnimationContext() {\n  const context = React.useContext(ScrollAnimationContext);\n  if (!context) {\n    throw new Error(\n      'useScrollAnimationContext must be used within a ScrollAnimationContextProvider',\n    );\n  }\n  return context;\n}\ninterface ScrollAnimationProps extends React.ComponentPropsWithRef<'div'> {\n  spacerClass?: string;\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  offset?: any[];\n}\nexport function ScrollAnimation({\n  spacerClass,\n  offset,\n  className,\n  children,\n  ...props\n}: ScrollAnimationProps) {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n    offset: offset,\n  });\n  const smoothProgress = useSpring(scrollYProgress, {\n    damping: 30,\n    stiffness: 400,\n    restDelta: 0.001,\n  });\n  const reducedMotion = useReducedMotion();\n  const scrollProgress = reducedMotion ? scrollYProgress : smoothProgress;\n\n  return (\n    <ScrollAnimationContext.Provider value={{ scrollProgress }}>\n      <div ref={scrollRef} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={cn('w-full h-96', spacerClass)} />\n      </div>\n    </ScrollAnimationContext.Provider>\n  );\n}\n\nexport function ScrollInsetX({\n  insetRange = [48, 0],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { insetRange?: number[]; inputRange?: number[] }) {\n  const { scrollProgress } = useScrollAnimationContext();\n  const xInset = useTransform(scrollProgress, inputRange, insetRange);\n  const clipPath = useMotionTemplate`inset(0px ${xInset}px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, willChange: 'clip-path', ...style }}\n      {...props}\n    />\n  );\n}\nexport function ScrollInsetY({\n  insetRange = [48, 0],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { insetRange?: number[]; inputRange?: number[] }) {\n  const { scrollProgress } = useScrollAnimationContext();\n  const yInset = useTransform(scrollProgress, inputRange, insetRange);\n  const clipPath = useMotionTemplate`inset(${yInset}px 0px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, willChange: 'clip-path', ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function ScrollInset({\n  inputRange = [0, 1],\n  insetRangeY = [45, 0],\n  insetXRange = [45, 0],\n  roundednessRange = [16, 16],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  inputRange?: MapInputRange;\n  insetRangeY?: unknown[];\n  insetXRange?: unknown[];\n  roundednessRange?: unknown[];\n}) {\n  const { scrollProgress } = useScrollAnimationContext();\n  const insetY = useTransform(scrollProgress, inputRange, insetRangeY);\n  const insetX = useTransform(scrollProgress, inputRange, insetXRange);\n  const roundedness = useTransform(\n    scrollProgress,\n    inputRange,\n    roundednessRange,\n  );\n\n  const clipPath = useMotionTemplate`inset(${insetY}% ${insetX}% ${insetY}% ${insetX}% round ${roundedness}px)`;\n  return (\n    <motion.div\n      className={className}\n      style={{ clipPath, willChange: 'clip-path', ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function ScrollTranslateY({\n  yRange = [0, 384],\n  inputRange = [0, 1],\n  style,\n  className,\n  ...props\n}: HTMLMotionProps<'div'> & { yRange?: unknown[]; inputRange?: number[] }) {\n  const { scrollProgress } = useScrollAnimationContext();\n  const y = useTransform(scrollProgress, inputRange, yRange);\n  return (\n    <motion.div\n      style={{ y, willChange: 'transform', ...style }}\n      className={cn('relative origin-top', className)}\n      {...props}\n    />\n  );\n}\n\nexport function ScrollTranslateX({\n  xRange = [0, 100],\n  inputRange = [0, 1],\n  style,\n  className,\n  ...props\n}: HTMLMotionProps<'div'> & { xRange?: unknown[]; inputRange?: number[] }) {\n  const { scrollProgress } = useScrollAnimationContext();\n  const x = useTransform(scrollProgress, inputRange, xRange);\n  return (\n    <motion.div\n      style={{ x, willChange: 'transform', ...style }}\n      className={cn('relative origin-top', className)}\n      {...props}\n    />\n  );\n}\nexport function ScrollOpacity({\n  opacityRange = [0, 1],\n  inputRange = [0, 1],\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  opacityRange?: unknown[];\n  inputRange?: number[];\n}) {\n  const { scrollProgress } = useScrollAnimationContext();\n  const opacity = useTransform(scrollProgress, inputRange, opacityRange);\n  return (\n    <motion.div\n      style={{ opacity, willChange: 'opacity', ...style }}\n      {...props}\n    />\n  );\n}\nexport function ScrollScale({\n  scaleRange = [1.2, 1],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { scaleRange?: unknown[]; inputRange?: number[] }) {\n  const { scrollProgress } = useScrollAnimationContext();\n  const scale = useTransform(scrollProgress, inputRange, scaleRange);\n  return (\n    <motion.div\n      className={className}\n      style={{ scale, willChange: 'transform', ...style }}\n      {...props}\n    />\n  );\n}\nexport function ScrollRadius({\n  radiusRange = [9999, 16],\n  inputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  radiusRange?: unknown[];\n  inputRange?: number[];\n}) {\n  const { scrollProgress } = useScrollAnimationContext();\n  const borderRadius = useTransform(scrollProgress, inputRange, radiusRange);\n  return (\n    <motion.div\n      layout\n      className={className}\n      style={{ borderRadius, willChange: 'border-radius', ...style }}\n      {...props}\n    />\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/scroll-animations/scroll-animation/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'scroll-animation';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/scroll-animation',
+  },
+  'scroll-animation-rotate': {
+    name: 'scroll-animation-rotate',
+    description:
+      'Collection of scroll rotation animations, Triggering the animation by scroll event.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+      {
+        path: 'registry/scroll-animations/scroll-animation-rotate/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/scroll-animation-rotate.tsx',
+        content:
+          "'use client';\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useMotionTemplate,\n  useReducedMotion,\n  useScroll,\n  useSpring,\n  useTransform,\n} from 'motion/react';\n\ninterface ScrollAnimationRotateContextValue {\n  scrollProgress: MotionValue<number>;\n}\ninterface ScrollAnimationRotateProps {\n  spacerClass?: string;\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  offset?: any;\n}\nconst ScrollAnimationRotateContext = React.createContext<\n  ScrollAnimationRotateContextValue | undefined\n>(undefined);\nexport function useScrollAnimationRotateContext() {\n  const context = React.useContext(ScrollAnimationRotateContext);\n  if (!context) {\n    throw new Error(\n      'useScrollAnimationRotateContext must be used within a GalleryRotatedScrollContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const ScrollAnimationRotate = ({\n  spacerClass,\n  offset = ['start center', 'center center'],\n  children,\n  className,\n  style,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & ScrollAnimationRotateProps) => {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n    offset: offset,\n  });\n  const smoothProgress = useSpring(scrollYProgress, {\n    damping: 30,\n    stiffness: 400,\n    restDelta: 0.001,\n  });\n  const reducedMotion = useReducedMotion();\n  const scrollProgress = reducedMotion ? scrollYProgress : smoothProgress;\n\n  return (\n    <ScrollAnimationRotateContext.Provider value={{ scrollProgress }}>\n      <div\n        ref={scrollRef}\n        className={cn('relative perspective-distant', className)}\n        style={{\n          perspectiveOrigin: 'center top',\n          transformStyle: 'preserve-3d',\n          transformOrigin: '50% 50%',\n          ...style,\n        }}\n        {...props}\n      >\n        {children}\n        <div className={cn('w-full h-96', spacerClass)} />\n      </div>\n    </ScrollAnimationRotateContext.Provider>\n  );\n};\nScrollAnimationRotate.displayName = 'ScrollAnimationRotate';\n\ninterface ScrollAnimationRotateContainerProps extends HTMLMotionProps<'div'> {\n  yRange?: [number, number];\n  rotateRange?: [number, number];\n  scaleRange?: [number, number];\n  rotationDirection?: 'x' | 'y' | 'z';\n}\nexport const ScrollAnimationRotateContainer = React.forwardRef<\n  HTMLDivElement,\n  ScrollAnimationRotateContainerProps\n>(\n  (\n    {\n      yRange = [0, 350],\n      rotateRange = [80, 0],\n      scaleRange = [1.1, 1],\n      className,\n      rotationDirection = 'x',\n      style,\n      ...props\n    },\n    ref,\n  ) => {\n    const { scrollProgress } = useScrollAnimationRotateContext();\n\n    const y = useTransform(scrollProgress, [0, 1], yRange);\n\n    const rotate = useTransform(scrollProgress, [0, 0.5], rotateRange);\n    const scale = useTransform(scrollProgress, [0.5, 0.9], scaleRange);\n    const transform = useMotionTemplate`rotate${rotationDirection.toUpperCase()}(${rotate}deg) scale(${scale}) translateY(${y}px)`;\n    return (\n      <motion.div\n        ref={ref}\n        className={cn('flex relative', className)}\n        style={{\n          transform,\n          ...style,\n        }}\n        {...props}\n      />\n    );\n  },\n);\nScrollAnimationRotateContainer.displayName = 'ScrollAnimationRotateContainer';\n\nexport const ScrollAnimationRotateCol = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { yRange?: [string, string] }\n>(({ yRange = ['-5%', '1%'], className, style, ...props }, ref) => {\n  const { scrollProgress } = useScrollAnimationRotateContext();\n\n  const y = useTransform(scrollProgress, [0.4, 0.8], yRange);\n  // 0 25px 50px -12px rgb(0 0 0 / 0.25)\n  return (\n    <motion.div\n      ref={ref}\n      className={cn('relative flex flex-col w-full', className)}\n      style={{\n        y,\n        backfaceVisibility: 'hidden',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n});\nScrollAnimationRotateCol.displayName = 'ScrollAnimationRotateCol';",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/scroll-animations/scroll-animation-rotate/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'scroll-animation-rotate';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/scroll-animation-rotate',
+  },
+  'scroll-autoplay': {
+    name: 'scroll-autoplay',
+    description:
+      'Displaying different content depending on order and scroll position.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+      {
+        path: 'registry/scroll-animations/scroll-autoplay/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/scroll-autoplay.tsx',
+        content:
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport {\n  motion,\n  HTMLMotionProps,\n  MotionValue,\n  MapInputRange,\n  useScroll,\n  useTransform,\n} from 'motion/react';\nimport React from 'react';\n\ninterface ScrollAutoplayProps extends HTMLMotionProps<'div'> {\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  offset?: any[];\n}\ninterface ScrollAutoPlayItemProps extends HTMLMotionProps<'div'> {\n  inputRange: MapInputRange;\n  outputRange?: unknown[];\n}\ninterface ScrollAutoplayContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst ScrollAutoplayContext = React.createContext<\n  ScrollAutoplayContextValue | undefined\n>(undefined);\nfunction useScrollAutoplayContext() {\n  const context = React.useContext(ScrollAutoplayContext);\n  if (context === undefined) {\n    throw new Error(\n      'useScrollAutoplayContext must be used within a ScrollAutoplayContextProvider',\n    );\n  }\n  return context;\n}\n\nexport function ScrollAutoplay({\n  offset = ['0% 50%', '100% 50%'],\n  className,\n  ...props\n}: ScrollAutoplayProps) {\n  const scrollRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: scrollRef,\n    offset: offset,\n  });\n\n  return (\n    <ScrollAutoplayContext.Provider value={{ scrollYProgress }}>\n      <motion.div\n        ref={scrollRef}\n        className={cn('relative min-h-screen', className)}\n        {...props}\n      />\n    </ScrollAutoplayContext.Provider>\n  );\n}\n\nexport function ScrollAutoplayContainer({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn('sticky top-0 left-0 w-full min-h-fit', className)}\n      {...props}\n    />\n  );\n}\n\nexport function ScrollAutoplayItem({\n  inputRange,\n  outputRange = [0, 1],\n  className,\n  style,\n  ...props\n}: ScrollAutoPlayItemProps) {\n  const { scrollYProgress } = useScrollAutoplayContext();\n  const opacity = useTransform(scrollYProgress, inputRange, outputRange);\n\n  return (\n    <motion.div\n      className={cn('absolute inset-0 size-full', className)}\n      style={{\n        opacity,\n        willChange: 'opacity',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/scroll-animations/scroll-autoplay/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'scroll-autoplay';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/scroll-autoplay',
+  },
+  'scroll-x-carousel': {
+    name: 'scroll-x-carousel',
+    description: 'Scroll carousel on x axis, with optional progress indicator.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+      {
+        path: 'registry/scroll-animations/scroll-x-carousel/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/scroll-x-carousel.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useReducedMotion,\n  useScroll,\n  useSpring,\n  useTransform,\n} from 'motion/react';\n\ninterface ScrollXCarouselContextValue {\n  scrollYProgress: MotionValue<number>;\n}\n\nconst ScrollXCarouselContext =\n  React.createContext<ScrollXCarouselContextValue | null>(null);\nfunction useScrollXCarousel() {\n  const context = React.useContext(ScrollXCarouselContext);\n  if (!context) {\n    throw new Error('useScrollXCarousel must be used within a ScrollXCarousel');\n  }\n  return context;\n}\nexport function ScrollXCarousel({\n  children,\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  const carouselRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: carouselRef,\n  });\n  return (\n    <ScrollXCarouselContext.Provider value={{ scrollYProgress }}>\n      <div\n        ref={carouselRef}\n        className={cn('relative max-w-full', className)}\n        {...props}\n      >\n        {children}\n      </div>\n    </ScrollXCarouselContext.Provider>\n  );\n}\n\nexport function ScrollXCarouselContainer({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn('sticky overflow-hidden w-full top-0 left-0', className)}\n      {...props}\n    />\n  );\n}\nexport function ScrollXCarouselWrap({\n  className,\n  style,\n  xRagnge = ['-0%', '-80%'],\n  ...props\n}: HTMLMotionProps<'div'> & { xRagnge?: unknown[] }) {\n  const { scrollYProgress } = useScrollXCarousel();\n  const reducedMotion = useReducedMotion();\n  const smoothProgress = useSpring(scrollYProgress, {\n    damping: 30,\n    stiffness: 400,\n    restDelta: 0.001, // Important for stopping micro-animations\n  });\n\n  const scrollProgress = reducedMotion ? scrollYProgress : smoothProgress;\n\n  const x = useTransform(scrollProgress, [0, 1], xRagnge);\n\n  return (\n    <motion.div\n      className={cn('w-fit', className)}\n      style={{ x, willChange: 'transform', ...style }}\n      {...props}\n    />\n  );\n}\nexport function ScrollXCarouselProgress({\n  className,\n  style,\n  progressStyle,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement> & { progressStyle?: string }) {\n  const { scrollYProgress } = useScrollXCarousel();\n  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);\n  return (\n    <div className={cn('max-w-screen overflow-hidden', className)} {...props}>\n      <motion.div\n        className={cn('origin-left', progressStyle)}\n        style={{ scaleX, ...style }}\n      />\n    </div>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/scroll-animations/scroll-x-carousel/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'scroll-x-carousel';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/scroll-x-carousel',
+  },
+  'wavy-block': {
+    name: 'wavy-block',
+    description: 'block animates its children in waves pattern.',
+    type: 'registry:block',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+      {
+        path: 'registry/scroll-animations/wavy-block/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/wavy-block.tsx',
+        content:
+          "'use client';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  SpringOptions,\n  useMotionValue,\n  useReducedMotion,\n  useScroll,\n  useSpring,\n} from 'motion/react';\nimport React from 'react';\n\ninterface WavyTextsConfig {\n  baseOffsetFactor: number;\n  baseExtra: number;\n  baseAmplitude: number;\n  lengthEffect: number;\n  frequency: number;\n  progressScale: number;\n  phaseShiftDeg: number;\n  spring: SpringOptions;\n}\ninterface WavyBlockItemProps extends HTMLMotionProps<'div'> {\n  index: number;\n  config?: WavyTextsConfig;\n}\ninterface WavyBlockContextValue {\n  scrollYProgress: MotionValue<number>;\n  maxLen: number;\n}\n\nconst WavyBlockContext = React.createContext<WavyBlockContextValue | undefined>(\n  undefined,\n);\n\nfunction useWavyBlockContext() {\n  const context = React.useContext(WavyBlockContext);\n  if (context === undefined) {\n    throw new Error('useWavyBlockContext must be used within a WavyBlock');\n  }\n  return context;\n}\nconst toRadian = (deg: number) => (deg * Math.PI) / 180;\n\nexport function WavyBlockItem({\n  index,\n  config = {\n    baseOffsetFactor: 0.1,\n    baseExtra: 0,\n    baseAmplitude: 160,\n    lengthEffect: 0.6,\n    frequency: 35,\n    progressScale: 6,\n    phaseShiftDeg: -180,\n    spring: { damping: 22, stiffness: 300 },\n  },\n  style,\n  ...props\n}: WavyBlockItemProps) {\n  const { scrollYProgress, maxLen } = useWavyBlockContext();\n  const reducedMotion = useReducedMotion();\n  const lengthFactor = Math.min(1, Math.max(0, maxLen / (maxLen || 1)));\n\n  const [isMounted, setIsMounted] = React.useState<boolean>(false);\n\n  const calculateX = React.useCallback(\n    (p: number, windowWidth?: number) => {\n      const phase = config.progressScale * p;\n\n      const width =\n        windowWidth ??\n        (typeof window !== 'undefined' ? window.innerWidth : 1200);\n      const baseOffset = config.baseOffsetFactor * width + config.baseExtra;\n\n      const amplitudeScale = 1 - config.lengthEffect * lengthFactor;\n      const amplitude = config.baseAmplitude * amplitudeScale;\n\n      const angle =\n        toRadian(config.frequency * index) +\n        phase +\n        toRadian(config.phaseShiftDeg);\n\n      return baseOffset + amplitude * Math.cos(angle);\n    },\n    [config, lengthFactor, index],\n  );\n\n  const initialX = calculateX(0, 1200);\n  const rawX = useMotionValue(initialX);\n  const springX = useSpring(rawX, config.spring);\n  const x = reducedMotion ? rawX : springX;\n\n  React.useLayoutEffect(() => {\n    setIsMounted(true);\n  }, []);\n\n  React.useEffect(() => {\n    if (!scrollYProgress || !isMounted) return;\n\n    const unsub = scrollYProgress.onChange((p) => {\n      const windowWidth =\n        typeof window !== 'undefined' ? window.innerWidth : 1200;\n      const newX = calculateX(p, windowWidth);\n      rawX.set(newX);\n    });\n\n    return () => {\n      if (unsub) unsub();\n    };\n  }, [scrollYProgress, rawX, calculateX, isMounted]);\n\n  return (\n    <motion.div style={{ x, ...style }} suppressHydrationWarning {...props} />\n  );\n}\n\nexport function WavyBlock({\n  offset = ['start end', 'end start'],\n  ...props\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n}: React.ComponentPropsWithRef<'div'> & { offset?: any }) {\n  const containerRef = React.useRef<HTMLDivElement>(null);\n  const { current } = containerRef;\n\n  const maxLen = React.useMemo(() => {\n    if (!current?.children || current.children.length === 0) return 1;\n    const childrenArray = Array.from(current.children);\n    return Math.max(\n      ...childrenArray.map((child) => (child ? String(child).length : 0)),\n    );\n  }, [current?.children]);\n\n  const { scrollYProgress } = useScroll({\n    target: containerRef,\n    offset: offset,\n  });\n  return (\n    <WavyBlockContext.Provider value={{ scrollYProgress, maxLen }}>\n      <div ref={containerRef} {...props} />\n    </WavyBlockContext.Provider>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/scroll-animations/wavy-block/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'wavy-block';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/wavy-block',
   },
   avatar: {
     name: 'avatar',
@@ -3683,6 +3926,42 @@ export const index: Record<string, any> = {
     })(),
     command: '@systaliko-ui/select',
   },
+  spinner: {
+    name: 'spinner',
+    description: 'spinner component with variants.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+      {
+        path: 'registry/shadcn/spinner/index.tsx',
+        type: 'registry:ui',
+        target: 'components/spinner.tsx',
+        content:
+          "import { Loader2Icon } from 'lucide-react';\n\nimport { cn } from '@/lib/utils';\n\nfunction Spinner({ className, ...props }: React.ComponentProps<'svg'>) {\n  return (\n    <Loader2Icon\n      role=\"status\"\n      aria-label=\"Loading\"\n      className={cn('size-4 animate-spin', className)}\n      {...props}\n    />\n  );\n}\n\nexport { Spinner };",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import('@/registry/shadcn/spinner/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'spinner';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/spinner',
+  },
   switch: {
     name: 'switch',
     description: 'switch component with variants.',
@@ -3768,7 +4047,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-scroll-read.tsx',
         content:
-          "'use client';\nimport { cn } from '@/lib/utils';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useScroll,\n  useTransform,\n} from 'motion/react';\nimport * as React from 'react';\n\ninterface TextScrollReadProps extends React.HTMLAttributes<HTMLDivElement> {\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  offset?: any;\n  yRange?: number[];\n  wrapperClassName?: string;\n  spaceClass?: string;\n}\ninterface TextScrollReadContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst TextScrollReadContext = React.createContext<\n  TextScrollReadContextValue | undefined\n>(undefined);\nexport function useTextScrollReadContext() {\n  const context = React.useContext(TextScrollReadContext);\n  if (!context) {\n    throw new Error(\n      'useTextScrollReadContext must be used within a TextScrollReadContextProvider',\n    );\n  }\n  return context;\n}\nexport function TextScrollRead({\n  spaceClass = 'h-80',\n  offset = ['start end', 'center start'],\n  children,\n  className,\n  ...props\n}: TextScrollReadProps) {\n  const ref = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: ref,\n    offset: offset,\n  });\n  return (\n    <TextScrollReadContext.Provider value={{ scrollYProgress }}>\n      <div ref={ref} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={spaceClass} />\n      </div>\n    </TextScrollReadContext.Provider>\n  );\n}\n\nexport function TextScrollReadWrap({\n  yInput = [0, 1],\n  yRange = [0, 320],\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  yInput?: number[];\n  yRange?: number[];\n  style?: React.CSSProperties;\n}) {\n  const { scrollYProgress } = useTextScrollReadContext();\n  const y = useTransform(scrollYProgress, yInput, yRange);\n\n  return (\n    <motion.div\n      style={{\n        y,\n        willChange: 'transform',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}\n\nexport function ClipText({\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'span'>) {\n  const { scrollYProgress } = useTextScrollReadContext();\n  const backgroundPositionX = useTransform(\n    scrollYProgress,\n    [0, 1],\n    ['100%', '0%'],\n  );\n  return (\n    <motion.span\n      className={cn(\n        'bg-[length:200%_100%] text-transparent bg-clip-text bg-no-repeat bg-scroll',\n        className,\n      )}\n      style={{\n        backgroundPositionX,\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}",
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useScroll,\n  useTransform,\n} from 'motion/react';\nimport * as React from 'react';\n\ninterface TextScrollReadProps extends React.HTMLAttributes<HTMLDivElement> {\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  offset?: any;\n  yRange?: number[];\n  wrapperClassName?: string;\n  spaceClass?: string;\n}\ninterface TextScrollReadContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst TextScrollReadContext = React.createContext<\n  TextScrollReadContextValue | undefined\n>(undefined);\nexport function useTextScrollReadContext() {\n  const context = React.useContext(TextScrollReadContext);\n  if (!context) {\n    throw new Error(\n      'useTextScrollReadContext must be used within a TextScrollReadContextProvider',\n    );\n  }\n  return context;\n}\nexport function TextScrollRead({\n  spaceClass,\n  offset = ['start end', 'center start'],\n  children,\n  className,\n  ...props\n}: TextScrollReadProps) {\n  const ref = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: ref,\n    offset: offset,\n  });\n  return (\n    <TextScrollReadContext.Provider value={{ scrollYProgress }}>\n      <div ref={ref} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={cn('h-80', spaceClass)} />\n      </div>\n    </TextScrollReadContext.Provider>\n  );\n}\n\nexport function TextScrollReadWrap({\n  yInput = [0, 1],\n  yRange = [0, 320],\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  yInput?: number[];\n  yRange?: number[];\n  style?: React.CSSProperties;\n}) {\n  const { scrollYProgress } = useTextScrollReadContext();\n  const y = useTransform(scrollYProgress, yInput, yRange);\n\n  return (\n    <motion.div\n      style={{\n        y,\n        willChange: 'transform',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}\n\nexport function ClipText({\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'span'>) {\n  const { scrollYProgress } = useTextScrollReadContext();\n  const backgroundPositionX = useTransform(\n    scrollYProgress,\n    [0, 1],\n    ['100%', '0%'],\n  );\n  return (\n    <motion.span\n      className={cn(\n        'bg-[length:200%_100%] text-transparent bg-clip-text bg-no-repeat bg-scroll',\n        className,\n      )}\n      style={{\n        backgroundPositionX,\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}",
       },
     ],
     keywords: [],
@@ -3850,7 +4129,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  stagger,\n  StaggerOrigin,\n} from 'motion/react';\nimport {\n  ANIMATION_VARIANTS,\n  AnimationT,\n} from '@/components/systaliko-ui/utils/animation-variants';\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({ children, animation, ...props }: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n  return (\n    <span className=\"inline-block text-nowrap\" {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  staggerValue?: number;\n  staggerStart?: StaggerOrigin;\n  animation?: AnimationT;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  viewport = { once: true, amount: 0.25 },\n  staggerValue = 0.02,\n  staggerStart = 'first',\n  animation,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion.create(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={viewport}\n      className={className}\n      transition={{\n        delayChildren: stagger(staggerValue, { from: staggerStart }),\n      }}\n      {...props}\n    >\n      <MotionConfig\n        transition={{\n          ease: transition?.ease || 'easeOut',\n          ...transition,\n        }}\n      >\n        {words.map((word, index) => (\n          <React.Fragment key={`${word}-${index}`}>\n            <WordStagger animation={animation}>{word}</WordStagger>\n            {index < words.length - 1 && ' '}\n          </React.Fragment>\n        ))}\n      </MotionConfig>\n    </MotionComponent>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  stagger,\n  StaggerOrigin,\n} from 'motion/react';\nimport {\n  ANIMATION_VARIANTS,\n  AnimationT,\n} from '@/components/systaliko-ui/utils/animation-variants';\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({ children, animation, ...props }: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n  return (\n    <span className=\"inline-block text-nowrap\" {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  staggerValue?: number;\n  staggerStart?: StaggerOrigin;\n  animation?: AnimationT;\n  as?: React.ElementType;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  className,\n  viewport = { once: true, amount: 0.25 },\n  staggerValue = 0.02,\n  staggerStart = 'first',\n  animation,\n  as: Component = 'span',\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  const MotionComponent = motion.create(Component);\n  return (\n    <MotionComponent\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={viewport}\n      className={className}\n      transition={{\n        delayChildren: stagger(staggerValue, { from: staggerStart }),\n      }}\n      {...props}\n    >\n      <MotionConfig\n        transition={{\n          ease: transition?.ease || 'easeOut',\n          ...transition,\n        }}\n      >\n        {words.map((word, index) => (\n          <React.Fragment key={`${word}-${index}`}>\n            <WordStagger data-word={word} animation={animation}>\n              {word}\n            </WordStagger>\n            {index < words.length - 1 && ' '}\n          </React.Fragment>\n        ))}\n      </MotionConfig>\n    </MotionComponent>\n  );\n}",
       },
     ],
     keywords: [],

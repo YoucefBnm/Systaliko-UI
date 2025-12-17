@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "switch",
-  "type": "registry:ui",
   "title": "switch",
   "description": "switch component with variants.",
   "files": [
@@ -11,5 +10,6 @@
       "type": "registry:ui",
       "target": "components/switch.tsx"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }

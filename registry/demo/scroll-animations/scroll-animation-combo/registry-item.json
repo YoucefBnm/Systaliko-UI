@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scroll-animation-combo-demo",
+  "type": "registry:block",
+  "title": "scroll-animation-combo Demo",
+  "description": "Demo showing scroll-animation-combo component.",
+  "dependencies": ["motion"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/scroll-animation"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/scroll-animations/scroll-animation-combo/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/scroll-animation-combo.tsx"
+    }
+  ]
+}

@@ -73,7 +73,9 @@ export function TextStaggerInview({
       >
         {words.map((word, index) => (
           <React.Fragment key={`${word}-${index}`}>
-            <WordStagger animation={animation}>{word}</WordStagger>
+            <WordStagger data-word={word} animation={animation}>
+              {word}
+            </WordStagger>
             {index < words.length - 1 && ' '}
           </React.Fragment>
         ))}

@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2025-12-17
+
+### Added
+
+- 🧩 **New template: `product-template`** — Complete ecommerce product page template featuring:
+  - Product gallery with carousel and thumbnails
+  - Dynamic color and size selection
+  - Context-based state management
+  - Responsive layout optimized for product showcase
+- ✨ **New ecommerce components:**
+  - `price` — Flexible pricing component with compare-at pricing, savings display, and multi-currency support
+  - `infinite-scroll` — Infinite scroll component for product listings and content feeds
+  - `product-carousel` — Interactive product image carousel with thumbnail navigation
+- ✨ **New block component:**
+  - `distributed-cards` — Distributed card layout component with dynamic positioning
+- ✨ **New utility components:**
+  - `rating-stars` — Star rating display component with customizable styling
+
 ### Changed
 
 - 🎨 Complete redesign of the Veo template for improved aesthetics and user experience
@@ -17,9 +35,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 🏠 Redesign demo: `header` — updated header demo layout and accessibility improvements
 - 🏡 Redesign home page — updates to hero and layout for improved visual hierarchy
 
-### Added
+### Added (Non-Ecommerce)
 
-- ✨ New components:
+- ✨ New text animation components:
   - `text-scroll-read` — readable-on-scroll text reveal
   - `wavy-text` — animated wavy typography
   - `wavy-block` — a content block with wavy reveal/clip animations
@@ -52,5 +70,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Documentation site with Fumadocs
 - Three template projects: Veo, Alba Studio, and Motus Studio
 
-[Unreleased]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.2.0...v0.3.0
+[0.2.0]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/YoucefBnm/Systaliko-UI/releases/tag/v0.1.0

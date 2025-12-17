@@ -5,57 +5,47 @@ import { siteConfig } from '@/config/site';
 import XIcon from './icons/x-icon';
 import GithubIcon from './icons/github-icon';
 import { Button } from './ui/button';
+import { MailIcon } from 'lucide-react';
+import { Separator } from './ui/separator';
 
 export function DesktopNav() {
   return (
-    <div className="hidden md:flex items-center space-x-4 font-medium text-sm">
-      <Link
-        href="/docs"
-        className="p-2 text-sm transition-colors hover:text-accent-foreground"
-      >
-        Components
-      </Link>
-      <Link
-        href="/docs/templates"
-        className="p-2 text-sm transition-colors hover:text-accent-foreground"
-      >
-        Templates
-      </Link>
+    <nav className="hidden md:flex items-center space-x-4 font-medium text-sm">
+      <div className="flex items-center *:transition-colors *:p-2 *:text-sm *:text-foreground/70 *:hover:text-foreground">
+        <Link href="/docs">Components</Link>
+        <Link href="/docs/templates">Templates</Link>
+      </div>
 
-      <Button variant="outline" size="sm">
+      <Separator className=" h-4 w-px" orientation="vertical" />
+      <div className="flex items-center space-x-2 ">
+        <Button variant="link" size="sm">
+          <Link
+            target="_blank"
+            href={siteConfig.links.repo}
+            className="inline-flex"
+          >
+            <GithubIcon className="size-4" />
+          </Link>
+        </Button>
+        <Link
+          rel="noreferrer noopener"
+          href={`mailto:${siteConfig.links.email}`}
+          className="p-2 transition-colors text-foreground/70 hover:text-foreground"
+        >
+          <MailIcon className="size-4" />
+        </Link>
         <Link
           target="_blank"
-          href={siteConfig.links.repo}
-          className="inline-flex"
+          rel="noreferrer noopener"
+          href={siteConfig.links.x}
+          className="p-2 transition-colors text-foreground/70 hover:text-foreground mr-4"
         >
-          <div className="flex items-center">
-            <GithubIcon className="size-4" />
-            <span className="ml-1 lg:hidden">Star</span>
-            <span className="ml-1 hidden lg:inline">Star on GitHub</span>{' '}
-          </div>
-          <span className="ml-2">⭐️</span>
+          <XIcon className="size-4" />
         </Link>
-      </Button>
+        <Separator className=" h-4 w-px" orientation="vertical" />
 
-      <Link
-        target="_blank"
-        rel="noreferrer noopener"
-        href={siteConfig.links.x}
-        className="transition-colors hover:text-accent-foreground"
-      >
-        <XIcon className="size-4" />
-      </Link>
-
-      <Link
-        target="_blank"
-        rel="noreferrer noopener"
-        href={siteConfig.links.repo}
-        className="transition-colors hover:text-accent-foreground"
-      >
-        <GithubIcon className="size-4" />
-      </Link>
-
-      <ModeToggle />
-    </div>
+        <ModeToggle />
+      </div>
+    </nav>
   );
 }

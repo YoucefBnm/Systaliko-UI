@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "distributed-cards-2-demo",
+  "type": "registry:block",
+  "title": "Distributed Cards 2 Demo",
+  "description": "Another Demo showing distributed cards component.",
+  "registryDependencies": ["http://localhost:3000/r/distributed-cards-2"],
+  "files": [
+    {
+      "path": "registry/demo/scroll-animations/distributed-cards-2/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/distributed-cards-2.tsx"
+    }
+  ]
+}

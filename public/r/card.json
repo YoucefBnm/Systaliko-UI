@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "card",
-  "type": "registry:ui",
   "title": "Card",
   "description": "Card component with variants.",
   "files": [
@@ -11,5 +10,6 @@
       "type": "registry:ui",
       "target": "components/systaliko-ui/cards/card.tsx"
     }
-  ]
+  ],
+  "type": "registry:ui"
 }
