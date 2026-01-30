@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty",
+  "type": "registry:ui",
+  "title": "empty",
+  "description": "empty component.",
+  "files": [
+    {
+      "path": "registry/shadcn/empty/index.tsx",
+      "type": "registry:ui",
+      "target": "components/empty.tsx"
+    }
+  ]
+}

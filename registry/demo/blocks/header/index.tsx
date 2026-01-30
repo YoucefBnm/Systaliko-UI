@@ -60,15 +60,15 @@ const nav_socials = [
 const NavMobile = () => {
   return (
     <AnimatedMenu className="self-center relative">
-      <AnimatedMenuButton className="w-28 h-12 text-secondary-foreground font-medium">
+      <AnimatedMenuButton className="w-28 h-12 text-primary-foreground font-medium">
         <AnimatedMenuButtonToggleIcon className="*:h-[1.5px] *:origin-[17.5%]" />
         <AnimatedMenuButtonLabel />
       </AnimatedMenuButton>
       <AnimatedMenuList
         layout
-        className="absolute right-0 top-0 bg-secondary/80 backdrop-blur border border-border/10 shadow rounded-3xl"
+        className="absolute right-0 top-1 bg-primary backdrop-blur border border-border/10 shadow rounded-3xl"
       >
-        <div className="flex flex-col px-6 justify-evenly gap-6 items-start size-full">
+        <div className="flex flex-col px-6 justify-evenly gap-6 items-start size-full text-primary-foreground">
           <div className="flex flex-col items-start gap-4 *:transition-opacity *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
             {nav_links.map((navLink, i) => (
               <AnimatedMenuItem
@@ -91,11 +91,7 @@ const NavMobile = () => {
           </div>
           <div className="flex gap-3 *:transition-blur *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
             {nav_socials.map((navSocial, i) => (
-              <AnimatedMenuItem
-                key={navSocial.id}
-                className="text-primary"
-                order={i + nav_links.length}
-              >
+              <AnimatedMenuItem key={navSocial.id} order={i + nav_links.length}>
                 <CloseAnimatedMenu>
                   <Link
                     className="p-1"

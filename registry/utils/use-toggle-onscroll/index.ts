@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMotionValueEvent, useScroll } from 'motion/react';
 
-export function useToggleOnScroll() {
+export function useToggleOnscroll() {
   const [isHidden, setIsHidden] = React.useState<boolean>(false);
 
   const { scrollY } = useScroll();

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-is-scrolled",
+  "type": "registry:hook",
+  "title": "Use is scrolled Hook",
+  "description": "use is scrolled hook to detect if the user has scrolled to the bottom of the page.",
+  "files": [
+    {
+      "path": "registry/utils/use-is-scrolled/index.ts",
+      "type": "registry:hook",
+      "target": "components/systaliko-ui/utils/use-is-scrolled.ts"
+    }
+  ]
+}

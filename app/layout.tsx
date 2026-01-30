@@ -9,6 +9,7 @@ import { siteConfig } from '@/config/site';
 
 const geist = Geist({
   subsets: ['latin'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {

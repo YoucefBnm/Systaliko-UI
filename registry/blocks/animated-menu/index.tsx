@@ -85,7 +85,7 @@ const buttonIconVariants = cva(
   {
     variants: {
       size: {
-        sm: '*:w-4 *:h-px *:w-4 *:h-px *:origin-[20%]',
+        sm: '*:w-4 *:h-[1.5px] *:w-4 *:origin-[17%]',
         md: '*:w-6 *:h-0.5  *:origin-[25%]',
         lg: '*:w-8 *:h-0.5  *:origin-[33%]',
         xl: '*:w-10 *:h-1 *:origin-[31%]',

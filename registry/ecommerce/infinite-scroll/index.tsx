@@ -39,9 +39,6 @@ export function InfiniteScrollCell({
             key="skeleton"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{
-              ease: 'easeOut',
-            }}
           >
             {skelton}
           </motion.div>
@@ -87,7 +84,7 @@ export function InfiniteScroll({
           loadMore();
         }
       },
-      { threshold: 1 },
+      { rootMargin: '0px 0px', threshold: 0 },
     );
 
     observer.observe(current);

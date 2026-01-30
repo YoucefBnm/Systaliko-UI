@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "expandable-grid",
+  "type": "registry:block",
+  "title": "Expandable Grid",
+  "description": "expandable grid for previewing clicked item.",
+  "files": [
+    {
+      "path": "registry/ecommerce/expandable-grid/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/expandable-grid.tsx"
+    }
+  ]
+}

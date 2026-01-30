@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "quantity",
+  "title": "Quantity Config",
+  "description": "Quantity config for ecommerce products.",
+  "registryDependencies": [
+    "http://localhost:3000/r/shadcn/button"
+  ],
+  "files": [
+    {
+      "path": "registry/ecommerce/quantity/index.tsx",
+      "content": "'use client';\n\nimport { cn } from '@/lib/utils';\nimport React from 'react';\nimport { Button, ButtonProps } from '@/components/systaliko-ui/shadcn/button';\nimport { motion, AnimatePresence } from 'motion/react';\nimport { MinusIcon, PlusIcon } from 'lucide-react';\n\nconst MotionButton = motion.create(\n  Button,\n) as typeof motion.button extends React.ComponentType<infer P>\n  ? React.ComponentType<\n      Omit<\n        ButtonProps,\n        'onAnimationStart' | 'onAnimationEnd' | 'onAnimationIteration'\n      > &\n        Omit<P, keyof ButtonProps>\n    >\n  : never;\nconst buttonSpring = {\n  type: 'spring',\n  stiffness: 400,\n  damping: 17,\n} as const;\nexport interface QuantityIncreaseProps extends ButtonProps {\n  max?: number;\n  value?: number;\n}\n\nexport function QuantityIncrease({\n  children = <PlusIcon className=\"size-4\" />,\n  className,\n  max,\n  value,\n  ...props\n}: QuantityIncreaseProps) {\n  const isDisabled = max !== undefined && value !== undefined && value >= max;\n\n  return (\n    <MotionButton\n      variant={'ghost'}\n      aria-label=\"increase quantity\"\n      className={cn(\n        'cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed active:scale-95',\n        className,\n      )}\n      disabled={isDisabled}\n      whileHover={!isDisabled ? { scale: 1.05 } : {}}\n      whileTap={!isDisabled ? { scale: 0.95 } : {}}\n      transition={buttonSpring}\n      {...props}\n    >\n      {children as React.ReactElement}\n    </MotionButton>\n  );\n}\n\nexport interface QuantityDecreaseProps extends ButtonProps {\n  value?: number;\n  min?: number;\n}\n\nexport function QuantityDecrease({\n  children = <MinusIcon className=\"size-4\" />,\n  className,\n  value,\n  min = 1,\n  ...props\n}: QuantityDecreaseProps) {\n  const isDisabled = value !== undefined && value <= min;\n\n  return (\n    <MotionButton\n      variant={'ghost'}\n      aria-label=\"decrease quantity\"\n      className={cn(\n        'cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed',\n        className,\n      )}\n      disabled={isDisabled}\n      whileHover={!isDisabled ? { scale: 1.05 } : {}}\n      whileTap={!isDisabled ? { scale: 0.95 } : {}}\n      transition={buttonSpring}\n      {...props}\n    >\n      {children as React.ReactElement}\n    </MotionButton>\n  );\n}\n\nexport function QuantityValue({\n  className,\n  children,\n  ...props\n}: React.ComponentProps<'div'>) {\n  return (\n    <div\n      className={cn(\n        'flex items-center justify-center min-w-10 tabular-nums px-2 relative overflow-hidden',\n        className,\n      )}\n      {...props}\n    >\n      <AnimatePresence mode=\"wait\">\n        <motion.span\n          key={String(children)}\n          initial={{ y: 6, opacity: 0 }}\n          animate={{ y: 0, opacity: 1 }}\n          exit={{ y: -6, opacity: 0 }}\n          transition={{ duration: 0.15, ease: 'easeOut' }}\n        >\n          {children}\n        </motion.span>\n      </AnimatePresence>\n    </div>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/quantity.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

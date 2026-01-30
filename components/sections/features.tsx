@@ -50,7 +50,7 @@ const FEATURES = [
 
 export function Features() {
   return (
-    <section className="py-12 px-8">
+    <section className="py-12 px-8 min-h-screen">
       <div className="grid md:grid-cols-2 md:gap-8 xl:gap-12">
         <div className="md:sticky top-16 left-0 h-fit space-y-4">
           <TextStaggerInview

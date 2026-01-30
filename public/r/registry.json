@@ -791,6 +791,22 @@
       ]
     },
     {
+      "name": "expandable-grid-demo",
+      "type": "registry:block",
+      "title": "Expandable Product Grid Demo",
+      "description": "Demo showing expandable product grid component.",
+      "registryDependencies": [
+        "http://localhost:3000/r/ecommerce/expandable-grid"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/ecommerce/expandable-grid/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/expandable-grid.tsx"
+        }
+      ]
+    },
+    {
       "name": "infinite-scroll-demo",
       "type": "registry:block",
       "title": "Infinite Scroll Demo",
@@ -903,6 +919,22 @@
           "path": "registry/demo/ecommerce/product-carousel-3/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/product-carousel-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "quantity-demo",
+      "type": "registry:block",
+      "title": "Quantity Demo",
+      "description": "Demo showing Quantity component.",
+      "registryDependencies": [
+        "http://localhost:3000/r/ecommerce/quantity"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/ecommerce/quantity/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/quantity.tsx"
         }
       ]
     },
@@ -1370,15 +1402,34 @@
       ]
     },
     {
+      "name": "expandable-grid",
+      "type": "registry:block",
+      "title": "Expandable Grid",
+      "description": "expandable grid for previewing clicked item.",
+      "files": [
+        {
+          "path": "registry/ecommerce/expandable-grid/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/expandable-grid.tsx"
+        }
+      ]
+    },
+    {
       "name": "infinite-scroll",
       "type": "registry:block",
       "title": "Infinite Scroll",
       "description": "infinite scroll container instead of pagination, for large lists and fetching data.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "http://localhost:3000/r/shadcn/spinner"
+      ],
       "files": [
         {
           "path": "registry/ecommerce/infinite-scroll/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/ecommerce/infinite-scroll.tsx"
+          "target": "components/systaliko-ui/infinite-scroll.tsx"
         }
       ]
     },
@@ -1387,14 +1438,11 @@
       "type": "registry:block",
       "title": "price",
       "description": "Flexible price component with customizable features and options to display the amount and currency.",
-      "registryDependencies": [
-        "http://localhost:3000/r/price"
-      ],
       "files": [
         {
           "path": "registry/ecommerce/price/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/ecommerce/price.tsx"
+          "target": "components/systaliko-ui/price.tsx"
         }
       ]
     },
@@ -1407,7 +1455,7 @@
         {
           "path": "registry/ecommerce/pricing/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/ecommerce/pricing.tsx"
+          "target": "components/systaliko-ui/pricing.tsx"
         }
       ]
     },
@@ -1423,7 +1471,23 @@
         {
           "path": "registry/ecommerce/product-carousel/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/ecommerce/product-carousel.tsx"
+          "target": "components/systaliko-ui/product-carousel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "quantity",
+      "type": "registry:block",
+      "title": "Quantity Config",
+      "description": "Quantity config for ecommerce products.",
+      "registryDependencies": [
+        "http://localhost:3000/r/shadcn/button"
+      ],
+      "files": [
+        {
+          "path": "registry/ecommerce/quantity/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/quantity.tsx"
         }
       ]
     },
@@ -1439,7 +1503,7 @@
         {
           "path": "registry/ecommerce/toggle-layout/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/ecommerce/toggle-layout.tsx"
+          "target": "components/systaliko-ui/toggle-layout.tsx"
         }
       ]
     },

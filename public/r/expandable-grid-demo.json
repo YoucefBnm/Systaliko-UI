@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "expandable-grid-demo",
+  "title": "Expandable Product Grid Demo",
+  "description": "Demo showing expandable product grid component.",
+  "registryDependencies": [
+    "http://localhost:3000/r/ecommerce/expandable-grid"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/ecommerce/expandable-grid/index.tsx",
+      "content": "'use client';\nimport {\n  ExpandableGrid,\n  ExpandableGridCell,\n} from '@/components/systaliko-ui/ecommerce/expandable-grid';\nimport Image from 'next/image';\n\nconst products = [\n  {\n    id: 'product-16',\n    name: 'Air Jordan',\n    category: 'Shirt',\n    price: 9.99,\n    imageUrl: 'https://m.media-amazon.com/images/I/616dq9kBfsL._AC_SX679_.jpg',\n  },\n  {\n    id: 'product-2',\n    name: 'Air Jordan',\n    category: 'Shoes',\n    price: 29,\n    imageUrl: 'https://m.media-amazon.com/images/I/71zTqMdALmL._AC_SX679_.jpg',\n  },\n\n  {\n    id: 'product-6',\n    name: 'Better than lebron',\n    category: 'Shirt',\n    price: 9.99,\n    imageUrl: 'https://m.media-amazon.com/images/I/71+aB8Kqx4L._AC_SX679_.jpg',\n  },\n\n  {\n    id: 'product-8',\n    name: 'Air Jordan',\n    category: 'Shorts',\n    price: 19,\n    imageUrl: 'https://m.media-amazon.com/images/I/613m241hJvL._AC_SX679_.jpg',\n  },\n  {\n    id: 'product-10',\n    name: 'Air Jordan',\n    category: 'Back pack',\n    price: 39,\n    imageUrl: 'https://m.media-amazon.com/images/I/514LX3oMMnL._AC_SX679_.jpg',\n  },\n  {\n    id: 'product-9',\n    name: 'Air Jordan',\n    category: 'Back pack',\n    price: 19,\n    imageUrl: 'https://m.media-amazon.com/images/I/51lex9hERBL._AC_SX679_.jpg',\n  },\n  {\n    id: 'product-11',\n    name: 'Jordan Jumpman',\n    category: 'Arm band',\n    price: 9.99,\n    imageUrl: 'https://m.media-amazon.com/images/I/61ZZq-GAkTL._AC_SX679_.jpg',\n  },\n  {\n    id: 'product-12',\n    name: 'JERSEY GYM SACK',\n    category: 'Back pack',\n    price: 29.99,\n    imageUrl: 'https://m.media-amazon.com/images/I/61+ae1+OUDL._AC_SX679_.jpg',\n  },\n  {\n    id: 'product-13',\n    name: 'Swingman Shorts',\n    category: 'Shorts',\n    price: 39.99,\n    imageUrl: 'https://m.media-amazon.com/images/I/81o5IOyFN9L._AC_SX679_.jpg',\n  },\n  {\n    id: 'product-14',\n    name: 'Air Jordan 1',\n    category: 'Shoes',\n    price: 99.99,\n    imageUrl: 'https://m.media-amazon.com/images/I/61lHu1XGksL._AC_SY695_.jpg',\n  },\n  {\n    id: 'product-15',\n    name: 'Spizike Low',\n    category: 'Shoes',\n    price: 139.99,\n    imageUrl: 'https://m.media-amazon.com/images/I/51QWuYdWCwL._AC_SY695_.jpg',\n  },\n  {\n    id: 'product-1',\n    name: 'Air Jordan',\n    category: 'Sliders',\n    price: 19,\n    imageUrl: 'https://m.media-amazon.com/images/I/51SXrf7XQ7L._AC_SY695_.jpg',\n  },\n];\n\nexport function ExpandableGridDemo() {\n  return (\n    <ExpandableGrid className=\"size-full\">\n      {products.map((product, index) => (\n        <ExpandableGridCell key={product.id} index={index}>\n          <div className=\"size-full p-3\">\n            <div className=\"relative aspect-square w-full max-w-full\">\n              <Image\n                className=\"user-select-none select-none object-contain\"\n                fill\n                alt=\"product\"\n                src={product.imageUrl}\n                sizes=\"(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw\"\n              />\n            </div>\n          </div>\n        </ExpandableGridCell>\n      ))}\n    </ExpandableGrid>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/expandable-grid.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,68 @@
+---
+title: Quantity config
+description: Quantity config for ecommerce products.
+new: true
+---
+
+<ComponentPreview name="quantity-demo" />
+
+## Installation
+
+<ComponentInstallation name="quantity" />
+
+## Usage
+
+```tsx
+<div className="grid max-w-min grid-cols-[repeat(3,max-content)] rounded-md border items-center">
+  <QuantityDecrease
+    className="rounded-[7px]"
+    onClick={decrease}
+    value={value}
+  />
+  <QuantityValue>{value}</QuantityValue>
+  <QuantityIncrease
+    className="rounded-[7px]"
+    onClick={increase}
+    max={10}
+    value={value}
+  />
+</div>
+```
+
+## Props
+
+`QuantityDecrease`
+
+<TypeTable
+  type={{
+    value: {
+      description: 'the value of the quantity.',
+      type: 'number',
+      required: false,
+    },
+    min: {
+      description:
+        'The minimum value of the quantity, the decrease button will be disabled when the value is less than min.',
+      type: 'number',
+      default: '1',
+      required: false,
+    },
+  }}
+/>
+`QuantityDecrease`
+
+<TypeTable
+  type={{
+    value: {
+      description: 'the value of the quantity.',
+      type: 'number',
+      required: false,
+    },
+    max: {
+      description:
+        'The maximum value of the quantity, the increase button will be disabled when the value is greater than max.',
+      type: 'number',
+      required: false,
+    },
+  }}
+/>

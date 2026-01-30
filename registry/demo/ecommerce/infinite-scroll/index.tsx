@@ -71,7 +71,7 @@ export function InfiniteScrollDemo() {
         <InfiniteScrollCell
           className="p-6 bg-card border border-border/50 rounded-xl shadow-2xs"
           key={post.id}
-          amount={0.2}
+          amount={0}
           skelton={<CardSkelton />}
         >
           <div className="flex flex-col space-y-6 ">

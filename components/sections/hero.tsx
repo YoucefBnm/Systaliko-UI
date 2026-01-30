@@ -8,11 +8,12 @@ import Link from 'next/link';
 import ReactIcon from '../icons/react-icon';
 import TSIcon from '../icons/ts-icon';
 import TailwindIcon from '../icons/tailwind-icon';
-import ShadcnIcon from '../icons/shadcn-icon copy';
+import ShadcnIcon from '../icons/shadcn-icon';
 import MotionIcon from '../icons/motion-icon';
 import { Pulse } from '@/registry/components/pulse';
 import { Showcase } from './showcase';
 import { Badge } from '@/registry/shadcn/badge';
+import { TextWavy } from '@/registry/text/text-wavy';
 
 const TECH_STACK = [
   {
@@ -46,28 +47,24 @@ export function Hero() {
   const animationVariants = ANIMATION_VARIANTS['blur'];
 
   return (
-    <section className="relative max-w-7xl place-content-center w-full overflow-hidden">
-      <ContainerStagger className="flex px-6 pt-12  flex-col items-center text-center justify-center space-y-6">
+    <section className="relative max-w-7xl place-content-center w-full overflow-hidden min-h-[60vh]">
+      <ContainerStagger className="flex px-6 pt-12 flex-col items-center text-center justify-center space-y-6 min-h-96">
         <MotionConfig transition={{ duration: 0.3, ease: 'easeOut' }}>
           <motion.div variants={animationVariants}>
-            <Badge
-              className="bg-transparent rounded-full hover:bg-secondary"
-              variant={'secondary'}
-            >
-              <Pulse />
-              new ecommerce template and components available
-              <ArrowUpRightIcon className="size-4" />
-            </Badge>
+           <Link href="/docs"><TextWavy text="New Blocks and Cognify template are available." /></Link>
           </motion.div>
 
           <motion.h1
             variants={animationVariants}
-            className="pb-px text-4xl font-semibold tracking-tight text-balance max-w-[25ch] text-transparent bg-clip-text bg-linear-to-b from-foreground to-foreground/50"
+            className="text-4xl max-w-[25ch] font-medium tracking-tighter text-balance bg-clip-text text-transparent bg-linear-to-br from-foreground/40 to-foreground "
           >
-            Copy Paste or install via shadcn registry React blocks components
+            React blocks easy to Copy Paste or install via shadcn registry
           </motion.h1>
 
-          <motion.p variants={animationVariants} className="text-balance  ">
+          <motion.p
+            variants={animationVariants}
+            className="text-balance  text-sm"
+          >
             Collection of UI blocks and components and templates to easly craft
             your website, interactive and animated, built for customization.
             built into the Shadcn CLI with no additional configuration required
@@ -87,7 +84,7 @@ export function Hero() {
 
           <motion.div
             variants={animationVariants}
-            className="flex flex-wrap items-center justify-center gap-4"
+            className="my-4 flex flex-wrap items-center justify-center gap-4"
           >
             {TECH_STACK.map((tech) => (
               <div

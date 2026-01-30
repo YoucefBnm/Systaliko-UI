@@ -8,12 +8,12 @@ export function Pulse({
   return (
     <div
       className={cn(
-        'relative flex h-2 w-2 [&>*:first-child]:bg-primary/50 [&>*:last-child]:bg-primary',
+        'relative flex size-2 [&>*:first-child]:bg-primary/50 [&>*:last-child]:bg-primary',
         className,
       )}
       {...props}
     >
-      <span className="animate-ping absolute inline-flex h-full w-full rounded-full" />
+      <span className="animate-ping absolute inline-flex size-full rounded-full" />
       <span className="relative inline-flex rounded-full size-full " />
     </div>
   );

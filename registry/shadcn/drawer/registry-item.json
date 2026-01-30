@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "drawer",
+  "type": "registry:ui",
+  "title": "drawer",
+  "description": "drawer component.",
+  "files": [
+    {
+      "path": "registry/shadcn/drawer/index.tsx",
+      "type": "registry:ui",
+      "target": "components/drawer.tsx"
+    }
+  ]
+}

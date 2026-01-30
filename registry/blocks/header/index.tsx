@@ -1,6 +1,6 @@
 'use client';
 import { cn } from '@/lib/utils';
-import { useToggleOnScroll } from '@/registry/utils/use-toggle-onscroll';
+import { useToggleOnscroll } from '@/registry/utils/use-toggle-onscroll';
 import { HTMLMotionProps, motion } from 'motion/react';
 import Link from 'next/link';
 
@@ -16,7 +16,7 @@ export function Header({
   ...props
 }: HTMLMotionProps<'header'> & { toggleOnScroll?: boolean }) {
   const { isHidden, setIsHidden } = toggleOnScroll
-    ? useToggleOnScroll()
+    ? useToggleOnscroll()
     : { isHidden: false, setIsHidden: () => {} };
   const showHeader = () => setIsHidden(false);
 

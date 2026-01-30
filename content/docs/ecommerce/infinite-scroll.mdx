@@ -1,7 +1,6 @@
 ---
 title: Infinite Scroll
 description: Infinite scroll or lazy loading for lists data, modern alternative of pagination.
-new: true
 ---
 
 <ComponentPreview name="infinite-scroll-demo" />
@@ -102,13 +101,13 @@ export function InfiniteScrollDemo() {
 <TypeTable
   type={{
     skelton: {
-      description: 'the placeholder element for the loading state.',
+      description: 'The placeholder element shown while content is loading.',
       type: 'ReactNode',
       required: false,
     },
     amount: {
       description:
-        'amount of the element to be visible so it load the cells content.',
+        'Amount of the element that should be visible to trigger content loading (0-1). For example, 0.5 means 50% visible.',
       type: "UseInViewOptions['amount']",
       required: false,
     },
@@ -118,24 +117,51 @@ export function InfiniteScrollDemo() {
 <TypeTable
   type={{
     currentItemsLength: {
-      description: 'the length of the already loaded items.',
+      description: 'The length of the already loaded items.',
       type: 'number',
       required: true,
     },
     isPending: {
-      description: 'the loading state',
+      description: 'The loading state.',
       type: 'boolean',
       required: true,
     },
     allItemsCount: {
-      description: 'the total count of the items (use aggregation).',
+      description: 'The total count of the items (use aggregation).',
       type: 'number',
       required: true,
     },
     loadMore: {
-      description: 'the callback function to load more items.',
+      description: 'The callback function to load more items.',
       type: '() => void',
       required: true,
     },
   }}
 />
+
+## InfiniteScroll vs Virtualization Libraries
+
+This component uses **deferred rendering** — items mount once when they become visible and stay in the DOM. This differs from virtualization libraries like `react-virtualized` or `@tanstack/virtual` which unmount items as they leave the viewport.
+
+### When to use each
+
+| Items Count | Recommendation    | Reason                                             |
+| ----------- | ----------------- | -------------------------------------------------- |
+| **< 50**    | ✅ InfiniteScroll | Simpler, smooth animations                         |
+| **50-200**  | ⚠️ Either works   | InfiniteScroll works, but monitor memory on mobile |
+| **200+**    | ✅ Virtualization | Memory becomes a concern                           |
+| **1000+**   | ✅ Virtualization | Required for performance                           |
+
+### Feature comparison
+
+| Feature              | InfiniteScroll                    | Virtualization                 |
+| -------------------- | --------------------------------- | ------------------------------ |
+| **Philosophy**       | Defer mounting, keep rendered     | Only render visible items      |
+| **Best for**         | Product grids, card galleries     | Long lists, large tables       |
+| **Animations**       | ✅ Skeleton → content transitions | ❌ No mount/unmount animations |
+| **Memory usage**     | Grows with scroll                 | Constant (~10-20 items)        |
+| **Variable heights** | ✅ Automatic                      | ⚠️ Requires configuration      |
+| **Complexity**       | Simple                            | More configuration needed      |
+
+> [!TIP]
+> Use **InfiniteScroll** for ecommerce product grids, card galleries, and any list under 100 items where you want smooth skeleton-to-content animations.

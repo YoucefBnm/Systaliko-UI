@@ -9,7 +9,7 @@
     {
       "path": "registry/ecommerce/price/index.tsx",
       "type": "registry:block",
-      "target": "components/systaliko-ui/ecommerce/price.tsx"
+      "target": "components/systaliko-ui/price.tsx"
     }
   ]
 }

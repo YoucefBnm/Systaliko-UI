@@ -5,10 +5,10 @@ import Link from 'next/link';
 import { useRef } from 'react';
 import { Button } from '../ui/button';
 import {
-  TextStaggerHover,
-  TextStaggerHoverActive,
-  TextStaggerHoverHidden,
-} from '@/registry/text/text-stagger-hover';
+  InfiniteScroll,
+  InfiniteScrollCell,
+} from '@/registry/ecommerce/infinite-scroll';
+import { Skeleton } from '../ui/skeleton';
 
 interface FeaturedCoponentProps {
   id: string;
@@ -20,7 +20,7 @@ interface FeaturedCoponentProps {
 const featuredComponents: FeaturedCoponentProps[] = [
   {
     id: 'featured-component-scroll-reverse-animation',
-    componentLink: '/docs/blocks/scroll-reverse-animation',
+    componentLink: '/docs/scroll-animations/scroll-reverse-animation',
     videoUrl:
       'https://cdn.21st.dev/user_2sdAd21yCZlZRkVtZyf4K8ogkBh/hero-gallery-scroll-animation/default/video.1746088116758.mp4',
     title: 'Scroll Reverse Animation',
@@ -63,7 +63,7 @@ const featuredComponents: FeaturedCoponentProps[] = [
   },
   {
     id: 'featured-component-wavy-block',
-    componentLink: '/docs/blocks/wavy-block',
+    componentLink: '/docs/scroll-animations/wavy-block',
     videoUrl: '/videos/wavy-block-component-preview.mp4',
     title: 'Wavy Block',
     description: 'Wavy Block animates its children in waves pattern on scroll.',
@@ -79,7 +79,7 @@ const featuredComponents: FeaturedCoponentProps[] = [
   },
   {
     id: 'featured-component-scroll-x-carousel',
-    componentLink: '/docs/blocks/story',
+    componentLink: '/docs/scroll-animations/story',
     videoUrl:
       'https://cdn.21st.dev/youcefbnm/scroll-x-carousel/default/video.1751413860542.mp4',
     title: 'Scroll X Carousel',
@@ -129,7 +129,7 @@ function ComponentCard({
       {...props}
     >
       <div className="flex flex-col gap-4">
-        <div className="relative aspect-[6/5] w-full ">
+        <div className="relative aspect-[6/5] w-full bg-muted">
           <div className="size-full">
             <video
               ref={videoRef}
@@ -137,6 +137,7 @@ function ComponentCard({
               loop
               muted
               playsInline
+              preload="metadata"
               src={videoUrl}
             />
           </div>
@@ -158,6 +159,18 @@ function ComponentCard({
     </Link>
   );
 }
+function ComponentCardSkelton() {
+  return (
+    <div className="flex flex-col gap-4">
+      <Skeleton className="relative aspect-[6/5] w-full" />
+
+      <div className="flex-1 flex flex-col p-4 space-y-1">
+        <Skeleton className="h-4 w-2/3" />
+        <Skeleton className="h-4 w-1/3" />
+      </div>
+    </div>
+  );
+}
 export function Components() {
   return (
     <section className="py-16 px-8 space-y-8">
@@ -175,30 +188,29 @@ export function Components() {
         </p>
       </div>
 
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] justify-center gap-4">
+      <InfiniteScroll
+        isPending={false}
+        currentItemsLength={featuredComponents.length}
+        allItemsCount={featuredComponents.length}
+        loadMore={() => {}}
+        className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] justify-center gap-4"
+      >
         {featuredComponents.map((component) => (
-          <ComponentCard key={component.id} {...component} />
+          <InfiniteScrollCell
+            amount={0}
+            skelton={<ComponentCardSkelton />}
+            key={component.id}
+          >
+            <ComponentCard {...component} />
+          </InfiniteScrollCell>
         ))}
-        <Button size="lg" variant={'link'} className="self-center">
+        <Button size="lg"  className="self-center">
           <Link className="inline-flex items-center gap-1" href="/docs">
-            <TextStaggerHover>
-              <TextStaggerHoverActive
-                transition={{ ease: 'easeOut', duration: 0.3 }}
-                animation={'bottom'}
-              >
                 View all components
-              </TextStaggerHoverActive>
-              <TextStaggerHoverHidden
-                transition={{ ease: 'easeOut', duration: 0.3 }}
-                animation={'top'}
-              >
-                View all components
-              </TextStaggerHoverHidden>
-            </TextStaggerHover>{' '}
             <ArrowUpRightIcon className="size-5" />
           </Link>
         </Button>
-      </div>
+      </InfiniteScroll>
     </section>
   );
 }

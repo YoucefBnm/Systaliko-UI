@@ -1,0 +1,77 @@
+---
+title: Expandable Grid
+description: Expandable grid for previewing clicked item.
+new: true
+---
+
+<ComponentPreview name="expandable-grid-demo" />
+
+## Installation
+
+<ComponentInstallation name="expandable-grid" />
+
+## Usage
+
+```tsx
+<ExpandableGrid>
+  {products.map((product, index) => (
+    <ExpandableGridCell key={product.id} index={index}>
+      <div className="size-full p-6">
+        <div className="relative aspect-square w-full max-w-full">
+          <Image
+            className="user-select-none select-none object-contain"
+            fill
+            alt="product"
+            src={product.imageUrl}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          />
+        </div>
+      </div>
+    </ExpandableGridCell>
+  ))}
+</ExpandableGrid>
+```
+
+## Props
+
+`ExpandableGrid`
+
+<TypeTable
+  type={{
+    breakpoints: {
+      description: 'Responsive breakpoints for setting column count.',
+      type: '[number, number][]',
+      default: '[1536, 10], [1280, 8], [1024, 6], [768, 4], [640, 2], [0, 1]',
+      required: false,
+    },
+    expandScale: {
+      description:
+        'Scale factor when expanded, The larger the value, the more zoomed in the expanded item will be.',
+      type: 'number',
+      default: '3',
+      required: false,
+    },
+    transitionDuration: {
+      description: 'Transition duration in ms.',
+      type: 'number',
+      default: '300ms',
+      required: false,
+    },
+    padding: {
+      description: 'grid padding.',
+      type: 'number',
+      default: '24',
+      required: false,
+    },
+  }}
+/>
+`ExpandableGridCell`
+<TypeTable
+  type={{
+    index: {
+      description: 'the index of the item in the grid.',
+      type: 'number',
+      required: true,
+    },
+  }}
+/>

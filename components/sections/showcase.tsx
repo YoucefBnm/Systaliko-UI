@@ -8,25 +8,25 @@ import Link from 'next/link';
 
 export function Showcase() {
   return (
-    <div className="mx-auto max-w-7xl">
+    <div className="mx-auto max-w-7xl min-h-[50vh]">
       <ScrollAnimationRotate offset={['0% 50%', '50% 50%']}>
-        <div className="pointer-events-none absolute w-[103%] h-1/6 top-0 left-0 z-10 bg-linear-180 from-red-transparent via-background/50 to-transparent" />
+        <div className="pointer-events-none absolute w-[103%] h-1/6 top-0 left-0 z-10 bg-linear-180 from-transparent via-background/50 to-transparent" />
         <ScrollAnimationRotateContainer
           yRange={[-50, 400]}
           rotateRange={[70, 0]}
           className="gap-4 px-4"
         >
-          <ScrollAnimationRotateCol className="hidden lg:block relative h-fit max-h-screenm mt-[-10%] border border-border/50 shadow">
+          <ScrollAnimationRotateCol className="relative h-fit max-h-screenm mt-[-10%] border border-border/50 shadow">
             <Link
               aria-label="view carecover template"
               title="carecover template"
               className="block"
-              href="/docs/templates/carecover"
+              href="/docs/templates/cognify"
             >
               <Image
-                src="/showcase-carecover.png"
+                src="/showcase-cognify.png"
                 className="object-contain w-full h-auto max-w-full"
-                sizes="(max-width: 1000px) 50vw, 300px"
+                sizes="(max-width: 1024px) 50vw, 33vw"
                 alt="carecover template"
                 width={1440}
                 height={2260}
@@ -45,8 +45,9 @@ export function Showcase() {
             >
               <Image
                 src="/showcase-veo.png"
-                className=" object-contain w-full h-auto max-w-full"
-                sizes="(max-width: 742px) 100vw, 300px"
+                priority={true}
+                className="object-contain w-full h-auto max-w-full"
+                sizes="(max-width: 768px) 100vw, 33vw"
                 alt="veo template"
                 width={1440}
                 height={2260}
@@ -54,7 +55,7 @@ export function Showcase() {
             </Link>
           </ScrollAnimationRotateCol>
           <ScrollAnimationRotateCol
-            className="relative h-fit max-h-screen mt-[-10%] border border-border/50 shadow"
+            className="hidden lg:block relative h-fit max-h-screen mt-[-10%] border border-border/50 shadow"
             yRange={['-10%', '2%']}
           >
             <Link
@@ -66,7 +67,7 @@ export function Showcase() {
               <Image
                 src="/showcase-portfolio-light.png"
                 className="object-contain w-full h-auto max-w-full"
-                sizes="(max-width: 742px) 100vw, 300px"
+                sizes="(max-width: 768px) 100vw, 33vw"
                 alt="portfolio template"
                 width={1440}
                 height={2260}

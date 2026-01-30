@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "quantity-demo",
+  "type": "registry:block",
+  "title": "Quantity Demo",
+  "description": "Demo showing Quantity component.",
+  "registryDependencies": ["http://localhost:3000/r/ecommerce/quantity"],
+  "files": [
+    {
+      "path": "registry/demo/ecommerce/quantity/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/quantity.tsx"
+    }
+  ]
+}
