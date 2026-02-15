@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "reveal-mask-demo",
+  "title": "Reveal Mask Demo",
+  "description": "Demo showing Reveal mask component.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/reveal-mask"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/reveal-mask/index.tsx",
+      "content": "'use client';\n\nimport { RevealMask } from '@/components/systaliko-ui/components/reveal-mask';\n\nexport const RevealMaskDemo = () => {\n  return (\n    <div className=\"relative grid grid-rows-1 grid-cols-1 *:col-start-1 *:row-start-1 w-full h-screen overflow-hidden\">\n      <RevealMask className=\"size-full inset-0\" />\n      <video\n        src=\"https://videos.pexels.com/video-files/19878722/19878722-uhd_1922_1440_25fps.mp4\"\n        autoPlay\n        muted\n        loop\n        playsInline\n        className=\"size-full object-cover\"\n        aria-hidden\n      />\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/reveal-mask.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

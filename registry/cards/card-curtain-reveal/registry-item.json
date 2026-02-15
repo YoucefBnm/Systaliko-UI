@@ -4,12 +4,11 @@
   "type": "registry:ui",
   "title": "Curtain Reveal Card",
   "description": "Interactive card component with open curtain to see content on hover gesture.",
-  "dependencies": ["motion"],
   "files": [
     {
       "path": "registry/cards/card-curtain-reveal/index.tsx",
       "type": "registry:ui",
-      "target": "components/systaliko-ui/cards/card-curtain-reveal.tsx"
+      "target": "components/systaliko-ui/card-curtain-reveal.tsx"
     }
   ]
 }

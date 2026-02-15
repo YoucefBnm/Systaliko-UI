@@ -20,7 +20,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   };
 
   // Change frequency mapping
-  const getChangeFrequency = (page: string): 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never' => {
+  const getChangeFrequency = (
+    page: string,
+  ):
+    | 'always'
+    | 'hourly'
+    | 'daily'
+    | 'weekly'
+    | 'monthly'
+    | 'yearly'
+    | 'never' => {
     if (page === 'index' || page.startsWith('templates/')) return 'weekly';
     return 'monthly';
   };

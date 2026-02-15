@@ -2,6 +2,7 @@
 
 import {
   CustomCursor,
+  CustomCursorProvider,
   useCustomCursor,
 } from '@/registry/components/custom-cursor';
 
@@ -76,8 +77,8 @@ function CustomCursor2Content() {
 }
 export function CustomCursor2Demo() {
   return (
-    <CustomCursor.Provider>
+    <CustomCursorProvider>
       <CustomCursor2Content />
-    </CustomCursor.Provider>
+    </CustomCursorProvider>
   );
 }

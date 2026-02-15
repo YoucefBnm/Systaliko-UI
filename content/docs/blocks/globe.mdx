@@ -1,0 +1,45 @@
+---
+title: Globe
+description: Globe component with optional globe pins.
+new: true
+---
+
+<ComponentPreview name="globe-demo" />
+
+## Installation
+
+<ComponentInstallation name="globe" />
+
+## Usage
+
+```tsx
+<Globe>
+  <GlobeGlow className="bg-background/50" />
+  <GlobeSvg>
+    <GlobePin x={280} y={100} delay={0} />
+    {/* Europe */}
+    <GlobePin x={640} y={80} delay={1} />
+    {/* Asia */}
+    <GlobePin x={900} y={120} delay={2} />
+  </GlobeSvg>
+</Globe>
+```
+
+## Props
+
+`GlobePin`
+
+<TypeTable
+  type={{
+    x: {
+      description: 'coordination on x axis.',
+      type: 'number',
+      required: true,
+    },
+    y: {
+      description: 'coordination on y axis.',
+      type: 'number',
+      required: true,
+    },
+  }}
+/>

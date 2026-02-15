@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "reveal-mask-demo",
+  "type": "registry:ui",
+  "title": "Reveal Mask Demo",
+  "description": "Demo showing Reveal mask component.",
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/reveal-mask"],
+  "files": [
+    {
+      "path": "registry/demo/components/reveal-mask/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/reveal-mask.tsx"
+    }
+  ]
+}

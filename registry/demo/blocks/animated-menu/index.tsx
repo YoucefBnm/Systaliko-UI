@@ -57,7 +57,7 @@ export function AnimatedMenuDemo() {
           <AnimatedMenuButtonToggleIcon />
           <AnimatedMenuButtonLabel />
         </AnimatedMenuButton>
-        <AnimatedMenuList className="absolute right-0 top-0.5 bg-linear-to-bl from-primary/95 to-primary border shadow-md inset-shadow-xs inset-shadow-muted rounded-3xl">
+        <AnimatedMenuList className="absolute right-0 top-0.5 bg-linear-to-bl from-primary/95 to-primary border shadow-md inset-shadow-xs inset-shadow-foreground rounded-3xl">
           <div className="flex flex-col px-6 justify-evenly gap-6 items-start size-full">
             <div className="flex flex-col items-start gap-4 *:transition-blur *:duration-300 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
               {menuItems.map((item, i) => (

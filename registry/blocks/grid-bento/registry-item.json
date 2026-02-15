@@ -8,7 +8,7 @@
     {
       "path": "registry/blocks/grid-bento/index.tsx",
       "type": "registry:block",
-      "target": "components/systaliko-ui/blocks/grid-bento.tsx"
+      "target": "components/systaliko-ui/grid-bento.tsx"
     }
   ]
 }

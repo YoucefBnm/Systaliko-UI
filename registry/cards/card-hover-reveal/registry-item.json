@@ -8,7 +8,7 @@
     {
       "path": "registry/cards/card-hover-reveal/index.tsx",
       "type": "registry:ui",
-      "target": "components/systaliko-ui/cards/card-hover-reveal.tsx"
+      "target": "components/systaliko-ui/card-hover-reveal.tsx"
     }
   ]
 }

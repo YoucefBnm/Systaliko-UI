@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "svg-globe-path",
+  "type": "registry:item",
+  "title": "Svg Globe",
+  "description": "Svg globe path.",
+  "files": [
+    {
+      "path": "registry/utils/svg-globe-path/index.ts",
+      "type": "registry:item",
+      "target": "components/systaliko-ui/utils/svg-globe-path.tsx"
+    }
+  ]
+}

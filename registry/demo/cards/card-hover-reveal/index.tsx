@@ -6,7 +6,7 @@ import {
 
 export const CardHoverRevealDemo = () => (
   <CardHoverReveal className="h-[512px] w-[385px] rounded-xl">
-    <CardHoverRevealMain hoverScale={1.2}>
+    <CardHoverRevealMain>
       <img
         width={1077}
         height={606}
@@ -16,7 +16,7 @@ export const CardHoverRevealDemo = () => (
       />
     </CardHoverRevealMain>
 
-    <CardHoverRevealContent className="space-y-4 rounded-2xl bg-black/80 text-secondary/80 p-4">
+    <CardHoverRevealContent className="space-y-4 rounded-2xl bg-foreground/80 text-background p-4">
       <div className="space-y-2">
         <h3 className="text-sm ">Services</h3>
         <div className="flex flex-wrap gap-2 ">

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "circle-cards",
+  "type": "registry:block",
+  "title": "Circle Cards",
+  "description": "circle cards, animated on scroll with circle movement.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "registry/scroll-animations/circle-cards/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/circle-cards.tsx"
+    }
+  ]
+}

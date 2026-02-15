@@ -27,10 +27,10 @@ function useSlideshowContext() {
   return context;
 }
 
-export const Slideshow = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ children, className, ...props }, ref) => {
+export const Slideshow = ({
+  children,
+  ...props
+}: React.ComponentProps<'div'>) => {
   const [activeSlide, setActiveSlide] = React.useState<number>(0);
   const changeSlide = React.useCallback(
     (index: number) => setActiveSlide(index),
@@ -38,29 +38,27 @@ export const Slideshow = React.forwardRef<
   );
   return (
     <SlideshowContext.Provider value={{ activeSlide, changeSlide }}>
-      <div className={className} ref={ref} {...props}>
-        {children}
-      </div>
+      <div {...props}>{children}</div>
     </SlideshowContext.Provider>
   );
-});
-Slideshow.displayName = 'Slideshow';
+};
 
-export const SlideshowIndicator = React.forwardRef<
-  HTMLElement,
-  React.HTMLAttributes<HTMLElement> & { index: number }
->(({ index, children, className, ...props }, ref) => {
+export const SlideshowIndicator = ({
+  index,
+  children,
+  className,
+  ...props
+}: React.ComponentProps<'div'> & { index: number }) => {
   const { activeSlide, changeSlide } = useSlideshowContext();
   const isActive = activeSlide === index;
   const handleMouse = () => changeSlide(index);
   return (
-    <span
+    <div
       className={cn(
         'relative inline-block origin-bottom overflow-hidden',
         className,
       )}
       {...props}
-      ref={ref}
       onMouseEnter={handleMouse}
     >
       <TextStaggerHover
@@ -83,10 +81,9 @@ export const SlideshowIndicator = React.forwardRef<
           {String(children)}
         </TextStaggerHoverHidden>
       </TextStaggerHover>
-    </span>
+    </div>
   );
-});
-SlideshowIndicator.displayName = 'SlideshowIndicator';
+};
 
 export const clipPathVariants = {
   visible: {

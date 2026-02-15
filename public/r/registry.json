@@ -29,7 +29,7 @@
         {
           "path": "registry/blocks/animated-menu/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/animated-menu.tsx"
+          "target": "components/systaliko-ui/animated-menu.tsx"
         }
       ]
     },
@@ -63,18 +63,21 @@
       ]
     },
     {
-      "name": "distributed-cards",
+      "name": "globe",
       "type": "registry:block",
-      "title": "Distr",
-      "description": "Distributed cards, same as soliter, starts all at one position then animates to its position.",
+      "title": "Globe",
+      "description": "Globe map with optional map pins.",
       "dependencies": [
         "motion"
       ],
+      "registryDependencies": [
+        "http://localhost:3000/r/svg-globe-path"
+      ],
       "files": [
         {
-          "path": "registry/blocks/distributed-cards/index.tsx",
+          "path": "registry/blocks/globe/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/distributed-cards.tsx"
+          "target": "components/systaliko-ui/globe.tsx"
         }
       ]
     },
@@ -87,7 +90,7 @@
         {
           "path": "registry/blocks/grid-bento/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/grid-bento.tsx"
+          "target": "components/systaliko-ui/grid-bento.tsx"
         }
       ]
     },
@@ -106,7 +109,7 @@
         {
           "path": "registry/blocks/header/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/header.tsx"
+          "target": "components/systaliko-ui/header.tsx"
         }
       ]
     },
@@ -119,7 +122,7 @@
         {
           "path": "registry/blocks/image-player/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/blocks/image-player.tsx"
+          "target": "components/systaliko-ui/image-player.tsx"
         }
       ]
     },
@@ -183,7 +186,7 @@
         {
           "path": "registry/cards/card/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/cards/card.tsx"
+          "target": "components/systaliko-ui/card.tsx"
         }
       ]
     },
@@ -192,14 +195,11 @@
       "type": "registry:ui",
       "title": "Curtain Reveal Card",
       "description": "Interactive card component with open curtain to see content on hover gesture.",
-      "dependencies": [
-        "motion"
-      ],
       "files": [
         {
           "path": "registry/cards/card-curtain-reveal/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/cards/card-curtain-reveal.tsx"
+          "target": "components/systaliko-ui/card-curtain-reveal.tsx"
         }
       ]
     },
@@ -215,7 +215,7 @@
         {
           "path": "registry/cards/card-flip/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/cards/card-flip.tsx"
+          "target": "components/systaliko-ui/card-flip.tsx"
         }
       ]
     },
@@ -228,7 +228,7 @@
         {
           "path": "registry/cards/card-hover-reveal/index.tsx",
           "type": "registry:ui",
-          "target": "components/systaliko-ui/cards/card-hover-reveal.tsx"
+          "target": "components/systaliko-ui/card-hover-reveal.tsx"
         }
       ]
     },
@@ -331,6 +331,22 @@
       ]
     },
     {
+      "name": "reveal-mask",
+      "type": "registry:ui",
+      "title": "reveal mask",
+      "description": "reveal mask animation effect.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/components/reveal-mask/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/reveal-mask.tsx"
+        }
+      ]
+    },
+    {
       "name": "animated-menu-demo",
       "type": "registry:block",
       "title": "Animated Menu Demo",
@@ -428,6 +444,22 @@
           "path": "registry/demo/blocks/container-stagger-2/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/blocks/container-stagger.tsx"
+        }
+      ]
+    },
+    {
+      "name": "globe-demo",
+      "type": "registry:block",
+      "title": "Globe Demo",
+      "description": "Demo showing Globe component.",
+      "registryDependencies": [
+        "http://localhost:3000/r/globe"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/blocks/globe/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/globe.tsx"
         }
       ]
     },
@@ -665,7 +697,7 @@
       "title": "Sticky Cards stack Demo",
       "description": "Demo of sticky cards stack.",
       "registryDependencies": [
-        "http://localhost:3000/r/cards-stack"
+        "systaliko-ui.vercel.app/r/cards-stack"
       ],
       "files": [
         {
@@ -742,6 +774,22 @@
       ]
     },
     {
+      "name": "hover-preview-demo",
+      "type": "registry:ui",
+      "title": "Hover Preview Demo",
+      "description": "Demo showing usage of hover preview component.",
+      "registryDependencies": [
+        "systaliko-ui.vercel.app/r/custom-cursor"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/cards/hover-preview/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/cards/hover-preview.tsx"
+        }
+      ]
+    },
+    {
       "name": "custom-cursor-demo",
       "type": "registry:ui",
       "title": "Custom Cursor Demo",
@@ -787,6 +835,22 @@
           "path": "registry/demo/components/rating-stars/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/rating-stars.tsx"
+        }
+      ]
+    },
+    {
+      "name": "reveal-mask-demo",
+      "type": "registry:ui",
+      "title": "Reveal Mask Demo",
+      "description": "Demo showing Reveal mask component.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/reveal-mask"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/reveal-mask/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/reveal-mask.tsx"
         }
       ]
     },
@@ -951,6 +1015,22 @@
           "path": "registry/demo/ecommerce/toggle-layout/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/demo/toggle-layout.tsx"
+        }
+      ]
+    },
+    {
+      "name": "circle-cards-demo",
+      "type": "registry:block",
+      "title": "circle cards Demo",
+      "description": "Demo showing circle cards component.",
+      "registryDependencies": [
+        "http://localhost:3000/r/circle-cards"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/scroll-animations/circle-cards/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/circle-cards.tsx"
         }
       ]
     },
@@ -1508,6 +1588,38 @@
       ]
     },
     {
+      "name": "circle-cards",
+      "type": "registry:block",
+      "title": "Circle Cards",
+      "description": "circle cards, animated on scroll with circle movement.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/scroll-animations/circle-cards/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/circle-cards.tsx"
+        }
+      ]
+    },
+    {
+      "name": "distributed-cards",
+      "type": "registry:block",
+      "title": "Distr",
+      "description": "Distributed cards, same as soliter, starts all at one position then animates to its position.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/scroll-animations/distributed-cards/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/distributed-cards.tsx"
+        }
+      ]
+    },
+    {
       "name": "parallax",
       "type": "registry:block",
       "title": "Parallax",
@@ -1652,6 +1764,32 @@
           "path": "registry/shadcn/dialog/index.tsx",
           "type": "registry:ui",
           "target": "components/dialog.tsx"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "title": "drawer",
+      "description": "drawer component.",
+      "files": [
+        {
+          "path": "registry/shadcn/drawer/index.tsx",
+          "type": "registry:ui",
+          "target": "components/drawer.tsx"
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "title": "empty",
+      "description": "empty component.",
+      "files": [
+        {
+          "path": "registry/shadcn/empty/index.tsx",
+          "type": "registry:ui",
+          "target": "components/empty.tsx"
         }
       ]
     },
@@ -1904,6 +2042,19 @@
       ]
     },
     {
+      "name": "svg-globe-path",
+      "type": "registry:item",
+      "title": "Svg Globe",
+      "description": "Svg globe path.",
+      "files": [
+        {
+          "path": "registry/utils/svg-globe-path/index.ts",
+          "type": "registry:item",
+          "target": "components/systaliko-ui/utils/svg-globe-path.tsx"
+        }
+      ]
+    },
+    {
       "name": "transitions",
       "type": "registry:item",
       "title": "Transitions",
@@ -1933,6 +2084,19 @@
       ]
     },
     {
+      "name": "use-is-scrolled",
+      "type": "registry:hook",
+      "title": "Use is scrolled Hook",
+      "description": "use is scrolled hook to detect if the user has scrolled to the bottom of the page.",
+      "files": [
+        {
+          "path": "registry/utils/use-is-scrolled/index.ts",
+          "type": "registry:hook",
+          "target": "components/systaliko-ui/utils/use-is-scrolled.ts"
+        }
+      ]
+    },
+    {
       "name": "use-mobile",
       "type": "registry:hook",
       "title": "Use mobile Hook",
@@ -1954,7 +2118,7 @@
         {
           "path": "registry/utils/use-toggle-onscroll/index.ts",
           "type": "registry:hook",
-          "target": "components/systaliko-ui/utils/use-toggle-onscroll.ts"
+          "target": "lib/systaliko-ui/use-toggle-onscroll.ts"
         }
       ]
     }

@@ -13,6 +13,7 @@ import { ComponentInstallation } from '@/components/docs/component-installation'
 import { TemplatePreview } from '@/components/docs/template-preview';
 import { TemplateCustom } from '@/components/docs/template-custom';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
+import { Templates } from '@/components/docs/templates';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -39,6 +40,7 @@ export default async function Page(props: {
             TemplateOpen,
             TemplatePreview,
             TemplateCustom,
+            Templates,
             TypeTable,
           }}
         />

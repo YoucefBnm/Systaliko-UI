@@ -26,6 +26,7 @@ interface DistributedCardsContainerProps extends HTMLMotionProps<'div'> {
 interface DistributedCardCellProps extends HTMLMotionProps<'div'> {
   yRange: unknown[];
   xRange: unknown[];
+  rotateRange?: unknown[];
   inputRange?: MapInputRange;
 }
 
@@ -86,14 +87,15 @@ export function DistributedCardCell({
   yRange,
   xRange,
   inputRange = [0, 1],
+  rotateRange = [-5, 0],
   style,
   ...props
 }: DistributedCardCellProps) {
   const { scrollYProgress } = useDistributedCardsContext();
   const x = useTransform(scrollYProgress, inputRange, xRange);
   const y = useTransform(scrollYProgress, inputRange, yRange);
-
-  const transform = useMotionTemplate`translateX(${x}) translateY(${y})`;
+  const rotate = useTransform(scrollYProgress, inputRange, rotateRange);
+  const transform = useMotionTemplate`translateX(${x}) translateY(${y}) rotate(${rotate}deg)`;
   return (
     <motion.div
       style={{

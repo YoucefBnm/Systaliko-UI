@@ -1,0 +1,74 @@
+---
+title: Hover Preview Card
+description: Interactive card component with displaying preview image/video on hover.
+new: true
+---
+
+<ComponentPreview name="hover-preview-demo" />
+
+## Installation
+
+<ComponentInstallation name="custom-cursor" />
+
+## Usage
+
+```tsx
+const { setCursorChildren, containerRef } = useCustomCursor();
+const handleClearCursor = () => {
+  setCursorChildren(null);
+};
+
+<div onMouseLeave={handleClearCursor} className="relative " ref={containerRef}>
+  <CustomCursor />
+  <div
+    key={client.id}
+    className="flex bg-background px-4 py-6  flex-wrap gap-4 items-center justify-between"
+    onMouseEnter={() =>
+      setCursorChildren(
+        <div className="aspect-[12/16] h-48">
+          <Image
+            alt={client.name}
+            src={client.imageUrl}
+            width={200}
+            height={530}
+            className=" size-full"
+          />
+        </div>,
+      )
+    }
+  >
+    <div className="md:flex-1">
+      <p className="uppercase text-muted-foreground text-xl">{client.name}</p>
+    </div>
+
+    <div className="md:flex-1">
+      <p className="text-3xl font-medium">{client.service}</p>
+    </div>
+
+    <div className="bg-secondary text-secondary-foreground rounded-full p-4">
+      <ArrowUpRightIcon className="size-5" />
+    </div>
+  </div>
+</div>;
+```
+
+## Props
+
+`CustomCursor`
+
+<TypeTable
+  type={{
+    variant: {
+      description: 'the variant of the cursor',
+      type: 'default | reset',
+      required: false,
+      default: 'default',
+    },
+    cursorChildren: {
+      description: 'the children of the cursor',
+      type: 'ReactNode',
+      required: false,
+      default: 'null',
+    },
+  }}
+/>

@@ -27,16 +27,20 @@ export function MobileHeader() {
         ref={sentinelRef}
         className="absolute top-0 h-px w-full bg-transparent"
       />
-      <header
-        className="sticky z-999 top-0 left-0 w-full flex justify-center"
-      >
-        <div className={`
+      <header className="sticky z-999 top-0 left-0 w-full flex justify-center">
+        <div
+          className={`
             flex justify-between backdrop-blur-lg
             transition-all duration-500 ease-[cubic-bezier(0.215,0.61,0.355,1)]
             inset-[0_0_auto] py-2
-            ${isScrolled ? "w-10/12 px-3 translate-y-1 bg-background/50 rounded-full shadow-[0_0_0_1px_rgba(0,0,0,0.05)]" : "w-full px-10"}
-        `}>
-          <Link aria-label='home page' className="text-primary flex items-center justify-center" href="/">
+            ${isScrolled ? 'w-10/12 px-3 translate-y-1 bg-background/50 rounded-full shadow-[0_0_0_1px_rgba(0,0,0,0.05)]' : 'w-full px-10'}
+        `}
+        >
+          <Link
+            aria-label="home page"
+            className="text-primary flex items-center justify-center"
+            href="/"
+          >
             <Logo />
           </Link>
           <AnimatedMenu className="relative block md:hidden">
@@ -49,18 +53,34 @@ export function MobileHeader() {
               <div className="size-full flex flex-col items-start gap-4 justify-evenly place-content-center p-8">
                 <div className="flex gap-4 flex-col">
                   <AnimatedMenuItem>
-                    <Link className="text-primary-foreground hover:bg-primary focus:bg-primary focus-visible:ring-ring/50 rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all focus-visible:ring-[3px] focus-visible:outline-1 disabled:opacity-50  inline-flex h-9 w-max items-center justify-center disabled:pointer-events-none outline-none" href="/docs">Blocks</Link>
+                    <Link
+                      className="text-primary-foreground hover:bg-primary focus:bg-primary focus-visible:ring-ring/50 rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all focus-visible:ring-[3px] focus-visible:outline-1 disabled:opacity-50  inline-flex h-9 w-max items-center justify-center disabled:pointer-events-none outline-none"
+                      href="/docs"
+                    >
+                      Blocks
+                    </Link>
                   </AnimatedMenuItem>
                   <AnimatedMenuItem>
-                    <Link className="text-primary-foreground hover:bg-primary focus:bg-primary focus-visible:ring-ring/50 rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all focus-visible:ring-[3px] focus-visible:outline-1 disabled:opacity-50  inline-flex h-9 w-max items-center justify-center disabled:pointer-events-none outline-none" href="/docs/templates">Templates</Link>
+                    <Link
+                      className="text-primary-foreground hover:bg-primary focus:bg-primary focus-visible:ring-ring/50 rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all focus-visible:ring-[3px] focus-visible:outline-1 disabled:opacity-50  inline-flex h-9 w-max items-center justify-center disabled:pointer-events-none outline-none"
+                      href="/docs/templates"
+                    >
+                      Templates
+                    </Link>
                   </AnimatedMenuItem>
                   <AnimatedMenuItem>
                     <Button size="sm" variant="secondary">
-                      <Link target="_blank" rel="noreferrer" className='flex gap-1 items-center' href={siteConfig.links.repo} aria-label='star repo on github'>
-                        <StarIcon className='size-3'/>
+                      <Link
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex gap-1 items-center"
+                        href={siteConfig.links.repo}
+                        aria-label="star repo on github"
+                      >
+                        <StarIcon className="size-3" />
                         Star on Github
                       </Link>
-                    </Button>                
+                    </Button>
                   </AnimatedMenuItem>
                 </div>
                 <div className="flex items-center gap-2 ">
@@ -94,7 +114,7 @@ export function MobileHeader() {
                     </Link>
                   </AnimatedMenuItem>
                 </div>
-                <AnimatedMenuItem className='text-primary-foreground'>
+                <AnimatedMenuItem className="text-primary-foreground">
                   <ModeToggle />
                 </AnimatedMenuItem>
               </div>

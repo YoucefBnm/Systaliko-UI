@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-02-15
+
+### Added
+
+- 🧩 **New template: `enera-template`** — Corporate website template (Next.js, Tailwind, Motion, Lenis) with OG image support
+- ✨ **New block: `globe`** — Globe block component for hero or feature sections
+- ✨ **New scroll animation: `circle-cards`** — Circle-based card layout with scroll-driven animation
+- ✨ **New card: `hover-preview`** — Hover preview card component for content teasers
+- ✨ **New component: `reveal-mask`** — Reveal mask component for clip/reveal animations
+
 ## [0.3.1] - 2025-12-17
 
 ### Added
@@ -79,7 +89,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Documentation site with Fumadocs
 - Three template projects: Veo, Alba Studio, and Motus Studio
 
-[Unreleased]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.3.1...HEAD
+[Unreleased]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.1.0...v0.2.0

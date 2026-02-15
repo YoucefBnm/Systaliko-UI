@@ -55,7 +55,7 @@ export function Features() {
         <div className="md:sticky top-16 left-0 h-fit space-y-4">
           <TextStaggerInview
             className="text-3xl text-balance font-semibold tracking-tight [&>[data-word=customizable]]:text-primary [&>[data-word=flexible]]:text-primary"
-            animation="bottom"
+            animation="blur"
             as="h2"
           >
             Fully customizable and flexible components
@@ -65,7 +65,7 @@ export function Features() {
             No <code>npm-install</code> a whole library install only the
             components you want, easy to adapt to your design and brand.
           </p>
-          <Button variant={'link'}>
+          <Button>
             <Link href="/docs/cards/cards-stack">Use this Component</Link>
           </Button>
         </div>
@@ -77,7 +77,7 @@ export function Features() {
               index={index}
               className="supports-[backdrop-blur]:bg-background/90 rounded-2xl w-4/5 border p-8  shadow-md backdrop-blur-md"
             >
-              <feature.icon className="justify-self-end text-primary size-8" />
+              <feature.icon className="justify-self-end text-muted-foreground size-8 stroke-[1.5]" />
               <h2 className="my-6 text-2xl font-bold tracking-tighter">
                 {feature.title}
               </h2>

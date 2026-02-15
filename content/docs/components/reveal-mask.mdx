@@ -1,0 +1,28 @@
+---
+title: Reveal Mask
+description: Reveal mask animation effect.
+new: true
+---
+
+<ComponentPreview name="reveal-mask-demo" />
+
+## Installation
+
+<ComponentInstallation name="reveal-mask" />
+
+## Usage
+
+```tsx
+<div className="relative grid grid-rows-1 grid-cols-1 *:col-start-1 *:row-start-1 w-full h-screen overflow-hidden">
+  <RevealMask className="size-full inset-0" />
+  <video
+    src="https://videos.pexels.com/video-files/19878722/19878722-uhd_1922_1440_25fps.mp4"
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="size-full object-cover"
+    aria-hidden
+  />
+</div>
+```

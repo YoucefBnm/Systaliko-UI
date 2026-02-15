@@ -34,7 +34,7 @@ const CustomCursorContext = React.createContext<CustomCursorContextType | null>(
   null,
 );
 
-const Provider = ({
+export const CustomCursorProvider = ({
   children,
 }: {
   children:
@@ -89,7 +89,7 @@ export function CustomCursor({
   return (
     <motion.div
       className={cn(
-        'absolute pointer-events-none left-0 top-0 z-[999] flex items-center justify-center',
+        'pointer-events-none absolute top-0 left-0 z-[999] flex items-center justify-center',
         className,
       )}
       ref={cursorRef}
@@ -106,9 +106,9 @@ export function CustomCursor({
       <AnimatePresence mode="sync">
         {cursorChildren && (
           <motion.div
-            initial={{ opacity: 0, scale: 0 }}
+            initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0 }}
+            exit={{ opacity: 0, scale: 0.8 }}
             className="flex items-center justify-center"
           >
             {cursorChildren}
@@ -118,4 +118,3 @@ export function CustomCursor({
     </motion.div>
   );
 }
-CustomCursor.Provider = Provider;

@@ -8,7 +8,7 @@
     {
       "path": "registry/cards/card/index.tsx",
       "type": "registry:ui",
-      "target": "components/systaliko-ui/cards/card.tsx"
+      "target": "components/systaliko-ui/card.tsx"
     }
   ]
 }

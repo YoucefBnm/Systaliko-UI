@@ -2,7 +2,6 @@
 import { ContainerStagger } from '@/registry/blocks/container-stagger';
 import { Button } from '@/registry/shadcn/button';
 import { ANIMATION_VARIANTS } from '@/registry/utils/animation-variants';
-import { ArrowUpRightIcon } from 'lucide-react';
 import { motion, MotionConfig } from 'motion/react';
 import Link from 'next/link';
 import ReactIcon from '../icons/react-icon';
@@ -10,9 +9,7 @@ import TSIcon from '../icons/ts-icon';
 import TailwindIcon from '../icons/tailwind-icon';
 import ShadcnIcon from '../icons/shadcn-icon';
 import MotionIcon from '../icons/motion-icon';
-import { Pulse } from '@/registry/components/pulse';
 import { Showcase } from './showcase';
-import { Badge } from '@/registry/shadcn/badge';
 import { TextWavy } from '@/registry/text/text-wavy';
 
 const TECH_STACK = [
@@ -51,7 +48,9 @@ export function Hero() {
       <ContainerStagger className="flex px-6 pt-12 flex-col items-center text-center justify-center space-y-6 min-h-96">
         <MotionConfig transition={{ duration: 0.3, ease: 'easeOut' }}>
           <motion.div variants={animationVariants}>
-           <Link href="/docs"><TextWavy text="New Blocks and Cognify template are available." /></Link>
+            <Link href="/docs">
+              <TextWavy text="New Blocks and Cognify template are available." />
+            </Link>
           </motion.div>
 
           <motion.h1
@@ -75,7 +74,7 @@ export function Hero() {
             className="flex items-center gap-2 justify-center"
           >
             <Button size="sm">
-              <Link href="/docs">Browse Components</Link>
+              <Link href="/docs">Browse Blocks</Link>
             </Button>
             <Button size="sm" variant={'secondary'}>
               <Link href="/docs/templates">Browse Templates</Link>

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "circle-cards",
+  "title": "Circle Cards",
+  "description": "circle cards, animated on scroll with circle movement.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "registry/scroll-animations/circle-cards/index.tsx",
+      "content": "'use client';\nimport { cn } from '@/lib/utils';\nimport { ClassValue } from 'clsx';\nimport {\n  motion,\n  HTMLMotionProps,\n  useScroll,\n  UseScrollOptions,\n  useTransform,\n  MotionValue,\n  MapInputRange,\n} from 'motion/react';\nimport React from 'react';\n\ninterface CircleCardsContextValue {\n  scrollYProgress: MotionValue<number>;\n}\ninterface CircleCardsProps extends React.ComponentPropsWithRef<'div'> {\n  offset?: UseScrollOptions['offset'];\n  spacerClassName?: ClassValue;\n}\ninterface CircleItem extends HTMLMotionProps<'div'> {\n  inputRange?: MapInputRange;\n  outputRange?: number[];\n}\n\nconst CircleCardsContext = React.createContext<\n  CircleCardsContextValue | undefined\n>(undefined);\nexport function useCircleCardsContext() {\n  const context = React.useContext(CircleCardsContext);\n  if (!context) {\n    throw new Error(\n      'useCircleCardsContext must be used within a CircleCardsContextProvider',\n    );\n  }\n  return context;\n}\n\nexport function CircleCards({\n  offset,\n  spacerClassName,\n  className,\n  children,\n  ...props\n}: CircleCardsProps) {\n  const containerRef = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: containerRef,\n    offset: offset,\n  });\n  return (\n    <CircleCardsContext.Provider value={{ scrollYProgress }}>\n      <div ref={containerRef} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={cn('h-70', spacerClassName)} />\n      </div>\n    </CircleCardsContext.Provider>\n  );\n}\n\nexport function CircleItem({\n  inputRange = [0, 1],\n  outputRange = [30, -30],\n  className,\n  style,\n  ...props\n}: CircleItem) {\n  const { scrollYProgress } = useCircleCardsContext();\n  const rotate = useTransform(scrollYProgress, inputRange, outputRange);\n  return (\n    <motion.div\n      className={cn(\n        'absolute top-1/2 -left-full aspect-[1] w-[300%]',\n        className,\n      )}\n      style={{\n        rotate,\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}\nexport function CircleCardsWrapper({\n  yOutput = [0, 280],\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & { yOutput?: number[] }) {\n  const { scrollYProgress } = useCircleCardsContext();\n  const y = useTransform(scrollYProgress, [0, 1], yOutput);\n\n  return (\n    <motion.div\n      className={cn('relative min-h-screen w-full overflow-hidden', className)}\n      style={{ y, ...style }}\n      {...props}\n    />\n  );\n}\n\nexport function CircleCard({\n  className,\n  ...props\n}: React.ComponentProps<'div'>) {\n  return (\n    <div\n      className={cn(\n        'absolute top-0 left-1/2 aspect-3/4 max-h-[90vh] w-1/4 max-w-full min-w-2xs origin-top-left -translate-x-1/2 -translate-y-1/2',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/circle-cards.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

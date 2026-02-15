@@ -2,13 +2,12 @@
 import { TextStaggerInview } from '@/registry/text/text-stagger-inview';
 import { ArrowUpRightIcon } from 'lucide-react';
 import Link from 'next/link';
-import { useRef } from 'react';
 import { Button } from '../ui/button';
 import {
   InfiniteScroll,
   InfiniteScrollCell,
 } from '@/registry/ecommerce/infinite-scroll';
-import { Skeleton } from '../ui/skeleton';
+import { PreviewCard, PreviewCardSkelton } from '../preview-card';
 
 interface FeaturedCoponentProps {
   id: string;
@@ -87,97 +86,14 @@ const featuredComponents: FeaturedCoponentProps[] = [
       'Carousel that transforms on the x-axis, showing items depnding on the scroll position, with a progress indicator.',
   },
 ];
-interface ComponentCardProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  componentLink: string;
-  videoUrl: string;
-  title: string;
-  description: string;
-}
-function ComponentCard({
-  componentLink,
-  videoUrl,
-  title,
-  description,
-  ...props
-}: ComponentCardProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handleMouseEnter = () => {
-    if (videoRef.current) {
-      videoRef.current.play().catch((error) => {
-        // Handle play errors silently
-        console.debug('Video play error:', error);
-      });
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0; // Reset to start
-    }
-  };
-
-  return (
-    <Link
-      className="group relative gap-4 rounded-xl overflow-hidden transition-all duration-300 bg-gradient-to-b from-card to-card border border-primary/5 before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-b before:from-primary/5 before:to-transparent before:opacity-0 before:transition-opacity before:duration-300 after:absolute after:inset-0 after:z-[-1] after:rounded-xl after:bg-card hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 hover:backdrop-blur-xl hover:bg-primary/[0.02] before:hover:opacity-100 flex h-full flex-col"
-      href={componentLink}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      title={title}
-      {...props}
-    >
-      <div className="flex flex-col gap-4">
-        <div className="relative aspect-[6/5] w-full bg-muted">
-          <div className="size-full">
-            <video
-              ref={videoRef}
-              className="size-full object-cover"
-              loop
-              muted
-              playsInline
-              preload="metadata"
-              src={videoUrl}
-            />
-          </div>
-        </div>
-        <div className="flex-1 flex flex-col p-4 space-y-1">
-          <div className="flex items-center justify-between gap-2">
-            <h3 className="line-clamp-1 font-semibold tracking-tighter transition-colors duration-300 group-hover:text-primary">
-              {title}
-            </h3>
-            <div className="text-black opacity-0 transition-opacity duration-200 group-hover:opacity-100 dark:text-white">
-              <ArrowUpRightIcon className="size-5" />
-            </div>
-          </div>
-          <p className="line-clamp2 text-muted-foreground text-sm tracking-tighter">
-            {description}
-          </p>
-        </div>
-      </div>
-    </Link>
-  );
-}
-function ComponentCardSkelton() {
-  return (
-    <div className="flex flex-col gap-4">
-      <Skeleton className="relative aspect-[6/5] w-full" />
-
-      <div className="flex-1 flex flex-col p-4 space-y-1">
-        <Skeleton className="h-4 w-2/3" />
-        <Skeleton className="h-4 w-1/3" />
-      </div>
-    </div>
-  );
-}
 export function Components() {
   return (
     <section className="py-16 px-8 space-y-8">
       <div className="space-y-4">
         <TextStaggerInview
           className="text-4xl font-semibold tracking-tight [&>[data-word=customizable]]:text-primary [&>[data-word=flexible]]:text-primary"
-          animation="bottom"
+          animation="blur"
           as="h2"
         >
           Components
@@ -198,15 +114,15 @@ export function Components() {
         {featuredComponents.map((component) => (
           <InfiniteScrollCell
             amount={0}
-            skelton={<ComponentCardSkelton />}
+            skelton={<PreviewCardSkelton />}
             key={component.id}
           >
-            <ComponentCard {...component} />
+            <PreviewCard {...component} />
           </InfiniteScrollCell>
         ))}
-        <Button size="lg"  className="self-center">
+        <Button size="lg" className="self-center">
           <Link className="inline-flex items-center gap-1" href="/docs">
-                View all components
+            View all components
             <ArrowUpRightIcon className="size-5" />
           </Link>
         </Button>

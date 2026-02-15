@@ -10,7 +10,7 @@ export function useIsScrolled() {
         // If the sentinel (top pixel) is NOT intersecting, we have scrolled down
         setIsScrolled(!entry.isIntersecting);
       },
-      { root: null, threshold: 1.0 }
+      { root: null, threshold: 1.0 },
     );
 
     if (sentinelRef.current) {

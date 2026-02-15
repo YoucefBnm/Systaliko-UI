@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "globe",
+  "type": "registry:block",
+  "title": "Globe",
+  "description": "Globe map with optional map pins.",
+  "registryDependencies": ["http://localhost:3000/r/svg-globe-path"],
+  "files": [
+    {
+      "path": "registry/blocks/globe/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/globe.tsx"
+    }
+  ]
+}

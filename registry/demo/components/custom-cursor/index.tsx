@@ -1,10 +1,13 @@
 import { Button } from '@/registry/shadcn/button';
-import { CustomCursor } from '@/registry/components/custom-cursor';
+import {
+  CustomCursor,
+  CustomCursorProvider,
+} from '@/registry/components/custom-cursor';
 import { MapPinIcon } from 'lucide-react';
 
 export function CustomCursorDemo() {
   return (
-    <CustomCursor.Provider>
+    <CustomCursorProvider>
       {({ setCursorStyle, setCursorChildren, containerRef }) => {
         const handleHeadingCursor = () => {
           setCursorStyle({
@@ -99,6 +102,6 @@ export function CustomCursorDemo() {
           </div>
         );
       }}
-    </CustomCursor.Provider>
+    </CustomCursorProvider>
   );
 }

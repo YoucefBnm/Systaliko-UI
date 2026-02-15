@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "hover-preview-demo",
+  "type": "registry:ui",
+  "title": "Hover Preview Demo",
+  "description": "Demo showing usage of hover preview component.",
+  "registryDependencies": ["systaliko-ui.vercel.app/r/custom-cursor"],
+  "files": [
+    {
+      "path": "registry/demo/cards/hover-preview/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/cards/hover-preview.tsx"
+    }
+  ]
+}

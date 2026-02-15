@@ -3,16 +3,19 @@
   "root": true,
   "pages": [
     "index",
+    "templates",
     "---Templates---",
-    "templates/cognify",
+    "templates/enera",
     "templates/abla",
     "templates/carecover",
+    "templates/cognify",
     "templates/motus",
     "templates/portfolio",
     "templates/product-page",
     "templates/veo",
 
     "---Blocks---",
+    "blocks/globe",
     "blocks/animated-menu",
     "blocks/grid-bento",
     "blocks/header",
@@ -22,6 +25,7 @@
     "blocks/story",
 
     "---Scroll Animations---",
+    "scroll-animations/circle-cards",
     "scroll-animations/distributed-cards",
     "scroll-animations/parallax",
     "scroll-animations/scroll-animations",
@@ -33,14 +37,15 @@
 
     "---Ecommerce---",
     "ecommerce/expandable-grid",
-    "ecommerce/quantity",
     "ecommerce/infinite-scroll",
+    "ecommerce/quantity",
     "ecommerce/price",
     "ecommerce/pricing",
     "ecommerce/product-carousel",
     "ecommerce/toggle-layout",
 
     "---Cards---",
+    "cards/hover-preview",
     "cards/card-flip",
     "cards/card-curtain-reveal",
     "cards/card-hover-reveal",
@@ -49,6 +54,7 @@
     "cards/card-testimonial",
 
     "---Components---",
+    "components/reveal-mask",
     "components/custom-cursor",
     "components/rating-stars",
 

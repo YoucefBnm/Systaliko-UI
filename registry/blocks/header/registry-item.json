@@ -10,7 +10,7 @@
     {
       "path": "registry/blocks/header/index.tsx",
       "type": "registry:block",
-      "target": "components/systaliko-ui/blocks/header.tsx"
+      "target": "components/systaliko-ui/header.tsx"
     }
   ]
 }

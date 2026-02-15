@@ -44,7 +44,7 @@ export function CardsStackDemo() {
               <h2 className="text-2xl font-bold tracking-tighter">
                 {phase.title}
               </h2>
-              <h3 className="text-2xl font-bold text-primary">
+              <h3 className="text-2xl font-bold text-indigo-500">
                 {String(index + 1).padStart(2, '0')}
               </h3>
             </div>

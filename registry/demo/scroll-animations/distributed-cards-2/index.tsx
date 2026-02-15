@@ -2,7 +2,7 @@ import {
   DistributedCardCell,
   DistributedCards,
   DistributedCardsContainer,
-} from '@/registry/blocks/distributed-cards';
+} from '@/registry/scroll-animations/distributed-cards';
 import Image from 'next/image';
 
 const CARDS = [
@@ -64,6 +64,7 @@ export function DistributedCards2Demo() {
                 inputRange={range}
                 yRange={[card.startY, '0%']}
                 xRange={[card.startX, '0%']}
+                rotateRange={[0, 0]}
                 key={card.id}
               >
                 <Image

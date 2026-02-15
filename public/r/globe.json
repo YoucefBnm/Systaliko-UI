@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "globe",
+  "title": "Globe",
+  "description": "Globe map with optional map pins.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "http://localhost:3000/r/svg-globe-path"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/globe/index.tsx",
+      "content": "'use client';\nimport * as React from 'react';\nimport { motion } from 'motion/react';\nimport { cn } from '@/lib/utils';\nimport { SVG_GLOBE_PATH } from '@/components/systaliko-ui/utils/svg-globe-path';\n\nexport function GlobeGlow({\n  className,\n  ...props\n}: React.ComponentProps<'div'>) {\n  return (\n    <div\n      className={cn('absolute inset-0 rounded-full blur-3xl', className)}\n      {...props}\n    />\n  );\n}\nexport function GlobeSvg({\n  className,\n  children,\n  ...props\n}: React.ComponentProps<'svg'>) {\n  return (\n    <svg\n      viewBox=\"0 0 1259 477\"\n      className={cn('size-full', className)}\n      preserveAspectRatio=\"xMidYMid meet\"\n      {...props}\n    >\n      <defs>\n        <linearGradient\n          id=\"paint0_linear_255_765\"\n          x1=\"629.21\"\n          y1=\"-67.3351\"\n          x2=\"629.21\"\n          y2=\"627.144\"\n          gradientUnits=\"userSpaceOnUse\"\n        >\n          <stop offset=\"0.274038\" stopColor=\"var(--primary)\" />\n          <stop offset=\"0.735577\" stopColor=\"var(--background)\" />\n        </linearGradient>\n      </defs>\n\n      <path\n        d={SVG_GLOBE_PATH.p15b69c00}\n        fillRule=\"evenodd\"\n        clipRule=\"evenodd\"\n        fill=\"url(#paint0_linear_255_765)\"\n        fillOpacity=\"0.15\"\n      />\n\n      {children}\n    </svg>\n  );\n}\nexport function Globe({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      className={cn(\n        'relative flex aspect-2/1 w-full items-center justify-center',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nexport function GlobePin({\n  x,\n  y,\n  delay = 0,\n}: {\n  x: number;\n  y: number;\n  delay?: number;\n}) {\n  return (\n    <motion.g\n      initial={{ opacity: 0, scale: 0 }}\n      animate={{ opacity: 1, scale: 1 }}\n      transition={{ ease: 'easeOut', delay, duration: 0.3 }}\n    >\n      <circle cx={x} cy={y} r=\"4\" className=\"fill-primary\" />\n      <circle cx={x} cy={y} r=\"12\" className=\"fill-primary/20 animate-pulse\" />\n    </motion.g>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/globe.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

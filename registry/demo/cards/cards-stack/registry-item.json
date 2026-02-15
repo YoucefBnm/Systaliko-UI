@@ -4,7 +4,7 @@
   "type": "registry:block",
   "title": "Sticky Cards stack Demo",
   "description": "Demo of sticky cards stack.",
-  "registryDependencies": ["http://localhost:3000/r/cards-stack"],
+  "registryDependencies": ["systaliko-ui.vercel.app/r/cards-stack"],
   "files": [
     {
       "path": "registry/demo/cards/cards-stack/index.tsx",

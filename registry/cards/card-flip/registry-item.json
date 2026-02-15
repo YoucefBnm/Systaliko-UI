@@ -9,7 +9,7 @@
     {
       "path": "registry/cards/card-flip/index.tsx",
       "type": "registry:ui",
-      "target": "components/systaliko-ui/cards/card-flip.tsx"
+      "target": "components/systaliko-ui/card-flip.tsx"
     }
   ]
 }

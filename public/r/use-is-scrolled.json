@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-is-scrolled",
+  "title": "Use is scrolled Hook",
+  "description": "use is scrolled hook to detect if the user has scrolled to the bottom of the page.",
+  "files": [
+    {
+      "path": "registry/utils/use-is-scrolled/index.ts",
+      "content": "import React from 'react';\n\nexport function useIsScrolled() {\n  const [isScrolled, setIsScrolled] = React.useState(false);\n  const sentinelRef = React.useRef(null);\n\n  React.useEffect(() => {\n    const observer = new IntersectionObserver(\n      ([entry]) => {\n        // If the sentinel (top pixel) is NOT intersecting, we have scrolled down\n        setIsScrolled(!entry.isIntersecting);\n      },\n      { root: null, threshold: 1.0 },\n    );\n\n    if (sentinelRef.current) {\n      observer.observe(sentinelRef.current);\n    }\n\n    return () => observer.disconnect();\n  }, []);\n  return {\n    isScrolled,\n    sentinelRef,\n  };\n}\n",
+      "type": "registry:hook",
+      "target": "components/systaliko-ui/utils/use-is-scrolled.ts"
+    }
+  ],
+  "type": "registry:hook"
+}

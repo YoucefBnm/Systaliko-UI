@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "circle-cards-demo",
+  "title": "circle cards Demo",
+  "description": "Demo showing circle cards component.",
+  "registryDependencies": [
+    "http://localhost:3000/r/circle-cards"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/scroll-animations/circle-cards/index.tsx",
+      "content": "import {\n  CircleCard,\n  CircleCards,\n  CircleCardsWrapper,\n  CircleItem,\n} from '@/components/systaliko-ui/scroll-animations/circle-cards';\n\nexport function CircleCardsDemo() {\n  return (\n    <div className=\"w-full\">\n      <CircleCards spacerClassName=\"w-full h-[500px]\">\n        <CircleCardsWrapper yOutput={[0, 500]}>\n          <CircleItem outputRange={[30, -5]} inputRange={[0, 0.4]}>\n            <CircleCard>\n              <img\n                src=\"https://pkmncards.com/wp-content/uploads/sv6-5_en_066_std.jpg\"\n                width={431}\n                height={603}\n                className=\"object-contain max-h-full h-auto w-3xs\"\n                alt=\"pokemon card\"\n              />\n            </CircleCard>\n          </CircleItem>\n\n          <CircleItem outputRange={[30, -4]} inputRange={[0.2, 0.6]}>\n            <CircleCard>\n              <img\n                src=\"https://pkmncards.com/wp-content/uploads/rsv10-5_en_040_std.jpg\"\n                width={431}\n                height={603}\n                className=\"object-contain max-h-full h-auto w-3xs\"\n                alt=\"pokemon card\"\n              />\n            </CircleCard>\n          </CircleItem>\n\n          <CircleItem outputRange={[30, -3]} inputRange={[0.4, 0.8]}>\n            <CircleCard>\n              <img\n                src=\"https://pkmncards.com/wp-content/uploads/sv3-5_en_135_std.jpg\"\n                width={431}\n                height={603}\n                className=\"object-contain max-h-full h-auto w-3xs\"\n                alt=\"pokemon card\"\n              />\n            </CircleCard>\n          </CircleItem>\n\n          <CircleItem outputRange={[30, -2]} inputRange={[0.6, 1]}>\n            <CircleCard>\n              <img\n                src=\"https://pkmncards.com/wp-content/uploads/en_US-SWSH2-038-galarian_mr_rime.jpg\"\n                width={431}\n                height={603}\n                className=\"object-contain max-h-full h-auto w-3xs\"\n                alt=\"pokemon card\"\n              />\n            </CircleCard>\n          </CircleItem>\n        </CircleCardsWrapper>\n      </CircleCards>\n    </div>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/circle-cards.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

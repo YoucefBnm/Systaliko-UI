@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "reveal-mask",
+  "type": "registry:ui",
+  "title": "reveal mask",
+  "description": "reveal mask animation effect.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "registry/components/reveal-mask/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/reveal-mask.tsx"
+    }
+  ]
+}

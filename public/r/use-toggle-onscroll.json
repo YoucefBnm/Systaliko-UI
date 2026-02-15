@@ -6,9 +6,9 @@
   "files": [
     {
       "path": "registry/utils/use-toggle-onscroll/index.ts",
-      "content": "import React from 'react';\nimport { useMotionValueEvent, useScroll } from 'motion/react';\n\nexport function useToggleOnScroll() {\n  const [isHidden, setIsHidden] = React.useState<boolean>(false);\n\n  const { scrollY } = useScroll();\n  const latestYRef = React.useRef(0);\n\n  useMotionValueEvent(scrollY, 'change', (y) => {\n    const difference = y - latestYRef.current;\n\n    if (Math.abs(difference) > 50) {\n      setIsHidden(difference > 0);\n\n      latestYRef.current = y;\n    }\n  });\n\n  return {\n    isHidden,\n    setIsHidden,\n  };\n}\n",
+      "content": "import React from 'react';\nimport { useMotionValueEvent, useScroll } from 'motion/react';\n\nexport function useToggleOnscroll() {\n  const [isHidden, setIsHidden] = React.useState<boolean>(false);\n\n  const { scrollY } = useScroll();\n  const latestYRef = React.useRef(0);\n\n  useMotionValueEvent(scrollY, 'change', (y) => {\n    const difference = y - latestYRef.current;\n\n    if (Math.abs(difference) > 50) {\n      setIsHidden(difference > 0);\n\n      latestYRef.current = y;\n    }\n  });\n\n  return {\n    isHidden,\n    setIsHidden,\n  };\n}\n",
       "type": "registry:hook",
-      "target": "components/systaliko-ui/utils/use-toggle-onscroll.ts"
+      "target": "lib/systaliko-ui/use-toggle-onscroll.ts"
     }
   ],
   "type": "registry:hook"

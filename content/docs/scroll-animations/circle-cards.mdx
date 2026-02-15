@@ -1,0 +1,83 @@
+---
+title: Circle Cards
+description: Circle cards, animated on scroll with circle movement.
+new: true
+---
+
+<ComponentPreview name="circle-cards-demo" />
+
+## Installation
+
+<ComponentInstallation name="circle-cards" />
+
+## Usage
+
+```tsx
+ <CircleCards spacerClassName="w-full h-[500px]">
+      <CircleCardsWrapper yOutput={[0, 500]}>
+        <CircleItem outputRange={[30, -20]} inputRange={[0, 0.4]}>
+          <CircleCard>
+            <img
+              src="https://pkmncards.com/wp-content/uploads/sv6-5_en_066_std.jpg"
+              width={431}
+              height={603}
+              className="object-contain max-w-full max-h-full h-full w-full"
+              alt="pokemon card"
+            />
+          </CircleCard>
+        </CircleItem>
+      <CircleCardsWrapper>
+  </CircleCards>
+```
+
+## Props
+
+`CircleCards`
+
+<TypeTable
+  type={{
+    offset: {
+      description: 'offset scroll of where the animation starts and ends',
+      type: 'ScrollOffset',
+      required: false,
+      default: '["start start", "end end"]',
+    },
+    spacerClass: {
+      description: 'the class to be applied to the spacer element on bottom',
+      type: 'ClassValue',
+      required: false,
+      default: 'h-70',
+    },
+  }}
+/>
+
+`CircleCardsWrapper`
+
+<TypeTable
+  type={{
+    yOutput: {
+      description: 'the range of the y axis making it sticky to window.',
+      type: 'number[]',
+      required: false,
+    },
+  }}
+/>
+
+`CircleItem`
+
+<TypeTable
+  type={{
+    outputRange: {
+      description: 'the range of the rotation values',
+      type: 'number',
+      required: false,
+      default: '[30, -30]',
+    },
+    inputRange: {
+      description: 'mapping intput range to the y values',
+      type: 'MapInputRange',
+      required: false,
+      default: '[0, 1]',
+    },
+  }}
+/>
