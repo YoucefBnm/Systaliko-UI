@@ -7,6 +7,8 @@ import { StarIcon } from 'lucide-react';
 import { Separator } from './ui/separator';
 import { useIsScrolled } from '@/registry/utils/use-is-scrolled';
 import { Logo } from './logo';
+import GithubIcon from './icons/github-icon';
+import XIcon from './icons/x-icon';
 
 export function DesktopHeader() {
   const { isScrolled, sentinelRef } = useIsScrolled();
@@ -23,7 +25,7 @@ export function DesktopHeader() {
             flex justify-between backdrop-blur-lg
             transition-all duration-500 ease-[cubic-bezier(0.215,0.61,0.355,1)]
             inset-[0_0_auto] py-3
-            ${isScrolled ? 'w-10/12 px-3 translate-y-4 bg-background/50 rounded-full shadow-[0_0_0_1px_rgba(0,0,0,0.05)]' : 'w-full px-10'}
+            ${isScrolled ? 'w-10/12 px-3 translate-y-4 bg-background/50 rounded shadow-[0_0_0_1px_rgba(0,0,0,0.05)]' : 'w-full px-10'}
           `}
         >
           <Link
@@ -64,7 +66,18 @@ export function DesktopHeader() {
                 Star on Github
               </Link>
             </Button>
-
+            <Link
+              className="hover:bg-muted focus:bg-muted data-open:hover:bg-muted data-open:focus:bg-muted data-open:bg-muted/50 focus-visible:ring-ring/50 data-popup-open:bg-muted/50 data-popup-open:hover:bg-muted rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all focus-visible:ring-[3px] focus-visible:outline-1 disabled:opacity-50 group/navigation-menu-trigger inline-flex h-9 w-max items-center justify-center disabled:pointer-events-none outline-none"
+              href={siteConfig.links.repo}
+            >
+              <GithubIcon className="size-4" />
+            </Link>
+            <Link
+              className="hover:bg-muted focus:bg-muted data-open:hover:bg-muted data-open:focus:bg-muted data-open:bg-muted/50 focus-visible:ring-ring/50 data-popup-open:bg-muted/50 data-popup-open:hover:bg-muted rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all focus-visible:ring-[3px] focus-visible:outline-1 disabled:opacity-50 group/navigation-menu-trigger inline-flex h-9 w-max items-center justify-center disabled:pointer-events-none outline-none"
+              href={siteConfig.links.x}
+            >
+              <XIcon className="size-4" />
+            </Link>
             <ModeToggle />
           </nav>
         </div>

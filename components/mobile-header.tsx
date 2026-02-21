@@ -11,12 +11,25 @@ import {
   AnimatedMenu,
   AnimatedMenuButton,
   AnimatedMenuButtonLabel,
-  AnimatedMenuButtonToggleIcon,
   AnimatedMenuItem,
   AnimatedMenuList,
 } from '@/registry/blocks/animated-menu';
 import { Logo } from './logo';
 import { useIsScrolled } from '@/registry/utils/use-is-scrolled';
+import { Variants } from 'motion/react';
+
+const menuListVariants = {
+  open: {
+    width: 270,
+    height: 350,
+    transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },
+  },
+  close: {
+    width: 80,
+    height: 30,
+    transition: { duration: 0.75, delay: 0.2, ease: [0.76, 0, 0.24, 1] },
+  },
+} as Variants;
 
 export function MobileHeader() {
   const { isScrolled, sentinelRef } = useIsScrolled();
@@ -33,7 +46,7 @@ export function MobileHeader() {
             flex justify-between backdrop-blur-lg
             transition-all duration-500 ease-[cubic-bezier(0.215,0.61,0.355,1)]
             inset-[0_0_auto] py-2
-            ${isScrolled ? 'w-10/12 px-3 translate-y-1 bg-background/50 rounded-full shadow-[0_0_0_1px_rgba(0,0,0,0.05)]' : 'w-full px-10'}
+            ${isScrolled ? 'w-10/12 px-3 translate-y-1 bg-background/50 rounded shadow-[0_0_0_1px_rgba(0,0,0,0.05)]' : 'w-full px-10'}
         `}
         >
           <Link
@@ -44,12 +57,14 @@ export function MobileHeader() {
             <Logo />
           </Link>
           <AnimatedMenu className="relative block md:hidden">
-            <AnimatedMenuButton className="w-[102px] h-[40px] text-primary-foreground">
-              <AnimatedMenuButtonToggleIcon />
-              <AnimatedMenuButtonLabel />
+            <AnimatedMenuButton className="w-[80px] h-[30px] text-primary-foreground">
+              <AnimatedMenuButtonLabel className="text-xs" />
             </AnimatedMenuButton>
 
-            <AnimatedMenuList className="absolute right-0 top-0 bg-linear-to-bl from-primary/90 to-primary border border-primary-foreground/10 backdrop-blur rounded-3xl">
+            <AnimatedMenuList
+              variants={menuListVariants}
+              className="absolute right-0 top-0 bg-linear-to-bl from-primary/90 to-primary border border-primary-foreground/10 backdrop-blur rounded-md"
+            >
               <div className="size-full flex flex-col items-start gap-4 justify-evenly place-content-center p-8">
                 <div className="flex gap-4 flex-col">
                   <AnimatedMenuItem>
