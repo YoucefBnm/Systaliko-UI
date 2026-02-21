@@ -103,6 +103,7 @@ export function MobileHeader() {
                     <Link
                       target="_blank"
                       rel="noreferrer noopener"
+                      aria-label="visit x profile"
                       href={siteConfig.links.x}
                       className="transition-colors text-primary-foreground"
                     >
