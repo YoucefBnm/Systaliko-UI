@@ -13,6 +13,7 @@ interface FeaturedCoponentProps {
   id: string;
   componentLink: string;
   videoUrl: string;
+  thumbnail: string;
   title: string;
   description: string;
 }
@@ -22,6 +23,8 @@ const featuredComponents: FeaturedCoponentProps[] = [
     componentLink: '/docs/scroll-animations/scroll-reverse-animation',
     videoUrl:
       'https://cdn.21st.dev/user_2sdAd21yCZlZRkVtZyf4K8ogkBh/hero-gallery-scroll-animation/default/video.1746088116758.mp4',
+    thumbnail:
+      'https://21st.dev/_next/image?url=https%3A%2F%2Fcdn.21st.dev%2Fuser_2sdAd21yCZlZRkVtZyf4K8ogkBh%2Fhero-gallery-scroll-animation%2Fdefault%2Fpreview.1746088112500.png&w=1080&q=75',
     title: 'Scroll Reverse Animation',
     description:
       'Scroll Trigger animations, that reverse animation of both gallery images and text in different range on scroll.',
@@ -31,6 +34,8 @@ const featuredComponents: FeaturedCoponentProps[] = [
     componentLink: '/docs/cards/cards-stack',
     videoUrl:
       'https://cdn.21st.dev/user_2sdAd21yCZlZRkVtZyf4K8ogkBh/cards-stack/cards-stack/video.mp4?v=1',
+    thumbnail:
+      'https://21st.dev/_next/image?url=https%3A%2F%2Fcdn.21st.dev%2Fuser_2sdAd21yCZlZRkVtZyf4K8ogkBh%2Fcards-stack%2Fcards-stack%2Fpreview.png%3Fv%3D1&w=1080&q=75',
     title: 'Sticky Cards Stack',
     description:
       'Animated cards stack, displaying one card at a time overlaping the previous card.',
@@ -40,6 +45,8 @@ const featuredComponents: FeaturedCoponentProps[] = [
     componentLink: '/docs/cards/cards-stack-rotated',
     videoUrl:
       'https://cdn.21st.dev/user_2sdAd21yCZlZRkVtZyf4K8ogkBh/animated-cards-stack/animated-cards-stack-on-scroll/video.mp4?v=1',
+    thumbnail:
+      'https://21st.dev/_next/image?url=https%3A%2F%2Fcdn.21st.dev%2Fuser_2sdAd21yCZlZRkVtZyf4K8ogkBh%2Fanimated-cards-stack%2Fanimated-cards-stack-on-scroll%2Fpreview.png%3Fv%3D1&w=1080&q=75',
     title: 'Rotated Cards Stack',
     description: 'Stack of rotated cards show, rotate one element at a time.',
   },
@@ -47,6 +54,7 @@ const featuredComponents: FeaturedCoponentProps[] = [
     id: 'featured-component-product-card',
     componentLink: '/docs/ecommerce/product-carousel',
     videoUrl: '/videos/product-card-component-preview.mp4',
+    thumbnail: '/videos/product-card-component-preview.png',
     title: 'Product Card',
     description:
       'Showcase your products with preview image/video for each product and display your different product colors or categories.',
@@ -56,22 +64,29 @@ const featuredComponents: FeaturedCoponentProps[] = [
     componentLink: '/docs/cards/card-curtain-reveal',
     videoUrl:
       'https://cdn.21st.dev/user_2sdAd21yCZlZRkVtZyf4K8ogkBh/card-curtain-reveal/card-curtain-reveal/video.mp4?v=1',
+    thumbnail:
+      'https://21st.dev/_next/image?url=https%3A%2F%2Fcdn.21st.dev%2Fuser_2sdAd21yCZlZRkVtZyf4K8ogkBh%2Fcard-curtain-reveal%2Fcard-curtain-reveal%2Fpreview.png%3Fv%3D1&w=1080&q=75',
     title: 'Curtain Reveal Card',
     description:
       'Interactive card component with open curtain to see content on hover.',
   },
   {
-    id: 'featured-component-wavy-block',
-    componentLink: '/docs/scroll-animations/wavy-block',
-    videoUrl: '/videos/wavy-block-component-preview.mp4',
-    title: 'Wavy Block',
-    description: 'Wavy Block animates its children in waves pattern on scroll.',
+    id: 'featured-component-slideshow',
+    componentLink: '/docs/blocks/slideshow',
+    videoUrl:
+      'https://cdn.21st.dev/user_2sdAd21yCZlZRkVtZyf4K8ogkBh/animated-slideshow/animated-slideshow/video.mp4?v=1',
+    thumbnail:
+      'https://21st.dev/_next/image?url=https%3A%2F%2Fcdn.21st.dev%2Fuser_2sdAd21yCZlZRkVtZyf4K8ogkBh%2Fanimated-slideshow%2Fanimated-slideshow%2Fpreview.png%3Fv%3D1&w=1080&q=75',
+    title: 'Slideshow',
+    description: 'Animated slideshow block.',
   },
   {
     id: 'featured-component-text-stagger-hover',
     componentLink: '/docs/text/text-stagger-hover',
     videoUrl:
       'https://cdn.21st.dev/user_2sdAd21yCZlZRkVtZyf4K8ogkBh/text-stagger-hover/default/video.1750815014778.mp4',
+    thumbnail:
+      'https://21st.dev/_next/image?url=https%3A%2F%2Fcdn.21st.dev%2Fuser_2sdAd21yCZlZRkVtZyf4K8ogkBh%2Ftext-stagger-hover%2Fdefault%2Fpreview.1750815012964.png&w=1080&q=75',
     title: 'Text Stagger Hover',
     description:
       'Splitted text animation with staggered reveal triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition.',
@@ -81,6 +96,8 @@ const featuredComponents: FeaturedCoponentProps[] = [
     componentLink: '/docs/scroll-animations/story',
     videoUrl:
       'https://cdn.21st.dev/youcefbnm/scroll-x-carousel/default/video.1751413860542.mp4',
+    thumbnail:
+      'https://21st.dev/_next/image?url=https%3A%2F%2Fcdn.21st.dev%2Fyoucefbnm%2Fscroll-x-carousel%2Fdefault%2Fpreview.1751413860542.png&w=1080&q=75',
     title: 'Scroll X Carousel',
     description:
       'Carousel that transforms on the x-axis, showing items depnding on the scroll position, with a progress indicator.',

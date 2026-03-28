@@ -14,12 +14,35 @@ export function Showcase() {
         <ScrollAnimationRotateContainer
           yRange={[-50, 400]}
           rotateRange={[70, 0]}
-          className="gap-4 px-4"
+          className="gap-2 px-4"
         >
-          <ScrollAnimationRotateCol className="relative h-fit max-h-screenm mt-[-10%] border border-border/50 shadow">
+          <ScrollAnimationRotateCol
+            yRange={['-5%', '8%']}
+            className="hidden lg:block relative h-fit max-h-screen mt-[-10%] ring ring-ring/20  shadow overflow-hidden rounded"
+          >
             <Link
-              aria-label="view carecover template"
-              title="carecover template"
+              aria-label="view enera template"
+              title="enera template"
+              className="block"
+              href="/docs/templates/enera"
+            >
+              <Image
+                src="/showcase-enera.png"
+                className="object-contain w-full h-auto max-w-full"
+                sizes="(max-width: 1024px) 50vw, 33vw"
+                alt="carecover template"
+                width={1440}
+                height={2260}
+              />
+            </Link>
+          </ScrollAnimationRotateCol>
+          <ScrollAnimationRotateCol
+            yRange={['5%', '10%']}
+            className="relative h-fit max-h-screen mt-[-20%] ring ring-ring/20  shadow overflow-hidden rounded "
+          >
+            <Link
+              aria-label="view cognify template"
+              title="cognify template"
               className="block"
               href="/docs/templates/cognify"
             >
@@ -35,7 +58,7 @@ export function Showcase() {
           </ScrollAnimationRotateCol>
           <ScrollAnimationRotateCol
             yRange={['15%', '-5%']}
-            className="relative h-fit max-h-screen mt-[-20%] border border-border/50 shadow "
+            className="relative h-fit max-h-screen mt-[-20%] ring ring-ring/20  shadow overflow-hidden rounded "
           >
             <Link
               aria-label="view veo template"
@@ -55,7 +78,7 @@ export function Showcase() {
             </Link>
           </ScrollAnimationRotateCol>
           <ScrollAnimationRotateCol
-            className="hidden lg:block relative h-fit max-h-screen mt-[-10%] border border-border/50 shadow"
+            className="hidden lg:block relative h-fit max-h-screen mt-[-10%] ring ring-ring/20  shadow overflow-hidden rounded"
             yRange={['-10%', '2%']}
           >
             <Link

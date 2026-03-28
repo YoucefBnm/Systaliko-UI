@@ -74,10 +74,11 @@ export function Features() {
           {FEATURES.map((feature, index) => (
             <CardSticky
               key={feature.id}
-              index={index}
-              className="supports-[backdrop-blur]:bg-background/90 rounded-2xl w-4/5 border p-8  shadow-md backdrop-blur-md"
+              index={index + 5}
+              className="supports-[backdrop-blur]:bg-card/90 rounded-2xl w-4/5 border p-8  shadow-md backdrop-blur-md"
+              style={{ rotate: Math.floor(Math.random() * 20 - 10) }}
             >
-              <feature.icon className="justify-self-end text-muted-foreground size-8 stroke-[1.5]" />
+              <feature.icon className="justify-self-end size-8 stroke-[1.8]" />
               <h2 className="my-6 text-2xl font-bold tracking-tighter">
                 {feature.title}
               </h2>

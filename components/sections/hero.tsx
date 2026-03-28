@@ -49,7 +49,7 @@ export function Hero() {
         <MotionConfig transition={{ duration: 0.3, ease: 'easeOut' }}>
           <motion.div variants={animationVariants}>
             <Link href="/docs">
-              <TextWavy text="New Blocks and Cognify template are available." />
+              <TextWavy text="New Blocks and Enea template are available." />
             </Link>
           </motion.div>
 
@@ -83,7 +83,7 @@ export function Hero() {
 
           <motion.div
             variants={animationVariants}
-            className="my-4 flex flex-wrap items-center justify-center gap-4"
+            className="mb-4 flex flex-wrap items-center justify-center gap-4"
           >
             {TECH_STACK.map((tech) => (
               <div
@@ -91,7 +91,7 @@ export function Hero() {
                 className="flex items-center justify-center gap-1 flex-wrap"
               >
                 <tech.icon className="size-5" />
-                <span className="text-muted-foreground text-sm capitalize font-medium">
+                <span className="sr-only text-muted-foreground text-sm capitalize font-medium">
                   {tech.label}
                 </span>
               </div>

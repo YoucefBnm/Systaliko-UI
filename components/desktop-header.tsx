@@ -24,13 +24,16 @@ export function DesktopHeader() {
           className={`
             flex justify-between backdrop-blur-lg
             transition-all duration-500 ease-[cubic-bezier(0.215,0.61,0.355,1)]
-            inset-[0_0_auto] py-3
+            inset-[0_0_auto] py-3 rounded-full
             ${isScrolled ? 'w-10/12 px-3 translate-y-4 bg-background/50 rounded shadow-[0_0_0_1px_rgba(0,0,0,0.05)]' : 'w-full px-10'}
           `}
         >
           <Link
             aria-label="home page"
-            className="text-primary flex items-center justify-center"
+            className={`
+              text-primary flex items-center justify-center ease-in-out duration-300
+              ${isScrolled ? '[clip-path:polygon(0%_0%,_25%_0%,_25%_100%,_0%_100%)]' : '[clip-path:polygon(0%_0%,_100%_0%,_100%_100%,_0%_100%)]'}
+            `}
             href="/"
           >
             <Logo />

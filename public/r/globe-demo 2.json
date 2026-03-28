@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "globe-demo",
+  "title": "Globe Demo",
+  "description": "Demo showing Globe component.",
+  "registryDependencies": [
+    "http://localhost:3000/r/globe"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/blocks/globe/index.tsx",
+      "content": "import { Globe, GlobeGlow, GlobePin, GlobeSvg } from '@/components/systaliko-ui/blocks/globe';\n\nexport function GlobeDemo() {\n  return (\n    <div className=\"w-full\">\n      <Globe>\n        <GlobeGlow className=\"bg-background/50\" />\n        <GlobeSvg>\n          <GlobePin x={280} y={100} delay={0} />\n          {/* Europe */}\n          <GlobePin x={640} y={80} delay={1} />\n          {/* Asia */}\n          <GlobePin x={900} y={120} delay={2} />\n        </GlobeSvg>\n      </Globe>\n    </div>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/globe.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

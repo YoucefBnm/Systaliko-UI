@@ -7,12 +7,14 @@ interface PreviewCardProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   componentLink: string;
   videoUrl: string;
+  thumbnail: string;
   title: string;
   description?: string;
 }
 export function PreviewCard({
   componentLink,
   videoUrl,
+  thumbnail,
   title,
   description,
   ...props
@@ -37,7 +39,7 @@ export function PreviewCard({
 
   return (
     <Link
-      className="group relative gap-4 rounded-xl overflow-hidden transition-all duration-300 bg-gradient-to-b from-card to-card border border-primary/5 before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-b before:from-primary/5 before:to-transparent before:opacity-0 before:transition-opacity before:duration-300 after:absolute after:inset-0 after:z-[-1] after:rounded-xl after:bg-card hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 hover:backdrop-blur-xl hover:bg-primary/2 before:hover:opacity-100 block"
+      className="group p-4 relative gap-4 rounded-xl overflow-hidden transition-all duration-300 bg-gradient-to-b from-secondary to-secondary border border-border/50 before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-b before:from-primary/5 before:to-transparent before:opacity-0 before:transition-opacity before:duration-300 after:absolute after:inset-0 after:z-[-1] after:rounded-xl after:bg-card hover:border-border hover:shadow-lg hover:shadow-primary/5 hover:backdrop-blur-xl hover:bg-primary/2 before:hover:opacity-100 block"
       href={componentLink}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -45,15 +47,18 @@ export function PreviewCard({
       {...props}
     >
       <div>
-        <video
-          ref={videoRef}
-          className="w-full inline-block align-middle bg-muted h-auto max-h-full object-contain"
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          src={videoUrl}
-        />
+        <div className="rounded overflow-hidden border border-border/5 shadow">
+          <video
+            ref={videoRef}
+            className="w-full inline-block align-middle bg-muted h-auto max-h-full object-contain"
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            src={videoUrl}
+            poster={thumbnail}
+          />
+        </div>
         <div className="flex-1 flex flex-col p-4 space-y-1">
           <div className="flex items-center justify-between gap-2">
             <h3 className="line-clamp-1 font-semibold tracking-tighter transition-colors duration-300 group-hover:text-primary">
