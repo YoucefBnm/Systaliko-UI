@@ -13,7 +13,7 @@ interface FeaturedCoponentProps {
   id: string;
   componentLink: string;
   videoUrl: string;
-  thumbnail: string;
+  thumbnail?: string;
   title: string;
   description: string;
 }

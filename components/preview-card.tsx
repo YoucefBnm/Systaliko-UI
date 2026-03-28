@@ -7,7 +7,7 @@ interface PreviewCardProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   componentLink: string;
   videoUrl: string;
-  thumbnail: string;
+  thumbnail?: string;
   title: string;
   description?: string;
 }
