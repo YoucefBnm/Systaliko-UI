@@ -4,7 +4,7 @@
   "title": "Pricing Demo",
   "description": "Demo showing toggle layout view component.",
   "registryDependencies": [
-    "http://localhost:3000/r/toggle-layout"
+    "@systaliko-ui/r/toggle-layout"
   ],
   "files": [
     {

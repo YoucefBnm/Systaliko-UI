@@ -114,7 +114,7 @@ const NavMobile = () => {
 };
 const NavDesktop = () => {
   return (
-    <nav className="flex border border-border/50 bg-card/50 backdrop-blur-xs gap-4 px-6 rounded-4xl items-center justify-between *:transition-opacity *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
+    <nav className="flex gap-4 px-6 items-center justify-between *:transition-opacity *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
       {nav_links.map((navLink) => (
         <Link
           key={navLink.id}
@@ -134,7 +134,7 @@ export function HeaderDemo() {
 
   return (
     <div className="h-[180vh]">
-      <Header className="sticky top-2 left-0 w-full h-16 z-999 bg-card/90 border-b border-b-border/50 p-4">
+      <Header className="sticky top-2 left-0 w-full h-16 z-999 bg-card/80 backdrop-blur border border-border/50 p-4 rounded-full">
         <HeaderLogo>
           <span className="text-xl tracking-tighter font-bold">
             systaliko ui

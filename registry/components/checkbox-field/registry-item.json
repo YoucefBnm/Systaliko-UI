@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-field",
+  "type": "registry:ui",
+  "title": "checkbox-field",
+  "description": "Checkbox field with label.",
+  "dependencies": ["radix-ui", "lucide-react"],
+  "files": [
+    {
+      "path": "registry/components/checkbox-field/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/checkbox-field.tsx"
+    }
+  ]
+}

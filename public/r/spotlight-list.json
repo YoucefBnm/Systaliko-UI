@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spotlight-list",
+  "title": "spotlight-list",
+  "description": "Spotlight list, when hovering an item it will highlight it by decreasing the visiblity of the other items.",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "files": [
+    {
+      "path": "registry/components/spotlight-list/index.tsx",
+      "content": "import { cn } from '@/lib/utils';\nimport { cva, VariantProps } from 'class-variance-authority';\n\nconst spotlightListVariants = cva('list-style-none *:transition-blur ', {\n  variants: {\n    variant: {\n      blur: '[&:hover>*]:blur-[2px] [&>*:hover]:blur-none transition-[filter]',\n      scale: '[&:hover>*]:scale-85 [&>*:hover]:scale-100 transition-transform',\n      opacity:\n        '[&:hover>*]:opacity-50 [&>*:hover]:opacity-100 transition-opacity',\n    },\n  },\n  defaultVariants: {\n    variant: 'blur',\n  },\n});\n\nexport function SportlightList({\n  variant,\n  className,\n  ...props\n}: React.ComponentProps<'ul'> & VariantProps<typeof spotlightListVariants>) {\n  return (\n    <ul\n      className={cn(spotlightListVariants({ variant, className }))}\n      {...props}\n    />\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/spotlight-list.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

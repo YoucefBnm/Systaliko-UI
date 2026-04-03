@@ -4,8 +4,8 @@
   "title": "price Demo",
   "description": "Demo showing price component.",
   "registryDependencies": [
-    "http://localhost:3000/r/badge",
-    "http://localhost:3000/r/price"
+    "@systaliko-ui/r/badge",
+    "@systaliko-ui/r/price"
   ],
   "files": [
     {

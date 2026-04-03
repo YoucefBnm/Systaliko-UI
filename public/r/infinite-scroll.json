@@ -7,7 +7,7 @@
     "motion"
   ],
   "registryDependencies": [
-    "http://localhost:3000/r/shadcn/spinner"
+    "@systaliko-ui/r/shadcn/spinner"
   ],
   "files": [
     {

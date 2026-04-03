@@ -4,7 +4,7 @@
   "type": "registry:block",
   "title": "Wavy Block Demo",
   "description": "Demo showing Wavy Block component.",
-  "registryDependencies": ["http://localhost:3000/r/wavy-block"],
+  "registryDependencies": ["@systaliko-ui/r/wavy-block"],
   "files": [
     {
       "path": "registry/demo/scroll-animations/wavy-block/index.tsx",

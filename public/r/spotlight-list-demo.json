@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spotlight-list-demo",
+  "title": "Spotlight List Demo",
+  "description": "Demo showing Spotlight list component.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/spotlight-list"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/spotlight-list/index.tsx",
+      "content": "import { SportlightList } from '@/components/systaliko-ui/components/spotlight-list';\n\nexport function SpotlightListDemo() {\n  return (\n    <SportlightList className=\"flex flex-col items-start gap-1 font-medium *:duration-300 ease-in-out\">\n      <li className=\"px-2 py-1.5\">Branding</li>\n      <li className=\"px-2 py-1.5\">UI UX Design</li>\n      <li className=\"px-2 py-1.5\">Development</li>\n      <li className=\"px-2 py-1.5\">Marketing</li>\n      <li className=\"px-2 py-1.5\">Content Writing</li>\n    </SportlightList>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/spotlight-list-demo.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

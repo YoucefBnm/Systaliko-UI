@@ -4,12 +4,12 @@
   "type": "registry:block",
   "title": "Animated Menu Demo",
   "description": "Demo showing animated menu component.",
-  "registryDependencies": ["http://localhost:3000/r/animated-menu"],
+  "registryDependencies": ["@systaliko-ui/r/animated-menu"],
   "files": [
     {
       "path": "registry/demo/blocks/animated-menu/index.tsx",
       "type": "registry:block",
-      "target": "components/systaliko-ui/demo/blocks/animated-menu.tsx"
+      "target": "components/systaliko-ui/demo/animated-menu.tsx"
     }
   ]
 }

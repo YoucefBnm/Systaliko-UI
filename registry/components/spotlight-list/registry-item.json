@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spotlight-list",
+  "type": "registry:ui",
+  "title": "spotlight-list",
+  "description": "Spotlight list, when hovering an item it will highlight it by decreasing the visiblity of the other items.",
+  "dependencies": ["class-variance-authority"],
+  "files": [
+    {
+      "path": "registry/components/spotlight-list/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/spotlight-list.tsx"
+    }
+  ]
+}

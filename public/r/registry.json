@@ -63,15 +63,25 @@
       ]
     },
     {
+      "name": "full-screen-navigation-menu",
+      "type": "registry:block",
+      "title": "Full screen navigation menu",
+      "description": "Transforming Shadcn navigation menu into a full screen menu.",
+      "files": [
+        {
+          "path": "registry/blocks/full-screen-navigation-menu/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/full-screen-navigation-menu.tsx"
+        }
+      ]
+    },
+    {
       "name": "globe",
       "type": "registry:block",
       "title": "Globe",
       "description": "Globe map with optional map pins.",
-      "dependencies": [
-        "motion"
-      ],
       "registryDependencies": [
-        "http://localhost:3000/r/svg-globe-path"
+        "@systaliko-ui/r/svg-globe-path"
       ],
       "files": [
         {
@@ -103,7 +113,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "http://localhost:3000/r/use-toggle-onscroll"
+        "@systaliko-ui/r/use-toggle-onscroll"
       ],
       "files": [
         {
@@ -286,6 +296,23 @@
       ]
     },
     {
+      "name": "checkbox-field",
+      "type": "registry:ui",
+      "title": "checkbox-field",
+      "description": "Checkbox field with label.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "registry/components/checkbox-field/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/checkbox-field.tsx"
+        }
+      ]
+    },
+    {
       "name": "custom-cursor",
       "type": "registry:ui",
       "title": "Custom Cursor",
@@ -347,18 +374,34 @@
       ]
     },
     {
+      "name": "spotlight-list",
+      "type": "registry:ui",
+      "title": "spotlight-list",
+      "description": "Spotlight list, when hovering an item it will highlight it by decreasing the visiblity of the other items.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "registry/components/spotlight-list/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/spotlight-list.tsx"
+        }
+      ]
+    },
+    {
       "name": "animated-menu-demo",
       "type": "registry:block",
       "title": "Animated Menu Demo",
       "description": "Demo showing animated menu component.",
       "registryDependencies": [
-        "http://localhost:3000/r/animated-menu"
+        "@systaliko-ui/r/animated-menu"
       ],
       "files": [
         {
           "path": "registry/demo/blocks/animated-menu/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/animated-menu.tsx"
+          "target": "components/systaliko-ui/demo/animated-menu.tsx"
         }
       ]
     },
@@ -368,13 +411,13 @@
       "title": "Animated Menu 2 Demo",
       "description": "another demo showing animated menu component.",
       "registryDependencies": [
-        "http://localhost:3000/r/animated-menu"
+        "@systaliko-ui/r/animated-menu"
       ],
       "files": [
         {
           "path": "registry/demo/blocks/animated-menu-2/index.tsx",
           "type": "registry:block",
-          "target": "components/systaliko-ui/demo/blocks/animated-menu-2.tsx"
+          "target": "components/systaliko-ui/demo/animated-menu-2.tsx"
         }
       ]
     },
@@ -384,7 +427,7 @@
       "title": "Animated Menu Demo",
       "description": "another demo showing animated menu component in full screen mode.",
       "registryDependencies": [
-        "http://localhost:3000/r/animated-menu-full-screen"
+        "@systaliko-ui/r/animated-menu-full-screen"
       ],
       "files": [
         {
@@ -400,7 +443,7 @@
       "title": "Calculator Demo",
       "description": "Demo showing calculator component.",
       "registryDependencies": [
-        "http://localhost:3000/r/calculator"
+        "@systaliko-ui/r/calculator"
       ],
       "files": [
         {
@@ -416,7 +459,7 @@
       "title": "Stagger Container Demo",
       "description": "Demo showing stagger container component.",
       "registryDependencies": [
-        "http://localhost:3000/r/container-stagger",
+        "@systaliko-ui/r/container-stagger",
         "https://systaliko-ui.vercel.app/r/transitions"
       ],
       "files": [
@@ -448,12 +491,28 @@
       ]
     },
     {
+      "name": "full-screen-navigation-menu-demo",
+      "type": "registry:block",
+      "title": "Full screen navigation Demo",
+      "description": "Demo showing Full screen navigation component.",
+      "registryDependencies": [
+        "@systaliko-ui/r/full-screen-navigation-menu"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/blocks/full-screen-navigation-menu/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/blocks/full-screen-navigation-menu.tsx"
+        }
+      ]
+    },
+    {
       "name": "globe-demo",
       "type": "registry:block",
       "title": "Globe Demo",
       "description": "Demo showing Globe component.",
       "registryDependencies": [
-        "http://localhost:3000/r/globe"
+        "@systaliko-ui/r/globe"
       ],
       "files": [
         {
@@ -517,9 +576,9 @@
       "title": "Header Demo",
       "description": "Demo showing Header component.",
       "registryDependencies": [
-        "http://localhost:3000/r/header",
-        "http://localhost:3000/r/animated-menu",
-        "http://localhost:3000/r/use-mobile"
+        "@systaliko-ui/r/header",
+        "@systaliko-ui/r/animated-menu",
+        "@systaliko-ui/r/use-mobile"
       ],
       "files": [
         {
@@ -535,7 +594,7 @@
       "title": "Image Player Demo",
       "description": "Demo showing how to use image player component.",
       "registryDependencies": [
-        "http://localhost:3000/r/image-player"
+        "@systaliko-ui/r/image-player"
       ],
       "files": [
         {
@@ -585,7 +644,7 @@
       "title": "Timeline Demo",
       "description": "Demo showing timeline component.",
       "registryDependencies": [
-        "http://localhost:3000/r/timeline"
+        "@systaliko-ui/r/timeline"
       ],
       "files": [
         {
@@ -665,7 +724,7 @@
       "title": "Card Testimonial Demo",
       "description": "Demo showing Card Testimonial Component.",
       "registryDependencies": [
-        "http://localhost:3000/r/card-testimonial"
+        "@systaliko-ui/r/card-testimonial"
       ],
       "files": [
         {
@@ -681,7 +740,7 @@
       "title": "Card Testimonial Demo",
       "description": "Demo showing Card Testimonial Component.",
       "registryDependencies": [
-        "http://localhost:3000/r/card-testimonial"
+        "@systaliko-ui/r/card-testimonial"
       ],
       "files": [
         {
@@ -713,7 +772,7 @@
       "title": "Stack small cards Demo",
       "description": "Demo showing different usecase of Cards Stack component with smaller cards.",
       "registryDependencies": [
-        "http://localhost:3000/r/cards-stack"
+        "@systaliko-ui/r/cards-stack"
       ],
       "files": [
         {
@@ -746,7 +805,7 @@
       "title": "Stack small cards Demo",
       "description": "Demo showing different usecase of Cards Rotated Stack component.",
       "registryDependencies": [
-        "http://localhost:3000/r/cards-stack-rotated"
+        "@systaliko-ui/r/cards-stack-rotated"
       ],
       "files": [
         {
@@ -786,6 +845,22 @@
           "path": "registry/demo/cards/hover-preview/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/cards/hover-preview.tsx"
+        }
+      ]
+    },
+    {
+      "name": "checkbox-field-demo",
+      "type": "registry:ui",
+      "title": "Input Field Demo",
+      "description": "Demo showing Input field component.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/checkbox-field"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/checkbox-field/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/checkbox-field-demo.tsx"
         }
       ]
     },
@@ -855,12 +930,28 @@
       ]
     },
     {
+      "name": "spotlight-list-demo",
+      "type": "registry:ui",
+      "title": "Spotlight List Demo",
+      "description": "Demo showing Spotlight list component.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/spotlight-list"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/spotlight-list/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/spotlight-list-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "expandable-grid-demo",
       "type": "registry:block",
       "title": "Expandable Product Grid Demo",
       "description": "Demo showing expandable product grid component.",
       "registryDependencies": [
-        "http://localhost:3000/r/ecommerce/expandable-grid"
+        "@systaliko-ui/r/ecommerce/expandable-grid"
       ],
       "files": [
         {
@@ -871,12 +962,28 @@
       ]
     },
     {
+      "name": "image-zoom-demo",
+      "type": "registry:block",
+      "title": "Image Zoom Demo",
+      "description": "Demo showing image zoom component.",
+      "registryDependencies": [
+        "@systaliko-ui/r/ecommerce/image-zoom"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/ecommerce/image-zoom/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/image-zoom.tsx"
+        }
+      ]
+    },
+    {
       "name": "infinite-scroll-demo",
       "type": "registry:block",
       "title": "Infinite Scroll Demo",
       "description": "Demo showing infinite scroll component.",
       "registryDependencies": [
-        "http://localhost:3000/r/infinite-scroll"
+        "@systaliko-ui/r/infinite-scroll"
       ],
       "files": [
         {
@@ -892,8 +999,8 @@
       "title": "price Demo",
       "description": "Demo showing price component.",
       "registryDependencies": [
-        "http://localhost:3000/r/badge",
-        "http://localhost:3000/r/price"
+        "@systaliko-ui/r/badge",
+        "@systaliko-ui/r/price"
       ],
       "files": [
         {
@@ -909,10 +1016,10 @@
       "title": "Pricing Demo",
       "description": "Demo showing pricing component.",
       "registryDependencies": [
-        "http://localhost:3000/r/pricing",
-        "http://localhost:3000/r/badge",
-        "http://localhost:3000/r/button",
-        "http://localhost:3000/r/label"
+        "@systaliko-ui/r/pricing",
+        "@systaliko-ui/r/badge",
+        "@systaliko-ui/r/button",
+        "@systaliko-ui/r/label"
       ],
       "files": [
         {
@@ -928,7 +1035,7 @@
       "title": "Pricing-2 Demo",
       "description": "Demo showing pricing-2 component.",
       "registryDependencies": [
-        "http://localhost:3000/r/pricing"
+        "@systaliko-ui/r/pricing"
       ],
       "files": [
         {
@@ -944,7 +1051,7 @@
       "title": "Product Carousel Demo",
       "description": "Demo showing product carousel component.",
       "registryDependencies": [
-        "http://localhost:3000/r/product-carousel"
+        "@systaliko-ui/r/product-carousel"
       ],
       "files": [
         {
@@ -960,7 +1067,7 @@
       "title": "Product Carousel Demo",
       "description": "Another Demo showing product carousel component.",
       "registryDependencies": [
-        "http://localhost:3000/r/product-carousel"
+        "@systaliko-ui/r/product-carousel"
       ],
       "files": [
         {
@@ -976,7 +1083,7 @@
       "title": "Product Carousel Demo",
       "description": "Another Demo showing product carousel component with different thumbs.",
       "registryDependencies": [
-        "http://localhost:3000/r/product-carousel"
+        "@systaliko-ui/r/product-carousel"
       ],
       "files": [
         {
@@ -992,7 +1099,7 @@
       "title": "Quantity Demo",
       "description": "Demo showing Quantity component.",
       "registryDependencies": [
-        "http://localhost:3000/r/ecommerce/quantity"
+        "@systaliko-ui/r/ecommerce/quantity"
       ],
       "files": [
         {
@@ -1008,7 +1115,7 @@
       "title": "Pricing Demo",
       "description": "Demo showing toggle layout view component.",
       "registryDependencies": [
-        "http://localhost:3000/r/toggle-layout"
+        "@systaliko-ui/r/toggle-layout"
       ],
       "files": [
         {
@@ -1024,7 +1131,7 @@
       "title": "circle cards Demo",
       "description": "Demo showing circle cards component.",
       "registryDependencies": [
-        "http://localhost:3000/r/circle-cards"
+        "@systaliko-ui/r/circle-cards"
       ],
       "files": [
         {
@@ -1040,7 +1147,7 @@
       "title": "Distributed Cards Demo",
       "description": "Demo showing distributed cards component.",
       "registryDependencies": [
-        "http://localhost:3000/r/distributed-cards"
+        "@systaliko-ui/r/distributed-cards"
       ],
       "files": [
         {
@@ -1056,7 +1163,7 @@
       "title": "Distributed Cards 2 Demo",
       "description": "Another Demo showing distributed cards component.",
       "registryDependencies": [
-        "http://localhost:3000/r/distributed-cards-2"
+        "@systaliko-ui/r/distributed-cards-2"
       ],
       "files": [
         {
@@ -1258,7 +1365,7 @@
       "title": "scroll autoplay Demo",
       "description": "Demo showing scroll-autoplay component.",
       "registryDependencies": [
-        "http://localhost:3000/r/scroll-autoplay"
+        "@systaliko-ui/r/scroll-autoplay"
       ],
       "files": [
         {
@@ -1274,8 +1381,8 @@
       "title": "Scroll Reverce Scale Animation Demo",
       "description": "Demo scroll animations component.",
       "registryDependencies": [
-        "http://localhost:3000/r/scroll-animations",
-        "http://localhost:3000/r/grid-bento"
+        "@systaliko-ui/r/scroll-animations",
+        "@systaliko-ui/r/grid-bento"
       ],
       "files": [
         {
@@ -1339,7 +1446,7 @@
       "title": "Wavy Block Demo",
       "description": "Demo showing Wavy Block component.",
       "registryDependencies": [
-        "http://localhost:3000/r/wavy-block"
+        "@systaliko-ui/r/wavy-block"
       ],
       "files": [
         {
@@ -1470,7 +1577,7 @@
       "title": "Set Stagger Direction Demo",
       "description": "Demo showing how to use set-stagger-direction utility.",
       "registryDependencies": [
-        "http://localhost:3000/r/set-stagger-direction",
+        "@systaliko-ui/r/set-stagger-direction",
         "motion"
       ],
       "files": [
@@ -1495,6 +1602,22 @@
       ]
     },
     {
+      "name": "image-zoom",
+      "type": "registry:block",
+      "title": "Image zoom",
+      "description": "zoom in and out with detect touch event.",
+      "dependencies": [
+        "react-inner-image-zoom"
+      ],
+      "files": [
+        {
+          "path": "registry/ecommerce/image-zoom/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/image-zoom.tsx"
+        }
+      ]
+    },
+    {
       "name": "infinite-scroll",
       "type": "registry:block",
       "title": "Infinite Scroll",
@@ -1503,7 +1626,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "http://localhost:3000/r/shadcn/spinner"
+        "@systaliko-ui/r/shadcn/spinner"
       ],
       "files": [
         {
@@ -1561,7 +1684,7 @@
       "title": "Quantity Config",
       "description": "Quantity config for ecommerce products.",
       "registryDependencies": [
-        "http://localhost:3000/r/shadcn/button"
+        "@systaliko-ui/r/shadcn/button"
       ],
       "files": [
         {

@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-04-03
+
+### Added
+
+- 🧩 **New block: `full-screen-navigation-menu`** — Transforms the Shadcn `NavigationMenu` into a full-screen overlay menu with portal rendering, no border/radius, and seamless trigger-to-content transitions
+- 🧩 **New block: `timeline`** — Animated timeline block for showcasing work history or step-by-step processes (requires Motion)
+- 🧩 **New ecommerce block: `image-zoom`** — Image zoom zoom the image with grabing and controls
+- ✨ **New component: `checkbox-field`** — Accessible, styled checkbox field component built on Radix primitives
+- ✨ **New component: `spotlight-list`** — List component with spotlight hover effect — supports `blur`, `scale`, and `opacity` variants
+
+### Changed
+
+- 🎨 **Redesigned Abla Template** — redesign the template, change the theme, add new components, with updated layout and visual hierarchy
+- 🎨 **Redesigned home page** — Overhauled hero, showcase, features, and components sections with updated layout and visual hierarchy
+
 ## [0.4.0] - 2026-02-15
 
 ### Added
@@ -89,7 +104,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Documentation site with Fumadocs
 - Three template projects: Veo, Alba Studio, and Motus Studio
 
-[Unreleased]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.2.0...v0.3.0

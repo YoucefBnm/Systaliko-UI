@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-zoom",
+  "title": "Image zoom",
+  "description": "zoom in and out with detect touch event.",
+  "dependencies": [
+    "react-inner-image-zoom"
+  ],
+  "files": [
+    {
+      "path": "registry/ecommerce/image-zoom/index.tsx",
+      "content": "'use client';\n\nimport InnerImageZoom, { InnerImageZoomProps } from 'react-inner-image-zoom';\nimport 'react-inner-image-zoom/lib/styles.min.css';\n\nexport function ImageZoom(props: InnerImageZoomProps) {\n  return (\n    <InnerImageZoom\n      zoomType={'hover'}\n      zoomPreload={true}\n      hasSpacer={true}\n      {...props}\n    />\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/image-zoom.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -4,7 +4,7 @@
   "type": "registry:block",
   "title": "circle cards Demo",
   "description": "Demo showing circle cards component.",
-  "registryDependencies": ["http://localhost:3000/r/circle-cards"],
+  "registryDependencies": ["@systaliko-ui/r/circle-cards"],
   "files": [
     {
       "path": "registry/demo/scroll-animations/circle-cards/index.tsx",

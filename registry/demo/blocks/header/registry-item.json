@@ -5,9 +5,9 @@
   "title": "Header Demo",
   "description": "Demo showing Header component.",
   "registryDependencies": [
-    "http://localhost:3000/r/header",
-    "http://localhost:3000/r/animated-menu",
-    "http://localhost:3000/r/use-mobile"
+    "@systaliko-ui/r/header",
+    "@systaliko-ui/r/animated-menu",
+    "@systaliko-ui/r/use-mobile"
   ],
   "files": [
     {

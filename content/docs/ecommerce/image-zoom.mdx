@@ -1,0 +1,153 @@
+---
+title: Image Zoom
+description: Image zoom with detect touch event.
+new: true
+---
+
+<Callout type="info">
+  this component uses [inner-image-zoom](https://innerimagezoom.com/) library,
+  for more references visit the library
+  [docs](https://innerimagezoom.com/docs/react).
+</Callout>
+<ComponentPreview name="image-zoom-demo" />
+
+## Installation
+
+<ComponentInstallation name="image-zoom" />
+
+## Usage
+
+```tsx
+<ImageZoom
+  src={'/path/to/main-image.png'}
+  zoomSrc={'/path/to/zoom-image.png'}
+/>
+```
+
+## Props
+
+<TypeTable
+  type={{
+    afterZoomOut: {
+      description: 'Function to be called after zoom out.',
+      type: '() => void',
+      required: false,
+    },
+    afterZoomIn: {
+      description: 'Function to be called after zoom in.',
+      type: '() => void',
+      required: false,
+    },
+    hideHint: {
+      description: 'Hides the magnifying glass hint.',
+      default: 'false',
+      type: 'boolean',
+      required: false,
+    },
+    hideCloseButton: {
+      description:
+        'Hides the close button on touch devices. If set to true, zoom out is triggered by tap.',
+      default: 'false',
+      type: 'boolean',
+      required: false,
+    },
+    mobileBreakpoint: {
+      description:
+        'The maximum breakpoint for fullscreen zoom image when fullscreenOnMobile is true.',
+      default: '640',
+      type: 'number',
+      required: false,
+    },
+    fullscreenOnMobile: {
+      description:
+        'Enables fullscreen zoomed image on touch devices below a specified breakpoint.',
+      default: 'false',
+      type: 'boolean',
+      required: false,
+    },
+    fadeDuration: {
+      description:
+        'Fade transition time in milliseconds. If zooming in on transparent images, set this to 0 for best results.',
+      default: '150',
+      type: 'number',
+      required: false,
+    },
+    zoomType: {
+      description:
+        'The user behavior for triggering zoom. When using hover, combine with zoomPreload to avoid flickering on rapid mouse movements.',
+      default: 'hover',
+      type: 'click | hover',
+      required: false,
+    },
+    moveType: {
+      description:
+        'The user behavior for moving zoomed images on non-touch devices.',
+      default: 'pan',
+      type: 'pan | darg',
+      required: false,
+    },
+    zoomPreload: {
+      description:
+        'If set to true, preloads the zoom image instead of waiting for mouseenter and (unless on a touch device) persists the image on mouseleave.',
+      default: 'true',
+      type: 'boolean',
+      required: false,
+    },
+    zoomScale: {
+      description:
+        'Multiplied against the natural width and height of the zoomed image. This will generally be a decimal (example, 0.9 for 90%).',
+      default: '1',
+      type: 'number',
+      required: false,
+    },
+    zoomSrc: {
+      description:
+        'URL for the larger zoom image. Falls back to original image src if not defined.',
+      type: 'string',
+      required: false,
+    },
+    hasSpacer: {
+      description:
+        "If true, gets the original image's aspect ratio based on the width and height props and creates a spacer to prevent cumulative layout shift.",
+      type: 'boolean',
+      default: 'true',
+      required: false,
+    },
+    sources: {
+      description:
+        'A list of image sources for using the picture tag to serve the appropriate original image (see below for more details).',
+      type: 'array',
+      required: false,
+    },
+    src: {
+      description: 'URL for the original image.',
+      type: 'array',
+      required: true,
+    },
+  }}
+/>
+
+#### Sources
+
+<TypeTable
+  type={{
+    srcSet: {
+      description: 'Srcset attribute for source tag.',
+      type: 'string',
+    },
+    sizes: {
+      description: 'Sizes attribute for source tag.',
+      type: 'string',
+    },
+    media: {
+      description:
+        'An attribute containing a media condition for use with the srcset.',
+      type: 'string',
+    },
+    type: {
+      description:
+        'An image MIME type. This is useful for using newer formats like WebP.',
+      type: 'string',
+    },
+  }}
+/>

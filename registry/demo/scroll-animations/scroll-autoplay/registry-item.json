@@ -4,7 +4,7 @@
   "type": "registry:block",
   "title": "scroll autoplay Demo",
   "description": "Demo showing scroll-autoplay component.",
-  "registryDependencies": ["http://localhost:3000/r/scroll-autoplay"],
+  "registryDependencies": ["@systaliko-ui/r/scroll-autoplay"],
   "files": [
     {
       "path": "registry/demo/scroll-animations/scroll-autoplay/index.tsx",

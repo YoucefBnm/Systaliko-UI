@@ -9,6 +9,7 @@ import {
   useMotionTemplate,
   useReducedMotion,
   useScroll,
+  UseScrollOptions,
   useSpring,
   useTransform,
 } from 'motion/react';
@@ -18,8 +19,7 @@ interface ScrollAnimationRotateContextValue {
 }
 interface ScrollAnimationRotateProps {
   spacerClass?: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  offset?: any;
+  offset?: UseScrollOptions['offset'];
 }
 const ScrollAnimationRotateContext = React.createContext<
   ScrollAnimationRotateContextValue | undefined

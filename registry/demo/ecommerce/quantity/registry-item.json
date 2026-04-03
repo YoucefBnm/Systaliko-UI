@@ -4,7 +4,7 @@
   "type": "registry:block",
   "title": "Quantity Demo",
   "description": "Demo showing Quantity component.",
-  "registryDependencies": ["http://localhost:3000/r/ecommerce/quantity"],
+  "registryDependencies": ["@systaliko-ui/r/ecommerce/quantity"],
   "files": [
     {
       "path": "registry/demo/ecommerce/quantity/index.tsx",

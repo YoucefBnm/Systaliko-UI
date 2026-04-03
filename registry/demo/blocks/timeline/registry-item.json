@@ -4,7 +4,7 @@
   "type": "registry:block",
   "title": "Timeline Demo",
   "description": "Demo showing timeline component.",
-  "registryDependencies": ["http://localhost:3000/r/timeline"],
+  "registryDependencies": ["@systaliko-ui/r/timeline"],
   "files": [
     {
       "path": "registry/demo/blocks/timeline/index.tsx",

@@ -8,6 +8,7 @@ import {
   useMotionValue,
   useReducedMotion,
   useScroll,
+  UseScrollOptions,
   useSpring,
 } from 'motion/react';
 import React from 'react';
@@ -119,8 +120,9 @@ export function WavyBlockItem({
 export function WavyBlock({
   offset = ['start end', 'end start'],
   ...props
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-}: React.ComponentPropsWithRef<'div'> & { offset?: any }) {
+}: React.ComponentPropsWithRef<'div'> & {
+  offset?: UseScrollOptions['offset'];
+}) {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const { current } = containerRef;
 

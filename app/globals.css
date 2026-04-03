@@ -1,6 +1,9 @@
 @import 'tailwindcss';
+@plugin 'tailwindcss-animate';
+
 @import 'fumadocs-ui/css/shadcn.css';
 @import 'fumadocs-ui/css/preset.css';
+
 @source '../node_modules/fumadocs-ui/dist/**/*.js';
 @source '../__registry__/**/*.tsx';
 

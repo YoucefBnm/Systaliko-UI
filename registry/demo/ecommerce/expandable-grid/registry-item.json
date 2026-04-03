@@ -4,7 +4,7 @@
   "type": "registry:block",
   "title": "Expandable Product Grid Demo",
   "description": "Demo showing expandable product grid component.",
-  "registryDependencies": ["http://localhost:3000/r/ecommerce/expandable-grid"],
+  "registryDependencies": ["@systaliko-ui/r/ecommerce/expandable-grid"],
   "files": [
     {
       "path": "registry/demo/ecommerce/expandable-grid/index.tsx",

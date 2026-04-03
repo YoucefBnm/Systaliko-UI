@@ -17,7 +17,7 @@ export function Showcase() {
           className="gap-2 px-4"
         >
           <ScrollAnimationRotateCol
-            yRange={['-5%', '8%']}
+            yRange={['-15%', '-5%']}
             className="hidden lg:block relative h-fit max-h-screen mt-[-10%] ring ring-ring/20  shadow overflow-hidden rounded"
           >
             <Link
@@ -30,7 +30,7 @@ export function Showcase() {
                 src="/showcase-enera.png"
                 className="object-contain w-full h-auto max-w-full"
                 sizes="(max-width: 1024px) 50vw, 33vw"
-                alt="carecover template"
+                alt="enera template"
                 width={1440}
                 height={2260}
               />
@@ -57,7 +57,7 @@ export function Showcase() {
             </Link>
           </ScrollAnimationRotateCol>
           <ScrollAnimationRotateCol
-            yRange={['15%', '-5%']}
+            yRange={['15%', '0%']}
             className="relative h-fit max-h-screen mt-[-20%] ring ring-ring/20  shadow overflow-hidden rounded "
           >
             <Link
@@ -79,7 +79,7 @@ export function Showcase() {
           </ScrollAnimationRotateCol>
           <ScrollAnimationRotateCol
             className="hidden lg:block relative h-fit max-h-screen mt-[-10%] ring ring-ring/20  shadow overflow-hidden rounded"
-            yRange={['-10%', '2%']}
+            yRange={['-10%', '-4%']}
           >
             <Link
               aria-label="view portfolio template"
@@ -88,10 +88,10 @@ export function Showcase() {
               href="/docs/templates/portfolio"
             >
               <Image
-                src="/showcase-portfolio-light.png"
+                src="/showcase-abla.png"
                 className="object-contain w-full h-auto max-w-full"
                 sizes="(max-width: 768px) 100vw, 33vw"
-                alt="portfolio template"
+                alt="abla studio template"
                 width={1440}
                 height={2260}
               />

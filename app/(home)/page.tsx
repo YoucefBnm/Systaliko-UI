@@ -1,4 +1,3 @@
-// import { About } from '@/components/sections/about';
 import { Components } from '@/components/sections/components';
 import { Contact } from '@/components/sections/contact';
 import { Features } from '@/components/sections/features';
@@ -13,7 +12,6 @@ export default function HomePage() {
       {/* <HomeBanner />  */}
       <Header />
       <Hero />
-      {/* <About /> */}
       <Components />
       <Features />
       <Contact />

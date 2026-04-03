@@ -9,6 +9,7 @@ import {
   useMotionTemplate,
   useReducedMotion,
   useScroll,
+  UseScrollOptions,
   useSpring,
   useTransform,
 } from 'motion/react';
@@ -31,8 +32,7 @@ export function useScrollAnimationContext() {
 }
 interface ScrollAnimationProps extends React.ComponentPropsWithRef<'div'> {
   spacerClass?: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  offset?: any[];
+  offset?: UseScrollOptions['offset'];
 }
 export function ScrollAnimation({
   spacerClass,

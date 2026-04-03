@@ -8,16 +8,9 @@ import {
   InfiniteScrollCell,
 } from '@/registry/ecommerce/infinite-scroll';
 import { PreviewCard, PreviewCardSkelton } from '../preview-card';
+import { FeaturedComponentProps } from '@/types/featured-component';
 
-interface FeaturedCoponentProps {
-  id: string;
-  componentLink: string;
-  videoUrl: string;
-  thumbnail?: string;
-  title: string;
-  description: string;
-}
-const featuredComponents: FeaturedCoponentProps[] = [
+const featuredComponents: FeaturedComponentProps[] = [
   {
     id: 'featured-component-scroll-reverse-animation',
     componentLink: '/docs/scroll-animations/scroll-reverse-animation',

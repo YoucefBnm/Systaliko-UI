@@ -7,7 +7,7 @@
     "motion"
   ],
   "registryDependencies": [
-    "http://localhost:3000/r/use-toggle-onscroll"
+    "@systaliko-ui/r/use-toggle-onscroll"
   ],
   "files": [
     {

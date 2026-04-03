@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-zoom-demo",
+  "title": "Image Zoom Demo",
+  "description": "Demo showing image zoom component.",
+  "registryDependencies": [
+    "@systaliko-ui/r/ecommerce/image-zoom"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/ecommerce/image-zoom/index.tsx",
+      "content": "import { ImageZoom } from '@/components/systaliko-ui/ecommerce/image-zoom';\n\nconst getUnsplashHighRes = (originalUrl: string) => {\n  try {\n    const urlObj = new URL(originalUrl);\n\n    // 1. Force High Resolution (2000px is the sweet spot for Zoom)\n    urlObj.searchParams.set('w', '2000');\n\n    // 2. Maximize Quality (Unsplash defaults to 80, we want 90+ for zoom)\n    urlObj.searchParams.set('q', '95');\n\n    // 3. Ensure we aren't cropping out details unpredictably\n    // 'max' ensures it fits within the width without cutting content\n    urlObj.searchParams.set('fit', 'max');\n\n    return urlObj.toString();\n  } catch (e) {\n    // Fallback if the string isn't a valid URL\n    console.error('Invalid Unsplash URL', e);\n    return originalUrl;\n  }\n};\n\nconst baseImageUrl =\n  'https://images.unsplash.com/photo-1551726195-0c4e3e49f2a0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';\nconst zoomSrc = getUnsplashHighRes(baseImageUrl);\n\nexport function ImageZoomDemo() {\n  return (\n    <div className=\"w-full h-screen flex justify-center items-center\">\n      <div className=\"relative max-w-xl mx-auto\">\n        <ImageZoom src={baseImageUrl} zoomSrc={zoomSrc} zoomType=\"click\" />\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/image-zoom.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

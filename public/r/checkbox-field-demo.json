@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-field-demo",
+  "title": "Input Field Demo",
+  "description": "Demo showing Input field component.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/checkbox-field"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/checkbox-field/index.tsx",
+      "content": "import {\n  Checkbox,\n  CheckboxField,\n  CheckboxIcon,\n  Label,\n} from '@/components/systaliko-ui/components/checkbox-field';\n\nexport function CheckboxFieldDemo() {\n  return (\n    <div className=\"flex justify-center items-center\">\n      <div className=\"flex flex-wrap justify-start items-center gap-2\">\n        <CheckboxField className=\"*:transition-all *:duration-200 *:ease-out\">\n          <Checkbox id=\"default\" name=\"default\" />\n\n          <Label htmlFor=\"default\">Default</Label>\n        </CheckboxField>\n\n        <CheckboxField\n          className=\"*:transition-all *:duration-200 *:ease-out\"\n          variant={'withCheckmark'}\n        >\n          <Checkbox id=\"check\" name=\"check\">\n            <CheckboxIcon forceMount />\n          </Checkbox>\n\n          <Label htmlFor=\"check\">Check</Label>\n        </CheckboxField>\n\n        <CheckboxField disabled>\n          <Checkbox id=\"empty\" name=\"empty\" />\n\n          <Label htmlFor=\"empty\">Out of stock</Label>\n        </CheckboxField>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/checkbox-field-demo.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

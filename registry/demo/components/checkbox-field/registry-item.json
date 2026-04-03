@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-field-demo",
+  "type": "registry:ui",
+  "title": "Input Field Demo",
+  "description": "Demo showing Input field component.",
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/checkbox-field"],
+  "files": [
+    {
+      "path": "registry/demo/components/checkbox-field/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/checkbox-field-demo.tsx"
+    }
+  ]
+}

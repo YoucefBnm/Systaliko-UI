@@ -4,7 +4,7 @@
   "title": "Quantity Config",
   "description": "Quantity config for ecommerce products.",
   "registryDependencies": [
-    "http://localhost:3000/r/shadcn/button"
+    "@systaliko-ui/r/shadcn/button"
   ],
   "files": [
     {

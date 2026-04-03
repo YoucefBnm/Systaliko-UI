@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spotlight-list-demo",
+  "type": "registry:ui",
+  "title": "Spotlight List Demo",
+  "description": "Demo showing Spotlight list component.",
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/spotlight-list"],
+  "files": [
+    {
+      "path": "registry/demo/components/spotlight-list/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/spotlight-list-demo.tsx"
+    }
+  ]
+}

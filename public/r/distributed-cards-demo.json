@@ -4,7 +4,7 @@
   "title": "Distributed Cards Demo",
   "description": "Demo showing distributed cards component.",
   "registryDependencies": [
-    "http://localhost:3000/r/distributed-cards"
+    "@systaliko-ui/r/distributed-cards"
   ],
   "files": [
     {

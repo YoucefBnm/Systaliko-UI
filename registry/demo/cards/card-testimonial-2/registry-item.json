@@ -4,7 +4,7 @@
   "type": "registry:ui",
   "title": "Card Testimonial Demo",
   "description": "Demo showing Card Testimonial Component.",
-  "registryDependencies": ["http://localhost:3000/r/card-testimonial"],
+  "registryDependencies": ["@systaliko-ui/r/card-testimonial"],
   "files": [
     {
       "path": "registry/demo/cards/card-testimonial-2/index.tsx",

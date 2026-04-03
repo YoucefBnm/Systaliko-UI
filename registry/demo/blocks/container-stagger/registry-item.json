@@ -5,7 +5,7 @@
   "title": "Stagger Container Demo",
   "description": "Demo showing stagger container component.",
   "registryDependencies": [
-    "http://localhost:3000/r/container-stagger",
+    "@systaliko-ui/r/container-stagger",
     "https://systaliko-ui.vercel.app/r/transitions"
   ],
   "files": [

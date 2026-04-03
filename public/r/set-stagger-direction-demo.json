@@ -4,7 +4,7 @@
   "title": "Set Stagger Direction Demo",
   "description": "Demo showing how to use set-stagger-direction utility.",
   "registryDependencies": [
-    "http://localhost:3000/r/set-stagger-direction",
+    "@systaliko-ui/r/set-stagger-direction",
     "motion"
   ],
   "files": [

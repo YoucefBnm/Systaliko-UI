@@ -1,7 +1,7 @@
 import { ArrowUpRightIcon } from 'lucide-react';
 import Link from 'next/link';
 import { Skeleton } from './ui/skeleton';
-import React, { Activity } from 'react';
+import React from 'react';
 
 interface PreviewCardProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {

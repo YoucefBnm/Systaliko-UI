@@ -8,7 +8,7 @@ export function Pulse({
   return (
     <div
       className={cn(
-        'relative flex size-2 [&>*:first-child]:bg-primary/50 [&>*:last-child]:bg-primary',
+        'relative flex size-2 [&>*:first-child]:bg-primary/50 [&>*:last-child]:bg-primary/90',
         className,
       )}
       {...props}

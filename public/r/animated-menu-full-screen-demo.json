@@ -4,7 +4,7 @@
   "title": "Animated Menu Demo",
   "description": "another demo showing animated menu component in full screen mode.",
   "registryDependencies": [
-    "http://localhost:3000/r/animated-menu-full-screen"
+    "@systaliko-ui/r/animated-menu-full-screen"
   ],
   "files": [
     {

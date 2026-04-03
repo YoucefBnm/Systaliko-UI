@@ -1,0 +1,33 @@
+---
+title: Checkbox Field
+description: Checkbox field with label.
+new: true
+---
+
+<ComponentPreview name="checkbox-field-demo" />
+
+## Installation
+
+<ComponentInstallation name="checkbox-field" />
+
+## Usage
+
+```tsx
+<CheckboxField>
+  <Checkbox id="default" name="default" />
+  <Label htmlFor="default">Default</Label>
+</CheckboxField>
+```
+
+## Props
+
+<TypeTable
+  type={{
+    variant: {
+      description: 'the styling of the checkbox',
+      type: 'default | withCheckmark',
+      required: false,
+      default: 'default',
+    },
+  }}
+/>

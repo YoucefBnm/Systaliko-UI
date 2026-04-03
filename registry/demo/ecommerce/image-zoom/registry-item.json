@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-zoom-demo",
+  "type": "registry:block",
+  "title": "Image Zoom Demo",
+  "description": "Demo showing image zoom component.",
+  "registryDependencies": ["@systaliko-ui/r/ecommerce/image-zoom"],
+  "files": [
+    {
+      "path": "registry/demo/ecommerce/image-zoom/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/image-zoom.tsx"
+    }
+  ]
+}

@@ -2,111 +2,79 @@
 import { cn } from '@/lib/utils';
 import {
   motion,
+  HTMLMotionProps,
   MotionValue,
-  useReducedMotion,
   useScroll,
   useSpring,
-  useTransform,
 } from 'motion/react';
 import React from 'react';
 
-interface TimelineProps extends React.ComponentPropsWithRef<'div'> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  offset?: any[];
-}
-interface TimelineContextValue {
+interface TimelineContextT {
   scrollYProgress: MotionValue<number>;
 }
-const TimelineContext = React.createContext<TimelineContextValue | undefined>(
+
+const TimelineContext = React.createContext<TimelineContextT | undefined>(
   undefined,
 );
 function useTimelineContext() {
   const context = React.useContext(TimelineContext);
   if (!context) {
-    throw new Error('TimelineContext must be used within a TimelineProvider');
+    throw new Error('useTimelineContext must be used within a Timeline');
   }
   return context;
 }
+
 export function Timeline({
-  offset = ['start center', 'end end'],
   className,
   ...props
-}: TimelineProps) {
-  const containerRef = React.useRef<HTMLDivElement>(null);
+}: React.ComponentPropsWithRef<'div'>) {
+  const scrollRef = React.useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: offset,
+    target: scrollRef,
+    offset: ['start center', 'end end'],
   });
+
   return (
     <TimelineContext.Provider value={{ scrollYProgress }}>
       <div
-        ref={containerRef}
-        className={cn(
-          'relative grid grid-cols-[64px_1fr] [&>*]:col-start-1 [&>*]:row-start-1',
-          className,
-        )}
+        className={cn('relative', className)}
+        ref={scrollRef}
+        data-slot="timeline"
         {...props}
       />
     </TimelineContext.Provider>
   );
 }
-export function TimelineContainer({
-  className,
-  ...props
-}: React.HtmlHTMLAttributes<HTMLDivElement>) {
-  return <div className={cn('col-span-2', className)} {...props} />;
-}
-export function TimelineCard({
-  className,
-  ...props
-}: React.HtmlHTMLAttributes<HTMLDivElement>) {
-  return <div className={cn('flex relative z-10', className)} {...props} />;
-}
-export function TimelineCardIndex({
-  className,
-  ...props
-}: React.HtmlHTMLAttributes<HTMLDivElement>) {
+export function TimelineCard({ ...props }: HTMLMotionProps<'div'>) {
   return (
-    <div
-      className={cn(
-        'size-16 *:bg-background flex justify-center items-center',
-        className,
-      )}
+    <motion.div
+      data-slot="timeline-card"
+      initial={{ opacity: 0.5 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ amount: 'all' }}
       {...props}
     />
   );
-}
-export function TimelineCardBody({
-  className,
-  ...props
-}: React.HtmlHTMLAttributes<HTMLDivElement>) {
-  return <div className={cn('flex-1 p-4', className)} {...props} />;
 }
 
 export function TimelineProgress({
   className,
   ...props
-}: React.HtmlHTMLAttributes<HTMLDivElement>) {
-  const reducedMotion = useReducedMotion();
+}: React.ComponentProps<'div'>) {
   const { scrollYProgress } = useTimelineContext();
-  const springConfig = {
+  const scaleY = useSpring(scrollYProgress, {
     damping: 50,
     stiffness: 300,
     restDelta: 0.001,
-  };
-  const scaleYTransform = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  const scaleYSpring = useSpring(scaleYTransform, springConfig);
-  const scaleY = reducedMotion ? scaleYTransform : scaleYSpring;
+  });
 
   return (
     <div
-      className={cn(
-        'relative  *:bg-primary justify-self-center h-full min-w-px bg-muted-foreground',
-        className,
-      )}
+      className={cn('self-stretch w-1 bg-muted *:bg-primary', className)}
+      data-slot="timeline-progress"
       {...props}
     >
-      <motion.div className="size-full origin-top" style={{ scaleY }} />
+      <motion.div className="origin-top size-full" style={{ scaleY }} />
     </div>
   );
 }

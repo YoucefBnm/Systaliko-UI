@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "full-screen-navigation-menu-demo",
+  "type": "registry:block",
+  "title": "Full screen navigation Demo",
+  "description": "Demo showing Full screen navigation component.",
+  "registryDependencies": ["@systaliko-ui/r/full-screen-navigation-menu"],
+  "files": [
+    {
+      "path": "registry/demo/blocks/full-screen-navigation-menu/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/blocks/full-screen-navigation-menu.tsx"
+    }
+  ]
+}

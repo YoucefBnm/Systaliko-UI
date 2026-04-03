@@ -11,6 +11,7 @@ import ShadcnIcon from '../icons/shadcn-icon';
 import MotionIcon from '../icons/motion-icon';
 import { Showcase } from './showcase';
 import { TextWavy } from '@/registry/text/text-wavy';
+import { Pulse } from '@/registry/components/pulse';
 
 const TECH_STACK = [
   {
@@ -48,8 +49,9 @@ export function Hero() {
       <ContainerStagger className="flex px-6 pt-12 flex-col items-center text-center justify-center space-y-6 min-h-96">
         <MotionConfig transition={{ duration: 0.3, ease: 'easeOut' }}>
           <motion.div variants={animationVariants}>
-            <Link href="/docs">
-              <TextWavy text="New Blocks and Enea template are available." />
+            <Link className="flex items-center gap-1 py-0.5 px-1" href="/docs">
+              <Pulse className="size-1" />
+              <TextWavy text="5 New Blocks are available, and updated abla template." />
             </Link>
           </motion.div>
 

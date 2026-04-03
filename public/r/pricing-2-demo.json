@@ -4,7 +4,7 @@
   "title": "Pricing-2 Demo",
   "description": "Demo showing pricing-2 component.",
   "registryDependencies": [
-    "http://localhost:3000/r/pricing"
+    "@systaliko-ui/r/pricing"
   ],
   "files": [
     {

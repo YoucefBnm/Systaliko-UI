@@ -4,10 +4,10 @@
   "title": "Pricing Demo",
   "description": "Demo showing pricing component.",
   "registryDependencies": [
-    "http://localhost:3000/r/pricing",
-    "http://localhost:3000/r/badge",
-    "http://localhost:3000/r/button",
-    "http://localhost:3000/r/label"
+    "@systaliko-ui/r/pricing",
+    "@systaliko-ui/r/badge",
+    "@systaliko-ui/r/button",
+    "@systaliko-ui/r/label"
   ],
   "files": [
     {

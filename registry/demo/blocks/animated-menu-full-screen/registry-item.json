@@ -4,7 +4,7 @@
   "type": "registry:block",
   "title": "Animated Menu Demo",
   "description": "another demo showing animated menu component in full screen mode.",
-  "registryDependencies": ["http://localhost:3000/r/animated-menu-full-screen"],
+  "registryDependencies": ["@systaliko-ui/r/animated-menu-full-screen"],
   "files": [
     {
       "path": "registry/demo/blocks/animated-menu-full-screen/index.tsx",

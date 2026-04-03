@@ -7,16 +7,18 @@ import {
   MapInputRange,
   useScroll,
   useTransform,
+  UseScrollOptions,
 } from 'motion/react';
 import React from 'react';
 
 interface ScrollAutoplayProps extends HTMLMotionProps<'div'> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  offset?: any[];
+  offset?: UseScrollOptions['offset'];
 }
 interface ScrollAutoPlayItemProps extends HTMLMotionProps<'div'> {
+  index: number;
+  totalImages: number;
   inputRange: MapInputRange;
-  outputRange?: unknown[];
+  opacityRange?: unknown[];
 }
 interface ScrollAutoplayContextValue {
   scrollYProgress: MotionValue<number>;
@@ -69,14 +71,20 @@ export function ScrollAutoplayContainer({
 }
 
 export function ScrollAutoplayItem({
+  index,
+  totalImages,
   inputRange,
-  outputRange = [0, 1],
+  opacityRange = [0, 1],
   className,
   style,
   ...props
 }: ScrollAutoPlayItemProps) {
   const { scrollYProgress } = useScrollAutoplayContext();
-  const opacity = useTransform(scrollYProgress, inputRange, outputRange);
+  const start = index / (totalImages + 1);
+  const end = (index + 1) / (totalImages + 1);
+  const range = [start, end];
+
+  const opacity = useTransform(scrollYProgress, range, opacityRange);
 
   return (
     <motion.div

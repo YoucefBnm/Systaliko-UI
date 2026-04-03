@@ -15,11 +15,17 @@ const Badge = ({
       {name}{' '}
       <span
         className={cn(
-          'ms-auto text-[10px] text-nowrap rounded-sm leading-1 px-1 py-0.5 h-4.5 font-semibold flex items-center justify-center',
+          'shadow-sm shadow-black/15',
+          'flex w-auto items-center space-x-2 rounded-full',
+          'ring-1 ring-ring/20',
+          'whitespace-pre',
+          'w-fit rounded-full px-2 py-0.5',
+          'text-[10px] font-medium',
+          'text-center',
           className,
         )}
       >
-        <span className="uppercase">{children}</span>
+        <span className="">{children}</span>
       </span>
     </span>
   );
@@ -31,7 +37,7 @@ export const attachFile: BuildPageTreeOptions['attachFile'] = (node, file) => {
 
   if ('new' in data && typeof data.new === 'boolean' && data.new) {
     node.name = (
-      <Badge name={node.name} className="text-emerald-500">
+      <Badge name={node.name} className="text-indigo-50 bg-indigo-500">
         new
       </Badge>
     );
@@ -50,7 +56,7 @@ export const attachFile: BuildPageTreeOptions['attachFile'] = (node, file) => {
     data.deprecated
   ) {
     node.name = (
-      <Badge name={node.name} className="text-red-500">
+      <Badge name={node.name} className="text-red-50 bg-red-500">
         deprecated
       </Badge>
     );
@@ -58,14 +64,14 @@ export const attachFile: BuildPageTreeOptions['attachFile'] = (node, file) => {
 
   if ('updated' in data && typeof data.updated === 'boolean' && data.updated) {
     node.name = (
-      <Badge name={node.name} className="text-blue-400">
+      <Badge name={node.name} className="text-blue-50 bg-blue-500">
         updated
       </Badge>
     );
   }
   if ('soon' in data && typeof data.soon === 'boolean' && data.soon) {
     node.name = (
-      <Badge name={node.name} className="text-muted-foreground">
+      <Badge name={node.name} className="text-muted-foreground bg-muted">
         soon
       </Badge>
     );

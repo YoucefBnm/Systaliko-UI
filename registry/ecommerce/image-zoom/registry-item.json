@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "image-zoom",
+  "type": "registry:block",
+  "title": "Image zoom",
+  "description": "zoom in and out with detect touch event.",
+  "dependencies": ["react-inner-image-zoom"],
+  "files": [
+    {
+      "path": "registry/ecommerce/image-zoom/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/image-zoom.tsx"
+    }
+  ]
+}

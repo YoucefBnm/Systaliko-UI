@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: {
     template: '%s - Systaliko UI',
     default:
-      'Systaliko UI - Copy/Past or Install React components compatible with Shadcn Registry',
+      'Systaliko UI - Copy Paste or Install React components compatible with Shadcn Registry',
   },
   description:
     'Collection of fully customizable, animated, free UI components built with React, TypeScript, Tailwind CSS, and Motion.',

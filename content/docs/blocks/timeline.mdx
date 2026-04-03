@@ -1,0 +1,39 @@
+---
+title: Timeline
+description: Timeline component, showcasing a timeline of events with scroll animations.
+new: true
+---
+
+<ComponentPreview name="timeline-demo" />
+
+## Installation
+
+<ComponentInstallation name="timeline" />
+
+## Usage
+
+```tsx
+<Timeline className="flex justify-center gap-4 relative px-8 py-12">
+  <TimelineProgress />
+  <div className="space-y-20">
+    <TimelineCard className="px-6 max-w-md flex gap-8">
+      <div className="space-y-3">
+        <div className="flex gap-4">
+          <div>
+            <h2 className="font-medium">{phase.phase}</h2>
+            <h3 className="text-sm text-muted-foreground">{phase.title}</h3>
+          </div>
+          <div className="p-1">
+            <h4 className="text-xs font-bold tabular-nums">
+              {String(index + 1).padStart(2, '0')}
+            </h4>
+          </div>
+        </div>
+        <p className="text-balance text-sm text-muted-foreground">
+          {phase.description}
+        </p>
+      </div>
+    </TimelineCard>
+  </div>
+</Timeline>
+```
