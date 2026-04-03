@@ -17,7 +17,6 @@ interface ScrollAutoplayProps extends HTMLMotionProps<'div'> {
 interface ScrollAutoPlayItemProps extends HTMLMotionProps<'div'> {
   index: number;
   totalImages: number;
-  inputRange: MapInputRange;
   opacityRange?: unknown[];
 }
 interface ScrollAutoplayContextValue {
@@ -73,7 +72,6 @@ export function ScrollAutoplayContainer({
 export function ScrollAutoplayItem({
   index,
   totalImages,
-  inputRange,
   opacityRange = [0, 1],
   className,
   style,

@@ -19,12 +19,12 @@ export function ScrollAutoplayDemo() {
         <div className="relative w-full min-w-3xs md:min-w-md aspect-video  p-2 bg-linear-120 from-muted-foreground/30 to-muted/40 bg-no-repeat border border-foreground/10 rounded-3xl shadow-[inset_0_.450581px_#ffffff4d,0_0_36.0465px_#ffffff0f]">
           <div className="size-full border-16 border-zinc-800 ring ring-black rounded-[19px] relative">
             {IMAGES.map((imageUrl, index) => {
-              const start = index / (IMAGES.length + 1);
-              const end = (index + 1) / (IMAGES.length + 1);
-              const range = [start, end];
-
               return (
-                <ScrollAutoplayItem key={index} inputRange={range}>
+                <ScrollAutoplayItem
+                  key={index}
+                  totalImages={IMAGES.length}
+                  index={index}
+                >
                   <Image
                     fill
                     alt="tokyo city"

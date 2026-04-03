@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 🎨 **Redesigned Abla Template** — redesign the template, change the theme, add new components, with updated layout and visual hierarchy
 - 🎨 **Redesigned home page** — Overhauled hero, showcase, features, and components sections with updated layout and visual hierarchy
+- 🎨 **update scroll autoplay** — it will accents two new props (index and totalImages) also change inputRange naming prop to opacityRange
 
 ## [0.4.0] - 2026-02-15
 
