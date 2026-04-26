@@ -8,7 +8,7 @@ import TwentyFirstIcon from '../icons/21st-icon';
 
 export function Footer() {
   return (
-    <footer className="relative border-t mt-6 border-border py-6 md:py-0">
+    <footer className="relative border-t border py-6 md:py-0">
       <div className="container flex justify-between h-16 items-center gap-4 flex-wrap">
         <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
           Created by{' '}

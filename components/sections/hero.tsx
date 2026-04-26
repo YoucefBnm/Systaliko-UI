@@ -12,6 +12,7 @@ import MotionIcon from '../icons/motion-icon';
 import { Showcase } from './showcase';
 import { TextWavy } from '@/registry/text/text-wavy';
 import { Pulse } from '@/registry/components/pulse';
+import { LinkText } from '../link-text';
 
 const TECH_STACK = [
   {
@@ -41,51 +42,60 @@ const TECH_STACK = [
   },
 ];
 
-export function Hero() {
-  const animationVariants = ANIMATION_VARIANTS['blur'];
+const animationVariants = ANIMATION_VARIANTS['blur'];
 
+export function Hero() {
   return (
     <section className="relative max-w-7xl place-content-center w-full overflow-hidden min-h-[60vh]">
       <ContainerStagger className="flex px-6 pt-12 flex-col items-center text-center justify-center space-y-6 min-h-96">
         <MotionConfig transition={{ duration: 0.3, ease: 'easeOut' }}>
           <motion.div variants={animationVariants}>
             <Link className="flex items-center gap-1 py-0.5 px-1" href="/docs">
-              <Pulse className="size-1" />
-              <TextWavy text="5 New Blocks are available, and updated abla template." />
+              <TextWavy
+                className="font-bold"
+                text="2 updates, portfolio and cognify templates"
+                fontWeights={[500, 800, 500]}
+              />
             </Link>
           </motion.div>
 
           <motion.h1
             variants={animationVariants}
-            className="text-4xl max-w-[25ch] font-medium tracking-tighter text-balance bg-clip-text text-transparent bg-linear-to-br from-foreground/40 to-foreground "
+            className="text-3xl md:text-4xl max-w-[35ch] font-medium tracking-tight text-balance bg-clip-text text-transparent bg-linear-to-br from-foreground/60 to-foreground "
           >
-            React blocks easy to Copy Paste or install via shadcn registry
+            React UI Blocks, Templates & Components Copy Paste or Install via
+            Shadcn
           </motion.h1>
 
           <motion.p
             variants={animationVariants}
-            className="text-balance  text-sm"
+            className="text-balance text-sm"
           >
-            Collection of UI blocks and components and templates to easly craft
-            your website, interactive and animated, built for customization.
-            built into the Shadcn CLI with no additional configuration required
+            60+ free blocks, e-commerce components, and full-page templates
+            built with React, TypeScript, Tailwind CSS, and Motion. Copy-paste
+            into any project or install via the Shadcn CLI no extra
+            configuration.
           </motion.p>
 
           <motion.div
             variants={animationVariants}
             className="flex items-center gap-2 justify-center"
           >
-            <Button size="sm">
-              <Link href="/docs">Browse Blocks</Link>
+            <Button>
+              <LinkText aria-label="view docs" href="/docs">
+                Browse Components
+              </LinkText>
             </Button>
-            <Button size="sm" variant={'secondary'}>
-              <Link href="/docs/templates">Browse Templates</Link>
+            <Button variant={'secondary'}>
+              <LinkText aria-label="view templates" href="/docs/templates">
+                View Templates
+              </LinkText>
             </Button>
           </motion.div>
 
           <motion.div
             variants={animationVariants}
-            className="mb-4 flex flex-wrap items-center justify-center gap-4"
+            className="my-4 flex flex-wrap items-center justify-center gap-4"
           >
             {TECH_STACK.map((tech) => (
               <div

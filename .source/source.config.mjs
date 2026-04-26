@@ -15,6 +15,9 @@ var docs = defineDocs({
       soon: z.boolean().optional(),
       custom: z.boolean().optional(),
       url: z.string().optional(),
+      featured: z.boolean().optional(),
+      videoUrl: z.string().optional(),
+      thumbnail: z.string().optional(),
       author: z.object({
         name: z.string(),
         url: z.string().optional()

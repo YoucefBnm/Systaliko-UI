@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.1] - 2026-04-26
+
+### Changed
+
+- 🏠 **Redesigned home page** — Complete layout overhaul with improved visual hierarchy, updated sections, and refined aesthetics
+- 🚀 **SEO & Metadata Improvements** — Optimized global metadata, added automated doc page titles, and implemented better heading structures for improved search visibility
+- 🎨 **Enhanced `AnimatedMenu` styling** — Refactored styling and responsiveness for smoother transitions and better mobile experience
+- 🧩 **Updated Templates** — Integrated new components and design improvements into `portfolio` and `cognify` templates
+
 ## [0.5.0] - 2026-04-03
 
 ### Added
@@ -105,7 +114,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Documentation site with Fumadocs
 - Three template projects: Veo, Alba Studio, and Motus Studio
 
-[Unreleased]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.5.1...HEAD
+[0.5.1]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.3.0...v0.3.1

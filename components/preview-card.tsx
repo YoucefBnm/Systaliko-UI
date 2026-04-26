@@ -2,6 +2,7 @@ import { ArrowUpRightIcon } from 'lucide-react';
 import Link from 'next/link';
 import { Skeleton } from './ui/skeleton';
 import React from 'react';
+import { cn } from '@/lib/utils';
 
 interface PreviewCardProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -17,6 +18,7 @@ export function PreviewCard({
   thumbnail,
   title,
   description,
+  className,
   ...props
 }: PreviewCardProps) {
   const videoRef = React.useRef<HTMLVideoElement>(null);
@@ -39,41 +41,42 @@ export function PreviewCard({
 
   return (
     <Link
-      className="group p-4 relative gap-4 rounded-xl overflow-hidden transition-all duration-300 bg-gradient-to-b from-secondary to-secondary border border-border/50 before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-b before:from-primary/5 before:to-transparent before:opacity-0 before:transition-opacity before:duration-300 after:absolute after:inset-0 after:z-[-1] after:rounded-xl after:bg-card hover:border-border hover:shadow-lg hover:shadow-primary/5 hover:backdrop-blur-xl hover:bg-primary/2 before:hover:opacity-100 block"
+      className={cn(
+        'group p-4 relative gap-4 rounded-xl overflow-hidden transition-all duration-300 bg-gradient-to-b from-card to-card border  before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-b before:from-primary/5 before:to-transparent before:opacity-0 before:transition-opacity before:duration-300 after:absolute after:inset-0 after:z-[-1] after:rounded-xl after:bg-card hover:border-border hover:shadow-lg hover:shadow-primary/5 hover:backdrop-blur-xl hover:bg-primary/2 before:hover:opacity-100 block',
+        className,
+      )}
       href={componentLink}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       title={title}
       {...props}
     >
-      <div>
-        <div className="rounded overflow-hidden border border-border/5 shadow">
-          <video
-            ref={videoRef}
-            className="w-full inline-block align-middle bg-muted h-auto max-h-full object-contain"
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            src={videoUrl}
-            poster={thumbnail}
-          />
-        </div>
-        <div className="flex-1 flex flex-col p-4 space-y-1">
-          <div className="flex items-center justify-between gap-2">
-            <h3 className="line-clamp-1 font-semibold tracking-tighter transition-colors duration-300 group-hover:text-primary">
-              {title}
-            </h3>
-            <div className="opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-              <ArrowUpRightIcon className="size-5" />
-            </div>
+      <div className="rounded overflow-hidden border shadow">
+        <video
+          ref={videoRef}
+          className="w-full inline-block align-middle bg-muted h-auto max-h-full object-contain"
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          src={videoUrl}
+          poster={thumbnail}
+        />
+      </div>
+      <div className="flex-1 flex flex-col p-4 space-y-1">
+        <div className="flex items-center justify-between gap-2">
+          <h3 className="line-clamp-1 font-medium tracking-tight transition-colors duration-200 group-hover:text-primary">
+            {title}
+          </h3>
+          <div className="opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+            <ArrowUpRightIcon className="size-5" />
           </div>
-          {description && (
-            <p className="line-clamp-2 text-muted-foreground text-sm tracking-tighter">
-              {description}
-            </p>
-          )}
         </div>
+        {description && (
+          <p className="line-clamp-2 text-muted-foreground text-sm tracking-tighter">
+            {description}
+          </p>
+        )}
       </div>
     </Link>
   );

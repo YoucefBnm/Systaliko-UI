@@ -1,6 +1,6 @@
 'use client';
 import { TextStaggerInview } from '@/registry/text/text-stagger-inview';
-import { ArrowUpRightIcon } from 'lucide-react';
+import { ArrowRightIcon } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import {
@@ -9,133 +9,69 @@ import {
 } from '@/registry/ecommerce/infinite-scroll';
 import { PreviewCard, PreviewCardSkelton } from '../preview-card';
 import { FeaturedComponentProps } from '@/types/featured-component';
+import { TextWavy } from '@/registry/text/text-wavy';
+import { LinkText } from '../link-text';
+import clsx from 'clsx';
 
-const featuredComponents: FeaturedComponentProps[] = [
-  {
-    id: 'featured-component-scroll-reverse-animation',
-    componentLink: '/docs/scroll-animations/scroll-reverse-animation',
-    videoUrl:
-      'https://cdn.21st.dev/user_2sdAd21yCZlZRkVtZyf4K8ogkBh/hero-gallery-scroll-animation/default/video.1746088116758.mp4',
-    thumbnail:
-      'https://21st.dev/_next/image?url=https%3A%2F%2Fcdn.21st.dev%2Fuser_2sdAd21yCZlZRkVtZyf4K8ogkBh%2Fhero-gallery-scroll-animation%2Fdefault%2Fpreview.1746088112500.png&w=1080&q=75',
-    title: 'Scroll Reverse Animation',
-    description:
-      'Scroll Trigger animations, that reverse animation of both gallery images and text in different range on scroll.',
-  },
-  {
-    id: 'featured-component-sticky-cards-stack',
-    componentLink: '/docs/cards/cards-stack',
-    videoUrl:
-      'https://cdn.21st.dev/user_2sdAd21yCZlZRkVtZyf4K8ogkBh/cards-stack/cards-stack/video.mp4?v=1',
-    thumbnail:
-      'https://21st.dev/_next/image?url=https%3A%2F%2Fcdn.21st.dev%2Fuser_2sdAd21yCZlZRkVtZyf4K8ogkBh%2Fcards-stack%2Fcards-stack%2Fpreview.png%3Fv%3D1&w=1080&q=75',
-    title: 'Sticky Cards Stack',
-    description:
-      'Animated cards stack, displaying one card at a time overlaping the previous card.',
-  },
-  {
-    id: 'featured-component-testimonal-cards',
-    componentLink: '/docs/cards/cards-stack-rotated',
-    videoUrl:
-      'https://cdn.21st.dev/user_2sdAd21yCZlZRkVtZyf4K8ogkBh/animated-cards-stack/animated-cards-stack-on-scroll/video.mp4?v=1',
-    thumbnail:
-      'https://21st.dev/_next/image?url=https%3A%2F%2Fcdn.21st.dev%2Fuser_2sdAd21yCZlZRkVtZyf4K8ogkBh%2Fanimated-cards-stack%2Fanimated-cards-stack-on-scroll%2Fpreview.png%3Fv%3D1&w=1080&q=75',
-    title: 'Rotated Cards Stack',
-    description: 'Stack of rotated cards show, rotate one element at a time.',
-  },
-  {
-    id: 'featured-component-product-card',
-    componentLink: '/docs/ecommerce/product-carousel',
-    videoUrl: '/videos/product-card-component-preview.mp4',
-    thumbnail: '/videos/product-card-component-preview.png',
-    title: 'Product Card',
-    description:
-      'Showcase your products with preview image/video for each product and display your different product colors or categories.',
-  },
-  {
-    id: 'featured-component-curtain-card',
-    componentLink: '/docs/cards/card-curtain-reveal',
-    videoUrl:
-      'https://cdn.21st.dev/user_2sdAd21yCZlZRkVtZyf4K8ogkBh/card-curtain-reveal/card-curtain-reveal/video.mp4?v=1',
-    thumbnail:
-      'https://21st.dev/_next/image?url=https%3A%2F%2Fcdn.21st.dev%2Fuser_2sdAd21yCZlZRkVtZyf4K8ogkBh%2Fcard-curtain-reveal%2Fcard-curtain-reveal%2Fpreview.png%3Fv%3D1&w=1080&q=75',
-    title: 'Curtain Reveal Card',
-    description:
-      'Interactive card component with open curtain to see content on hover.',
-  },
-  {
-    id: 'featured-component-slideshow',
-    componentLink: '/docs/blocks/slideshow',
-    videoUrl:
-      'https://cdn.21st.dev/user_2sdAd21yCZlZRkVtZyf4K8ogkBh/animated-slideshow/animated-slideshow/video.mp4?v=1',
-    thumbnail:
-      'https://21st.dev/_next/image?url=https%3A%2F%2Fcdn.21st.dev%2Fuser_2sdAd21yCZlZRkVtZyf4K8ogkBh%2Fanimated-slideshow%2Fanimated-slideshow%2Fpreview.png%3Fv%3D1&w=1080&q=75',
-    title: 'Slideshow',
-    description: 'Animated slideshow block.',
-  },
-  {
-    id: 'featured-component-text-stagger-hover',
-    componentLink: '/docs/text/text-stagger-hover',
-    videoUrl:
-      'https://cdn.21st.dev/user_2sdAd21yCZlZRkVtZyf4K8ogkBh/text-stagger-hover/default/video.1750815014778.mp4',
-    thumbnail:
-      'https://21st.dev/_next/image?url=https%3A%2F%2Fcdn.21st.dev%2Fuser_2sdAd21yCZlZRkVtZyf4K8ogkBh%2Ftext-stagger-hover%2Fdefault%2Fpreview.1750815012964.png&w=1080&q=75',
-    title: 'Text Stagger Hover',
-    description:
-      'Splitted text animation with staggered reveal triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition.',
-  },
-  {
-    id: 'featured-component-scroll-x-carousel',
-    componentLink: '/docs/scroll-animations/story',
-    videoUrl:
-      'https://cdn.21st.dev/youcefbnm/scroll-x-carousel/default/video.1751413860542.mp4',
-    thumbnail:
-      'https://21st.dev/_next/image?url=https%3A%2F%2Fcdn.21st.dev%2Fyoucefbnm%2Fscroll-x-carousel%2Fdefault%2Fpreview.1751413860542.png&w=1080&q=75',
-    title: 'Scroll X Carousel',
-    description:
-      'Carousel that transforms on the x-axis, showing items depnding on the scroll position, with a progress indicator.',
-  },
-];
+interface ComponentsProps {
+  featuredComponents: FeaturedComponentProps[];
+}
 
-export function Components() {
+export function Components({ featuredComponents }: ComponentsProps) {
   return (
-    <section className="py-16 px-8 space-y-8">
-      <div className="space-y-4">
-        <TextStaggerInview
-          className="text-4xl font-semibold tracking-tight [&>[data-word=customizable]]:text-primary [&>[data-word=flexible]]:text-primary"
-          animation="blur"
-          as="h2"
-        >
-          Components
-        </TextStaggerInview>
+    <section className="my-12 border-b">
+      <div className="border-y">
+        <div className="text-center py-4 place-content-center mx-8 border-x">
+          <Link
+            className="group p-1 inline-flex items-end gap-0.5"
+            href="/docs"
+          >
+            <TextWavy
+              className="leading-none"
+              text="Open source · Free forever · Shadcn compatible"
+            />
+            <ArrowRightIcon className="size-3 mb-px transition-transform duration-200 ease-out group-hover:translate-x-1" />
+          </Link>
 
-        <p className="max-w-prose text-muted-foreground">
-          Choose your component copy/past or install via shadcn registry
-        </p>
+          <TextStaggerInview className="block text-2xl font-semibold">
+            Featured Blocks and Components
+          </TextStaggerInview>
+          <p className="text-sm text-muted-foreground mt-2 max-w-[60ch] mx-auto text-balance">
+            Navigation blocks, e-commerce flows, scroll animations, interactive
+            cards, and fullpage templates each documented, typed, and
+            installable in one command.
+          </p>
+        </div>
       </div>
-
       <InfiniteScroll
         isPending={false}
         currentItemsLength={featuredComponents.length}
         allItemsCount={featuredComponents.length}
         loadMore={() => {}}
-        className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] justify-center gap-4"
+        className="mx-8 bg-border p-px py-0 grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] justify-center gap-px"
       >
         {featuredComponents.map((component) => (
           <InfiniteScrollCell
             amount={0}
             skelton={<PreviewCardSkelton />}
             key={component.id}
+            className={clsx(
+              'bg-card p-3 relative',
+              'after:absolute after:-left-1 after:-top-1 after:size-2 after:bg-card',
+              'before:absolute before:-right-1 before:-top-1 before:size-2 before:bg-card',
+            )}
           >
-            <PreviewCard {...component} />
+            <PreviewCard
+              className="p-0 bg-none rounded-none border-none shadow-none hover:shadow-none hover:rounded-none"
+              {...component}
+            />
           </InfiniteScrollCell>
         ))}
-        <Button size="lg" className="self-center">
-          <Link className="inline-flex items-center gap-1" href="/docs">
-            View all components
-            <ArrowUpRightIcon className="size-5" />
-          </Link>
-        </Button>
+        <div className="bg-card flex justify-center items-center p-4">
+          <Button className="self-center">
+            <LinkText href="/docs">View all blocks</LinkText>
+          </Button>
+        </div>
       </InfiniteScroll>
     </section>
   );

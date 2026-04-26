@@ -12,39 +12,25 @@ description: Animated Menu component with orchestrated children animation, fully
 ## Usage
 
 ```tsx
-<AnimatedMenu className="relative">
+<AnimatedMenu>
   <AnimatedMenuButton>
-    <AnimatedMenuButtonToggleIcon className="*:rounded *:bg-accent-foreground" />
-    <AnimatedMenuButtonLabel className="text-accent-foreground" />
+    <AnimatedMenuButtonToggleIcon />
+    <AnimatedMenuButtonLabel />
   </AnimatedMenuButton>
-  <AnimatedMenuList className="absolute right-0 top-0 bg-secondary/50 border border-secondary-foreground/5 backdrop-blur rounded-3xl">
-    <div className="flex flex-col px-6 justify-evenly gap-6 items-start size-full">
-      <div className="flex flex-col items-start gap-4 *:transition-blur *:duration-300 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
-        {menuItems.map((item, i) => (
-          <AnimatedMenuItem key={i} order={i}>
-            <Link
-              className="text-2xl font-medium text-secondary-foreground hover:text-foreground"
-              href={item.href}
-              title={item.title}
-            >
-              {item.title}
-            </Link>
-          </AnimatedMenuItem>
-        ))}
-      </div>
-      <div className="flex gap-4 *:transition-blur *:duration-300 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
-        {socialLinks.map((item, i) => (
-          <AnimatedMenuItem key={item.title} order={i + menuItems.length}>
-            <Link
-              className=" font-medium text-primary"
-              href={item.href}
-              title={item.title}
-            >
-              {item.title}
-            </Link>
-          </AnimatedMenuItem>
-        ))}
-      </div>
+
+  <AnimatedMenuList>
+    <div className="flex flex-col items-start gap-4 *:transition-blur *:duration-300 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
+      {menuItems.map((item, i) => (
+        <AnimatedMenuItem key={i} order={i}>
+          <Link
+            className="text-sm font-medium text-muted"
+            href={item.href}
+            title={item.title}
+          >
+            {item.title}
+          </Link>
+        </AnimatedMenuItem>
+      ))}
     </div>
   </AnimatedMenuList>
 </AnimatedMenu>

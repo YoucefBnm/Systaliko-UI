@@ -1,5 +1,11 @@
+import { SPRING_CONFIG } from '@/lib/spring-transition';
 import { CardsStackContainer, CardSticky } from '@/registry/cards/cards-stack';
 import { Button } from '@/registry/shadcn/button';
+import {
+  TextStaggerHover,
+  TextStaggerHoverActive,
+  TextStaggerHoverHidden,
+} from '@/registry/text/text-stagger-hover';
 import { TextStaggerInview } from '@/registry/text/text-stagger-inview';
 import {
   BoxIcon,
@@ -54,9 +60,8 @@ export function Features() {
       <div className="grid md:grid-cols-2 md:gap-8 xl:gap-12">
         <div className="md:sticky top-16 left-0 h-fit space-y-4">
           <TextStaggerInview
-            className="text-3xl text-balance font-semibold tracking-tight [&>[data-word=customizable]]:text-primary [&>[data-word=flexible]]:text-primary"
+            className="text-2xl inline-block font-medium tracking-tight text-balance"
             animation="blur"
-            as="h2"
           >
             Fully customizable and flexible components
           </TextStaggerInview>
@@ -66,7 +71,26 @@ export function Features() {
             components you want, easy to adapt to your design and brand.
           </p>
           <Button>
-            <Link href="/docs/cards/cards-stack">Use this Component</Link>
+            <Link
+              className="p-1 overflow-hidden"
+              href="/docs/cards/cards-stack"
+            >
+              <TextStaggerHover className="inline">
+                <TextStaggerHoverActive
+                  transition={SPRING_CONFIG}
+                  className="opacity-80"
+                  animation="blur"
+                >
+                  Use this component
+                </TextStaggerHoverActive>
+                <TextStaggerHoverHidden
+                  animation="blur"
+                  transition={SPRING_CONFIG}
+                >
+                  Use this component
+                </TextStaggerHoverHidden>
+              </TextStaggerHover>
+            </Link>
           </Button>
         </div>
 
@@ -75,14 +99,15 @@ export function Features() {
             <CardSticky
               key={feature.id}
               index={index + 5}
-              className="supports-[backdrop-blur]:bg-card/90 rounded-2xl w-4/5 border p-8  shadow-md backdrop-blur-md"
-              style={{ rotate: Math.floor(Math.random() * 20 - 10) }}
+              className="supports-[backdrop-blur]:bg-card/90 rounded w-4/5 border p-8  shadow backdrop-blur-md"
             >
-              <feature.icon className="justify-self-end size-8 stroke-[1.8]" />
-              <h2 className="my-6 text-2xl font-bold tracking-tighter">
+              <feature.icon className="justify-self-end size-6 stroke-[1.8]" />
+              <h2 className="my-6 text-xl font-semibold tracking-tighter">
                 {feature.title}
               </h2>
-              <p className="text-foreground">{feature.description}</p>
+              <p className="text-foreground text-sm text-balance">
+                {feature.description}
+              </p>
             </CardSticky>
           ))}
         </CardsStackContainer>

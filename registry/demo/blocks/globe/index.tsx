@@ -2,7 +2,7 @@ import { Globe, GlobeGlow, GlobePin, GlobeSvg } from '@/registry/blocks/globe';
 
 export function GlobeDemo() {
   return (
-    <div className="w-full">
+    <div className="w-full h-screen flex items-center justify-center">
       <Globe>
         <GlobeGlow className="bg-background/50" />
         <GlobeSvg>

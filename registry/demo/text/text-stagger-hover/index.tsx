@@ -10,7 +10,6 @@ import {
   TextStaggerHoverActive,
   TextStaggerHoverHidden,
 } from '@/registry/text/text-stagger-hover';
-import * as React from 'react';
 
 const TextStaggerHoverDemoContent = () => {
   const { animation, staggerDirection } = useSetAnimationConfig();
@@ -21,10 +20,7 @@ const TextStaggerHoverDemoContent = () => {
         <StaggerSelector />
       </div>
 
-      <TextStaggerHover
-        as={'h2'}
-        className="cursor-pointer text-4xl font-bold uppercase tracking-tighter"
-      >
+      <TextStaggerHover className="cursor-pointer text-4xl font-bold uppercase tracking-tighter">
         <TextStaggerHoverActive
           key={`${animation}-${staggerDirection}`}
           className="opacity-20"

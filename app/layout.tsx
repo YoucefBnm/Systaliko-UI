@@ -14,64 +14,59 @@ const geist = Geist({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Systaliko UI',
-    default:
-      'Systaliko UI - Copy Paste or Install React components compatible with Shadcn Registry',
+    default: 'Systaliko UI — React UI Blocks, Templates & Components',
+    template: '%s | Systaliko UI',
   },
   description:
-    'Collection of fully customizable, animated, free UI components built with React, TypeScript, Tailwind CSS, and Motion.',
+    'Free React UI blocks, e-commerce components, and full-page templates. Copy-paste or install via Shadcn CLI. Built with TypeScript, Tailwind CSS, and Motion.',
   keywords: [
-    'Systaliko UI',
-    'React',
-    'TypeScript',
-    'Tailwind CSS',
-    'Motion',
-    'Next js templates',
-    'Shadcn registry components',
-    'Free UI components',
-    'copy past components',
-    'cli install components',
-    'shadcn registry components',
-    'Animated UI components',
-    'UI distribution',
-    'Open-source components',
-    'animations',
+    'shadcn registry',
+    'react ui blocks',
+    'react ui templates',
+    'animated react components',
+    'framer motion components',
+    'next.js ui blocks',
+    'next.js templates',
+    'tailwind ui components',
+    'copy paste react',
+    'shadcn components',
+    'free react templates',
+    'typescript ui components',
+    'scroll animation react',
+    'react ecommerce components',
+    'product carousel react',
+    'react bento grid',
+    'image zoom react',
+    'infinite scroll react',
+    'freelance react developer',
+    'custom react components',
   ],
-  authors: [
-    {
-      name: 'Youcef Bnm',
-      url: siteConfig.links.github,
-    },
-  ],
-  publisher: 'Systaliko UI',
+
+  authors: [{ name: 'Youcef BNM', url: siteConfig.links.github }],
+  creator: 'Youcef BNM',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: siteConfig.url,
+    title: 'Systaliko UI — React UI Blocks, Templates & Components',
+    description:
+      'Free React UI blocks, e-commerce components, and full-page templates. Copy-paste or install via Shadcn CLI.',
     siteName: 'Systaliko UI',
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: 'Systaliko UI',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@systaliko_ui',
-    title: 'Systaliko UI',
+    title: 'Systaliko UI — React UI Blocks, Templates & Components',
     description:
-      'Collection of fully customizable, animated, free UI components built with React, TypeScript, Tailwind CSS, and Motion.',
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: 'Systaliko UI',
-      },
-    ],
+      'Free React UI blocks, e-commerce components, and full-page templates built with Framer Motion + Shadcn.',
+    creator: '@lbnm_yussef',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  alternates: {
+    canonical: 'https://systaliko-ui.vercel.app',
   },
 };
 
@@ -85,10 +80,10 @@ export default function RootLayout({
       <body
         className={`${geist.className} antialiased flex flex-col min-h-dvh`}
       >
-        <StyleProvider>
-          <RootProvider>{children}</RootProvider>
-        </StyleProvider>
-        <Analytics />
+        <RootProvider>
+          <StyleProvider>{children}</StyleProvider>
+          <Analytics />
+        </RootProvider>
       </body>
     </html>
   );

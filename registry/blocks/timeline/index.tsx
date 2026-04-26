@@ -49,7 +49,7 @@ export function TimelineCard({ ...props }: HTMLMotionProps<'div'>) {
   return (
     <motion.div
       data-slot="timeline-card"
-      initial={{ opacity: 0.5 }}
+      initial={{ opacity: 0.2 }}
       whileInView={{ opacity: 1 }}
       viewport={{ amount: 'all' }}
       {...props}
@@ -70,7 +70,7 @@ export function TimelineProgress({
 
   return (
     <div
-      className={cn('self-stretch w-1 bg-muted *:bg-primary', className)}
+      className={cn('self-stretch w-0.5 bg-muted *:bg-primary', className)}
       data-slot="timeline-progress"
       {...props}
     >

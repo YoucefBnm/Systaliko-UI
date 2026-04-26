@@ -2,20 +2,16 @@
 import * as React from 'react';
 
 import { cn } from '@/lib/utils';
-import {
-  StaggerDirection,
-  setStaggerDirection,
-} from '@/registry/utils/set-stagger-direction';
 import { HTMLMotionProps, motion } from 'motion/react';
-import { splitText } from '@/registry/utils/split-text';
 import {
-  AnimationT,
   ANIMATION_VARIANTS,
+  AnimationT,
 } from '@/registry/utils/animation-variants';
-
-interface TextStaggerHoverProps extends React.HTMLAttributes<HTMLElement> {
-  as?: React.ElementType;
-}
+import {
+  setStaggerDirection,
+  StaggerDirection,
+} from '@/registry/utils/set-stagger-direction';
+import { splitText } from '@/registry/utils/split-text';
 
 interface TextStaggerHoverContextValue {
   isMouseIn: boolean;
@@ -34,41 +30,42 @@ function useTextStaggerHoverContext() {
 }
 
 export const TextStaggerHover = ({
-  as: Component = 'span',
   children,
   className,
   ...props
-}: TextStaggerHoverProps) => {
+}: React.ComponentProps<'span'>) => {
   const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);
   const handleMouse = () => setIsMouseIn((prevState) => !prevState);
 
   return (
     <TextStaggerHoverContext.Provider value={{ isMouseIn }}>
-      <Component
-        className={cn('relative inline-block overflow-hidden', className)}
+      <span
+        className={cn('inline-block relative overflow-hidden', className)}
         {...props}
         onMouseEnter={handleMouse}
         onMouseLeave={handleMouse}
       >
         {children}
-      </Component>
+      </span>
     </TextStaggerHoverContext.Provider>
   );
 };
+
 interface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {
   animation?: AnimationT;
   staggerDirection?: StaggerDirection;
 }
 export const TextStaggerHoverActive = ({
-  animation = 'top',
+  animation = 'bottom',
   staggerDirection = 'first',
-  children,
   className,
+  children,
   transition,
   ...props
 }: TextStaggerHoverContentProps) => {
   const { characters, characterCount } = splitText(String(children));
   const animationVariants = ANIMATION_VARIANTS[animation];
+
   const { isMouseIn } = useTextStaggerHoverContext();
   return (
     <span className={cn('inline-block', className)}>
@@ -80,8 +77,8 @@ export const TextStaggerHoverActive = ({
         });
         return (
           <motion.span
-            className="inline-block text-nowrap"
-            key={`${char}-${index}`}
+            className="inline-block"
+            key={`${char}-${index}-hidden`}
             variants={animationVariants}
             initial="visible"
             animate={isMouseIn ? 'hidden' : 'visible'}
@@ -122,7 +119,7 @@ export const TextStaggerHoverHidden = ({
         return (
           <motion.span
             className="inline-block"
-            key={`${char}-${index}`}
+            key={`${char}-${index}-hidden`}
             variants={animationVariants}
             initial="hidden"
             animate={isMouseIn ? 'visible' : 'hidden'}

@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: 'Systaliko UI',
     short_name: 'Systaliko',
     description:
-      'Collection of fully customizable, animated, free UI components built with React, TypeScript, Tailwind CSS, and Motion.',
+      'Free React UI blocks, e-commerce components, and full-page templates. Copy-paste or install via Shadcn CLI. Built with Motion, TypeScript, and Tailwind CSS.',
     start_url: '/',
     display: 'standalone',
     background_color: '#fff',

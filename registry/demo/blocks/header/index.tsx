@@ -1,4 +1,5 @@
 'use client';
+import { Separator } from '@/components/ui/separator';
 import { useIsMobile } from '@/hooks/use-mobile';
 import {
   AnimatedMenu,
@@ -59,16 +60,16 @@ const nav_socials = [
 
 const NavMobile = () => {
   return (
-    <AnimatedMenu className="self-center relative">
-      <AnimatedMenuButton className="w-28 h-12 text-primary-foreground font-medium">
-        <AnimatedMenuButtonToggleIcon className="*:h-[1.5px] *:origin-[17.5%]" />
+    <AnimatedMenu>
+      <AnimatedMenuButton className="text-primary-foreground">
+        <AnimatedMenuButtonToggleIcon />
         <AnimatedMenuButtonLabel />
       </AnimatedMenuButton>
       <AnimatedMenuList
         layout
-        className="absolute right-0 top-1 bg-primary backdrop-blur border border-border/10 shadow rounded-3xl"
+        className="bg-primary/90 backdrop-blur rounded-2xl"
       >
-        <div className="flex flex-col px-6 justify-evenly gap-6 items-start size-full text-primary-foreground">
+        <div className="flex flex-col p-8 justify-evenly gap-6 items-start size-full text-primary-foreground">
           <div className="flex flex-col items-start gap-4 *:transition-opacity *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
             {nav_links.map((navLink, i) => (
               <AnimatedMenuItem
@@ -78,7 +79,7 @@ const NavMobile = () => {
               >
                 <CloseAnimatedMenu>
                   <Link
-                    className="text-2xl font-medium p-2"
+                    className="text-sm font-medium p-3"
                     href={navLink.href}
                     title={navLink.label}
                     aria-label={`navigate to ${navLink.label}`}
@@ -89,6 +90,7 @@ const NavMobile = () => {
               </AnimatedMenuItem>
             ))}
           </div>
+          <Separator className="bg-border/15" />
           <div className="flex gap-3 *:transition-blur *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
             {nav_socials.map((navSocial, i) => (
               <AnimatedMenuItem key={navSocial.id} order={i + nav_links.length}>
@@ -114,11 +116,11 @@ const NavMobile = () => {
 };
 const NavDesktop = () => {
   return (
-    <nav className="flex gap-4 px-6 items-center justify-between *:transition-opacity *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
+    <nav className="flex gap-2 px-6 items-center justify-between *:transition-opacity *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
       {nav_links.map((navLink) => (
         <Link
           key={navLink.id}
-          className="font-medium text-sm p-2"
+          className="font-medium text-xs p-2"
           href={navLink.href}
           title={navLink.label}
           aria-label={`navigate to ${navLink.label}`}
@@ -130,21 +132,19 @@ const NavDesktop = () => {
   );
 };
 export function HeaderDemo() {
-  const isMobile = useIsMobile(960);
+  const isMobile = useIsMobile(650);
 
   return (
     <div className="h-[180vh]">
-      <Header className="sticky top-2 left-0 w-full h-16 z-999 bg-card/80 backdrop-blur border border-border/50 p-4 rounded-full">
-        <HeaderLogo>
-          <span className="text-xl tracking-tighter font-bold">
-            systaliko ui
-          </span>
+      <Header className="sticky top-2 left-0 w-10/12 mx-auto h-12 z-999 bg-primary/80 text-primary-foreground backdrop-blur border border-border/50 shadow rounded-full p-2">
+        <HeaderLogo className="p-2">
+          <span className="font-semibold">systaliko ui</span>
         </HeaderLogo>
 
         {isMobile ? <NavMobile /> : <NavDesktop />}
       </Header>
       <div className="w-4/5 mx-auto text-center h-[50vh] place-content-center">
-        <h2 className="text-2xl font-bold">
+        <h2 className="text-2xl font-semibold text-balance">
           Scroll down 👇🏻 to hide header, scroll up ☝️ to show it again. resize
           ↔️ to check responsivity.
         </h2>

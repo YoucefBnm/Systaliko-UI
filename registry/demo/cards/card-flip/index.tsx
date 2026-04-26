@@ -23,7 +23,9 @@ export function CardFlipDemo() {
           <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-secondary-foreground px-4 py-6 text-center text-secondary">
             <h2 className="text-xl font-bold">Nike Air Jordan</h2>
             <h4 className="mb-4">€ 1,299.00</h4>
-            <Button>Add to cart</Button>
+            <Button size={'sm'} variant={'secondary'}>
+              Add to cart
+            </Button>
           </CardFlipBack>
         </CardFlip>
 
@@ -40,7 +42,9 @@ export function CardFlipDemo() {
           <CardFlipBack className="flex flex-col items-center justify-center rounded-xl bg-secondary-foreground px-4 py-6 text-center text-secondary">
             <h2 className="text-xl font-bold">Nike Air Jordan</h2>
             <h4 className="mb-4">€ 1,299.00</h4>
-            <Button>Add to cart</Button>
+            <Button size={'sm'} variant={'secondary'}>
+              Add to cart
+            </Button>
           </CardFlipBack>
         </CardFlip>
       </div>

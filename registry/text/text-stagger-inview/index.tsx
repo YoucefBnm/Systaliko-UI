@@ -22,11 +22,7 @@ export function WordStagger({ children, animation, ...props }: WordProps) {
   return (
     <span className="inline-block text-nowrap" {...props}>
       {characters.map((char, index) => (
-        <motion.span
-          className="inline-block"
-          variants={animationVariants}
-          key={`${char}-${index}`}
-        >
+        <motion.span variants={animationVariants} key={`${char}-${index}`}>
           {char}
         </motion.span>
       ))}
@@ -38,28 +34,23 @@ interface TextStaggerProps extends HTMLMotionProps<'span'> {
   staggerValue?: number;
   staggerStart?: StaggerOrigin;
   animation?: AnimationT;
-  as?: React.ElementType;
 }
 
 export function TextStaggerInview({
   children,
   transition,
-  className,
   viewport = { once: true, amount: 0.25 },
   staggerValue = 0.02,
   staggerStart = 'first',
   animation,
-  as: Component = 'span',
   ...props
 }: TextStaggerProps) {
   const words = String(children).split(' ');
-  const MotionComponent = motion.create(Component);
   return (
-    <MotionComponent
+    <motion.span
       initial="hidden"
       whileInView={'visible'}
       viewport={viewport}
-      className={className}
       transition={{
         delayChildren: stagger(staggerValue, { from: staggerStart }),
       }}
@@ -80,6 +71,6 @@ export function TextStaggerInview({
           </React.Fragment>
         ))}
       </MotionConfig>
-    </MotionComponent>
+    </motion.span>
   );
 }

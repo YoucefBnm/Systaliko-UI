@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const getPriority = (page: string): number => {
     if (page.startsWith('templates/')) return 0.9;
     if (page.startsWith('blocks/')) return 0.8;
-    if (page.startsWith('scroll-animations/')) return 0.8;
+    if (page.startsWith('scroll-animations/')) return 0.9; // was 0.8
     if (page.startsWith('ecommerce/')) return 0.8;
     if (page.startsWith('cards/')) return 0.7;
     if (page.startsWith('components/')) return 0.7;
@@ -49,6 +49,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/services`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
     },
   ];
 

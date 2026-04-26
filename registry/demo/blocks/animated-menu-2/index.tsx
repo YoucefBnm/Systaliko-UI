@@ -52,13 +52,13 @@ const socialLinks = [
 ];
 const menuListvariants = {
   open: {
-    width: 320,
-    height: 420,
+    width: 280,
+    height: 320,
     transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },
   },
   close: {
-    width: 48,
-    height: 48,
+    width: 40,
+    height: 40,
     transition: { duration: 0.75, delay: 0.2, ease: [0.76, 0, 0.24, 1] },
   },
 } as Variants;
@@ -88,15 +88,15 @@ const menuItemVariants = {
 export function AnimatedMenu2Demo() {
   return (
     <div className="w-full self-start h-svh z-[999] flex items-start justify-between px-8 py-2">
-      <span className="text-xl font-bold tracking-tight">Systaliko UI</span>
+      <span className="font-bold tracking-tight">Systaliko UI</span>
       <div className="flex gap-4">
-        <AnimatedMenu className="relative ">
-          <AnimatedMenuButton className="size-12 text-white">
-            <AnimatedMenuButtonToggleIcon size="md" className="*:rounded" />
+        <AnimatedMenu>
+          <AnimatedMenuButton className="size-10 text-white">
+            <AnimatedMenuButtonToggleIcon className="*:rounded" />
           </AnimatedMenuButton>
           <AnimatedMenuList
             variants={menuListvariants}
-            className="absolute right-0 top-0 bg-linear-to-bl from-black/80 to-black border border-border/50 shadow-md rounded-3xl"
+            className="bg-linear-to-bl from-black/80 to-black border border-border/50 shadow-md rounded-3xl"
           >
             <div className="flex flex-col px-6 justify-evenly gap-6 items-start size-full">
               <div className="flex flex-col items-start gap-4 *:transition-blur *:duration-300 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
@@ -109,7 +109,7 @@ export function AnimatedMenu2Demo() {
                     >
                       <CloseAnimatedMenu>
                         <Link
-                          className="text-white text-2xl font-medium "
+                          className="text-white text-sm font-medium "
                           href={item.href}
                           title={item.title}
                         >
@@ -129,7 +129,7 @@ export function AnimatedMenu2Demo() {
                     >
                       <CloseAnimatedMenu>
                         <Link
-                          className=" font-medium text-muted"
+                          className="text-xs font-medium text-muted"
                           href={item.href}
                           title={item.title}
                         >

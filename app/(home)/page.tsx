@@ -1,20 +1,22 @@
 import { Components } from '@/components/sections/components';
-import { Contact } from '@/components/sections/contact';
 import { Features } from '@/components/sections/features';
 import { Footer } from '@/components/sections/footer';
 import { Header } from '@/components/sections/header';
+
 import { Hero } from '@/components/sections/hero';
-// import { HomeBanner } from '@/components/sections/home-banner';
+import { Services } from '@/components/sections/services';
+import { getFeaturedComponents } from '@/lib/source';
 
 export default function HomePage() {
+  const featuredComponents = getFeaturedComponents();
+
   return (
     <>
-      {/* <HomeBanner />  */}
       <Header />
       <Hero />
-      <Components />
+      <Components featuredComponents={featuredComponents} />
       <Features />
-      <Contact />
+      <Services />
       <Footer />
     </>
   );

@@ -21,7 +21,6 @@ export function ParallaxDemo() {
           }}
         >
           <TextStaggerInview
-            as="h2"
             className="text-5xl font-bold tracking-tighter max-w-[20ch] mx-auto"
             animation="z"
           >

@@ -10,7 +10,7 @@ export const Logo = ({
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Stystaliko UI Logo"
-      className={cn('w-32', className)}
+      className={cn('w-28', className)}
       {...props}
     >
       <rect x="2" y="2" width="34" height="34" rx="6.89781" fill="black" />

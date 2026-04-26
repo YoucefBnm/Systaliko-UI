@@ -17,7 +17,6 @@ interface PropsTextWave extends React.HtmlHTMLAttributes<HTMLSpanElement> {
 
 export const TextWavy = ({
   text,
-  as: Component = 'span',
   colors = ['var(--foreground)', 'var(--primary)', 'var(--foreground)'],
   fontSizes = ['12px', '14px', '12px'],
   fontWeights = [400, 600, 400],
@@ -41,13 +40,13 @@ export const TextWavy = ({
         duration: 0.7,
         ease: 'easeIn',
         repeat: reducedMotion ? 0 : Infinity, // Repeat the animation infinitely
-        repeatDelay: 5, // Delay of 5 seconds between repeats
+        repeatDelay: delayTime, // Delay of 5 seconds between repeats
       },
     }),
   } as Variants;
 
   return (
-    <Component {...props}>
+    <span {...props}>
       {letters.map((letter, i) => (
         <motion.span
           key={i}
@@ -59,6 +58,6 @@ export const TextWavy = ({
           {letter}
         </motion.span>
       ))}
-    </Component>
+    </span>
   );
 };

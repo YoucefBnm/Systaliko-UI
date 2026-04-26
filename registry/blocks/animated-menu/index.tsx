@@ -17,8 +17,8 @@ const menuListVariants = {
     transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },
   },
   close: {
-    width: 102,
-    height: 40,
+    width: 80,
+    height: 32,
     transition: { duration: 0.75, delay: 0.2, ease: [0.76, 0, 0.24, 1] },
   },
 } as Variants;
@@ -70,13 +70,14 @@ function useAnimatedMenuContext() {
   return context;
 }
 export function AnimatedMenu({
+  className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+}: React.ComponentProps<'div'>) {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   return (
     <AnimatedMenuContext.Provider value={{ isOpen, setIsOpen }}>
-      <div {...props} />
+      <div className={cn('relative', className)} {...props} />
     </AnimatedMenuContext.Provider>
   );
 }
@@ -85,7 +86,7 @@ const buttonIconVariants = cva(
   {
     variants: {
       size: {
-        sm: '*:w-4 *:h-[1.5px] *:w-4 *:origin-[17%]',
+        sm: '*:w-4 *:h-[1.5px] *:origin-[17%]',
         md: '*:w-6 *:h-0.5  *:origin-[25%]',
         lg: '*:w-8 *:h-0.5  *:origin-[33%]',
         xl: '*:w-10 *:h-1 *:origin-[31%]',
@@ -128,7 +129,7 @@ export function AnimatedMenuButtonLabel({
   return (
     <div
       className={cn(
-        'overflow-hidden shrink-0 inline-grid grid-rows-1 grid-cols-1',
+        'text-sm font-medium overflow-hidden shrink-0 inline-grid grid-rows-1 grid-cols-1',
         className,
       )}
       {...props}
@@ -167,7 +168,8 @@ export function AnimatedMenuButton({
   return (
     <button
       className={cn(
-        'appearance-none relative z-[999] bg-none inline-flex gap-0.5 justify-center items-center',
+        'w-20 h-8',
+        'cursor-pointer text-popover-foreground appearance-none relative z-[999] bg-none flex gap-0.5 justify-center items-center',
         '[&:hover>*]:scale-90 *:transition-transform *:duration-300',
         className,
       )}
@@ -192,7 +194,10 @@ export function AnimatedMenuList({
   const { isOpen } = useAnimatedMenuContext();
   return (
     <motion.div
-      className={cn('z-[800] ', className)}
+      className={cn(
+        'absolute right-0 top-0 overflow-hidden bg-popover text-popover-foreground rounded-md z-[800] ',
+        className,
+      )}
       variants={variants}
       initial="close"
       animate={isOpen ? 'open' : 'close'}
