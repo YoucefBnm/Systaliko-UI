@@ -20,6 +20,8 @@ import {
 } from '@/registry/blocks/animated-menu';
 import { Variants } from 'motion/react';
 import { useIsScrolled } from '@/registry/utils/use-is-scrolled';
+import { usePathname } from 'next/navigation';
+import { NavbarSidebarTrigger } from 'fumadocs-ui/layouts/docs-client';
 
 const NAV_LINKS = [
   {
@@ -28,7 +30,7 @@ const NAV_LINKS = [
   },
   {
     label: 'Templates',
-    href: '/templates',
+    href: '/docs/templates',
   },
   {
     label: 'Changelog',
@@ -210,10 +212,14 @@ function MenuMobile() {
   );
 }
 function NavMobile({ className }: { className?: string }) {
+  const pathname = usePathname();
+  const isDocs = pathname.startsWith('/docs');
+
   return (
     <nav className={cn('flex items-center gap-4', className)}>
       <HeaderSearch />
       <MenuMobile />
+      {isDocs && <NavbarSidebarTrigger className="size-9" />}
     </nav>
   );
 }

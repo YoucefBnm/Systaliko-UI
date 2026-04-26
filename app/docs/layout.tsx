@@ -7,7 +7,6 @@ import { Header } from '@/components/sections/header';
 
 const DOCS_LAYOUT_PROPS: DocsLayoutProps = {
   tree: source.pageTree,
-
   githubUrl: siteConfig.links.repo,
 
   links: [
@@ -23,13 +22,11 @@ const DOCS_LAYOUT_PROPS: DocsLayoutProps = {
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <DocsLayout
-      {...DOCS_LAYOUT_PROPS}
       nav={{
         component: <Header />,
       }}
-      sidebar={{ collapsible: true }}
-      tree={source.pageTree}
       themeSwitch={{ enabled: false }}
+      {...DOCS_LAYOUT_PROPS}
     >
       {children}
     </DocsLayout>
