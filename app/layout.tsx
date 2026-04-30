@@ -2,6 +2,7 @@ import { RootProvider } from 'fumadocs-ui/provider';
 import type { Metadata } from 'next';
 import { Geist } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import './globals.css';
 import { StyleProvider } from '@/providers/style-provider';
@@ -83,6 +84,7 @@ export default function RootLayout({
         <RootProvider>
           <StyleProvider>{children}</StyleProvider>
           <Analytics />
+          <SpeedInsights />
         </RootProvider>
       </body>
     </html>

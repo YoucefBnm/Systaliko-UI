@@ -37,6 +37,7 @@
     "@types/mdx": "^2.0.13",
     "@uidotdev/usehooks": "^2.4.1",
     "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^2.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "fumadocs-core": "^15.4.2",
