@@ -24,7 +24,9 @@ function parseChangelog(raw: string): ChangelogEntry[] {
 
   for (const block of blocks) {
     // Match "## [0.5.0] - 2026-04-03" or "## [Unreleased]"
-    const headerMatch = block.match(/^## \[([^\]]+)\](?:\s*-\s*(\d{4}-\d{2}-\d{2}))?/);
+    const headerMatch = block.match(
+      /^## \[([^\]]+)\](?:\s*-\s*(\d{4}-\d{2}-\d{2}))?/,
+    );
     if (!headerMatch) continue;
 
     const version = headerMatch[1];
@@ -67,10 +69,7 @@ const EMOJI_MAP: Record<string, string> = {
 };
 
 export default async function ChangelogPage() {
-  const raw = await readFile(
-    path.join(process.cwd(), 'CHANGELOG.md'),
-    'utf-8',
-  );
+  const raw = await readFile(path.join(process.cwd(), 'CHANGELOG.md'), 'utf-8');
   const entries = parseChangelog(raw);
 
   return (
@@ -124,9 +123,7 @@ export default async function ChangelogPage() {
                         {entry.sections.map((section) => (
                           <div key={section.title} className="space-y-3">
                             <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-                              <span>
-                                {EMOJI_MAP[section.title] ?? '•'}
-                              </span>
+                              <span>{EMOJI_MAP[section.title] ?? '•'}</span>
                               {section.title}
                             </h3>
                             <ul className="space-y-2">
@@ -137,7 +134,10 @@ export default async function ChangelogPage() {
                                   dangerouslySetInnerHTML={{
                                     __html: item
                                       // Bold **text**
-                                      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                                      .replace(
+                                        /\*\*(.+?)\*\*/g,
+                                        '<strong>$1</strong>',
+                                      )
                                       // Inline code `text`
                                       .replace(
                                         /`([^`]+)`/g,

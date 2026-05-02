@@ -61,9 +61,7 @@ export const SlideshowIndicator = ({
       {...props}
       onMouseEnter={handleMouse}
     >
-      <TextStaggerHover
-        className="cursor-pointer text-4xl font-bold uppercase tracking-tighter"
-      >
+      <TextStaggerHover className="cursor-pointer text-4xl font-bold uppercase tracking-tighter">
         <TextStaggerHoverActive
           className="opacity-20"
           animation={'top'}
