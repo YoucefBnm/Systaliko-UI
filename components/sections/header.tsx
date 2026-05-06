@@ -219,7 +219,7 @@ function NavMobile({ className }: { className?: string }) {
     <nav className={cn('flex items-center gap-4', className)}>
       <HeaderSearch />
       <MenuMobile />
-      {isDocs && <NavbarSidebarTrigger className="size-9" />}
+      {isDocs && <NavbarSidebarTrigger className="size-9 md:hidden" />}
     </nav>
   );
 }
