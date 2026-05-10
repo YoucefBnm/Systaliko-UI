@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "custom-pricing-design-demo",
+  "type": "registry:block",
+  "title": "Custom Pricing Design Demo",
+  "description": "Demo showing custom pricing component for a design service.",
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/custom-pricing"],
+  "files": [
+    {
+      "path": "registry/demo/ecommerce/custom-pricing-design/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/custom-pricing-design.tsx"
+    }
+  ]
+}

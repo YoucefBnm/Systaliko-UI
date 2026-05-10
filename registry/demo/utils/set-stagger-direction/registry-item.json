@@ -4,7 +4,10 @@
   "type": "registry:hook",
   "title": "Set Stagger Direction Demo",
   "description": "Demo showing how to use set-stagger-direction utility.",
-  "registryDependencies": ["@systaliko-ui/r/set-stagger-direction", "motion"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/set-stagger-direction",
+    "motion"
+  ],
   "files": [
     {
       "path": "registry/demo/utils/set-stagger-direction/index.tsx",

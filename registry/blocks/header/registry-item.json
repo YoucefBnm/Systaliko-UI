@@ -5,7 +5,9 @@
   "title": "Header",
   "description": "Responsive Header, with a logo and navigation links, supporting both desktop and mobile layouts, and toggles on scroll.",
   "dependencies": ["motion"],
-  "registryDependencies": ["@systaliko-ui/r/use-toggle-onscroll"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/use-toggle-onscroll"
+  ],
   "files": [
     {
       "path": "registry/blocks/header/index.tsx",

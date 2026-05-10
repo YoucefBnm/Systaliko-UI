@@ -4,7 +4,9 @@
   "type": "registry:ui",
   "title": "Card Testimonial Demo",
   "description": "Demo showing Card Testimonial Component.",
-  "registryDependencies": ["@systaliko-ui/r/card-testimonial"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/card-testimonial"
+  ],
   "files": [
     {
       "path": "registry/demo/cards/card-testimonial/index.tsx",

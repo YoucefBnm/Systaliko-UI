@@ -1,0 +1,62 @@
+---
+title: Text Stagger Interval
+description: Splitted text animation with interval
+new: true
+---
+
+<ComponentPreview name="text-stagger-interval-demo" />
+
+## Installation
+
+<ComponentInstallation name="text-stagger-interval" />
+
+## Usage
+
+```tsx
+<TextStaggerInterval
+  words={['Modern UI', 'Creative Layouts', 'Dynamic Sites', 'Sleek Designs']}
+  animation={'blur'}
+  staggerValue={0.05}
+  interval={3000}
+  pauseOnHover={false}
+/>
+```
+
+## Props
+
+<TypeTable
+  type={{
+    words: {
+      description: 'the words to animate one at a time in a loop.',
+      type: 'string[]',
+      required: true,
+      default: 'transform',
+    },
+    animation: {
+      description:
+        'the animation property, whether animate transform, blur, or opacity if left undefined.',
+      type: 'left | right | top | bottom | z | blur | undefined;',
+      required: false,
+      default: 'opacity',
+    },
+    staggerValue: {
+      description: 'the stagger value to start animating from.',
+      type: 'number',
+      required: false,
+      default: '0.03',
+    },
+    interval: {
+      description: 'the interval to start animating from.',
+      type: 'number',
+      required: false,
+      default: '2000',
+    },
+    pauseOnHover: {
+      description: 'the pause on hover value.',
+      type: 'boolean',
+      required: false,
+      default: 'true',
+    },
+  }}
+/>
+````

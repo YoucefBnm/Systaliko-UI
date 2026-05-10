@@ -4,7 +4,7 @@
   "title": "Quantity Demo",
   "description": "Demo showing Quantity component.",
   "registryDependencies": [
-    "@systaliko-ui/r/ecommerce/quantity"
+    "https://systaliko-ui.vercel.app/r/ecommerce/quantity"
   ],
   "files": [
     {

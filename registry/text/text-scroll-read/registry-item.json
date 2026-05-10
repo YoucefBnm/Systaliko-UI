@@ -5,12 +5,11 @@
   "title": "Text Scroll Read",
   "description": "Text component allows you to read the text by scrolling.",
   "dependencies": ["motion"],
-  "registryDependencies": [],
   "files": [
     {
       "path": "registry/text/text-scroll-read/index.tsx",
       "type": "registry:ui",
-      "target": "components/systaliko-ui/text/text-scroll-read.tsx"
+      "target": "components/systaliko-ui/text-scroll-read.tsx"
     }
   ]
 }

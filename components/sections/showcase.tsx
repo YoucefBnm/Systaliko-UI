@@ -61,17 +61,17 @@ export function Showcase() {
             className="hidden md:block relative h-fit max-h-screen mt-[-20%] ring ring-ring/20  shadow overflow-hidden rounded "
           >
             <Link
-              aria-label="view veo template"
-              title="veo template"
+              aria-label="view enera template"
+              title="enera template"
               className="block"
-              href="/docs/templates/veo"
+              href="/docs/templates/enera"
             >
               <Image
-                src="/showcase-veo.png"
+                src="/showcase-enera.png"
                 priority={true}
                 className="object-contain w-full h-auto max-w-full"
                 sizes="(max-width: 768px) 100vw, 33vw"
-                alt="veo template"
+                alt="enera template"
                 width={1440}
                 height={2260}
               />

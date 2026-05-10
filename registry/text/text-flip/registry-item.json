@@ -8,7 +8,7 @@
     {
       "path": "registry/text/text-flip/index.tsx",
       "type": "registry:ui",
-      "target": "components/systaliko-ui/text/text-flip.tsx"
+      "target": "components/systaliko-ui/text-flip.tsx"
     }
   ]
 }

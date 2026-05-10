@@ -4,7 +4,7 @@
   "title": "Infinite Scroll Demo",
   "description": "Demo showing infinite scroll component.",
   "registryDependencies": [
-    "@systaliko-ui/r/infinite-scroll"
+    "https://systaliko-ui.vercel.app/r/infinite-scroll"
   ],
   "files": [
     {

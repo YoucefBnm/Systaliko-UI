@@ -59,43 +59,6 @@ export const index: Record<string, any> = {
     })(),
     command: '@systaliko-ui/animated-menu',
   },
-  calculator: {
-    name: 'calculator',
-    description:
-      'Calculator, for your custom pricing, or to extend your existing pricing.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: undefined,
-    files: [
-      {
-        path: 'registry/blocks/calculator/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/blocks/calculator.tsx',
-        content:
-          'export function Calculator() {\n  return <div>Calculator</div>;\n}',
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import('@/registry/blocks/calculator/index.tsx');
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'calculator';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/calculator',
-  },
   'container-stagger': {
     name: 'container-stagger',
     description:
@@ -108,7 +71,7 @@ export const index: Record<string, any> = {
       {
         path: 'registry/blocks/container-stagger/index.tsx',
         type: 'registry:block',
-        target: 'components/systaliko-ui/blocks/container-stagger.tsx',
+        target: 'components/systaliko-ui/container-stagger.tsx',
         content:
           "'use client';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport * as React from 'react';\n\ninterface ContainerStaggerProps extends HTMLMotionProps<'div'> {\n  staggerChildren?: number;\n  delayChildren?: number;\n  staggerDirection?: 1 | -1;\n}\n\nexport const ContainerStagger = React.forwardRef<\n  HTMLDivElement,\n  ContainerStaggerProps\n>(\n  (\n    {\n      staggerChildren = 0.2,\n      delayChildren = 0.2,\n      staggerDirection = 1,\n      className,\n      transition,\n      ...props\n    },\n    ref,\n  ) => {\n    return (\n      <motion.div\n        ref={ref}\n        className={className}\n        initial=\"hidden\"\n        whileInView=\"visible\"\n        viewport={{ once: true }}\n        transition={{\n          staggerChildren,\n          delayChildren,\n          staggerDirection,\n          ...transition,\n        }}\n        {...props}\n      />\n    );\n  },\n);\nContainerStagger.displayName = 'ContainerStagger';",
       },
@@ -179,7 +142,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/svg-globe-path'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/svg-globe-path'],
     files: [
       {
         path: 'registry/blocks/globe/index.tsx',
@@ -252,7 +215,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/use-toggle-onscroll'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-toggle-onscroll',
+    ],
     files: [
       {
         path: 'registry/blocks/header/index.tsx',
@@ -319,6 +284,43 @@ export const index: Record<string, any> = {
     })(),
     command: '@systaliko-ui/image-player',
   },
+  shader: {
+    name: 'shader',
+    description:
+      'Shader component with two variants for gradient and hurricane both can be configured.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+      {
+        path: 'registry/blocks/shader/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/shader.tsx',
+        content:
+          "'use client';\n\nimport { cn } from '@/lib/utils';\nimport React from 'react';\nexport type ShaderColor = string;\n\ninterface BaseShaderProps extends React.ComponentPropsWithRef<'canvas'> {\n  colors?: [ShaderColor, ShaderColor, ShaderColor];\n  intensity?: number;\n  density?: number;\n  className?: string;\n}\n\nexport interface GradientShaderProps extends BaseShaderProps {\n  animate?: boolean;\n}\n\nexport interface HurricaneShaderProps extends BaseShaderProps {\n  background?: ShaderColor;\n  speed?: number;\n}\n\nfunction resolveColor(\n  raw: string,\n  contextEl: Element,\n): [number, number, number] {\n  let color = raw.trim();\n\n  if (color.startsWith('var(')) {\n    const varName = color.slice(4, -1).trim();\n    color = getComputedStyle(contextEl).getPropertyValue(varName).trim();\n  }\n\n  const rgbMatch = color.match(/rgba?\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*,\\s*(\\d+)/);\n  if (rgbMatch) {\n    return [\n      parseInt(rgbMatch[1], 10) / 255,\n      parseInt(rgbMatch[2], 10) / 255,\n      parseInt(rgbMatch[3], 10) / 255,\n    ];\n  }\n\n  const hex = color.replace('#', '');\n  const full =\n    hex.length === 3\n      ? hex\n          .split('')\n          .map((c) => c + c)\n          .join('')\n      : hex;\n  return [\n    parseInt(full.slice(0, 2), 16) / 255,\n    parseInt(full.slice(2, 4), 16) / 255,\n    parseInt(full.slice(4, 6), 16) / 255,\n  ];\n}\n\nfunction compileShader(\n  gl: WebGL2RenderingContext,\n  type: number,\n  source: string,\n): WebGLShader | null {\n  const shader = gl.createShader(type);\n  if (!shader) return null;\n  gl.shaderSource(shader, source);\n  gl.compileShader(shader);\n  if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {\n    console.error('[shader] Compile error:', gl.getShaderInfoLog(shader));\n    gl.deleteShader(shader);\n    return null;\n  }\n  return shader;\n}\n\nfunction linkProgram(\n  gl: WebGL2RenderingContext,\n  vsSrc: string,\n  fsSrc: string,\n): WebGLProgram | null {\n  const vs = compileShader(gl, gl.VERTEX_SHADER, vsSrc);\n  const fs = compileShader(gl, gl.FRAGMENT_SHADER, fsSrc);\n  if (!vs || !fs) return null;\n  const prog = gl.createProgram();\n  if (!prog) return null;\n  gl.attachShader(prog, vs);\n  gl.attachShader(prog, fs);\n  gl.linkProgram(prog);\n  gl.deleteShader(vs);\n  gl.deleteShader(fs);\n  if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {\n    console.error('[shader] Link error:', gl.getProgramInfoLog(prog));\n    gl.deleteProgram(prog);\n    return null;\n  }\n  return prog;\n}\n\nconst QUAD = new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]);\n\nconst GRADIENT_VS = /* glsl */ `#version 300 es\nin vec4 a_position;\nout vec2 v_uv;\n\nvoid main() {\n  v_uv = a_position.xy * 0.5 + 0.5;\n  gl_Position = a_position;\n}\n`;\n\nconst GRADIENT_FS = /* glsl */ `#version 300 es\nprecision highp float;\n\nin vec2 v_uv;\nout vec4 fragColor;\n\nuniform float u_time;\nuniform vec2  u_resolution;\nuniform vec3  u_color1;\nuniform vec3  u_color2;\nuniform vec3  u_color3;\n// ─── new ───────────────────────────────────────────\nuniform float u_intensity; // scales wave amplitude & noise brightness (0–2)\nuniform float u_density;   // scales noise grain frequency (0–2)\n// ───────────────────────────────────────────────────\n\n// Bayer 4×4 matrix for ordered dithering\nconst mat4 bayer = mat4(\n   0.0/64.0, 32.0/64.0,  8.0/64.0, 40.0/64.0,\n  48.0/64.0, 16.0/64.0, 56.0/64.0, 24.0/64.0,\n  12.0/64.0, 44.0/64.0,  4.0/64.0, 36.0/64.0,\n  60.0/64.0, 28.0/64.0, 52.0/64.0, 20.0/64.0\n);\n\nfloat hash(vec2 p) {\n  p = fract(p * vec2(123.34, 456.21));\n  p += dot(p, p + 45.32);\n  return fract(p.x * p.y);\n}\n\nfloat noise(vec2 p) {\n  vec2 i = floor(p);\n  vec2 f = fract(p);\n  f = f * f * (3.0 - 2.0 * f);\n  float a = hash(i);\n  float b = hash(i + vec2(1.0, 0.0));\n  float c = hash(i + vec2(0.0, 1.0));\n  float d = hash(i + vec2(1.0, 1.0));\n  return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);\n}\n\nfloat bayerDither(vec2 fragCoord) {\n  int x = int(mod(fragCoord.x, 4.0));\n  int y = int(mod(fragCoord.y, 4.0));\n  return bayer[x][y];\n}\n\nvoid main() {\n  vec2 uv        = v_uv;\n  vec2 fragCoord = uv * u_resolution;\n  float timeShift = u_time * 0.25;\n\n  // Wave patterns — amplitude scaled by u_intensity\n  float waveAmp = 0.15 * u_intensity;\n  float wave1 = sin(uv.x * 3.0 + timeShift)        * cos(uv.y * 2.0 + timeShift * 0.8);\n  float wave2 = sin(uv.y * 2.5 - timeShift * 0.6)  * cos(uv.x * 3.5 - timeShift);\n  float wave3 = sin((uv.x + uv.y) * 2.0 + timeShift * 1.2);\n  float wavePattern = (wave1 + wave2 + wave3) * waveAmp;\n\n  // Animated diagonal gradient\n  vec2 gradientDir = vec2(\n    cos(timeShift * 0.4) * 0.8 + sin(timeShift * 0.3) * 0.5,\n    sin(timeShift * 0.4) * 0.8 + cos(timeShift * 0.3) * 0.5\n  );\n  float gradientValue = dot(uv - 0.5, gradientDir) + 0.5;\n\n  // Pulsing radial component\n  float radial = length(uv - vec2(\n    0.5 + sin(timeShift * 0.3) * 0.2,\n    0.5 + cos(timeShift * 0.4) * 0.2\n  ));\n  radial *= (0.8 + sin(timeShift * 0.5) * 0.3);\n  gradientValue = mix(gradientValue, radial, 0.4);\n\n  // Wave distortion + slow drift — both scaled by u_intensity\n  gradientValue += wavePattern;\n  gradientValue += sin(u_time * 0.2 + uv.x * 2.0) * waveAmp;\n  gradientValue += cos(u_time * 0.15 + uv.y * 2.5) * waveAmp;\n  gradientValue  = clamp(gradientValue, 0.0, 1.0);\n\n  // Smooth three-color blend\n  float t1 = smoothstep(0.0, 0.5, gradientValue);\n  vec3 blend1 = mix(u_color1, u_color2, t1);\n  float t2 = smoothstep(0.3, 1.0, gradientValue);\n  vec3 finalColor = mix(blend1, u_color3, t2);\n\n  // Noise grain — frequency scaled by u_density, brightness by u_intensity\n  float noiseScale = 200.0 * u_density;\n  float noiseValue  = noise(uv * noiseScale + u_time * 0.05) * (0.015 * u_intensity);\n  finalColor += noiseValue;\n\n  // Bayer dither — strength scaled by u_intensity\n  float ditherValue = bayerDither(fragCoord) - 0.5;\n  finalColor += ditherValue * (0.004 * u_intensity);\n\n  // Subtle gamma lift\n  finalColor = pow(finalColor, vec3(0.95));\n\n  fragColor = vec4(finalColor, 1.0);\n}\n`;\n\nconst DEFAULT_GRADIENT_COLORS: [string, string, string] = [\n  '#8C59D9', // soft purple\n  '#D973A6', // soft pink\n  '#73A6F2', // soft blue\n];\n\nexport function ShaderGradient({\n  colors = DEFAULT_GRADIENT_COLORS,\n  animate = true,\n  intensity = 1,\n  density = 1,\n  className,\n  ...props\n}: GradientShaderProps) {\n  const canvasRef = React.useRef<HTMLCanvasElement>(null);\n\n  const safeIntensity = Math.max(0, intensity);\n  const safeDensity = Math.max(0.01, density);\n\n  React.useEffect(() => {\n    const canvas = canvasRef.current;\n    if (!canvas) return;\n\n    const gl = canvas.getContext('webgl2', {\n      alpha: false,\n      antialias: true,\n      powerPreference: 'high-performance',\n    });\n    if (!gl) {\n      console.error('[GradientShader] WebGL2 not supported');\n      return;\n    }\n\n    const program = linkProgram(gl, GRADIENT_VS, GRADIENT_FS);\n    if (!program) return;\n    gl.useProgram(program);\n\n    const posLoc = gl.getAttribLocation(program, 'a_position');\n    const buf = gl.createBuffer();\n    gl.bindBuffer(gl.ARRAY_BUFFER, buf);\n    gl.bufferData(gl.ARRAY_BUFFER, QUAD, gl.STATIC_DRAW);\n    const vao = gl.createVertexArray();\n    gl.bindVertexArray(vao);\n    gl.enableVertexAttribArray(posLoc);\n    gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);\n\n    const uResolution = gl.getUniformLocation(program, 'u_resolution');\n    const uTime = gl.getUniformLocation(program, 'u_time');\n    const uColor1 = gl.getUniformLocation(program, 'u_color1');\n    const uColor2 = gl.getUniformLocation(program, 'u_color2');\n    const uColor3 = gl.getUniformLocation(program, 'u_color3');\n    const uIntensity = gl.getUniformLocation(program, 'u_intensity');\n    const uDensity = gl.getUniformLocation(program, 'u_density');\n\n    const [c1, c2, c3] = colors.map((c) => resolveColor(c, canvas));\n    gl.uniform3f(uColor1, ...c1);\n    gl.uniform3f(uColor2, ...c2);\n    gl.uniform3f(uColor3, ...c3);\n    gl.uniform1f(uIntensity, safeIntensity);\n    gl.uniform1f(uDensity, safeDensity);\n\n    const handleResize = () => {\n      const dpr = window.devicePixelRatio || 1;\n      const w = Math.floor(canvas.clientWidth * dpr);\n      const h = Math.floor(canvas.clientHeight * dpr);\n      if (canvas.width !== w || canvas.height !== h) {\n        canvas.width = w;\n        canvas.height = h;\n        gl.viewport(0, 0, w, h);\n        gl.uniform2f(uResolution, w, h);\n      }\n    };\n    handleResize();\n\n    const ro = new ResizeObserver(() => {\n      handleResize();\n      if (!animate) renderFrame(0);\n    });\n    ro.observe(canvas);\n\n    let rafId = 0;\n\n    const renderFrame = (ts: number) => {\n      gl.clearColor(0, 0, 0, 1);\n      gl.clear(gl.COLOR_BUFFER_BIT);\n      gl.uniform1f(uTime, ts * 0.001);\n      gl.drawArrays(gl.TRIANGLES, 0, 6);\n    };\n\n    if (animate) {\n      const loop = (ts: number) => {\n        renderFrame(ts);\n        rafId = requestAnimationFrame(loop);\n      };\n      rafId = requestAnimationFrame(loop);\n    } else {\n      renderFrame(0);\n    }\n\n    return () => {\n      cancelAnimationFrame(rafId);\n      ro.disconnect();\n      gl.deleteBuffer(buf);\n      gl.deleteVertexArray(vao);\n      gl.deleteProgram(program);\n    };\n  }, [colors, animate, safeIntensity, safeDensity]);\n\n  return (\n    <canvas\n      ref={canvasRef}\n      className={cn('block size-full', className)}\n      {...props}\n    />\n  );\n}\n\nconst PARTICLE_VS = /* glsl */ `#version 300 es\nprecision highp float;\n\nin vec2  a_position;\nin vec3  a_color;\nin float a_size;\nin float a_alpha;\n\nout vec3  v_color;\nout float v_alpha;\n\nuniform vec2  u_resolution;\nuniform float u_dpr;\n\nvoid main() {\n  vec2 clip = (a_position / u_resolution) * 2.0 - 1.0;\n  gl_Position = vec4(clip * vec2(1.0, -1.0), 0.0, 1.0);\n  gl_PointSize = a_size * u_dpr * 1.8;\n  v_color = a_color;\n  v_alpha = a_alpha;\n}\n`;\n\nconst PARTICLE_FS = /* glsl */ `#version 300 es\nprecision highp float;\n\nin vec3  v_color;\nin float v_alpha;\nout vec4 fragColor;\n\nvoid main() {\n  vec2  coord = gl_PointCoord - vec2(0.5);\n  float dist  = length(coord);\n\n  float alpha = (1.0 - smoothstep(0.0, 0.5, dist)) * v_alpha;\n  alpha = pow(alpha, 1.3);\n\n  float core = 1.0 - smoothstep(0.0, 0.2, dist);\n  vec3 finalColor = mix(v_color, vec3(1.0), core * 0.4);\n\n  if (alpha <= 0.01) discard;\n  fragColor = vec4(finalColor * alpha, alpha); // pre-multiplied alpha\n}\n`;\n\nconst FADE_VS = /* glsl */ `#version 300 es\nprecision highp float;\nin vec2 a_position;\nvoid main() { gl_Position = vec4(a_position, 0.0, 1.0); }\n`;\n\nconst FADE_FS = /* glsl */ `#version 300 es\nprecision highp float;\nuniform vec3 u_background;\nout vec4 fragColor;\nvoid main() { fragColor = vec4(u_background, 0.25); }\n`;\n\nclass Particle {\n  x = 0;\n  y = 0;\n  angle = 0;\n  radius = 0;\n  radiusVel = 0;\n  angularVel = 0;\n  spiralSpeed = 0;\n  r = 0;\n  g = 0;\n  b = 0;\n  size = 0;\n  life = 0;\n  maxLife = 0;\n  layer = 0;\n\n  constructor(\n    width: number,\n    height: number,\n    colors: [number, number, number][],\n    sizeMultiplier: number,\n    speedMultiplier: number,\n  ) {\n    this.spawn(width, height, colors, sizeMultiplier, speedMultiplier);\n  }\n\n  spawn(\n    width: number,\n    height: number,\n    colors: [number, number, number][],\n    sizeMultiplier: number,\n    speedMultiplier: number,\n  ) {\n    this.angle = Math.random() * Math.PI * 2;\n    this.radius = Math.random() * 80 + 20;\n    this.x = width / 2 + Math.cos(this.angle) * this.radius;\n    this.y = height / 2 + Math.sin(this.angle) * this.radius;\n    this.layer = Math.random();\n\n    // Pick a resolved color\n    const [r, g, b] = colors[Math.floor(Math.random() * colors.length)];\n    this.r = r;\n    this.g = g;\n    this.b = b;\n\n    if (this.layer < 0.4) {\n      // Inner rays — larger, faster\n      this.size = (Math.random() * 3 + 5) * sizeMultiplier;\n      this.radiusVel = (Math.random() * 50 + 70) * speedMultiplier;\n      this.angularVel = (Math.random() * 1.8 + 1.8) * speedMultiplier;\n      this.spiralSpeed = (Math.random() * 0.25 + 0.25) * speedMultiplier;\n      this.maxLife = Math.random() * 1.5 + 2;\n    } else {\n      // Outer swirl — smaller, slower\n      this.size = (Math.random() * 2 + 2) * sizeMultiplier;\n      this.radiusVel = (Math.random() * 30 + 40) * speedMultiplier;\n      this.angularVel = (Math.random() * 2.2 + 1.2) * speedMultiplier;\n      this.spiralSpeed = (Math.random() * 0.35 + 0.2) * speedMultiplier;\n      this.maxLife = Math.random() * 2.5 + 2;\n    }\n    this.life = this.maxLife;\n  }\n}\n\nconst DEFAULT_HURRICANE_COLORS: [string, string, string] = [\n  '#00f2fe',\n  '#4facfe',\n  '#ffd700',\n];\nconst DEFAULT_BACKGROUND = '#0a0a0a';\nconst BASE_PARTICLE_COUNT = 100;\n\nexport function ShaderHurricane({\n  colors = DEFAULT_HURRICANE_COLORS,\n  background = DEFAULT_BACKGROUND,\n  intensity = 1,\n  density = 1,\n  speed = 0.2,\n  className,\n  ...props\n}: HurricaneShaderProps) {\n  const canvasRef = React.useRef<HTMLCanvasElement>(null);\n\n  const safeIntensity = Math.max(0, intensity);\n  const safeDensity = Math.max(0.1, density);\n  const safeSpeed = Math.max(0, speed);\n\n  React.useEffect(() => {\n    const canvas = canvasRef.current;\n    if (!canvas) return;\n\n    const gl = canvas.getContext('webgl2', {\n      alpha: false,\n      antialias: false,\n      depth: false,\n      preserveDrawingBuffer: true,\n      powerPreference: 'high-performance',\n    });\n    if (!gl) {\n      console.error('[HurricaneShader] WebGL2 not supported');\n      return;\n    }\n\n    const particleProg = linkProgram(gl, PARTICLE_VS, PARTICLE_FS);\n    const fadeProg = linkProgram(gl, FADE_VS, FADE_FS);\n    if (!particleProg || !fadeProg) return;\n\n    const pLoc = {\n      position: gl.getAttribLocation(particleProg, 'a_position'),\n      color: gl.getAttribLocation(particleProg, 'a_color'),\n      size: gl.getAttribLocation(particleProg, 'a_size'),\n      alpha: gl.getAttribLocation(particleProg, 'a_alpha'),\n      resolution: gl.getUniformLocation(particleProg, 'u_resolution'),\n      dpr: gl.getUniformLocation(particleProg, 'u_dpr'),\n    };\n    const fLoc = {\n      position: gl.getAttribLocation(fadeProg, 'a_position'),\n      background: gl.getUniformLocation(fadeProg, 'u_background'),\n    };\n\n    const quadBuf = gl.createBuffer()!;\n    gl.bindBuffer(gl.ARRAY_BUFFER, quadBuf);\n    gl.bufferData(gl.ARRAY_BUFFER, QUAD, gl.STATIC_DRAW);\n\n    const resolvedColors = colors.map((c) => resolveColor(c, canvas)) as [\n      number,\n      number,\n      number,\n    ][];\n\n    const bgColor = resolveColor(background, canvas);\n    const isMobile = window.innerWidth < 768;\n    const baseCount = isMobile ? BASE_PARTICLE_COUNT / 2 : BASE_PARTICLE_COUNT;\n    const particleCount = Math.round(baseCount * safeDensity);\n\n    const particles = Array.from(\n      { length: particleCount },\n      () =>\n        new Particle(\n          window.innerWidth,\n          window.innerHeight,\n          resolvedColors,\n          safeIntensity,\n          safeSpeed,\n        ),\n    );\n\n    const STRIDE = 7;\n    const particleData = new Float32Array(particleCount * STRIDE);\n    const particleBuf = gl.createBuffer()!;\n    gl.bindBuffer(gl.ARRAY_BUFFER, particleBuf);\n    gl.bufferData(gl.ARRAY_BUFFER, particleData.byteLength, gl.DYNAMIC_DRAW);\n\n    let width = canvas.clientWidth;\n    let height = canvas.clientHeight;\n\n    const handleResize = () => {\n      const dpr = Math.min(window.devicePixelRatio || 1, 2);\n      width = canvas.clientWidth;\n      height = canvas.clientHeight;\n      canvas.width = width * dpr;\n      canvas.height = height * dpr;\n      gl.viewport(0, 0, canvas.width, canvas.height);\n      gl.clearColor(bgColor[0], bgColor[1], bgColor[2], 1);\n      gl.clear(gl.COLOR_BUFFER_BIT);\n    };\n    const ro = new ResizeObserver(handleResize);\n    ro.observe(canvas);\n    handleResize();\n\n    const scroll = { velocity: 0 };\n    let lastScrollY = window.scrollY;\n    const onScroll = () => {\n      scroll.velocity = window.scrollY - lastScrollY;\n      lastScrollY = window.scrollY;\n    };\n    window.addEventListener('scroll', onScroll, { passive: true });\n\n    let rafId = 0;\n    let lastTime = performance.now();\n\n    const render = (now: number) => {\n      const dt = Math.min((now - lastTime) / 1000, 0.1);\n      lastTime = now;\n\n      scroll.velocity *= 0.95;\n      const scrollBoost = Math.abs(scroll.velocity) * 0.05;\n      const cx = width / 2;\n      const cy = height / 2;\n      const maxRadius = Math.max(width, height) * 0.7;\n\n      for (let i = 0; i < particleCount; i++) {\n        const p = particles[i];\n        p.radius += p.radiusVel * dt * (1 + scrollBoost * 0.5);\n        p.angle += p.angularVel * dt * (1 + scrollBoost * 0.3);\n        p.angle += p.spiralSpeed * (p.radius / 100) * dt;\n        p.x = cx + Math.cos(p.angle) * p.radius;\n        p.y = cy + Math.sin(p.angle) * p.radius;\n        p.life -= dt;\n\n        if (p.life <= 0 || p.radius > maxRadius) {\n          p.spawn(width, height, resolvedColors, safeIntensity, safeSpeed);\n        }\n\n        const lifePct = p.life / p.maxLife;\n        const alpha = Math.min(1, lifePct * 3) * Math.min(1, (1 - lifePct) * 5);\n        const off = i * STRIDE;\n        particleData[off + 0] = p.x;\n        particleData[off + 1] = p.y;\n        particleData[off + 2] = p.r;\n        particleData[off + 3] = p.g;\n        particleData[off + 4] = p.b;\n        particleData[off + 5] = p.size;\n        particleData[off + 6] = alpha;\n      }\n\n      gl.useProgram(fadeProg);\n      gl.uniform3f(fLoc.background, bgColor[0], bgColor[1], bgColor[2]);\n      gl.bindBuffer(gl.ARRAY_BUFFER, quadBuf);\n      gl.enableVertexAttribArray(fLoc.position);\n      gl.vertexAttribPointer(fLoc.position, 2, gl.FLOAT, false, 0, 0);\n      gl.enable(gl.BLEND);\n      gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);\n      gl.drawArrays(gl.TRIANGLES, 0, 6);\n\n      gl.useProgram(particleProg);\n      gl.bindBuffer(gl.ARRAY_BUFFER, particleBuf);\n      gl.bufferSubData(gl.ARRAY_BUFFER, 0, particleData);\n\n      const stride4 = STRIDE * 4;\n      gl.enableVertexAttribArray(pLoc.position);\n      gl.enableVertexAttribArray(pLoc.color);\n      gl.enableVertexAttribArray(pLoc.size);\n      gl.enableVertexAttribArray(pLoc.alpha);\n      gl.vertexAttribPointer(pLoc.position, 2, gl.FLOAT, false, stride4, 0);\n      gl.vertexAttribPointer(pLoc.color, 3, gl.FLOAT, false, stride4, 2 * 4);\n      gl.vertexAttribPointer(pLoc.size, 1, gl.FLOAT, false, stride4, 5 * 4);\n      gl.vertexAttribPointer(pLoc.alpha, 1, gl.FLOAT, false, stride4, 6 * 4);\n\n      gl.uniform2f(pLoc.resolution, width, height);\n      gl.uniform1f(pLoc.dpr, Math.min(window.devicePixelRatio || 1, 2));\n\n      gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);\n      gl.drawArrays(gl.POINTS, 0, particleCount);\n\n      rafId = requestAnimationFrame(render);\n    };\n\n    rafId = requestAnimationFrame(render);\n\n    return () => {\n      cancelAnimationFrame(rafId);\n      ro.disconnect();\n      window.removeEventListener('scroll', onScroll);\n      gl.deleteProgram(particleProg);\n      gl.deleteProgram(fadeProg);\n      gl.deleteBuffer(quadBuf);\n      gl.deleteBuffer(particleBuf);\n    };\n  }, [colors, background, safeIntensity, safeDensity, safeSpeed]);\n\n  return (\n    <canvas\n      ref={canvasRef}\n      className={cn('size-full touch-none', className)}\n      {...props}\n    />\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import('@/registry/blocks/shader/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shader';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/shader',
+  },
   slideshow: {
     name: 'slideshow',
     description:
@@ -327,15 +329,15 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/default-text-stagger-hover',
+      'https://systaliko-ui.vercel.app/r/text-stagger-hover',
     ],
     files: [
       {
         path: 'registry/blocks/slideshow/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/blocks/slideshow.tsx',
+        target: 'components/systaliko-ui/slideshow.tsx',
         content:
-          "'use client';\n\nimport * as React from 'react';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { cn } from '@/lib/utils';\nimport {\n  TextStaggerHover,\n  TextStaggerHoverActive,\n  TextStaggerHoverHidden,\n} from '@/components/systaliko-ui/text/text-stagger-hover';\n\ninterface SlideshowContextValue {\n  activeSlide: number;\n  changeSlide: (index: number) => void;\n}\n\nconst SlideshowContext = React.createContext<SlideshowContextValue | undefined>(\n  undefined,\n);\nfunction useSlideshowContext() {\n  const context = React.useContext(SlideshowContext);\n  if (context === undefined) {\n    throw new Error(\n      'useSlideshowContext must be used within a SlideshowProvider',\n    );\n  }\n  return context;\n}\n\nexport const Slideshow = ({\n  children,\n  ...props\n}: React.ComponentProps<'div'>) => {\n  const [activeSlide, setActiveSlide] = React.useState<number>(0);\n  const changeSlide = React.useCallback(\n    (index: number) => setActiveSlide(index),\n    [setActiveSlide],\n  );\n  return (\n    <SlideshowContext.Provider value={{ activeSlide, changeSlide }}>\n      <div {...props}>{children}</div>\n    </SlideshowContext.Provider>\n  );\n};\n\nexport const SlideshowIndicator = ({\n  index,\n  children,\n  className,\n  ...props\n}: React.ComponentProps<'div'> & { index: number }) => {\n  const { activeSlide, changeSlide } = useSlideshowContext();\n  const isActive = activeSlide === index;\n  const handleMouse = () => changeSlide(index);\n  return (\n    <div\n      className={cn(\n        'relative inline-block origin-bottom overflow-hidden',\n        className,\n      )}\n      {...props}\n      onMouseEnter={handleMouse}\n    >\n      <TextStaggerHover className=\"cursor-pointer text-4xl font-bold uppercase tracking-tighter\">\n        <TextStaggerHoverActive\n          className=\"opacity-20\"\n          animation={'top'}\n          animate={isActive ? 'hidden' : 'visible'}\n          transition={{ duration: 0.3, ease: 'easeOut' }}\n        >\n          {String(children)}\n        </TextStaggerHoverActive>\n        <TextStaggerHoverHidden\n          animation={'bottom'}\n          animate={isActive ? 'visible' : 'hidden'}\n          transition={{ duration: 0.3, ease: 'easeOut' }}\n        >\n          {String(children)}\n        </TextStaggerHoverHidden>\n      </TextStaggerHover>\n    </div>\n  );\n};\n\nexport const clipPathVariants = {\n  visible: {\n    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',\n  },\n  hidden: {\n    clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0px)',\n  },\n};\nexport const SlideshowImageContainer = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(\n        'grid  overflow-hidden *:col-start-1 *:col-end-1 *:row-start-1 *:row-end-1 *:size-full',\n        className,\n      )}\n      {...props}\n    />\n  );\n});\nSlideshowImageContainer.displayName = 'SlideshowImageContainer';\n\nexport const SlideshowImageWrap = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { index: number }\n>(({ index, className, ...props }, ref) => {\n  const { activeSlide } = useSlideshowContext();\n  return (\n    <motion.div\n      className={cn('inline-block align-middle', className)}\n      transition={{ ease: [0.33, 1, 0.68, 1], duration: 0.8 }}\n      variants={clipPathVariants}\n      animate={activeSlide === index ? 'visible' : 'hidden'}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nSlideshowImageWrap.displayName = 'SlideshowImageWrap';",
+          "'use client';\n\nimport * as React from 'react';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport { cn } from '@/lib/utils';\nimport {\n  TextStaggerHover,\n  TextStaggerHoverActive,\n  TextStaggerHoverHidden,\n} from '@/components/systaliko-ui/text/text-stagger-hover';\n\ninterface SlideshowContextValue {\n  activeSlide: number;\n  changeSlide: (index: number) => void;\n}\n\nconst SlideshowContext = React.createContext<SlideshowContextValue | undefined>(\n  undefined,\n);\nfunction useSlideshowContext() {\n  const context = React.useContext(SlideshowContext);\n  if (context === undefined) {\n    throw new Error(\n      'useSlideshowContext must be used within a SlideshowProvider',\n    );\n  }\n  return context;\n}\n\nexport const Slideshow = ({\n  children,\n  ...props\n}: React.ComponentProps<'div'>) => {\n  const [activeSlide, setActiveSlide] = React.useState<number>(0);\n  const changeSlide = React.useCallback(\n    (index: number) => setActiveSlide(index),\n    [setActiveSlide],\n  );\n  return (\n    <SlideshowContext.Provider value={{ activeSlide, changeSlide }}>\n      <div {...props}>{children}</div>\n    </SlideshowContext.Provider>\n  );\n};\n\nexport const SlideshowIndicator = ({\n  index,\n  children,\n  className,\n  ...props\n}: React.ComponentProps<'div'> & { index: number }) => {\n  const { activeSlide, changeSlide } = useSlideshowContext();\n  const isActive = activeSlide === index;\n  const handleMouse = () => changeSlide(index);\n  return (\n    <div\n      className={cn(\n        'relative inline-block origin-bottom overflow-hidden',\n        className,\n      )}\n      {...props}\n      onMouseEnter={handleMouse}\n    >\n      <TextStaggerHover className=\"cursor-pointer text-4xl font-bold uppercase tracking-tighter\">\n        <TextStaggerHoverActive\n          className=\"opacity-20\"\n          animation={'top'}\n          animate={isActive ? 'hovered' : 'initial'}\n          transition={{ duration: 0.3, ease: 'easeOut' }}\n        >\n          {String(children)}\n        </TextStaggerHoverActive>\n        <TextStaggerHoverHidden\n          animation={'bottom'}\n          animate={isActive ? 'hovered' : 'initial'}\n          transition={{ duration: 0.3, ease: 'easeOut' }}\n        >\n          {String(children)}\n        </TextStaggerHoverHidden>\n      </TextStaggerHover>\n    </div>\n  );\n};\n\nexport const clipPathVariants = {\n  visible: {\n    clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',\n  },\n  hidden: {\n    clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 0px)',\n  },\n};\nexport const SlideshowImageContainer = React.forwardRef<\n  HTMLDivElement,\n  React.HTMLAttributes<HTMLDivElement>\n>(({ className, ...props }, ref) => {\n  return (\n    <div\n      ref={ref}\n      className={cn(\n        'grid  overflow-hidden *:col-start-1 *:col-end-1 *:row-start-1 *:row-end-1 *:size-full',\n        className,\n      )}\n      {...props}\n    />\n  );\n});\nSlideshowImageContainer.displayName = 'SlideshowImageContainer';\n\nexport const SlideshowImageWrap = React.forwardRef<\n  HTMLDivElement,\n  HTMLMotionProps<'div'> & { index: number }\n>(({ index, className, ...props }, ref) => {\n  const { activeSlide } = useSlideshowContext();\n  return (\n    <motion.div\n      className={cn('inline-block align-middle', className)}\n      transition={{ ease: [0.33, 1, 0.68, 1], duration: 0.8 }}\n      variants={clipPathVariants}\n      animate={activeSlide === index ? 'visible' : 'hidden'}\n      ref={ref}\n      {...props}\n    />\n  );\n});\nSlideshowImageWrap.displayName = 'SlideshowImageWrap';",
       },
     ],
     keywords: [],
@@ -365,7 +367,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/default-button'],
+    registryDependencies: undefined,
     files: [
       {
         path: 'registry/blocks/story/index.tsx',
@@ -935,7 +937,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/animated-menu'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/animated-menu'],
     files: [
       {
         path: 'registry/demo/blocks/animated-menu/index.tsx',
@@ -973,7 +975,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/animated-menu'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/animated-menu'],
     files: [
       {
         path: 'registry/demo/blocks/animated-menu-2/index.tsx',
@@ -1012,7 +1014,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/animated-menu-full-screen'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/animated-menu-full-screen',
+    ],
     files: [
       {
         path: 'registry/demo/blocks/animated-menu-full-screen/index.tsx',
@@ -1045,42 +1049,6 @@ export const index: Record<string, any> = {
     })(),
     command: '@systaliko-ui/animated-menu-full-screen-demo',
   },
-  'calculator-demo': {
-    name: 'calculator-demo',
-    description: 'Demo showing calculator component.',
-    type: 'registry:block',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/calculator'],
-    files: [
-      {
-        path: 'registry/demo/blocks/calculator/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/demo/blocks/calculator.tsx',
-        content:
-          "import { Calculator } from '@/components/systaliko-ui/blocks/calculator';\n\nexport function CalculatorDemo() {\n  return (\n    <div>\n      <Calculator />\n    </div>\n  );\n}",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import('@/registry/demo/blocks/calculator/index.tsx');
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'calculator-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/calculator-demo',
-  },
   'container-stagger-demo': {
     name: 'container-stagger-demo',
     description: 'Demo showing stagger container component.',
@@ -1088,7 +1056,7 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/r/container-stagger',
+      'https://systaliko-ui.vercel.app/r/container-stagger',
       'https://systaliko-ui.vercel.app/r/transitions',
     ],
     files: [
@@ -1170,7 +1138,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/full-screen-navigation-menu'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/full-screen-navigation-menu',
+    ],
     files: [
       {
         path: 'registry/demo/blocks/full-screen-navigation-menu/index.tsx',
@@ -1209,7 +1179,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/globe'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/globe'],
     files: [
       {
         path: 'registry/demo/blocks/globe/index.tsx',
@@ -1363,9 +1333,9 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/r/header',
-      '@systaliko-ui/r/animated-menu',
-      '@systaliko-ui/r/use-mobile',
+      'https://systaliko-ui.vercel.app/r/header',
+      'https://systaliko-ui.vercel.app/r/animated-menu',
+      'https://systaliko-ui.vercel.app/r/use-mobile',
     ],
     files: [
       {
@@ -1402,7 +1372,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/image-player'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/image-player'],
     files: [
       {
         path: 'registry/demo/blocks/image-player/index.tsx',
@@ -1433,6 +1403,80 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@systaliko-ui/image-player-demo',
+  },
+  'shader-demo': {
+    name: 'shader-demo',
+    description: 'Demo showing shader component.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/shader'],
+    files: [
+      {
+        path: 'registry/demo/blocks/shader/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/shader.tsx',
+        content:
+          '\'use client\';\n\nimport React, { useState, useDeferredValue } from \'react\';\nimport { ShaderGradient } from \'@/components/systaliko-ui/blocks/shader\';\nimport { Switch } from \'@/components/systaliko-ui/shadcn/switch\';\nimport { Input } from \'@/components/systaliko-ui/shadcn/input\';\n\nexport function ShaderDemo() {\n  const [color1, setColor1] = useState(\'#8C59D9\');\n  const [color2, setColor2] = useState(\'#D973A6\');\n  const [color3, setColor3] = useState(\'#73A6F2\');\n  const [animate, setAnimate] = useState(true);\n  const [intensity, setIntensity] = useState(1);\n  const [density, setDensity] = useState(1);\n\n  const deferredColor1 = useDeferredValue(color1);\n  const deferredColor2 = useDeferredValue(color2);\n  const deferredColor3 = useDeferredValue(color3);\n  const deferredIntensity = useDeferredValue(intensity);\n  const deferredDensity = useDeferredValue(density);\n\n  return (\n    <div className="relative h-screen w-full overflow-hidden">\n      <ShaderGradient\n        className="absolute inset-0"\n        colors={[deferredColor1, deferredColor2, deferredColor3]}\n        animate={animate}\n        intensity={deferredIntensity}\n        density={deferredDensity}\n      />\n      <div className="absolute right-4 top-4 z-10 w-72 rounded-xl border border-border/50 bg-background/50 p-6 backdrop-blur-md">\n        <h3 className="mb-4 text-lg font-semibold tracking-tight">\n          Configuration\n        </h3>\n        <div className="flex flex-col gap-4">\n          <div className="flex items-center justify-between">\n            <label htmlFor="animate" className="text-sm font-medium">\n              Animate\n            </label>\n            <Switch\n              id="animate"\n              checked={animate}\n              onCheckedChange={setAnimate}\n            />\n          </div>\n\n          <div className="flex flex-col gap-2">\n            <label htmlFor="color1" className="text-sm font-medium">\n              Color 1\n            </label>\n            <div className="flex items-center gap-2">\n              <input\n                type="color"\n                id="color1"\n                value={color1}\n                onChange={(e) => setColor1(e.target.value)}\n                className="h-8 w-8 cursor-pointer rounded border-none bg-transparent p-0"\n              />\n              <Input\n                value={color1}\n                onChange={(e) => setColor1(e.target.value)}\n                className="h-8 font-mono text-xs"\n              />\n            </div>\n          </div>\n\n          <div className="flex flex-col gap-2">\n            <label htmlFor="color2" className="text-sm font-medium">\n              Color 2\n            </label>\n            <div className="flex items-center gap-2">\n              <input\n                type="color"\n                id="color2"\n                value={color2}\n                onChange={(e) => setColor2(e.target.value)}\n                className="h-8 w-8 cursor-pointer rounded border-none bg-transparent p-0"\n              />\n              <Input\n                value={color2}\n                onChange={(e) => setColor2(e.target.value)}\n                className="h-8 font-mono text-xs"\n              />\n            </div>\n          </div>\n\n          <div className="flex flex-col gap-2">\n            <label htmlFor="color3" className="text-sm font-medium">\n              Color 3\n            </label>\n            <div className="flex items-center gap-2">\n              <input\n                type="color"\n                id="color3"\n                value={color3}\n                onChange={(e) => setColor3(e.target.value)}\n                className="h-8 w-8 cursor-pointer rounded border-none bg-transparent p-0"\n              />\n              <Input\n                value={color3}\n                onChange={(e) => setColor3(e.target.value)}\n                className="h-8 font-mono text-xs"\n              />\n            </div>\n          </div>\n\n          <div className="flex flex-col gap-2">\n            <label htmlFor="intensity" className="text-sm font-medium">\n              Intensity\n            </label>\n            <Input\n              id="intensity"\n              type="number"\n              step="0.1"\n              min="0"\n              max="5"\n              value={intensity}\n              onChange={(e) => setIntensity(Number(e.target.value))}\n              className="h-8"\n            />\n          </div>\n\n          <div className="flex flex-col gap-2">\n            <label htmlFor="density" className="text-sm font-medium">\n              Density\n            </label>\n            <Input\n              id="density"\n              type="number"\n              step="0.1"\n              min="0"\n              max="5"\n              value={density}\n              onChange={(e) => setDensity(Number(e.target.value))}\n              className="h-8"\n            />\n          </div>\n        </div>\n      </div>\n    </div>\n  );\n}',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import('@/registry/demo/blocks/shader/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shader-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/shader-demo',
+  },
+  'shader-hurricane-demo': {
+    name: 'shader-hurricane-demo',
+    description: 'Demo showing hurricane shader component.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/shader'],
+    files: [
+      {
+        path: 'registry/demo/blocks/shader-hurricane/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/shader-hurricane.tsx',
+        content:
+          '\'use client\';\n\nimport React, { useState, useDeferredValue } from \'react\';\nimport { ShaderHurricane } from \'@/components/systaliko-ui/blocks/shader\';\nimport { Input } from \'@/components/systaliko-ui/shadcn/input\';\n\nexport function ShaderHurricaneDemo() {\n  const [color1, setColor1] = useState(\'#00f2fe\');\n  const [color2, setColor2] = useState(\'#4facfe\');\n  const [color3, setColor3] = useState(\'#ffd700\');\n  const [background, setBackground] = useState(\'#0a0a0a\');\n  const [intensity, setIntensity] = useState(1);\n  const [density, setDensity] = useState(1);\n  const [speed, setSpeed] = useState(0.2);\n\n  const deferredColor1 = useDeferredValue(color1);\n  const deferredColor2 = useDeferredValue(color2);\n  const deferredColor3 = useDeferredValue(color3);\n  const deferredBackground = useDeferredValue(background);\n  const deferredIntensity = useDeferredValue(intensity);\n  const deferredDensity = useDeferredValue(density);\n  const deferredSpeed = useDeferredValue(speed);\n\n  return (\n    <div className="relative h-screen w-full overflow-hidden">\n      <ShaderHurricane\n        className="absolute inset-0"\n        colors={[deferredColor1, deferredColor2, deferredColor3]}\n        background={deferredBackground}\n        intensity={deferredIntensity}\n        density={deferredDensity}\n        speed={deferredSpeed}\n      />\n\n      <div className="absolute right-4 top-4 z-10 w-72 rounded-xl border border-border/50 bg-background/50 p-6 backdrop-blur-md">\n        <h3 className="mb-4 text-lg font-semibold tracking-tight">\n          Configuration\n        </h3>\n        <div className="flex flex-col gap-4">\n          <div className="flex flex-col gap-2">\n            <label htmlFor="color1" className="text-sm font-medium">\n              Color 1\n            </label>\n            <div className="flex items-center gap-2">\n              <input\n                type="color"\n                id="color1"\n                value={color1}\n                onChange={(e) => setColor1(e.target.value)}\n                className="h-8 w-8 cursor-pointer rounded border-none bg-transparent p-0"\n              />\n              <Input\n                value={color1}\n                onChange={(e) => setColor1(e.target.value)}\n                className="h-8 font-mono text-xs"\n              />\n            </div>\n          </div>\n\n          <div className="flex flex-col gap-2">\n            <label htmlFor="color2" className="text-sm font-medium">\n              Color 2\n            </label>\n            <div className="flex items-center gap-2">\n              <input\n                type="color"\n                id="color2"\n                value={color2}\n                onChange={(e) => setColor2(e.target.value)}\n                className="h-8 w-8 cursor-pointer rounded border-none bg-transparent p-0"\n              />\n              <Input\n                value={color2}\n                onChange={(e) => setColor2(e.target.value)}\n                className="h-8 font-mono text-xs"\n              />\n            </div>\n          </div>\n\n          <div className="flex flex-col gap-2">\n            <label htmlFor="color3" className="text-sm font-medium">\n              Color 3\n            </label>\n            <div className="flex items-center gap-2">\n              <input\n                type="color"\n                id="color3"\n                value={color3}\n                onChange={(e) => setColor3(e.target.value)}\n                className="h-8 w-8 cursor-pointer rounded border-none bg-transparent p-0"\n              />\n              <Input\n                value={color3}\n                onChange={(e) => setColor3(e.target.value)}\n                className="h-8 font-mono text-xs"\n              />\n            </div>\n          </div>\n\n          <div className="flex flex-col gap-2">\n            <label htmlFor="background" className="text-sm font-medium">\n              Background\n            </label>\n            <div className="flex items-center gap-2">\n              <input\n                type="color"\n                id="background"\n                value={background}\n                onChange={(e) => setBackground(e.target.value)}\n                className="h-8 w-8 cursor-pointer rounded border-none bg-transparent p-0"\n              />\n              <Input\n                value={background}\n                onChange={(e) => setBackground(e.target.value)}\n                className="h-8 font-mono text-xs"\n              />\n            </div>\n          </div>\n\n          <div className="flex flex-col gap-2">\n            <label htmlFor="intensity" className="text-sm font-medium">\n              Intensity\n            </label>\n            <Input\n              id="intensity"\n              type="number"\n              step="0.1"\n              min="0"\n              max="5"\n              value={intensity}\n              onChange={(e) => setIntensity(Number(e.target.value))}\n              className="h-8"\n            />\n          </div>\n\n          <div className="flex flex-col gap-2">\n            <label htmlFor="density" className="text-sm font-medium">\n              Density\n            </label>\n            <Input\n              id="density"\n              type="number"\n              step="0.1"\n              min="0"\n              max="5"\n              value={density}\n              onChange={(e) => setDensity(Number(e.target.value))}\n              className="h-8"\n            />\n          </div>\n\n          <div className="flex flex-col gap-2">\n            <label htmlFor="speed" className="text-sm font-medium">\n              Speed\n            </label>\n            <Input\n              id="speed"\n              type="number"\n              step="0.1"\n              min="0"\n              max="5"\n              value={speed}\n              onChange={(e) => setSpeed(Number(e.target.value))}\n              className="h-8"\n            />\n          </div>\n        </div>\n      </div>\n    </div>\n  );\n}',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/blocks/shader-hurricane/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'shader-hurricane-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/shader-hurricane-demo',
   },
   'slideshow-demo': {
     name: 'slideshow-demo',
@@ -1516,7 +1560,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/timeline'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/timeline'],
     files: [
       {
         path: 'registry/demo/blocks/timeline/index.tsx',
@@ -1706,7 +1750,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/card-testimonial'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/card-testimonial',
+    ],
     files: [
       {
         path: 'registry/demo/cards/card-testimonial/index.tsx',
@@ -1744,7 +1790,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/card-testimonial'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/card-testimonial',
+    ],
     files: [
       {
         path: 'registry/demo/cards/card-testimonial-2/index.tsx',
@@ -1819,7 +1867,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/cards-stack'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/cards-stack'],
     files: [
       {
         path: 'registry/demo/cards/cards-stack-achievements/index.tsx',
@@ -1900,7 +1948,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/cards-stack-rotated'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/cards-stack-rotated',
+    ],
     files: [
       {
         path: 'registry/demo/cards/cards-stack-rotated-recognitions/index.tsx',
@@ -2249,7 +2299,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/ecommerce/expandable-grid'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/ecommerce/expandable-grid',
+    ],
     files: [
       {
         path: 'registry/demo/ecommerce/expandable-grid/index.tsx',
@@ -2287,7 +2339,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/ecommerce/image-zoom'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/ecommerce/image-zoom',
+    ],
     files: [
       {
         path: 'registry/demo/ecommerce/image-zoom/index.tsx',
@@ -2325,7 +2379,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/infinite-scroll'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/infinite-scroll'],
     files: [
       {
         path: 'registry/demo/ecommerce/infinite-scroll/index.tsx',
@@ -2363,7 +2417,10 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/badge', '@systaliko-ui/r/price'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/badge',
+      'https://systaliko-ui.vercel.app/r/price',
+    ],
     files: [
       {
         path: 'registry/demo/ecommerce/price/index.tsx',
@@ -2400,10 +2457,10 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/r/pricing',
-      '@systaliko-ui/r/badge',
-      '@systaliko-ui/r/button',
-      '@systaliko-ui/r/label',
+      'https://systaliko-ui.vercel.app/r/pricing',
+      'https://systaliko-ui.vercel.app/r/badge',
+      'https://systaliko-ui.vercel.app/r/button',
+      'https://systaliko-ui.vercel.app/r/label',
     ],
     files: [
       {
@@ -2411,7 +2468,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/pricing.tsx',
         content:
-          "'use client';\nimport {\n  calculateYearlySavings,\n  Pricing,\n  PricingCard,\n  PricingFeature,\n  PricingIncludesPrevious,\n  PricingIntervalSwitch,\n  PricingPackage,\n  PricingValue,\n} from '@/components/systaliko-ui/ecommerce/pricing';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport { Label } from '@/components/systaliko-ui/shadcn/field';\nimport {\n  ArrowUpRightIcon,\n  Building2Icon,\n  Tally3Icon,\n  UserRoundIcon,\n  UsersRoundIcon,\n} from 'lucide-react';\n\ninterface PlanConfig {\n  id: string;\n  name: string;\n  icon: typeof Tally3Icon;\n  pricing: { monthly: number; yearly: number };\n  features: string[];\n  includesPrevious?: boolean;\n  featured?: boolean;\n}\n\nconst plans: PlanConfig[] = [\n  {\n    id: 'plan-free',\n    name: 'Free',\n    icon: UserRoundIcon,\n    pricing: { monthly: 0, yearly: 0 },\n    features: [\n      '30 monthly tasks',\n      'Up to 3 active projects',\n      'Solo workspace',\n      'Basic reminders and due dates',\n      'Mobile + desktop app',\n      'Community support',\n    ],\n  },\n  {\n    id: 'plan-team',\n    name: 'Team',\n    icon: UsersRoundIcon,\n    pricing: { monthly: 12, yearly: 100 },\n    features: [\n      'Unlimited projects and tasks',\n      'Team workspaces with roles & permissions',\n      'Real-time collaboration & comments',\n      'Kanban, calendar & timeline views',\n      'File sharing + integrations (Google Drive, Slack...)',\n      'Priority email & chat support',\n    ],\n    includesPrevious: true,\n    featured: true,\n  },\n  {\n    id: 'plan-enterprise',\n    name: 'Enterprise',\n    icon: Building2Icon,\n    pricing: { monthly: 24, yearly: 200 },\n    features: [\n      'Workflow automations (triggers & actions)',\n      'Advanced reporting dashboards',\n      'Custom fields & templates',\n      'Time tracking & workload view',\n      'External client access',\n      'SSO + enhanced security',\n    ],\n    includesPrevious: true,\n  },\n];\nexport function PricingDemo() {\n  const savings = calculateYearlySavings(plans[1].pricing);\n\n  return (\n    <div>\n      <Pricing className=\"space-y-4\">\n        <div className=\"mt-6 flex items-center justify-center gap-2\">\n          <PricingIntervalSwitch />\n          <Label className=\"text-muted-foreground\">Billed annually</Label>\n          <Badge\n            className=\"border-emerald-600 rounded-full text-emerald-600\"\n            variant={'outline'}\n          >\n            💰 Save up to {savings}% with annual billing\n          </Badge>\n        </div>\n        <div className=\"flex flex-wrap gap-y-4 -space-x-0.5 justify-center items-end\">\n          {plans.map((plan) => {\n            const Icon = plan.icon;\n            return (\n              <PricingCard\n                variant={plan.featured ? 'featured' : 'default'}\n                className=\"md:flex-1 max-w-md min-w-2xs gap-6 rounded\"\n                key={plan.id}\n              >\n                <PricingPackage className=\"justify-between\">\n                  <h3 className=\"text-xl font-medium\">{plan.name}</h3>\n                  <Icon className=\"size-6 text-primary\" />\n                </PricingPackage>\n\n                <PricingValue\n                  yearlyValue={plan.pricing.yearly}\n                  monthlyValue={plan.pricing.monthly}\n                />\n\n                <div className=\"flex flex-col items-start gap-2\">\n                  {plan.includesPrevious && (\n                    <PricingIncludesPrevious className=\"text-sm text-muted-foreground\">\n                      Everything in previous plan\n                    </PricingIncludesPrevious>\n                  )}\n                  {plan.features.map((feature) => (\n                    <PricingFeature\n                      className=\"text-sm text-muted-foreground\"\n                      key={feature}\n                    >\n                      {feature}\n                    </PricingFeature>\n                  ))}\n                </div>\n\n                <Button\n                  className=\"w-full\"\n                  variant={plan.featured ? 'default' : 'outline'}\n                >\n                  Get Started\n                  <ArrowUpRightIcon className=\"size-4\" />\n                </Button>\n              </PricingCard>\n            );\n          })}\n        </div>\n        <div className=\" text-center text-sm text-muted-foreground\">\n          <p>\n            All plans include a 30-day money-back guarantee. No hidden fees.\n          </p>\n        </div>\n      </Pricing>\n    </div>\n  );\n}",
+          "'use client';\nimport { Separator } from '@/components/ui/separator';\nimport {\n  calculateYearlySavings,\n  Pricing,\n  PricingCard,\n  PricingFeature,\n  PricingIncludesPrevious,\n  PricingIntervalSwitch,\n  PricingPackage,\n  PricingValue,\n} from '@/components/systaliko-ui/ecommerce/pricing';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport { Label } from '@/components/systaliko-ui/shadcn/field';\nimport {\n  ArrowUpRightIcon,\n  Building2Icon,\n  Tally3Icon,\n  UserRoundIcon,\n  UsersRoundIcon,\n} from 'lucide-react';\n\ninterface PlanConfig {\n  id: string;\n  name: string;\n  icon: typeof Tally3Icon;\n  pricing: { monthly: number; yearly: number };\n  features: string[];\n  includesPrevious?: boolean;\n  featured?: boolean;\n}\n\nconst plans: PlanConfig[] = [\n  {\n    id: 'plan-free',\n    name: 'Free',\n    icon: UserRoundIcon,\n    pricing: { monthly: 0, yearly: 0 },\n    features: [\n      '30 monthly tasks',\n      'Up to 3 active projects',\n      'Solo workspace',\n      'Basic reminders and due dates',\n      'Mobile + desktop app',\n      'Community support',\n    ],\n  },\n  {\n    id: 'plan-team',\n    name: 'Team',\n    icon: UsersRoundIcon,\n    pricing: { monthly: 12, yearly: 100 },\n    features: [\n      'Unlimited projects and tasks',\n      'Team workspaces with roles & permissions',\n      'Real-time collaboration & comments',\n      'Kanban, calendar & timeline views',\n      'File sharing + integrations (Google Drive, Slack...)',\n      'Priority email & chat support',\n    ],\n    includesPrevious: true,\n    featured: true,\n  },\n  {\n    id: 'plan-enterprise',\n    name: 'Enterprise',\n    icon: Building2Icon,\n    pricing: { monthly: 24, yearly: 200 },\n    features: [\n      'Workflow automations (triggers & actions)',\n      'Advanced reporting dashboards',\n      'Custom fields & templates',\n      'Time tracking & workload view',\n      'External client access',\n      'SSO + enhanced security',\n    ],\n    includesPrevious: true,\n  },\n];\nexport function PricingDemo() {\n  const savings = calculateYearlySavings(plans[1].pricing);\n\n  return (\n    <div>\n      <Pricing className=\"space-y-4\">\n        <div className=\"mt-6 flex items-center justify-center gap-2\">\n          <PricingIntervalSwitch />\n          <Label className=\"text-muted-foreground\">Billed annually</Label>\n          <Badge\n            className=\"rounded-full shadow-sm shadow-black/15 ring-1 ring-ring/20 py-1 text-green-50 bg-green-600\"\n            variant={'outline'}\n          >\n            💰 Save up to {savings}% with annual billing\n          </Badge>\n        </div>\n        <div className=\"flex flex-wrap gap-y-4 -space-x-0.5 justify-center items-end\">\n          {plans.map((plan) => {\n            const Icon = plan.icon;\n            return (\n              <PricingCard\n                variant={plan.featured ? 'featured' : 'default'}\n                className=\"md:flex-1 max-w-md min-w-2xs gap-6 rounded\"\n                key={plan.id}\n              >\n                <PricingPackage className=\"justify-between\">\n                  <h3 className=\"text-xl font-medium\">{plan.name}</h3>\n                  <div className=\"bg-primary text-primary-foreground p-2 rounded flex justify-center items-center\">\n                    <Icon className=\"size-5\" />\n                  </div>\n                </PricingPackage>\n\n                <PricingValue\n                  yearlyValue={plan.pricing.yearly}\n                  monthlyValue={plan.pricing.monthly}\n                  className=\"font-semibold\"\n                />\n                <Separator />\n\n                <div className=\"flex flex-col items-start gap-2\">\n                  {plan.includesPrevious && (\n                    <PricingIncludesPrevious className=\"text-sm text-muted-foreground\">\n                      Everything in previous plan\n                    </PricingIncludesPrevious>\n                  )}\n                  {plan.features.map((feature) => (\n                    <PricingFeature\n                      className=\"text-sm text-muted-foreground\"\n                      key={feature}\n                    >\n                      {feature}\n                    </PricingFeature>\n                  ))}\n                </div>\n\n                <Button\n                  className=\"w-full\"\n                  variant={plan.featured ? 'default' : 'outline'}\n                >\n                  Get Started\n                  <ArrowUpRightIcon className=\"size-4\" />\n                </Button>\n              </PricingCard>\n            );\n          })}\n        </div>\n        <div className=\" text-center text-sm text-muted-foreground\">\n          <p>\n            All plans include a 30-day money-back guarantee. No hidden fees.\n          </p>\n        </div>\n      </Pricing>\n    </div>\n  );\n}",
       },
     ],
     keywords: [],
@@ -2440,7 +2497,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/pricing'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/pricing'],
     files: [
       {
         path: 'registry/demo/ecommerce/pricing-2/index.tsx',
@@ -2478,7 +2535,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/product-carousel'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/product-carousel',
+    ],
     files: [
       {
         path: 'registry/demo/ecommerce/product-carousel/index.tsx',
@@ -2516,7 +2575,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/product-carousel'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/product-carousel',
+    ],
     files: [
       {
         path: 'registry/demo/ecommerce/product-carousel-2/index.tsx',
@@ -2555,7 +2616,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/product-carousel'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/product-carousel',
+    ],
     files: [
       {
         path: 'registry/demo/ecommerce/product-carousel-3/index.tsx',
@@ -2593,7 +2656,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/ecommerce/quantity'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/ecommerce/quantity',
+    ],
     files: [
       {
         path: 'registry/demo/ecommerce/quantity/index.tsx',
@@ -2631,7 +2696,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/toggle-layout'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/toggle-layout'],
     files: [
       {
         path: 'registry/demo/ecommerce/toggle-layout/index.tsx',
@@ -2669,7 +2734,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/circle-cards'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/circle-cards'],
     files: [
       {
         path: 'registry/demo/scroll-animations/circle-cards/index.tsx',
@@ -2707,7 +2772,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/distributed-cards'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/distributed-cards',
+    ],
     files: [
       {
         path: 'registry/demo/scroll-animations/distributed-cards/index.tsx',
@@ -2745,7 +2812,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/distributed-cards-2'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/distributed-cards-2',
+    ],
     files: [
       {
         path: 'registry/demo/scroll-animations/distributed-cards-2/index.tsx',
@@ -3227,7 +3296,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/scroll-autoplay'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/scroll-autoplay'],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-autoplay/index.tsx',
@@ -3266,8 +3335,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/r/scroll-animations',
-      '@systaliko-ui/r/grid-bento',
+      'https://systaliko-ui.vercel.app/r/scroll-animations',
+      'https://systaliko-ui.vercel.app/r/grid-bento',
     ],
     files: [
       {
@@ -3428,7 +3497,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/wavy-block'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/wavy-block'],
     files: [
       {
         path: 'registry/demo/scroll-animations/wavy-block/index.tsx',
@@ -3539,6 +3608,46 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@systaliko-ui/text-stagger-hover-demo',
+  },
+  'text-stagger-interval-demo': {
+    name: 'text-stagger-interval-demo',
+    description: 'Demo showing text with stagger animation interval.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/text-stagger-interval',
+    ],
+    files: [
+      {
+        path: 'registry/demo/text/text-stagger-interval/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/text/text-stagger-interval.tsx',
+        content:
+          '\'use client\';\n\nimport React, { useState } from \'react\';\nimport { TextStaggerInterval } from \'@/components/systaliko-ui/text/text-stagger-interval\';\nimport { Input } from \'@/components/systaliko-ui/shadcn/input\';\nimport { Switch } from \'@/components/systaliko-ui/shadcn/switch\';\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  StaggerInput,\n  useSetAnimationConfig,\n} from \'@/components/docs/animation-config\';\n\nconst TextStaggerIntervalDemoContent = () => {\n  const { animation, staggerValue } = useSetAnimationConfig();\n  const [intervalTime, setIntervalTime] = useState(2000);\n  const [pauseOnHover, setPauseOnHover] = useState(true);\n\n  return (\n    <div className="flex h-80 flex-col justify-between gap-8">\n      <div className="flex flex-col gap-4 items-start md:flex-row md:items-end">\n        <AnimationSelector />\n        <StaggerInput />\n\n        <div className="flex flex-col gap-2">\n          <label className="text-sm font-medium" htmlFor="interval-input">\n            Interval (ms)\n          </label>\n          <Input\n            id="interval-input"\n            className="w-[120px]"\n            type="number"\n            step={100}\n            min={500}\n            value={intervalTime}\n            onChange={(e) => setIntervalTime(Number(e.target.value))}\n          />\n        </div>\n\n        <div className="flex flex-col gap-2">\n          <label className="text-sm font-medium" htmlFor="pause-hover">\n            Pause on Hover\n          </label>\n          <div className="flex h-9 items-center">\n            <Switch\n              id="pause-hover"\n              checked={pauseOnHover}\n              onCheckedChange={setPauseOnHover}\n            />\n          </div>\n        </div>\n      </div>\n\n      <div className="flex items-center justify-center py-10">\n        <h2 className="text-4xl font-bold uppercase tracking-tighter sm:text-5xl">\n          <TextStaggerInterval\n            words={[\n              \'Modern UI\',\n              \'Creative Layouts\',\n              \'Dynamic Sites\',\n              \'Sleek Designs\',\n            ]}\n            animation={animation}\n            staggerValue={staggerValue}\n            interval={intervalTime}\n            pauseOnHover={pauseOnHover}\n            className="text-primary"\n          />\n        </h2>\n      </div>\n    </div>\n  );\n};\n\nexport function TextStaggerIntervalDemo() {\n  return (\n    <AnimationConfig>\n      <TextStaggerIntervalDemoContent />\n    </AnimationConfig>\n  );\n}',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/text/text-stagger-interval/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'text-stagger-interval-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/text-stagger-interval-demo',
   },
   'text-stagger-inview-demo': {
     name: 'text-stagger-inview-demo',
@@ -3742,7 +3851,10 @@ export const index: Record<string, any> = {
     type: 'registry:hook',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/set-stagger-direction', 'motion'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/set-stagger-direction',
+      'motion',
+    ],
     files: [
       {
         path: 'registry/demo/utils/set-stagger-direction/index.tsx',
@@ -3855,7 +3967,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/shadcn/spinner'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/spinner'],
     files: [
       {
         path: 'registry/ecommerce/infinite-scroll/index.tsx',
@@ -3938,7 +4050,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/pricing.tsx',
         content:
-          "'use client';\nimport { cn } from '@/lib/utils';\nimport { Switch } from '@/components/systaliko-ui/shadcn/switch';\nimport { cva, VariantProps } from 'class-variance-authority';\nimport { CheckIcon, PlusIcon, XIcon } from 'lucide-react';\nimport React from 'react';\ninterface Price {\n  amount: number;\n  currency: string;\n  interval?: 'month' | 'year' | 'week' | 'day' | 'one-time';\n  discount?: number;\n}\n\ninterface PriceFormatOptions {\n  locale?: string;\n  showCurrency?: boolean;\n  showDecimals?: boolean;\n  compact?: boolean;\n  notation?: 'standard' | 'compact' | 'scientific' | 'engineering';\n}\n\nfunction formatPrice(price: Price, options: PriceFormatOptions = {}): string {\n  const {\n    locale = 'en-US',\n    showCurrency = true,\n    showDecimals = true,\n    compact = false,\n    notation = 'standard',\n  } = options;\n\n  const formatter = new Intl.NumberFormat(locale, {\n    style: showCurrency ? 'currency' : 'decimal',\n    currency: price.currency,\n    minimumFractionDigits: showDecimals ? 2 : 0,\n    maximumFractionDigits: showDecimals ? 2 : 0,\n    notation: compact ? 'compact' : notation,\n  });\n\n  return formatter.format(price.amount);\n}\n\nfunction calculateFinalPrice(price: Price): number {\n  if (price.discount) {\n    return price.amount * (1 - price.discount / 100);\n  }\n  return price.amount;\n}\n\nexport interface PriceProps extends React.HTMLAttributes<HTMLDivElement> {\n  price: Price;\n  options?: PriceFormatOptions;\n  animated?: boolean;\n}\n\nexport function Price({\n  price,\n  options,\n  className,\n  children,\n  animated = false,\n  ...props\n}: PriceProps) {\n  const finalPrice = calculateFinalPrice(price);\n  const [displayValue, setDisplayValue] = React.useState(finalPrice);\n  const [isAnimating, setIsAnimating] = React.useState(false);\n  const prevValueRef = React.useRef(finalPrice);\n\n  React.useEffect(() => {\n    if (animated && prevValueRef.current !== finalPrice) {\n      setIsAnimating(true);\n      const duration = 400;\n      const steps = 20;\n      const stepDuration = duration / steps;\n      const diff = finalPrice - prevValueRef.current;\n      const stepValue = diff / steps;\n\n      let currentStep = 0;\n      const timer = setInterval(() => {\n        currentStep++;\n        if (currentStep === steps) {\n          setDisplayValue(finalPrice);\n          setIsAnimating(false);\n          clearInterval(timer);\n        } else {\n          setDisplayValue(prevValueRef.current + stepValue * currentStep);\n        }\n      }, stepDuration);\n\n      prevValueRef.current = finalPrice;\n      return () => clearInterval(timer);\n    } else if (!animated) {\n      setDisplayValue(finalPrice);\n    }\n  }, [finalPrice, animated]);\n\n  const displayPrice = animated ? displayValue : finalPrice;\n\n  return (\n    <div className={cn('tabular-nums', className)} {...props}>\n      {price.discount ? (\n        <div className=\"flex items-baseline gap-2\">\n          <span className=\"text-muted-foreground/60 line-through text-sm\">\n            {formatPrice(price, options)}\n          </span>\n          <span\n            className={cn(\n              'transition-transform duration-300',\n              isAnimating && 'scale-105',\n            )}\n          >\n            {formatPrice({ ...price, amount: displayPrice }, options)}\n          </span>\n        </div>\n      ) : (\n        <span\n          className={cn(\n            'transition-transform duration-300',\n            isAnimating && 'scale-105',\n          )}\n        >\n          {formatPrice({ ...price, amount: displayPrice }, options)}\n        </span>\n      )}\n      {children}\n    </div>\n  );\n}\n\nconst pricingCardVariants = cva(\n  'group relative border-2 p-6 flex flex-col space-y-6 bg-card transition-all duration-300 hover:shadow-[0_8px_40px_-12px_rgba(0,0,0,0.1)]',\n  {\n    variants: {\n      variant: {\n        default: 'border-border/20 hover:border-border/50 ',\n        featured: 'border-primary/50 z-2 hover:border-primary',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\ntype PricingInterval = 'monthly' | 'yearly';\ninterface PricingDuration {\n  monthly: number;\n  yearly: number;\n}\n\ninterface PricingContextValue {\n  interval: PricingInterval;\n  toggleInterval: () => void;\n  savings?: number;\n}\nconst PricingContext = React.createContext<PricingContextValue | undefined>(\n  undefined,\n);\nfunction usePricingContext() {\n  const context = React.useContext(PricingContext);\n  if (context === undefined) {\n    throw new Error('usePricingContext must be used within a PricingProvider');\n  }\n  return context;\n}\nexport function calculateYearlySavings(pricing: PricingDuration): number {\n  const yearlyTotal = pricing.monthly * 12;\n  const savings = yearlyTotal - pricing.yearly;\n  return Math.round((savings / yearlyTotal) * 100);\n}\n\nexport function Pricing({ ...props }: React.HTMLAttributes<HTMLDivElement>) {\n  const [interval, setInterval] = React.useState<PricingInterval>('monthly');\n\n  const toggleInterval = () => {\n    setInterval((prevState) =>\n      prevState === 'monthly' ? 'yearly' : 'monthly',\n    );\n  };\n  return (\n    <PricingContext.Provider value={{ interval, toggleInterval }}>\n      <div {...props} />\n    </PricingContext.Provider>\n  );\n}\n\nexport function PricingCard({\n  className,\n  variant,\n  ...props\n}: React.ComponentProps<'div'> & VariantProps<typeof pricingCardVariants>) {\n  return (\n    <div\n      className={cn(pricingCardVariants({ variant, className }))}\n      {...props}\n    />\n  );\n}\n\nexport function PricingFeature({\n  children,\n  className,\n  ...props\n}: React.HtmlHTMLAttributes<HTMLDivElement>) {\n  return (\n    <div className={cn('inline-flex items-center gap-3', className)} {...props}>\n      <div className=\"shrink-0 size-5 rounded-full inline-flex items-center justify-center\">\n        <CheckIcon className=\"size-3.5\" />\n      </div>\n      {children}\n    </div>\n  );\n}\nexport function PricingIncludesPrevious({\n  children,\n  className,\n  ...props\n}: React.HtmlHTMLAttributes<HTMLDivElement>) {\n  return (\n    <div className={cn('inline-flex items-center gap-3', className)} {...props}>\n      <div className=\"shrink-0 size-5 rounded-full inline-flex items-center justify-center\">\n        <PlusIcon className=\"size-3.5\" />\n      </div>\n      {children}\n    </div>\n  );\n}\nexport function PricingExclude({\n  children,\n  className,\n  ...props\n}: React.HtmlHTMLAttributes<HTMLDivElement>) {\n  return (\n    <div className={cn('inline-flex items-center gap-3', className)} {...props}>\n      <div className=\"shrink-0 size-5 rounded-full inline-flex items-center justify-center\">\n        <XIcon className=\"size-3.5\" />\n      </div>\n      {children}\n    </div>\n  );\n}\nexport function PricingPackage({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn('inline-flex items-center gap-1', className)}\n      {...props}\n    />\n  );\n}\nexport function PricingIntervalSwitch({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLButtonElement>) {\n  const { toggleInterval } = usePricingContext();\n  return (\n    <Switch\n      className={cn('inline-flex items-center gap-1', className)}\n      id=\"yearly-pricing\"\n      onCheckedChange={toggleInterval}\n      {...props}\n    />\n  );\n}\ninterface PricingValueProps extends React.HTMLAttributes<HTMLDivElement> {\n  monthlyValue: number;\n  yearlyValue: number;\n}\nexport function PricingValue({\n  monthlyValue,\n  yearlyValue,\n\n  ...props\n}: PricingValueProps) {\n  const { interval } = usePricingContext();\n  const currentPrice = interval === 'monthly' ? monthlyValue : yearlyValue;\n\n  return (\n    <Price\n      {...props}\n      price={{\n        amount: currentPrice,\n        currency: 'USD',\n        interval: interval === 'monthly' ? 'month' : 'year',\n      }}\n      options={{ showDecimals: false }}\n      animated={true}\n      className=\"inline-flex gap-1 tracking-tighter items-center text-4xl\"\n    >\n      <span className=\"text-muted-foreground text-sm font-normal tracking-normal\">\n        /{interval === 'monthly' ? 'per month' : 'per year'}\n      </span>\n    </Price>\n  );\n}",
+          "'use client';\nimport { cn } from '@/lib/utils';\nimport { Switch } from '@/components/systaliko-ui/shadcn/switch';\nimport { cva, VariantProps } from 'class-variance-authority';\nimport { CheckIcon, PlusIcon, XIcon } from 'lucide-react';\nimport React from 'react';\ninterface Price {\n  amount: number;\n  currency: string;\n  interval?: 'month' | 'year' | 'week' | 'day' | 'one-time';\n  discount?: number;\n}\n\ninterface PriceFormatOptions {\n  locale?: string;\n  showCurrency?: boolean;\n  showDecimals?: boolean;\n  compact?: boolean;\n  notation?: 'standard' | 'compact' | 'scientific' | 'engineering';\n}\n\nfunction formatPrice(price: Price, options: PriceFormatOptions = {}): string {\n  const {\n    locale = 'en-US',\n    showCurrency = true,\n    showDecimals = true,\n    compact = false,\n    notation = 'standard',\n  } = options;\n\n  const formatter = new Intl.NumberFormat(locale, {\n    style: showCurrency ? 'currency' : 'decimal',\n    currency: price.currency,\n    minimumFractionDigits: showDecimals ? 2 : 0,\n    maximumFractionDigits: showDecimals ? 2 : 0,\n    notation: compact ? 'compact' : notation,\n  });\n\n  return formatter.format(price.amount);\n}\n\nfunction calculateFinalPrice(price: Price): number {\n  if (price.discount) {\n    return price.amount * (1 - price.discount / 100);\n  }\n  return price.amount;\n}\n\nexport interface PriceProps extends React.HTMLAttributes<HTMLDivElement> {\n  price: Price;\n  options?: PriceFormatOptions;\n  animated?: boolean;\n}\n\nexport function Price({\n  price,\n  options,\n  className,\n  children,\n  animated = false,\n  ...props\n}: PriceProps) {\n  const finalPrice = calculateFinalPrice(price);\n  const [displayValue, setDisplayValue] = React.useState(finalPrice);\n  const [isAnimating, setIsAnimating] = React.useState(false);\n  const prevValueRef = React.useRef(finalPrice);\n\n  React.useEffect(() => {\n    if (animated && prevValueRef.current !== finalPrice) {\n      setIsAnimating(true);\n      const duration = 400;\n      const steps = 20;\n      const stepDuration = duration / steps;\n      const diff = finalPrice - prevValueRef.current;\n      const stepValue = diff / steps;\n\n      let currentStep = 0;\n      const timer = setInterval(() => {\n        currentStep++;\n        if (currentStep === steps) {\n          setDisplayValue(finalPrice);\n          setIsAnimating(false);\n          clearInterval(timer);\n        } else {\n          setDisplayValue(prevValueRef.current + stepValue * currentStep);\n        }\n      }, stepDuration);\n\n      prevValueRef.current = finalPrice;\n      return () => clearInterval(timer);\n    } else if (!animated) {\n      setDisplayValue(finalPrice);\n    }\n  }, [finalPrice, animated]);\n\n  const displayPrice = animated ? displayValue : finalPrice;\n\n  return (\n    <div className={cn('tabular-nums', className)} {...props}>\n      {price.discount ? (\n        <div className=\"flex items-baseline gap-2\">\n          <span className=\"text-muted-foreground/60 line-through text-sm\">\n            {formatPrice(price, options)}\n          </span>\n          <span\n            className={cn(\n              'transition-transform duration-300',\n              isAnimating && 'scale-105',\n            )}\n          >\n            {formatPrice({ ...price, amount: displayPrice }, options)}\n          </span>\n        </div>\n      ) : (\n        <span\n          className={cn(\n            'transition-transform duration-300',\n            isAnimating && 'scale-105',\n          )}\n        >\n          {formatPrice({ ...price, amount: displayPrice }, options)}\n        </span>\n      )}\n      {children}\n    </div>\n  );\n}\n\nconst pricingCardVariants = cva(\n  'group relative border-2 p-6 flex flex-col space-y-6 bg-card transition-all duration-300 hover:shadow-[0_8px_40px_-12px_rgba(0,0,0,0.1)]',\n  {\n    variants: {\n      variant: {\n        default: 'border-border/20 hover:border-border/50 ',\n        featured: 'border-primary/50 z-2 hover:border-primary',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\ntype PricingInterval = 'monthly' | 'yearly';\ninterface PricingDuration {\n  monthly: number;\n  yearly: number;\n}\n\ninterface PricingContextValue {\n  interval: PricingInterval;\n  toggleInterval: () => void;\n  savings?: number;\n}\nconst PricingContext = React.createContext<PricingContextValue | undefined>(\n  undefined,\n);\nfunction usePricingContext() {\n  const context = React.useContext(PricingContext);\n  if (context === undefined) {\n    throw new Error('usePricingContext must be used within a PricingProvider');\n  }\n  return context;\n}\nexport function calculateYearlySavings(pricing: PricingDuration): number {\n  const yearlyTotal = pricing.monthly * 12;\n  const savings = yearlyTotal - pricing.yearly;\n  return Math.round((savings / yearlyTotal) * 100);\n}\n\nexport function Pricing({ ...props }: React.HTMLAttributes<HTMLDivElement>) {\n  const [interval, setInterval] = React.useState<PricingInterval>('monthly');\n\n  const toggleInterval = () => {\n    setInterval((prevState) =>\n      prevState === 'monthly' ? 'yearly' : 'monthly',\n    );\n  };\n  return (\n    <PricingContext.Provider value={{ interval, toggleInterval }}>\n      <div {...props} />\n    </PricingContext.Provider>\n  );\n}\n\nexport function PricingCard({\n  className,\n  variant,\n  ...props\n}: React.ComponentProps<'div'> & VariantProps<typeof pricingCardVariants>) {\n  return (\n    <div\n      className={cn(pricingCardVariants({ variant, className }))}\n      {...props}\n    />\n  );\n}\n\nexport function PricingFeature({\n  children,\n  className,\n  ...props\n}: React.HtmlHTMLAttributes<HTMLDivElement>) {\n  return (\n    <div className={cn('inline-flex items-center gap-3', className)} {...props}>\n      <div className=\"shrink-0 size-5 rounded-full inline-flex items-center justify-center\">\n        <CheckIcon className=\"size-3.5\" />\n      </div>\n      {children}\n    </div>\n  );\n}\nexport function PricingIncludesPrevious({\n  children,\n  className,\n  ...props\n}: React.HtmlHTMLAttributes<HTMLDivElement>) {\n  return (\n    <div className={cn('inline-flex items-center gap-3', className)} {...props}>\n      <div className=\"shrink-0 size-5 rounded-full inline-flex items-center justify-center\">\n        <PlusIcon className=\"size-3.5\" />\n      </div>\n      {children}\n    </div>\n  );\n}\nexport function PricingExclude({\n  children,\n  className,\n  ...props\n}: React.HtmlHTMLAttributes<HTMLDivElement>) {\n  return (\n    <div className={cn('inline-flex items-center gap-3', className)} {...props}>\n      <div className=\"shrink-0 size-5 rounded-full inline-flex items-center justify-center\">\n        <XIcon className=\"size-3.5\" />\n      </div>\n      {children}\n    </div>\n  );\n}\nexport function PricingPackage({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLDivElement>) {\n  return (\n    <div\n      className={cn('inline-flex items-center gap-1', className)}\n      {...props}\n    />\n  );\n}\nexport function PricingIntervalSwitch({\n  className,\n  ...props\n}: React.HTMLAttributes<HTMLButtonElement>) {\n  const { toggleInterval } = usePricingContext();\n  return (\n    <Switch\n      className={cn('inline-flex items-center gap-1', className)}\n      id=\"yearly-pricing\"\n      onCheckedChange={toggleInterval}\n      {...props}\n    />\n  );\n}\ninterface PricingValueProps extends React.HTMLAttributes<HTMLDivElement> {\n  monthlyValue: number;\n  yearlyValue: number;\n}\nexport function PricingValue({\n  monthlyValue,\n  yearlyValue,\n  className,\n  ...props\n}: PricingValueProps) {\n  const { interval } = usePricingContext();\n  const currentPrice = interval === 'monthly' ? monthlyValue : yearlyValue;\n\n  return (\n    <Price\n      {...props}\n      price={{\n        amount: currentPrice,\n        currency: 'USD',\n        interval: interval === 'monthly' ? 'month' : 'year',\n      }}\n      options={{ showDecimals: false }}\n      animated={true}\n      className={cn(\n        'inline-flex gap-1 tracking-tighter items-center text-4xl',\n        className,\n      )}\n    >\n      <span className=\"text-muted-foreground text-sm font-normal tracking-normal\">\n        /{interval === 'monthly' ? 'per month' : 'per year'}\n      </span>\n    </Price>\n  );\n}",
       },
     ],
     keywords: [],
@@ -4006,7 +4118,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/shadcn/button'],
+    registryDependencies: undefined,
     files: [
       {
         path: 'registry/ecommerce/quantity/index.tsx',
@@ -4789,7 +4901,7 @@ export const index: Record<string, any> = {
       {
         path: 'registry/text/text-flip/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/text/text-flip.tsx',
+        target: 'components/systaliko-ui/text-flip.tsx',
         content:
           "import { cn } from '@/lib/utils';\nimport * as React from 'react';\n\ninterface TextFlipProps extends React.HTMLAttributes<HTMLElement> {\n  as?: React.ElementType;\n}\n\nexport function TextFlip({\n  as: Component = 'span',\n  className,\n  style,\n  children,\n  ...props\n}: TextFlipProps) {\n  return (\n    <Component\n      className={cn(\n        'group hover:rotate-x-90 relative size-full py-0.5 px-1.5 text-nowrap inline-flex justify-center items-center transition-transform duration-700 ease-[cubic-bezier(0.75,0,0.24,1)] backface-hidden',\n        className,\n      )}\n      style={{\n        transformStyle: 'preserve-3d',\n        ...style,\n      }}\n      {...props}\n    >\n      <span className=\"group-hover:-translate-y-full group-hover:opacity-0 transition-transform duration-700 ease-[cubic-bezier(0.75,0,0.24,1)]\">\n        {children}\n      </span>\n      <span\n        className={cn(\n          'absolute inset-0 -rotate-x-90 opacity-0',\n          'group-hover:opacity-100 group-hover:translate-y-0',\n          'transition-transform duration-700 ease-[cubic-bezier(0.75,0,0.24,1)]',\n          'flex items-center justify-center',\n          'transform-[rotateX(-90deg)_translateY(50%)] origin-[center_bottom]',\n        )}\n      >\n        {children}\n      </span>\n    </Component>\n  );\n}",
       },
@@ -4820,12 +4932,12 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: [],
+    registryDependencies: undefined,
     files: [
       {
         path: 'registry/text/text-scroll-read/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/text/text-scroll-read.tsx',
+        target: 'components/systaliko-ui/text-scroll-read.tsx',
         content:
           "'use client';\nimport { cn } from '@/lib/utils';\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  useScroll,\n  useTransform,\n} from 'motion/react';\nimport * as React from 'react';\n\ninterface TextScrollReadProps extends React.HTMLAttributes<HTMLDivElement> {\n  // eslint-disable-next-line @typescript-eslint/no-explicit-any\n  offset?: any;\n  yRange?: number[];\n  wrapperClassName?: string;\n  spaceClass?: string;\n}\ninterface TextScrollReadContextValue {\n  scrollYProgress: MotionValue<number>;\n}\nconst TextScrollReadContext = React.createContext<\n  TextScrollReadContextValue | undefined\n>(undefined);\nexport function useTextScrollReadContext() {\n  const context = React.useContext(TextScrollReadContext);\n  if (!context) {\n    throw new Error(\n      'useTextScrollReadContext must be used within a TextScrollReadContextProvider',\n    );\n  }\n  return context;\n}\nexport function TextScrollRead({\n  spaceClass,\n  offset = ['start end', 'center start'],\n  children,\n  className,\n  ...props\n}: TextScrollReadProps) {\n  const ref = React.useRef<HTMLDivElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: ref,\n    offset: offset,\n  });\n  return (\n    <TextScrollReadContext.Provider value={{ scrollYProgress }}>\n      <div ref={ref} className={cn('relative', className)} {...props}>\n        {children}\n        <div className={cn('h-60', spaceClass)} />\n      </div>\n    </TextScrollReadContext.Provider>\n  );\n}\n\nexport function TextScrollReadWrap({\n  yInput = [0, 1],\n  yRange = [0, 240],\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  yInput?: number[];\n  yRange?: number[];\n  style?: React.CSSProperties;\n}) {\n  const { scrollYProgress } = useTextScrollReadContext();\n  const y = useTransform(scrollYProgress, yInput, yRange);\n\n  return (\n    <motion.div\n      style={{\n        y,\n        willChange: 'transform',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}\n\nexport function ClipText({\n  className,\n  style,\n  ...props\n}: HTMLMotionProps<'span'>) {\n  const { scrollYProgress } = useTextScrollReadContext();\n  const backgroundPositionX = useTransform(\n    scrollYProgress,\n    [0, 1],\n    ['100%', '0%'],\n  );\n  return (\n    <motion.span\n      className={cn(\n        'bg-[length:200%_100%] text-transparent bg-clip-text bg-no-repeat bg-scroll',\n        'bg-[linear-gradient(-90deg,rgba(0,0,0,0.05)_50%,rgb(0,0,0)_50%)]',\n        className,\n      )}\n      style={{\n        backgroundPositionX,\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}",
       },
@@ -4858,17 +4970,17 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/default-set-stagger-direction',
-      'https://systaliko-ui.vercel.app/r/default-split-text',
-      'https://systaliko-ui.vercel.app/r/default-animation-variants',
+      'https://systaliko-ui.vercel.app/r/set-stagger-direction',
+      'https://systaliko-ui.vercel.app/r/split-text',
+      'https://systaliko-ui.vercel.app/r/animation-variants',
     ],
     files: [
       {
         path: 'registry/text/text-stagger-hover/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/text/text-stagger-hover.tsx',
+        target: 'components/systaliko-ui/text-stagger-hover.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport { cn } from '@/lib/utils';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport {\n  ANIMATION_VARIANTS,\n  AnimationT,\n} from '@/components/systaliko-ui/utils/animation-variants';\nimport {\n  setStaggerDirection,\n  StaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\n\ninterface TextStaggerHoverContextValue {\n  isMouseIn: boolean;\n}\nconst TextStaggerHoverContext = React.createContext<\n  TextStaggerHoverContextValue | undefined\n>(undefined);\nfunction useTextStaggerHoverContext() {\n  const context = React.useContext(TextStaggerHoverContext);\n  if (!context) {\n    throw new Error(\n      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',\n    );\n  }\n  return context;\n}\n\nexport const TextStaggerHover = ({\n  children,\n  className,\n  ...props\n}: React.ComponentProps<'span'>) => {\n  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);\n  const handleMouse = () => setIsMouseIn((prevState) => !prevState);\n\n  return (\n    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>\n      <span\n        className={cn('inline-block relative overflow-hidden', className)}\n        {...props}\n        onMouseEnter={handleMouse}\n        onMouseLeave={handleMouse}\n      >\n        {children}\n      </span>\n    </TextStaggerHoverContext.Provider>\n  );\n};\n\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport const TextStaggerHoverActive = ({\n  animation = 'bottom',\n  staggerDirection = 'first',\n  className,\n  children,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = ANIMATION_VARIANTS[animation];\n\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}-hidden`}\n            variants={animationVariants}\n            initial=\"visible\"\n            animate={isMouseIn ? 'hidden' : 'visible'}\n            transition={{\n              delay: staggerDelay,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};\n\nexport const TextStaggerHoverHidden = ({\n  animation = 'top',\n  staggerDirection = 'first',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) => {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = ANIMATION_VARIANTS[animation];\n  const { isMouseIn } = useTextStaggerHoverContext();\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => {\n        const staggerDelay = setStaggerDirection({\n          direction: staggerDirection,\n          totalItems: characterCount,\n          index,\n        });\n        return (\n          <motion.span\n            className=\"inline-block\"\n            key={`${char}-${index}-hidden`}\n            variants={animationVariants}\n            initial=\"hidden\"\n            animate={isMouseIn ? 'visible' : 'hidden'}\n            transition={{\n              delay: staggerDelay,\n              ...transition,\n            }}\n            {...props}\n          >\n            {char}\n            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}\n          </motion.span>\n        );\n      })}\n    </span>\n  );\n};",
+          "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport {\n  ANIMATION_VARIANTS,\n  AnimationT,\n} from '@/components/systaliko-ui/utils/animation-variants';\nimport {\n  setStaggerDirection,\n  StaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\n\ntype NewVariants = {\n  hovered: {\n    x?: string | number;\n    y?: string | number;\n    opacity: number;\n    scale?: number;\n    filter?: string;\n  };\n  initial: {\n    x?: string | number;\n    y?: string | number;\n    opacity: number;\n    scale?: number;\n    filter?: string;\n  };\n};\n\nconst animation_variants_text_active = Object.entries(\n  ANIMATION_VARIANTS,\n).reduce(\n  (acc, [key, value]) => {\n    acc[key as keyof typeof ANIMATION_VARIANTS] = {\n      hovered: value.hidden,\n      initial: value.visible,\n    };\n    return acc;\n  },\n  {} as Record<keyof typeof ANIMATION_VARIANTS, NewVariants>,\n);\nconst animation_variants_text_hidden = Object.entries(\n  ANIMATION_VARIANTS,\n).reduce(\n  (acc, [key, value]) => {\n    acc[key as keyof typeof ANIMATION_VARIANTS] = {\n      initial: value.hidden,\n      hovered: value.visible,\n    };\n    return acc;\n  },\n  {} as Record<keyof typeof ANIMATION_VARIANTS, NewVariants>,\n);\n\nexport function TextStaggerHover({\n  className,\n  ...props\n}: HTMLMotionProps<'span'>) {\n  return (\n    <motion.span\n      className={cn(\n        'grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1 place-content-center relative overflow-hidden',\n        className,\n      )}\n      initial={'initial'}\n      whileHover={'hovered'}\n      data-slot=\"text-stagger-hover\"\n      {...props}\n    />\n  );\n}\ninterface CharacterProps extends HTMLMotionProps<'span'> {\n  char: string;\n  index: number;\n  wordLength: number;\n  staggerDirection?: StaggerDirection;\n}\nfunction Character({\n  char,\n  index,\n  wordLength,\n  staggerDirection = 'first',\n  transition,\n  ...props\n}: CharacterProps) {\n  const staggerDelay = setStaggerDirection({\n    direction: staggerDirection,\n    totalItems: wordLength,\n    index,\n  });\n  return (\n    <motion.span\n      className=\"inline-block\"\n      transition={{\n        delay: staggerDelay,\n        ...transition,\n      }}\n      {...props}\n    >\n      {char}\n      {char === ' ' && index < wordLength - 1 && <>&nbsp;</>}\n    </motion.span>\n  );\n}\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport function TextStaggerHoverActive({\n  animation = 'bottom',\n  staggerDirection = 'first',\n  className,\n  children,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = animation_variants_text_active[animation];\n\n  return (\n    <span\n      data-slot=\"text-stagger-hover-active\"\n      className={cn('inline-block', className)}\n    >\n      {characters.map((char, index) => (\n        <Character\n          className=\"inline-block\"\n          char={char}\n          index={index}\n          wordLength={characterCount}\n          staggerDirection={staggerDirection}\n          key={`${char}-${index}-hidden`}\n          variants={animationVariants}\n          transition={{\n            ...transition,\n          }}\n          {...props}\n        />\n      ))}\n    </span>\n  );\n}\n\nexport function TextStaggerHoverHidden({\n  animation = 'top',\n  staggerDirection = 'first',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = animation_variants_text_hidden[animation];\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => (\n        <Character\n          className=\"inline-block\"\n          index={index}\n          char={char}\n          wordLength={characterCount}\n          staggerDirection={staggerDirection}\n          key={`${char}-${index}-hidden`}\n          variants={animationVariants}\n          transition={{\n            ...transition,\n          }}\n          {...props}\n        />\n      ))}\n    </span>\n  );\n}",
       },
     ],
     keywords: [],
@@ -4893,6 +5005,49 @@ export const index: Record<string, any> = {
     })(),
     command: '@systaliko-ui/text-stagger-hover',
   },
+  'text-stagger-interval': {
+    name: 'text-stagger-interval',
+    description:
+      'Staggered text display that cycles through a list of words at a specified interval. Pause the animation by hovering over the component.',
+    type: 'registry:ui',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/set-stagger-direction',
+      'https://systaliko-ui.vercel.app/r/split-text',
+      'https://systaliko-ui.vercel.app/r/animation-variants',
+    ],
+    files: [
+      {
+        path: 'registry/text/text-stagger-interval/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/text-stagger-interval.tsx',
+        content:
+          "'use client';\nimport * as React from 'react';\n\nimport { AnimatePresence, motion, MotionConfig, Variants } from 'motion/react';\nimport {\n  ANIMATION_VARIANTS,\n  AnimationT,\n} from '@/components/systaliko-ui/utils/animation-variants';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({ children, animation, ...props }: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n\n  return (\n    <span className=\"inline-block text-nowrap\" {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n        >\n          {char === ' ' ? '\\u00A0' : char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}\n\nfunction buildContainerVariants(staggerValue: number): Variants {\n  return {\n    hidden: {\n      transition: {\n        staggerChildren: staggerValue,\n        staggerDirection: -1,\n      },\n    },\n    visible: {\n      transition: {\n        delayChildren: 0.1,\n        staggerChildren: staggerValue,\n        staggerDirection: 1,\n      },\n    },\n  };\n}\n\nexport interface TextStaggerIntervalProps extends React.ComponentProps<'span'> {\n  words: string[];\n  /**\n   * Time in milliseconds each word is fully visible before transitioning\n   * to the next one.\n   * @default 2000\n   */\n  interval?: number;\n  /**\n   * Per-character stagger delay in seconds.\n   * @default 0.03\n   */\n  staggerValue?: number;\n  animation?: AnimationT;\n  /**\n   * Pause the interval while the user hovers over the element.\n   * @default true\n   */\n  pauseOnHover?: boolean;\n  /** Extra class names applied to the outer wrapper. */\n}\n\nexport function TextStaggerInterval({\n  words,\n  interval = 2000,\n  staggerValue = 0.03,\n  animation,\n  pauseOnHover = true,\n  ...props\n}: TextStaggerIntervalProps) {\n  const [currentIndex, setCurrentIndex] = React.useState(0);\n  const [isPaused, setIsPaused] = React.useState(false);\n\n  React.useEffect(() => {\n    if (isPaused) return;\n\n    const id = setInterval(() => {\n      setCurrentIndex((prev) => (prev + 1) % words.length);\n    }, interval);\n\n    return () => clearInterval(id);\n  }, [words.length, interval, isPaused]);\n\n  const containerVariants = React.useMemo(\n    () => buildContainerVariants(staggerValue),\n    [staggerValue],\n  );\n\n  return (\n    <span\n      onMouseEnter={pauseOnHover ? () => setIsPaused(true) : undefined}\n      onMouseLeave={pauseOnHover ? () => setIsPaused(false) : undefined}\n      {...props}\n    >\n      <AnimatePresence mode=\"wait\">\n        <motion.span\n          key={currentIndex}\n          className=\"inline-block\"\n          initial=\"hidden\"\n          animate=\"visible\"\n          exit=\"hidden\"\n          variants={containerVariants}\n        >\n          <MotionConfig transition={{ ease: 'easeOut' }}>\n            <WordStagger animation={animation}>\n              {words[currentIndex]}\n            </WordStagger>\n          </MotionConfig>\n        </motion.span>\n      </AnimatePresence>\n    </span>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/text/text-stagger-interval/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'text-stagger-interval';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/text-stagger-interval',
+  },
   'text-stagger-inview': {
     name: 'text-stagger-inview',
     description:
@@ -4901,13 +5056,13 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/default-animation-variants',
+      'https://systaliko-ui.vercel.app/r/animation-variants',
     ],
     files: [
       {
         path: 'registry/text/text-stagger-inview/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/text/text-stagger-inview.tsx',
+        target: 'components/systaliko-ui/text-stagger-inview.tsx',
         content:
           "'use client';\nimport * as React from 'react';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  stagger,\n  StaggerOrigin,\n} from 'motion/react';\nimport {\n  ANIMATION_VARIANTS,\n  AnimationT,\n} from '@/components/systaliko-ui/utils/animation-variants';\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({ children, animation, ...props }: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n  return (\n    <span className=\"inline-block text-nowrap\" {...props}>\n      {characters.map((char, index) => (\n        <motion.span variants={animationVariants} key={`${char}-${index}`}>\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  staggerValue?: number;\n  staggerStart?: StaggerOrigin;\n  animation?: AnimationT;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  viewport = { once: true, amount: 0.25 },\n  staggerValue = 0.02,\n  staggerStart = 'first',\n  animation,\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  return (\n    <motion.span\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={viewport}\n      transition={{\n        delayChildren: stagger(staggerValue, { from: staggerStart }),\n      }}\n      {...props}\n    >\n      <MotionConfig\n        transition={{\n          ease: transition?.ease || 'easeOut',\n          ...transition,\n        }}\n      >\n        {words.map((word, index) => (\n          <React.Fragment key={`${word}-${index}`}>\n            <WordStagger data-word={word} animation={animation}>\n              {word}\n            </WordStagger>\n            {index < words.length - 1 && ' '}\n          </React.Fragment>\n        ))}\n      </MotionConfig>\n    </motion.span>\n  );\n}",
       },
@@ -4946,7 +5101,7 @@ export const index: Record<string, any> = {
       {
         path: 'registry/text/text-vertical/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/text/text-vertical.tsx',
+        target: 'components/systaliko-ui/text-vertical.tsx',
         content:
           "import { cn } from '@/lib/utils';\nimport * as React from 'react';\n\ntype ElementType = React.ElementType;\n\ninterface TextVerticalProps extends React.HTMLAttributes<HTMLElement> {\n  as?: ElementType;\n}\n\nexport const textVerticalStyle = 'size-min -rotate-180 whitespace-nowrap';\n\nexport function TextVertical({\n  as: Component = 'div',\n  className,\n  style,\n  ...props\n}: TextVerticalProps) {\n  return (\n    <Component\n      className={cn(textVerticalStyle, className)}\n      style={{\n        writingMode: 'vertical-rl',\n        ...style,\n      }}\n      {...props}\n    />\n  );\n}",
       },
@@ -5007,43 +5162,6 @@ export const index: Record<string, any> = {
     })(),
     command: '@systaliko-ui/text-wavy',
   },
-  'wavy-texts': {
-    name: 'wavy-texts',
-    description:
-      'Wavy texts wrap, animates a set of texts in wavy motion on scroll.',
-    type: 'registry:ui',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: undefined,
-    files: [
-      {
-        path: 'registry/text/wavy-texts/index.tsx',
-        type: 'registry:ui',
-        target: 'components/systaliko-ui/text/wavy-texts.tsx',
-        content:
-          "'use client';\nimport {\n  motion,\n  MotionValue,\n  SpringOptions,\n  useMotionValue,\n  useScroll,\n  useSpring,\n} from 'motion/react';\nimport {\n  useCallback,\n  useEffect,\n  useLayoutEffect,\n  useMemo,\n  useRef,\n  useState,\n} from 'react';\n\nconst toRadian = (deg: number) => (deg * Math.PI) / 180;\n\ntype WavyTextsConfig = {\n  baseOffsetFactor: number;\n  baseExtra: number;\n  baseAmplitude: number;\n  lengthEffect: number;\n  frequency: number;\n  progressScale: number;\n  phaseShiftDeg: number;\n  spring: SpringOptions;\n};\n\nfunction WavyBlock({\n  text,\n  index,\n  scrollProgress,\n  maxLen,\n  config,\n}: {\n  text: string;\n  index: number;\n  scrollProgress: MotionValue<number>;\n  maxLen: number;\n  config: WavyTextsConfig;\n}) {\n  // compute length factor based on character count (0..1)\n  const lengthFactor = Math.min(1, Math.max(0, text.length / (maxLen || 1)));\n\n  // Track if component is mounted (client-side only)\n  const [isMounted, setIsMounted] = useState(false);\n\n  // Helper function to calculate X position from scroll progress\n  // Use consistent default width (1200) for SSR to avoid hydration mismatch\n  const calculateX = useCallback(\n    (p: number, windowWidth?: number) => {\n      // p is 0..1\n      const phase = config.progressScale * p; // like your `6 * progress`\n\n      // Use provided windowWidth, or default to 1200 for SSR consistency\n      const width =\n        windowWidth ??\n        (typeof window !== 'undefined' ? window.innerWidth : 1200);\n      const baseOffset = config.baseOffsetFactor * width + config.baseExtra;\n\n      // amplitude scaled by lengthFactor (shorter => larger amplitude)\n      const amplitudeScale = 1 - config.lengthEffect * lengthFactor; // 1 - 0.6*lenFactor in your earlier code\n      const amplitude = config.baseAmplitude * amplitudeScale;\n\n      const angle =\n        toRadian(config.frequency * index) +\n        phase +\n        toRadian(config.phaseShiftDeg);\n\n      return baseOffset + amplitude * Math.cos(angle);\n    },\n    [config, lengthFactor, index],\n  );\n\n  // Get initial scroll progress\n  // Always use 0 for initial render to ensure SSR/client consistency\n  // The actual scroll position will be set in useLayoutEffect after mount\n  const initialProgress = 0;\n  const initialX = calculateX(initialProgress, 1200);\n\n  // create a motion value per title and wrap it with a spring for smoothing\n  const rawX = useMotionValue(initialX);\n  const x = useSpring(rawX, config.spring);\n\n  // Mark as mounted on client side\n  useLayoutEffect(() => {\n    setIsMounted(true);\n  }, []);\n\n  // Use useLayoutEffect to set position synchronously before paint\n  useLayoutEffect(() => {\n    if (!scrollProgress || !isMounted) return;\n\n    // Set initial position immediately (synchronously before paint)\n    // Now use actual window width since we're on client\n    const currentProgress = scrollProgress.get();\n    const windowWidth =\n      typeof window !== 'undefined' ? window.innerWidth : 1200;\n    const correctX = calculateX(currentProgress, windowWidth);\n    // Set immediately to prevent visual jump\n    rawX.set(correctX);\n  }, [scrollProgress, rawX, calculateX, isMounted]);\n\n  // Subscribe to scroll changes in regular effect\n  useEffect(() => {\n    if (!scrollProgress || !isMounted) return;\n\n    // subscribe to scroll progress changes\n    const unsub = scrollProgress.onChange((p) => {\n      const windowWidth =\n        typeof window !== 'undefined' ? window.innerWidth : 1200;\n      const newX = calculateX(p, windowWidth);\n      // set raw motion value (spring will smooth it)\n      rawX.set(newX);\n    });\n\n    return () => {\n      if (unsub) unsub();\n    };\n  }, [scrollProgress, rawX, calculateX, isMounted]);\n\n  return (\n    <motion.h2\n      className=\"text-[clamp(6rem,7.3vw,14rem)] font-bold leading-none tracking-tighter uppercase whitespace-nowrap\"\n      style={{ x }}\n      aria-label={text}\n      suppressHydrationWarning\n    >\n      {text}\n    </motion.h2>\n  );\n}\n\nexport function WavyTexts({\n  titles = [],\n  className = 'py-24',\n  config: userConfig = {},\n}: {\n  titles?: string[];\n  className?: string;\n  config?: Partial<WavyTextsConfig>;\n}) {\n  // sane defaults (tweakable)\n  const config = useMemo(() => {\n    return {\n      // baseOffsetFactor * window.innerWidth + baseExtra (mirrors your `.1 * window.innerWidth + 160`)\n      baseOffsetFactor: userConfig.baseOffsetFactor ?? 0.1,\n      baseExtra: userConfig.baseExtra ?? 160,\n\n      // base amplitude in px (you used 160 previously)\n      baseAmplitude: userConfig.baseAmplitude ?? 160,\n\n      // how strongly length reduces amplitude (0..1)\n      lengthEffect: userConfig.lengthEffect ?? 0.6,\n\n      // degrees between items (you used 35 * index)\n      frequency: userConfig.frequency ?? 35,\n\n      // how much progress affects phase (you used 6 * progress)\n      progressScale: userConfig.progressScale ?? 6,\n\n      // phase shift (you had -180 deg)\n      phaseShiftDeg: userConfig.phaseShiftDeg ?? -180,\n\n      // spring config used by Framer Motion\n      spring: userConfig.spring ?? { damping: 22, stiffness: 300 },\n    };\n  }, [userConfig]);\n\n  // compute the maximum character length among titles (used to normalize lengthFactor)\n  const maxLen = useMemo(() => {\n    if (!titles || titles.length === 0) return 1;\n    return Math.max(...titles.map((t) => (t ? String(t).length : 0)));\n  }, [titles]);\n\n  // container ref and scroll progress (scoped to container)\n  const containerRef = useRef<HTMLElement>(null);\n  const { scrollYProgress } = useScroll({\n    target: containerRef,\n    offset: ['start end', 'end start'],\n  });\n\n  return (\n    <section ref={containerRef} className={className}>\n      <div className=\"max-w-6xl mx-auto px-6\">\n        <div className=\"flex flex-col gap-6\">\n          {titles.map((t, i) => (\n            <WavyBlock\n              key={i}\n              text={t}\n              index={i}\n              scrollProgress={scrollYProgress}\n              maxLen={maxLen}\n              config={config}\n            />\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import('@/registry/text/wavy-texts/index.tsx');
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'wavy-texts';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/wavy-texts',
-  },
   'word-stagger': {
     name: 'word-stagger',
     description:
@@ -5058,7 +5176,7 @@ export const index: Record<string, any> = {
       {
         path: 'registry/text/word-stagger/index.tsx',
         type: 'registry:ui',
-        target: 'components/systaliko-ui/text/word-stagger.tsx',
+        target: 'components/systaliko-ui/word-stagger.tsx',
         content:
           "import { cn } from '@/lib/utils';\nimport {\n  AnimationT,\n  ANIMATION_VARIANTS,\n} from '@/components/systaliko-ui/utils/animation-variants';\nimport { motion } from 'motion/react';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({\n  children,\n  animation,\n  className,\n  ...props\n}: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n  return (\n    <span className={cn('inline-block text-nowrap', className)} {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}",
       },

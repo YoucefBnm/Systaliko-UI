@@ -8,7 +8,7 @@
     {
       "path": "registry/text/text-vertical/index.tsx",
       "type": "registry:ui",
-      "target": "components/systaliko-ui/text/text-vertical.tsx"
+      "target": "components/systaliko-ui/text-vertical.tsx"
     }
   ]
 }

@@ -4,7 +4,7 @@
   "title": "Image Player Demo",
   "description": "Demo showing how to use image player component.",
   "registryDependencies": [
-    "@systaliko-ui/r/image-player"
+    "https://systaliko-ui.vercel.app/r/image-player"
   ],
   "files": [
     {

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-stagger-interval-demo",
+  "title": "Text Stagger Interval Demo",
+  "description": "Demo showing text with stagger animation interval.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/text-stagger-interval"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/text/text-stagger-interval/index.tsx",
+      "content": "'use client';\n\nimport React, { useState } from 'react';\nimport { TextStaggerInterval } from '@/components/systaliko-ui/text/text-stagger-interval';\nimport { Input } from '@/components/systaliko-ui/shadcn/input';\nimport { Switch } from '@/components/systaliko-ui/shadcn/switch';\nimport {\n  AnimationConfig,\n  AnimationSelector,\n  StaggerInput,\n  useSetAnimationConfig,\n} from '@/components/docs/animation-config';\n\nconst TextStaggerIntervalDemoContent = () => {\n  const { animation, staggerValue } = useSetAnimationConfig();\n  const [intervalTime, setIntervalTime] = useState(2000);\n  const [pauseOnHover, setPauseOnHover] = useState(true);\n\n  return (\n    <div className=\"flex h-80 flex-col justify-between gap-8\">\n      <div className=\"flex flex-col gap-4 items-start md:flex-row md:items-end\">\n        <AnimationSelector />\n        <StaggerInput />\n\n        <div className=\"flex flex-col gap-2\">\n          <label className=\"text-sm font-medium\" htmlFor=\"interval-input\">\n            Interval (ms)\n          </label>\n          <Input\n            id=\"interval-input\"\n            className=\"w-[120px]\"\n            type=\"number\"\n            step={100}\n            min={500}\n            value={intervalTime}\n            onChange={(e) => setIntervalTime(Number(e.target.value))}\n          />\n        </div>\n\n        <div className=\"flex flex-col gap-2\">\n          <label className=\"text-sm font-medium\" htmlFor=\"pause-hover\">\n            Pause on Hover\n          </label>\n          <div className=\"flex h-9 items-center\">\n            <Switch\n              id=\"pause-hover\"\n              checked={pauseOnHover}\n              onCheckedChange={setPauseOnHover}\n            />\n          </div>\n        </div>\n      </div>\n\n      <div className=\"flex items-center justify-center py-10\">\n        <h2 className=\"text-4xl font-bold uppercase tracking-tighter sm:text-5xl\">\n          <TextStaggerInterval\n            words={[\n              'Modern UI',\n              'Creative Layouts',\n              'Dynamic Sites',\n              'Sleek Designs',\n            ]}\n            animation={animation}\n            staggerValue={staggerValue}\n            interval={intervalTime}\n            pauseOnHover={pauseOnHover}\n            className=\"text-primary\"\n          />\n        </h2>\n      </div>\n    </div>\n  );\n};\n\nexport function TextStaggerIntervalDemo() {\n  return (\n    <AnimationConfig>\n      <TextStaggerIntervalDemoContent />\n    </AnimationConfig>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/text/text-stagger-interval.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "label",
+  "type": "registry:ui",
+  "title": "label",
+  "description": "label component.",
+  "files": [
+    {
+      "path": "registry/shadcn/label/index.tsx",
+      "type": "registry:ui",
+      "target": "components/label.tsx"
+    }
+  ]
+}
