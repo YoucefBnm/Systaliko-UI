@@ -38,18 +38,20 @@ const config = {
       },
     ],
   },
-  headers: [
-    {
-      source: '/(.*)',
-      headers: [
-        {
-          key: 'Content-Security-Policy',
-          value:
-            "frame-ancestors 'self' https://shoogle.dev https://*.shoogle.dev;",
-        },
-      ],
-    },
-  ],
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value:
+              "frame-ancestors 'self' https://shoogle.dev https://*.shoogle.dev;",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default withMDX(config);
