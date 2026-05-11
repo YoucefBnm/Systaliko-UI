@@ -4,7 +4,7 @@
   "title": "Globe",
   "description": "Globe map with optional map pins.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/svg-globe-path"
+    "@systaliko-ui/svg-globe-path"
   ],
   "files": [
     {

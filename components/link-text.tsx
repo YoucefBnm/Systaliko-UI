@@ -14,12 +14,8 @@ export function LinkText({
   ...props
 }: React.ComponentProps<typeof Link>) {
   return (
-    <Link
-      className={cn('p-1 overflow-hidden', className)}
-      href={href}
-      {...props}
-    >
-      <TextStaggerHover className="inline">
+    <Link className={cn('overflow-hidden ', className)} href={href} {...props}>
+      <TextStaggerHover className="p-1">
         <TextStaggerHoverActive
           transition={SPRING_CONFIG}
           className="opacity-80"

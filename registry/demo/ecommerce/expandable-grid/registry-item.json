@@ -4,9 +4,7 @@
   "type": "registry:block",
   "title": "Expandable Product Grid Demo",
   "description": "Demo showing expandable product grid component.",
-  "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/ecommerce/expandable-grid"
-  ],
+  "registryDependencies": ["@systaliko-ui/ecommerce/expandable-grid"],
   "files": [
     {
       "path": "registry/demo/ecommerce/expandable-grid/index.tsx",

@@ -4,7 +4,7 @@
   "title": "Grid Bento Demos",
   "description": "Grid Bento Demo with multiple variants.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/grid-bento"
+    "@systaliko-ui/grid-bento"
   ],
   "files": [
     {

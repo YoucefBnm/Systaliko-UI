@@ -4,7 +4,7 @@
   "title": "scroll autoplay Demo",
   "description": "Demo showing scroll-autoplay component.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/scroll-autoplay"
+    "@systaliko-ui/scroll-autoplay"
   ],
   "files": [
     {

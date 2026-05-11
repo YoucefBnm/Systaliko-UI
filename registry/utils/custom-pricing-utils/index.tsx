@@ -7,7 +7,6 @@ enum CUSTOM_PRICING_ACTION_TYPES {
 }
 export interface CustomPricingProviderProps {
   onChange?: (total: number) => void;
-  currency?: string;
   children?: React.ReactNode;
 }
 interface CustomPricingQuantityItem {
@@ -26,9 +25,7 @@ interface CustomPricingCheckedItem {
   group?: string | null;
 }
 interface CustomPricingContextValue
-  extends ReturnType<typeof useCustomPricingStore> {
-  currency?: string;
-}
+  extends ReturnType<typeof useCustomPricingStore> {}
 
 export type CustomPricingItem =
   | CustomPricingQuantityItem
@@ -144,7 +141,7 @@ export function useCustomPricingQuantity({
   unitPrice = 0,
   defaultValue = 0,
 }: UseCustomPricingQuantityProps) {
-  const { register, updateQuantity, items, currency } = useCustomPricing();
+  const { register, updateQuantity, items } = useCustomPricing();
   React.useEffect(() => {
     register(id, { type: 'quantity', value: defaultValue, unitPrice });
   }, [id, defaultValue, unitPrice, register]);
@@ -173,7 +170,7 @@ export function useCustomPricingSelect({
   group,
   defaultChecked = false,
 }: UseCustomPricingSelectProps) {
-  const { register, toggleChecked, items, currency } = useCustomPricing();
+  const { register, toggleChecked, items } = useCustomPricing();
   React.useEffect(() => {
     register(id, {
       type: 'checked',
@@ -190,16 +187,4 @@ export function useCustomPricingSelect({
     checked,
     toggleChecked,
   };
-}
-export function CustomPricingProvider({
-  onChange,
-  currency = '$',
-  children,
-}: CustomPricingProviderProps) {
-  const store = useCustomPricingStore({ onChange });
-  return (
-    <CustomPricingContext.Provider value={{ currency, ...store }}>
-      {children}
-    </CustomPricingContext.Provider>
-  );
 }

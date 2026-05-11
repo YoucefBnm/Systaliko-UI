@@ -4,7 +4,7 @@
   "type": "registry:block",
   "title": "Custom Pricing Design Demo",
   "description": "Demo showing custom pricing component for a design service.",
-  "registryDependencies": ["https://systaliko-ui.vercel.app/r/custom-pricing"],
+  "registryDependencies": ["@systaliko-ui/custom-pricing"],
   "files": [
     {
       "path": "registry/demo/ecommerce/custom-pricing-design/index.tsx",

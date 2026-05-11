@@ -4,8 +4,8 @@
   "title": "Cards stack full screen Demo",
   "description": "Demo showing different usecase of Cards Stack component.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/cards-stack",
-    "https://systaliko-ui.vercel.app/r/badge"
+    "@systaliko-ui/cards-stack",
+    "@systaliko-ui/badge"
   ],
   "files": [
     {

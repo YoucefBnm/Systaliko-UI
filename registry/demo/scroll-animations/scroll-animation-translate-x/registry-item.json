@@ -4,9 +4,7 @@
   "type": "registry:block",
   "title": "Scroll Trigger inset Animations Demo",
   "description": "Demo showing how to implement scroll triggred animations.",
-  "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/scroll-animations"
-  ],
+  "registryDependencies": ["@systaliko-ui/scroll-animations"],
   "files": [
     {
       "path": "registry/demo/scroll-animations/scroll-animation-translate-x/index.tsx",

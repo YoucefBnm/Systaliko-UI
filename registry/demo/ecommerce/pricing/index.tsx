@@ -88,7 +88,7 @@ export function PricingDemo() {
           <PricingIntervalSwitch />
           <Label className="text-muted-foreground">Billed annually</Label>
           <Badge
-            className="rounded-full shadow-sm shadow-black/15 ring-1 ring-ring/20 py-1 text-green-50 bg-green-600"
+            className="rounded-full shadow-sm shadow-green-600/15 ring-1 ring-green-600/15 py-1  bg-green-400"
             variant={'outline'}
           >
             💰 Save up to {savings}% with annual billing

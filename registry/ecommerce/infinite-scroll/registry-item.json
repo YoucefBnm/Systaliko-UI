@@ -5,7 +5,7 @@
   "title": "Infinite Scroll",
   "description": "infinite scroll container instead of pagination, for large lists and fetching data.",
   "dependencies": ["motion"],
-  "registryDependencies": ["https://systaliko-ui.vercel.app/r/spinner"],
+  "registryDependencies": ["@systaliko-ui/spinner"],
   "files": [
     {
       "path": "registry/ecommerce/infinite-scroll/index.tsx",

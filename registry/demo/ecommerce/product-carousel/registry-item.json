@@ -4,9 +4,7 @@
   "type": "registry:block",
   "title": "Product Carousel Demo",
   "description": "Demo showing product carousel component.",
-  "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/product-carousel"
-  ],
+  "registryDependencies": ["@systaliko-ui/product-carousel"],
   "files": [
     {
       "path": "registry/demo/ecommerce/product-carousel/index.tsx",

@@ -4,7 +4,7 @@
   "title": "circle cards Demo",
   "description": "Demo showing circle cards component.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/circle-cards"
+    "@systaliko-ui/circle-cards"
   ],
   "files": [
     {

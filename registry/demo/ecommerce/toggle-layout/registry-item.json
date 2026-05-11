@@ -4,7 +4,7 @@
   "type": "registry:block",
   "title": "Pricing Demo",
   "description": "Demo showing toggle layout view component.",
-  "registryDependencies": ["https://systaliko-ui.vercel.app/r/toggle-layout"],
+  "registryDependencies": ["@systaliko-ui/toggle-layout"],
   "files": [
     {
       "path": "registry/demo/ecommerce/toggle-layout/index.tsx",

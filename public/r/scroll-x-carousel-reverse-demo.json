@@ -4,7 +4,7 @@
   "title": "scroll x carousel reversed Demo",
   "description": "another Demo showing how to use scroll x carousel component in a reversed.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/scroll-x-carousel"
+    "@systaliko-ui/scroll-x-carousel"
   ],
   "files": [
     {

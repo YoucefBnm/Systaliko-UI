@@ -4,9 +4,7 @@
   "type": "registry:block",
   "title": "scroll rotate animation device Demo",
   "description": "Demo showing how to use scroll rotate animations.",
-  "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/scroll-animation-rotate"
-  ],
+  "registryDependencies": ["@systaliko-ui/scroll-animation-rotate"],
   "files": [
     {
       "path": "registry/demo/scroll-animations/scroll-animation-rotate-x/index.tsx",

@@ -6,9 +6,9 @@
   "description": "Splitted text animation with staggered effect triggered by hover gesture, You can easily customize by controlling the animation property (transform, opacity, blur), the stagger value, and the transition.",
   "dependencies": ["motion"],
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/set-stagger-direction",
-    "https://systaliko-ui.vercel.app/r/split-text",
-    "https://systaliko-ui.vercel.app/r/animation-variants"
+    "@systaliko-ui/set-stagger-direction",
+    "@systaliko-ui/split-text",
+    "@systaliko-ui/animation-variants"
   ],
   "files": [
     {

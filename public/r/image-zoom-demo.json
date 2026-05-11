@@ -4,7 +4,7 @@
   "title": "Image Zoom Demo",
   "description": "Demo showing image zoom component.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/ecommerce/image-zoom"
+    "@systaliko-ui/ecommerce/image-zoom"
   ],
   "files": [
     {

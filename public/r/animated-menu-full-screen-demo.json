@@ -4,7 +4,7 @@
   "title": "Animated Menu Demo",
   "description": "another demo showing animated menu component in full screen mode.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/animated-menu-full-screen"
+    "@systaliko-ui/animated-menu-full-screen"
   ],
   "files": [
     {

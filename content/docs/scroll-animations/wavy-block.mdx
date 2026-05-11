@@ -1,8 +1,12 @@
 ---
 title: Wavy Block
 description: Wavy Block animates its children in waves pattern on scroll.
+updated: true
 ---
 
+<Callout type="info">
+  Component updated with another axis 'y' check the example below.
+</Callout>
 <ComponentPreview name="wavy-block-demo" />
 
 ## Installation
@@ -23,12 +27,22 @@ description: Wavy Block animates its children in waves pattern on scroll.
 </WavyBlock>
 ```
 
+## Y axis
+
+<ComponentPreview name="wavy-block-y-demo" />
+
 ## Props
 
 `WavyBlockItem`
 
 <TypeTable
   type={{
+    axis: {
+      description: 'the moving axis horizontal or vertical.',
+      type: "'x' | 'y'",
+      required: false,
+      defaultValue: 'x',
+    },
     config: {
       description: 'the config effect of the wavy block.',
       type: 'object',

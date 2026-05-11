@@ -4,7 +4,7 @@
   "type": "registry:block",
   "title": "Animated Menu Demo",
   "description": "Demo showing animated menu component.",
-  "registryDependencies": ["https://systaliko-ui.vercel.app/r/animated-menu"],
+  "registryDependencies": ["@systaliko-ui/animated-menu"],
   "files": [
     {
       "path": "registry/demo/blocks/animated-menu/index.tsx",

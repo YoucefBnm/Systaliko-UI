@@ -4,9 +4,7 @@
   "type": "registry:block",
   "title": "Distributed Cards Demo",
   "description": "Demo showing distributed cards component.",
-  "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/distributed-cards"
-  ],
+  "registryDependencies": ["@systaliko-ui/distributed-cards"],
   "files": [
     {
       "path": "registry/demo/scroll-animations/distributed-cards/index.tsx",

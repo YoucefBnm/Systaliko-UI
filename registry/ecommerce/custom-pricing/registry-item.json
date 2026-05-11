@@ -4,7 +4,10 @@
   "type": "registry:block",
   "title": "Custom Pricing",
   "description": "Flexible custom pricing component with with set of tools that allow to update the price depending on quantity unit and if or not is checked.",
-  "registryDependencies": ["https://systaliko-ui.vercel.app/r/slider"],
+  "registryDependencies": [
+    "@systaliko-ui/slider",
+    "@systaliko-ui/custom-pricing-utils"
+  ],
   "files": [
     {
       "path": "registry/ecommerce/custom-pricing/index.tsx",

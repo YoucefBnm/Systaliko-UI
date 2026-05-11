@@ -7,7 +7,7 @@
     "motion"
   ],
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/use-toggle-onscroll"
+    "@systaliko-ui/use-toggle-onscroll"
   ],
   "files": [
     {

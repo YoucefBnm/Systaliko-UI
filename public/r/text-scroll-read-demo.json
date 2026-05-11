@@ -4,7 +4,7 @@
   "title": "Text Scroll Read Demo",
   "description": "Demo showing Text scroll read component.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/text-scroll-read"
+    "@systaliko-ui/text-scroll-read"
   ],
   "files": [
     {

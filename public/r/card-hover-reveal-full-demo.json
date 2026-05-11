@@ -4,7 +4,7 @@
   "title": "Card Hover Reveal Full Demo",
   "description": "Demo showing another usecase of Card Hover Reveal Component.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/card-hover-reveal"
+    "@systaliko-ui/card-hover-reveal"
   ],
   "files": [
     {

@@ -57,7 +57,7 @@ export function Hero() {
               </Badge>
               <TextWavy
                 className="font-bold"
-                text="Blocks and updated enera template"
+                text="Blocks and updates and updating enera template"
                 fontWeights={[500, 800, 500]}
               />
             </Link>

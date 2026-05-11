@@ -4,7 +4,7 @@
   "title": "Wavy Block Demo",
   "description": "Demo showing Wavy Block component.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/wavy-block"
+    "@systaliko-ui/wavy-block"
   ],
   "files": [
     {

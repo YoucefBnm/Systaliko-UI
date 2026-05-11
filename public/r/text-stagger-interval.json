@@ -7,9 +7,7 @@
     "motion"
   ],
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/set-stagger-direction",
-    "https://systaliko-ui.vercel.app/r/split-text",
-    "https://systaliko-ui.vercel.app/r/animation-variants"
+    "@systaliko-ui/animation-variants"
   ],
   "files": [
     {

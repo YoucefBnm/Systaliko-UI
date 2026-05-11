@@ -5,8 +5,8 @@
   "title": "Custom Cursor Demo",
   "description": "Demo showing Custom Cursor component.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/custom-cursor",
-    "https://systaliko-ui.vercel.app/r/button"
+    "@systaliko-ui/custom-cursor",
+    "@systaliko-ui/button"
   ],
   "files": [
     {

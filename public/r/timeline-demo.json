@@ -4,7 +4,7 @@
   "title": "Timeline Demo",
   "description": "Demo showing timeline component.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/timeline"
+    "@systaliko-ui/timeline"
   ],
   "files": [
     {

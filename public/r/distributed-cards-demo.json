@@ -4,7 +4,7 @@
   "title": "Distributed Cards Demo",
   "description": "Demo showing distributed cards component.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/distributed-cards"
+    "@systaliko-ui/distributed-cards"
   ],
   "files": [
     {

@@ -4,7 +4,7 @@
   "title": "Product Carousel Demo",
   "description": "Another Demo showing product carousel component.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/product-carousel"
+    "@systaliko-ui/product-carousel"
   ],
   "files": [
     {

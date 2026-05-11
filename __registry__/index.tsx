@@ -142,7 +142,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/svg-globe-path'],
+    registryDependencies: ['@systaliko-ui/svg-globe-path'],
     files: [
       {
         path: 'registry/blocks/globe/index.tsx',
@@ -215,9 +215,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/use-toggle-onscroll',
-    ],
+    registryDependencies: ['@systaliko-ui/use-toggle-onscroll'],
     files: [
       {
         path: 'registry/blocks/header/index.tsx',
@@ -328,9 +326,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/text-stagger-hover',
-    ],
+    registryDependencies: ['@systaliko-ui/text-stagger-hover'],
     files: [
       {
         path: 'registry/blocks/slideshow/index.tsx',
@@ -593,9 +589,9 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/default-avatar',
-      'https://systaliko-ui.vercel.app/r/default-rating-stars',
-      'https://systaliko-ui.vercel.app/r/default-card',
+      '@systaliko-ui/default-avatar',
+      '@systaliko-ui/default-rating-stars',
+      '@systaliko-ui/default-card',
     ],
     files: [
       {
@@ -715,7 +711,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/checkbox-field.tsx',
         content:
-          "import * as React from 'react';\nimport { Label as LabelPrimitive } from 'radix-ui';\nimport { CheckIcon } from 'lucide-react';\nimport { Checkbox as CheckboxPrimitive } from 'radix-ui';\n\nimport { cn } from '@/lib/utils';\nimport { cva, VariantProps } from 'class-variance-authority';\n\nconst checkboxFieldVariants = cva(\n  'group relative has-data-[state=checked]:text-primary-foreground has-data-[state=checked]:*:opacity-100 has-[button:disabled]:opacity-50  has-[button:disabled]:after:pointer-events-none has-[button:disabled]:after:absolute has-[button:disabled]:after:inset-0 has-[button:disabled]:after:z-10 has-[button:disabled]:after:bg-[linear-gradient(to_bottom_right,transparent_calc(50%-0.5px),var(--destructive)_calc(50%-0.5px),var(--destructive)_calc(50%+0.5px),transparent_calc(50%+0.5px))] inline-grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1 [&>button]:size-full [&>label]:pointer-events-none [&>label]:relative [&>label]:z-5 [&>label]:my-2',\n  {\n    variants: {\n      variant: {\n        default: '[&>label]:mx-3 ',\n        withCheckmark: '[&>label]:ml-6 [&>label]:mr-2.5 [&>button]:pl-1.5',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\n\nfunction Checkbox({\n  className,\n  ...props\n}: React.ComponentProps<typeof CheckboxPrimitive.Root>) {\n  return (\n    <CheckboxPrimitive.Root\n      data-slot=\"checkbox\"\n      className={cn(\n        'group group-hover:border-primary peer relative flex size-4 shrink-0 rounded-[inherit] border border-input transition-colors outline-none group-has-disabled/field:opacity-50 after:absolute after:-inset-x-3 after:-inset-y-2 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\nfunction CheckboxIcon({\n  className,\n  ...props\n}: React.ComponentProps<typeof CheckboxPrimitive.Indicator>) {\n  return (\n    <CheckboxPrimitive.Indicator\n      data-slot=\"checkbox-indicator\"\n      className={cn(\n        'grid place-content-center text-current [&>svg]:size-3.5 [&>svg]:transition-opacity [&>svg]:duration-200 [&>svg]:opacity-20 [&>svg]:group-data-[state=checked]:opacity-100 [&>svg]:group-data-[state=indeterminate]:opacity-100',\n        className,\n      )}\n      {...props}\n    >\n      <CheckIcon />\n    </CheckboxPrimitive.Indicator>\n  );\n}\nfunction Label({\n  className,\n  ...props\n}: React.ComponentProps<typeof LabelPrimitive.Root>) {\n  return (\n    <LabelPrimitive.Root\n      data-slot=\"label\"\n      className={cn(\n        'flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction CheckboxField({\n  className,\n  variant,\n  ...props\n}: React.ComponentProps<'fieldset'> &\n  VariantProps<typeof checkboxFieldVariants>) {\n  return (\n    <fieldset\n      className={cn(checkboxFieldVariants({ variant }), className)}\n      role=\"group\"\n      data-slot=\"field\"\n      {...props}\n    />\n  );\n}\n\nexport { Checkbox, CheckboxIcon, Label, CheckboxField };",
+          "import * as React from 'react';\nimport { Label as LabelPrimitive } from 'radix-ui';\nimport { CheckIcon } from 'lucide-react';\nimport { Checkbox as CheckboxPrimitive } from 'radix-ui';\n\nimport { cn } from '@/lib/utils';\nimport { cva, VariantProps } from 'class-variance-authority';\n\nconst checkboxFieldVariants = cva(\n  'group relative has-data-[state=checked]:text-primary-foreground has-data-[state=checked]:*:opacity-100 has-[button:disabled]:opacity-50  has-[button:disabled]:after:pointer-events-none has-[button:disabled]:after:absolute has-[button:disabled]:after:inset-0 has-[button:disabled]:after:z-10 has-[button:disabled]:after:bg-[linear-gradient(to_bottom_right,transparent_calc(50%-0.5px),var(--destructive)_calc(50%-0.5px),var(--destructive)_calc(50%+0.5px),transparent_calc(50%+0.5px))] inline-grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1 [&>button]:size-full [&>label]:pointer-events-none [&>label]:relative [&>label]:z-5 [&>label]:my-2',\n  {\n    variants: {\n      variant: {\n        default: '[&>label]:mx-3 ',\n        withCheckmark: '[&>label]:ml-6 [&>label]:mr-2.5 [&>button]:pl-1.5',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n    },\n  },\n);\n\nfunction Checkbox({\n  className,\n  ...props\n}: React.ComponentProps<typeof CheckboxPrimitive.Root>) {\n  return (\n    <CheckboxPrimitive.Root\n      data-slot=\"checkbox\"\n      className={cn(\n        'group group-hover:border-primary peer relative flex size-full shrink-0 rounded-[inherit] border border-input transition-colors outline-none group-has-disabled/field:opacity-50 after:absolute after:-inset-x-3 after:-inset-y-2 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\nfunction CheckboxIcon({\n  className,\n  ...props\n}: React.ComponentProps<typeof CheckboxPrimitive.Indicator>) {\n  return (\n    <CheckboxPrimitive.Indicator\n      data-slot=\"checkbox-indicator\"\n      className={cn(\n        'grid place-content-center text-current [&>svg]:size-3.5 [&>svg]:transition-opacity [&>svg]:duration-200 [&>svg]:opacity-20 [&>svg]:group-data-[state=checked]:opacity-100 [&>svg]:group-data-[state=indeterminate]:opacity-100',\n        className,\n      )}\n      {...props}\n    >\n      <CheckIcon />\n    </CheckboxPrimitive.Indicator>\n  );\n}\nfunction Label({\n  className,\n  ...props\n}: React.ComponentProps<typeof LabelPrimitive.Root>) {\n  return (\n    <LabelPrimitive.Root\n      data-slot=\"label\"\n      className={cn(\n        'flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',\n        className,\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction CheckboxField({\n  className,\n  variant,\n  ...props\n}: React.ComponentProps<'fieldset'> &\n  VariantProps<typeof checkboxFieldVariants>) {\n  return (\n    <fieldset\n      className={cn(checkboxFieldVariants({ variant }), className)}\n      role=\"group\"\n      data-slot=\"field\"\n      {...props}\n    />\n  );\n}\n\nexport { Checkbox, CheckboxIcon, Label, CheckboxField };",
       },
     ],
     keywords: [],
@@ -747,9 +743,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/default-use-follow-mouse',
-    ],
+    registryDependencies: ['@systaliko-ui/default-use-follow-mouse'],
     files: [
       {
         path: 'registry/components/custom-cursor/index.tsx',
@@ -906,7 +900,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/spotlight-list.tsx',
         content:
-          "import { cn } from '@/lib/utils';\nimport { cva, VariantProps } from 'class-variance-authority';\n\nconst spotlightListVariants = cva('list-style-none *:transition-blur ', {\n  variants: {\n    variant: {\n      blur: '[&:hover>*]:blur-[2px] [&>*:hover]:blur-none transition-[filter]',\n      scale: '[&:hover>*]:scale-85 [&>*:hover]:scale-100 transition-transform',\n      opacity:\n        '[&:hover>*]:opacity-50 [&>*:hover]:opacity-100 transition-opacity',\n    },\n  },\n  defaultVariants: {\n    variant: 'blur',\n  },\n});\n\nexport function SportlightList({\n  variant,\n  className,\n  ...props\n}: React.ComponentProps<'ul'> & VariantProps<typeof spotlightListVariants>) {\n  return (\n    <ul\n      className={cn(spotlightListVariants({ variant, className }))}\n      {...props}\n    />\n  );\n}",
+          "import { cn } from '@/lib/utils';\nimport { cva, VariantProps } from 'class-variance-authority';\n\nconst spotlightListVariants = cva('list-style-none *:transition-blur ', {\n  variants: {\n    variant: {\n      blur: '[&:hover>*]:blur-[2px] [&>*:hover]:blur-none transition-[filter]',\n      scale: '[&:hover>*]:scale-85 [&>*:hover]:scale-100 transition-transform',\n      opacity:\n        '[&:hover>*]:opacity-50 [&>*:hover]:opacity-100 transition-opacity',\n    },\n  },\n  defaultVariants: {\n    variant: 'blur',\n  },\n});\n\nexport function SportlightList({\n  variant,\n  className,\n  ...props\n}: React.ComponentProps<'ul'> & VariantProps<typeof spotlightListVariants>) {\n  return (\n    <ul\n      className={cn('list-none', spotlightListVariants({ variant, className }))}\n      {...props}\n    />\n  );\n}",
       },
     ],
     keywords: [],
@@ -937,7 +931,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/animated-menu'],
+    registryDependencies: ['@systaliko-ui/animated-menu'],
     files: [
       {
         path: 'registry/demo/blocks/animated-menu/index.tsx',
@@ -975,7 +969,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/animated-menu'],
+    registryDependencies: ['@systaliko-ui/animated-menu'],
     files: [
       {
         path: 'registry/demo/blocks/animated-menu-2/index.tsx',
@@ -1014,9 +1008,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/animated-menu-full-screen',
-    ],
+    registryDependencies: ['@systaliko-ui/animated-menu-full-screen'],
     files: [
       {
         path: 'registry/demo/blocks/animated-menu-full-screen/index.tsx',
@@ -1056,8 +1048,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/container-stagger',
-      'https://systaliko-ui.vercel.app/r/transitions',
+      '@systaliko-ui/container-stagger',
+      '@systaliko-ui/transitions',
     ],
     files: [
       {
@@ -1065,7 +1057,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/blocks/container-stagger.tsx',
         content:
-          "'use client';\nimport { ContainerStagger } from '@/components/systaliko-ui/blocks/container-stagger';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\nimport { ANIMATION_VARIANTS } from '@/components/systaliko-ui/utils/animation-variants';\nimport { ArrowUpRightIcon, ComponentIcon } from 'lucide-react';\nimport { motion, MotionConfig } from 'motion/react';\nimport Link from 'next/link';\n\nexport function ContainerStaggerDemo() {\n  const animationVariants = ANIMATION_VARIANTS.blur;\n  return (\n    <section className=\"relative max-w-7xl place-content-center  px-6 py-12 w-full\">\n      <ContainerStagger className=\"flex flex-col items-center text-center justify-center space-y-5\">\n        <MotionConfig transition={TRANSITIONS.filter}>\n          <motion.div variants={animationVariants}>\n            <Link href=\"https://systaliko-ui.vercel.app/docs/containers/container-stagger\">\n              <Badge variant=\"secondary\">100% free and open source</Badge>\n            </Link>\n          </motion.div>\n\n          <motion.h1\n            variants={animationVariants}\n            className=\"text-4xl font-semibold tracking-tight max-w-[25ch]\"\n          >\n            Beautiful animated components, easy to change and adapt to your\n            design.\n          </motion.h1>\n\n          <motion.p variants={animationVariants} className=\"max-w-prose\">\n            A modern component library built on top of Shadcn registry. Designed\n            for flexibility, built for customization, and crafted to scale\n            across variants and use cases.\n          </motion.p>\n\n          <motion.div\n            variants={animationVariants}\n            className=\"flex items-center gap-2 justify-center\"\n          >\n            <Button>\n              <Link href=\"/docs\">Browse Components</Link>\n              <ComponentIcon />\n            </Button>\n            <Button variant={'outline'}>\n              <Link href=\"/docs/heros/hero-gradient\">Browse Templates</Link>\n              <ArrowUpRightIcon />\n            </Button>\n          </motion.div>\n        </MotionConfig>\n      </ContainerStagger>\n    </section>\n  );\n}",
+          "'use client';\nimport { ContainerStagger } from '@/components/systaliko-ui/blocks/container-stagger';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\nimport { ANIMATION_VARIANTS } from '@/components/systaliko-ui/utils/animation-variants';\nimport { ArrowUpRightIcon, ComponentIcon } from 'lucide-react';\nimport { motion, MotionConfig } from 'motion/react';\nimport Link from 'next/link';\n\nexport function ContainerStaggerDemo() {\n  const animationVariants = ANIMATION_VARIANTS.blur;\n  return (\n    <section className=\"relative max-w-7xl place-content-center  px-6 py-12 w-full\">\n      <ContainerStagger className=\"flex flex-col items-center text-center justify-center space-y-5\">\n        <MotionConfig transition={TRANSITIONS.filter}>\n          <motion.div variants={animationVariants}>\n            <Link href=\"@systaliko-ui/docs/containers/container-stagger\">\n              <Badge variant=\"secondary\">100% free and open source</Badge>\n            </Link>\n          </motion.div>\n\n          <motion.h1\n            variants={animationVariants}\n            className=\"text-4xl font-semibold tracking-tight max-w-[25ch]\"\n          >\n            Beautiful animated components, easy to change and adapt to your\n            design.\n          </motion.h1>\n\n          <motion.p variants={animationVariants} className=\"max-w-prose\">\n            A modern component library built on top of Shadcn registry. Designed\n            for flexibility, built for customization, and crafted to scale\n            across variants and use cases.\n          </motion.p>\n\n          <motion.div\n            variants={animationVariants}\n            className=\"flex items-center gap-2 justify-center\"\n          >\n            <Button>\n              <Link href=\"/docs\">Browse Components</Link>\n              <ComponentIcon />\n            </Button>\n            <Button variant={'outline'}>\n              <Link href=\"/docs/heros/hero-gradient\">Browse Templates</Link>\n              <ArrowUpRightIcon />\n            </Button>\n          </motion.div>\n        </MotionConfig>\n      </ContainerStagger>\n    </section>\n  );\n}",
       },
     ],
     keywords: [],
@@ -1098,8 +1090,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/container-stagger',
-      'https://systaliko-ui.vercel.app/r/animation-variants',
+      '@systaliko-ui/container-stagger',
+      '@systaliko-ui/animation-variants',
     ],
     files: [
       {
@@ -1138,9 +1130,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/full-screen-navigation-menu',
-    ],
+    registryDependencies: ['@systaliko-ui/full-screen-navigation-menu'],
     files: [
       {
         path: 'registry/demo/blocks/full-screen-navigation-menu/index.tsx',
@@ -1179,7 +1169,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/globe'],
+    registryDependencies: ['@systaliko-ui/globe'],
     files: [
       {
         path: 'registry/demo/blocks/globe/index.tsx',
@@ -1215,7 +1205,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/grid-bento'],
+    registryDependencies: ['@systaliko-ui/grid-bento'],
     files: [
       {
         path: 'registry/demo/blocks/grid-bento/index.tsx',
@@ -1251,9 +1241,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/grid-bento-four-cells',
-    ],
+    registryDependencies: ['@systaliko-ui/grid-bento-four-cells'],
     files: [
       {
         path: 'registry/demo/blocks/grid-bento-four-cells/index.tsx',
@@ -1291,9 +1279,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/grid-bento-three-cells',
-    ],
+    registryDependencies: ['@systaliko-ui/grid-bento-three-cells'],
     files: [
       {
         path: 'registry/demo/blocks/grid-bento-three-cells/index.tsx',
@@ -1333,9 +1319,9 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/header',
-      'https://systaliko-ui.vercel.app/r/animated-menu',
-      'https://systaliko-ui.vercel.app/r/use-mobile',
+      '@systaliko-ui/header',
+      '@systaliko-ui/animated-menu',
+      '@systaliko-ui/use-mobile',
     ],
     files: [
       {
@@ -1372,7 +1358,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/image-player'],
+    registryDependencies: ['@systaliko-ui/image-player'],
     files: [
       {
         path: 'registry/demo/blocks/image-player/index.tsx',
@@ -1410,7 +1396,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/shader'],
+    registryDependencies: ['@systaliko-ui/shader'],
     files: [
       {
         path: 'registry/demo/blocks/shader/index.tsx',
@@ -1446,7 +1432,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/shader'],
+    registryDependencies: ['@systaliko-ui/shader'],
     files: [
       {
         path: 'registry/demo/blocks/shader-hurricane/index.tsx',
@@ -1484,7 +1470,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/slideshow'],
+    registryDependencies: ['@systaliko-ui/slideshow'],
     files: [
       {
         path: 'registry/demo/blocks/slideshow/index.tsx',
@@ -1521,9 +1507,9 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/story',
-      'https://systaliko-ui.vercel.app/r/dialog',
-      'https://systaliko-ui.vercel.app/r/avatar',
+      '@systaliko-ui/story',
+      '@systaliko-ui/dialog',
+      '@systaliko-ui/avatar',
     ],
     files: [
       {
@@ -1560,7 +1546,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/timeline'],
+    registryDependencies: ['@systaliko-ui/timeline'],
     files: [
       {
         path: 'registry/demo/blocks/timeline/index.tsx',
@@ -1634,7 +1620,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/card-flip'],
+    registryDependencies: ['@systaliko-ui/card-flip'],
     files: [
       {
         path: 'registry/demo/cards/card-flip/index.tsx',
@@ -1670,9 +1656,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/card-hover-reveal',
-    ],
+    registryDependencies: ['@systaliko-ui/card-hover-reveal'],
     files: [
       {
         path: 'registry/demo/cards/card-hover-reveal/index.tsx',
@@ -1710,9 +1694,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/card-hover-reveal',
-    ],
+    registryDependencies: ['@systaliko-ui/card-hover-reveal'],
     files: [
       {
         path: 'registry/demo/cards/card-hover-reveal-full/index.tsx',
@@ -1750,9 +1732,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/card-testimonial',
-    ],
+    registryDependencies: ['@systaliko-ui/card-testimonial'],
     files: [
       {
         path: 'registry/demo/cards/card-testimonial/index.tsx',
@@ -1790,9 +1770,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/card-testimonial',
-    ],
+    registryDependencies: ['@systaliko-ui/card-testimonial'],
     files: [
       {
         path: 'registry/demo/cards/card-testimonial-2/index.tsx',
@@ -1867,7 +1845,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/cards-stack'],
+    registryDependencies: ['@systaliko-ui/cards-stack'],
     files: [
       {
         path: 'registry/demo/cards/cards-stack-achievements/index.tsx',
@@ -1907,8 +1885,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/cards-stack-rotated',
-      'https://systaliko-ui.vercel.app/r/card-testimonial',
+      '@systaliko-ui/cards-stack-rotated',
+      '@systaliko-ui/card-testimonial',
     ],
     files: [
       {
@@ -1948,9 +1926,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/cards-stack-rotated',
-    ],
+    registryDependencies: ['@systaliko-ui/cards-stack-rotated'],
     files: [
       {
         path: 'registry/demo/cards/cards-stack-rotated-recognitions/index.tsx',
@@ -1989,10 +1965,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/cards-stack',
-      'https://systaliko-ui.vercel.app/r/badge',
-    ],
+    registryDependencies: ['@systaliko-ui/cards-stack', '@systaliko-ui/badge'],
     files: [
       {
         path: 'registry/demo/cards/cards-stack-work/index.tsx',
@@ -2068,7 +2041,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/checkbox-field'],
+    registryDependencies: ['@systaliko-ui/checkbox-field'],
     files: [
       {
         path: 'registry/demo/components/checkbox-field/index.tsx',
@@ -2107,8 +2080,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/custom-cursor',
-      'https://systaliko-ui.vercel.app/r/button',
+      '@systaliko-ui/custom-cursor',
+      '@systaliko-ui/button',
     ],
     files: [
       {
@@ -2147,7 +2120,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/custom-cursor'],
+    registryDependencies: ['@systaliko-ui/custom-cursor'],
     files: [
       {
         path: 'registry/demo/components/custom-cursor-2/index.tsx',
@@ -2185,7 +2158,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/rating-stars'],
+    registryDependencies: ['@systaliko-ui/rating-stars'],
     files: [
       {
         path: 'registry/demo/components/rating-stars/index.tsx',
@@ -2223,7 +2196,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/reveal-mask'],
+    registryDependencies: ['@systaliko-ui/reveal-mask'],
     files: [
       {
         path: 'registry/demo/components/reveal-mask/index.tsx',
@@ -2261,7 +2234,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/spotlight-list'],
+    registryDependencies: ['@systaliko-ui/spotlight-list'],
     files: [
       {
         path: 'registry/demo/components/spotlight-list/index.tsx',
@@ -2293,15 +2266,89 @@ export const index: Record<string, any> = {
     })(),
     command: '@systaliko-ui/spotlight-list-demo',
   },
+  'spotlight-list-2-demo': {
+    name: 'spotlight-list-2-demo',
+    description: 'Demo showing Spotlight list component.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['@systaliko-ui/spotlight-list-2'],
+    files: [
+      {
+        path: 'registry/demo/components/spotlight-list-2/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/spotlight-list-2-demo.tsx',
+        content:
+          "import { SportlightList } from '@/components/systaliko-ui/components/spotlight-list';\nconst IMAGES = [\n  'https://images.unsplash.com/photo-1554797589-7241bb691973?q=80&w=240&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1695047034607-c07de67875ab?q=80&w=240&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1679581858563-3c808d23f0fc?w=240&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8',\n  'https://images.unsplash.com/photo-1666043380189-eaa385e15cad?w=240&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D',\n];\nexport function SpotlightList2Demo() {\n  return (\n    <SportlightList\n      variant={'scale'}\n      className=\"flex gap-2 p-2 max-w-4xl  mx-auto w-full *:duration-300 *:ease-out\"\n    >\n      {IMAGES.map((imageUrl, index) => (\n        <li className=\"rounded ring shadow-xs overflow-hidden\" key={index}>\n          <img\n            className=\"w-full h-full object-cover\"\n            src={imageUrl}\n            alt=\"gallery item\"\n          />\n        </li>\n      ))}\n    </SportlightList>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/components/spotlight-list-2/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'spotlight-list-2-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/spotlight-list-2-demo',
+  },
+  'custom-pricing-design-demo': {
+    name: 'custom-pricing-design-demo',
+    description: 'Demo showing custom pricing component for a design service.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['@systaliko-ui/custom-pricing'],
+    files: [
+      {
+        path: 'registry/demo/ecommerce/custom-pricing-design/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/custom-pricing-design.tsx',
+        content:
+          '\'use client\';\nimport {\n  CustomPricingProvider,\n  CustomPricingCheckedControl,\n  CustomPricingQuantityControl,\n  CustomPricingTotalControl,\n} from \'@/components/systaliko-ui/ecommerce/custom-pricing\';\nimport { Label } from \'@/components/systaliko-ui/shadcn/label\';\nimport { Slider } from \'@/components/systaliko-ui/shadcn/slider\';\nimport { motion } from \'motion/react\';\nimport { Switch } from \'@/components/systaliko-ui/shadcn/switch\';\nimport { SlidingNumber } from \'@/components/systaliko-ui/text/sliding-number\';\n\nfunction SelectItem({\n  id,\n  label,\n  price,\n  checked,\n  handleChange,\n  groupId,\n}: {\n  id: string;\n  label: string;\n  price: string;\n  checked: boolean;\n  handleChange: () => void;\n  groupId: string;\n}) {\n  return (\n    <div className="relative group rounded-full transition-colors duration-200 has-[:checked]:text-white grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1">\n      <input\n        className="size-full [all:unset]"\n        type="checkbox"\n        name={id}\n        value={id}\n        id={id}\n        checked={checked}\n        onChange={handleChange}\n      />\n      <label\n        htmlFor={id}\n        className="relative p-2 z-2 text-nowrap pointer-events-none flex gap-px flex-wrap justify-center items-center text-xs font-medium"\n      >\n        {label} <span className="text-[10px] tabular-nums">{price}</span>\n      </label>\n      {checked && (\n        <motion.div\n          layoutId={groupId}\n          className="size-full rounded-full"\n          style={{\n            background: \'var(--primary)\',\n            backgroundImage: \'linear-gradient(180deg, #444 0%, #000 100%)\',\n          }}\n          transition={{\n            type: \'spring\',\n            stiffness: 260,\n            damping: 20,\n            mass: 1,\n          }}\n        />\n      )}\n    </div>\n  );\n}\nfunction Selects() {\n  return (\n    <div className="space-y-2">\n      <h3 className="font-medium">Website Type</h3>\n\n      <div\n        className="relative flex bg-input rounded-full ring ring-ring/40 p-0.5 w-fit border"\n        id="custom-pricing-selects"\n      >\n        <CustomPricingCheckedControl\n          id="landing page"\n          defaultChecked={true}\n          price={1500}\n          group="website-type"\n          render={({ id, checked, toggleChecked }) => (\n            <div className="relative ">\n              <SelectItem\n                price={\'$1.500\'}\n                id={id}\n                checked={checked}\n                handleChange={() => toggleChecked(id)}\n                label="Landing page"\n                groupId="custom-pricing-selects"\n              />\n            </div>\n          )}\n        />\n\n        <CustomPricingCheckedControl\n          id="business website"\n          price={3000}\n          group="website-type"\n          render={({ id, checked, toggleChecked }) => (\n            <div className="relative ">\n              <SelectItem\n                price={\'$3.000\'}\n                id={id}\n                checked={checked}\n                handleChange={() => toggleChecked(id)}\n                label="Business website"\n                groupId="custom-pricing-selects"\n              />\n            </div>\n          )}\n        />\n\n        <CustomPricingCheckedControl\n          id="ecommerce store"\n          price={5000}\n          group="website-type"\n          render={({ id, checked, toggleChecked }) => (\n            <div className="relative ">\n              <SelectItem\n                price={\'$5.000\'}\n                id={id}\n                checked={checked}\n                handleChange={() => toggleChecked(id)}\n                label="Ecommerce store"\n                groupId="custom-pricing-selects"\n              />\n            </div>\n          )}\n        />\n      </div>\n    </div>\n  );\n}\nfunction Quantities() {\n  return (\n    <div className="space-y-4">\n      <CustomPricingQuantityControl\n        id="number of pages"\n        unitPrice={100}\n        defaultValue={0}\n        render={({ id, subtotal, unitPrice, quantity, handleChange }) => (\n          <div className="space-y-1">\n            <div className="flex items-center gap-2 justify-between">\n              <Label className="text-sm font-medium" htmlFor={id}>\n                Number of pages{\' \'}\n                <span className="text-[10px] text-muted-forground">\n                  ${unitPrice}x{quantity}\n                </span>\n              </Label>\n\n              <SlidingNumber\n                value={subtotal}\n                className="text-xs font-medium text-muted-foreground tracking-tight"\n              />\n            </div>\n            <Slider\n              id={id}\n              min={0}\n              max={10}\n              step={1}\n              value={[quantity]}\n              onValueChange={handleChange}\n            />\n          </div>\n        )}\n      />\n\n      <CustomPricingQuantityControl\n        id="project urgency"\n        unitPrice={50}\n        defaultValue={0}\n        render={({ id, subtotal, unitPrice, quantity, handleChange }) => (\n          <div className="space-y-1">\n            <div className="flex items-center gap-2 justify-between">\n              <Label className="text-sm font-medium" htmlFor={id}>\n                Project urgency\n                <span className="text-[10px] text-muted-forground">\n                  ${unitPrice}x{quantity}\n                </span>\n              </Label>\n\n              <SlidingNumber\n                value={subtotal}\n                className="text-xs font-medium text-muted-foreground tracking-tight"\n              />\n            </div>\n            <Slider\n              id={id}\n              min={0}\n              max={10}\n              step={1}\n              value={[quantity]}\n              onValueChange={handleChange}\n            />\n          </div>\n        )}\n      />\n\n      <CustomPricingQuantityControl\n        id="design customization"\n        unitPrice={300}\n        defaultValue={0}\n        render={({ id, subtotal, unitPrice, quantity, handleChange }) => (\n          <div className="space-y-1">\n            <div className="flex items-center gap-2 justify-between">\n              <Label className="text-sm font-medium" htmlFor={id}>\n                Custom Design Level\n                <span className="text-[10px] text-muted-forground">\n                  ${unitPrice}x{quantity}\n                </span>\n              </Label>\n\n              <SlidingNumber\n                value={subtotal}\n                className="text-xs font-medium text-muted-foreground tracking-tight"\n              />\n            </div>\n            <Slider\n              id={id}\n              min={0}\n              max={3}\n              step={1}\n              value={[quantity]}\n              onValueChange={handleChange}\n            />\n          </div>\n        )}\n      />\n    </div>\n  );\n}\n\nfunction Options() {\n  return (\n    <div className="space-y-3">\n      <h3 className="font-medium text-sm">Additional Features</h3>\n      <div className="grid gap-2">\n        <CustomPricingCheckedControl\n          id="seo-optimization"\n          price={200}\n          type="checkbox"\n          render={({ id, checked, toggleChecked }) => (\n            <div className="flex items-center justify-between p-3 rounded-xl border bg-card/50 transition-colors hover:bg-card/80">\n              <div className="space-y-0.5">\n                <Label\n                  htmlFor={id}\n                  className="text-sm font-medium leading-none cursor-pointer"\n                >\n                  SEO Optimization\n                </Label>\n                <p className="text-[10px] text-muted-foreground">\n                  Boost your search engine rankings\n                </p>\n              </div>\n              <div className="flex items-center gap-3">\n                <span className="text-xs font-medium tabular-nums">$200</span>\n                <Switch\n                  checked={checked}\n                  onCheckedChange={() => toggleChecked(id)}\n                  id={id}\n                />\n              </div>\n            </div>\n          )}\n        />\n\n        <CustomPricingCheckedControl\n          id="copywriting"\n          price={150}\n          type="checkbox"\n          render={({ id, checked, toggleChecked }) => (\n            <div className="flex items-center justify-between p-3 rounded-xl border bg-card/50 transition-colors hover:bg-card/80">\n              <div className="space-y-0.5">\n                <Label\n                  htmlFor={id}\n                  className="text-sm font-medium leading-none cursor-pointer"\n                >\n                  Copywriting\n                </Label>\n                <p className="text-[10px] text-muted-foreground">\n                  Professional copywriting for your website\n                </p>\n              </div>\n              <div className="flex items-center gap-3">\n                <span className="text-xs font-medium tabular-nums">$150</span>\n                <Switch\n                  checked={checked}\n                  onCheckedChange={() => toggleChecked(id)}\n                  id={id}\n                />\n              </div>\n            </div>\n          )}\n        />\n\n        <CustomPricingCheckedControl\n          id="third party"\n          price={150}\n          type="checkbox"\n          render={({ id, checked, toggleChecked }) => (\n            <div className="flex items-center justify-between p-3 rounded-xl border bg-card/50 transition-colors hover:bg-card/80">\n              <div className="space-y-0.5">\n                <Label\n                  htmlFor={id}\n                  className="text-sm font-medium leading-none cursor-pointer"\n                >\n                  Third party integration\n                </Label>\n                <p className="text-[10px] text-muted-foreground">\n                  Connect with tools you already use\n                </p>\n              </div>\n              <div className="flex items-center gap-3">\n                <span className="text-xs font-medium tabular-nums">$150</span>\n                <Switch\n                  checked={checked}\n                  onCheckedChange={() => toggleChecked(id)}\n                  id={id}\n                />\n              </div>\n            </div>\n          )}\n        />\n      </div>\n    </div>\n  );\n}\n\nfunction TotalDisplay() {\n  return (\n    <div className="pt-6 border-t border-dashed border-muted-foreground/30 mt-4">\n      <div className="flex items-center justify-between">\n        <div className="space-y-0.5">\n          <h4 className="font-semibold text-base">Total Estimate</h4>\n          <p className="text-xs text-muted-foreground">\n            Dynamic pricing based on your selection\n          </p>\n        </div>\n        <CustomPricingTotalControl\n          render={({ total }) => (\n            <div className="text-right">\n              <SlidingNumber\n                value={total}\n                className="font-semibold tracking-tight text-primary"\n              />\n              <p className="text-xs text-muted-foreground  tracking-widest mt-0.5">\n                Estimated USD\n              </p>\n            </div>\n          )}\n        />\n      </div>\n    </div>\n  );\n}\n\nexport function CustomPricingDesignDemo() {\n  return (\n    <div className="min-h-screen p-6 place-content-center">\n      <div className="space-y-8 p-6 rounded border bg-card shadow-xs mx-auto max-w-md">\n        <CustomPricingProvider>\n          <Selects />\n          <Quantities />\n          <Options />\n          <TotalDisplay />\n        </CustomPricingProvider>\n      </div>\n    </div>\n  );\n}',
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/ecommerce/custom-pricing-design/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'custom-pricing-design-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/custom-pricing-design-demo',
+  },
   'expandable-grid-demo': {
     name: 'expandable-grid-demo',
     description: 'Demo showing expandable product grid component.',
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/ecommerce/expandable-grid',
-    ],
+    registryDependencies: ['@systaliko-ui/ecommerce/expandable-grid'],
     files: [
       {
         path: 'registry/demo/ecommerce/expandable-grid/index.tsx',
@@ -2339,9 +2386,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/ecommerce/image-zoom',
-    ],
+    registryDependencies: ['@systaliko-ui/ecommerce/image-zoom'],
     files: [
       {
         path: 'registry/demo/ecommerce/image-zoom/index.tsx',
@@ -2379,7 +2424,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/infinite-scroll'],
+    registryDependencies: ['@systaliko-ui/infinite-scroll'],
     files: [
       {
         path: 'registry/demo/ecommerce/infinite-scroll/index.tsx',
@@ -2417,10 +2462,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/badge',
-      'https://systaliko-ui.vercel.app/r/price',
-    ],
+    registryDependencies: ['@systaliko-ui/badge', '@systaliko-ui/price'],
     files: [
       {
         path: 'registry/demo/ecommerce/price/index.tsx',
@@ -2457,10 +2499,10 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/pricing',
-      'https://systaliko-ui.vercel.app/r/badge',
-      'https://systaliko-ui.vercel.app/r/button',
-      'https://systaliko-ui.vercel.app/r/label',
+      '@systaliko-ui/pricing',
+      '@systaliko-ui/badge',
+      '@systaliko-ui/button',
+      '@systaliko-ui/label',
     ],
     files: [
       {
@@ -2468,7 +2510,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/pricing.tsx',
         content:
-          "'use client';\nimport { Separator } from '@/components/ui/separator';\nimport {\n  calculateYearlySavings,\n  Pricing,\n  PricingCard,\n  PricingFeature,\n  PricingIncludesPrevious,\n  PricingIntervalSwitch,\n  PricingPackage,\n  PricingValue,\n} from '@/components/systaliko-ui/ecommerce/pricing';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport { Label } from '@/components/systaliko-ui/shadcn/field';\nimport {\n  ArrowUpRightIcon,\n  Building2Icon,\n  Tally3Icon,\n  UserRoundIcon,\n  UsersRoundIcon,\n} from 'lucide-react';\n\ninterface PlanConfig {\n  id: string;\n  name: string;\n  icon: typeof Tally3Icon;\n  pricing: { monthly: number; yearly: number };\n  features: string[];\n  includesPrevious?: boolean;\n  featured?: boolean;\n}\n\nconst plans: PlanConfig[] = [\n  {\n    id: 'plan-free',\n    name: 'Free',\n    icon: UserRoundIcon,\n    pricing: { monthly: 0, yearly: 0 },\n    features: [\n      '30 monthly tasks',\n      'Up to 3 active projects',\n      'Solo workspace',\n      'Basic reminders and due dates',\n      'Mobile + desktop app',\n      'Community support',\n    ],\n  },\n  {\n    id: 'plan-team',\n    name: 'Team',\n    icon: UsersRoundIcon,\n    pricing: { monthly: 12, yearly: 100 },\n    features: [\n      'Unlimited projects and tasks',\n      'Team workspaces with roles & permissions',\n      'Real-time collaboration & comments',\n      'Kanban, calendar & timeline views',\n      'File sharing + integrations (Google Drive, Slack...)',\n      'Priority email & chat support',\n    ],\n    includesPrevious: true,\n    featured: true,\n  },\n  {\n    id: 'plan-enterprise',\n    name: 'Enterprise',\n    icon: Building2Icon,\n    pricing: { monthly: 24, yearly: 200 },\n    features: [\n      'Workflow automations (triggers & actions)',\n      'Advanced reporting dashboards',\n      'Custom fields & templates',\n      'Time tracking & workload view',\n      'External client access',\n      'SSO + enhanced security',\n    ],\n    includesPrevious: true,\n  },\n];\nexport function PricingDemo() {\n  const savings = calculateYearlySavings(plans[1].pricing);\n\n  return (\n    <div>\n      <Pricing className=\"space-y-4\">\n        <div className=\"mt-6 flex items-center justify-center gap-2\">\n          <PricingIntervalSwitch />\n          <Label className=\"text-muted-foreground\">Billed annually</Label>\n          <Badge\n            className=\"rounded-full shadow-sm shadow-black/15 ring-1 ring-ring/20 py-1 text-green-50 bg-green-600\"\n            variant={'outline'}\n          >\n            💰 Save up to {savings}% with annual billing\n          </Badge>\n        </div>\n        <div className=\"flex flex-wrap gap-y-4 -space-x-0.5 justify-center items-end\">\n          {plans.map((plan) => {\n            const Icon = plan.icon;\n            return (\n              <PricingCard\n                variant={plan.featured ? 'featured' : 'default'}\n                className=\"md:flex-1 max-w-md min-w-2xs gap-6 rounded\"\n                key={plan.id}\n              >\n                <PricingPackage className=\"justify-between\">\n                  <h3 className=\"text-xl font-medium\">{plan.name}</h3>\n                  <div className=\"bg-primary text-primary-foreground p-2 rounded flex justify-center items-center\">\n                    <Icon className=\"size-5\" />\n                  </div>\n                </PricingPackage>\n\n                <PricingValue\n                  yearlyValue={plan.pricing.yearly}\n                  monthlyValue={plan.pricing.monthly}\n                  className=\"font-semibold\"\n                />\n                <Separator />\n\n                <div className=\"flex flex-col items-start gap-2\">\n                  {plan.includesPrevious && (\n                    <PricingIncludesPrevious className=\"text-sm text-muted-foreground\">\n                      Everything in previous plan\n                    </PricingIncludesPrevious>\n                  )}\n                  {plan.features.map((feature) => (\n                    <PricingFeature\n                      className=\"text-sm text-muted-foreground\"\n                      key={feature}\n                    >\n                      {feature}\n                    </PricingFeature>\n                  ))}\n                </div>\n\n                <Button\n                  className=\"w-full\"\n                  variant={plan.featured ? 'default' : 'outline'}\n                >\n                  Get Started\n                  <ArrowUpRightIcon className=\"size-4\" />\n                </Button>\n              </PricingCard>\n            );\n          })}\n        </div>\n        <div className=\" text-center text-sm text-muted-foreground\">\n          <p>\n            All plans include a 30-day money-back guarantee. No hidden fees.\n          </p>\n        </div>\n      </Pricing>\n    </div>\n  );\n}",
+          "'use client';\nimport { Separator } from '@/components/ui/separator';\nimport {\n  calculateYearlySavings,\n  Pricing,\n  PricingCard,\n  PricingFeature,\n  PricingIncludesPrevious,\n  PricingIntervalSwitch,\n  PricingPackage,\n  PricingValue,\n} from '@/components/systaliko-ui/ecommerce/pricing';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport { Label } from '@/components/systaliko-ui/shadcn/field';\nimport {\n  ArrowUpRightIcon,\n  Building2Icon,\n  Tally3Icon,\n  UserRoundIcon,\n  UsersRoundIcon,\n} from 'lucide-react';\n\ninterface PlanConfig {\n  id: string;\n  name: string;\n  icon: typeof Tally3Icon;\n  pricing: { monthly: number; yearly: number };\n  features: string[];\n  includesPrevious?: boolean;\n  featured?: boolean;\n}\n\nconst plans: PlanConfig[] = [\n  {\n    id: 'plan-free',\n    name: 'Free',\n    icon: UserRoundIcon,\n    pricing: { monthly: 0, yearly: 0 },\n    features: [\n      '30 monthly tasks',\n      'Up to 3 active projects',\n      'Solo workspace',\n      'Basic reminders and due dates',\n      'Mobile + desktop app',\n      'Community support',\n    ],\n  },\n  {\n    id: 'plan-team',\n    name: 'Team',\n    icon: UsersRoundIcon,\n    pricing: { monthly: 12, yearly: 100 },\n    features: [\n      'Unlimited projects and tasks',\n      'Team workspaces with roles & permissions',\n      'Real-time collaboration & comments',\n      'Kanban, calendar & timeline views',\n      'File sharing + integrations (Google Drive, Slack...)',\n      'Priority email & chat support',\n    ],\n    includesPrevious: true,\n    featured: true,\n  },\n  {\n    id: 'plan-enterprise',\n    name: 'Enterprise',\n    icon: Building2Icon,\n    pricing: { monthly: 24, yearly: 200 },\n    features: [\n      'Workflow automations (triggers & actions)',\n      'Advanced reporting dashboards',\n      'Custom fields & templates',\n      'Time tracking & workload view',\n      'External client access',\n      'SSO + enhanced security',\n    ],\n    includesPrevious: true,\n  },\n];\nexport function PricingDemo() {\n  const savings = calculateYearlySavings(plans[1].pricing);\n\n  return (\n    <div>\n      <Pricing className=\"space-y-4\">\n        <div className=\"mt-6 flex items-center justify-center gap-2\">\n          <PricingIntervalSwitch />\n          <Label className=\"text-muted-foreground\">Billed annually</Label>\n          <Badge\n            className=\"rounded-full shadow-sm shadow-green-600/15 ring-1 ring-green-600/15 py-1  bg-green-400\"\n            variant={'outline'}\n          >\n            💰 Save up to {savings}% with annual billing\n          </Badge>\n        </div>\n        <div className=\"flex flex-wrap gap-y-4 -space-x-0.5 justify-center items-end\">\n          {plans.map((plan) => {\n            const Icon = plan.icon;\n            return (\n              <PricingCard\n                variant={plan.featured ? 'featured' : 'default'}\n                className=\"md:flex-1 max-w-md min-w-2xs gap-6 rounded\"\n                key={plan.id}\n              >\n                <PricingPackage className=\"justify-between\">\n                  <h3 className=\"text-xl font-medium\">{plan.name}</h3>\n                  <div className=\"bg-primary text-primary-foreground p-2 rounded flex justify-center items-center\">\n                    <Icon className=\"size-5\" />\n                  </div>\n                </PricingPackage>\n\n                <PricingValue\n                  yearlyValue={plan.pricing.yearly}\n                  monthlyValue={plan.pricing.monthly}\n                  className=\"font-semibold\"\n                />\n                <Separator />\n\n                <div className=\"flex flex-col items-start gap-2\">\n                  {plan.includesPrevious && (\n                    <PricingIncludesPrevious className=\"text-sm text-muted-foreground\">\n                      Everything in previous plan\n                    </PricingIncludesPrevious>\n                  )}\n                  {plan.features.map((feature) => (\n                    <PricingFeature\n                      className=\"text-sm text-muted-foreground\"\n                      key={feature}\n                    >\n                      {feature}\n                    </PricingFeature>\n                  ))}\n                </div>\n\n                <Button\n                  className=\"w-full\"\n                  variant={plan.featured ? 'default' : 'outline'}\n                >\n                  Get Started\n                  <ArrowUpRightIcon className=\"size-4\" />\n                </Button>\n              </PricingCard>\n            );\n          })}\n        </div>\n        <div className=\" text-center text-sm text-muted-foreground\">\n          <p>\n            All plans include a 30-day money-back guarantee. No hidden fees.\n          </p>\n        </div>\n      </Pricing>\n    </div>\n  );\n}",
       },
     ],
     keywords: [],
@@ -2497,7 +2539,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/pricing'],
+    registryDependencies: ['@systaliko-ui/pricing'],
     files: [
       {
         path: 'registry/demo/ecommerce/pricing-2/index.tsx',
@@ -2535,9 +2577,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/product-carousel',
-    ],
+    registryDependencies: ['@systaliko-ui/product-carousel'],
     files: [
       {
         path: 'registry/demo/ecommerce/product-carousel/index.tsx',
@@ -2575,9 +2615,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/product-carousel',
-    ],
+    registryDependencies: ['@systaliko-ui/product-carousel'],
     files: [
       {
         path: 'registry/demo/ecommerce/product-carousel-2/index.tsx',
@@ -2616,9 +2654,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/product-carousel',
-    ],
+    registryDependencies: ['@systaliko-ui/product-carousel'],
     files: [
       {
         path: 'registry/demo/ecommerce/product-carousel-3/index.tsx',
@@ -2656,9 +2692,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/ecommerce/quantity',
-    ],
+    registryDependencies: ['@systaliko-ui/ecommerce/quantity'],
     files: [
       {
         path: 'registry/demo/ecommerce/quantity/index.tsx',
@@ -2696,7 +2730,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/toggle-layout'],
+    registryDependencies: ['@systaliko-ui/toggle-layout'],
     files: [
       {
         path: 'registry/demo/ecommerce/toggle-layout/index.tsx',
@@ -2734,7 +2768,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/circle-cards'],
+    registryDependencies: ['@systaliko-ui/circle-cards'],
     files: [
       {
         path: 'registry/demo/scroll-animations/circle-cards/index.tsx',
@@ -2772,9 +2806,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/distributed-cards',
-    ],
+    registryDependencies: ['@systaliko-ui/distributed-cards'],
     files: [
       {
         path: 'registry/demo/scroll-animations/distributed-cards/index.tsx',
@@ -2812,9 +2844,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/distributed-cards-2',
-    ],
+    registryDependencies: ['@systaliko-ui/distributed-cards-2'],
     files: [
       {
         path: 'registry/demo/scroll-animations/distributed-cards-2/index.tsx',
@@ -2853,11 +2883,11 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/parallax',
-      'https://systaliko-ui.vercel.app/r/container-stagger',
-      'https://systaliko-ui.vercel.app/r/text-stagger-inview',
-      'https://systaliko-ui.vercel.app/r/animation-variants',
-      'https://systaliko-ui.vercel.app/r/button',
+      '@systaliko-ui/parallax',
+      '@systaliko-ui/container-stagger',
+      '@systaliko-ui/text-stagger-inview',
+      '@systaliko-ui/animation-variants',
+      '@systaliko-ui/button',
     ],
     files: [
       {
@@ -2896,9 +2926,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animation',
-    ],
+    registryDependencies: ['@systaliko-ui/scroll-animation'],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-combo/index.tsx',
@@ -2936,9 +2964,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animations',
-    ],
+    registryDependencies: ['@systaliko-ui/scroll-animations'],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-inset/index.tsx',
@@ -2976,9 +3002,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animations',
-    ],
+    registryDependencies: ['@systaliko-ui/scroll-animations'],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-inset-x/index.tsx',
@@ -3016,9 +3040,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animations',
-    ],
+    registryDependencies: ['@systaliko-ui/scroll-animations'],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-inset-y/index.tsx',
@@ -3056,9 +3078,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animations',
-    ],
+    registryDependencies: ['@systaliko-ui/scroll-animations'],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-radius/index.tsx',
@@ -3096,9 +3116,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animation-rotate',
-    ],
+    registryDependencies: ['@systaliko-ui/scroll-animation-rotate'],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-rotate/index.tsx',
@@ -3136,9 +3154,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animation-rotate',
-    ],
+    registryDependencies: ['@systaliko-ui/scroll-animation-rotate'],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-rotate-x/index.tsx',
@@ -3176,9 +3192,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animation-rotate',
-    ],
+    registryDependencies: ['@systaliko-ui/scroll-animation-rotate'],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-rotate-y/index.tsx',
@@ -3216,9 +3230,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animations',
-    ],
+    registryDependencies: ['@systaliko-ui/scroll-animations'],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-scale/index.tsx',
@@ -3256,9 +3268,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animations',
-    ],
+    registryDependencies: ['@systaliko-ui/scroll-animations'],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-translate-x/index.tsx',
@@ -3296,7 +3306,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/scroll-autoplay'],
+    registryDependencies: ['@systaliko-ui/scroll-autoplay'],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-autoplay/index.tsx',
@@ -3335,8 +3345,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animations',
-      'https://systaliko-ui.vercel.app/r/grid-bento',
+      '@systaliko-ui/scroll-animations',
+      '@systaliko-ui/grid-bento',
     ],
     files: [
       {
@@ -3376,9 +3386,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-x-carousel',
-    ],
+    registryDependencies: ['@systaliko-ui/scroll-x-carousel'],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-x-carousel/index.tsx',
@@ -3417,9 +3425,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-x-carousel',
-    ],
+    registryDependencies: ['@systaliko-ui/scroll-x-carousel'],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-x-carousel-reverse/index.tsx',
@@ -3457,9 +3463,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/scroll-animation',
-    ],
+    registryDependencies: ['@systaliko-ui/scroll-animation'],
     files: [
       {
         path: 'registry/demo/scroll-animations/team/index.tsx',
@@ -3497,7 +3501,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/wavy-block'],
+    registryDependencies: ['@systaliko-ui/wavy-block'],
     files: [
       {
         path: 'registry/demo/scroll-animations/wavy-block/index.tsx',
@@ -3529,15 +3533,89 @@ export const index: Record<string, any> = {
     })(),
     command: '@systaliko-ui/wavy-block-demo',
   },
+  'wavy-block-y-demo': {
+    name: 'wavy-block-y-demo',
+    description: 'Demo showing another usage of Wavy Block component.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['@systaliko-ui/wavy-block'],
+    files: [
+      {
+        path: 'registry/demo/scroll-animations/wavy-block-y/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/demo/wavy-block-y.tsx',
+        content:
+          "import {\n  WavyBlock,\n  WavyBlockItem,\n} from '@/components/systaliko-ui/scroll-animations/wavy-block';\n\nconst IMAGES = [\n  'https://images.unsplash.com/photo-1554797589-7241bb691973?q=80&w=280&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1679581858563-3c808d23f0fc?w=280&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8',\n  'https://images.unsplash.com/photo-1695047034607-c07de67875ab?q=80&w=280&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1666043380189-eaa385e15cad?w=280&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D',\n];\n\nexport function WavyBlockYDemo() {\n  return (\n    <div className=\"w-full max-w-5xl mx-auto\">\n      <WavyBlock\n        offset={['start end', 'end start']}\n        className=\"flex h-[160vh] items-center justify-center gap-2 py-16\"\n      >\n        {IMAGES.map((imageUrl, index) => (\n          <WavyBlockItem\n            axis=\"y\"\n            key={index}\n            index={index}\n            config={{\n              baseAmplitude: 120,\n              frequency: 42,\n              progressScale: 2,\n              phaseShiftDeg: 0,\n            }}\n            className=\"h-[300px] max-w-[200px] overflow-hidden rounded-2xl ring shadow-xs ring-ring/50\"\n          >\n            <img\n              className=\"size-full object-cover\"\n              src={imageUrl}\n              alt=\"tokyo\"\n            />\n          </WavyBlockItem>\n        ))}\n      </WavyBlock>\n    </div>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/scroll-animations/wavy-block-y/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'wavy-block-y-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/wavy-block-y-demo',
+  },
+  'sliding-number-demo': {
+    name: 'sliding-number-demo',
+    description: 'Demo showing Sliding number component.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: ['@systaliko-ui/sliding-number'],
+    files: [
+      {
+        path: 'registry/demo/text/sliding-number/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/demo/sliding-number.tsx',
+        content:
+          "'use client';\nimport { Slider } from '@/components/ui/slider';\nimport { SlidingNumber } from '@/components/systaliko-ui/text/sliding-number';\nimport React from 'react';\n\nexport function SlidingNumberDemo() {\n  const [value, setValue] = React.useState<number>(0);\n  return (\n    <div className=\"p-8 w-full space-y-4 max-w-md mx-auto\">\n      <Slider\n        min={100}\n        max={10000}\n        step={100}\n        value={[value]}\n        onValueChange={(val) => setValue(val[0])}\n      />\n      <SlidingNumber value={value} className=\"text-2xl font-medium\" />\n    </div>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/demo/text/sliding-number/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'sliding-number-demo';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/sliding-number-demo',
+  },
   'text-scroll-read-demo': {
     name: 'text-scroll-read-demo',
     description: 'Demo showing Text scroll read component.',
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/text-scroll-read',
-    ],
+    registryDependencies: ['@systaliko-ui/text-scroll-read'],
     files: [
       {
         path: 'registry/demo/text/text-scroll-read/index.tsx',
@@ -3575,9 +3653,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/text-stagger-hover',
-    ],
+    registryDependencies: ['@systaliko-ui/text-stagger-hover'],
     files: [
       {
         path: 'registry/demo/text/text-stagger-hover/index.tsx',
@@ -3615,9 +3691,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/text-stagger-interval',
-    ],
+    registryDependencies: ['@systaliko-ui/text-stagger-interval'],
     files: [
       {
         path: 'registry/demo/text/text-stagger-interval/index.tsx',
@@ -3655,9 +3729,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/text-stagger-inview',
-    ],
+    registryDependencies: ['@systaliko-ui/text-stagger-inview'],
     files: [
       {
         path: 'registry/demo/text/text-stagger-inview/index.tsx',
@@ -3696,9 +3768,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/text-stagger-inview',
-    ],
+    registryDependencies: ['@systaliko-ui/text-stagger-inview'],
     files: [
       {
         path: 'registry/demo/text/text-stagger-inview-waves/index.tsx',
@@ -3737,7 +3807,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/text-vertical'],
+    registryDependencies: ['@systaliko-ui/text-vertical'],
     files: [
       {
         path: 'registry/demo/text/text-vertical/index.tsx',
@@ -3775,7 +3845,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/text-wavy'],
+    registryDependencies: ['@systaliko-ui/text-wavy'],
     files: [
       {
         path: 'registry/demo/text/text-wavy/index.tsx',
@@ -3811,9 +3881,7 @@ export const index: Record<string, any> = {
     type: 'registry:hook',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/animation-variants',
-    ],
+    registryDependencies: ['@systaliko-ui/animation-variants'],
     files: [
       {
         path: 'registry/demo/utils/animation-variants/index.tsx',
@@ -3851,10 +3919,7 @@ export const index: Record<string, any> = {
     type: 'registry:hook',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/set-stagger-direction',
-      'motion',
-    ],
+    registryDependencies: ['@systaliko-ui/set-stagger-direction', 'motion'],
     files: [
       {
         path: 'registry/demo/utils/set-stagger-direction/index.tsx',
@@ -3885,6 +3950,48 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@systaliko-ui/set-stagger-direction-demo',
+  },
+  'custom-pricing': {
+    name: 'custom-pricing',
+    description:
+      'Flexible custom pricing component with with set of tools that allow to update the price depending on quantity unit and if or not is checked.',
+    type: 'registry:block',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: [
+      '@systaliko-ui/slider',
+      '@systaliko-ui/custom-pricing-utils',
+    ],
+    files: [
+      {
+        path: 'registry/ecommerce/custom-pricing/index.tsx',
+        type: 'registry:block',
+        target: 'components/systaliko-ui/custom-pricing.tsx',
+        content:
+          "import {\n  CustomPricingContext,\n  CustomPricingProviderProps,\n  useCustomPricing,\n  useCustomPricingQuantity,\n  useCustomPricingSelect,\n  useCustomPricingStore,\n} from '@/components/systaliko-ui/utils/custom-pricing-utils';\n\ninterface CustomPricingQuantityControlProps {\n  id: string;\n  unitPrice?: number;\n  defaultValue?: number;\n  render?: (props: {\n    id: string;\n    unitPrice: number;\n    subtotal: number;\n    quantity: number;\n    updateQuantity: (id: string, quantity: number) => void;\n    handleChange: (val: number[]) => void;\n  }) => React.ReactNode;\n}\n\nexport function CustomPricingQuantityControl({\n  id,\n  unitPrice = 0,\n  defaultValue = 0,\n  render,\n}: CustomPricingQuantityControlProps) {\n  const { updateQuantity, quantity } = useCustomPricingQuantity({\n    id,\n    unitPrice,\n    defaultValue,\n  });\n  const handleChange = (val: number[]) => {\n    updateQuantity(id, val[0]);\n  };\n  const subtotal = quantity * unitPrice;\n\n  if (render) {\n    return render({\n      id,\n      unitPrice,\n      subtotal,\n      quantity,\n      updateQuantity,\n      handleChange,\n    });\n  }\n}\n\nexport interface CustomPricingSelectProps {\n  id: string;\n  group?: string;\n  type?: 'checkbox' | 'radio';\n  defaultChecked?: boolean;\n  price?: number;\n  render?: (props: {\n    id: string;\n    checked: boolean;\n    price: number;\n    toggleChecked: (id: string) => void;\n  }) => React.ReactNode;\n}\n\nexport function CustomPricingCheckedControl({\n  id,\n  price = 0,\n  type = 'radio',\n  group,\n  defaultChecked = false,\n  render,\n}: CustomPricingSelectProps) {\n  const { checked, toggleChecked } = useCustomPricingSelect({\n    id,\n    type,\n    group,\n    price,\n    defaultChecked,\n  });\n\n  if (render) {\n    return render({ id, checked, price, toggleChecked });\n  }\n}\n\nexport function CustomPricingTotalControl({\n  render,\n}: {\n  render?: (props: { total: number }) => React.ReactNode;\n}) {\n  const { total } = useCustomPricing();\n  if (render) {\n    return render({ total });\n  }\n  return total;\n}\nexport function CustomPricingProvider({\n  onChange,\n  children,\n}: CustomPricingProviderProps) {\n  const store = useCustomPricingStore({ onChange });\n  return (\n    <CustomPricingContext.Provider value={{ ...store }}>\n      {children}\n    </CustomPricingContext.Provider>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/ecommerce/custom-pricing/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'custom-pricing';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/custom-pricing',
   },
   'expandable-grid': {
     name: 'expandable-grid',
@@ -3967,7 +4074,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/spinner'],
+    registryDependencies: ['@systaliko-ui/spinner'],
     files: [
       {
         path: 'registry/ecommerce/infinite-scroll/index.tsx',
@@ -4469,7 +4576,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/wavy-block.tsx',
         content:
-          "'use client';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  SpringOptions,\n  useMotionValue,\n  useReducedMotion,\n  useScroll,\n  UseScrollOptions,\n  useSpring,\n} from 'motion/react';\nimport React from 'react';\n\ninterface WavyTextsConfig {\n  baseOffsetFactor: number;\n  baseExtra: number;\n  baseAmplitude: number;\n  lengthEffect: number;\n  frequency: number;\n  progressScale: number;\n  phaseShiftDeg: number;\n  spring: SpringOptions;\n}\ninterface WavyBlockItemProps extends HTMLMotionProps<'div'> {\n  index: number;\n  config?: WavyTextsConfig;\n}\ninterface WavyBlockContextValue {\n  scrollYProgress: MotionValue<number>;\n  maxLen: number;\n}\n\nconst WavyBlockContext = React.createContext<WavyBlockContextValue | undefined>(\n  undefined,\n);\n\nfunction useWavyBlockContext() {\n  const context = React.useContext(WavyBlockContext);\n  if (context === undefined) {\n    throw new Error('useWavyBlockContext must be used within a WavyBlock');\n  }\n  return context;\n}\nconst toRadian = (deg: number) => (deg * Math.PI) / 180;\n\nexport function WavyBlockItem({\n  index,\n  config = {\n    baseOffsetFactor: 0.1,\n    baseExtra: 0,\n    baseAmplitude: 160,\n    lengthEffect: 0.6,\n    frequency: 35,\n    progressScale: 6,\n    phaseShiftDeg: -180,\n    spring: { damping: 22, stiffness: 300 },\n  },\n  style,\n  ...props\n}: WavyBlockItemProps) {\n  const { scrollYProgress, maxLen } = useWavyBlockContext();\n  const reducedMotion = useReducedMotion();\n  const lengthFactor = Math.min(1, Math.max(0, maxLen / (maxLen || 1)));\n\n  const [isMounted, setIsMounted] = React.useState<boolean>(false);\n\n  const calculateX = React.useCallback(\n    (p: number, windowWidth?: number) => {\n      const phase = config.progressScale * p;\n\n      const width =\n        windowWidth ??\n        (typeof window !== 'undefined' ? window.innerWidth : 1200);\n      const baseOffset = config.baseOffsetFactor * width + config.baseExtra;\n\n      const amplitudeScale = 1 - config.lengthEffect * lengthFactor;\n      const amplitude = config.baseAmplitude * amplitudeScale;\n\n      const angle =\n        toRadian(config.frequency * index) +\n        phase +\n        toRadian(config.phaseShiftDeg);\n\n      return baseOffset + amplitude * Math.cos(angle);\n    },\n    [config, lengthFactor, index],\n  );\n\n  const initialX = calculateX(0, 1200);\n  const rawX = useMotionValue(initialX);\n  const springX = useSpring(rawX, config.spring);\n  const x = reducedMotion ? rawX : springX;\n\n  React.useLayoutEffect(() => {\n    setIsMounted(true);\n  }, []);\n\n  React.useEffect(() => {\n    if (!scrollYProgress || !isMounted) return;\n\n    const unsub = scrollYProgress.onChange((p) => {\n      const windowWidth =\n        typeof window !== 'undefined' ? window.innerWidth : 1200;\n      const newX = calculateX(p, windowWidth);\n      rawX.set(newX);\n    });\n\n    return () => {\n      if (unsub) unsub();\n    };\n  }, [scrollYProgress, rawX, calculateX, isMounted]);\n\n  return (\n    <motion.div style={{ x, ...style }} suppressHydrationWarning {...props} />\n  );\n}\n\nexport function WavyBlock({\n  offset = ['start end', 'end start'],\n  ...props\n}: React.ComponentPropsWithRef<'div'> & {\n  offset?: UseScrollOptions['offset'];\n}) {\n  const containerRef = React.useRef<HTMLDivElement>(null);\n  const { current } = containerRef;\n\n  const maxLen = React.useMemo(() => {\n    if (!current?.children || current.children.length === 0) return 1;\n    const childrenArray = Array.from(current.children);\n    return Math.max(\n      ...childrenArray.map((child) => (child ? String(child).length : 0)),\n    );\n  }, [current?.children]);\n\n  const { scrollYProgress } = useScroll({\n    target: containerRef,\n    offset: offset,\n  });\n  return (\n    <WavyBlockContext.Provider value={{ scrollYProgress, maxLen }}>\n      <div ref={containerRef} {...props} />\n    </WavyBlockContext.Provider>\n  );\n}",
+          "'use client';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionValue,\n  SpringOptions,\n  useMotionValue,\n  useReducedMotion,\n  useScroll,\n  UseScrollOptions,\n  useSpring,\n  useTransform,\n} from 'motion/react';\nimport React from 'react';\n\ninterface WavyTextsConfig {\n  baseOffsetFactor: number;\n  baseExtra: number;\n  baseAmplitude: number;\n  lengthEffect: number;\n  frequency: number;\n  progressScale: number;\n  phaseShiftDeg: number;\n  spring: SpringOptions;\n}\ninterface WavyBlockItemProps extends HTMLMotionProps<'div'> {\n  index: number;\n  config?: Partial<WavyTextsConfig>;\n  axis?: 'x' | 'y';\n}\ninterface WavyBlockContextValue {\n  scrollYProgress: MotionValue<number>;\n  maxLen: number;\n}\n\nconst WavyBlockContext = React.createContext<WavyBlockContextValue | undefined>(\n  undefined,\n);\n\nfunction useWavyBlockContext() {\n  const context = React.useContext(WavyBlockContext);\n  if (context === undefined) {\n    throw new Error('useWavyBlockContext must be used within a WavyBlock');\n  }\n  return context;\n}\nconst toRadian = (deg: number) => (deg * Math.PI) / 180;\nconst TAU = Math.PI * 2;\nconst DEFAULT_X_CONFIG: WavyTextsConfig = {\n  baseOffsetFactor: 0.1,\n  baseExtra: 0,\n  baseAmplitude: 160,\n  lengthEffect: 0.6,\n  frequency: 35,\n  progressScale: 1,\n  phaseShiftDeg: -180,\n  spring: { damping: 22, stiffness: 300 },\n};\nconst DEFAULT_Y_CONFIG: WavyTextsConfig = {\n  ...DEFAULT_X_CONFIG,\n  baseOffsetFactor: 0,\n  baseAmplitude: 120,\n  progressScale: 2,\n  phaseShiftDeg: 0,\n};\n\nexport function WavyBlockItem({\n  index,\n  axis = 'x',\n  config,\n  style,\n  ...props\n}: WavyBlockItemProps) {\n  const { scrollYProgress, maxLen } = useWavyBlockContext();\n  const reducedMotion = useReducedMotion();\n  const lengthFactor = Math.min(1, Math.max(0, maxLen / (maxLen || 1)));\n  const resolvedConfig = React.useMemo(() => {\n    const defaults = axis === 'y' ? DEFAULT_Y_CONFIG : DEFAULT_X_CONFIG;\n    return {\n      ...defaults,\n      ...config,\n      spring: {\n        ...defaults.spring,\n        ...config?.spring,\n      },\n    };\n  }, [axis, config]);\n\n  const [isMounted, setIsMounted] = React.useState<boolean>(false);\n\n  const calculateAxisOffset = React.useCallback(\n    (p: number, viewportSize?: number) => {\n      const phase = resolvedConfig.progressScale * p * TAU;\n\n      const size =\n        viewportSize ??\n        (typeof window !== 'undefined'\n          ? axis === 'y'\n            ? window.innerHeight\n            : window.innerWidth\n          : axis === 'y'\n            ? 900\n            : 1200);\n      const hasManualBaseOffset =\n        config?.baseOffsetFactor !== undefined ||\n        config?.baseExtra !== undefined;\n      const baseOffset =\n        axis === 'y' && !hasManualBaseOffset\n          ? 0\n          : resolvedConfig.baseOffsetFactor * size + resolvedConfig.baseExtra;\n\n      const amplitudeScale = 1 - resolvedConfig.lengthEffect * lengthFactor;\n      const amplitude = resolvedConfig.baseAmplitude * amplitudeScale;\n\n      const waveOffset =\n        axis === 'y'\n          ? amplitude *\n            Math.sin(\n              phase +\n                toRadian(resolvedConfig.frequency * index) +\n                toRadian(resolvedConfig.phaseShiftDeg),\n            )\n          : amplitude *\n            Math.cos(\n              phase +\n                toRadian(resolvedConfig.frequency * index) +\n                toRadian(resolvedConfig.phaseShiftDeg),\n            );\n\n      return baseOffset + waveOffset;\n    },\n    [\n      resolvedConfig,\n      lengthFactor,\n      index,\n      axis,\n      config?.baseOffsetFactor,\n      config?.baseExtra,\n    ],\n  );\n\n  const initialOffset = calculateAxisOffset(0);\n  const rawOffset = useMotionValue(initialOffset);\n  const springOffset = useSpring(rawOffset, resolvedConfig.spring);\n  const offset = reducedMotion ? rawOffset : springOffset;\n\n  React.useLayoutEffect(() => {\n    setIsMounted(true);\n  }, []);\n\n  React.useEffect(() => {\n    if (!scrollYProgress || !isMounted) return;\n\n    const unsub = scrollYProgress.onChange((p) => {\n      const viewportSize =\n        typeof window !== 'undefined'\n          ? axis === 'y'\n            ? window.innerHeight\n            : window.innerWidth\n          : axis === 'y'\n            ? 900\n            : 1200;\n      const newOffset = calculateAxisOffset(p, viewportSize);\n      rawOffset.set(newOffset);\n    });\n\n    return () => {\n      if (unsub) unsub();\n    };\n  }, [scrollYProgress, rawOffset, calculateAxisOffset, isMounted, axis]);\n\n  const motionAxisStyle = axis === 'y' ? { y: offset } : { x: offset };\n\n  return (\n    <motion.div\n      style={{ ...motionAxisStyle, ...style }}\n      suppressHydrationWarning\n      {...props}\n    />\n  );\n}\n\nexport function WavyBlock({\n  offset = ['start end', 'end start'],\n  ...props\n}: React.ComponentPropsWithRef<'div'> & {\n  offset?: UseScrollOptions['offset'];\n}) {\n  const containerRef = React.useRef<HTMLDivElement>(null);\n  const { current } = containerRef;\n\n  const maxLen = React.useMemo(() => {\n    if (!current?.children || current.children.length === 0) return 1;\n    const childrenArray = Array.from(current.children);\n    return Math.max(\n      ...childrenArray.map((child) => (child ? String(child).length : 0)),\n    );\n  }, [current?.children]);\n\n  const { scrollYProgress } = useScroll({\n    target: containerRef,\n    offset: offset,\n  });\n  return (\n    <WavyBlockContext.Provider value={{ scrollYProgress, maxLen }}>\n      <div ref={containerRef} {...props} />\n    </WavyBlockContext.Provider>\n  );\n}\n\nexport function WavyBlockSticky({\n  yRange = [0, 300],\n  yInput = [0, 1],\n  style,\n  ...props\n}: HTMLMotionProps<'div'> & {\n  yRange?: [number, number];\n  yInput?: [number, number];\n}) {\n  const { scrollYProgress } = useWavyBlockContext();\n\n  const y = useTransform(scrollYProgress, yInput, yRange);\n  return <motion.div style={{ y, ...style }} {...props} />;\n}",
       },
     ],
     keywords: [],
@@ -4746,6 +4853,42 @@ export const index: Record<string, any> = {
     })(),
     command: '@systaliko-ui/input',
   },
+  label: {
+    name: 'label',
+    description: 'label component.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+      {
+        path: 'registry/shadcn/label/index.tsx',
+        type: 'registry:ui',
+        target: 'components/label.tsx',
+        content:
+          "import { cn } from '@/lib/utils';\nimport { Label as LabelPrimitive } from 'radix-ui';\n\nexport function Label({\n  className,\n  ...props\n}: React.ComponentProps<typeof LabelPrimitive.Root>) {\n  return (\n    <LabelPrimitive.Root\n      data-slot=\"label\"\n      className={cn(\n        'flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',\n        className,\n      )}\n      {...props}\n    />\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import('@/registry/shadcn/label/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'label';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/label',
+  },
   'scroll-area': {
     name: 'scroll-area',
     description: 'Scroll Area component.',
@@ -4818,6 +4961,42 @@ export const index: Record<string, any> = {
     })(),
     command: '@systaliko-ui/select',
   },
+  slider: {
+    name: 'slider',
+    description: 'slider component with variants.',
+    type: 'registry:ui',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+      {
+        path: 'registry/shadcn/slider/index.tsx',
+        type: 'registry:ui',
+        target: 'components/slider.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport * as SliderPrimitive from '@radix-ui/react-slider';\n\nimport { cn } from '@/lib/utils';\n\nconst Slider = React.forwardRef<\n  React.ElementRef<typeof SliderPrimitive.Root>,\n  React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root>\n>(({ className, ...props }, ref) => (\n  <SliderPrimitive.Root\n    ref={ref}\n    className={cn(\n      'relative flex w-full touch-none select-none items-center',\n      className,\n    )}\n    {...props}\n  >\n    <SliderPrimitive.Track className=\"relative h-1.5 w-full grow overflow-hidden rounded-full bg-primary/20\">\n      <SliderPrimitive.Range className=\"absolute h-full bg-primary\" />\n    </SliderPrimitive.Track>\n    <SliderPrimitive.Thumb className=\"block h-4 w-4 rounded-full border border-primary/50 bg-background shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50\" />\n  </SliderPrimitive.Root>\n));\nSlider.displayName = SliderPrimitive.Root.displayName;\n\nexport { Slider };",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import('@/registry/shadcn/slider/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'slider';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/slider',
+  },
   spinner: {
     name: 'spinner',
     description: 'spinner component with variants.',
@@ -4889,6 +5068,42 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@systaliko-ui/switch',
+  },
+  'sliding-number': {
+    name: 'sliding-number',
+    description: 'Number value with splitted animation.',
+    type: 'registry:ui',
+    dependencies: ['motion'],
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+      {
+        path: 'registry/text/sliding-number/index.tsx',
+        type: 'registry:ui',
+        target: 'components/systaliko-ui/sliding-number.tsx',
+        content:
+          "'use client';\nimport React from 'react';\nimport { motion, AnimatePresence, HTMLMotionProps } from 'motion/react';\nimport { cn } from '@/lib/utils';\n\nfunction SlidingCharacter({\n  char,\n  index,\n  valueLength,\n  ...props\n}: HTMLMotionProps<'span'> & {\n  char: string;\n  index: number;\n  valueLength: number;\n}) {\n  const isDigit = /\\d/.test(char);\n  // Rightmost characters animate first — stagger from right to left\n  const fromRight = valueLength - 1 - index;\n\n  return (\n    <motion.span\n      variants={\n        isDigit\n          ? {\n              enter: (d: number) => ({ y: d > 0 ? '110%' : '-110%' }),\n              center: { y: '0%' },\n              exit: (d: number) => ({ y: d > 0 ? '-110%' : '110%' }),\n            }\n          : {\n              enter: { opacity: 0, scale: 0.5 },\n              center: { opacity: 1, scale: 1 },\n              exit: { opacity: 0, scale: 0.5 },\n            }\n      }\n      initial=\"enter\"\n      animate=\"center\"\n      exit=\"exit\"\n      transition={{\n        type: 'spring',\n        stiffness: 260,\n        damping: 20,\n        mass: 1,\n        delay: isDigit ? fromRight * 0.025 : 0,\n      }}\n      className=\"inline-block\"\n      {...props}\n    >\n      {char}\n    </motion.span>\n  );\n}\nexport function SlidingNumber({\n  value,\n  className,\n  ...props\n}: React.ComponentProps<'span'> & {\n  value: number;\n}) {\n  const prevRef = React.useRef(value);\n  const [direction, setDirection] = React.useState(0);\n\n  React.useLayoutEffect(() => {\n    if (value !== prevRef.current) {\n      setDirection(value > prevRef.current ? 1 : -1);\n      prevRef.current = value;\n    }\n  }, [value]);\n\n  const formatted = `$${value.toLocaleString()}`.split('');\n\n  return (\n    <span className={cn('inline-flex tabular-nums', className)} {...props}>\n      {formatted.map((char, i) => (\n        <span key={i} className=\"relative inline-flex overflow-hidden\">\n          <AnimatePresence mode=\"popLayout\" custom={direction} initial={false}>\n            <SlidingCharacter\n              char={char}\n              custom={direction}\n              key={`${i}-${char}`}\n              valueLength={formatted.length}\n              index={i}\n            />\n          </AnimatePresence>\n        </span>\n      ))}\n    </span>\n  );\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import('@/registry/text/sliding-number/index.tsx');
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'sliding-number';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/sliding-number',
   },
   'text-flip': {
     name: 'text-flip',
@@ -4970,9 +5185,9 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/set-stagger-direction',
-      'https://systaliko-ui.vercel.app/r/split-text',
-      'https://systaliko-ui.vercel.app/r/animation-variants',
+      '@systaliko-ui/set-stagger-direction',
+      '@systaliko-ui/split-text',
+      '@systaliko-ui/animation-variants',
     ],
     files: [
       {
@@ -4980,7 +5195,7 @@ export const index: Record<string, any> = {
         type: 'registry:ui',
         target: 'components/systaliko-ui/text-stagger-hover.tsx',
         content:
-          "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport {\n  ANIMATION_VARIANTS,\n  AnimationT,\n} from '@/components/systaliko-ui/utils/animation-variants';\nimport {\n  setStaggerDirection,\n  StaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\n\ntype NewVariants = {\n  hovered: {\n    x?: string | number;\n    y?: string | number;\n    opacity: number;\n    scale?: number;\n    filter?: string;\n  };\n  initial: {\n    x?: string | number;\n    y?: string | number;\n    opacity: number;\n    scale?: number;\n    filter?: string;\n  };\n};\n\nconst animation_variants_text_active = Object.entries(\n  ANIMATION_VARIANTS,\n).reduce(\n  (acc, [key, value]) => {\n    acc[key as keyof typeof ANIMATION_VARIANTS] = {\n      hovered: value.hidden,\n      initial: value.visible,\n    };\n    return acc;\n  },\n  {} as Record<keyof typeof ANIMATION_VARIANTS, NewVariants>,\n);\nconst animation_variants_text_hidden = Object.entries(\n  ANIMATION_VARIANTS,\n).reduce(\n  (acc, [key, value]) => {\n    acc[key as keyof typeof ANIMATION_VARIANTS] = {\n      initial: value.hidden,\n      hovered: value.visible,\n    };\n    return acc;\n  },\n  {} as Record<keyof typeof ANIMATION_VARIANTS, NewVariants>,\n);\n\nexport function TextStaggerHover({\n  className,\n  ...props\n}: HTMLMotionProps<'span'>) {\n  return (\n    <motion.span\n      className={cn(\n        'grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1 place-content-center relative overflow-hidden',\n        className,\n      )}\n      initial={'initial'}\n      whileHover={'hovered'}\n      data-slot=\"text-stagger-hover\"\n      {...props}\n    />\n  );\n}\ninterface CharacterProps extends HTMLMotionProps<'span'> {\n  char: string;\n  index: number;\n  wordLength: number;\n  staggerDirection?: StaggerDirection;\n}\nfunction Character({\n  char,\n  index,\n  wordLength,\n  staggerDirection = 'first',\n  transition,\n  ...props\n}: CharacterProps) {\n  const staggerDelay = setStaggerDirection({\n    direction: staggerDirection,\n    totalItems: wordLength,\n    index,\n  });\n  return (\n    <motion.span\n      className=\"inline-block\"\n      transition={{\n        delay: staggerDelay,\n        ...transition,\n      }}\n      {...props}\n    >\n      {char}\n      {char === ' ' && index < wordLength - 1 && <>&nbsp;</>}\n    </motion.span>\n  );\n}\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport function TextStaggerHoverActive({\n  animation = 'bottom',\n  staggerDirection = 'first',\n  className,\n  children,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = animation_variants_text_active[animation];\n\n  return (\n    <span\n      data-slot=\"text-stagger-hover-active\"\n      className={cn('inline-block', className)}\n    >\n      {characters.map((char, index) => (\n        <Character\n          className=\"inline-block\"\n          char={char}\n          index={index}\n          wordLength={characterCount}\n          staggerDirection={staggerDirection}\n          key={`${char}-${index}-hidden`}\n          variants={animationVariants}\n          transition={{\n            ...transition,\n          }}\n          {...props}\n        />\n      ))}\n    </span>\n  );\n}\n\nexport function TextStaggerHoverHidden({\n  animation = 'top',\n  staggerDirection = 'first',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = animation_variants_text_hidden[animation];\n  return (\n    <span className={cn('inline-block absolute left-0 top-0', className)}>\n      {characters.map((char, index) => (\n        <Character\n          className=\"inline-block\"\n          index={index}\n          char={char}\n          wordLength={characterCount}\n          staggerDirection={staggerDirection}\n          key={`${char}-${index}-hidden`}\n          variants={animationVariants}\n          transition={{\n            ...transition,\n          }}\n          {...props}\n        />\n      ))}\n    </span>\n  );\n}",
+          "'use client';\n\nimport { cn } from '@/lib/utils';\nimport { HTMLMotionProps, motion } from 'motion/react';\nimport {\n  ANIMATION_VARIANTS,\n  AnimationT,\n} from '@/components/systaliko-ui/utils/animation-variants';\nimport {\n  setStaggerDirection,\n  StaggerDirection,\n} from '@/components/systaliko-ui/utils/set-stagger-direction';\nimport { splitText } from '@/components/systaliko-ui/utils/split-text';\n\ntype NewVariants = {\n  hovered: {\n    x?: string | number;\n    y?: string | number;\n    opacity: number;\n    scale?: number;\n    filter?: string;\n  };\n  initial: {\n    x?: string | number;\n    y?: string | number;\n    opacity: number;\n    scale?: number;\n    filter?: string;\n  };\n};\n\nconst animation_variants_text_active = Object.entries(\n  ANIMATION_VARIANTS,\n).reduce(\n  (acc, [key, value]) => {\n    acc[key as keyof typeof ANIMATION_VARIANTS] = {\n      hovered: value.hidden,\n      initial: value.visible,\n    };\n    return acc;\n  },\n  {} as Record<keyof typeof ANIMATION_VARIANTS, NewVariants>,\n);\nconst animation_variants_text_hidden = Object.entries(\n  ANIMATION_VARIANTS,\n).reduce(\n  (acc, [key, value]) => {\n    acc[key as keyof typeof ANIMATION_VARIANTS] = {\n      initial: value.hidden,\n      hovered: value.visible,\n    };\n    return acc;\n  },\n  {} as Record<keyof typeof ANIMATION_VARIANTS, NewVariants>,\n);\n\nexport function TextStaggerHover({\n  className,\n  ...props\n}: HTMLMotionProps<'span'>) {\n  return (\n    <motion.span\n      className={cn(\n        'grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1 place-content-center relative overflow-hidden',\n        className,\n      )}\n      initial={'initial'}\n      whileHover={'hovered'}\n      data-slot=\"text-stagger-hover\"\n      {...props}\n    />\n  );\n}\ninterface CharacterProps extends HTMLMotionProps<'span'> {\n  char: string;\n  index: number;\n  wordLength: number;\n  staggerDirection?: StaggerDirection;\n}\nfunction Character({\n  char,\n  index,\n  wordLength,\n  staggerDirection = 'first',\n  transition,\n  ...props\n}: CharacterProps) {\n  const staggerDelay = setStaggerDirection({\n    direction: staggerDirection,\n    totalItems: wordLength,\n    index,\n  });\n  return (\n    <motion.span\n      className=\"inline-block\"\n      transition={{\n        delay: staggerDelay,\n        ...transition,\n      }}\n      {...props}\n    >\n      {char}\n      {char === ' ' && index < wordLength - 1 && <>&nbsp;</>}\n    </motion.span>\n  );\n}\ninterface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {\n  animation?: AnimationT;\n  staggerDirection?: StaggerDirection;\n}\nexport function TextStaggerHoverActive({\n  animation = 'bottom',\n  staggerDirection = 'first',\n  className,\n  children,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = animation_variants_text_active[animation];\n\n  return (\n    <span\n      data-slot=\"text-stagger-hover-active\"\n      className={cn('inline-block', className)}\n    >\n      {characters.map((char, index) => (\n        <Character\n          className=\"inline-block\"\n          char={char}\n          index={index}\n          wordLength={characterCount}\n          staggerDirection={staggerDirection}\n          key={`${char}-${index}-hidden`}\n          variants={animationVariants}\n          transition={{\n            ...transition,\n          }}\n          {...props}\n        />\n      ))}\n    </span>\n  );\n}\n\nexport function TextStaggerHoverHidden({\n  animation = 'top',\n  staggerDirection = 'first',\n  children,\n  className,\n  transition,\n  ...props\n}: TextStaggerHoverContentProps) {\n  const { characters, characterCount } = splitText(String(children));\n  const animationVariants = animation_variants_text_hidden[animation];\n  return (\n    <span className={cn('inline-block ', className)}>\n      {characters.map((char, index) => (\n        <Character\n          className=\"inline-block\"\n          index={index}\n          char={char}\n          wordLength={characterCount}\n          staggerDirection={staggerDirection}\n          key={`${char}-${index}-hidden`}\n          variants={animationVariants}\n          transition={{\n            ...transition,\n          }}\n          {...props}\n        />\n      ))}\n    </span>\n  );\n}",
       },
     ],
     keywords: [],
@@ -5012,11 +5227,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/set-stagger-direction',
-      'https://systaliko-ui.vercel.app/r/split-text',
-      'https://systaliko-ui.vercel.app/r/animation-variants',
-    ],
+    registryDependencies: ['@systaliko-ui/animation-variants'],
     files: [
       {
         path: 'registry/text/text-stagger-interval/index.tsx',
@@ -5055,16 +5266,14 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/animation-variants',
-    ],
+    registryDependencies: ['@systaliko-ui/animation-variants'],
     files: [
       {
         path: 'registry/text/text-stagger-inview/index.tsx',
         type: 'registry:ui',
         target: 'components/systaliko-ui/text-stagger-inview.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  stagger,\n  StaggerOrigin,\n} from 'motion/react';\nimport {\n  ANIMATION_VARIANTS,\n  AnimationT,\n} from '@/components/systaliko-ui/utils/animation-variants';\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({ children, animation, ...props }: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n  return (\n    <span className=\"inline-block text-nowrap\" {...props}>\n      {characters.map((char, index) => (\n        <motion.span variants={animationVariants} key={`${char}-${index}`}>\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  staggerValue?: number;\n  staggerStart?: StaggerOrigin;\n  animation?: AnimationT;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  viewport = { once: true, amount: 0.25 },\n  staggerValue = 0.02,\n  staggerStart = 'first',\n  animation,\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  return (\n    <motion.span\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={viewport}\n      transition={{\n        delayChildren: stagger(staggerValue, { from: staggerStart }),\n      }}\n      {...props}\n    >\n      <MotionConfig\n        transition={{\n          ease: transition?.ease || 'easeOut',\n          ...transition,\n        }}\n      >\n        {words.map((word, index) => (\n          <React.Fragment key={`${word}-${index}`}>\n            <WordStagger data-word={word} animation={animation}>\n              {word}\n            </WordStagger>\n            {index < words.length - 1 && ' '}\n          </React.Fragment>\n        ))}\n      </MotionConfig>\n    </motion.span>\n  );\n}",
+          "'use client';\nimport * as React from 'react';\n\nimport {\n  HTMLMotionProps,\n  motion,\n  MotionConfig,\n  stagger,\n  StaggerOrigin,\n} from 'motion/react';\nimport {\n  ANIMATION_VARIANTS,\n  AnimationT,\n} from '@/components/systaliko-ui/utils/animation-variants';\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({ children, animation, ...props }: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n  return (\n    <span className=\"inline-block text-nowrap\" {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n        >\n          {char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}\n\ninterface TextStaggerProps extends HTMLMotionProps<'span'> {\n  staggerValue?: number;\n  staggerStart?: StaggerOrigin;\n  animation?: AnimationT;\n}\n\nexport function TextStaggerInview({\n  children,\n  transition,\n  viewport = { once: true, amount: 0.25 },\n  staggerValue = 0.02,\n  staggerStart = 'first',\n  animation,\n  ...props\n}: TextStaggerProps) {\n  const words = String(children).split(' ');\n  return (\n    <motion.span\n      initial=\"hidden\"\n      whileInView={'visible'}\n      viewport={viewport}\n      transition={{\n        delayChildren: stagger(staggerValue, { from: staggerStart }),\n      }}\n      {...props}\n    >\n      <MotionConfig\n        transition={{\n          ease: transition?.ease || 'easeOut',\n          ...transition,\n        }}\n      >\n        {words.map((word, index) => (\n          <React.Fragment key={`${word}-${index}`}>\n            <WordStagger data-word={word} animation={animation}>\n              {word}\n            </WordStagger>\n            {index < words.length - 1 && ' '}\n          </React.Fragment>\n        ))}\n      </MotionConfig>\n    </motion.span>\n  );\n}",
       },
     ],
     keywords: [],
@@ -5169,9 +5378,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: [
-      'https://systaliko-ui.vercel.app/r/default-animation-variants',
-    ],
+    registryDependencies: ['@systaliko-ui/default-animation-variants'],
     files: [
       {
         path: 'registry/text/word-stagger/index.tsx',
@@ -5239,6 +5446,44 @@ export const index: Record<string, any> = {
       return LazyComp;
     })(),
     command: '@systaliko-ui/animation-variants',
+  },
+  'custom-pricing-utils': {
+    name: 'custom-pricing-utils',
+    description: 'Custom pricing utils types and reducer store.',
+    type: 'registry:item',
+    dependencies: undefined,
+    devDependencies: undefined,
+    registryDependencies: undefined,
+    files: [
+      {
+        path: 'registry/utils/custom-pricing-utils/index.tsx',
+        type: 'registry:item',
+        target: 'components/systaliko-ui/utils/custom-pricing-utils.tsx',
+        content:
+          "import React from 'react';\n\nenum CUSTOM_PRICING_ACTION_TYPES {\n  REGISTER = 'register',\n  UPDATE_QTY = 'update_qty',\n  TOGGLE_CHECKED = 'toggle_checked',\n}\nexport interface CustomPricingProviderProps {\n  onChange?: (total: number) => void;\n  children?: React.ReactNode;\n}\ninterface CustomPricingQuantityItem {\n  type: 'quantity';\n  value: number;\n  unitPrice: number;\n}\nexport interface UseCustomPricingStoreOptions {\n  onChange?: (total: number) => void;\n}\n\ninterface CustomPricingCheckedItem {\n  type: 'checked';\n  checked: boolean;\n  price: number;\n  group?: string | null;\n}\ninterface CustomPricingContextValue\n  extends ReturnType<typeof useCustomPricingStore> {}\n\nexport type CustomPricingItem =\n  | CustomPricingQuantityItem\n  | CustomPricingCheckedItem;\n\nexport type CustomPricingState = Record<string, CustomPricingItem>;\n\nexport type CustomPricingAction =\n  | {\n      type: CUSTOM_PRICING_ACTION_TYPES.REGISTER;\n      id: string;\n      item: CustomPricingItem;\n    }\n  | { type: CUSTOM_PRICING_ACTION_TYPES.UPDATE_QTY; id: string; value: number }\n  | { type: CUSTOM_PRICING_ACTION_TYPES.TOGGLE_CHECKED; id: string };\n\nexport function customPricingReducer(\n  state: CustomPricingState,\n  action: CustomPricingAction,\n) {\n  switch (action.type) {\n    case CUSTOM_PRICING_ACTION_TYPES.REGISTER: {\n      if (state[action.id]) return state;\n      return { ...state, [action.id]: action.item };\n    }\n\n    case CUSTOM_PRICING_ACTION_TYPES.UPDATE_QTY: {\n      const item = state[action.id];\n      if (!item || item.type !== 'quantity') return state;\n      return { ...state, [action.id]: { ...item, value: action.value } };\n    }\n\n    case CUSTOM_PRICING_ACTION_TYPES.TOGGLE_CHECKED: {\n      const item = state[action.id];\n      if (!item || item.type !== 'checked') return state;\n\n      if (item.group) {\n        const updated = Object.fromEntries(\n          Object.entries(state).map(([k, v]) =>\n            v.type === 'checked' && v.group === item.group\n              ? [k, { ...v, checked: k === action.id }]\n              : [k, v],\n          ),\n        );\n        return updated;\n      }\n\n      return {\n        ...state,\n        [action.id]: { ...item, checked: !item.checked },\n      };\n    }\n\n    default:\n      return state;\n  }\n}\n\nexport function useCustomPricingStore({\n  onChange,\n}: UseCustomPricingStoreOptions = {}) {\n  const [items, dispatch] = React.useReducer(customPricingReducer, {});\n\n  const register = React.useCallback((id: string, item: CustomPricingItem) => {\n    dispatch({ type: CUSTOM_PRICING_ACTION_TYPES.REGISTER, id, item });\n  }, []);\n\n  const updateQuantity = React.useCallback((id: string, value: number) => {\n    dispatch({ type: CUSTOM_PRICING_ACTION_TYPES.UPDATE_QTY, id, value });\n  }, []);\n\n  const toggleChecked = React.useCallback((id: string) => {\n    dispatch({ type: CUSTOM_PRICING_ACTION_TYPES.TOGGLE_CHECKED, id });\n  }, []);\n\n  const total = React.useMemo(() => {\n    return Object.values(items).reduce((sum, item) => {\n      if (item.type === 'quantity') return sum + item.value * item.unitPrice;\n      if (item.type === 'checked') return sum + (item.checked ? item.price : 0);\n      return sum;\n    }, 0);\n  }, [items]);\n\n  const onChangeRef = React.useRef(onChange);\n  onChangeRef.current = onChange;\n\n  React.useEffect(() => {\n    onChangeRef.current?.(total);\n  }, [total]);\n\n  return { items, register, updateQuantity, toggleChecked, total };\n}\n\nexport const CustomPricingContext =\n  React.createContext<CustomPricingContextValue | null>(null);\n\nexport function useCustomPricing() {\n  const context = React.useContext(CustomPricingContext);\n  if (!context) {\n    throw new Error(\n      'useCustomPricing must be used within a CustomPricingProvider',\n    );\n  }\n  return context;\n}\ninterface UseCustomPricingQuantityProps {\n  id: string;\n  unitPrice?: number;\n  defaultValue?: number;\n}\nexport function useCustomPricingQuantity({\n  id,\n  unitPrice = 0,\n  defaultValue = 0,\n}: UseCustomPricingQuantityProps) {\n  const { register, updateQuantity, items } = useCustomPricing();\n  React.useEffect(() => {\n    register(id, { type: 'quantity', value: defaultValue, unitPrice });\n  }, [id, defaultValue, unitPrice, register]);\n\n  const item = items[id];\n  const quantity = item?.type === 'quantity' ? item.value : defaultValue;\n  const subtotal = quantity * unitPrice;\n\n  return {\n    quantity,\n    subtotal,\n    updateQuantity,\n  };\n}\ninterface UseCustomPricingSelectProps {\n  id: string;\n  price?: number;\n  type?: 'checkbox' | 'radio';\n  group?: string;\n  defaultChecked?: boolean;\n}\nexport function useCustomPricingSelect({\n  id,\n  price = 0,\n  type = 'radio',\n  group,\n  defaultChecked = false,\n}: UseCustomPricingSelectProps) {\n  const { register, toggleChecked, items } = useCustomPricing();\n  React.useEffect(() => {\n    register(id, {\n      type: 'checked',\n      checked: defaultChecked,\n      price,\n      group: type === 'radio' ? group : null,\n    });\n  }, [id, price, group, type, defaultChecked, register]);\n\n  const item = items[id];\n  const checked = item?.type === 'checked' ? item.checked : defaultChecked;\n\n  return {\n    checked,\n    toggleChecked,\n  };\n}",
+      },
+    ],
+    keywords: [],
+    component: (function () {
+      const LazyComp = React.lazy(async () => {
+        const mod = await import(
+          '@/registry/utils/custom-pricing-utils/index.tsx'
+        );
+        const exportName =
+          Object.keys(mod).find(
+            (key) =>
+              typeof mod[key] === 'function' || typeof mod[key] === 'object',
+          ) || 'custom-pricing-utils';
+        const Comp = mod.default || mod[exportName];
+        if (mod.animations) {
+          (LazyComp as any).animations = mod.animations;
+        }
+        return { default: Comp };
+      });
+      LazyComp.demoProps = {};
+      return LazyComp;
+    })(),
+    command: '@systaliko-ui/custom-pricing-utils',
   },
   'set-stagger-direction': {
     name: 'set-stagger-direction',

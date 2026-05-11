@@ -5,8 +5,8 @@
   "title": "Stagger Container Demo",
   "description": "Demo showing stagger container component.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/container-stagger",
-    "https://systaliko-ui.vercel.app/r/transitions"
+    "@systaliko-ui/container-stagger",
+    "@systaliko-ui/transitions"
   ],
   "files": [
     {

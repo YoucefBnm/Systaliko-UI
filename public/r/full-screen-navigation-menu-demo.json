@@ -4,7 +4,7 @@
   "title": "Full screen navigation Demo",
   "description": "Demo showing Full screen navigation component.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/full-screen-navigation-menu"
+    "@systaliko-ui/full-screen-navigation-menu"
   ],
   "files": [
     {

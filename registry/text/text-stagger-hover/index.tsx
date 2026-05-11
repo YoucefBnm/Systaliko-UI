@@ -154,7 +154,7 @@ export function TextStaggerHoverHidden({
   const { characters, characterCount } = splitText(String(children));
   const animationVariants = animation_variants_text_hidden[animation];
   return (
-    <span className={cn('inline-block absolute left-0 top-0', className)}>
+    <span className={cn('inline-block ', className)}>
       {characters.map((char, index) => (
         <Character
           className="inline-block"

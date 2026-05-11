@@ -4,9 +4,7 @@
   "type": "registry:block",
   "title": "Product Carousel Demo",
   "description": "Another Demo showing product carousel component with different thumbs.",
-  "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/product-carousel"
-  ],
+  "registryDependencies": ["@systaliko-ui/product-carousel"],
   "files": [
     {
       "path": "registry/demo/ecommerce/product-carousel-3/index.tsx",

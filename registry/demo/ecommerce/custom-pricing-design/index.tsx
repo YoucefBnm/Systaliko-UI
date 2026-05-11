@@ -1,193 +1,366 @@
 'use client';
-import { cn } from '@/lib/utils';
-import {
-  Checkbox,
-  CheckboxField,
-  Label,
-} from '@/registry/components/checkbox-field';
-import { Slider } from '@/registry/shadcn/slider';
 import {
   CustomPricingProvider,
-  useCustomPricingQuantity,
-  useCustomPricingSelect,
-} from '@/registry/utils/custom-pricing-utils';
-import { CheckIcon } from 'lucide-react';
+  CustomPricingCheckedControl,
+  CustomPricingQuantityControl,
+  CustomPricingTotalControl,
+} from '@/registry/ecommerce/custom-pricing';
+import { Label } from '@/registry/shadcn/label';
+import { Slider } from '@/registry/shadcn/slider';
 import { motion } from 'motion/react';
-import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
-import React from 'react';
+import { Switch } from '@/registry/shadcn/switch';
+import { SlidingNumber } from '@/registry/text/sliding-number';
 
-interface CustomPricingQuantityGroupProps {
-  id: string;
-  unitPrice?: number;
-  min?: number;
-  max?: number;
-  step?: number;
-  defaultValue?: number;
-}
-interface CustomPricingSelectProps {
-  id: string;
-  group?: string;
-  type?: 'checkbox' | 'radio';
-  defaultChecked?: boolean;
-  price?: number;
-}
-// export function CustomPricingChecked({
-//   id,
-//   price = 0,
-//   type = 'radio',
-//   group,
-//   defaultChecked = false,
-//   ...props
-// }: CustomPricingSelectProps) {
-//   const { checked, toggleChecked } = useCustomPricingSelect({
-//     id,
-//     type,
-//     group,
-//     price,
-//     defaultChecked,
-//   });
-//   return (
-//     <div
-//       className={cn(
-//         'relative flex cursor-pointer items-start gap-4 rounded-lg border p-4 transition-colors hover:bg-accent/50',
-//         checked ? 'border-primary bg-accent/50' : 'border-input bg-background',
-//       )}
-//       onClick={() => toggleChecked(id)}
-//       {...(props as any)}
-//     >
-//       <div className="mt-1 flex items-center justify-center">
-//         <div
-//           className={cn(
-//             'flex h-4 w-4 items-center justify-center rounded-full border border-primary text-primary ring-offset-background',
-//             checked ? 'bg-background' : 'bg-background',
-//           )}
-//         >
-//           {checked && <div className="h-2.5 w-2.5 rounded-full bg-primary" />}
-//         </div>
-//       </div>
-
-//       <div className="flex flex-1 flex-col gap-1">
-//         <div className="flex w-full items-center justify-between">
-//           <span className="text-sm font-medium leading-none">{id}</span>
-//           <span className="text-sm font-medium">{price.toLocaleString()}</span>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-function RadioGroupItem({
-  children,
-  className,
-  ...props
-}: React.ComponentProps<typeof RadioGroupPrimitive.Item>) {
-  return (
-    <RadioGroupPrimitive.Item
-      data-slot="radio-group-item"
-      className={cn(
-        'group/radio-group-item peer relative flex justify-center items-center shrink-0 rounded border border-input outline-none after:absolute after:-inset-x-3 after:-inset-y-2 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary',
-        className,
-      )}
-      {...props}
-    >
-      <RadioGroupPrimitive.Indicator data-slot="radio-group-indicator">
-        {children}
-      </RadioGroupPrimitive.Indicator>
-    </RadioGroupPrimitive.Item>
-  );
-}
-function RadioGroup({
-  className,
-  ...props
-}: React.ComponentProps<typeof RadioGroupPrimitive.Root>) {
-  return (
-    <RadioGroupPrimitive.Root
-      data-slot="radio-group"
-      className={cn('grid w-full gap-2', className)}
-      {...props}
-    />
-  );
-}
-
-function CustomPricingQuantityGroup({
+function SelectItem({
   id,
-  unitPrice = 0,
-  min,
-  max,
-  step,
-  defaultValue = 0,
-}: CustomPricingQuantityGroupProps) {
-  const { updateQuantity, quantity } = useCustomPricingQuantity({ id });
-  const handleChange = (val: number[]) => {
-    updateQuantity(id, val[0]);
-  };
-  const subtotal = quantity * unitPrice;
-
+  label,
+  price,
+  checked,
+  handleChange,
+  groupId,
+}: {
+  id: string;
+  label: string;
+  price: string;
+  checked: boolean;
+  handleChange: () => void;
+  groupId: string;
+}) {
   return (
-    <div className="">
-      <Label htmlFor={id}>{id}</Label>
-      <Slider
+    <div className="relative group rounded-full transition-colors duration-200 has-[:checked]:text-white grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1">
+      <input
+        className="size-full [all:unset]"
+        type="checkbox"
+        name={id}
+        value={id}
         id={id}
-        min={min}
-        max={max}
-        step={step}
-        value={[quantity]}
-        defaultValue={[defaultValue]}
-        onValueChange={handleChange}
+        checked={checked}
+        onChange={handleChange}
       />
-      <span>{`${subtotal.toLocaleString()}`}</span>
+      <label
+        htmlFor={id}
+        className="relative p-2 z-2 text-nowrap pointer-events-none flex gap-px flex-wrap justify-center items-center text-xs font-medium"
+      >
+        {label} <span className="text-[10px] tabular-nums">{price}</span>
+      </label>
+      {checked && (
+        <motion.div
+          layoutId={groupId}
+          className="size-full rounded-full"
+          style={{
+            background: 'var(--primary)',
+            backgroundImage: 'linear-gradient(180deg, #444 0%, #000 100%)',
+          }}
+          transition={{
+            type: 'spring',
+            stiffness: 260,
+            damping: 20,
+            mass: 1,
+          }}
+        />
+      )}
     </div>
   );
 }
+function Selects() {
+  return (
+    <div className="space-y-2">
+      <h3 className="font-medium">Website Type</h3>
+
+      <div
+        className="relative flex bg-input rounded-full ring ring-ring/40 p-0.5 w-fit border"
+        id="custom-pricing-selects"
+      >
+        <CustomPricingCheckedControl
+          id="landing page"
+          defaultChecked={true}
+          price={1500}
+          group="website-type"
+          render={({ id, checked, toggleChecked }) => (
+            <div className="relative ">
+              <SelectItem
+                price={'$1.500'}
+                id={id}
+                checked={checked}
+                handleChange={() => toggleChecked(id)}
+                label="Landing page"
+                groupId="custom-pricing-selects"
+              />
+            </div>
+          )}
+        />
+
+        <CustomPricingCheckedControl
+          id="business website"
+          price={3000}
+          group="website-type"
+          render={({ id, checked, toggleChecked }) => (
+            <div className="relative ">
+              <SelectItem
+                price={'$3.000'}
+                id={id}
+                checked={checked}
+                handleChange={() => toggleChecked(id)}
+                label="Business website"
+                groupId="custom-pricing-selects"
+              />
+            </div>
+          )}
+        />
+
+        <CustomPricingCheckedControl
+          id="ecommerce store"
+          price={5000}
+          group="website-type"
+          render={({ id, checked, toggleChecked }) => (
+            <div className="relative ">
+              <SelectItem
+                price={'$5.000'}
+                id={id}
+                checked={checked}
+                handleChange={() => toggleChecked(id)}
+                label="Ecommerce store"
+                groupId="custom-pricing-selects"
+              />
+            </div>
+          )}
+        />
+      </div>
+    </div>
+  );
+}
+function Quantities() {
+  return (
+    <div className="space-y-4">
+      <CustomPricingQuantityControl
+        id="number of pages"
+        unitPrice={100}
+        defaultValue={0}
+        render={({ id, subtotal, unitPrice, quantity, handleChange }) => (
+          <div className="space-y-1">
+            <div className="flex items-center gap-2 justify-between">
+              <Label className="text-sm font-medium" htmlFor={id}>
+                Number of pages{' '}
+                <span className="text-[10px] text-muted-forground">
+                  ${unitPrice}x{quantity}
+                </span>
+              </Label>
+
+              <SlidingNumber
+                value={subtotal}
+                className="text-xs font-medium text-muted-foreground tracking-tight"
+              />
+            </div>
+            <Slider
+              id={id}
+              min={0}
+              max={10}
+              step={1}
+              value={[quantity]}
+              onValueChange={handleChange}
+            />
+          </div>
+        )}
+      />
+
+      <CustomPricingQuantityControl
+        id="project urgency"
+        unitPrice={50}
+        defaultValue={0}
+        render={({ id, subtotal, unitPrice, quantity, handleChange }) => (
+          <div className="space-y-1">
+            <div className="flex items-center gap-2 justify-between">
+              <Label className="text-sm font-medium" htmlFor={id}>
+                Project urgency
+                <span className="text-[10px] text-muted-forground">
+                  ${unitPrice}x{quantity}
+                </span>
+              </Label>
+
+              <SlidingNumber
+                value={subtotal}
+                className="text-xs font-medium text-muted-foreground tracking-tight"
+              />
+            </div>
+            <Slider
+              id={id}
+              min={0}
+              max={10}
+              step={1}
+              value={[quantity]}
+              onValueChange={handleChange}
+            />
+          </div>
+        )}
+      />
+
+      <CustomPricingQuantityControl
+        id="design customization"
+        unitPrice={300}
+        defaultValue={0}
+        render={({ id, subtotal, unitPrice, quantity, handleChange }) => (
+          <div className="space-y-1">
+            <div className="flex items-center gap-2 justify-between">
+              <Label className="text-sm font-medium" htmlFor={id}>
+                Custom Design Level
+                <span className="text-[10px] text-muted-forground">
+                  ${unitPrice}x{quantity}
+                </span>
+              </Label>
+
+              <SlidingNumber
+                value={subtotal}
+                className="text-xs font-medium text-muted-foreground tracking-tight"
+              />
+            </div>
+            <Slider
+              id={id}
+              min={0}
+              max={3}
+              step={1}
+              value={[quantity]}
+              onValueChange={handleChange}
+            />
+          </div>
+        )}
+      />
+    </div>
+  );
+}
+
+function Options() {
+  return (
+    <div className="space-y-3">
+      <h3 className="font-medium text-sm">Additional Features</h3>
+      <div className="grid gap-2">
+        <CustomPricingCheckedControl
+          id="seo-optimization"
+          price={200}
+          type="checkbox"
+          render={({ id, checked, toggleChecked }) => (
+            <div className="flex items-center justify-between p-3 rounded-xl border bg-card/50 transition-colors hover:bg-card/80">
+              <div className="space-y-0.5">
+                <Label
+                  htmlFor={id}
+                  className="text-sm font-medium leading-none cursor-pointer"
+                >
+                  SEO Optimization
+                </Label>
+                <p className="text-[10px] text-muted-foreground">
+                  Boost your search engine rankings
+                </p>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-medium tabular-nums">$200</span>
+                <Switch
+                  checked={checked}
+                  onCheckedChange={() => toggleChecked(id)}
+                  id={id}
+                />
+              </div>
+            </div>
+          )}
+        />
+
+        <CustomPricingCheckedControl
+          id="copywriting"
+          price={150}
+          type="checkbox"
+          render={({ id, checked, toggleChecked }) => (
+            <div className="flex items-center justify-between p-3 rounded-xl border bg-card/50 transition-colors hover:bg-card/80">
+              <div className="space-y-0.5">
+                <Label
+                  htmlFor={id}
+                  className="text-sm font-medium leading-none cursor-pointer"
+                >
+                  Copywriting
+                </Label>
+                <p className="text-[10px] text-muted-foreground">
+                  Professional copywriting for your website
+                </p>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-medium tabular-nums">$150</span>
+                <Switch
+                  checked={checked}
+                  onCheckedChange={() => toggleChecked(id)}
+                  id={id}
+                />
+              </div>
+            </div>
+          )}
+        />
+
+        <CustomPricingCheckedControl
+          id="third party"
+          price={150}
+          type="checkbox"
+          render={({ id, checked, toggleChecked }) => (
+            <div className="flex items-center justify-between p-3 rounded-xl border bg-card/50 transition-colors hover:bg-card/80">
+              <div className="space-y-0.5">
+                <Label
+                  htmlFor={id}
+                  className="text-sm font-medium leading-none cursor-pointer"
+                >
+                  Third party integration
+                </Label>
+                <p className="text-[10px] text-muted-foreground">
+                  Connect with tools you already use
+                </p>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-medium tabular-nums">$150</span>
+                <Switch
+                  checked={checked}
+                  onCheckedChange={() => toggleChecked(id)}
+                  id={id}
+                />
+              </div>
+            </div>
+          )}
+        />
+      </div>
+    </div>
+  );
+}
+
+function TotalDisplay() {
+  return (
+    <div className="pt-6 border-t border-dashed border-muted-foreground/30 mt-4">
+      <div className="flex items-center justify-between">
+        <div className="space-y-0.5">
+          <h4 className="font-semibold text-base">Total Estimate</h4>
+          <p className="text-xs text-muted-foreground">
+            Dynamic pricing based on your selection
+          </p>
+        </div>
+        <CustomPricingTotalControl
+          render={({ total }) => (
+            <div className="text-right">
+              <SlidingNumber
+                value={total}
+                className="font-semibold tracking-tight text-primary"
+              />
+              <p className="text-xs text-muted-foreground  tracking-widest mt-0.5">
+                Estimated USD
+              </p>
+            </div>
+          )}
+        />
+      </div>
+    </div>
+  );
+}
+
 export function CustomPricingDesignDemo() {
   return (
-    <div className="h-screen w-full place-content-center">
-      <div className="p-8 mx-auto max-w-md bg-card border place-content-center ">
+    <div className="min-h-screen p-6 place-content-center">
+      <div className="space-y-8 p-6 rounded border bg-card shadow-xs mx-auto max-w-md">
         <CustomPricingProvider>
-          <div className="space-y-4">
-            <CustomPricingQuantityGroup
-              id="pages"
-              unitPrice={100}
-              min={0}
-              max={30}
-              step={1}
-              defaultValue={0}
-            />
-            <CustomPricingQuantityGroup
-              id="revision rounds"
-              unitPrice={50}
-              min={0}
-              max={20}
-              step={1}
-              defaultValue={0}
-            />
-          </div>
-
-          <div className="space-y-4">
-            <RadioGroup className="bg-input p-0.5 rounded-full border">
-              <RadioGroupItem
-                className="bg-popover font-medium capitalize size-fit px-4 py-1.5 rounded-full overflow-hidden"
-                value="default"
-                id="r1"
-              >
-                default
-              </RadioGroupItem>
-            </RadioGroup>
-            {/* <CustomPricingChecked id="ecommerce" price={800} type="checkbox" />
-
-            <CustomPricingChecked id="seo" price={600} type="checkbox" /> */}
-          </div>
-          {/* <CustomPricingChecked
-            id="redesign"
-            price={2000}
-            type="radio"
-            group="project"
-          /> */}
-          {/* <CustomPricingChecked
-            id="landing"
-            price={800}
-            type="radio"
-            group="project"
-          /> */}
+          <Selects />
+          <Quantities />
+          <Options />
+          <TotalDisplay />
         </CustomPricingProvider>
       </div>
     </div>

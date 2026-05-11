@@ -68,7 +68,7 @@
       "title": "Globe",
       "description": "Globe map with optional map pins.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/svg-globe-path"
+        "@systaliko-ui/svg-globe-path"
       ],
       "files": [
         {
@@ -100,7 +100,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/use-toggle-onscroll"
+        "@systaliko-ui/use-toggle-onscroll"
       ],
       "files": [
         {
@@ -145,7 +145,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-stagger-hover"
+        "@systaliko-ui/text-stagger-hover"
       ],
       "files": [
         {
@@ -245,9 +245,9 @@
       "title": "Card Testimonial",
       "description": "Card Testimonial, with rating, block quote, and author's informations.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-avatar",
-        "https://systaliko-ui.vercel.app/r/default-rating-stars",
-        "https://systaliko-ui.vercel.app/r/default-card"
+        "@systaliko-ui/default-avatar",
+        "@systaliko-ui/default-rating-stars",
+        "@systaliko-ui/default-card"
       ],
       "files": [
         {
@@ -318,7 +318,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-use-follow-mouse"
+        "@systaliko-ui/default-use-follow-mouse"
       ],
       "files": [
         {
@@ -392,7 +392,7 @@
       "title": "Animated Menu Demo",
       "description": "Demo showing animated menu component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/animated-menu"
+        "@systaliko-ui/animated-menu"
       ],
       "files": [
         {
@@ -408,7 +408,7 @@
       "title": "Animated Menu 2 Demo",
       "description": "another demo showing animated menu component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/animated-menu"
+        "@systaliko-ui/animated-menu"
       ],
       "files": [
         {
@@ -424,7 +424,7 @@
       "title": "Animated Menu Demo",
       "description": "another demo showing animated menu component in full screen mode.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/animated-menu-full-screen"
+        "@systaliko-ui/animated-menu-full-screen"
       ],
       "files": [
         {
@@ -440,8 +440,8 @@
       "title": "Stagger Container Demo",
       "description": "Demo showing stagger container component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/container-stagger",
-        "https://systaliko-ui.vercel.app/r/transitions"
+        "@systaliko-ui/container-stagger",
+        "@systaliko-ui/transitions"
       ],
       "files": [
         {
@@ -460,8 +460,8 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/container-stagger",
-        "https://systaliko-ui.vercel.app/r/animation-variants"
+        "@systaliko-ui/container-stagger",
+        "@systaliko-ui/animation-variants"
       ],
       "files": [
         {
@@ -477,7 +477,7 @@
       "title": "Full screen navigation Demo",
       "description": "Demo showing Full screen navigation component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/full-screen-navigation-menu"
+        "@systaliko-ui/full-screen-navigation-menu"
       ],
       "files": [
         {
@@ -493,7 +493,7 @@
       "title": "Globe Demo",
       "description": "Demo showing Globe component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/globe"
+        "@systaliko-ui/globe"
       ],
       "files": [
         {
@@ -509,7 +509,7 @@
       "title": "Grid Bento Demos",
       "description": "Grid Bento Demo with multiple variants.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/grid-bento"
+        "@systaliko-ui/grid-bento"
       ],
       "files": [
         {
@@ -525,7 +525,7 @@
       "title": "Grid Bento Demos",
       "description": "Grid Bento Demo with multiple variants.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/grid-bento-four-cells"
+        "@systaliko-ui/grid-bento-four-cells"
       ],
       "files": [
         {
@@ -541,7 +541,7 @@
       "title": "Grid Bento Three Cells Demo",
       "description": "Demo showing another variant of grid bento component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/grid-bento-three-cells"
+        "@systaliko-ui/grid-bento-three-cells"
       ],
       "files": [
         {
@@ -557,9 +557,9 @@
       "title": "Header Demo",
       "description": "Demo showing Header component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/header",
-        "https://systaliko-ui.vercel.app/r/animated-menu",
-        "https://systaliko-ui.vercel.app/r/use-mobile"
+        "@systaliko-ui/header",
+        "@systaliko-ui/animated-menu",
+        "@systaliko-ui/use-mobile"
       ],
       "files": [
         {
@@ -575,7 +575,7 @@
       "title": "Image Player Demo",
       "description": "Demo showing how to use image player component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/image-player"
+        "@systaliko-ui/image-player"
       ],
       "files": [
         {
@@ -591,7 +591,7 @@
       "title": "Shader Demo",
       "description": "Demo showing shader component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/shader"
+        "@systaliko-ui/shader"
       ],
       "files": [
         {
@@ -607,7 +607,7 @@
       "title": "Shader Hurricane Demo",
       "description": "Demo showing hurricane shader component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/shader"
+        "@systaliko-ui/shader"
       ],
       "files": [
         {
@@ -623,7 +623,7 @@
       "title": "Slideshow Demo",
       "description": "Demo showing how to use slideshow component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/slideshow"
+        "@systaliko-ui/slideshow"
       ],
       "files": [
         {
@@ -639,9 +639,9 @@
       "title": "Story Demo",
       "description": "Demo showing how to use story component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/story",
-        "https://systaliko-ui.vercel.app/r/dialog",
-        "https://systaliko-ui.vercel.app/r/avatar"
+        "@systaliko-ui/story",
+        "@systaliko-ui/dialog",
+        "@systaliko-ui/avatar"
       ],
       "files": [
         {
@@ -657,7 +657,7 @@
       "title": "Timeline Demo",
       "description": "Demo showing timeline component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/timeline"
+        "@systaliko-ui/timeline"
       ],
       "files": [
         {
@@ -689,7 +689,7 @@
       "title": "Flip Card Demo",
       "description": "Demo showing Flip Card Component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/card-flip"
+        "@systaliko-ui/card-flip"
       ],
       "files": [
         {
@@ -705,7 +705,7 @@
       "title": "Card Hover Reveal Demo",
       "description": "Demo showing Card Hover Reveal Component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/card-hover-reveal"
+        "@systaliko-ui/card-hover-reveal"
       ],
       "files": [
         {
@@ -721,7 +721,7 @@
       "title": "Card Hover Reveal Full Demo",
       "description": "Demo showing another usecase of Card Hover Reveal Component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/card-hover-reveal"
+        "@systaliko-ui/card-hover-reveal"
       ],
       "files": [
         {
@@ -737,7 +737,7 @@
       "title": "Card Testimonial Demo",
       "description": "Demo showing Card Testimonial Component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/card-testimonial"
+        "@systaliko-ui/card-testimonial"
       ],
       "files": [
         {
@@ -753,7 +753,7 @@
       "title": "Card Testimonial Demo",
       "description": "Demo showing Card Testimonial Component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/card-testimonial"
+        "@systaliko-ui/card-testimonial"
       ],
       "files": [
         {
@@ -785,7 +785,7 @@
       "title": "Stack small cards Demo",
       "description": "Demo showing different usecase of Cards Stack component with smaller cards.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/cards-stack"
+        "@systaliko-ui/cards-stack"
       ],
       "files": [
         {
@@ -801,8 +801,8 @@
       "title": "Cards Stack Rotated Demo",
       "description": "Demo showing Cards Stack Rotated component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/cards-stack-rotated",
-        "https://systaliko-ui.vercel.app/r/card-testimonial"
+        "@systaliko-ui/cards-stack-rotated",
+        "@systaliko-ui/card-testimonial"
       ],
       "files": [
         {
@@ -818,7 +818,7 @@
       "title": "Stack small cards Demo",
       "description": "Demo showing different usecase of Cards Rotated Stack component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/cards-stack-rotated"
+        "@systaliko-ui/cards-stack-rotated"
       ],
       "files": [
         {
@@ -834,8 +834,8 @@
       "title": "Cards stack full screen Demo",
       "description": "Demo showing different usecase of Cards Stack component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/cards-stack",
-        "https://systaliko-ui.vercel.app/r/badge"
+        "@systaliko-ui/cards-stack",
+        "@systaliko-ui/badge"
       ],
       "files": [
         {
@@ -867,7 +867,7 @@
       "title": "Input Field Demo",
       "description": "Demo showing Input field component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/checkbox-field"
+        "@systaliko-ui/checkbox-field"
       ],
       "files": [
         {
@@ -883,8 +883,8 @@
       "title": "Custom Cursor Demo",
       "description": "Demo showing Custom Cursor component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/custom-cursor",
-        "https://systaliko-ui.vercel.app/r/button"
+        "@systaliko-ui/custom-cursor",
+        "@systaliko-ui/button"
       ],
       "files": [
         {
@@ -900,7 +900,7 @@
       "title": "Custom Cursor 2 Demo",
       "description": "Demo showing another usecase of Custom Cursor component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/custom-cursor"
+        "@systaliko-ui/custom-cursor"
       ],
       "files": [
         {
@@ -916,7 +916,7 @@
       "title": "Rating stars Demo",
       "description": "Demo showing Rating stars component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/rating-stars"
+        "@systaliko-ui/rating-stars"
       ],
       "files": [
         {
@@ -932,7 +932,7 @@
       "title": "Reveal Mask Demo",
       "description": "Demo showing Reveal mask component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/reveal-mask"
+        "@systaliko-ui/reveal-mask"
       ],
       "files": [
         {
@@ -948,7 +948,7 @@
       "title": "Spotlight List Demo",
       "description": "Demo showing Spotlight list component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/spotlight-list"
+        "@systaliko-ui/spotlight-list"
       ],
       "files": [
         {
@@ -959,12 +959,44 @@
       ]
     },
     {
+      "name": "spotlight-list-2-demo",
+      "type": "registry:ui",
+      "title": "Spotlight List Demo",
+      "description": "Demo showing Spotlight list component.",
+      "registryDependencies": [
+        "@systaliko-ui/spotlight-list-2"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/spotlight-list-2/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/spotlight-list-2-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "custom-pricing-design-demo",
+      "type": "registry:block",
+      "title": "Custom Pricing Design Demo",
+      "description": "Demo showing custom pricing component for a design service.",
+      "registryDependencies": [
+        "@systaliko-ui/custom-pricing"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/ecommerce/custom-pricing-design/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/custom-pricing-design.tsx"
+        }
+      ]
+    },
+    {
       "name": "expandable-grid-demo",
       "type": "registry:block",
       "title": "Expandable Product Grid Demo",
       "description": "Demo showing expandable product grid component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/ecommerce/expandable-grid"
+        "@systaliko-ui/ecommerce/expandable-grid"
       ],
       "files": [
         {
@@ -980,7 +1012,7 @@
       "title": "Image Zoom Demo",
       "description": "Demo showing image zoom component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/ecommerce/image-zoom"
+        "@systaliko-ui/ecommerce/image-zoom"
       ],
       "files": [
         {
@@ -996,7 +1028,7 @@
       "title": "Infinite Scroll Demo",
       "description": "Demo showing infinite scroll component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/infinite-scroll"
+        "@systaliko-ui/infinite-scroll"
       ],
       "files": [
         {
@@ -1012,8 +1044,8 @@
       "title": "price Demo",
       "description": "Demo showing price component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/badge",
-        "https://systaliko-ui.vercel.app/r/price"
+        "@systaliko-ui/badge",
+        "@systaliko-ui/price"
       ],
       "files": [
         {
@@ -1029,10 +1061,10 @@
       "title": "Pricing Demo",
       "description": "Demo showing pricing component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/pricing",
-        "https://systaliko-ui.vercel.app/r/badge",
-        "https://systaliko-ui.vercel.app/r/button",
-        "https://systaliko-ui.vercel.app/r/label"
+        "@systaliko-ui/pricing",
+        "@systaliko-ui/badge",
+        "@systaliko-ui/button",
+        "@systaliko-ui/label"
       ],
       "files": [
         {
@@ -1048,7 +1080,7 @@
       "title": "Pricing-2 Demo",
       "description": "Demo showing pricing-2 component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/pricing"
+        "@systaliko-ui/pricing"
       ],
       "files": [
         {
@@ -1064,7 +1096,7 @@
       "title": "Product Carousel Demo",
       "description": "Demo showing product carousel component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/product-carousel"
+        "@systaliko-ui/product-carousel"
       ],
       "files": [
         {
@@ -1080,7 +1112,7 @@
       "title": "Product Carousel Demo",
       "description": "Another Demo showing product carousel component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/product-carousel"
+        "@systaliko-ui/product-carousel"
       ],
       "files": [
         {
@@ -1096,7 +1128,7 @@
       "title": "Product Carousel Demo",
       "description": "Another Demo showing product carousel component with different thumbs.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/product-carousel"
+        "@systaliko-ui/product-carousel"
       ],
       "files": [
         {
@@ -1112,7 +1144,7 @@
       "title": "Quantity Demo",
       "description": "Demo showing Quantity component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/ecommerce/quantity"
+        "@systaliko-ui/ecommerce/quantity"
       ],
       "files": [
         {
@@ -1128,7 +1160,7 @@
       "title": "Pricing Demo",
       "description": "Demo showing toggle layout view component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/toggle-layout"
+        "@systaliko-ui/toggle-layout"
       ],
       "files": [
         {
@@ -1144,7 +1176,7 @@
       "title": "circle cards Demo",
       "description": "Demo showing circle cards component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/circle-cards"
+        "@systaliko-ui/circle-cards"
       ],
       "files": [
         {
@@ -1160,7 +1192,7 @@
       "title": "Distributed Cards Demo",
       "description": "Demo showing distributed cards component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/distributed-cards"
+        "@systaliko-ui/distributed-cards"
       ],
       "files": [
         {
@@ -1176,7 +1208,7 @@
       "title": "Distributed Cards 2 Demo",
       "description": "Another Demo showing distributed cards component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/distributed-cards-2"
+        "@systaliko-ui/distributed-cards-2"
       ],
       "files": [
         {
@@ -1195,11 +1227,11 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/parallax",
-        "https://systaliko-ui.vercel.app/r/container-stagger",
-        "https://systaliko-ui.vercel.app/r/text-stagger-inview",
-        "https://systaliko-ui.vercel.app/r/animation-variants",
-        "https://systaliko-ui.vercel.app/r/button"
+        "@systaliko-ui/parallax",
+        "@systaliko-ui/container-stagger",
+        "@systaliko-ui/text-stagger-inview",
+        "@systaliko-ui/animation-variants",
+        "@systaliko-ui/button"
       ],
       "files": [
         {
@@ -1218,7 +1250,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animation"
+        "@systaliko-ui/scroll-animation"
       ],
       "files": [
         {
@@ -1234,7 +1266,7 @@
       "title": "Scroll Trigger inset Animations Demo",
       "description": "Demo showing how to implement scroll triggred animations.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animations"
+        "@systaliko-ui/scroll-animations"
       ],
       "files": [
         {
@@ -1250,7 +1282,7 @@
       "title": "Scroll Trigger Inset-X Animations Demo",
       "description": "Demo showing how to implement scroll triggred animations.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animations"
+        "@systaliko-ui/scroll-animations"
       ],
       "files": [
         {
@@ -1266,7 +1298,7 @@
       "title": "Scroll Trigger X-inset Animations Demo",
       "description": "Demo showing how to implement scroll triggred animations.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animations"
+        "@systaliko-ui/scroll-animations"
       ],
       "files": [
         {
@@ -1282,7 +1314,7 @@
       "title": "scroll-animation-radius Demo",
       "description": "Demo showing how to use scroll animations.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animations"
+        "@systaliko-ui/scroll-animations"
       ],
       "files": [
         {
@@ -1298,7 +1330,7 @@
       "title": "scroll rotate animation Demo",
       "description": "Demo showing how to use scroll rotate animations.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animation-rotate"
+        "@systaliko-ui/scroll-animation-rotate"
       ],
       "files": [
         {
@@ -1314,7 +1346,7 @@
       "title": "scroll rotate animation device Demo",
       "description": "Demo showing how to use scroll rotate animations.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animation-rotate"
+        "@systaliko-ui/scroll-animation-rotate"
       ],
       "files": [
         {
@@ -1330,7 +1362,7 @@
       "title": "scroll rotate animation device Demo",
       "description": "Demo showing how to use scroll rotate animations.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animation-rotate"
+        "@systaliko-ui/scroll-animation-rotate"
       ],
       "files": [
         {
@@ -1346,7 +1378,7 @@
       "title": "Scroll Trigger Scale Animations Demo",
       "description": "Demo showing how to implement scroll triggred animations.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animations"
+        "@systaliko-ui/scroll-animations"
       ],
       "files": [
         {
@@ -1362,7 +1394,7 @@
       "title": "Scroll Trigger inset Animations Demo",
       "description": "Demo showing how to implement scroll triggred animations.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animations"
+        "@systaliko-ui/scroll-animations"
       ],
       "files": [
         {
@@ -1378,7 +1410,7 @@
       "title": "scroll autoplay Demo",
       "description": "Demo showing scroll-autoplay component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-autoplay"
+        "@systaliko-ui/scroll-autoplay"
       ],
       "files": [
         {
@@ -1394,8 +1426,8 @@
       "title": "Scroll Reverce Scale Animation Demo",
       "description": "Demo scroll animations component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animations",
-        "https://systaliko-ui.vercel.app/r/grid-bento"
+        "@systaliko-ui/scroll-animations",
+        "@systaliko-ui/grid-bento"
       ],
       "files": [
         {
@@ -1411,7 +1443,7 @@
       "title": "scroll x carousel Demo",
       "description": "Demo showing how to use scroll x carousel component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-x-carousel"
+        "@systaliko-ui/scroll-x-carousel"
       ],
       "files": [
         {
@@ -1427,7 +1459,7 @@
       "title": "scroll x carousel reversed Demo",
       "description": "another Demo showing how to use scroll x carousel component in a reversed.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-x-carousel"
+        "@systaliko-ui/scroll-x-carousel"
       ],
       "files": [
         {
@@ -1443,7 +1475,7 @@
       "title": "Team Demo",
       "description": "Demo showing team component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/scroll-animation"
+        "@systaliko-ui/scroll-animation"
       ],
       "files": [
         {
@@ -1459,7 +1491,7 @@
       "title": "Wavy Block Demo",
       "description": "Demo showing Wavy Block component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/wavy-block"
+        "@systaliko-ui/wavy-block"
       ],
       "files": [
         {
@@ -1470,12 +1502,44 @@
       ]
     },
     {
+      "name": "wavy-block-y-demo",
+      "type": "registry:block",
+      "title": "Wavy Block Y axis Demo",
+      "description": "Demo showing another usage of Wavy Block component.",
+      "registryDependencies": [
+        "@systaliko-ui/wavy-block"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/scroll-animations/wavy-block-y/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/wavy-block-y.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sliding-number-demo",
+      "type": "registry:ui",
+      "title": "Sliding Number Demo",
+      "description": "Demo showing Sliding number component.",
+      "registryDependencies": [
+        "@systaliko-ui/sliding-number"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/text/sliding-number/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/sliding-number.tsx"
+        }
+      ]
+    },
+    {
       "name": "text-scroll-read-demo",
       "type": "registry:ui",
       "title": "Text Scroll Read Demo",
       "description": "Demo showing Text scroll read component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-scroll-read"
+        "@systaliko-ui/text-scroll-read"
       ],
       "files": [
         {
@@ -1491,7 +1555,7 @@
       "title": "Text Stagger Hover Demo",
       "description": "Demo showing a split text with stagger animation on hover.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-stagger-hover"
+        "@systaliko-ui/text-stagger-hover"
       ],
       "files": [
         {
@@ -1507,7 +1571,7 @@
       "title": "Text Stagger Interval Demo",
       "description": "Demo showing text with stagger animation interval.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-stagger-interval"
+        "@systaliko-ui/text-stagger-interval"
       ],
       "files": [
         {
@@ -1523,7 +1587,7 @@
       "title": "Text Stagger Inview Demo",
       "description": "Demo showing a split text with stagger animation.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-stagger-inview"
+        "@systaliko-ui/text-stagger-inview"
       ],
       "files": [
         {
@@ -1539,7 +1603,7 @@
       "title": "Text Stagger Inview Waves Demo",
       "description": "Demo showing another use of text stagger in view demo with waves.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-stagger-inview"
+        "@systaliko-ui/text-stagger-inview"
       ],
       "files": [
         {
@@ -1555,7 +1619,7 @@
       "title": "Vertical Text Demo",
       "description": "Demo showing a vertical text.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-vertical"
+        "@systaliko-ui/text-vertical"
       ],
       "files": [
         {
@@ -1571,7 +1635,7 @@
       "title": "Text Wavy Demo",
       "description": "Demo showing text wavy component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/text-wavy"
+        "@systaliko-ui/text-wavy"
       ],
       "files": [
         {
@@ -1590,7 +1654,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/animation-variants"
+        "@systaliko-ui/animation-variants"
       ],
       "files": [
         {
@@ -1606,7 +1670,7 @@
       "title": "Set Stagger Direction Demo",
       "description": "Demo showing how to use set-stagger-direction utility.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/set-stagger-direction",
+        "@systaliko-ui/set-stagger-direction",
         "motion"
       ],
       "files": [
@@ -1614,6 +1678,23 @@
           "path": "registry/demo/utils/set-stagger-direction/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/demo/utils/set-stagger-direction.ts"
+        }
+      ]
+    },
+    {
+      "name": "custom-pricing",
+      "type": "registry:block",
+      "title": "Custom Pricing",
+      "description": "Flexible custom pricing component with with set of tools that allow to update the price depending on quantity unit and if or not is checked.",
+      "registryDependencies": [
+        "@systaliko-ui/slider",
+        "@systaliko-ui/custom-pricing-utils"
+      ],
+      "files": [
+        {
+          "path": "registry/ecommerce/custom-pricing/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/custom-pricing.tsx"
         }
       ]
     },
@@ -1655,7 +1736,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/spinner"
+        "@systaliko-ui/spinner"
       ],
       "files": [
         {
@@ -1969,6 +2050,32 @@
       ]
     },
     {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "label",
+      "description": "label component.",
+      "files": [
+        {
+          "path": "registry/shadcn/label/index.tsx",
+          "type": "registry:ui",
+          "target": "components/label.tsx"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "avatar",
+      "description": "avatar component with variants.",
+      "files": [
+        {
+          "path": "registry/shadcn/avatar/index.tsx",
+          "type": "registry:ui",
+          "target": "components/avatar.tsx"
+        }
+      ]
+    },
+    {
       "name": "scroll-area",
       "type": "registry:ui",
       "title": "Scroll Area",
@@ -1995,6 +2102,19 @@
       ]
     },
     {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "slider",
+      "description": "slider component with variants.",
+      "files": [
+        {
+          "path": "registry/shadcn/slider/index.tsx",
+          "type": "registry:ui",
+          "target": "components/slider.tsx"
+        }
+      ]
+    },
+    {
       "name": "spinner",
       "type": "registry:ui",
       "title": "spinner",
@@ -2017,6 +2137,22 @@
           "path": "registry/shadcn/switch/index.tsx",
           "type": "registry:ui",
           "target": "components/switch.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sliding-number",
+      "type": "registry:ui",
+      "title": "Sliding Number",
+      "description": "Number value with splitted animation.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/text/sliding-number/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/sliding-number.tsx"
         }
       ]
     },
@@ -2058,9 +2194,9 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/set-stagger-direction",
-        "https://systaliko-ui.vercel.app/r/split-text",
-        "https://systaliko-ui.vercel.app/r/animation-variants"
+        "@systaliko-ui/set-stagger-direction",
+        "@systaliko-ui/split-text",
+        "@systaliko-ui/animation-variants"
       ],
       "files": [
         {
@@ -2079,9 +2215,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/set-stagger-direction",
-        "https://systaliko-ui.vercel.app/r/split-text",
-        "https://systaliko-ui.vercel.app/r/animation-variants"
+        "@systaliko-ui/animation-variants"
       ],
       "files": [
         {
@@ -2100,7 +2234,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/animation-variants"
+        "@systaliko-ui/animation-variants"
       ],
       "files": [
         {
@@ -2148,7 +2282,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/default-animation-variants"
+        "@systaliko-ui/default-animation-variants"
       ],
       "files": [
         {
@@ -2168,6 +2302,19 @@
           "path": "registry/utils/animation-variants/index.tsx",
           "type": "registry:item",
           "target": "components/systaliko-ui/utils/animation-variants.tsx"
+        }
+      ]
+    },
+    {
+      "name": "custom-pricing-utils",
+      "type": "registry:item",
+      "title": "Custom Pricing Utils",
+      "description": "Custom pricing utils types and reducer store.",
+      "files": [
+        {
+          "path": "registry/utils/custom-pricing-utils/index.tsx",
+          "type": "registry:item",
+          "target": "components/systaliko-ui/utils/custom-pricing-utils.tsx"
         }
       ]
     },

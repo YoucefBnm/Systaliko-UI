@@ -4,9 +4,7 @@
   "type": "registry:block",
   "title": "Image Zoom Demo",
   "description": "Demo showing image zoom component.",
-  "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/ecommerce/image-zoom"
-  ],
+  "registryDependencies": ["@systaliko-ui/ecommerce/image-zoom"],
   "files": [
     {
       "path": "registry/demo/ecommerce/image-zoom/index.tsx",

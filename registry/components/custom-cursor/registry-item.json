@@ -5,9 +5,7 @@
   "title": "Custom Cursor",
   "description": "Turn your cursor into any element your want, text, image, video, or a shape.",
   "dependencies": ["motion"],
-  "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/default-use-follow-mouse"
-  ],
+  "registryDependencies": ["@systaliko-ui/default-use-follow-mouse"],
   "files": [
     {
       "path": "registry/components/custom-cursor/index.tsx",
