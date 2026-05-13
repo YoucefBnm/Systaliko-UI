@@ -65,14 +65,14 @@ export const SlideshowIndicator = ({
         <TextStaggerHoverActive
           className="opacity-20"
           animation={'top'}
-          animate={isActive ? 'hidden' : 'visible'}
+          animate={isActive ? 'hovered' : 'initial'}
           transition={{ duration: 0.3, ease: 'easeOut' }}
         >
           {String(children)}
         </TextStaggerHoverActive>
         <TextStaggerHoverHidden
           animation={'bottom'}
-          animate={isActive ? 'visible' : 'hidden'}
+          animate={isActive ? 'hovered' : 'initial'}
           transition={{ duration: 0.3, ease: 'easeOut' }}
         >
           {String(children)}

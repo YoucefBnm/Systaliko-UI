@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slider",
+  "type": "registry:ui",
+  "title": "slider",
+  "description": "slider component with variants.",
+  "files": [
+    {
+      "path": "registry/shadcn/slider/index.tsx",
+      "type": "registry:ui",
+      "target": "components/slider.tsx"
+    }
+  ]
+}

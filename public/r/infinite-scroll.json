@@ -7,7 +7,7 @@
     "motion"
   ],
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/shadcn/spinner"
+    "https://systaliko-ui.vercel.app/r/spinner"
   ],
   "files": [
     {

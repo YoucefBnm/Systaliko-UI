@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sliding-number-demo",
+  "title": "Sliding Number Demo",
+  "description": "Demo showing Sliding number component.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/sliding-number"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/text/sliding-number/index.tsx",
+      "content": "'use client';\nimport { Slider } from '@/components/ui/slider';\nimport { SlidingNumber } from '@/components/systaliko-ui/text/sliding-number';\nimport React from 'react';\n\nexport function SlidingNumberDemo() {\n  const [value, setValue] = React.useState<number>(0);\n  return (\n    <div className=\"p-8 w-full space-y-4 max-w-md mx-auto\">\n      <Slider\n        min={100}\n        max={10000}\n        step={100}\n        value={[value]}\n        onValueChange={(val) => setValue(val[0])}\n      />\n      <SlidingNumber value={value} className=\"text-2xl font-medium\" />\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/sliding-number.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

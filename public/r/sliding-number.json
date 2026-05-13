@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sliding-number",
+  "title": "Sliding Number",
+  "description": "Number value with splitted animation.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "registry/text/sliding-number/index.tsx",
+      "content": "'use client';\nimport React from 'react';\nimport { motion, AnimatePresence, HTMLMotionProps } from 'motion/react';\nimport { cn } from '@/lib/utils';\n\nfunction SlidingCharacter({\n  char,\n  index,\n  valueLength,\n  ...props\n}: HTMLMotionProps<'span'> & {\n  char: string;\n  index: number;\n  valueLength: number;\n}) {\n  const isDigit = /\\d/.test(char);\n  // Rightmost characters animate first — stagger from right to left\n  const fromRight = valueLength - 1 - index;\n\n  return (\n    <motion.span\n      variants={\n        isDigit\n          ? {\n              enter: (d: number) => ({ y: d > 0 ? '110%' : '-110%' }),\n              center: { y: '0%' },\n              exit: (d: number) => ({ y: d > 0 ? '-110%' : '110%' }),\n            }\n          : {\n              enter: { opacity: 0, scale: 0.5 },\n              center: { opacity: 1, scale: 1 },\n              exit: { opacity: 0, scale: 0.5 },\n            }\n      }\n      initial=\"enter\"\n      animate=\"center\"\n      exit=\"exit\"\n      transition={{\n        type: 'spring',\n        stiffness: 260,\n        damping: 20,\n        mass: 1,\n        delay: isDigit ? fromRight * 0.025 : 0,\n      }}\n      className=\"inline-block\"\n      {...props}\n    >\n      {char}\n    </motion.span>\n  );\n}\nexport function SlidingNumber({\n  value,\n  className,\n  ...props\n}: React.ComponentProps<'span'> & {\n  value: number;\n}) {\n  const prevRef = React.useRef(value);\n  const [direction, setDirection] = React.useState(0);\n\n  React.useLayoutEffect(() => {\n    if (value !== prevRef.current) {\n      setDirection(value > prevRef.current ? 1 : -1);\n      prevRef.current = value;\n    }\n  }, [value]);\n\n  const formatted = `$${value.toLocaleString()}`.split('');\n\n  return (\n    <span className={cn('inline-flex tabular-nums', className)} {...props}>\n      {formatted.map((char, i) => (\n        <span key={i} className=\"relative inline-flex overflow-hidden\">\n          <AnimatePresence mode=\"popLayout\" custom={direction} initial={false}>\n            <SlidingCharacter\n              char={char}\n              custom={direction}\n              key={`${i}-${char}`}\n              valueLength={formatted.length}\n              index={i}\n            />\n          </AnimatePresence>\n        </span>\n      ))}\n    </span>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/sliding-number.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

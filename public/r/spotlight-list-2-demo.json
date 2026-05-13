@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "spotlight-list-2-demo",
+  "title": "Spotlight List Demo",
+  "description": "Demo showing Spotlight list component.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/spotlight-list-2"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/spotlight-list-2/index.tsx",
+      "content": "import { SportlightList } from '@/components/systaliko-ui/components/spotlight-list';\nconst IMAGES = [\n  'https://images.unsplash.com/photo-1554797589-7241bb691973?q=80&w=240&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1695047034607-c07de67875ab?q=80&w=240&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',\n  'https://images.unsplash.com/photo-1679581858563-3c808d23f0fc?w=240&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8',\n  'https://images.unsplash.com/photo-1666043380189-eaa385e15cad?w=240&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D',\n];\nexport function SpotlightList2Demo() {\n  return (\n    <SportlightList\n      variant={'scale'}\n      className=\"flex gap-2 p-2 max-w-4xl  mx-auto w-full *:duration-300 *:ease-out\"\n    >\n      {IMAGES.map((imageUrl, index) => (\n        <li className=\"rounded ring shadow-xs overflow-hidden\" key={index}>\n          <img\n            className=\"w-full h-full object-cover\"\n            src={imageUrl}\n            alt=\"gallery item\"\n          />\n        </li>\n      ))}\n    </SportlightList>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/spotlight-list-2-demo.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

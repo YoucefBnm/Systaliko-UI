@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-stagger-interval-demo",
+  "type": "registry:ui",
+  "title": "Text Stagger Interval Demo",
+  "description": "Demo showing text with stagger animation interval.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/text-stagger-interval"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/text/text-stagger-interval/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/text/text-stagger-interval.tsx"
+    }
+  ]
+}

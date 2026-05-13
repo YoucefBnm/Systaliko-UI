@@ -1,0 +1,109 @@
+---
+title: Shader
+description: Shader component with two variants for gradient and hurricane both can be configured.
+new: true
+---
+
+<ComponentPreview name="shader-demo" />
+
+## Installation
+
+<ComponentInstallation name="shader" />
+
+## Usage
+
+```tsx
+<ShaderGradient
+  colors={["#8C59D9", "#D973A6", "#73A6F2"]}
+  animate
+  intensity={1.2}
+  density={0.8}
+  className="absolute inset-0"
+/>
+
+// Hurricane — full control
+<ShaderHurricane
+  colors={["#00f2fe", "#4facfe", "#ffd700"]}
+  background="#0a0a0a"
+  intensity={1.5}
+  density={0.6}
+  speed={1.2}
+  className="absolute inset-0"
+/>
+```
+
+## Examples
+
+### Shader Hurricane
+
+<ComponentPreview name="shader-hurricane-demo" />
+
+## Props
+
+`ShaderHurricane`
+
+<TypeTable
+  type={{
+    colors: {
+      description: 'colors of the shader.',
+      type: '[string, string, string]',
+      required: false,
+      default: "['#00f2fe','#4facfe','#ffd700']",
+    },
+    background: {
+      description: 'background of the canvas.',
+      type: 'string',
+      required: false,
+      default: '#0a0a0a',
+    },
+    intensity: {
+      description: 'how bright a surface is.',
+      type: 'number',
+      required: false,
+      default: 1,
+    },
+    density: {
+      description: 'concentration of the effects.',
+      type: 'number',
+      required: false,
+      default: 1,
+    },
+    speed: {
+      description: 'speed of the shader.',
+      type: 'number',
+      required: false,
+      default: 0.2,
+    },
+  }}
+/>
+
+`ShaderGradient`
+
+<TypeTable
+  type={{
+    colors: {
+      description: 'colors of the shader.',
+      type: '[string, string, string]',
+      required: false,
+      default: "['#8C59D9', '#D973A6','#73A6F2']",
+    },
+    animate: {
+      description: 'whether the shader should animate.',
+      type: 'boolean',
+      required: false,
+      default: true,
+    },
+    intensity: {
+      description: 'how bright a surface is.',
+      type: 'number',
+      required: false,
+      default: 1,
+    },
+    density: {
+      description: 'concentration of the effects.',
+      type: 'number',
+      required: false,
+      default: 1,
+    },
+  }}
+/>

@@ -4,8 +4,8 @@
   "title": "Scroll Reverce Scale Animation Demo",
   "description": "Demo scroll animations component.",
   "registryDependencies": [
-    "@systaliko-ui/scroll-animations",
-    "@systaliko-ui/grid-bento"
+    "https://systaliko-ui.vercel.app/r/scroll-animations",
+    "https://systaliko-ui.vercel.app/r/grid-bento"
   ],
   "files": [
     {

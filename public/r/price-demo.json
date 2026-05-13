@@ -5,7 +5,7 @@
   "description": "Demo showing price component.",
   "registryDependencies": [
     "https://systaliko-ui.vercel.app/r/badge",
-    "@systaliko-ui/r/price"
+    "https://systaliko-ui.vercel.app/r/price"
   ],
   "files": [
     {

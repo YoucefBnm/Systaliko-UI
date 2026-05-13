@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "custom-pricing",
+  "type": "registry:block",
+  "title": "Custom Pricing",
+  "description": "Flexible custom pricing component with with set of tools that allow to update the price depending on quantity unit and if or not is checked.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/slider",
+    "https://systaliko-ui.vercel.app/r/custom-pricing-utils"
+  ],
+  "files": [
+    {
+      "path": "registry/ecommerce/custom-pricing/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/custom-pricing.tsx"
+    }
+  ]
+}
