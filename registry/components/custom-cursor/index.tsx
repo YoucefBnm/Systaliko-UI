@@ -89,7 +89,7 @@ export function CustomCursor({
   return (
     <motion.div
       className={cn(
-        'pointer-events-none absolute top-0 left-0 z-[999] flex items-center justify-center',
+        'pointer-events-none absolute top-0 left-0 z-[999] grid place-items-center',
         className,
       )}
       ref={cursorRef}
@@ -103,18 +103,7 @@ export function CustomCursor({
       exit={{ transition: { duration: 0.3 } }}
       {...props}
     >
-      <AnimatePresence mode="sync">
-        {cursorChildren && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            className="flex items-center justify-center"
-          >
-            {cursorChildren}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <AnimatePresence mode="sync">{cursorChildren}</AnimatePresence>
     </motion.div>
   );
 }
