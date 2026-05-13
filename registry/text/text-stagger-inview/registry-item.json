@@ -5,7 +5,9 @@
   "title": "Text Stagger Inview",
   "description": "Splitted text animation with staggered reveal triggered by view, You can easily customize by controlling the animation property (transform, opacity, blur) and the stagger value, and the transition.",
   "dependencies": ["motion"],
-  "registryDependencies": ["@systaliko-ui/animation-variants"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/animation-variants"
+  ],
   "files": [
     {
       "path": "registry/text/text-stagger-inview/index.tsx",

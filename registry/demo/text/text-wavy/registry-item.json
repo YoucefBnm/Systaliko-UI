@@ -4,7 +4,7 @@
   "type": "registry:ui",
   "title": "Text Wavy Demo",
   "description": "Demo showing text wavy component.",
-  "registryDependencies": ["@systaliko-ui/text-wavy"],
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/text-wavy"],
   "files": [
     {
       "path": "registry/demo/text/text-wavy/index.tsx",

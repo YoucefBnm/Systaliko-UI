@@ -4,7 +4,9 @@
   "type": "registry:block",
   "title": "Team Demo",
   "description": "Demo showing team component.",
-  "registryDependencies": ["@systaliko-ui/scroll-animation"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/scroll-animation"
+  ],
   "files": [
     {
       "path": "registry/demo/scroll-animations/team/index.tsx",

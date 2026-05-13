@@ -4,7 +4,7 @@
   "type": "registry:block",
   "title": "Shader Hurricane Demo",
   "description": "Demo showing hurricane shader component.",
-  "registryDependencies": ["@systaliko-ui/shader"],
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/shader"],
   "files": [
     {
       "path": "registry/demo/blocks/shader-hurricane/index.tsx",

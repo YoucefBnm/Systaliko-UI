@@ -4,7 +4,7 @@
   "type": "registry:block",
   "title": "Globe",
   "description": "Globe map with optional map pins.",
-  "registryDependencies": ["@systaliko-ui/svg-globe-path"],
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/svg-globe-path"],
   "files": [
     {
       "path": "registry/blocks/globe/index.tsx",

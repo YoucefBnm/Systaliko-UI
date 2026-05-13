@@ -4,7 +4,9 @@
   "type": "registry:ui",
   "title": "Card Hover Reveal Demo",
   "description": "Demo showing Card Hover Reveal Component.",
-  "registryDependencies": ["@systaliko-ui/card-hover-reveal"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/card-hover-reveal"
+  ],
   "files": [
     {
       "path": "registry/demo/cards/card-hover-reveal/index.tsx",

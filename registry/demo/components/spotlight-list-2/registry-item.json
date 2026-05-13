@@ -4,7 +4,9 @@
   "type": "registry:ui",
   "title": "Spotlight List Demo",
   "description": "Demo showing Spotlight list component.",
-  "registryDependencies": ["@systaliko-ui/spotlight-list-2"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/spotlight-list-2"
+  ],
   "files": [
     {
       "path": "registry/demo/components/spotlight-list-2/index.tsx",

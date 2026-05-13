@@ -4,7 +4,7 @@
   "type": "registry:ui",
   "title": "Sliding Number Demo",
   "description": "Demo showing Sliding number component.",
-  "registryDependencies": ["@systaliko-ui/sliding-number"],
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/sliding-number"],
   "files": [
     {
       "path": "registry/demo/text/sliding-number/index.tsx",

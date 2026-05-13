@@ -5,7 +5,9 @@
   "title": "Text Stagger Interval",
   "description": "Staggered text display that cycles through a list of words at a specified interval. Pause the animation by hovering over the component.",
   "dependencies": ["motion"],
-  "registryDependencies": ["@systaliko-ui/animation-variants"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/animation-variants"
+  ],
   "files": [
     {
       "path": "registry/text/text-stagger-interval/index.tsx",

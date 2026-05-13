@@ -4,7 +4,9 @@
   "type": "registry:block",
   "title": "Stack small cards Demo",
   "description": "Demo showing different usecase of Cards Rotated Stack component.",
-  "registryDependencies": ["@systaliko-ui/cards-stack-rotated"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/cards-stack-rotated"
+  ],
   "files": [
     {
       "path": "registry/demo/cards/cards-stack-rotated-recognitions/index.tsx",

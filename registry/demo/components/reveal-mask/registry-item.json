@@ -4,7 +4,7 @@
   "type": "registry:ui",
   "title": "Reveal Mask Demo",
   "description": "Demo showing Reveal mask component.",
-  "registryDependencies": ["@systaliko-ui/reveal-mask"],
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/reveal-mask"],
   "files": [
     {
       "path": "registry/demo/components/reveal-mask/index.tsx",

@@ -4,7 +4,9 @@
   "type": "registry:block",
   "title": "Quantity Demo",
   "description": "Demo showing Quantity component.",
-  "registryDependencies": ["@systaliko-ui/ecommerce/quantity"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/ecommerce/quantity"
+  ],
   "files": [
     {
       "path": "registry/demo/ecommerce/quantity/index.tsx",
