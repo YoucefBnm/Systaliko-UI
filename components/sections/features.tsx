@@ -75,7 +75,7 @@ export function Features() {
               className="p-1 overflow-hidden"
               href="/docs/cards/cards-stack"
             >
-              <TextStaggerHover>
+              <TextStaggerHover className="inline">
                 <TextStaggerHoverActive
                   transition={SPRING_CONFIG}
                   className="opacity-80"
