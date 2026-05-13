@@ -14,9 +14,10 @@ import { Button } from '../ui/button';
 import {
   AnimatedMenu,
   AnimatedMenuButton,
-  AnimatedMenuButtonLabel,
+  AnimatedMenuButtonToggleIcon,
   AnimatedMenuItem,
   AnimatedMenuList,
+  CloseAnimatedMenu,
 } from '@/registry/blocks/animated-menu';
 import { Variants } from 'motion/react';
 import { useIsScrolled } from '@/registry/utils/use-is-scrolled';
@@ -43,13 +44,13 @@ const NAV_LINKS = [
 ];
 const menuListVariants = {
   open: {
-    width: 280,
-    height: 400,
+    width: 260,
+    height: 340,
     transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },
   },
   close: {
     width: 50,
-    height: 28,
+    height: 32,
     transition: { duration: 0.75, delay: 0.2, ease: [0.76, 0, 0.24, 1] },
   },
 } as Variants;
@@ -78,12 +79,15 @@ function HeaderLogo({ className, ...props }: React.ComponentProps<'a'>) {
     </Link>
   );
 }
-function HeaderSearch() {
+function HeaderSearch({ className }: { className?: string }) {
   const { setOpenSearch } = useSearchContext();
 
   return (
     <button
-      className="pl-3 pr-1.5 h-8 w-32 xl:w-40 bg-accent hover:bg-accent/70 transition-colors duration-200 ease-in-out text-sm text-muted-foreground rounded-md flex items-center justify-between"
+      className={cn(
+        'pl-3 pr-1.5 h-8 w-32 xl:w-40 bg-accent hover:bg-accent/70 transition-colors duration-200 ease-in-out text-sm text-muted-foreground rounded-md flex items-center justify-between',
+        className,
+      )}
       onClick={() => setOpenSearch(true)}
     >
       <span className="font-normal">Search...</span>
@@ -112,7 +116,7 @@ function StarButton({ ...props }: React.ComponentProps<typeof Button>) {
         Github
       </LinkText>
 
-      <StarIcon className="fill-yellow-500 stroke-none size-4" />
+      <StarIcon className="fill-yellow-500 stroke-none size-3.5" />
     </Button>
   );
 }
@@ -156,56 +160,61 @@ function NavDesktop({ className }: { className?: string }) {
 function MenuMobile() {
   return (
     <AnimatedMenu>
-      <AnimatedMenuButton className="w-[50px] h-[28px] text-primary-foreground cursor-pointer">
-        <AnimatedMenuButtonLabel className="text-xs" />
+      <AnimatedMenuButton className="w-[50px] h-[32px] text-popover-foreground  cursor-pointer">
+        <AnimatedMenuButtonToggleIcon />
       </AnimatedMenuButton>
 
       <AnimatedMenuList
         variants={menuListVariants}
-        className="absolute right-0 top-0 bg-linear-to-bl from-primary/90 to-primary border border-primary-foreground/10 backdrop-blur rounded-md"
+        className="absolute right-0 top-0 shadow-xs bg-popover/90 text-popover-foreground border backdrop-blur rounded-md"
       >
         <div className="size-full flex flex-col justify-evenly gap-8 items-start place-content-center p-8">
           <div className="space-y-2">
             {NAV_LINKS.map((link, index) => (
               <AnimatedMenuItem order={index} key={link.label} className="p-1 ">
-                <LinkText href={link.href} className="text-primary-foreground">
-                  {link.label}
-                </LinkText>
+                <CloseAnimatedMenu>
+                  <LinkText href={link.href}>{link.label}</LinkText>
+                </CloseAnimatedMenu>
               </AnimatedMenuItem>
             ))}
           </div>
-
-          <div className="flex gap-1 text-primary-foreground">
+          <AnimatedMenuItem className="w-full" order={NAV_LINKS.length}>
+            <CloseAnimatedMenu>
+              <HeaderSearch className="w-full" />
+            </CloseAnimatedMenu>
+          </AnimatedMenuItem>
+          <div className="flex items-center gap-1 ">
             <AnimatedMenuItem order={NAV_LINKS.length + 1}>
-              <Link
-                href={siteConfig.links.repo}
-                className={linkStyles}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Github repository"
-              >
-                <GithubIcon className="size-4" />
-              </Link>
+              <CloseAnimatedMenu>
+                <Link
+                  href={siteConfig.links.repo}
+                  className={linkStyles}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Github repository"
+                >
+                  <GithubIcon className="size-4" />
+                </Link>
+              </CloseAnimatedMenu>
             </AnimatedMenuItem>
             <AnimatedMenuItem order={NAV_LINKS.length + 2}>
-              <Link
-                href={siteConfig.links.x}
-                className={linkStyles}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Creator X profile"
-              >
-                <XIcon className="size-4" />
-              </Link>
+              <CloseAnimatedMenu>
+                <Link
+                  href={siteConfig.links.x}
+                  className={linkStyles}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Creator X profile"
+                >
+                  <XIcon className="size-4" />
+                </Link>
+              </CloseAnimatedMenu>
+            </AnimatedMenuItem>
+
+            <AnimatedMenuItem className="ml-6 " order={NAV_LINKS.length + 4}>
+              <ModeToggle />
             </AnimatedMenuItem>
           </div>
-
-          <AnimatedMenuItem order={NAV_LINKS.length + 3}>
-            <StarButton variant="outline" />
-          </AnimatedMenuItem>
-          <AnimatedMenuItem order={NAV_LINKS.length + 4}>
-            <ModeToggle className="text-primary-foreground" />
-          </AnimatedMenuItem>
         </div>
       </AnimatedMenuList>
     </AnimatedMenu>
@@ -217,7 +226,7 @@ function NavMobile({ className }: { className?: string }) {
 
   return (
     <nav className={cn('flex items-center gap-4', className)}>
-      <HeaderSearch />
+      <StarButton />
       <MenuMobile />
       {isDocs && <NavbarSidebarTrigger className="size-9" />}
     </nav>
