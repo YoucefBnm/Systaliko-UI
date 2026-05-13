@@ -4,9 +4,9 @@
   "title": "Story Demo",
   "description": "Demo showing how to use story component.",
   "registryDependencies": [
-    "@systaliko-ui/story",
-    "@systaliko-ui/dialog",
-    "@systaliko-ui/avatar"
+    "https://systaliko-ui.vercel.app/r/story",
+    "https://systaliko-ui.vercel.app/r/dialog",
+    "https://systaliko-ui.vercel.app/r/avatar"
   ],
   "files": [
     {

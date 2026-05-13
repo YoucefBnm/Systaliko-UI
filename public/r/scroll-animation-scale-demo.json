@@ -4,7 +4,7 @@
   "title": "Scroll Trigger Scale Animations Demo",
   "description": "Demo showing how to implement scroll triggred animations.",
   "registryDependencies": [
-    "@systaliko-ui/scroll-animations"
+    "https://systaliko-ui.vercel.app/r/scroll-animations"
   ],
   "files": [
     {

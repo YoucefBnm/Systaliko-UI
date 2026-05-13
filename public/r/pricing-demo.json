@@ -4,10 +4,10 @@
   "title": "Pricing Demo",
   "description": "Demo showing pricing component.",
   "registryDependencies": [
-    "@systaliko-ui/pricing",
-    "@systaliko-ui/badge",
-    "@systaliko-ui/button",
-    "@systaliko-ui/label"
+    "https://systaliko-ui.vercel.app/r/pricing",
+    "https://systaliko-ui.vercel.app/r/badge",
+    "https://systaliko-ui.vercel.app/r/button",
+    "https://systaliko-ui.vercel.app/r/label"
   ],
   "files": [
     {

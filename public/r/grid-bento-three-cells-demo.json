@@ -4,7 +4,7 @@
   "title": "Grid Bento Three Cells Demo",
   "description": "Demo showing another variant of grid bento component.",
   "registryDependencies": [
-    "@systaliko-ui/grid-bento-three-cells"
+    "https://systaliko-ui.vercel.app/r/grid-bento-three-cells"
   ],
   "files": [
     {

@@ -4,7 +4,7 @@
   "title": "Input Field Demo",
   "description": "Demo showing Input field component.",
   "registryDependencies": [
-    "@systaliko-ui/checkbox-field"
+    "https://systaliko-ui.vercel.app/r/checkbox-field"
   ],
   "files": [
     {

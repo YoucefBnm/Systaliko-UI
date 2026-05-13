@@ -7,7 +7,7 @@
     "motion"
   ],
   "registryDependencies": [
-    "@systaliko-ui/scroll-animation"
+    "https://systaliko-ui.vercel.app/r/scroll-animation"
   ],
   "files": [
     {

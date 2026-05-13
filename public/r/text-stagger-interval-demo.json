@@ -4,7 +4,7 @@
   "title": "Text Stagger Interval Demo",
   "description": "Demo showing text with stagger animation interval.",
   "registryDependencies": [
-    "@systaliko-ui/text-stagger-interval"
+    "https://systaliko-ui.vercel.app/r/text-stagger-interval"
   ],
   "files": [
     {

@@ -4,7 +4,7 @@
   "title": "Pricing Demo",
   "description": "Demo showing toggle layout view component.",
   "registryDependencies": [
-    "@systaliko-ui/toggle-layout"
+    "https://systaliko-ui.vercel.app/r/toggle-layout"
   ],
   "files": [
     {

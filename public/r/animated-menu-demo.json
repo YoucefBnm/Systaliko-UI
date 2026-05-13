@@ -4,7 +4,7 @@
   "title": "Animated Menu Demo",
   "description": "Demo showing animated menu component.",
   "registryDependencies": [
-    "@systaliko-ui/animated-menu"
+    "https://systaliko-ui.vercel.app/r/animated-menu"
   ],
   "files": [
     {

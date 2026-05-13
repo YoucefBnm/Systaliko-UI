@@ -7,11 +7,11 @@
     "motion"
   ],
   "registryDependencies": [
-    "@systaliko-ui/parallax",
-    "@systaliko-ui/container-stagger",
-    "@systaliko-ui/text-stagger-inview",
-    "@systaliko-ui/animation-variants",
-    "@systaliko-ui/button"
+    "https://systaliko-ui.vercel.app/r/parallax",
+    "https://systaliko-ui.vercel.app/r/container-stagger",
+    "https://systaliko-ui.vercel.app/r/text-stagger-inview",
+    "https://systaliko-ui.vercel.app/r/animation-variants",
+    "https://systaliko-ui.vercel.app/r/button"
   ],
   "files": [
     {

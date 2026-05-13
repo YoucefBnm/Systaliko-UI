@@ -4,7 +4,7 @@
   "title": "Spotlight List Demo",
   "description": "Demo showing Spotlight list component.",
   "registryDependencies": [
-    "@systaliko-ui/spotlight-list-2"
+    "https://systaliko-ui.vercel.app/r/spotlight-list-2"
   ],
   "files": [
     {
