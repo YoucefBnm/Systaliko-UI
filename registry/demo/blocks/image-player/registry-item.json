@@ -4,7 +4,7 @@
   "type": "registry:block",
   "title": "Image Player Demo",
   "description": "Demo showing how to use image player component.",
-  "registryDependencies": ["@systaliko-ui/r/image-player"],
+  "registryDependencies": ["@systaliko-ui/image-player"],
   "files": [
     {
       "path": "registry/demo/blocks/image-player/index.tsx",

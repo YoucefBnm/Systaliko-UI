@@ -23,12 +23,13 @@ const getDepsCommands = (dependencies?: string[]) => {
 
 const getRegistryDepsCommands = (dependencies?: string[]) => {
   if (!dependencies) return undefined;
-  const quotedDependencies = dependencies.map((dep) => `"${dep}"`).join(' ');
+  // const dependenciesArray = dependencies.map((dep) => `"${dep}"`).join(' ');
+  const dependenciesArray = dependencies.map((dep) => dep);
   return {
-    npm: `npx shadcn@latest add ${quotedDependencies}`,
-    pnpm: `pnpm dlx shadcn@latest add ${quotedDependencies}`,
-    yarn: `npx shadcn@latest add ${quotedDependencies}`,
-    bun: `bun x --bun shadcn@latest add ${quotedDependencies}`,
+    npm: `npx shadcn@latest add ${dependenciesArray}`,
+    pnpm: `pnpm dlx shadcn@latest add ${dependenciesArray}`,
+    yarn: `npx shadcn@latest add ${dependenciesArray}`,
+    bun: `bun x --bun shadcn@latest add ${dependenciesArray}`,
   };
 };
 

@@ -82,8 +82,8 @@ export default function RootLayout({
       >
         <RootProvider>
           <StyleProvider>{children}</StyleProvider>
-          <Analytics />
         </RootProvider>
+        <Analytics />
       </body>
     </html>
   );

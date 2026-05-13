@@ -4,7 +4,7 @@
   "type": "registry:block",
   "title": "price Demo",
   "description": "Demo showing price component.",
-  "registryDependencies": ["@systaliko-ui/r/badge", "@systaliko-ui/r/price"],
+  "registryDependencies": ["@systaliko-ui/badge", "@systaliko-ui/price"],
   "files": [
     {
       "path": "registry/demo/ecommerce/price/index.tsx",
