@@ -179,7 +179,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/svg-globe-path'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/svg-globe-path'],
     files: [
       {
         path: 'registry/blocks/globe/index.tsx',
@@ -252,7 +252,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/use-toggle-onscroll'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/use-toggle-onscroll',
+    ],
     files: [
       {
         path: 'registry/blocks/header/index.tsx',
@@ -935,7 +937,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/animated-menu'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/animated-menu'],
     files: [
       {
         path: 'registry/demo/blocks/animated-menu/index.tsx',
@@ -973,7 +975,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/animated-menu'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/animated-menu'],
     files: [
       {
         path: 'registry/demo/blocks/animated-menu-2/index.tsx',
@@ -1012,7 +1014,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/animated-menu-full-screen'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/animated-menu-full-screen',
+    ],
     files: [
       {
         path: 'registry/demo/blocks/animated-menu-full-screen/index.tsx',
@@ -1051,7 +1055,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/calculator'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/calculator'],
     files: [
       {
         path: 'registry/demo/blocks/calculator/index.tsx',
@@ -1088,7 +1092,7 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/r/container-stagger',
+      '@systaliko-ui/container-stagger',
       'https://systaliko-ui.vercel.app/r/transitions',
     ],
     files: [
@@ -1170,7 +1174,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/full-screen-navigation-menu'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/full-screen-navigation-menu',
+    ],
     files: [
       {
         path: 'registry/demo/blocks/full-screen-navigation-menu/index.tsx',
@@ -1209,7 +1215,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/globe'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/globe'],
     files: [
       {
         path: 'registry/demo/blocks/globe/index.tsx',
@@ -1363,9 +1369,9 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/r/header',
-      '@systaliko-ui/r/animated-menu',
-      '@systaliko-ui/r/use-mobile',
+      '@systaliko-ui/header',
+      '@systaliko-ui/animated-menu',
+      '@systaliko-ui/use-mobile',
     ],
     files: [
       {
@@ -1402,7 +1408,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/image-player'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/image-player'],
     files: [
       {
         path: 'registry/demo/blocks/image-player/index.tsx',
@@ -1516,7 +1522,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/timeline'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/timeline'],
     files: [
       {
         path: 'registry/demo/blocks/timeline/index.tsx',
@@ -1706,7 +1712,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/card-testimonial'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/card-testimonial',
+    ],
     files: [
       {
         path: 'registry/demo/cards/card-testimonial/index.tsx',
@@ -1744,7 +1752,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/card-testimonial'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/card-testimonial',
+    ],
     files: [
       {
         path: 'registry/demo/cards/card-testimonial-2/index.tsx',
@@ -1819,7 +1829,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/cards-stack'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/cards-stack'],
     files: [
       {
         path: 'registry/demo/cards/cards-stack-achievements/index.tsx',
@@ -1900,7 +1910,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/cards-stack-rotated'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/cards-stack-rotated',
+    ],
     files: [
       {
         path: 'registry/demo/cards/cards-stack-rotated-recognitions/index.tsx',
@@ -2249,7 +2261,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/ecommerce/expandable-grid'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/ecommerce/expandable-grid',
+    ],
     files: [
       {
         path: 'registry/demo/ecommerce/expandable-grid/index.tsx',
@@ -2287,7 +2301,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/ecommerce/image-zoom'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/ecommerce/image-zoom',
+    ],
     files: [
       {
         path: 'registry/demo/ecommerce/image-zoom/index.tsx',
@@ -2325,7 +2341,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/infinite-scroll'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/infinite-scroll'],
     files: [
       {
         path: 'registry/demo/ecommerce/infinite-scroll/index.tsx',
@@ -2363,7 +2379,10 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/badge', '@systaliko-ui/r/price'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/badge',
+      '@systaliko-ui/r/price',
+    ],
     files: [
       {
         path: 'registry/demo/ecommerce/price/index.tsx',
@@ -2400,10 +2419,10 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/r/pricing',
-      '@systaliko-ui/r/badge',
-      '@systaliko-ui/r/button',
-      '@systaliko-ui/r/label',
+      '@systaliko-ui/pricing',
+      '@systaliko-ui/badge',
+      '@systaliko-ui/button',
+      '@systaliko-ui/label',
     ],
     files: [
       {
@@ -2440,7 +2459,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/pricing'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/pricing'],
     files: [
       {
         path: 'registry/demo/ecommerce/pricing-2/index.tsx',
@@ -2478,7 +2497,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/product-carousel'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/product-carousel',
+    ],
     files: [
       {
         path: 'registry/demo/ecommerce/product-carousel/index.tsx',
@@ -2516,7 +2537,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/product-carousel'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/product-carousel',
+    ],
     files: [
       {
         path: 'registry/demo/ecommerce/product-carousel-2/index.tsx',
@@ -2555,7 +2578,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/product-carousel'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/product-carousel',
+    ],
     files: [
       {
         path: 'registry/demo/ecommerce/product-carousel-3/index.tsx',
@@ -2593,7 +2618,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/ecommerce/quantity'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/ecommerce/quantity',
+    ],
     files: [
       {
         path: 'registry/demo/ecommerce/quantity/index.tsx',
@@ -2631,7 +2658,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/toggle-layout'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/toggle-layout'],
     files: [
       {
         path: 'registry/demo/ecommerce/toggle-layout/index.tsx',
@@ -2669,7 +2696,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/circle-cards'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/circle-cards'],
     files: [
       {
         path: 'registry/demo/scroll-animations/circle-cards/index.tsx',
@@ -2707,7 +2734,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/distributed-cards'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/distributed-cards',
+    ],
     files: [
       {
         path: 'registry/demo/scroll-animations/distributed-cards/index.tsx',
@@ -2745,7 +2774,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/distributed-cards-2'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/distributed-cards-2',
+    ],
     files: [
       {
         path: 'registry/demo/scroll-animations/distributed-cards-2/index.tsx',
@@ -3227,7 +3258,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/scroll-autoplay'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/scroll-autoplay'],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-autoplay/index.tsx',
@@ -3266,8 +3297,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/r/scroll-animations',
-      '@systaliko-ui/r/grid-bento',
+      '@systaliko-ui/scroll-animations',
+      '@systaliko-ui/grid-bento',
     ],
     files: [
       {
@@ -3428,7 +3459,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/wavy-block'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/wavy-block'],
     files: [
       {
         path: 'registry/demo/scroll-animations/wavy-block/index.tsx',
@@ -3742,7 +3773,10 @@ export const index: Record<string, any> = {
     type: 'registry:hook',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/set-stagger-direction', 'motion'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/set-stagger-direction',
+      'motion',
+    ],
     files: [
       {
         path: 'registry/demo/utils/set-stagger-direction/index.tsx',
@@ -3855,7 +3889,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/shadcn/spinner'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/shadcn/spinner'],
     files: [
       {
         path: 'registry/ecommerce/infinite-scroll/index.tsx',
@@ -4006,7 +4040,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/r/shadcn/button'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/shadcn/button'],
     files: [
       {
         path: 'registry/ecommerce/quantity/index.tsx',

@@ -4,7 +4,7 @@
   "title": "Stack small cards Demo",
   "description": "Demo showing different usecase of Cards Rotated Stack component.",
   "registryDependencies": [
-    "@systaliko-ui/r/cards-stack-rotated"
+    "https://systaliko-ui.vercel.app/r/cards-stack-rotated"
   ],
   "files": [
     {

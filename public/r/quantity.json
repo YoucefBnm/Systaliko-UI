@@ -4,7 +4,7 @@
   "title": "Quantity Config",
   "description": "Quantity config for ecommerce products.",
   "registryDependencies": [
-    "@systaliko-ui/r/shadcn/button"
+    "https://systaliko-ui.vercel.app/r/shadcn/button"
   ],
   "files": [
     {

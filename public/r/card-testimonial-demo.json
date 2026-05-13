@@ -4,7 +4,7 @@
   "title": "Card Testimonial Demo",
   "description": "Demo showing Card Testimonial Component.",
   "registryDependencies": [
-    "@systaliko-ui/r/card-testimonial"
+    "https://systaliko-ui.vercel.app/r/card-testimonial"
   ],
   "files": [
     {

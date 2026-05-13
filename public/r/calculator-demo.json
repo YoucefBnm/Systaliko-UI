@@ -4,7 +4,7 @@
   "title": "Calculator Demo",
   "description": "Demo showing calculator component.",
   "registryDependencies": [
-    "@systaliko-ui/r/calculator"
+    "https://systaliko-ui.vercel.app/r/calculator"
   ],
   "files": [
     {
