@@ -7,7 +7,7 @@
     "motion"
   ],
   "registryDependencies": [
-    "@systaliko-ui/default-animation-variants"
+    "https://systaliko-ui.vercel.app/r/default-animation-variants"
   ],
   "files": [
     {

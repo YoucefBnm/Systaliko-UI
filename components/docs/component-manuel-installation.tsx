@@ -23,8 +23,7 @@ const getDepsCommands = (dependencies?: string[]) => {
 
 const getRegistryDepsCommands = (dependencies?: string[]) => {
   if (!dependencies) return undefined;
-  // const dependenciesArray = dependencies.map((dep) => `"${dep}"`).join(' ');
-  const dependenciesArray = dependencies.map((dep) => dep);
+  const dependenciesArray = dependencies.join(' ');
   return {
     npm: `npx shadcn@latest add ${dependenciesArray}`,
     pnpm: `pnpm dlx shadcn@latest add ${dependenciesArray}`,

@@ -5,7 +5,9 @@
   "title": "Use Animation Variants Demo",
   "description": "Demo showing how to use animation-variants hook.",
   "dependencies": ["motion"],
-  "registryDependencies": ["@systaliko-ui/animation-variants"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/animation-variants"
+  ],
   "files": [
     {
       "path": "registry/demo/utils/animation-variants/index.tsx",

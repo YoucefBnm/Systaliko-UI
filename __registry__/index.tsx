@@ -328,7 +328,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/text-stagger-hover'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/text-stagger-hover',
+    ],
     files: [
       {
         path: 'registry/blocks/slideshow/index.tsx',
@@ -591,9 +593,9 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/default-avatar',
-      '@systaliko-ui/default-rating-stars',
-      '@systaliko-ui/default-card',
+      'https://systaliko-ui.vercel.app/r/default-avatar',
+      'https://systaliko-ui.vercel.app/r/default-rating-stars',
+      'https://systaliko-ui.vercel.app/r/default-card',
     ],
     files: [
       {
@@ -704,7 +706,7 @@ export const index: Record<string, any> = {
     name: 'checkbox-field',
     description: 'Checkbox field with label.',
     type: 'registry:ui',
-    dependencies: ['radix-ui', 'lucide-react'],
+    dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: undefined,
     files: [
@@ -745,7 +747,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/default-use-follow-mouse'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/default-use-follow-mouse',
+    ],
     files: [
       {
         path: 'registry/components/custom-cursor/index.tsx',
@@ -1052,7 +1056,7 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/container-stagger',
+      'https://systaliko-ui.vercel.app/r/container-stagger',
       'https://systaliko-ui.vercel.app/r/transitions',
     ],
     files: [
@@ -1061,7 +1065,7 @@ export const index: Record<string, any> = {
         type: 'registry:block',
         target: 'components/systaliko-ui/demo/blocks/container-stagger.tsx',
         content:
-          "'use client';\nimport { ContainerStagger } from '@/components/systaliko-ui/blocks/container-stagger';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\nimport { ANIMATION_VARIANTS } from '@/components/systaliko-ui/utils/animation-variants';\nimport { ArrowUpRightIcon, ComponentIcon } from 'lucide-react';\nimport { motion, MotionConfig } from 'motion/react';\nimport Link from 'next/link';\n\nexport function ContainerStaggerDemo() {\n  const animationVariants = ANIMATION_VARIANTS.blur;\n  return (\n    <section className=\"relative max-w-7xl place-content-center  px-6 py-12 w-full\">\n      <ContainerStagger className=\"flex flex-col items-center text-center justify-center space-y-5\">\n        <MotionConfig transition={TRANSITIONS.filter}>\n          <motion.div variants={animationVariants}>\n            <Link href=\"@systaliko-ui/docs/containers/container-stagger\">\n              <Badge variant=\"secondary\">100% free and open source</Badge>\n            </Link>\n          </motion.div>\n\n          <motion.h1\n            variants={animationVariants}\n            className=\"text-4xl font-semibold tracking-tight max-w-[25ch]\"\n          >\n            Beautiful animated components, easy to change and adapt to your\n            design.\n          </motion.h1>\n\n          <motion.p variants={animationVariants} className=\"max-w-prose\">\n            A modern component library built on top of Shadcn registry. Designed\n            for flexibility, built for customization, and crafted to scale\n            across variants and use cases.\n          </motion.p>\n\n          <motion.div\n            variants={animationVariants}\n            className=\"flex items-center gap-2 justify-center\"\n          >\n            <Button>\n              <Link href=\"/docs\">Browse Components</Link>\n              <ComponentIcon />\n            </Button>\n            <Button variant={'outline'}>\n              <Link href=\"/docs/heros/hero-gradient\">Browse Templates</Link>\n              <ArrowUpRightIcon />\n            </Button>\n          </motion.div>\n        </MotionConfig>\n      </ContainerStagger>\n    </section>\n  );\n}",
+          "'use client';\nimport { ContainerStagger } from '@/components/systaliko-ui/blocks/container-stagger';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\nimport { TRANSITIONS } from '@/components/systaliko-ui/utils/transitions';\nimport { ANIMATION_VARIANTS } from '@/components/systaliko-ui/utils/animation-variants';\nimport { ArrowUpRightIcon, ComponentIcon } from 'lucide-react';\nimport { motion, MotionConfig } from 'motion/react';\nimport Link from 'next/link';\n\nexport function ContainerStaggerDemo() {\n  const animationVariants = ANIMATION_VARIANTS.blur;\n  return (\n    <section className=\"relative max-w-7xl place-content-center  px-6 py-12 w-full\">\n      <ContainerStagger className=\"flex flex-col items-center text-center justify-center space-y-5\">\n        <MotionConfig transition={TRANSITIONS.filter}>\n          <motion.div variants={animationVariants}>\n            <Link href=\"https://systaliko-ui.vercel.app/r/docs/containers/container-stagger\">\n              <Badge variant=\"secondary\">100% free and open source</Badge>\n            </Link>\n          </motion.div>\n\n          <motion.h1\n            variants={animationVariants}\n            className=\"text-4xl font-semibold tracking-tight max-w-[25ch]\"\n          >\n            Beautiful animated components, easy to change and adapt to your\n            design.\n          </motion.h1>\n\n          <motion.p variants={animationVariants} className=\"max-w-prose\">\n            A modern component library built on top of Shadcn registry. Designed\n            for flexibility, built for customization, and crafted to scale\n            across variants and use cases.\n          </motion.p>\n\n          <motion.div\n            variants={animationVariants}\n            className=\"flex items-center gap-2 justify-center\"\n          >\n            <Button>\n              <Link href=\"/docs\">Browse Components</Link>\n              <ComponentIcon />\n            </Button>\n            <Button variant={'outline'}>\n              <Link href=\"/docs/heros/hero-gradient\">Browse Templates</Link>\n              <ArrowUpRightIcon />\n            </Button>\n          </motion.div>\n        </MotionConfig>\n      </ContainerStagger>\n    </section>\n  );\n}",
       },
     ],
     keywords: [],
@@ -1094,8 +1098,8 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/container-stagger',
-      '@systaliko-ui/animation-variants',
+      'https://systaliko-ui.vercel.app/r/container-stagger',
+      'https://systaliko-ui.vercel.app/r/animation-variants',
     ],
     files: [
       {
@@ -1211,7 +1215,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/grid-bento'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/grid-bento'],
     files: [
       {
         path: 'registry/demo/blocks/grid-bento/index.tsx',
@@ -1247,7 +1251,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/grid-bento-four-cells'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/grid-bento-four-cells',
+    ],
     files: [
       {
         path: 'registry/demo/blocks/grid-bento-four-cells/index.tsx',
@@ -1285,7 +1291,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/grid-bento-three-cells'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/grid-bento-three-cells',
+    ],
     files: [
       {
         path: 'registry/demo/blocks/grid-bento-three-cells/index.tsx',
@@ -1325,9 +1333,9 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/header',
-      '@systaliko-ui/animated-menu',
-      '@systaliko-ui/use-mobile',
+      'https://systaliko-ui.vercel.app/r/header',
+      'https://systaliko-ui.vercel.app/r/animated-menu',
+      'https://systaliko-ui.vercel.app/r/use-mobile',
     ],
     files: [
       {
@@ -1402,7 +1410,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/shader'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/shader'],
     files: [
       {
         path: 'registry/demo/blocks/shader/index.tsx',
@@ -1438,7 +1446,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/shader'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/shader'],
     files: [
       {
         path: 'registry/demo/blocks/shader-hurricane/index.tsx',
@@ -1476,7 +1484,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/slideshow'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/slideshow'],
     files: [
       {
         path: 'registry/demo/blocks/slideshow/index.tsx',
@@ -1513,9 +1521,9 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/story',
-      '@systaliko-ui/dialog',
-      '@systaliko-ui/avatar',
+      'https://systaliko-ui.vercel.app/r/story',
+      'https://systaliko-ui.vercel.app/r/dialog',
+      'https://systaliko-ui.vercel.app/r/avatar',
     ],
     files: [
       {
@@ -1626,7 +1634,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/card-flip'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/card-flip'],
     files: [
       {
         path: 'registry/demo/cards/card-flip/index.tsx',
@@ -1662,7 +1670,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/card-hover-reveal'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/card-hover-reveal',
+    ],
     files: [
       {
         path: 'registry/demo/cards/card-hover-reveal/index.tsx',
@@ -1700,7 +1710,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/card-hover-reveal'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/card-hover-reveal',
+    ],
     files: [
       {
         path: 'registry/demo/cards/card-hover-reveal-full/index.tsx',
@@ -1895,8 +1907,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/cards-stack-rotated',
-      '@systaliko-ui/card-testimonial',
+      'https://systaliko-ui.vercel.app/r/cards-stack-rotated',
+      'https://systaliko-ui.vercel.app/r/card-testimonial',
     ],
     files: [
       {
@@ -1977,7 +1989,10 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/cards-stack', '@systaliko-ui/badge'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/cards-stack',
+      'https://systaliko-ui.vercel.app/r/badge',
+    ],
     files: [
       {
         path: 'registry/demo/cards/cards-stack-work/index.tsx',
@@ -2053,7 +2068,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/checkbox-field'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/checkbox-field'],
     files: [
       {
         path: 'registry/demo/components/checkbox-field/index.tsx',
@@ -2092,8 +2107,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/custom-cursor',
-      '@systaliko-ui/button',
+      'https://systaliko-ui.vercel.app/r/custom-cursor',
+      'https://systaliko-ui.vercel.app/r/button',
     ],
     files: [
       {
@@ -2132,7 +2147,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/custom-cursor'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/custom-cursor'],
     files: [
       {
         path: 'registry/demo/components/custom-cursor-2/index.tsx',
@@ -2170,7 +2185,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/rating-stars'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/rating-stars'],
     files: [
       {
         path: 'registry/demo/components/rating-stars/index.tsx',
@@ -2208,7 +2223,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/reveal-mask'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/reveal-mask'],
     files: [
       {
         path: 'registry/demo/components/reveal-mask/index.tsx',
@@ -2246,7 +2261,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/spotlight-list'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/spotlight-list'],
     files: [
       {
         path: 'registry/demo/components/spotlight-list/index.tsx',
@@ -2284,7 +2299,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/spotlight-list-2'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/spotlight-list-2',
+    ],
     files: [
       {
         path: 'registry/demo/components/spotlight-list-2/index.tsx',
@@ -2322,7 +2339,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/custom-pricing'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/custom-pricing'],
     files: [
       {
         path: 'registry/demo/ecommerce/custom-pricing-design/index.tsx',
@@ -2480,7 +2497,7 @@ export const index: Record<string, any> = {
     devDependencies: undefined,
     registryDependencies: [
       'https://systaliko-ui.vercel.app/r/badge',
-      '@systaliko-ui/r/price',
+      'https://systaliko-ui.vercel.app/r/r/price',
     ],
     files: [
       {
@@ -2518,10 +2535,10 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/pricing',
-      '@systaliko-ui/badge',
-      '@systaliko-ui/button',
-      '@systaliko-ui/label',
+      'https://systaliko-ui.vercel.app/r/pricing',
+      'https://systaliko-ui.vercel.app/r/badge',
+      'https://systaliko-ui.vercel.app/r/button',
+      'https://systaliko-ui.vercel.app/r/label',
     ],
     files: [
       {
@@ -2914,11 +2931,11 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/parallax',
-      '@systaliko-ui/container-stagger',
-      '@systaliko-ui/text-stagger-inview',
-      '@systaliko-ui/animation-variants',
-      '@systaliko-ui/button',
+      'https://systaliko-ui.vercel.app/r/parallax',
+      'https://systaliko-ui.vercel.app/r/container-stagger',
+      'https://systaliko-ui.vercel.app/r/text-stagger-inview',
+      'https://systaliko-ui.vercel.app/r/animation-variants',
+      'https://systaliko-ui.vercel.app/r/button',
     ],
     files: [
       {
@@ -2957,7 +2974,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/scroll-animation'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animation',
+    ],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-combo/index.tsx',
@@ -2995,7 +3014,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/scroll-animations'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animations',
+    ],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-inset/index.tsx',
@@ -3033,7 +3054,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/scroll-animations'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animations',
+    ],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-inset-x/index.tsx',
@@ -3071,7 +3094,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/scroll-animations'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animations',
+    ],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-inset-y/index.tsx',
@@ -3109,7 +3134,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/scroll-animations'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animations',
+    ],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-radius/index.tsx',
@@ -3147,7 +3174,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/scroll-animation-rotate'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animation-rotate',
+    ],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-rotate/index.tsx',
@@ -3185,7 +3214,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/scroll-animation-rotate'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animation-rotate',
+    ],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-rotate-x/index.tsx',
@@ -3223,7 +3254,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/scroll-animation-rotate'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animation-rotate',
+    ],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-rotate-y/index.tsx',
@@ -3261,7 +3294,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/scroll-animations'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animations',
+    ],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-scale/index.tsx',
@@ -3299,7 +3334,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/scroll-animations'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animations',
+    ],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-animation-translate-x/index.tsx',
@@ -3376,8 +3413,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/scroll-animations',
-      '@systaliko-ui/grid-bento',
+      'https://systaliko-ui.vercel.app/r/scroll-animations',
+      'https://systaliko-ui.vercel.app/r/grid-bento',
     ],
     files: [
       {
@@ -3417,7 +3454,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/scroll-x-carousel'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-x-carousel',
+    ],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-x-carousel/index.tsx',
@@ -3456,7 +3495,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/scroll-x-carousel'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-x-carousel',
+    ],
     files: [
       {
         path: 'registry/demo/scroll-animations/scroll-x-carousel-reverse/index.tsx',
@@ -3494,7 +3535,9 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/scroll-animation'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/scroll-animation',
+    ],
     files: [
       {
         path: 'registry/demo/scroll-animations/team/index.tsx',
@@ -3570,7 +3613,7 @@ export const index: Record<string, any> = {
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/wavy-block'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/wavy-block'],
     files: [
       {
         path: 'registry/demo/scroll-animations/wavy-block-y/index.tsx',
@@ -3608,7 +3651,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/sliding-number'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/sliding-number'],
     files: [
       {
         path: 'registry/demo/text/sliding-number/index.tsx',
@@ -3646,7 +3689,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/text-scroll-read'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/text-scroll-read',
+    ],
     files: [
       {
         path: 'registry/demo/text/text-scroll-read/index.tsx',
@@ -3684,7 +3729,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/text-stagger-hover'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/text-stagger-hover',
+    ],
     files: [
       {
         path: 'registry/demo/text/text-stagger-hover/index.tsx',
@@ -3722,7 +3769,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/text-stagger-interval'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/text-stagger-interval',
+    ],
     files: [
       {
         path: 'registry/demo/text/text-stagger-interval/index.tsx',
@@ -3760,7 +3809,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/text-stagger-inview'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/text-stagger-inview',
+    ],
     files: [
       {
         path: 'registry/demo/text/text-stagger-inview/index.tsx',
@@ -3799,7 +3850,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/text-stagger-inview'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/text-stagger-inview',
+    ],
     files: [
       {
         path: 'registry/demo/text/text-stagger-inview-waves/index.tsx',
@@ -3838,7 +3891,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/text-vertical'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/text-vertical'],
     files: [
       {
         path: 'registry/demo/text/text-vertical/index.tsx',
@@ -3876,7 +3929,7 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/text-wavy'],
+    registryDependencies: ['https://systaliko-ui.vercel.app/r/text-wavy'],
     files: [
       {
         path: 'registry/demo/text/text-wavy/index.tsx',
@@ -3912,7 +3965,9 @@ export const index: Record<string, any> = {
     type: 'registry:hook',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/animation-variants'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/animation-variants',
+    ],
     files: [
       {
         path: 'registry/demo/utils/animation-variants/index.tsx',
@@ -3993,8 +4048,8 @@ export const index: Record<string, any> = {
     dependencies: undefined,
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/slider',
-      '@systaliko-ui/custom-pricing-utils',
+      'https://systaliko-ui.vercel.app/r/slider',
+      'https://systaliko-ui.vercel.app/r/custom-pricing-utils',
     ],
     files: [
       {
@@ -5219,9 +5274,9 @@ export const index: Record<string, any> = {
     dependencies: ['motion'],
     devDependencies: undefined,
     registryDependencies: [
-      '@systaliko-ui/set-stagger-direction',
-      '@systaliko-ui/split-text',
-      '@systaliko-ui/animation-variants',
+      'https://systaliko-ui.vercel.app/r/set-stagger-direction',
+      'https://systaliko-ui.vercel.app/r/split-text',
+      'https://systaliko-ui.vercel.app/r/animation-variants',
     ],
     files: [
       {
@@ -5261,7 +5316,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/animation-variants'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/animation-variants',
+    ],
     files: [
       {
         path: 'registry/text/text-stagger-interval/index.tsx',
@@ -5300,7 +5357,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/animation-variants'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/animation-variants',
+    ],
     files: [
       {
         path: 'registry/text/text-stagger-inview/index.tsx',
@@ -5412,7 +5471,9 @@ export const index: Record<string, any> = {
     type: 'registry:ui',
     dependencies: ['motion'],
     devDependencies: undefined,
-    registryDependencies: ['@systaliko-ui/default-animation-variants'],
+    registryDependencies: [
+      'https://systaliko-ui.vercel.app/r/default-animation-variants',
+    ],
     files: [
       {
         path: 'registry/text/word-stagger/index.tsx',

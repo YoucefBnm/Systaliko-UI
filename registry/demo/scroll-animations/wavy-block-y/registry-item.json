@@ -4,7 +4,7 @@
   "type": "registry:block",
   "title": "Wavy Block Y axis Demo",
   "description": "Demo showing another usage of Wavy Block component.",
-  "registryDependencies": ["@systaliko-ui/wavy-block"],
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/wavy-block"],
   "files": [
     {
       "path": "registry/demo/scroll-animations/wavy-block-y/index.tsx",

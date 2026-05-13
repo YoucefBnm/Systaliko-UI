@@ -5,7 +5,9 @@
   "title": "scroll-animation-combo Demo",
   "description": "Demo showing scroll-animation-combo component.",
   "dependencies": ["motion"],
-  "registryDependencies": ["@systaliko-ui/scroll-animation"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/scroll-animation"
+  ],
   "files": [
     {
       "path": "registry/demo/scroll-animations/scroll-animation-combo/index.tsx",

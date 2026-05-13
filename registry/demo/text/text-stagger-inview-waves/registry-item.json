@@ -4,7 +4,9 @@
   "type": "registry:ui",
   "title": "Text Stagger Inview Waves Demo",
   "description": "Demo showing another use of text stagger in view demo with waves.",
-  "registryDependencies": ["@systaliko-ui/text-stagger-inview"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/text-stagger-inview"
+  ],
   "files": [
     {
       "path": "registry/demo/text/text-stagger-inview-waves/index.tsx",

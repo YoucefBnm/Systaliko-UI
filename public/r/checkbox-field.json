@@ -3,10 +3,6 @@
   "name": "checkbox-field",
   "title": "checkbox-field",
   "description": "Checkbox field with label.",
-  "dependencies": [
-    "radix-ui",
-    "lucide-react"
-  ],
   "files": [
     {
       "path": "registry/components/checkbox-field/index.tsx",

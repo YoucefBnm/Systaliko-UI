@@ -4,7 +4,7 @@
   "title": "Flip Card Demo",
   "description": "Demo showing Flip Card Component.",
   "registryDependencies": [
-    "@systaliko-ui/card-flip"
+    "https://systaliko-ui.vercel.app/r/card-flip"
   ],
   "files": [
     {

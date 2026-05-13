@@ -4,7 +4,7 @@
   "title": "scroll x carousel Demo",
   "description": "Demo showing how to use scroll x carousel component.",
   "registryDependencies": [
-    "@systaliko-ui/scroll-x-carousel"
+    "https://systaliko-ui.vercel.app/r/scroll-x-carousel"
   ],
   "files": [
     {

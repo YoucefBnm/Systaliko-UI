@@ -4,7 +4,7 @@
   "type": "registry:ui",
   "title": "Rating stars Demo",
   "description": "Demo showing Rating stars component.",
-  "registryDependencies": ["@systaliko-ui/rating-stars"],
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/rating-stars"],
   "files": [
     {
       "path": "registry/demo/components/rating-stars/index.tsx",

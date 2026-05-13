@@ -4,7 +4,7 @@
   "title": "Reveal Mask Demo",
   "description": "Demo showing Reveal mask component.",
   "registryDependencies": [
-    "@systaliko-ui/reveal-mask"
+    "https://systaliko-ui.vercel.app/r/reveal-mask"
   ],
   "files": [
     {

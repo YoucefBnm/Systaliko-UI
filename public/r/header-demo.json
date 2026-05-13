@@ -4,9 +4,9 @@
   "title": "Header Demo",
   "description": "Demo showing Header component.",
   "registryDependencies": [
-    "@systaliko-ui/header",
-    "@systaliko-ui/animated-menu",
-    "@systaliko-ui/use-mobile"
+    "https://systaliko-ui.vercel.app/r/header",
+    "https://systaliko-ui.vercel.app/r/animated-menu",
+    "https://systaliko-ui.vercel.app/r/use-mobile"
   ],
   "files": [
     {

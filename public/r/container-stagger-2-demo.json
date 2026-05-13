@@ -7,8 +7,8 @@
     "motion"
   ],
   "registryDependencies": [
-    "@systaliko-ui/container-stagger",
-    "@systaliko-ui/animation-variants"
+    "https://systaliko-ui.vercel.app/r/container-stagger",
+    "https://systaliko-ui.vercel.app/r/animation-variants"
   ],
   "files": [
     {
