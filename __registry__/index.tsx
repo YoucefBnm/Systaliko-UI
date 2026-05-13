@@ -1045,42 +1045,15 @@ export const index: Record<string, any> = {
     })(),
     command: '@systaliko-ui/animated-menu-full-screen-demo',
   },
-  'calculator-demo': {
-    name: 'calculator-demo',
-    description: 'Demo showing calculator component.',
+  'container-stagger-demo': {
+    name: 'container-stagger-demo',
+    description: 'Demo showing stagger container component.',
     type: 'registry:block',
     dependencies: undefined,
     devDependencies: undefined,
-    registryDependencies: ['https://systaliko-ui.vercel.app/r/calculator'],
-    files: [
-      {
-        path: 'registry/demo/blocks/calculator/index.tsx',
-        type: 'registry:block',
-        target: 'components/systaliko-ui/demo/blocks/calculator.tsx',
-        content:
-          "import { Calculator } from '@/components/systaliko-ui/blocks/calculator';\n\nexport function CalculatorDemo() {\n  return (\n    <div>\n      <Calculator />\n    </div>\n  );\n}",
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import('@/registry/demo/blocks/calculator/index.tsx');
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'calculator-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/calculator-demo',
-  },
+    registryDependencies: [
+      '@systaliko-ui/container-stagger',
+      'https://systaliko-ui.vercel.app/r/transitions',
     ],
     files: [
       {
