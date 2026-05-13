@@ -4,7 +4,7 @@
   "type": "registry:block",
   "title": "Calculator Demo",
   "description": "Demo showing calculator component.",
-  "registryDependencies": ["@systaliko-ui/calculator"],
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/calculator"],
   "files": [
     {
       "path": "registry/demo/blocks/calculator/index.tsx",

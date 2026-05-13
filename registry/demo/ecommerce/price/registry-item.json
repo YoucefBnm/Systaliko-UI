@@ -4,7 +4,10 @@
   "type": "registry:block",
   "title": "price Demo",
   "description": "Demo showing price component.",
-  "registryDependencies": ["@systaliko-ui/badge", "@systaliko-ui/price"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/badge",
+    "@systaliko-ui/r/price"
+  ],
   "files": [
     {
       "path": "registry/demo/ecommerce/price/index.tsx",

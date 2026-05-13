@@ -4,7 +4,9 @@
   "type": "registry:block",
   "title": "Full screen navigation Demo",
   "description": "Demo showing Full screen navigation component.",
-  "registryDependencies": ["@systaliko-ui/full-screen-navigation-menu"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/full-screen-navigation-menu"
+  ],
   "files": [
     {
       "path": "registry/demo/blocks/full-screen-navigation-menu/index.tsx",
