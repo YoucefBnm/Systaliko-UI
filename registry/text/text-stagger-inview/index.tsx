@@ -22,7 +22,11 @@ export function WordStagger({ children, animation, ...props }: WordProps) {
   return (
     <span className="inline-block text-nowrap" {...props}>
       {characters.map((char, index) => (
-        <motion.span variants={animationVariants} key={`${char}-${index}`}>
+        <motion.span
+          className="inline-block"
+          variants={animationVariants}
+          key={`${char}-${index}`}
+        >
           {char}
         </motion.span>
       ))}

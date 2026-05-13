@@ -269,7 +269,7 @@ interface PricingValueProps extends React.HTMLAttributes<HTMLDivElement> {
 export function PricingValue({
   monthlyValue,
   yearlyValue,
-
+  className,
   ...props
 }: PricingValueProps) {
   const { interval } = usePricingContext();
@@ -285,7 +285,10 @@ export function PricingValue({
       }}
       options={{ showDecimals: false }}
       animated={true}
-      className="inline-flex gap-1 tracking-tighter items-center text-4xl"
+      className={cn(
+        'inline-flex gap-1 tracking-tighter items-center text-4xl',
+        className,
+      )}
     >
       <span className="text-muted-foreground text-sm font-normal tracking-normal">
         /{interval === 'monthly' ? 'per month' : 'per year'}

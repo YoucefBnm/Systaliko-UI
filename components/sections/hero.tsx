@@ -13,6 +13,7 @@ import { Showcase } from './showcase';
 import { TextWavy } from '@/registry/text/text-wavy';
 import { Pulse } from '@/registry/components/pulse';
 import { LinkText } from '../link-text';
+import { Badge } from '@/registry/shadcn/badge';
 
 const TECH_STACK = [
   {
@@ -51,9 +52,12 @@ export function Hero() {
         <MotionConfig transition={{ duration: 0.3, ease: 'easeOut' }}>
           <motion.div variants={animationVariants}>
             <Link className="flex items-center gap-1 py-0.5 px-1" href="/docs">
+              <Badge className="rounded-full text-[10px] shadow-sm shadow-black/15 ring-1 ring-ring/20 py-0 text-indigo-50 bg-indigo-500">
+                new
+              </Badge>
               <TextWavy
                 className="font-bold"
-                text="2 updates, portfolio and cognify templates"
+                text="Blocks and updates and updating enera template"
                 fontWeights={[500, 800, 500]}
               />
             </Link>

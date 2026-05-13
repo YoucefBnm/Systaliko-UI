@@ -4,7 +4,7 @@
   "title": "Vertical Text Demo",
   "description": "Demo showing a vertical text.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/text-vertical"
+    "@systaliko-ui/text-vertical"
   ],
   "files": [
     {

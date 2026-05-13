@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shader-demo",
+  "type": "registry:block",
+  "title": "Shader Demo",
+  "description": "Demo showing shader component.",
+  "registryDependencies": ["@systaliko-ui/shader"],
+  "files": [
+    {
+      "path": "registry/demo/blocks/shader/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/shader.tsx"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "wavy-block-y-demo",
+  "type": "registry:block",
+  "title": "Wavy Block Y axis Demo",
+  "description": "Demo showing another usage of Wavy Block component.",
+  "registryDependencies": ["@systaliko-ui/wavy-block"],
+  "files": [
+    {
+      "path": "registry/demo/scroll-animations/wavy-block-y/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/wavy-block-y.tsx"
+    }
+  ]
+}

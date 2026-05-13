@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-stagger-interval",
+  "type": "registry:ui",
+  "title": "Text Stagger Interval",
+  "description": "Staggered text display that cycles through a list of words at a specified interval. Pause the animation by hovering over the component.",
+  "dependencies": ["motion"],
+  "registryDependencies": ["@systaliko-ui/animation-variants"],
+  "files": [
+    {
+      "path": "registry/text/text-stagger-interval/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/text-stagger-interval.tsx"
+    }
+  ]
+}

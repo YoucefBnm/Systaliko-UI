@@ -1,5 +1,4 @@
 'use client';
-import * as React from 'react';
 
 import { cn } from '@/lib/utils';
 import { HTMLMotionProps, motion } from 'motion/react';
@@ -13,127 +12,164 @@ import {
 } from '@/registry/utils/set-stagger-direction';
 import { splitText } from '@/registry/utils/split-text';
 
-interface TextStaggerHoverContextValue {
-  isMouseIn: boolean;
-}
-const TextStaggerHoverContext = React.createContext<
-  TextStaggerHoverContextValue | undefined
->(undefined);
-function useTextStaggerHoverContext() {
-  const context = React.useContext(TextStaggerHoverContext);
-  if (!context) {
-    throw new Error(
-      'useTextStaggerHoverContext must be used within an TextStaggerHoverContextProvider',
-    );
-  }
-  return context;
-}
-
-export const TextStaggerHover = ({
-  children,
-  className,
-  ...props
-}: React.ComponentProps<'span'>) => {
-  const [isMouseIn, setIsMouseIn] = React.useState<boolean>(false);
-  const handleMouse = () => setIsMouseIn((prevState) => !prevState);
-
-  return (
-    <TextStaggerHoverContext.Provider value={{ isMouseIn }}>
-      <span
-        className={cn('inline-block relative overflow-hidden', className)}
-        {...props}
-        onMouseEnter={handleMouse}
-        onMouseLeave={handleMouse}
-      >
-        {children}
-      </span>
-    </TextStaggerHoverContext.Provider>
-  );
+type NewVariants = {
+  hovered: {
+    x?: string | number;
+    y?: string | number;
+    opacity: number;
+    scale?: number;
+    filter?: string;
+  };
+  initial: {
+    x?: string | number;
+    y?: string | number;
+    opacity: number;
+    scale?: number;
+    filter?: string;
+  };
 };
 
+const animation_variants_text_active = Object.entries(
+  ANIMATION_VARIANTS,
+).reduce(
+  (acc, [key, value]) => {
+    acc[key as keyof typeof ANIMATION_VARIANTS] = {
+      hovered: value.hidden,
+      initial: value.visible,
+    };
+    return acc;
+  },
+  {} as Record<keyof typeof ANIMATION_VARIANTS, NewVariants>,
+);
+const animation_variants_text_hidden = Object.entries(
+  ANIMATION_VARIANTS,
+).reduce(
+  (acc, [key, value]) => {
+    acc[key as keyof typeof ANIMATION_VARIANTS] = {
+      initial: value.hidden,
+      hovered: value.visible,
+    };
+    return acc;
+  },
+  {} as Record<keyof typeof ANIMATION_VARIANTS, NewVariants>,
+);
+
+export function TextStaggerHover({
+  className,
+  ...props
+}: HTMLMotionProps<'span'>) {
+  return (
+    <motion.span
+      className={cn(
+        'grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1 place-content-center relative overflow-hidden',
+        className,
+      )}
+      initial={'initial'}
+      whileHover={'hovered'}
+      data-slot="text-stagger-hover"
+      {...props}
+    />
+  );
+}
+interface CharacterProps extends HTMLMotionProps<'span'> {
+  char: string;
+  index: number;
+  wordLength: number;
+  staggerDirection?: StaggerDirection;
+}
+function Character({
+  char,
+  index,
+  wordLength,
+  staggerDirection = 'first',
+  transition,
+  ...props
+}: CharacterProps) {
+  const staggerDelay = setStaggerDirection({
+    direction: staggerDirection,
+    totalItems: wordLength,
+    index,
+  });
+  return (
+    <motion.span
+      className="inline-block"
+      transition={{
+        delay: staggerDelay,
+        ...transition,
+      }}
+      {...props}
+    >
+      {char}
+      {char === ' ' && index < wordLength - 1 && <>&nbsp;</>}
+    </motion.span>
+  );
+}
 interface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {
   animation?: AnimationT;
   staggerDirection?: StaggerDirection;
 }
-export const TextStaggerHoverActive = ({
+export function TextStaggerHoverActive({
   animation = 'bottom',
   staggerDirection = 'first',
   className,
   children,
   transition,
   ...props
-}: TextStaggerHoverContentProps) => {
+}: TextStaggerHoverContentProps) {
   const { characters, characterCount } = splitText(String(children));
-  const animationVariants = ANIMATION_VARIANTS[animation];
+  const animationVariants = animation_variants_text_active[animation];
 
-  const { isMouseIn } = useTextStaggerHoverContext();
   return (
-    <span className={cn('inline-block', className)}>
-      {characters.map((char, index) => {
-        const staggerDelay = setStaggerDirection({
-          direction: staggerDirection,
-          totalItems: characterCount,
-          index,
-        });
-        return (
-          <motion.span
-            className="inline-block"
-            key={`${char}-${index}-hidden`}
-            variants={animationVariants}
-            initial="visible"
-            animate={isMouseIn ? 'hidden' : 'visible'}
-            transition={{
-              delay: staggerDelay,
-              ...transition,
-            }}
-            {...props}
-          >
-            {char}
-            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}
-          </motion.span>
-        );
-      })}
+    <span
+      data-slot="text-stagger-hover-active"
+      className={cn('inline-block', className)}
+    >
+      {characters.map((char, index) => (
+        <Character
+          className="inline-block"
+          char={char}
+          index={index}
+          wordLength={characterCount}
+          staggerDirection={staggerDirection}
+          key={`${char}-${index}-hidden`}
+          variants={animationVariants}
+          transition={{
+            ...transition,
+          }}
+          {...props}
+        />
+      ))}
     </span>
   );
-};
+}
 
-export const TextStaggerHoverHidden = ({
+export function TextStaggerHoverHidden({
   animation = 'top',
   staggerDirection = 'first',
   children,
   className,
   transition,
   ...props
-}: TextStaggerHoverContentProps) => {
+}: TextStaggerHoverContentProps) {
   const { characters, characterCount } = splitText(String(children));
-  const animationVariants = ANIMATION_VARIANTS[animation];
-  const { isMouseIn } = useTextStaggerHoverContext();
+  const animationVariants = animation_variants_text_hidden[animation];
   return (
-    <span className={cn('inline-block absolute left-0 top-0', className)}>
-      {characters.map((char, index) => {
-        const staggerDelay = setStaggerDirection({
-          direction: staggerDirection,
-          totalItems: characterCount,
-          index,
-        });
-        return (
-          <motion.span
-            className="inline-block"
-            key={`${char}-${index}-hidden`}
-            variants={animationVariants}
-            initial="hidden"
-            animate={isMouseIn ? 'visible' : 'hidden'}
-            transition={{
-              delay: staggerDelay,
-              ...transition,
-            }}
-            {...props}
-          >
-            {char}
-            {char === ' ' && index < characters.length - 1 && <>&nbsp;</>}
-          </motion.span>
-        );
-      })}
+    <span className={cn('inline-block ', className)}>
+      {characters.map((char, index) => (
+        <Character
+          className="inline-block"
+          index={index}
+          char={char}
+          wordLength={characterCount}
+          staggerDirection={staggerDirection}
+          key={`${char}-${index}-hidden`}
+          variants={animationVariants}
+          transition={{
+            ...transition,
+          }}
+          {...props}
+        />
+      ))}
     </span>
   );
-};
+}

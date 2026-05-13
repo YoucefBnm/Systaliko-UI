@@ -4,7 +4,6 @@
   "type": "registry:block",
   "title": "Story",
   "description": "Simillar to IG story, Story is a component that allows you to display a collection of components in a single view.",
-  "registryDependencies": ["https://systaliko-ui.vercel.app/r/default-button"],
   "files": [
     {
       "path": "registry/blocks/story/index.tsx",

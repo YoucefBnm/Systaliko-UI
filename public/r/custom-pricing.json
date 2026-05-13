@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "custom-pricing",
+  "title": "Custom Pricing",
+  "description": "Flexible custom pricing component with with set of tools that allow to update the price depending on quantity unit and if or not is checked.",
+  "registryDependencies": [
+    "@systaliko-ui/slider",
+    "@systaliko-ui/custom-pricing-utils"
+  ],
+  "files": [
+    {
+      "path": "registry/ecommerce/custom-pricing/index.tsx",
+      "content": "import {\n  CustomPricingContext,\n  CustomPricingProviderProps,\n  useCustomPricing,\n  useCustomPricingQuantity,\n  useCustomPricingSelect,\n  useCustomPricingStore,\n} from '@/components/systaliko-ui/utils/custom-pricing-utils';\n\ninterface CustomPricingQuantityControlProps {\n  id: string;\n  unitPrice?: number;\n  defaultValue?: number;\n  render?: (props: {\n    id: string;\n    unitPrice: number;\n    subtotal: number;\n    quantity: number;\n    updateQuantity: (id: string, quantity: number) => void;\n    handleChange: (val: number[]) => void;\n  }) => React.ReactNode;\n}\n\nexport function CustomPricingQuantityControl({\n  id,\n  unitPrice = 0,\n  defaultValue = 0,\n  render,\n}: CustomPricingQuantityControlProps) {\n  const { updateQuantity, quantity } = useCustomPricingQuantity({\n    id,\n    unitPrice,\n    defaultValue,\n  });\n  const handleChange = (val: number[]) => {\n    updateQuantity(id, val[0]);\n  };\n  const subtotal = quantity * unitPrice;\n\n  if (render) {\n    return render({\n      id,\n      unitPrice,\n      subtotal,\n      quantity,\n      updateQuantity,\n      handleChange,\n    });\n  }\n}\n\nexport interface CustomPricingSelectProps {\n  id: string;\n  group?: string;\n  type?: 'checkbox' | 'radio';\n  defaultChecked?: boolean;\n  price?: number;\n  render?: (props: {\n    id: string;\n    checked: boolean;\n    price: number;\n    toggleChecked: (id: string) => void;\n  }) => React.ReactNode;\n}\n\nexport function CustomPricingCheckedControl({\n  id,\n  price = 0,\n  type = 'radio',\n  group,\n  defaultChecked = false,\n  render,\n}: CustomPricingSelectProps) {\n  const { checked, toggleChecked } = useCustomPricingSelect({\n    id,\n    type,\n    group,\n    price,\n    defaultChecked,\n  });\n\n  if (render) {\n    return render({ id, checked, price, toggleChecked });\n  }\n}\n\nexport function CustomPricingTotalControl({\n  render,\n}: {\n  render?: (props: { total: number }) => React.ReactNode;\n}) {\n  const { total } = useCustomPricing();\n  if (render) {\n    return render({ total });\n  }\n  return total;\n}\nexport function CustomPricingProvider({\n  onChange,\n  children,\n}: CustomPricingProviderProps) {\n  const store = useCustomPricingStore({ onChange });\n  return (\n    <CustomPricingContext.Provider value={{ ...store }}>\n      {children}\n    </CustomPricingContext.Provider>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/custom-pricing.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

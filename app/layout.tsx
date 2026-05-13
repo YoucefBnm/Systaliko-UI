@@ -79,6 +79,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${geist.className} antialiased flex flex-col min-h-dvh`}
+        suppressHydrationWarning
       >
         <RootProvider>
           <StyleProvider>{children}</StyleProvider>

@@ -4,7 +4,7 @@
   "title": "Slideshow Demo",
   "description": "Demo showing how to use slideshow component.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/slideshow"
+    "@systaliko-ui/slideshow"
   ],
   "files": [
     {

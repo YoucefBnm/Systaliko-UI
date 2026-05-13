@@ -6,8 +6,8 @@
   "description": "Demo showing another use case for container stagger with your motion components.",
   "dependencies": ["motion"],
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/container-stagger",
-    "https://systaliko-ui.vercel.app/r/animation-variants"
+    "@systaliko-ui/container-stagger",
+    "@systaliko-ui/animation-variants"
   ],
   "files": [
     {

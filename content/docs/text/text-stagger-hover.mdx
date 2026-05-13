@@ -4,7 +4,14 @@ description: Splitted text animation with staggered reveal triggered by hover ge
 url: https://21st.dev/youcefbnm/text-stagger-hover/default/?ref=systaliko-ui
 videoUrl: https://cdn.21st.dev/user_2sdAd21yCZlZRkVtZyf4K8ogkBh/text-stagger-hover/default/video.1750815014778.mp4
 thumbnail: https://21st.dev/_next/image?url=https%3A%2F%2Fcdn.21st.dev%2Fuser_2sdAd21yCZlZRkVtZyf4K8ogkBh%2Ftext-stagger-hover%2Fdefault%2Fpreview.1750815012964.png&w=1080&q=75
+updated: true
 ---
+
+<Callout type="info">
+  this component has been updated: - remove context for better performance -
+  remove absolute Positioning so you can apply padding on the parent component -
+  same old usage
+</Callout>
 
 <ComponentPreview name="text-stagger-hover-demo" />
 
@@ -15,19 +22,15 @@ thumbnail: https://21st.dev/_next/image?url=https%3A%2F%2Fcdn.21st.dev%2Fuser_2s
 ## Usage
 
 ```tsx
-<TextStaggerHover
-  as={'h2'}
-  className="cursor-pointer text-4xl font-bold uppercase tracking-tighter"
->
+<TextStaggerHover className="cursor-pointer text-4xl font-bold uppercase tracking-tighter p-2">
   <TextStaggerHoverActive
     className="opacity-20"
-    animation={'bottom'}
-    staggerDirection={'middle'}
+    transition={{ duration: 0.3, ease: 'easeOut' }}
   >
     Text Stagger Hover Demo
   </TextStaggerHoverActive>
 
-  <TextStaggerHoverHidden animation={'bottom'} staggerDirection={'middle'}>
+  <TextStaggerHoverHidden transition={{ duration: 0.3, ease: 'easeOut' }}>
     Text Stagger Hover Demo
   </TextStaggerHoverHidden>
 </TextStaggerHover>
@@ -35,20 +38,7 @@ thumbnail: https://21st.dev/_next/image?url=https%3A%2F%2Fcdn.21st.dev%2Fuser_2s
 
 ## Props
 
-### TextStaggerHover
-
-<TypeTable
-  type={{
-    as: {
-      description: 'the component to render',
-      type: 'ReactNode',
-      required: false,
-      default: 'span',
-    },
-  }}
-/>
-
-### TextStaggerHoverActive
+`<TextStaggerHoverActive />`
 
 <TypeTable
   type={{
@@ -68,7 +58,7 @@ thumbnail: https://21st.dev/_next/image?url=https%3A%2F%2Fcdn.21st.dev%2Fuser_2s
   }}
 />
 
-### TextStaggerHoverHidden
+`<TextStaggerHoverHidden />`
 
 <TypeTable
   type={{

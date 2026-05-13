@@ -4,9 +4,7 @@
   "type": "registry:block",
   "title": "scroll x carousel Demo",
   "description": "Demo showing how to use scroll x carousel component.",
-  "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/scroll-x-carousel"
-  ],
+  "registryDependencies": ["@systaliko-ui/scroll-x-carousel"],
   "files": [
     {
       "path": "registry/demo/scroll-animations/scroll-x-carousel/index.tsx",

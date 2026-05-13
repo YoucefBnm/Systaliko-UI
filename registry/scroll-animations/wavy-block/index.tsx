@@ -10,6 +10,7 @@ import {
   useScroll,
   UseScrollOptions,
   useSpring,
+  useTransform,
 } from 'motion/react';
 import React from 'react';
 
@@ -25,7 +26,8 @@ interface WavyTextsConfig {
 }
 interface WavyBlockItemProps extends HTMLMotionProps<'div'> {
   index: number;
-  config?: WavyTextsConfig;
+  config?: Partial<WavyTextsConfig>;
+  axis?: 'x' | 'y';
 }
 interface WavyBlockContextValue {
   scrollYProgress: MotionValue<number>;
@@ -44,54 +46,104 @@ function useWavyBlockContext() {
   return context;
 }
 const toRadian = (deg: number) => (deg * Math.PI) / 180;
+const TAU = Math.PI * 2;
+const DEFAULT_X_CONFIG: WavyTextsConfig = {
+  baseOffsetFactor: 0.1,
+  baseExtra: 0,
+  baseAmplitude: 160,
+  lengthEffect: 0.6,
+  frequency: 35,
+  progressScale: 1,
+  phaseShiftDeg: -180,
+  spring: { damping: 22, stiffness: 300 },
+};
+const DEFAULT_Y_CONFIG: WavyTextsConfig = {
+  ...DEFAULT_X_CONFIG,
+  baseOffsetFactor: 0,
+  baseAmplitude: 120,
+  progressScale: 2,
+  phaseShiftDeg: 0,
+};
 
 export function WavyBlockItem({
   index,
-  config = {
-    baseOffsetFactor: 0.1,
-    baseExtra: 0,
-    baseAmplitude: 160,
-    lengthEffect: 0.6,
-    frequency: 35,
-    progressScale: 6,
-    phaseShiftDeg: -180,
-    spring: { damping: 22, stiffness: 300 },
-  },
+  axis = 'x',
+  config,
   style,
   ...props
 }: WavyBlockItemProps) {
   const { scrollYProgress, maxLen } = useWavyBlockContext();
   const reducedMotion = useReducedMotion();
   const lengthFactor = Math.min(1, Math.max(0, maxLen / (maxLen || 1)));
+  const resolvedConfig = React.useMemo(() => {
+    const defaults = axis === 'y' ? DEFAULT_Y_CONFIG : DEFAULT_X_CONFIG;
+    return {
+      ...defaults,
+      ...config,
+      spring: {
+        ...defaults.spring,
+        ...config?.spring,
+      },
+    };
+  }, [axis, config]);
 
   const [isMounted, setIsMounted] = React.useState<boolean>(false);
 
-  const calculateX = React.useCallback(
-    (p: number, windowWidth?: number) => {
-      const phase = config.progressScale * p;
+  const calculateAxisOffset = React.useCallback(
+    (p: number, viewportSize?: number) => {
+      const phase = resolvedConfig.progressScale * p * TAU;
 
-      const width =
-        windowWidth ??
-        (typeof window !== 'undefined' ? window.innerWidth : 1200);
-      const baseOffset = config.baseOffsetFactor * width + config.baseExtra;
+      const size =
+        viewportSize ??
+        (typeof window !== 'undefined'
+          ? axis === 'y'
+            ? window.innerHeight
+            : window.innerWidth
+          : axis === 'y'
+            ? 900
+            : 1200);
+      const hasManualBaseOffset =
+        config?.baseOffsetFactor !== undefined ||
+        config?.baseExtra !== undefined;
+      const baseOffset =
+        axis === 'y' && !hasManualBaseOffset
+          ? 0
+          : resolvedConfig.baseOffsetFactor * size + resolvedConfig.baseExtra;
 
-      const amplitudeScale = 1 - config.lengthEffect * lengthFactor;
-      const amplitude = config.baseAmplitude * amplitudeScale;
+      const amplitudeScale = 1 - resolvedConfig.lengthEffect * lengthFactor;
+      const amplitude = resolvedConfig.baseAmplitude * amplitudeScale;
 
-      const angle =
-        toRadian(config.frequency * index) +
-        phase +
-        toRadian(config.phaseShiftDeg);
+      const waveOffset =
+        axis === 'y'
+          ? amplitude *
+            Math.sin(
+              phase +
+                toRadian(resolvedConfig.frequency * index) +
+                toRadian(resolvedConfig.phaseShiftDeg),
+            )
+          : amplitude *
+            Math.cos(
+              phase +
+                toRadian(resolvedConfig.frequency * index) +
+                toRadian(resolvedConfig.phaseShiftDeg),
+            );
 
-      return baseOffset + amplitude * Math.cos(angle);
+      return baseOffset + waveOffset;
     },
-    [config, lengthFactor, index],
+    [
+      resolvedConfig,
+      lengthFactor,
+      index,
+      axis,
+      config?.baseOffsetFactor,
+      config?.baseExtra,
+    ],
   );
 
-  const initialX = calculateX(0, 1200);
-  const rawX = useMotionValue(initialX);
-  const springX = useSpring(rawX, config.spring);
-  const x = reducedMotion ? rawX : springX;
+  const initialOffset = calculateAxisOffset(0);
+  const rawOffset = useMotionValue(initialOffset);
+  const springOffset = useSpring(rawOffset, resolvedConfig.spring);
+  const offset = reducedMotion ? rawOffset : springOffset;
 
   React.useLayoutEffect(() => {
     setIsMounted(true);
@@ -101,19 +153,31 @@ export function WavyBlockItem({
     if (!scrollYProgress || !isMounted) return;
 
     const unsub = scrollYProgress.onChange((p) => {
-      const windowWidth =
-        typeof window !== 'undefined' ? window.innerWidth : 1200;
-      const newX = calculateX(p, windowWidth);
-      rawX.set(newX);
+      const viewportSize =
+        typeof window !== 'undefined'
+          ? axis === 'y'
+            ? window.innerHeight
+            : window.innerWidth
+          : axis === 'y'
+            ? 900
+            : 1200;
+      const newOffset = calculateAxisOffset(p, viewportSize);
+      rawOffset.set(newOffset);
     });
 
     return () => {
       if (unsub) unsub();
     };
-  }, [scrollYProgress, rawX, calculateX, isMounted]);
+  }, [scrollYProgress, rawOffset, calculateAxisOffset, isMounted, axis]);
+
+  const motionAxisStyle = axis === 'y' ? { y: offset } : { x: offset };
 
   return (
-    <motion.div style={{ x, ...style }} suppressHydrationWarning {...props} />
+    <motion.div
+      style={{ ...motionAxisStyle, ...style }}
+      suppressHydrationWarning
+      {...props}
+    />
   );
 }
 
@@ -143,4 +207,19 @@ export function WavyBlock({
       <div ref={containerRef} {...props} />
     </WavyBlockContext.Provider>
   );
+}
+
+export function WavyBlockSticky({
+  yRange = [0, 300],
+  yInput = [0, 1],
+  style,
+  ...props
+}: HTMLMotionProps<'div'> & {
+  yRange?: [number, number];
+  yInput?: [number, number];
+}) {
+  const { scrollYProgress } = useWavyBlockContext();
+
+  const y = useTransform(scrollYProgress, yInput, yRange);
+  return <motion.div style={{ y, ...style }} {...props} />;
 }

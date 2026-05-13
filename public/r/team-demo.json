@@ -4,7 +4,7 @@
   "title": "Team Demo",
   "description": "Demo showing team component.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/scroll-animation"
+    "@systaliko-ui/scroll-animation"
   ],
   "files": [
     {

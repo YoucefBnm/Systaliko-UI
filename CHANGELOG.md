@@ -7,6 +7,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-05-11
+
+### Added
+
+- 🧩 **New ecommerce: `custom-pricing`** — Composable pricing UI with design demo and **`custom-pricing-utils`** helpers for totals, quantity, and checked state
+- ✨ **New text component: `sliding-number`** — Tabular currency-style display with per-digit slide transitions (Motion + `AnimatePresence`)
+- ✨ **New text component: `text-stagger-interval`** — Staggered text reveal on a configurable interval
+- 🎬 **New demo: `wavy-block-y`** — Vertical-axis wave scroll demo for **`wavy-block`**
+- ✨ **New second demo: `spotlight-list-2`** — Alternate spotlight list showcase
+- 📦 **Shadcn registry additions:** `label`, `slider`, and `radio-group` for installable UI primitives
+- 📚 **Documentation:** `custom-pricing`, `sliding-number`, and expanded **`wavy-block`** props (including `axis`, `WavyBlockSticky`, and config fields)
+
+### Changed
+
+- 🌊 **`wavy-block`** — Optional **`axis="y"`** with centered sine motion, partial **`config`** overrides, axis-specific defaults, and **`WavyBlockSticky`** helper for scroll-mapped `y`
+- ✨ **`text-stagger-hover`** — Grid-based stacking for active/hidden layers (`inline-grid`, explicit cell placement) so both states share one cell without fragile absolute layout
+- ✨ **`sliding-number`** — Digit transitions use **tween** timing with **`popLayout`** and clipped slots to reduce glyph overlap while keeping values stable (no `wait` + spring hang)
+- 🎨 **`spotlight-list`** — Component refinements; home **features** / **hero** sections and docs **meta** / **Enera** template copy updates
+- 🧩 **Registry & public bundles** — Rebuilt `public/r/*` JSON, demo registry items, and MCP/registry metadata across blocks, cards, ecommerce, scroll, and text entries
+
+### Fixed
+
+- 🐛 **Docs & site** — Mobile docs sidebar trigger viewport, template nav link, and manual installation / link helpers where applicable
+- 🐛 **Headers** — Configuration fixes for header-related demos or layout
+
+### Removed
+
+- 🗑️ **`wavy-texts`** registry entry and component (superseded by other text utilities and demos)
+
 ## [0.5.1] - 2026-04-26
 
 ### Changed
@@ -114,7 +143,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Documentation site with Fumadocs
 - Three template projects: Veo, Alba Studio, and Motus Studio
 
-[Unreleased]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.5.1...HEAD
+[Unreleased]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.5.1...v0.6.0
 [0.5.1]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.3.1...v0.4.0

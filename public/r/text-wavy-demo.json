@@ -4,7 +4,7 @@
   "title": "Text Wavy Demo",
   "description": "Demo showing text wavy component.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/text-wavy"
+    "@systaliko-ui/text-wavy"
   ],
   "files": [
     {

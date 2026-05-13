@@ -7,7 +7,7 @@
     "motion"
   ],
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/default-use-follow-mouse"
+    "@systaliko-ui/default-use-follow-mouse"
   ],
   "files": [
     {

@@ -4,7 +4,7 @@
   "type": "registry:block",
   "title": "Grid Bento Demos",
   "description": "Grid Bento Demo with multiple variants.",
-  "registryDependencies": ["https://systaliko-ui.vercel.app/r/grid-bento"],
+  "registryDependencies": ["@systaliko-ui/grid-bento"],
   "files": [
     {
       "path": "registry/demo/blocks/grid-bento/index.tsx",

@@ -64,7 +64,7 @@ export const attachFile: BuildPageTreeOptions['attachFile'] = (node, file) => {
 
   if ('updated' in data && typeof data.updated === 'boolean' && data.updated) {
     node.name = (
-      <Badge name={node.name} className="text-blue-50 bg-blue-500">
+      <Badge name={node.name} className="text-white bg-blue-400">
         updated
       </Badge>
     );

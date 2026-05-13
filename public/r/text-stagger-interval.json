@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "text-stagger-interval",
+  "title": "Text Stagger Interval",
+  "description": "Staggered text display that cycles through a list of words at a specified interval. Pause the animation by hovering over the component.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "@systaliko-ui/animation-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/text/text-stagger-interval/index.tsx",
+      "content": "'use client';\nimport * as React from 'react';\n\nimport { AnimatePresence, motion, MotionConfig, Variants } from 'motion/react';\nimport {\n  ANIMATION_VARIANTS,\n  AnimationT,\n} from '@/components/systaliko-ui/utils/animation-variants';\n\ninterface WordProps extends React.HTMLAttributes<HTMLSpanElement> {\n  animation?: AnimationT;\n}\n\nexport function WordStagger({ children, animation, ...props }: WordProps) {\n  const characters = String(children).split('');\n  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];\n\n  return (\n    <span className=\"inline-block text-nowrap\" {...props}>\n      {characters.map((char, index) => (\n        <motion.span\n          className=\"inline-block\"\n          variants={animationVariants}\n          key={`${char}-${index}`}\n        >\n          {char === ' ' ? '\\u00A0' : char}\n        </motion.span>\n      ))}\n    </span>\n  );\n}\n\nfunction buildContainerVariants(staggerValue: number): Variants {\n  return {\n    hidden: {\n      transition: {\n        staggerChildren: staggerValue,\n        staggerDirection: -1,\n      },\n    },\n    visible: {\n      transition: {\n        delayChildren: 0.1,\n        staggerChildren: staggerValue,\n        staggerDirection: 1,\n      },\n    },\n  };\n}\n\nexport interface TextStaggerIntervalProps extends React.ComponentProps<'span'> {\n  words: string[];\n  /**\n   * Time in milliseconds each word is fully visible before transitioning\n   * to the next one.\n   * @default 2000\n   */\n  interval?: number;\n  /**\n   * Per-character stagger delay in seconds.\n   * @default 0.03\n   */\n  staggerValue?: number;\n  animation?: AnimationT;\n  /**\n   * Pause the interval while the user hovers over the element.\n   * @default true\n   */\n  pauseOnHover?: boolean;\n  /** Extra class names applied to the outer wrapper. */\n}\n\nexport function TextStaggerInterval({\n  words,\n  interval = 2000,\n  staggerValue = 0.03,\n  animation,\n  pauseOnHover = true,\n  ...props\n}: TextStaggerIntervalProps) {\n  const [currentIndex, setCurrentIndex] = React.useState(0);\n  const [isPaused, setIsPaused] = React.useState(false);\n\n  React.useEffect(() => {\n    if (isPaused) return;\n\n    const id = setInterval(() => {\n      setCurrentIndex((prev) => (prev + 1) % words.length);\n    }, interval);\n\n    return () => clearInterval(id);\n  }, [words.length, interval, isPaused]);\n\n  const containerVariants = React.useMemo(\n    () => buildContainerVariants(staggerValue),\n    [staggerValue],\n  );\n\n  return (\n    <span\n      onMouseEnter={pauseOnHover ? () => setIsPaused(true) : undefined}\n      onMouseLeave={pauseOnHover ? () => setIsPaused(false) : undefined}\n      {...props}\n    >\n      <AnimatePresence mode=\"wait\">\n        <motion.span\n          key={currentIndex}\n          className=\"inline-block\"\n          initial=\"hidden\"\n          animate=\"visible\"\n          exit=\"hidden\"\n          variants={containerVariants}\n        >\n          <MotionConfig transition={{ ease: 'easeOut' }}>\n            <WordStagger animation={animation}>\n              {words[currentIndex]}\n            </WordStagger>\n          </MotionConfig>\n        </motion.span>\n      </AnimatePresence>\n    </span>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/text-stagger-interval.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

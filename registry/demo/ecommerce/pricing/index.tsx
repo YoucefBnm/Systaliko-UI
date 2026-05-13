@@ -1,4 +1,5 @@
 'use client';
+import { Separator } from '@/components/ui/separator';
 import {
   calculateYearlySavings,
   Pricing,
@@ -87,7 +88,7 @@ export function PricingDemo() {
           <PricingIntervalSwitch />
           <Label className="text-muted-foreground">Billed annually</Label>
           <Badge
-            className="border-emerald-600 rounded-full text-emerald-600"
+            className="rounded-full shadow-sm shadow-green-600/15 ring-1 ring-green-600/15 py-1  bg-green-400"
             variant={'outline'}
           >
             💰 Save up to {savings}% with annual billing
@@ -104,13 +105,17 @@ export function PricingDemo() {
               >
                 <PricingPackage className="justify-between">
                   <h3 className="text-xl font-medium">{plan.name}</h3>
-                  <Icon className="size-6 text-primary" />
+                  <div className="bg-primary text-primary-foreground p-2 rounded flex justify-center items-center">
+                    <Icon className="size-5" />
+                  </div>
                 </PricingPackage>
 
                 <PricingValue
                   yearlyValue={plan.pricing.yearly}
                   monthlyValue={plan.pricing.monthly}
+                  className="font-semibold"
                 />
+                <Separator />
 
                 <div className="flex flex-col items-start gap-2">
                   {plan.includesPrevious && (

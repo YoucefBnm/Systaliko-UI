@@ -4,7 +4,7 @@
   "title": "scroll rotate animation Demo",
   "description": "Demo showing how to use scroll rotate animations.",
   "registryDependencies": [
-    "https://systaliko-ui.vercel.app/r/scroll-animation-rotate"
+    "@systaliko-ui/scroll-animation-rotate"
   ],
   "files": [
     {

@@ -22,7 +22,7 @@ export function SportlightList({
 }: React.ComponentProps<'ul'> & VariantProps<typeof spotlightListVariants>) {
   return (
     <ul
-      className={cn(spotlightListVariants({ variant, className }))}
+      className={cn('list-none', spotlightListVariants({ variant, className }))}
       {...props}
     />
   );

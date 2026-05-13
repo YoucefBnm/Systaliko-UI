@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "custom-pricing-utils",
+  "type": "registry:item",
+  "title": "Custom Pricing Utils",
+  "description": "Custom pricing utils types and reducer store.",
+  "files": [
+    {
+      "path": "registry/utils/custom-pricing-utils/index.tsx",
+      "type": "registry:item",
+      "target": "components/systaliko-ui/utils/custom-pricing-utils.tsx"
+    }
+  ]
+}
