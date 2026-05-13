@@ -3,6 +3,9 @@
   "name": "quantity",
   "title": "Quantity Config",
   "description": "Quantity config for ecommerce products.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/shadcn/button"
+  ],
   "files": [
     {
       "path": "registry/ecommerce/quantity/index.tsx",
