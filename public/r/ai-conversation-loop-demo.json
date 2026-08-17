@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-conversation-loop-demo",
+  "title": "Ai conversation loop Demo",
+  "description": "Demo showing ai conversation loop component.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/ai-conversation-loop"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/blocks/ai-conversation-loop/index.tsx",
+      "content": "import {\n  AiBlock,\n  AiConversationLoop,\n  AiResult,\n  AiSources,\n  AiStatus,\n  UserMessage,\n} from '@/components/systaliko-ui/blocks/ai-conversation-loop';\nimport { Badge } from '@/components/systaliko-ui/shadcn/badge';\nimport { FileTextIcon, SparklesIcon } from 'lucide-react';\n\nconst USER_MESSAGE = 'How do I configure the SSO for my enterprise team?';\nconst ANSWER_TEXT =\n  \"To configure SSO for your enterprise team, navigate to Settings > Security. You'll need your Identity Provider (IdP) metadata XML file.\";\n\nconst badge_class = 'h-5 text-[10px] shadow-sm shadow-black/15 rounded-full';\nexport function AiConversationLoopDemo() {\n  return (\n    <div className=\"w-full max-w-xs mx-auto p-4 rounded-xl border bg-card shadow-2xs ring ring-ring/20 h-80 place-content-center\">\n      <AiConversationLoop className=\"space-y-6\">\n        <div className=\"rounded-2xl rounded-tl-none border bg-input text-muted-foreground w-fit px-2.5 py-1 shadow-sm\">\n          <UserMessage className=\"inline-block text-xs\" text={USER_MESSAGE} />\n        </div>\n\n        <AiBlock>\n          <AiStatus>\n            <div className=\"flex flex-col gap-2\">\n              <div className=\"mb-1 flex items-center gap-2 text-xs\">\n                <SparklesIcon className=\"size-3 animate-pulse text-primary\" />\n                <span className=\"shimmer-text\">Scanning Knowledge Base...</span>\n              </div>\n            </div>\n          </AiStatus>\n          <AiSources className=\"flex gap-1 items-center flex-wrap\">\n            <Badge\n              variant=\"outline\"\n              className={`${badge_class} text-blue-600 border-blue-200 bg-blue-50`}\n            >\n              <FileTextIcon className=\"size-2\" />\n              Docs: SSO Setup\n            </Badge>\n\n            <Badge\n              variant=\"outline\"\n              className={`${badge_class} text-orange-400 border-orange-200 bg-orange-50`}\n            >\n              <FileTextIcon className=\"size-2\" />\n              Guide: Enterprise\n            </Badge>\n          </AiSources>\n        </AiBlock>\n        <AiResult text={ANSWER_TEXT}>\n          <span className=\"text-xs text-muted-foreground\">Confidence: 98%</span>\n          <Badge\n            variant=\"outline\"\n            className={`${badge_class} text-green-600 border-green-200 bg-green-50`}\n          >\n            Verified Source\n          </Badge>\n        </AiResult>\n      </AiConversationLoop>\n    </div>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/ai-conversation-loop.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

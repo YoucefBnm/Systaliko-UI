@@ -3,7 +3,7 @@
   "name": "animated-border",
   "type": "registry:component",
   "title": "Animated Border",
-  "description": "Animated border component for animated outlines and focus/hover states.",
+  "description": "Animated border rotates infinitely around content",
   "files": [
     {
       "path": "registry/components/animated-border/index.tsx",

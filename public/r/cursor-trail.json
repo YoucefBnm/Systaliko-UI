@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cursor-trail",
+  "title": "Cursor Trail",
+  "description": "Creates an effect where the mouse cursor leaves a trail. Supports squares, bubbles, and images variants.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/use-dimensions"
+  ],
+  "files": [
+    {
+      "path": "registry/components/cursor-trail/index.tsx",
+      "content": "'use client';\n\nimport React from 'react';\nimport { HTMLMotionProps, motion, useAnimationControls } from 'motion/react';\n\nimport { cn } from '@/lib/utils';\nimport { useDimensions } from '@/components/systaliko-ui/utils/use-dimensions';\n\nexport interface CursorTrailProps extends React.ComponentProps<'div'> {\n  pixelSize?: number; // px\n  fadeDuration?: number; // ms\n  delay?: number; // ms\n  pixelClassName?: string;\n}\n\nexport function CursorTrail({\n  pixelSize = 20,\n  fadeDuration = 500,\n  delay = 0,\n  pixelClassName,\n  className,\n  children,\n  ...props\n}: CursorTrailProps) {\n  const containerRef = React.useRef<HTMLDivElement>(null);\n  const dimensions = useDimensions(containerRef);\n  const trailId = React.useRef(Math.random().toString(36).substring(2));\n\n  const handleMouseMove = React.useCallback(\n    (e: React.MouseEvent<HTMLDivElement>) => {\n      if (!containerRef.current) return;\n\n      const rect = containerRef.current.getBoundingClientRect();\n      const x = Math.floor((e.clientX - rect.left) / pixelSize);\n      const y = Math.floor((e.clientY - rect.top) / pixelSize);\n\n      const pixelElement = document.getElementById(\n        `${trailId.current}-pixel-${x}-${y}`,\n      );\n      if (pixelElement) {\n        const animatePixel = (pixelElement as any).__animatePixel;\n        if (animatePixel) animatePixel();\n      }\n    },\n    [pixelSize],\n  );\n\n  const columns = React.useMemo(\n    () => Math.ceil(dimensions.width / pixelSize),\n    [dimensions.width, pixelSize],\n  );\n  const rows = React.useMemo(\n    () => Math.ceil(dimensions.height / pixelSize),\n    [dimensions.height, pixelSize],\n  );\n\n  return (\n    <div\n      ref={containerRef}\n      className={cn('pointer-events-auto', className)}\n      onMouseMove={handleMouseMove}\n      {...props}\n    >\n      {Array.from({ length: rows }).map((_, rowIndex) => (\n        <div key={rowIndex} className=\"flex\">\n          {Array.from({ length: columns }).map((_, colIndex) => (\n            <PixelDot\n              key={`${colIndex}-${rowIndex}`}\n              id={`${trailId.current}-pixel-${colIndex}-${rowIndex}`}\n              size={pixelSize}\n              fadeDuration={fadeDuration}\n              delay={delay}\n              className={pixelClassName}\n            >\n              {children}\n            </PixelDot>\n          ))}\n        </div>\n      ))}\n    </div>\n  );\n}\ninterface PixelDotProps extends HTMLMotionProps<'div'> {\n  size: number;\n  fadeDuration: number;\n  delay: number;\n}\n\nconst PixelDot = React.memo(\n  ({\n    id,\n    size,\n    fadeDuration,\n    delay,\n    className,\n    style,\n    ...props\n  }: PixelDotProps) => {\n    const controls = useAnimationControls();\n\n    const animatePixel = React.useCallback(() => {\n      controls.start({\n        opacity: [1, 0],\n        transition: { duration: fadeDuration / 1000, delay: delay / 1000 },\n      });\n    }, [controls, fadeDuration, delay]);\n\n    // Attach the animatePixel function to the DOM element\n    const ref = React.useCallback(\n      (node: HTMLDivElement | null) => {\n        if (node) {\n          (node as any).__animatePixel = animatePixel;\n        }\n      },\n      [animatePixel],\n    );\n\n    return (\n      <motion.div\n        id={id}\n        ref={ref}\n        className={cn('pointer-events-none', className)}\n        style={{\n          width: `${size}px`,\n          height: `${size}px`,\n          ...style,\n        }}\n        initial={{ opacity: 0 }}\n        animate={controls}\n        exit={{ opacity: 0 }}\n        {...props}\n      />\n    );\n  },\n);\n",
+      "type": "registry:component",
+      "target": "components/systaliko-ui/cursor-trail.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

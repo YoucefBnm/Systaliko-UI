@@ -8,7 +8,10 @@ import {
   useSetAnimationConfig,
 } from '@/components/docs/animation-config';
 import { setStaggerDirection } from '@/registry/utils/set-stagger-direction';
-import { ANIMATION_VARIANTS } from '@/registry/utils/animation-variants';
+import {
+  animation_variants,
+  ANIMATION_VARIANTS,
+} from '@/registry/utils/animation-variants';
 import { motion } from 'motion/react';
 
 const ITEMS = [
@@ -24,6 +27,9 @@ const ITEMS = [
   {
     bg: 'bg-yellow-500',
   },
+  {
+    bg: 'bg-cyan-500',
+  },
 ];
 
 export const SetStaggerDirectionDemo = () => {
@@ -33,10 +39,10 @@ export const SetStaggerDirectionDemo = () => {
     </AnimationConfig>
   );
 };
+
 const SetStaggerDirectionDemoContent = () => {
   const { animation, staggerDirection, staggerValue } = useSetAnimationConfig();
-
-  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];
+  const animationVariants = animation_variants[animation || 'opacity'];
 
   return (
     <div className="flex flex-col justify-between gap-8">

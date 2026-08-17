@@ -9,16 +9,16 @@ import {
   StaggerOrigin,
 } from 'motion/react';
 import {
-  ANIMATION_VARIANTS,
-  AnimationT,
+  animation_variants,
+  AnimationVariantsT,
 } from '@/registry/utils/animation-variants';
 interface WordProps extends React.HTMLAttributes<HTMLSpanElement> {
-  animation?: AnimationT;
+  animation?: AnimationVariantsT;
 }
 
 export function WordStagger({ children, animation, ...props }: WordProps) {
   const characters = String(children).split('');
-  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];
+  const animationVariants = animation_variants[animation || 'opacity'];
   return (
     <span className="inline-block text-nowrap" {...props}>
       {characters.map((char, index) => (
@@ -37,7 +37,7 @@ export function WordStagger({ children, animation, ...props }: WordProps) {
 interface TextStaggerProps extends HTMLMotionProps<'span'> {
   staggerValue?: number;
   staggerStart?: StaggerOrigin;
-  animation?: AnimationT;
+  animation?: AnimationVariantsT;
 }
 
 export function TextStaggerInview({

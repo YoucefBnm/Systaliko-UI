@@ -6,16 +6,16 @@
     "templates",
     "---Templates---",
     "templates/abla",
-    "templates/carecover",
     "templates/cognify",
     "templates/enera",
-    "templates/motus",
     "templates/portfolio",
     "templates/product-page",
     "templates/veo",
 
     "---Blocks---",
+    "blocks/ai-conversation-loop",
     "blocks/animated-menu",
+    "blocks/floating-elements",
     "blocks/grid-bento",
     "blocks/full-screen-navigation-menu",
     "blocks/globe",
@@ -47,6 +47,7 @@
     "scroll-animations/scroll-reverse-animation",
     "scroll-animations/scroll-animations-rotate",
     "scroll-animations/scroll-x-carousel",
+    "scroll-animations/video-section",
     "scroll-animations/wavy-block",
 
     "---Cards---",
@@ -59,7 +60,9 @@
     "cards/card-testimonial",
 
     "---Components---",
+    "components/animated-border",
     "components/checkbox-field",
+    "components/cursor-trail",
     "components/custom-cursor",
     "components/rating-stars",
     "components/reveal-mask",
@@ -76,6 +79,7 @@
 
     "---Utils---",
     "utils/animation-variants",
+    "utils/clip-path-animation-variants",
     "utils/set-stagger-direction"
   ]
 }

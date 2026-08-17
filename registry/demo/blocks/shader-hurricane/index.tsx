@@ -10,7 +10,7 @@ export function ShaderHurricaneDemo() {
   const [color1, setColor1] = useState('#00f2fe');
   const [color2, setColor2] = useState('#4facfe');
   const [color3, setColor3] = useState('#ffd700');
-  const [background, setBackground] = useState('#fefefe');
+  const [background, setBackground] = useState('#0a0a0a');
   const [intensity, setIntensity] = useState(1);
   const [density, setDensity] = useState(1);
   const [speed, setSpeed] = useState(0.2);

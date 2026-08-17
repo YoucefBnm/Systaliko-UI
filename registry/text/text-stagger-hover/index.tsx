@@ -3,8 +3,8 @@
 import { cn } from '@/lib/utils';
 import { HTMLMotionProps, motion } from 'motion/react';
 import {
-  ANIMATION_VARIANTS,
-  AnimationT,
+  animation_variants,
+  AnimationVariantsT,
 } from '@/registry/utils/animation-variants';
 import {
   setStaggerDirection,
@@ -30,28 +30,28 @@ type NewVariants = {
 };
 
 const animation_variants_text_active = Object.entries(
-  ANIMATION_VARIANTS,
+  animation_variants,
 ).reduce(
   (acc, [key, value]) => {
-    acc[key as keyof typeof ANIMATION_VARIANTS] = {
+    acc[key as keyof typeof animation_variants] = {
       hovered: value.hidden,
       initial: value.visible,
     };
     return acc;
   },
-  {} as Record<keyof typeof ANIMATION_VARIANTS, NewVariants>,
+  {} as Record<keyof typeof animation_variants, NewVariants>,
 );
 const animation_variants_text_hidden = Object.entries(
-  ANIMATION_VARIANTS,
+  animation_variants,
 ).reduce(
   (acc, [key, value]) => {
-    acc[key as keyof typeof ANIMATION_VARIANTS] = {
+    acc[key as keyof typeof animation_variants] = {
       initial: value.hidden,
       hovered: value.visible,
     };
     return acc;
   },
-  {} as Record<keyof typeof ANIMATION_VARIANTS, NewVariants>,
+  {} as Record<keyof typeof animation_variants, NewVariants>,
 );
 
 export function TextStaggerHover({
@@ -105,7 +105,7 @@ function Character({
   );
 }
 interface TextStaggerHoverContentProps extends HTMLMotionProps<'span'> {
-  animation?: AnimationT;
+  animation?: AnimationVariantsT;
   staggerDirection?: StaggerDirection;
 }
 export function TextStaggerHoverActive({

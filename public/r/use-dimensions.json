@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-dimensions",
+  "title": "use dimensions hook",
+  "description": "use dimensions hook, Allow to get the dimensions of an element.",
+  "files": [
+    {
+      "path": "registry/utils/use-dimensions/index.ts",
+      "content": "'use client';\nimport { useEffect, useState } from 'react';\n\nexport function useDimensions(ref: React.RefObject<HTMLElement | null>) {\n  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });\n\n  useEffect(() => {\n    const element = ref.current;\n    if (!element) return;\n\n    const resizeObserver = new ResizeObserver((entries) => {\n      for (const entry of entries) {\n        setDimensions({\n          width: entry.contentRect.width,\n          height: entry.contentRect.height,\n        });\n      }\n    });\n\n    resizeObserver.observe(element);\n\n    setDimensions({\n      width: element.clientWidth,\n      height: element.clientHeight,\n    });\n\n    return () => resizeObserver.disconnect();\n  }, [ref]);\n\n  return dimensions;\n}\n",
+      "type": "registry:lib",
+      "target": "components/systaliko-ui/utils/use-dimensions.ts"
+    }
+  ],
+  "type": "registry:lib"
+}

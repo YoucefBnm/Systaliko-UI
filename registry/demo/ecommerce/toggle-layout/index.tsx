@@ -76,14 +76,14 @@ const products = [
 
 export function ToggleLayoutDemo() {
   return (
-    <section className="py-12 px-6">
+    <section className="w-full py-12 px-6">
       <ToggleLayout>
         <SelectLayoutGroup className="mb-8" />
         <ToggleLayoutContainer>
           {products.map((product) => (
             <ToggleLayoutCell
               key={product.id}
-              className="w-full min-h-96 flex flex-col  max-w-sm mx-auto py-6 px-4 space-y-8 border border-border/20 rounded-3xl shadow-2xs"
+              className="bg-card w-full min-h-96 flex flex-col  max-w-sm mx-auto py-6 px-4 space-y-8 border border-border/20 rounded-3xl shadow-2xs"
             >
               <div className="w-fit mx-auto h-full flex  items-center">
                 <Image

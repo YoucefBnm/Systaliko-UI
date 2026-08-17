@@ -1,49 +1,16 @@
-import { siteConfig } from '@/config/site';
 import { MetadataRoute } from 'next';
-import meta from '@/content/docs/meta.json';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = siteConfig.url.replace(/\/$/, ''); // Remove trailing slash
+  const baseUrl = 'https://systaliko-ui.vercel.app';
   const currentDate = new Date();
 
-  // Priority mapping based on category importance
-  const getPriority = (page: string): number => {
-    if (page.startsWith('templates/')) return 0.9;
-    if (page.startsWith('blocks/')) return 0.8;
-    if (page.startsWith('scroll-animations/')) return 0.9; // was 0.8
-    if (page.startsWith('ecommerce/')) return 0.8;
-    if (page.startsWith('cards/')) return 0.7;
-    if (page.startsWith('components/')) return 0.7;
-    if (page.startsWith('text/')) return 0.7;
-    if (page.startsWith('utils/')) return 0.6;
-    return 0.7; // Default priority
-  };
-
-  // Change frequency mapping
-  const getChangeFrequency = (
-    page: string,
-  ):
-    | 'always'
-    | 'hourly'
-    | 'daily'
-    | 'weekly'
-    | 'monthly'
-    | 'yearly'
-    | 'never' => {
-    if (page === 'index' || page.startsWith('templates/')) return 'weekly';
-    return 'monthly';
-  };
-
-  // Build sitemap entries
-  const entries: MetadataRoute.Sitemap = [
-    // Home page - highest priority
+  return [
     {
       url: baseUrl,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 1.0,
+      priority: 1,
     },
-    // Main docs page
     {
       url: `${baseUrl}/docs`,
       lastModified: currentDate,
@@ -51,32 +18,142 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/services`,
+      url: `${baseUrl}/docs/components`,
       lastModified: currentDate,
-      changeFrequency: 'monthly',
+      changeFrequency: 'weekly',
       priority: 0.8,
     },
-  ];
-
-  // Add all pages from meta.json
-  meta.pages.forEach((page) => {
-    // Skip separator items
-    if (page.startsWith('---')) return;
-
-    // Handle index page - it's already added as /docs above
-    if (page === 'index') return;
-
-    const url = `${baseUrl}/docs/${page}`;
-    const priority = getPriority(page);
-    const changeFrequency = getChangeFrequency(page);
-
-    entries.push({
-      url,
+    {
+      url: `${baseUrl}/docs/components/avatar`,
       lastModified: currentDate,
-      changeFrequency,
-      priority,
-    });
-  });
-
-  return entries;
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/docs/components/badge`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/docs/components/button`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/docs/components/card`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/docs/components/dialog`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/docs/components/rating-stars`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/docs/components/section-gallery`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/docs/components/section-scale-scroll-animation`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/docs/components/section-scroll-rotate`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/docs/components/skelton`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/docs/components/slideshow`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/docs/components/story`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/docs/components/custom-cursor`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/docs/backgrounds`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/docs/backgrounds/background-gradient`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/docs/backgrounds/clipped-shape`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/docs/containers`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/docs/text`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/docs/buttons`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/docs/cards`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/docs/demo`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/docs/heros`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+  ];
 }

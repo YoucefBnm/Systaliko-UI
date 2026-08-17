@@ -3,7 +3,7 @@
   "name": "clip-path-animation-variants",
   "type": "registry:item",
   "title": "Animation Variants",
-  "description": "Clip-path animation variants for reveal, masking, and transitions.",
+  "description": "clip path animation variants, for your motion components, allows to animate component with clip path reveal animation.",
   "files": [
     {
       "path": "registry/utils/clip-path-animation-variants/index.tsx",

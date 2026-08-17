@@ -18,6 +18,25 @@
       "files": []
     },
     {
+      "name": "ai-conversation-loop",
+      "type": "registry:block",
+      "title": "Ai Conversation Loop",
+      "description": "ai conversation timeline, animates infinitely, to showcase your ai product.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/typing-text"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/ai-conversation-loop/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/ai-conversation-loop.tsx"
+        }
+      ]
+    },
+    {
       "name": "animated-menu",
       "type": "registry:block",
       "title": "Animated Menu",
@@ -46,6 +65,51 @@
           "path": "registry/blocks/container-stagger/index.tsx",
           "type": "registry:block",
           "target": "components/systaliko-ui/container-stagger.tsx"
+        }
+      ]
+    },
+    {
+      "name": "floating-elements",
+      "type": "registry:block",
+      "title": "Floating Elements",
+      "description": "Collection of floating elements that animate infinitely and react to mouse movement.",
+      "dependencies": [
+        "motion"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/floating-elements/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/floating-elements.tsx"
+        }
+      ]
+    },
+    {
+      "name": "flow",
+      "type": "registry:block",
+      "title": "Flow",
+      "description": "flow component to display a flow/timeline.",
+      "dependencies": [
+        "@xyflow/react"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/flow/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/flow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "flow-assets",
+      "type": "registry:block",
+      "title": "Floww Assets",
+      "description": "assets and static data for flow component.",
+      "files": [
+        {
+          "path": "registry/blocks/flow-assets/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/flow-assets.tsx"
         }
       ]
     },
@@ -293,6 +357,19 @@
       ]
     },
     {
+      "name": "animated-border",
+      "type": "registry:component",
+      "title": "Animated Border",
+      "description": "Animated border rotates infinitely around content",
+      "files": [
+        {
+          "path": "registry/components/animated-border/index.tsx",
+          "type": "registry:component",
+          "target": "components/systaliko-ui/animated-border.tsx"
+        }
+      ]
+    },
+    {
       "name": "checkbox-field",
       "type": "registry:ui",
       "title": "checkbox-field",
@@ -302,6 +379,25 @@
           "path": "registry/components/checkbox-field/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/checkbox-field.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cursor-trail",
+      "type": "registry:component",
+      "title": "Cursor Trail",
+      "description": "Creates an effect where the mouse cursor leaves a trail. Supports squares, bubbles, and images variants.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/use-dimensions"
+      ],
+      "files": [
+        {
+          "path": "registry/components/cursor-trail/index.tsx",
+          "type": "registry:component",
+          "target": "components/systaliko-ui/cursor-trail.tsx"
         }
       ]
     },
@@ -379,6 +475,22 @@
           "path": "registry/components/spotlight-list/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/spotlight-list.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ai-conversation-loop-demo",
+      "type": "registry:block",
+      "title": "Ai conversation loop Demo",
+      "description": "Demo showing ai conversation loop component.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/ai-conversation-loop"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/blocks/ai-conversation-loop/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/ai-conversation-loop.tsx"
         }
       ]
     },
@@ -468,6 +580,54 @@
       ]
     },
     {
+      "name": "floating-elements-demo",
+      "type": "registry:block",
+      "title": "Floating Elements Demo",
+      "description": "Demo showing floating elements component.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/floating-elements"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/blocks/floating-elements/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/floating-elements.tsx"
+        }
+      ]
+    },
+    {
+      "name": "floating-elements-infinite-demo",
+      "type": "registry:block",
+      "title": "Floating Elements Infinite Demo",
+      "description": "Demo showing infinite floating elements component.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/floating-elements"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/blocks/floating-elements-infinite/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/floating-elements-infinite.tsx"
+        }
+      ]
+    },
+    {
+      "name": "flow-demo",
+      "type": "registry:block",
+      "title": "Flow Demo",
+      "description": "Demo showing flow component.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/flow"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/blocks/flow/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/flow.tsx"
+        }
+      ]
+    },
+    {
       "name": "full-screen-navigation-menu-demo",
       "type": "registry:block",
       "title": "Full screen navigation Demo",
@@ -489,7 +649,8 @@
       "title": "Globe Demo",
       "description": "Demo showing Globe component.",
       "registryDependencies": [
-        "https://systaliko-ui.vercel.app/r/globe"
+        "https://systaliko-ui.vercel.app/r/globe",
+        "https://systaliko-ui.vercel.app/r/tooltip"
       ],
       "files": [
         {
@@ -858,6 +1019,38 @@
       ]
     },
     {
+      "name": "scatter-deck-demo",
+      "type": "registry:ui",
+      "title": "Scatter Deck Demo",
+      "description": "Demo showing interactive stack of cards pile.",
+      "registryDependencies": [
+        "systaliko-ui.vercel.app/r/scatter-deck"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/cards/scatter-deck/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/demo/cards/scatter-deck.tsx"
+        }
+      ]
+    },
+    {
+      "name": "animated-border-demo",
+      "type": "registry:ui",
+      "title": "Animated Border Demo",
+      "description": "Demo showing Animated border component.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/animated-border"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/animated-border/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/animated-border-demo.tsx"
+        }
+      ]
+    },
+    {
       "name": "checkbox-field-demo",
       "type": "registry:ui",
       "title": "Input Field Demo",
@@ -870,6 +1063,22 @@
           "path": "registry/demo/components/checkbox-field/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/checkbox-field-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cursor-trail-demo",
+      "type": "registry:block",
+      "title": "Cursor Trail Demo",
+      "description": "Demo showing cursor trail component.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/cursor-trail"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/components/cursor-trail/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/cursor-trail.tsx"
         }
       ]
     },
@@ -1482,6 +1691,23 @@
       ]
     },
     {
+      "name": "video-section-demo",
+      "type": "registry:block",
+      "title": "Video section demo",
+      "description": "Demo showing animated video that expands on scroll.",
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/scroll-animation",
+        "https://systaliko-ui.vercel.app/r/button"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/scroll-animations/video-section/index.tsx",
+          "type": "registry:block",
+          "target": "components/systaliko-ui/demo/video-section.tsx"
+        }
+      ]
+    },
+    {
       "name": "wavy-block-demo",
       "type": "registry:block",
       "title": "Wavy Block Demo",
@@ -1657,6 +1883,25 @@
           "path": "registry/demo/utils/animation-variants/index.tsx",
           "type": "registry:ui",
           "target": "components/systaliko-ui/animation-variants-demo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "clip-path-animation-variants-demo",
+      "type": "registry:hook",
+      "title": "Use Animation Variants Demo",
+      "description": "Demo showing how to use clip path animation variants object.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://systaliko-ui.vercel.app/r/clip-path-animation-variants"
+      ],
+      "files": [
+        {
+          "path": "registry/demo/utils/clip-path-animation-variants/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/clip-path-animation-variants-demo.tsx"
         }
       ]
     },
@@ -2140,6 +2385,19 @@
       ]
     },
     {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "tooltip",
+      "description": "tooltip component with variants.",
+      "files": [
+        {
+          "path": "registry/shadcn/tooltip/index.tsx",
+          "type": "registry:ui",
+          "target": "components/tooltip.tsx"
+        }
+      ]
+    },
+    {
       "name": "sliding-number",
       "type": "registry:ui",
       "title": "Sliding Number",
@@ -2273,6 +2531,19 @@
       ]
     },
     {
+      "name": "typing-text",
+      "type": "registry:ui",
+      "title": "Typing Text",
+      "description": "Text with typing animation.",
+      "files": [
+        {
+          "path": "registry/text/typing-text/index.tsx",
+          "type": "registry:ui",
+          "target": "components/systaliko-ui/typing-text.tsx"
+        }
+      ]
+    },
+    {
       "name": "word-stagger",
       "type": "registry:ui",
       "title": "Word Stagger",
@@ -2301,6 +2572,19 @@
           "path": "registry/utils/animation-variants/index.tsx",
           "type": "registry:item",
           "target": "components/systaliko-ui/utils/animation-variants.tsx"
+        }
+      ]
+    },
+    {
+      "name": "clip-path-animation-variants",
+      "type": "registry:item",
+      "title": "Animation Variants",
+      "description": "clip path animation variants, for your motion components, allows to animate component with clip path reveal animation.",
+      "files": [
+        {
+          "path": "registry/utils/clip-path-animation-variants/index.tsx",
+          "type": "registry:item",
+          "target": "components/systaliko-ui/utils/clip-path-animation-variants.tsx"
         }
       ]
     },
@@ -2366,6 +2650,19 @@
           "path": "registry/utils/transitions/index.tsx",
           "type": "registry:item",
           "target": "components/systaliko-ui/utils/transitions.tsx"
+        }
+      ]
+    },
+    {
+      "name": "use-dimensions",
+      "type": "registry:lib",
+      "title": "use dimensions hook",
+      "description": "use dimensions hook, Allow to get the dimensions of an element.",
+      "files": [
+        {
+          "path": "registry/utils/use-dimensions/index.ts",
+          "type": "registry:lib",
+          "target": "components/systaliko-ui/utils/use-dimensions.ts"
         }
       ]
     },

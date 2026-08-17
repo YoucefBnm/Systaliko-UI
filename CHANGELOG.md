@@ -11,10 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- ✨ **ai conversation loop** — AI-driven conversation loop component for streaming messages and interactive demos
-- ✨ **floating elements** — Floating decorative elements with motion and responsive placement utilities
-- ✨ **video section** — Reusable video section/hero with responsive controls, poster support, and autoplay handling
-- ✨ **animated border** — `animated-border` component for animated outlines and focus/hover states
+- ✨ **ai conversation loop** — ai conversation timeline, animates infinitely, to showcase your ai product.
+- ✨ **floating elements** — Collection of floating elements that animate infinitely and react to mouse movement.
+- ✨ **video section** — Demo showing animated video that expands on scroll.
+- ✨ **animated border** — `animated-border` Animated border rotates infinitely around content
 - ✨ **cursor trail** — Cursor trail effect component for interactive showcases and demos
 - ✨ **clip path animation variants** — New clip-path animation variants for reveal, masking, and transitions
 

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "clip-path-animation-variants-demo",
+  "title": "Use Animation Variants Demo",
+  "description": "Demo showing how to use clip path animation variants object.",
+  "dependencies": [
+    "motion"
+  ],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/clip-path-animation-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/utils/clip-path-animation-variants/index.tsx",
+      "content": "'use client';\n\nimport {\n  ClipPathAnimationConfig,\n  useSetClipPathAnimationConfig,\n  ClipPathAnimationSelector,\n} from '@/components/docs/clip-path-animation-config';\nimport { clip_path_animation_variants } from '@/components/systaliko-ui/utils/clip-path-animation-variants';\n\nimport { motion } from 'motion/react';\n\nexport const ClipPathAnimationVariantsDemo = () => {\n  return (\n    <ClipPathAnimationConfig>\n      <ClipPathAnimationVariantsContent />\n    </ClipPathAnimationConfig>\n  );\n};\n\nconst ClipPathAnimationVariantsContent = () => {\n  const { animation } = useSetClipPathAnimationConfig();\n  const clipPathAnimationVariants =\n    clip_path_animation_variants[animation || 'curtain-down'];\n\n  return (\n    <div className=\"relative flex  flex-col justify-between gap-8\">\n      <ClipPathAnimationSelector />\n\n      <div className=\"w-3xs mx-auto\">\n        <motion.img\n          alt=\"city\"\n          src=\"https://images.unsplash.com/photo-1581043067854-5762c5b94a42?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\"\n          width={403}\n          height={606}\n          key={animation}\n          variants={clipPathAnimationVariants}\n          transition={{ duration: 0.4, delay: 0.2, ease: 'easeInOut' }}\n          initial=\"hidden\"\n          whileInView=\"visible\"\n          className=\"w-full h-auto\"\n        />\n      </div>\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/clip-path-animation-variants-demo.tsx"
+    }
+  ],
+  "type": "registry:hook"
+}

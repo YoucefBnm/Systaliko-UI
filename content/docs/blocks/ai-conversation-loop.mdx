@@ -1,0 +1,143 @@
+---
+title: AI Conversation Loop
+description: Animated ai conversation loop component with orchestrated animations one process at a time, best to showcase your ai chat product.
+new: true
+---
+
+<ComponentPreview name="ai-conversation-loop-demo" />
+
+## Installation
+
+<ComponentInstallation name="ai-conversation-loop" />
+
+## Usage
+
+```tsx
+<AiConversationLoop className="space-y-6">
+  <div className="rounded-2xl rounded-tl-none border bg-input text-muted-foreground w-fit px-2.5 py-1 shadow-sm">
+    <UserMessage className="inline-block text-xs" text={USER_MESSAGE} />
+  </div>
+
+  <AiBlock>
+    <AiStatus>
+      <div className="flex flex-col gap-2">
+        <div className="mb-1 flex items-center gap-2 text-xs">
+          <SparklesIcon className="size-3 animate-pulse text-primary" />
+          <span className="shimmer-text">Scanning Knowledge Base...</span>
+        </div>
+      </div>
+    </AiStatus>
+    <AiSources className="flex gap-1 items-center flex-wrap">
+      <Badge
+        variant="outline"
+        className={`${badge_class} text-blue-600 border-blue-200 bg-blue-50`}
+      >
+        <FileTextIcon className="size-2" />
+        Docs: SSO Setup
+      </Badge>
+
+      <Badge
+        variant="outline"
+        className={`${badge_class} text-orange-400 border-orange-200 bg-orange-50`}
+      >
+        <FileTextIcon className="size-2" />
+        Guide: Enterprise
+      </Badge>
+    </AiSources>
+  </AiBlock>
+  <AiResult text={ANSWER_TEXT}>
+    <span className="text-xs text-muted-foreground">Confidence: 98%</span>
+    <Badge
+      variant="outline"
+      className={`${badge_class} text-green-600 border-green-200 bg-green-50`}
+    >
+      Verified Source
+    </Badge>
+  </AiResult>
+</AiConversationLoop>
+```
+
+## Props
+
+`AiConversationLoop`
+
+<TypeTable
+  type={{
+    userTiming: {
+      description: 'Your custom property description',
+      type: '{ pauseBeforeStart: number, thinking: number, sourcesStagger: number, pauseBeforeAnswer: number, holdComplete: number }',
+      required: false,
+      default: '{ pauseBeforeStart: 400, thinking: 1600, sourcesStagger: 450, pauseBeforeAnswer: 600, holdComplete: 3500 }',
+    },
+
+}}
+/>
+`UserMessage`
+
+<TypeTable
+  type={{
+    text: {
+      description: 'the text of the user message.',
+      type: 'string',
+      required: true,
+    },
+    speed: {
+      description: 'typing speed.',
+      type: 'number',
+      required: false,
+      default: '32',
+    },
+    startDelay: {
+      description: 'delay before typing starts.',
+      type: 'number',
+      required: false,
+      default: '0',
+    },
+    showCursor: {
+      description: 'show cursor.',
+      type: 'boolean',
+      required: false,
+      default: 'false',
+    },
+    onComplete: {
+      description: 'callback when typing completes.',
+      type: '() => void',
+      required: 'false',
+    },
+  }}
+/>
+
+`AiResult`
+
+<TypeTable
+  type={{
+    speed: {
+      description: 'typing speed.',
+      type: 'number',
+      required: false,
+      default: '32',
+    },
+    startDelay: {
+      description: 'delay before typing starts.',
+      type: 'number',
+      required: false,
+      default: '0',
+    },
+    showCursor: {
+      description: 'show cursor.',
+      type: 'boolean',
+      required: false,
+      default: 'false',
+    },
+    onComplete: {
+      description: 'callback when typing completes.',
+      type: '() => void',
+      required: false,
+    },
+    text: {
+      description: 'the text of the user message.',
+      type: 'string',
+      required: true,
+    },
+  }}
+/>

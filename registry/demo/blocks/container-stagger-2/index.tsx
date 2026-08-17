@@ -1,10 +1,10 @@
 'use client';
 import { ContainerStagger } from '@/registry/blocks/container-stagger';
-import { ANIMATION_VARIANTS } from '@/registry/utils/animation-variants';
+import { animation_variants } from '@/registry/utils/animation-variants';
 import { motion, MotionConfig } from 'motion/react';
 
+const animationVariants = animation_variants['opacity'];
 export function ContainerStagger2Demo() {
-  const animationVariants = ANIMATION_VARIANTS.default;
   return (
     <div className="p-8">
       <div className="h-dvh place-content-center place-items-center">
@@ -33,6 +33,10 @@ export function ContainerStagger2Demo() {
           <motion.div
             variants={animationVariants}
             className=" size-16 bg-yellow-500 rounded"
+          />
+          <motion.div
+            variants={animationVariants}
+            className=" size-16 bg-cyan-500 rounded"
           />
         </MotionConfig>
       </ContainerStagger>

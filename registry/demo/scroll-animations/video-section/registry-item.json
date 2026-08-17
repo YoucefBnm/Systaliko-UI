@@ -3,7 +3,7 @@
   "name": "video-section-demo",
   "type": "registry:block",
   "title": "Video section demo",
-  "description": "Reusable video section/hero with responsive controls, poster support, and autoplay handling.",
+  "description": "Demo showing animated video that expands on scroll.",
   "registryDependencies": [
     "https://systaliko-ui.vercel.app/r/scroll-animation",
     "https://systaliko-ui.vercel.app/r/button"

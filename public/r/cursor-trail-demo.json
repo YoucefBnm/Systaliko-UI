@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cursor-trail-demo",
+  "title": "Cursor Trail Demo",
+  "description": "Demo showing cursor trail component.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/cursor-trail"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/cursor-trail/index.tsx",
+      "content": "import { CursorTrail } from '@/components/systaliko-ui/components/cursor-trail';\nimport { PawPrintIcon } from 'lucide-react';\n\nexport function CursorTrailDemo() {\n  return (\n    <div className=\"flex flex-wrap gap-2 justify-center\">\n      <div className=\"overflow-hidden relative border bg-card text-card-foreground w-[200px] aspect-square grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1 justify-center text-center items-center\">\n        <CursorTrail pixelSize={24} fadeDuration={1500} className=\"size-full\">\n          <PawPrintIcon className=\"stroke-0 fill-current\" />\n        </CursorTrail>\n        <span className=\"inline text-2xl\">😺</span>\n      </div>\n\n      <div className=\"overflow-hidden relative border bg-card text-card-foreground w-[200px] aspect-square grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1 justify-center text-center items-center\">\n        <CursorTrail\n          pixelSize={14}\n          fadeDuration={500}\n          pixelClassName=\"bg-blue-700\"\n          className=\"size-full\"\n        />\n        <span className=\"inline text-2xl\">◾️</span>\n      </div>\n\n      <div className=\"overflow-hidden relative border bg-card text-card-foreground w-[200px] aspect-square grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1 justify-center text-center items-center\">\n        <CursorTrail\n          pixelSize={12}\n          fadeDuration={500}\n          pixelClassName=\"bg-current rounded-full\"\n          className=\"size-full aspect-square\"\n        />\n        <span className=\"inline text-2xl\">🛟</span>\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/cursor-trail.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

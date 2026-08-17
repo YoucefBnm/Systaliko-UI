@@ -6,18 +6,24 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/registry/shadcn/select';
-import { AnimationT } from '@/registry/utils/animation-variants';
+import {
+  AnimationT,
+  AnimationVariantsT,
+} from '@/registry/utils/animation-variants';
 import { createContext, useContext, useState } from 'react';
 import { StaggerDirection } from '@/registry/utils/set-stagger-direction';
 
-const animations: { value: AnimationT; label: string }[] = [
-  { value: 'default', label: 'Opacity' },
+const animations: { value: AnimationVariantsT; label: string }[] = [
+  { value: 'opacity', label: 'Opacity' },
   { value: 'blur', label: 'Blur' },
   { value: 'left', label: 'Slide from Left' },
   { value: 'right', label: 'Slide from Right' },
   { value: 'top', label: 'Slide from Top' },
   { value: 'bottom', label: 'Slide from Bottom' },
   { value: 'z', label: 'Scale' },
+  { value: 'rotateX', label: 'Rotate X' },
+  { value: 'rotateY', label: 'Rotate Y' },
+  { value: 'rotateZ', label: 'Rotate Z' },
 ];
 
 const staggerDirections: { value: StaggerDirection; label: string }[] = [
@@ -28,10 +34,10 @@ const staggerDirections: { value: StaggerDirection; label: string }[] = [
 ];
 
 type AnimationConfigContextType = {
-  animation: AnimationT | undefined;
+  animation: AnimationVariantsT | undefined;
   staggerValue: number;
   staggerDirection: StaggerDirection;
-  setAnimation: (value: AnimationT) => void;
+  setAnimation: (value: AnimationVariantsT) => void;
   setStaggerValue: (value: number) => void;
   setStaggerDirection: (value: StaggerDirection) => void;
 };
@@ -41,7 +47,7 @@ const AnimationConfigContext = createContext<
 >(undefined);
 
 export function AnimationConfig({ children }: { children: React.ReactNode }) {
-  const [animation, setAnimation] = useState<AnimationT>();
+  const [animation, setAnimation] = useState<AnimationVariantsT>();
   const [staggerValue, setStaggerValue] = useState<number>(0.02);
   const [staggerDirection, setStaggerDirection] =
     useState<StaggerDirection>('first');
@@ -79,7 +85,9 @@ export function AnimationSelector() {
       <label className="font-medium text-sm" htmlFor="animation-select">
         Select Animation
       </label>
-      <Select onValueChange={(value) => setAnimation(value as AnimationT)}>
+      <Select
+        onValueChange={(value) => setAnimation(value as AnimationVariantsT)}
+      >
         <SelectTrigger id="animation-select" className="w-[180px]">
           <SelectValue placeholder={'Opacity'} />
         </SelectTrigger>

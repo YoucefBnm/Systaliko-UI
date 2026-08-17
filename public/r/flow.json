@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "flow",
+  "title": "Flow",
+  "description": "flow component to display a flow/timeline.",
+  "dependencies": [
+    "@xyflow/react"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/flow/index.tsx",
+      "content": "'use client';\n\nexport function Flow() {\n  return <div>flow</div>;\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/flow.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

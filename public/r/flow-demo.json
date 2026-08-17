@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "flow-demo",
+  "title": "Flow Demo",
+  "description": "Demo showing flow component.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/flow"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/blocks/flow/index.tsx",
+      "content": "'use client';\nimport { Node, NodeProps, ReactFlow } from '@xyflow/react';\nimport '@xyflow/react/dist/style.css';\nimport { Handle, Position } from '@xyflow/react';\nimport {\n  ClientCard,\n  DevCard,\n  MemberCard,\n  TaskMainCard,\n  TaskSubCard,\n} from '@/components/systaliko-ui/blocks/flow-assets';\nimport React from 'react';\n\nconst CARD_COMPONENTS = {\n  client: ClientCard,\n  manager: MemberCard,\n} as const;\n\ntype CardType = keyof typeof CARD_COMPONENTS;\ntype WorkflowNodeProps = NodeProps<\n  Node<{ cardType: CardType }, 'workflowCard'>\n>;\nconst nodeTypes = {\n  workflowCard: WorkflowCardNode,\n};\n\nexport function WorkflowCardNode({ data }: WorkflowNodeProps) {\n  // 2. data.cardType is now strictly typed as \"client\" | \"manager\"\n  const Component = CARD_COMPONENTS[data.cardType];\n\n  if (!Component) return null;\n\n  return <Component />;\n}\n\nconst workflow_nodes: Node[] = [\n  {\n    id: 'workflow-client',\n    type: 'workflowCard',\n    position: { x: 100, y: 0 },\n    data: { cardType: 'client' },\n  },\n  {\n    id: 'workflow-manager',\n    type: 'workflowCard',\n    position: { x: 100, y: 100 },\n    data: { cardType: 'manager' },\n  },\n];\nconst workflow_edges = [\n  {\n    id: 'e1-2',\n    source: 'workflow-client',\n    target: 'workflow-manager',\n    style: { stroke: 'var(--border)', strokeWidth: 1 },\n  },\n];\n\nexport function FlowDemo() {\n  return (\n    <div className=\"min-h-screen place-content-center space-y-6 p-8\">\n      {/* <ClientCard />\n      <MemberCard />\n      <TaskMainCard />\n      <TaskSubCard />\n      <DevCard /> */}\n\n      <div className=\"border-y-dashed mx-auto h-[500px] w-full max-w-7xl border-y\">\n        <ReactFlow\n          nodes={workflow_nodes}\n          edges={workflow_edges}\n          nodeTypes={nodeTypes}\n          zoomOnScroll={false}\n          zoomOnPinch={false}\n          panOnScroll={false}\n          zoomOnDoubleClick={false}\n          proOptions={{ hideAttribution: true }}\n        />\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/flow.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

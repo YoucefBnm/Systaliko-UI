@@ -6,6 +6,7 @@ import {
   TextStaggerHoverActive,
   TextStaggerHoverHidden,
 } from '@/registry/text/text-stagger-hover';
+import { TextStaggerInterval } from '@/registry/text/text-stagger-interval';
 import { TextStaggerInview } from '@/registry/text/text-stagger-inview';
 import {
   BoxIcon,
@@ -59,12 +60,17 @@ export function Features() {
     <section className="py-12 px-8 min-h-screen">
       <div className="grid md:grid-cols-2 md:gap-8 xl:gap-12">
         <div className="md:sticky top-16 left-0 h-fit space-y-4">
-          <TextStaggerInview
-            className="text-2xl inline-block font-medium tracking-tight text-balance"
-            animation="blur"
-          >
-            Fully customizable and flexible components
-          </TextStaggerInview>
+          <h2 className="text-2xl font-medium tracking-tight">
+            Ready to ship{' '}
+            <span className="bg-secondary text-xl text-secondary-foreground w-32 -rotate-1 p-0.5 rounded text-center inline-block">
+              <TextStaggerInterval
+                words={['Components', 'Blocks', 'Templates']}
+                animation={'blur'}
+                staggerValue={0.05}
+                interval={3000}
+              />
+            </span>
+          </h2>
 
           <p className="text-balance text-muted-foreground">
             No <code>npm-install</code> a whole library install only the
@@ -99,7 +105,7 @@ export function Features() {
             <CardSticky
               key={feature.id}
               index={index + 5}
-              className="supports-[backdrop-blur]:bg-card/90 rounded w-4/5 border p-8  shadow backdrop-blur-md"
+              className="supports-[backdrop-blur]:bg-card/90 odd:rotate-2 rounded w-4/5 border px-8 py-10  shadow backdrop-blur-md"
             >
               <feature.icon className="justify-self-end size-6 stroke-[1.8]" />
               <h2 className="my-6 text-xl font-semibold tracking-tighter">

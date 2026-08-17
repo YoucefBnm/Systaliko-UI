@@ -3,7 +3,7 @@
   "name": "cursor-trail",
   "type": "registry:component",
   "title": "Cursor Trail",
-  "description": "Cursor trail effect component for interactive showcases and demos. Supports squares, bubbles, and image variants.",
+  "description": "Creates an effect where the mouse cursor leaves a trail. Supports squares, bubbles, and images variants.",
   "dependencies": ["motion"],
   "registryDependencies": ["https://systaliko-ui.vercel.app/r/use-dimensions"],
   "files": [

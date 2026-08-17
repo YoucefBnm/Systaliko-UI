@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "clip-path-animation-variants",
+  "title": "Animation Variants",
+  "description": "clip path animation variants, for your motion components, allows to animate component with clip path reveal animation.",
+  "files": [
+    {
+      "path": "registry/utils/clip-path-animation-variants/index.tsx",
+      "content": "export type ClipPathAnimationT =\n  | 'curtain-down'\n  | 'curtain-up'\n  | 'curtain-center-vertical'\n  | 'curtain-center-horizontal';\n\nexport const clip_path_animation_variants = {\n  'curtain-down': {\n    hidden: { clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)' },\n    visible: { clipPath: 'polygon(0 100%, 100% 100%, 100% 0, 0 0)' },\n  },\n  'curtain-up': {\n    hidden: { clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)' },\n    visible: { clipPath: 'polygon(0 100%, 100% 100%, 100% 0, 0 0)' },\n  },\n  'curtain-center-vertical': {\n    hidden: { clipPath: 'polygon(50% 100%, 50% 100%, 50% 0, 50% 0)' },\n    visible: { clipPath: 'polygon(0 100%, 100% 100%, 100% 0, 0 0)' },\n  },\n  'curtain-center-horizontal': {\n    hidden: { clipPath: 'polygon(0 50%, 100% 50%, 100% 50%, 0 50%)' },\n    visible: { clipPath: 'polygon(0 100%, 100% 100%, 100% 0, 0 0)' },\n  },\n} as const;\n",
+      "type": "registry:item",
+      "target": "components/systaliko-ui/utils/clip-path-animation-variants.tsx"
+    }
+  ],
+  "type": "registry:item"
+}

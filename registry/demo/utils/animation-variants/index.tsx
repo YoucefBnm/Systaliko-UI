@@ -5,7 +5,10 @@ import {
   AnimationSelector,
   useSetAnimationConfig,
 } from '@/components/docs/animation-config';
-import { ANIMATION_VARIANTS } from '@/registry/utils/animation-variants';
+import {
+  ANIMATION_VARIANTS,
+  animation_variants,
+} from '@/registry/utils/animation-variants';
 import { motion } from 'motion/react';
 
 export const AnimationVariantsDemo = () => {
@@ -18,7 +21,7 @@ export const AnimationVariantsDemo = () => {
 
 const AnimationVariantsDemoContent = () => {
   const { animation } = useSetAnimationConfig();
-  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];
+  const animationVariants = animation_variants[animation || 'opacity'];
 
   return (
     <div className="flex h-80 flex-col justify-between gap-8">

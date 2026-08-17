@@ -42,7 +42,7 @@ export function PreviewCard({
   return (
     <Link
       className={cn(
-        'group p-4 relative gap-4 rounded-xl overflow-hidden transition-all duration-300 bg-gradient-to-b from-card to-card border  before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-b before:from-primary/5 before:to-transparent before:opacity-0 before:transition-opacity before:duration-300 after:absolute after:inset-0 after:z-[-1] after:rounded-xl after:bg-card hover:border-border hover:shadow-lg hover:shadow-primary/5 hover:backdrop-blur-xl hover:bg-primary/2 before:hover:opacity-100 block',
+        'group block relative p-2 space-y-4 rounded-2xl bg-card text-card-foreground ring ring-ring/10 shadow-2xs',
         className,
       )}
       href={componentLink}
@@ -51,10 +51,10 @@ export function PreviewCard({
       title={title}
       {...props}
     >
-      <div className="rounded overflow-hidden border shadow">
+      <div className="w-full aspect-video place-content-center bg-muted rounded-xl p-1">
         <video
           ref={videoRef}
-          className="w-full inline-block align-middle bg-muted h-auto max-h-full object-contain"
+          className="rounded-lg border border-border/30"
           loop
           muted
           playsInline
@@ -63,17 +63,15 @@ export function PreviewCard({
           poster={thumbnail}
         />
       </div>
-      <div className="flex-1 flex flex-col p-4 space-y-1">
+      <div className="flex-1 flex flex-col p-2 space-y-1">
         <div className="flex items-center justify-between gap-2">
-          <h3 className="line-clamp-1 font-medium tracking-tight transition-colors duration-200 group-hover:text-primary">
-            {title}
-          </h3>
+          <h3 className="line-clamp-1 font-medium tracking-tight">{title}</h3>
           <div className="opacity-0 transition-opacity duration-200 group-hover:opacity-100">
             <ArrowUpRightIcon className="size-5" />
           </div>
         </div>
         {description && (
-          <p className="line-clamp-2 text-muted-foreground text-sm tracking-tighter">
+          <p className="line-clamp-2 text-muted-foreground text-xs text-balance">
             {description}
           </p>
         )}
@@ -84,7 +82,7 @@ export function PreviewCard({
 export function PreviewCardSkelton() {
   return (
     <div className="flex flex-col gap-4">
-      <Skeleton className="relative aspect-square w-full" />
+      <Skeleton className="relative aspect-video w-full" />
 
       <div className="flex-1 flex flex-col p-4 space-y-1">
         <Skeleton className="h-4 w-2/3" />

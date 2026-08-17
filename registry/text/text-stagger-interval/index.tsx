@@ -3,17 +3,17 @@ import * as React from 'react';
 
 import { AnimatePresence, motion, MotionConfig, Variants } from 'motion/react';
 import {
-  ANIMATION_VARIANTS,
-  AnimationT,
+  animation_variants,
+  AnimationVariantsT,
 } from '@/registry/utils/animation-variants';
 
 interface WordProps extends React.HTMLAttributes<HTMLSpanElement> {
-  animation?: AnimationT;
+  animation?: AnimationVariantsT;
 }
 
 export function WordStagger({ children, animation, ...props }: WordProps) {
   const characters = String(children).split('');
-  const animationVariants = ANIMATION_VARIANTS[animation || 'default'];
+  const animationVariants = animation_variants[animation || 'opacity'];
 
   return (
     <span className="inline-block text-nowrap" {...props}>
@@ -61,7 +61,7 @@ export interface TextStaggerIntervalProps extends React.ComponentProps<'span'> {
    * @default 0.03
    */
   staggerValue?: number;
-  animation?: AnimationT;
+  animation?: AnimationVariantsT;
   /**
    * Pause the interval while the user hovers over the element.
    * @default true

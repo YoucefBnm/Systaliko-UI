@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typing-text",
+  "title": "Typing Text",
+  "description": "Text with typing animation.",
+  "files": [
+    {
+      "path": "registry/text/typing-text/index.tsx",
+      "content": "'use client';\n\nimport * as React from 'react';\nimport { cn } from '@/lib/utils';\n\nexport interface TypingTextProps extends React.ComponentProps<'span'> {\n  text: string;\n  speed?: number;\n  startDelay?: number;\n  showCursor?: boolean;\n  onComplete?: () => void;\n}\n\nexport function TypingText({\n  text,\n  speed = 32,\n  startDelay = 0,\n  showCursor = true,\n  onComplete,\n  className,\n  ...props\n}: TypingTextProps) {\n  const [displayed, setDisplayed] = React.useState('');\n  const [isDone, setIsDone] = React.useState(false);\n  const onCompleteRef = React.useRef(onComplete);\n\n  React.useEffect(() => {\n    onCompleteRef.current = onComplete;\n  }, [onComplete]);\n\n  React.useEffect(() => {\n    setDisplayed('');\n    setIsDone(false);\n\n    let index = 0;\n    let interval: ReturnType<typeof setInterval> | undefined;\n\n    const startTimeout = setTimeout(() => {\n      interval = setInterval(() => {\n        index += 1;\n        setDisplayed(text.slice(0, index));\n\n        if (index >= text.length) {\n          if (interval) clearInterval(interval);\n          setIsDone(true);\n          onCompleteRef.current?.();\n        }\n      }, speed);\n    }, startDelay);\n\n    return () => {\n      clearTimeout(startTimeout);\n      if (interval) clearInterval(interval);\n    };\n  }, [text, speed, startDelay]);\n\n  return (\n    <span className={cn('inline', className)} {...props}>\n      {displayed}\n      {showCursor && !isDone && (\n        <span\n          aria-hidden\n          className=\"ml-0.5 inline-block h-[1em] w-px -translate-y-px animate-pulse bg-current align-middle\"\n        />\n      )}\n    </span>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/typing-text.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

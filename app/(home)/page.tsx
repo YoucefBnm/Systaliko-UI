@@ -7,9 +7,9 @@ import { Hero } from '@/components/sections/hero';
 import { Services } from '@/components/sections/services';
 import { getFeaturedComponents } from '@/lib/source';
 
-export default function HomePage() {
-  const featuredComponents = getFeaturedComponents();
+const featuredComponents = getFeaturedComponents();
 
+export default function HomePage() {
   return (
     <>
       <Header />

@@ -37,25 +37,11 @@ const featuredComponents: FeaturedComponentProps[] = [
     title: ' Abla Studio Template',
   },
   {
-    id: 'template-carecover',
-    componentLink: '/docs/templates/',
-    videoUrl: '/videos/carecover-preview.mp4',
-    thumbnail: '/videos/carecover-preview.png',
-    title: ' Carecover Template',
-  },
-  {
     id: 'template-portfolio',
     componentLink: '/docs/templates/portfolio',
     videoUrl: '/videos/portfolio-preview.mp4',
     thumbnail: '/videos/portfolio-preview.png',
     title: 'Portfolio Template',
-  },
-  {
-    id: 'template-motus',
-    componentLink: '/docs/templates/motus',
-    videoUrl: '/videos/motus-preview.mp4',
-    thumbnail: '/videos/motus-preview.png',
-    title: 'Motus Template',
   },
   {
     id: 'template-product-page',

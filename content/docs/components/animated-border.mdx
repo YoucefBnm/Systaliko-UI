@@ -1,0 +1,35 @@
+---
+title: Animated Border
+description: Create an animated border that moves infinitely around the element.
+new: true
+---
+
+<ComponentPreview name="animated-border-demo" />
+
+## Installation
+
+<ComponentInstallation name="animated-border" />
+
+## Usage
+
+```tsx
+<div className="rounded relative bg-card size-60  overflow-hidden">
+  <AnimatedBorder
+    color="#DE6449"
+    className="absolute inset-0  border border-[#DE6449]/20"
+  />
+</div>
+```
+
+## Props
+
+<TypeTable
+  type={{
+    color: {
+      description: 'color of the border beam.',
+      type: 'string',
+      required: false,
+      default: 'var(--primary)',
+    },
+  }}
+/>

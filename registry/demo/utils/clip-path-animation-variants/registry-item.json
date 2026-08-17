@@ -3,7 +3,7 @@
   "name": "clip-path-animation-variants-demo",
   "type": "registry:hook",
   "title": "Use Animation Variants Demo",
-  "description": "Demo showing clip-path animation variants for reveal, masking, and transitions.",
+  "description": "Demo showing how to use clip path animation variants object.",
   "dependencies": ["motion"],
   "registryDependencies": [
     "https://systaliko-ui.vercel.app/r/clip-path-animation-variants"

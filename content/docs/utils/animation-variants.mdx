@@ -1,8 +1,14 @@
 ---
 title: Animation Variants
-description: A hook to create animation variants with Motion, animates the transforms(top, bottom, left, right, z), opacity, and blur.
+description: Object of variant animations with Motion, animates the transforms(top, bottom, left, right, z), opacity, and blur.
+updated: true
 ---
 
+<Callout type="info">updated, added rotation animations.</Callout>
+<Callout type="warning">
+  ```AnimationT``` and ```ANIMATION_VARIANTS``` are ```deprecated``` use
+  ```animation_variants``` and ```AnimationVariantsT``` instead.
+</Callout>
 <ComponentPreview name="animation-variants-demo" />
 
 ## Installation
@@ -32,7 +38,7 @@ const animationVariants = useAnimationVariants('blur');
     animation: {
       description:
         'the animation property, whether animate transform, blur, or opacity if left undefined.',
-      type: 'left | right | top | bottom | z | blur | undefined',
+      type: 'left | right | top | bottom | z | blur | opacity | rotateX | rotateY | rotateZ',
       required: false,
       default: 'opacity',
     },

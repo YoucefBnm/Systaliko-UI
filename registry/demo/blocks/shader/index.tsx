@@ -8,9 +8,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
 
 export function ShaderDemo() {
-  const [color1, setColor1] = useState('#FBC2EB');
-  const [color2, setColor2] = useState('#A6C1EE');
-  const [color3, setColor3] = useState('#E6DEE9');
+  const [color1, setColor1] = useState('#7EBC89');
+  const [color2, setColor2] = useState('#5448C8');
+  const [color3, setColor3] = useState('#F26DF9');
   const [animate, setAnimate] = useState(true);
   const [intensity, setIntensity] = useState(1);
   const [density, setDensity] = useState(1);
@@ -36,7 +36,9 @@ export function ShaderDemo() {
           onClick={() => setIsOpen(!isOpen)}
           className="flex w-full items-center justify-between p-6 pb-4"
         >
-          <h3 className="text-lg font-semibold tracking-tight">Configuration</h3>
+          <h3 className="text-lg font-semibold tracking-tight">
+            Configuration
+          </h3>
           <motion.div
             animate={{ rotate: isOpen ? 0 : -90 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}

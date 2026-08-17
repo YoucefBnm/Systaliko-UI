@@ -11,7 +11,6 @@ import ShadcnIcon from '../icons/shadcn-icon';
 import MotionIcon from '../icons/motion-icon';
 import { Showcase } from './showcase';
 import { TextWavy } from '@/registry/text/text-wavy';
-import { Pulse } from '@/registry/components/pulse';
 import { LinkText } from '../link-text';
 import { Badge } from '@/registry/shadcn/badge';
 
@@ -51,13 +50,13 @@ export function Hero() {
       <ContainerStagger className="flex px-6 pt-12 flex-col items-center text-center justify-center space-y-6 min-h-96">
         <MotionConfig transition={{ duration: 0.3, ease: 'easeOut' }}>
           <motion.div variants={animationVariants}>
-            <Link className="flex items-center gap-1 py-0.5 px-1" href="/docs">
+            <Link className="flex items-center gap-1 py-0.5 " href="/docs">
               <Badge className="rounded-full text-[10px] shadow-sm shadow-black/15 ring-1 ring-ring/20 py-0 text-indigo-50 bg-indigo-500">
                 new
               </Badge>
               <TextWavy
-                className="font-bold"
-                text="Blocks and updates and updating enera template"
+                className="font-bold leading-[0.9]"
+                text="Release v1.0.0 added new 6 components and updated template"
                 fontWeights={[500, 800, 500]}
               />
             </Link>
@@ -65,19 +64,18 @@ export function Hero() {
 
           <motion.h1
             variants={animationVariants}
-            className="text-3xl md:text-4xl max-w-[35ch] font-medium tracking-tight text-balance bg-clip-text text-transparent bg-linear-to-br from-foreground/60 to-foreground "
+            className="text-3xl md:text-4xl max-w-[30ch] text-balance font-medium tracking-tighter"
           >
-            React UI Blocks, Templates & Components Copy Paste or Install via
+            React UI Blocks Templates & Components Copy Paste or Install via
             Shadcn
           </motion.h1>
 
           <motion.p
             variants={animationVariants}
-            className="text-balance text-sm"
+            className="text-balance text-sm mx-auto max-w-[55ch]"
           >
-            60+ free blocks, e-commerce components, and full-page templates
-            built with React, TypeScript, Tailwind CSS, and Motion. Copy-paste
-            into any project or install via the Shadcn CLI no extra
+            60+ free blocks built with React, TypeScript, Tailwind CSS, and
+            Motion. Copy paste or install via the Shadcn CLI no extra
             configuration.
           </motion.p>
 

@@ -3,7 +3,7 @@
   "name": "animated-border-demo",
   "type": "registry:ui",
   "title": "Animated Border Demo",
-  "description": "Demo showing animated border outlines and focus/hover states.",
+  "description": "Demo showing Animated border component.",
   "registryDependencies": ["https://systaliko-ui.vercel.app/r/animated-border"],
   "files": [
     {

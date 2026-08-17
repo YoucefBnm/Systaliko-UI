@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-border",
+  "title": "Animated Border",
+  "description": "Animated border rotates infinitely around content",
+  "files": [
+    {
+      "path": "registry/components/animated-border/index.tsx",
+      "content": "import { cn } from '@/lib/utils';\nimport React from 'react';\n\nexport function AnimatedBorder({\n  className,\n  style,\n  color = 'var(--primary)',\n  ...props\n}: React.ComponentProps<'div'> & { color?: string }) {\n  return (\n    <div\n      className={cn(\n        'pointer-events-none touch-none z-0 rounded-[inherit] border border-border/5 bg-transparent p-[1.5px]',\n        className,\n      )}\n      style={{\n        WebkitMask:\n          'linear-gradient(#000, #000) content-box, linear-gradient(#000, #000) border-box',\n        mask: 'linear-gradient(#000, #000) content-box, linear-gradient(#000, #000) border-box',\n        WebkitMaskComposite: 'xor',\n        maskComposite: 'exclude',\n        ...style,\n      }}\n      data-slot=\"animated-border\"\n      {...props}\n    >\n      <div className=\"absolute left-1/2 top-1/2 aspect-square w-[250%] -translate-x-1/2 -translate-y-1/2\">\n        <div\n          className=\"size-full animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0%,var(--color)_10%,transparent_20%)] will-change-transform\"\n          style={{ '--color': color } as React.CSSProperties}\n        />\n      </div>\n    </div>\n  );\n}\n",
+      "type": "registry:component",
+      "target": "components/systaliko-ui/animated-border.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

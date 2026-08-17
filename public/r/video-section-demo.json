@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "video-section-demo",
+  "title": "Video section demo",
+  "description": "Demo showing animated video that expands on scroll.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/scroll-animation",
+    "https://systaliko-ui.vercel.app/r/button"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/scroll-animations/video-section/index.tsx",
+      "content": "'use client';\n\nimport {\n  ScrollAnimation,\n  ScrollInset,\n  ScrollScale,\n  ScrollTranslateY,\n} from '@/components/systaliko-ui/scroll-animations/scroll-animation';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\n\nexport function VideoSectionDemo() {\n  return (\n    <ScrollAnimation\n      style={{\n        background:\n          'radial-gradient(40% 30% at 50% 50%, #0e19ae 0%, #0b1387 22.92%, #080f67 42.71%, #030526 88.54%)',\n      }}\n      className=\"min-h-screen bg-stone-900 px-6 py-10 text-slate-50 w-full\"\n      spacerClass=\"h-48\"\n    >\n      <ScrollTranslateY yRange={[0, 192]}>\n        <ScrollTranslateY yRange={[90, -16]} className=\"space-y-4 text-center\">\n          <h1 className=\"text-5xl font-medium tracking-tighter  md:text-6xl\">\n            Scroll & Roll\n          </h1>\n          <p className=\"mx-auto max-w-[42ch] text-slate-400 text-balance\">\n            for your next project, built with motion, for your hero or cta or\n            showcase section.\n          </p>\n        </ScrollTranslateY>\n\n        <ScrollInset\n          className=\"w-full h-fit mx-auto max-w-3xl \"\n          insetRangeY={[40, 0]}\n          insetXRange={[40, 0]}\n          roundednessRange={[999, 24]}\n        >\n          <ScrollScale inputRange={[0, 1]} scaleRange={[0.75, 1]}>\n            <video\n              src=\"https://videos.pexels.com/video-files/8566672/8566672-uhd_2560_1440_30fps.mp4\"\n              data-src=\"https://videos.pexels.com/video-files/8566672/8566672-uhd_2560_1440_30fps.mp4\"\n              className=\"relative z-10 size-auto max-h-full max-w-ful\"\n              autoPlay\n              muted\n              loop\n              playsInline\n            />\n          </ScrollScale>\n        </ScrollInset>\n        <ScrollTranslateY yRange={[-80, 16]} className=\"text-center\">\n          <Button\n            variant={'ghost'}\n            className=\" rounded-full border border-[#84cc16] bg-gray-950/10 px-4 py-2 shadow-[0px_4px_24px_#84cc16] transition-colors hover:bg-slate-50\"\n          >\n            Get Started\n          </Button>\n        </ScrollTranslateY>\n      </ScrollTranslateY>\n    </ScrollAnimation>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/video-section.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,55 @@
+---
+title: Cursor Trail
+description: Animates a cursor trail effect on hover, you can use anything as a trail.
+new: true
+---
+
+<ComponentPreview name="cursor-trail-demo" />
+
+## Installation
+
+<ComponentInstallation name="cursor-trail" />
+
+## Usage
+
+```tsx
+<div className="overflow-hidden relative border bg-[#59C9A5] text-card-foreground w-[200px] aspect-square grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1 justify-center text-center items-center">
+  <CursorTrail
+    pixelSize={20}
+    fadeDuration={500}
+    pixelClassName="bg-black "
+    className="size-full"
+  />
+  <span className="inline text-2xl">◾️</span>
+</div>
+```
+
+## Props
+
+<TypeTable
+  type={{
+    pixelSize: {
+      description: 'size of the trail single item.',
+      type: 'number',
+      required: false,
+      default: '20',
+    },
+    fadeDuration: {
+      description: 'the duration of the fade animation.',
+      type: 'number',
+      required: false,
+      default: '500',
+    },
+    delay: {
+      description: 'delay amount of the animation to start.',
+      type: 'number',
+      required: false,
+      default: '0',
+    },
+    pixelClassName: {
+      description: 'styles of the trail single item.',
+      type: 'string',
+      required: false,
+    },
+  }}
+/>

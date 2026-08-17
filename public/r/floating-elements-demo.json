@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "floating-elements-demo",
+  "title": "Floating Elements Demo",
+  "description": "Demo showing floating elements component.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/floating-elements"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/blocks/floating-elements/index.tsx",
+      "content": "'use client';\n\nimport {\n  FloatingElementItem,\n  FloatingElements,\n} from '@/components/systaliko-ui/blocks/floating-elements';\nimport { Label } from '@/components/systaliko-ui/shadcn/label';\nimport { Slider } from '@/components/systaliko-ui/shadcn/slider';\nimport { useState } from 'react';\n\nconst ELEMENTS = [\n  { id: 'prox-1', className: 'bg-red-500 top-[10%] left-[10%]' },\n  { id: 'prox-2', className: 'bg-teal-500 top-[20%] right-[8%]' },\n  { id: 'prox-3', className: 'bg-blue-500 top-[80%] left-[10%]' },\n  { id: 'prox-4', className: 'bg-green-500 bottom-[10%] right-[10%]' },\n  { id: 'prox-5', className: 'bg-yellow-500 top-[5%] left-[30%]' },\n  { id: 'prox-6', className: 'bg-violet-500 top-[5%] right-[30%]' },\n  { id: 'prox-7', className: 'bg-emerald-500 bottom-[8%] left-[25%]' },\n];\n\nexport function FloatingElementsDemo() {\n  const [intensity, setIntensity] = useState(50);\n  const [stiffness, setStiffness] = useState(150);\n  const [damping, setDamping] = useState(15);\n\n  return (\n    <div className=\"flex h-screen flex-col\">\n      <div className=\"border-b bg-background/80 backdrop-blur-sm p-4 z-10\">\n        <div className=\"flex flex-wrap items-end gap-6\">\n          <div className=\"flex flex-col gap-2 min-w-[180px]\">\n            <Label className=\"text-sm font-medium\">\n              Intensity: {intensity}px\n            </Label>\n            <Slider\n              value={[intensity]}\n              onValueChange={([v]) => setIntensity(v)}\n              min={5}\n              max={150}\n              step={1}\n            />\n          </div>\n\n          <div className=\"flex flex-col gap-2 min-w-[180px]\">\n            <Label className=\"text-sm font-medium\">\n              Stiffness: {stiffness}\n            </Label>\n            <Slider\n              value={[stiffness]}\n              onValueChange={([v]) => setStiffness(v)}\n              min={20}\n              max={500}\n              step={10}\n            />\n          </div>\n\n          <div className=\"flex flex-col gap-2 min-w-[180px]\">\n            <Label className=\"text-sm font-medium\">Damping: {damping}</Label>\n            <Slider\n              value={[damping]}\n              onValueChange={([v]) => setDamping(v)}\n              min={1}\n              max={60}\n              step={1}\n            />\n          </div>\n        </div>\n      </div>\n\n      <FloatingElements className=\"bg-secondary flex-1\">\n        {ELEMENTS.map((el) => (\n          <FloatingElementItem\n            className={`absolute rounded shadow-[4px_4px_#000] size-20 ${el.className}`}\n            key={el.id}\n            intensity={intensity}\n            stiffness={stiffness}\n            damping={damping}\n          />\n        ))}\n      </FloatingElements>\n    </div>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/floating-elements.tsx"
+    }
+  ],
+  "type": "registry:block"
+}

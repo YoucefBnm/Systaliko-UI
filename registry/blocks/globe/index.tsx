@@ -14,7 +14,10 @@ export function GlobeGlow({
 }: React.ComponentProps<'div'>) {
   return (
     <div
-      className={cn('absolute inset-0 rounded-full blur-3xl', className)}
+      className={cn(
+        'absolute inset-0 rounded-full blur-3xl pointer-events-none',
+        className,
+      )}
       {...props}
     />
   );

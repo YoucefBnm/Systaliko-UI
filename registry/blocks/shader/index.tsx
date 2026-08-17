@@ -1,36 +1,78 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+/**
+ * shader.tsx
+ *
+ * Two named exports — import only what you use (tree-shaking friendly):
+ *
+ *   <GradientShader />   — animated flowing gradient (WebGL2 quad)
+ *   <HurricaneShader />  — particle spiral / hurricane effect (WebGL2 points)
+ *
+ * Shared base props:
+ *   colors    [ShaderColor, ShaderColor, ShaderColor]
+ *             hex "#ff0000" | rgb "rgb(255,0,0)" | CSS var "var(--brand)"
+ *   intensity number  0–2, default 1
+ *             Gradient → wave amplitude + noise brightness
+ *             Hurricane → particle glow size
+ *   density   number  0–2, default 1
+ *             Gradient → noise grain frequency
+ *             Hurricane → particle count multiplier
+ *
+ * Variant-specific props are documented on each interface below.
+ */
+
 import React from 'react';
+
+// ─────────────────────────────────────────────────────────────
+// Types
+// ─────────────────────────────────────────────────────────────
+
+/** Any valid color string: hex "#ff0080", rgb "rgb(255,0,128)", or CSS var "var(--color-brand)" */
 export type ShaderColor = string;
 
 interface BaseShaderProps extends React.ComponentPropsWithRef<'canvas'> {
   colors?: [ShaderColor, ShaderColor, ShaderColor];
+  /** Scales wave amplitude / particle glow. Range 0–2, default 1. */
   intensity?: number;
+  /** Scales noise grain frequency / particle count. Range 0–2, default 1. */
   density?: number;
   className?: string;
 }
 
-export interface GradientShaderProps extends BaseShaderProps {
+export interface ShaderGradientProps extends BaseShaderProps {
+  /** Continuously animate the gradient. @default false */
   animate?: boolean;
 }
 
-export interface HurricaneShaderProps extends BaseShaderProps {
+export interface ShaderHurricaneProps extends BaseShaderProps {
+  /** Background fill color (supports same formats as `colors`). @default "#0a0a0a" */
   background?: ShaderColor;
+  /** Animation playback speed multiplier. Range 0–3, default 1. */
   speed?: number;
 }
 
+// ─────────────────────────────────────────────────────────────
+// Shared WebGL utilities
+// ─────────────────────────────────────────────────────────────
+
+/**
+ * Resolve a ShaderColor to a normalized [r, g, b] tuple (each 0–1).
+ * Supports hex, rgb/rgba strings, and CSS custom properties.
+ */
 function resolveColor(
   raw: string,
   contextEl: Element,
 ): [number, number, number] {
   let color = raw.trim();
 
+  // Resolve CSS custom properties at runtime
   if (color.startsWith('var(')) {
     const varName = color.slice(4, -1).trim();
     color = getComputedStyle(contextEl).getPropertyValue(varName).trim();
   }
 
+  // rgb(r, g, b) / rgba(r, g, b, a)
   const rgbMatch = color.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);
   if (rgbMatch) {
     return [
@@ -40,6 +82,7 @@ function resolveColor(
     ];
   }
 
+  // Hex — 3- or 6-digit
   const hex = color.replace('#', '');
   const full =
     hex.length === 3
@@ -85,6 +128,7 @@ function linkProgram(
   gl.attachShader(prog, vs);
   gl.attachShader(prog, fs);
   gl.linkProgram(prog);
+  // Shaders are now part of the program; safe to free
   gl.deleteShader(vs);
   gl.deleteShader(fs);
   if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
@@ -95,7 +139,12 @@ function linkProgram(
   return prog;
 }
 
+// Full-screen quad (two triangles) — reused by both shaders
 const QUAD = new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]);
+
+// ─────────────────────────────────────────────────────────────
+// GradientShader — GLSL sources
+// ─────────────────────────────────────────────────────────────
 
 const GRADIENT_VS = /* glsl */ `#version 300 es
 in vec4 a_position;
@@ -209,6 +258,10 @@ void main() {
 }
 `;
 
+// ─────────────────────────────────────────────────────────────
+// ShaderGradient component
+// ─────────────────────────────────────────────────────────────
+
 const DEFAULT_GRADIENT_COLORS: [string, string, string] = [
   '#8C59D9', // soft purple
   '#D973A6', // soft pink
@@ -217,14 +270,15 @@ const DEFAULT_GRADIENT_COLORS: [string, string, string] = [
 
 export function ShaderGradient({
   colors = DEFAULT_GRADIENT_COLORS,
-  animate = true,
+  animate = false,
   intensity = 1,
   density = 1,
   className,
   ...props
-}: GradientShaderProps) {
+}: ShaderGradientProps) {
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
 
+  // Clamp so uniforms never go negative (avoids shader surprises)
   const safeIntensity = Math.max(0, intensity);
   const safeDensity = Math.max(0.01, density);
 
@@ -238,7 +292,7 @@ export function ShaderGradient({
       powerPreference: 'high-performance',
     });
     if (!gl) {
-      console.error('[GradientShader] WebGL2 not supported');
+      console.error('[ShaderGradient] WebGL2 not supported');
       return;
     }
 
@@ -246,6 +300,7 @@ export function ShaderGradient({
     if (!program) return;
     gl.useProgram(program);
 
+    // Geometry
     const posLoc = gl.getAttribLocation(program, 'a_position');
     const buf = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, buf);
@@ -255,6 +310,7 @@ export function ShaderGradient({
     gl.enableVertexAttribArray(posLoc);
     gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
 
+    // Uniform locations
     const uResolution = gl.getUniformLocation(program, 'u_resolution');
     const uTime = gl.getUniformLocation(program, 'u_time');
     const uColor1 = gl.getUniformLocation(program, 'u_color1');
@@ -263,6 +319,7 @@ export function ShaderGradient({
     const uIntensity = gl.getUniformLocation(program, 'u_intensity');
     const uDensity = gl.getUniformLocation(program, 'u_density');
 
+    // Upload colors (resolved against the canvas element for CSS-var support)
     const [c1, c2, c3] = colors.map((c) => resolveColor(c, canvas));
     gl.uniform3f(uColor1, ...c1);
     gl.uniform3f(uColor2, ...c2);
@@ -270,6 +327,7 @@ export function ShaderGradient({
     gl.uniform1f(uIntensity, safeIntensity);
     gl.uniform1f(uDensity, safeDensity);
 
+    // Resize
     const handleResize = () => {
       const dpr = window.devicePixelRatio || 1;
       const w = Math.floor(canvas.clientWidth * dpr);
@@ -325,6 +383,10 @@ export function ShaderGradient({
     />
   );
 }
+
+// ─────────────────────────────────────────────────────────────
+// ShaderHurricane — GLSL sources
+// ─────────────────────────────────────────────────────────────
 
 const PARTICLE_VS = /* glsl */ `#version 300 es
 precision highp float;
@@ -383,6 +445,10 @@ uniform vec3 u_background;
 out vec4 fragColor;
 void main() { fragColor = vec4(u_background, 0.25); }
 `;
+
+// ─────────────────────────────────────────────────────────────
+// Particle class (CPU simulation)
+// ─────────────────────────────────────────────────────────────
 
 class Particle {
   x = 0;
@@ -448,12 +514,17 @@ class Particle {
   }
 }
 
+// ─────────────────────────────────────────────────────────────
+// ShaderHurricane component
+// ─────────────────────────────────────────────────────────────
+
 const DEFAULT_HURRICANE_COLORS: [string, string, string] = [
   '#00f2fe',
   '#4facfe',
   '#ffd700',
 ];
 const DEFAULT_BACKGROUND = '#0a0a0a';
+/** Base particle count before density scaling */
 const BASE_PARTICLE_COUNT = 100;
 
 export function ShaderHurricane({
@@ -464,7 +535,7 @@ export function ShaderHurricane({
   speed = 0.2,
   className,
   ...props
-}: HurricaneShaderProps) {
+}: ShaderHurricaneProps) {
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
 
   const safeIntensity = Math.max(0, intensity);
@@ -483,7 +554,7 @@ export function ShaderHurricane({
       powerPreference: 'high-performance',
     });
     if (!gl) {
-      console.error('[HurricaneShader] WebGL2 not supported');
+      console.error('[ShaderHurricane] WebGL2 not supported');
       return;
     }
 
@@ -491,6 +562,7 @@ export function ShaderHurricane({
     const fadeProg = linkProgram(gl, FADE_VS, FADE_FS);
     if (!particleProg || !fadeProg) return;
 
+    // Attribute / uniform locations
     const pLoc = {
       position: gl.getAttribLocation(particleProg, 'a_position'),
       color: gl.getAttribLocation(particleProg, 'a_color'),
@@ -504,10 +576,12 @@ export function ShaderHurricane({
       background: gl.getUniformLocation(fadeProg, 'u_background'),
     };
 
+    // Full-screen quad buffer (used by fade pass)
     const quadBuf = gl.createBuffer()!;
     gl.bindBuffer(gl.ARRAY_BUFFER, quadBuf);
     gl.bufferData(gl.ARRAY_BUFFER, QUAD, gl.STATIC_DRAW);
 
+    // Resolve colors once (CSS vars need the DOM element)
     const resolvedColors = colors.map((c) => resolveColor(c, canvas)) as [
       number,
       number,
@@ -515,6 +589,8 @@ export function ShaderHurricane({
     ][];
 
     const bgColor = resolveColor(background, canvas);
+
+    // Particle count driven by density
     const isMobile = window.innerWidth < 768;
     const baseCount = isMobile ? BASE_PARTICLE_COUNT / 2 : BASE_PARTICLE_COUNT;
     const particleCount = Math.round(baseCount * safeDensity);
@@ -531,6 +607,7 @@ export function ShaderHurricane({
         ),
     );
 
+    // GPU buffer: 7 floats per particle [x, y, r, g, b, size, alpha]
     const STRIDE = 7;
     const particleData = new Float32Array(particleCount * STRIDE);
     const particleBuf = gl.createBuffer()!;
@@ -554,6 +631,7 @@ export function ShaderHurricane({
     ro.observe(canvas);
     handleResize();
 
+    // Scroll velocity for reactive boost
     const scroll = { velocity: 0 };
     let lastScrollY = window.scrollY;
     const onScroll = () => {
@@ -600,6 +678,7 @@ export function ShaderHurricane({
         particleData[off + 6] = alpha;
       }
 
+      // ── Fade pass (darkens previous frame for trails) ──
       gl.useProgram(fadeProg);
       gl.uniform3f(fLoc.background, bgColor[0], bgColor[1], bgColor[2]);
       gl.bindBuffer(gl.ARRAY_BUFFER, quadBuf);
@@ -609,6 +688,7 @@ export function ShaderHurricane({
       gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
       gl.drawArrays(gl.TRIANGLES, 0, 6);
 
+      // ── Particle pass ──
       gl.useProgram(particleProg);
       gl.bindBuffer(gl.ARRAY_BUFFER, particleBuf);
       gl.bufferSubData(gl.ARRAY_BUFFER, 0, particleData);
@@ -626,6 +706,7 @@ export function ShaderHurricane({
       gl.uniform2f(pLoc.resolution, width, height);
       gl.uniform1f(pLoc.dpr, Math.min(window.devicePixelRatio || 1, 2));
 
+      // Pre-multiplied alpha — allows correct blending over any background
       gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
       gl.drawArrays(gl.POINTS, 0, particleCount);
 

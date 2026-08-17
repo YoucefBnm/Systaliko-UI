@@ -1,0 +1,102 @@
+---
+title: Floating Elements
+description: Floating elements in parallax, interact with mouse movement.
+new: true
+---
+
+<ComponentPreview name="floating-elements-demo" />
+## Examples `<InfiniteFloatingItem />`
+<ComponentPreview name="floating-elements-infinite-demo" />
+## Installation
+
+<ComponentInstallation name="floating-elements" />
+
+## Usage
+
+```tsx
+<FloatingElements className="bg-secondary flex-1">
+  {ELEMENTS.map((el) => (
+    <InfiniteFloatingItem
+      className={`absolute rounded ring ring-ring/20 shadow-2xs size-20 ${el.className}`}
+      key={el.id}
+      depth={depth}
+      amplitude={amplitude}
+      speed={speed}
+      phase={el.phase}
+      stiffness={stiffness}
+      damping={damping}
+    />
+  ))}
+</FloatingElements>
+```
+
+## Props
+
+`FloatingElementItem`
+
+<TypeTable
+  type={{
+    intensity: {
+      description:
+        'Maximum pixel displacement when the cursor is right on top.',
+      type: 'number',
+      required: false,
+      default: '50',
+    },
+    stiffness: {
+      description:
+        'how tightly the cursor snaps or pulls toward your actual position',
+      type: 'number',
+      required: false,
+      default: '150',
+    },
+    damping: {
+      description: 'Smooths the jump from one point to another.',
+      type: 'number',
+      required: false,
+      default: '15',
+    },
+  }}
+/>
+`InfiniteFloatingItem`
+
+<TypeTable
+  type={{
+    text: {
+      description: 'Parallax depth factor. Higher = more mouse response.',
+      type: 'number',
+      required: false,
+      default: '0.03',
+    },
+    amplitude: {
+      description: 'Amplitude of the infinite bob in px.',
+      type: 'number',
+      required: false,
+      default: '12',
+    },
+    speed: {
+      description: 'Speed of the infinite bob (radians/sec)',
+      type: 'number',
+      required: false,
+      default: '1',
+    },
+    phase: {
+      description: 'Phase offset in radians so items don’t move in unison.',
+      type: 'number',
+      required: false,
+      default: '0',
+    },
+    stiffness: {
+      description: 'Spring stiffness for parallax response.',
+      type: 'number',
+      required: false,
+      default: '80',
+    },
+    damping: {
+      description: 'Spring damping for parallax response.',
+      type: 'number',
+      required: false,
+      default: '20',
+    },
+  }}
+/>

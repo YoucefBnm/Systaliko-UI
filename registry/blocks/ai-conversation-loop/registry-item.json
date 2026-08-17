@@ -3,7 +3,7 @@
   "name": "ai-conversation-loop",
   "type": "registry:block",
   "title": "Ai Conversation Loop",
-  "description": "Showcasing ai conversation timeline, animates infinitely, to showcase your ai product.",
+  "description": "ai conversation timeline, animates infinitely, to showcase your ai product.",
   "dependencies": ["motion"],
   "registryDependencies": ["https://systaliko-ui.vercel.app/r/typing-text"],
   "files": [

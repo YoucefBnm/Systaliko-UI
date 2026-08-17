@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-border-demo",
+  "title": "Animated Border Demo",
+  "description": "Demo showing Animated border component.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/animated-border"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/components/animated-border/index.tsx",
+      "content": "import { AnimatedBorder } from '@/components/systaliko-ui/components/animated-border';\nimport { Button } from '@/components/systaliko-ui/shadcn/button';\n\nexport function AnimatedBorderDemo() {\n  return (\n    <div className=\"flex justify-center gap-8 flex-wrap\">\n      <div className=\"rounded relative bg-card shadow-2xs ring ring-ring/10 size-60  overflow-hidden\">\n        <AnimatedBorder\n          color=\"#DE6449\"\n          className=\"absolute inset-0  border border-[#DE6449]/20\"\n        />\n      </div>\n\n      <Button variant=\"outline\" className=\"relative\">\n        <AnimatedBorder\n          color=\"#791E94\"\n          className=\"p-0 absolute -inset-px  border border-[#791E94]/10\"\n        />\n        Get Started\n      </Button>\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/animated-border-demo.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,37 @@
+---
+title: Clip Path Animation Variants
+description: Object to animate with clip path reveal for Motion.
+new: true
+---
+
+<ComponentPreview name="clip-path-animation-variants-demo" />
+
+## Installation
+
+<ComponentInstallation name="clip-path-animation-variants" />
+
+## Usage
+
+```tsx
+const clipPathVariants = clip_path_animation_variants['curtain-down'];
+<motion.div
+  variants={clipPathVariants}
+  transition={{ duration: 0.3, delay: 0.2, ease: 'easeInOut' }}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+/>;
+```
+
+## Props
+
+<TypeTable
+  type={{
+    animation: {
+      description:
+        'the animation property, in which direction to reveal the clip path.',
+      type: 'curtain-down | curtain-up | curtain-center-vertical | curtain-center-horizontal',
+      required: true,
+    },
+  }}
+/>

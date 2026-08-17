@@ -3,7 +3,7 @@
   "name": "cursor-trail-demo",
   "type": "registry:block",
   "title": "Cursor Trail Demo",
-  "description": "Demo showing cursor trail effect for interactive showcases and demos.",
+  "description": "Demo showing cursor trail component.",
   "registryDependencies": ["https://systaliko-ui.vercel.app/r/cursor-trail"],
   "files": [
     {

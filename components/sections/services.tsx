@@ -136,11 +136,11 @@ function ServiceCta() {
 export function Services() {
   return (
     <section
-      className="bg-primary text-primary-foreground mt-10 py-12 px-8"
+      className="max-w-7xl bg-primary ring shadow text-primary-foreground my-12 mx-8 p-4 rounded-3xl"
       id="services"
       aria-label="Freelance Services"
     >
-      <div className="max-w-7xl mx-auto lg:grid lg:grid-cols-8 lg:grid-rows-4 bg-border/20 dark:bg-secondary/20 gap-px p-px">
+      <div className="lg:grid lg:grid-cols-8 lg:grid-rows-4 bg-border/20 rounded-b-xl dark:bg-secondary/20 gap-px p-px">
         {SERVICES.map((service, index) => (
           <ServiceCard
             className={clsx(
