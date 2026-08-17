@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "video-section-demo",
+  "type": "registry:block",
+  "title": "Video section demo",
+  "description": "Reusable video section/hero with responsive controls, poster support, and autoplay handling.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/scroll-animation",
+    "https://systaliko-ui.vercel.app/r/button"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/scroll-animations/video-section/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/video-section.tsx"
+    }
+  ]
+}

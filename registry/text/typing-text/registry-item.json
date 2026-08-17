@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "typing-text",
+  "type": "registry:ui",
+  "title": "Typing Text",
+  "description": "Text with typing animation.",
+  "files": [
+    {
+      "path": "registry/text/typing-text/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/typing-text.tsx"
+    }
+  ]
+}

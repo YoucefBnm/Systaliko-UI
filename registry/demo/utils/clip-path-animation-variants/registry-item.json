@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "clip-path-animation-variants-demo",
+  "type": "registry:hook",
+  "title": "Use Animation Variants Demo",
+  "description": "Demo showing clip-path animation variants for reveal, masking, and transitions.",
+  "dependencies": ["motion"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/clip-path-animation-variants"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/utils/clip-path-animation-variants/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/clip-path-animation-variants-demo.tsx"
+    }
+  ]
+}

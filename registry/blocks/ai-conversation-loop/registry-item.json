@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-conversation-loop",
+  "type": "registry:block",
+  "title": "Ai Conversation Loop",
+  "description": "Showcasing ai conversation timeline, animates infinitely, to showcase your ai product.",
+  "dependencies": ["motion"],
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/typing-text"],
+  "files": [
+    {
+      "path": "registry/blocks/ai-conversation-loop/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/ai-conversation-loop.tsx"
+    }
+  ]
+}

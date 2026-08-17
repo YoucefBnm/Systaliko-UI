@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ai-conversation-loop-demo",
+  "type": "registry:block",
+  "title": "Ai conversation loop Demo",
+  "description": "Demo showing ai conversation loop component.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/ai-conversation-loop"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/blocks/ai-conversation-loop/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/ai-conversation-loop.tsx"
+    }
+  ]
+}

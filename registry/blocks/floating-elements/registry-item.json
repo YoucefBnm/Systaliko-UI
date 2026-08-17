@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "floating-elements",
+  "type": "registry:block",
+  "title": "Floating Elements",
+  "description": "Collection of floating elements that animate infinitely and react to mouse movement.",
+  "dependencies": ["motion"],
+  "files": [
+    {
+      "path": "registry/blocks/floating-elements/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/floating-elements.tsx"
+    }
+  ]
+}

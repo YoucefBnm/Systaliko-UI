@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "flow-assets",
+  "type": "registry:block",
+  "title": "Floww Assets",
+  "description": "assets and static data for flow component.",
+  "files": [
+    {
+      "path": "registry/blocks/flow-assets/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/flow-assets.tsx"
+    }
+  ]
+}

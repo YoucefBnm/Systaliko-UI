@@ -4,7 +4,10 @@
   "type": "registry:block",
   "title": "Globe Demo",
   "description": "Demo showing Globe component.",
-  "registryDependencies": ["https://systaliko-ui.vercel.app/r/globe"],
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/globe",
+    "https://systaliko-ui.vercel.app/r/tooltip"
+  ],
   "files": [
     {
       "path": "registry/demo/blocks/globe/index.tsx",

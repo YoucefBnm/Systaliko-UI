@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "scatter-deck-demo",
+  "type": "registry:ui",
+  "title": "Scatter Deck Demo",
+  "description": "Demo showing interactive stack of cards pile.",
+  "registryDependencies": ["systaliko-ui.vercel.app/r/scatter-deck"],
+  "files": [
+    {
+      "path": "registry/demo/cards/scatter-deck/index.tsx",
+      "type": "registry:ui",
+      "target": "components/systaliko-ui/demo/cards/scatter-deck.tsx"
+    }
+  ]
+}

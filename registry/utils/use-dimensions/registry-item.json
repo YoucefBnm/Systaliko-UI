@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "use-dimensions",
+  "type": "registry:lib",
+  "title": "use dimensions hook",
+  "description": "use dimensions hook, Allow to get the dimensions of an element.",
+  "files": [
+    {
+      "path": "registry/utils/use-dimensions/index.ts",
+      "type": "registry:lib",
+      "target": "components/systaliko-ui/utils/use-dimensions.ts"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "cursor-trail",
+  "type": "registry:component",
+  "title": "Cursor Trail",
+  "description": "Cursor trail effect component for interactive showcases and demos. Supports squares, bubbles, and image variants.",
+  "dependencies": ["motion"],
+  "registryDependencies": ["https://systaliko-ui.vercel.app/r/use-dimensions"],
+  "files": [
+    {
+      "path": "registry/components/cursor-trail/index.tsx",
+      "type": "registry:component",
+      "target": "components/systaliko-ui/cursor-trail.tsx"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip",
+  "type": "registry:ui",
+  "title": "tooltip",
+  "description": "tooltip component with variants.",
+  "files": [
+    {
+      "path": "registry/shadcn/tooltip/index.tsx",
+      "type": "registry:ui",
+      "target": "components/tooltip.tsx"
+    }
+  ]
+}

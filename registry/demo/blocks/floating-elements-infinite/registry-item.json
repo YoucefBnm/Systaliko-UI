@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "floating-elements-infinite-demo",
+  "type": "registry:block",
+  "title": "Floating Elements Infinite Demo",
+  "description": "Demo showing infinite floating elements component.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/floating-elements"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/blocks/floating-elements-infinite/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/floating-elements-infinite.tsx"
+    }
+  ]
+}

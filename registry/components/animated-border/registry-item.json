@@ -1,0 +1,14 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "animated-border",
+  "type": "registry:component",
+  "title": "Animated Border",
+  "description": "Animated border component for animated outlines and focus/hover states.",
+  "files": [
+    {
+      "path": "registry/components/animated-border/index.tsx",
+      "type": "registry:component",
+      "target": "components/systaliko-ui/animated-border.tsx"
+    }
+  ]
+}
