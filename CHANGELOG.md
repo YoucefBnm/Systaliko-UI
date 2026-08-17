@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-08-17
+
+### Added
+
+- ✨ **ai conversation loop** — AI-driven conversation loop component for streaming messages and interactive demos
+- ✨ **floating elements** — Floating decorative elements with motion and responsive placement utilities
+- ✨ **video section** — Reusable video section/hero with responsive controls, poster support, and autoplay handling
+- ✨ **animated border** — `animated-border` component for animated outlines and focus/hover states
+- ✨ **cursor trail** — Cursor trail effect component for interactive showcases and demos
+- ✨ **clip path animation variants** — New clip-path animation variants for reveal, masking, and transitions
+
+### Changed
+
+- 🔄 **animation variants** — Updated variant utilities and timing defaults to improve consistency across components
+- 🔄 **cognify-ai-template** — Integrated new components, updated layouts, and refined styles
+
 ## [0.6.0] - 2026-05-11
 
 ### Added
@@ -143,7 +159,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Documentation site with Fumadocs
 - Three template projects: Veo, Alba Studio, and Motus Studio
 
-[Unreleased]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.6.0...HEAD
+[Unreleased]: https://github.com/YoucefBnm/Systaliko-UI/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.6.0...v1.0.0
 [0.6.0]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.5.1...v0.6.0
 [0.5.1]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/YoucefBnm/Systaliko-UI/compare/v0.4.0...v0.5.0
