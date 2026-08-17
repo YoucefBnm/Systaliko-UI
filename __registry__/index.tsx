@@ -2448,44 +2448,6 @@ export const index: Record<string, any> = {
     })(),
     command: '@systaliko-ui/hover-preview-demo',
   },
-  'scatter-deck-demo': {
-    name: 'scatter-deck-demo',
-    description: 'Demo showing interactive stack of cards pile.',
-    type: 'registry:ui',
-    dependencies: undefined,
-    devDependencies: undefined,
-    registryDependencies: ['systaliko-ui.vercel.app/r/scatter-deck'],
-    files: [
-      {
-        path: 'registry/demo/cards/scatter-deck/index.tsx',
-        type: 'registry:ui',
-        target: 'components/systaliko-ui/demo/cards/scatter-deck.tsx',
-        content:
-          '\'use client\';\n\nimport { motion } from \'motion/react\';\n\nexport function ScatterDeck() {\n  return (\n    <div className="p-6 place-content-center h-screen">\n      <div className="flex">\n        <motion.div\n          className="bg-[#B4654A]  w-[240px] text-center place-content-center aspect-[9/10] rounded border"\n          style={{\n            transform: \'translate(-3.2%, 8.6%) rotate(-5deg)\',\n          }}\n        >\n          card 1\n        </motion.div>\n\n        <motion.div\n          className="bg-[#03B5AA] w-[240px] text-center place-content-center aspect-[9/10] rounded border"\n          style={{\n            transform: \'translate(0%, -5.4%) rotate(4deg)\',\n          }}\n        >\n          card 2\n        </motion.div>\n\n        <motion.div\n          className="bg-[#D4CB92]  w-[240px] text-center place-content-center aspect-[9/10] rounded border"\n          style={{\n            transform: \'translate(-8.4%, -8.5%) rotate(6deg)\',\n          }}\n        >\n          card 3\n        </motion.div>\n\n        <motion.div\n          className="bg-[#395C6B]  w-[240px] text-center place-content-center aspect-[9/10] rounded border"\n          style={{\n            transform: \'translate(-3.2%, -3.7%) rotate(-6deg)\',\n          }}\n        >\n          card 4\n        </motion.div>\n\n        <motion.div\n          className="bg-[#80A4ED]  w-[240px] text-center place-content-center aspect-[9/10] rounded border"\n          style={{\n            transform: \'translate(0%, 7.1%) rotate(8deg)\',\n          }}\n        >\n          card 5\n        </motion.div>\n      </div>\n    </div>\n  );\n}',
-      },
-    ],
-    keywords: [],
-    component: (function () {
-      const LazyComp = React.lazy(async () => {
-        const mod = await import(
-          '@/registry/demo/cards/scatter-deck/index.tsx'
-        );
-        const exportName =
-          Object.keys(mod).find(
-            (key) =>
-              typeof mod[key] === 'function' || typeof mod[key] === 'object',
-          ) || 'scatter-deck-demo';
-        const Comp = mod.default || mod[exportName];
-        if (mod.animations) {
-          (LazyComp as any).animations = mod.animations;
-        }
-        return { default: Comp };
-      });
-      LazyComp.demoProps = {};
-      return LazyComp;
-    })(),
-    command: '@systaliko-ui/scatter-deck-demo',
-  },
   'animated-border-demo': {
     name: 'animated-border-demo',
     description: 'Demo showing Animated border component.',
