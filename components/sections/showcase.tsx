@@ -42,15 +42,15 @@ export function Showcase() {
           >
             <Link
               aria-label="view portfolio template"
-              title="portfolio template"
+              title="veo template"
               className="block"
-              href="/docs/templates/portfolio"
+              href="/docs/templates/veo"
             >
               <Image
-                src="/showcase-portfolio.png"
+                src="/showcase-veo.png"
                 className="object-contain w-full h-auto max-w-full"
                 sizes="(max-width: 1024px) 50vw, 33vw"
-                alt="portfolio template"
+                alt="veo template"
                 width={1440}
                 height={2260}
               />
@@ -82,16 +82,16 @@ export function Showcase() {
             yRange={['-10%', '-4%']}
           >
             <Link
-              aria-label="view enera template"
-              title="enera template"
+              aria-label="view portfolio template"
+              title="portfolio template"
               className="block"
-              href="/docs/templates/enera"
+              href="/docs/templates/portfolio"
             >
               <Image
-                src="/showcase-enera.png"
+                src="/showcase-portfolio.png"
                 className="object-contain w-full h-auto max-w-full"
                 sizes="(max-width: 768px) 100vw, 33vw"
-                alt="enera template"
+                alt="portfolio template"
                 width={1440}
                 height={2260}
               />

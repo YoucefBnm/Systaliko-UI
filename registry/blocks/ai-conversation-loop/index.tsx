@@ -228,7 +228,7 @@ export function AiAnswer({
 
   return (
     <div className="overflow-hidden">
-      <div className="rounded-2xl rounded-tl-none border bg-muted px-4 py-3 text-xs shadow-sm">
+      <div className="rounded-2xl rounded-tl-none border bg-card text-card-foreground px-4 py-3 text-xs shadow-sm">
         <p className="leading-relaxed">
           {startTyping && text && text !== '' ? (
             <TypingText

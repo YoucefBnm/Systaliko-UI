@@ -48,15 +48,20 @@ export function Hero() {
   return (
     <section className="relative max-w-7xl place-content-center w-full overflow-hidden min-h-[60vh]">
       <ContainerStagger className="flex px-6 pt-12 flex-col items-center text-center justify-center space-y-6 min-h-96">
-        <MotionConfig transition={{ duration: 0.3, ease: 'easeOut' }}>
+        <MotionConfig
+          transition={{ type: 'spring', visualDuration: 0.32, bounce: 0.1 }}
+        >
           <motion.div variants={animationVariants}>
-            <Link className="flex items-center gap-1 py-0.5 " href="/docs">
-              <Badge className="rounded-full text-[10px] shadow-sm shadow-black/15 ring-1 ring-ring/20 py-0 text-indigo-50 bg-indigo-500">
-                new
+            <Link
+              className="flex items-center gap-1 py-0.5 "
+              href="/docs/templates/veo"
+            >
+              <Badge className="rounded-full text-[10px] shadow-sm shadow-black/15 ring-1 ring-ring/20 py-0 text-blue-50 bg-blue-500">
+                update
               </Badge>
               <TextWavy
                 className="font-bold leading-[0.9]"
-                text="Release v1.0.0 added new 6 components and updated template"
+                text="redesigned Veo agency template"
                 fontWeights={[500, 800, 500]}
               />
             </Link>

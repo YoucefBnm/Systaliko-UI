@@ -62,7 +62,7 @@ export function Features() {
         <div className="md:sticky top-16 left-0 h-fit space-y-4">
           <h2 className="text-2xl font-medium tracking-tight">
             Ready to ship{' '}
-            <span className="bg-secondary text-xl text-secondary-foreground w-32 -rotate-1 p-0.5 rounded text-center inline-block">
+            <span className="bg-indigo-100 text-xl shadow-2xs w-32 -rotate-1 p-0.5 rounded text-center inline-block">
               <TextStaggerInterval
                 words={['Components', 'Blocks', 'Templates']}
                 animation={'blur'}
@@ -105,7 +105,7 @@ export function Features() {
             <CardSticky
               key={feature.id}
               index={index + 5}
-              className="supports-[backdrop-blur]:bg-card/90 odd:rotate-2 rounded w-4/5 border px-8 py-10  shadow backdrop-blur-md"
+              className="supports-[backdrop-blur]:bg-card/90 odd:rotate-2 rounded w-3/5 border px-8 py-10  shadow backdrop-blur-md"
             >
               <feature.icon className="justify-self-end size-6 stroke-[1.8]" />
               <h2 className="my-6 text-xl font-semibold tracking-tighter">
