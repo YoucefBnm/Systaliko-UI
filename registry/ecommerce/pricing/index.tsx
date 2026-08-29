@@ -201,8 +201,15 @@ export function PricingFeature({
   ...props
 }: React.HtmlHTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn('inline-flex items-center gap-3', className)} {...props}>
-      <div className="shrink-0 size-5 rounded-full inline-flex items-center justify-center">
+    <div
+      data-slot="pricing-feature"
+      className={cn('inline-flex items-center gap-3', className)}
+      {...props}
+    >
+      <div
+        data-slot="icon-wrapper"
+        className="shrink-0 size-5 rounded-full inline-flex items-center justify-center"
+      >
         <CheckIcon className="size-3.5" />
       </div>
       {children}
@@ -215,8 +222,15 @@ export function PricingIncludesPrevious({
   ...props
 }: React.HtmlHTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn('inline-flex items-center gap-3', className)} {...props}>
-      <div className="shrink-0 size-5 rounded-full inline-flex items-center justify-center">
+    <div
+      data-slot="pricing-includes-previous"
+      className={cn('inline-flex items-center gap-3', className)}
+      {...props}
+    >
+      <div
+        data-slot="icon-wrapper"
+        className="shrink-0 size-5 rounded-full inline-flex items-center justify-center"
+      >
         <PlusIcon className="size-3.5" />
       </div>
       {children}
@@ -229,8 +243,15 @@ export function PricingExclude({
   ...props
 }: React.HtmlHTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn('inline-flex items-center gap-3', className)} {...props}>
-      <div className="shrink-0 size-5 rounded-full inline-flex items-center justify-center">
+    <div
+      data-slot="pricing-exclude"
+      className={cn('inline-flex items-center gap-3', className)}
+      {...props}
+    >
+      <div
+        data-slot="icon-wrapper"
+        className="shrink-0 size-5 rounded-full inline-flex items-center justify-center"
+      >
         <XIcon className="size-3.5" />
       </div>
       {children}
@@ -244,6 +265,7 @@ export function PricingPackage({
   return (
     <div
       className={cn('inline-flex items-center gap-1', className)}
+      data-slot="pricing-package"
       {...props}
     />
   );
@@ -270,6 +292,7 @@ export function PricingValue({
   monthlyValue,
   yearlyValue,
   className,
+  children,
   ...props
 }: PricingValueProps) {
   const { interval } = usePricingContext();
@@ -277,7 +300,6 @@ export function PricingValue({
 
   return (
     <Price
-      {...props}
       price={{
         amount: currentPrice,
         currency: 'USD',
@@ -289,10 +311,12 @@ export function PricingValue({
         'inline-flex gap-1 tracking-tighter items-center text-4xl',
         className,
       )}
+      {...props}
     >
       <span className="text-muted-foreground text-sm font-normal tracking-normal">
         /{interval === 'monthly' ? 'per month' : 'per year'}
       </span>
+      {children}
     </Price>
   );
 }
