@@ -18,7 +18,7 @@ export function LinkText({
       <TextStaggerHover className="p-1">
         <TextStaggerHoverActive
           transition={SPRING_CONFIG}
-          className="opacity-70"
+          className="opacity-90"
           animation="blur"
           staggerDirection="last"
         >

@@ -19,6 +19,7 @@ export function getFeaturedComponents(): FeaturedComponentProps[] {
       id: `featured-${page.slugs.join('-')}`,
       componentLink: page.url,
       videoUrl: page.data.videoUrl!,
+      updated: page.data.updated!,
       thumbnail: page.data.thumbnail,
       title: page.data.title,
       description: page.data.description,

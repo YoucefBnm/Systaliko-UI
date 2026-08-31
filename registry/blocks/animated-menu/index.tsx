@@ -10,6 +10,39 @@ import {
 } from 'motion/react';
 import React from 'react';
 
+export function useClickOutside<T extends HTMLElement>(
+  callback: () => void,
+  enabled = true,
+) {
+  const ref = React.useRef<T>(null);
+  const callbackRef = React.useRef(callback);
+
+  React.useEffect(() => {
+    callbackRef.current = callback;
+  }, [callback]);
+
+  React.useEffect(() => {
+    if (!enabled) return;
+
+    const handleClick = (event: MouseEvent) => {
+      const element = ref.current;
+
+      if (!element) return;
+
+      if (!element.contains(event.target as Node)) {
+        callbackRef.current();
+      }
+    };
+
+    document.addEventListener('click', handleClick);
+
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  }, [enabled]);
+
+  return ref;
+}
 const menuListVariants = {
   open: {
     width: 320,
@@ -44,9 +77,6 @@ const itemVariants = {
 interface AnimatedMenuContextValue {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-interface AnimatedMenuListProps extends HTMLMotionProps<'div'> {
-  menuListVariants?: Variants;
 }
 interface AnimatedMenuItemProps extends HTMLMotionProps<'div'> {
   order?: number;
@@ -190,10 +220,14 @@ export function AnimatedMenuList({
   className,
   children,
   ...props
-}: AnimatedMenuListProps) {
-  const { isOpen } = useAnimatedMenuContext();
+}: React.ComponentPropsWithRef<'div'> & HTMLMotionProps<'div'>) {
+  const { isOpen, setIsOpen } = useAnimatedMenuContext();
+  const ref = useClickOutside<HTMLDivElement>(() => {
+    setIsOpen(false);
+  }, isOpen);
   return (
     <motion.div
+      ref={ref}
       className={cn(
         'absolute right-0 top-0 overflow-hidden bg-popover text-popover-foreground rounded-md z-[800] ',
         className,

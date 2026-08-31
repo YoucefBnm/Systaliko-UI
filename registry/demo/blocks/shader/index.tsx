@@ -8,9 +8,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
 
 export function ShaderDemo() {
-  const [color1, setColor1] = useState('#7EBC89');
-  const [color2, setColor2] = useState('#5448C8');
-  const [color3, setColor3] = useState('#F26DF9');
+  const [color1, setColor1] = useState('#314CB6');
+  const [color2, setColor2] = useState('#ED6A5E ');
+  const [color3, setColor3] = useState('#E1DABD');
   const [animate, setAnimate] = useState(true);
   const [intensity, setIntensity] = useState(1);
   const [density, setDensity] = useState(1);

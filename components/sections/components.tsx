@@ -1,6 +1,5 @@
 'use client';
 import { TextStaggerInview } from '@/registry/text/text-stagger-inview';
-import { ArrowRightIcon } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import {
@@ -12,6 +11,7 @@ import { FeaturedComponentProps } from '@/types/featured-component';
 import { TextWavy } from '@/registry/text/text-wavy';
 import { LinkText } from '../link-text';
 import { Badge } from '@/registry/shadcn/badge';
+import { AnimatedBorder } from '@/registry/components/animated-border';
 
 interface ComponentsProps {
   featuredComponents: FeaturedComponentProps[];
@@ -19,12 +19,16 @@ interface ComponentsProps {
 
 export function Components({ featuredComponents }: ComponentsProps) {
   return (
-    <section className="my-12 space-y-6">
+    <section className="my-12 space-y-8">
       <div className="text-center space-y-2 place-content-center px-8 ">
         <Link
-          className="inline-flex border rounded-full items-center gap-1 py-0.5 pl-0.5 pr-2 "
+          className="relative hover:bg-muted inline-flex border rounded-full items-center gap-1 py-0.5 pl-0.5 pr-2 "
           href="/docs"
         >
+          <AnimatedBorder
+            className="absolute -inset-px"
+            color="rgba(0,0,0,0.3)"
+          />
           <Badge
             variant="secondary"
             className="rounded-full text-[10px] shadow-sm shadow-black/15 ring-1 ring-ring/20 py-0"
@@ -51,13 +55,14 @@ export function Components({ featuredComponents }: ComponentsProps) {
         currentItemsLength={featuredComponents.length}
         allItemsCount={featuredComponents.length}
         loadMore={() => {}}
-        className="px-16 grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] justify-center gap-2 max-w-6xl mx-auto"
+        className="px-16 grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] justify-center gap-4 max-w-6xl mx-auto"
       >
         {featuredComponents.map((component) => (
           <InfiniteScrollCell
             amount={0}
             skelton={<PreviewCardSkelton />}
             key={component.id}
+            className="grid grid-cols-1 grid-rows-1 *:col-start-1 *:row-start-1"
           >
             <PreviewCard {...component} />
           </InfiniteScrollCell>

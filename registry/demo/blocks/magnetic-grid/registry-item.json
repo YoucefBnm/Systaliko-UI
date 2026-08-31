@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magnetic-grid-demo",
+  "type": "registry:block",
+  "title": "Magnetic Grid Demo",
+  "description": "Demo showing magnetic grid component.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/floating-elements"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/blocks/magnetic-grid/index.tsx",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/magnetic-grid.tsx"
+    }
+  ]
+}

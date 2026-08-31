@@ -19,7 +19,7 @@ import {
   AnimatedMenuList,
   CloseAnimatedMenu,
 } from '@/registry/blocks/animated-menu';
-import { Variants } from 'motion/react';
+import { type Variants } from 'motion/react';
 import { useIsScrolled } from '@/registry/utils/use-is-scrolled';
 import { usePathname } from 'next/navigation';
 import { NavbarSidebarTrigger } from 'fumadocs-ui/layouts/docs-client';
@@ -106,7 +106,7 @@ function HeaderSearch({ className }: { className?: string }) {
 function StarButton({ ...props }: React.ComponentProps<typeof Button>) {
   return (
     <Button size="sm" {...props}>
-      <GithubIcon className="size-3.5" />
+      <GithubIcon className="size-3" />
       <LinkText
         href={siteConfig.links.repo}
         target="_blank"
@@ -116,22 +116,13 @@ function StarButton({ ...props }: React.ComponentProps<typeof Button>) {
         Github
       </LinkText>
 
-      <StarIcon className="fill-yellow-500 stroke-none size-3.5" />
+      <StarIcon className="fill-yellow-500 stroke-none size-3" />
     </Button>
   );
 }
 function HeaderCta({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div className={cn('flex items-center gap-1', className)} {...props}>
-      <Link
-        href={siteConfig.links.repo}
-        className={linkStyles}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Github repository"
-      >
-        <GithubIcon className="size-4" />
-      </Link>
       <Link
         href={siteConfig.links.x}
         className={linkStyles}
@@ -141,8 +132,17 @@ function HeaderCta({ className, ...props }: React.ComponentProps<'div'>) {
       >
         <XIcon className="size-4" />
       </Link>
-
-      <StarButton />
+      <Button variant={'outline'} size="icon">
+        <Link
+          href={siteConfig.links.repo}
+          className={linkStyles}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Github repository"
+        >
+          <GithubIcon className="size-4" />
+        </Link>
+      </Button>
     </div>
   );
 }

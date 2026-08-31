@@ -10,6 +10,7 @@ import {
   useScroll,
   useSpring,
   useTransform,
+  useVelocity,
 } from 'motion/react';
 
 interface ScrollXCarouselContextValue {
@@ -62,8 +63,9 @@ export function ScrollXCarouselWrap({
   className,
   style,
   xRagnge = ['-0%', '-80%'],
+  strain = false,
   ...props
-}: HTMLMotionProps<'div'> & { xRagnge?: unknown[] }) {
+}: HTMLMotionProps<'div'> & { xRagnge?: unknown[]; strain?: boolean }) {
   const { scrollYProgress } = useScrollXCarousel();
   const reducedMotion = useReducedMotion();
   const smoothProgress = useSpring(scrollYProgress, {
@@ -76,10 +78,27 @@ export function ScrollXCarouselWrap({
 
   const x = useTransform(scrollProgress, [0, 1], xRagnge);
 
+  const scrollProgresssVelocity = useVelocity(scrollYProgress);
+  const smoothVelocity = useSpring(scrollProgresssVelocity, {
+    damping: 35,
+    stiffness: 500,
+  });
+  const scrollVelocity = reducedMotion
+    ? scrollProgresssVelocity
+    : smoothVelocity;
+
+  const skewVelocity = useTransform(scrollVelocity, [-2, 0, 2], [-8, 0, 8], {
+    clamp: true,
+  });
   return (
     <motion.div
       className={cn('w-fit', className)}
-      style={{ x, willChange: 'transform', ...style }}
+      style={{
+        x,
+        skewX: strain ? skewVelocity : 0,
+        willChange: 'transform',
+        ...style,
+      }}
       {...props}
     />
   );

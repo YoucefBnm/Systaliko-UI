@@ -1,9 +1,3 @@
-import { Badge } from '@/registry/shadcn/badge';
-import {
-  CardHoverReveal,
-  CardHoverRevealContent,
-  CardHoverRevealMain,
-} from '@/registry/cards/card-hover-reveal';
 import {
   ScrollXCarousel,
   ScrollXCarouselContainer,
@@ -12,112 +6,38 @@ import {
 } from '@/registry/scroll-animations/scroll-x-carousel';
 
 const SLIDES = [
-  {
-    id: 'slide-6',
-    title: 'UI UX design',
-    description:
-      'We build a car rental platform for the masses, with a focus on user experience and security, and data privacy.',
-    services: ['branding', 'design'],
-    type: 'Agency',
-    imageUrl:
-      'https://images.unsplash.com/photo-1688733720228-4f7a18681c4f?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
-  {
-    id: 'slide-2',
-    title: 'Blockchain wallet',
-    description:
-      'We build a Blockchain wallet for the masses, with a focus on security and usability.',
-    services: ['branding', 'design', 'development'],
-    type: 'blockchain',
-    imageUrl:
-      'https://images.unsplash.com/photo-1624996752380-8ec242e0f85d?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
-  {
-    id: 'slide-3',
-    title: 'ecommerce store',
-    description:
-      'We build an ecommerce store for the masses, with a focus on performance and user experience.',
-    services: ['branding', 'design', 'payment getaway', 'development'],
-    type: 'ecommerce',
-    imageUrl:
-      'https://images.unsplash.com/photo-1574717025058-2f8737d2e2b7?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
-  {
-    id: 'slide-1',
-    title: 'SaaS platform',
-    description:
-      'We build a SaaS platform for the masses, with a focus on user experience and security, and data privacy.',
-    services: ['branding', 'design', 'development'],
-    type: 'SaaS',
-    imageUrl:
-      'https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?q=80&w=2486&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
-  {
-    id: 'slide-4',
-    title: 'SEO Optimization',
-    description:
-      'We build a SaaS platform for the masses, with a focus on user experience and security, and data privacy.',
-    services: ['branding', 'design', 'development'],
-    type: 'SaaS',
-    imageUrl:
-      'https://images.unsplash.com/photo-1726066012698-bb7a3abce786?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-  },
+  'https://images.unsplash.com/photo-1577899612423-d95f56178e0d?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'https://images.unsplash.com/photo-1561370502-101289f5b910?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'https://images.unsplash.com/photo-1736108872146-9b47e6ffc89e?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'https://images.unsplash.com/photo-1596454073593-95cc85a8ce6c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'https://images.unsplash.com/photo-1696138290340-e7d52ddf26ba?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'https://images.unsplash.com/photo-1578272642230-04e5f9841a33?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 ];
 
 export function ScrollXCarouselDemo() {
   return (
     <ScrollXCarousel className="h-[150vh]">
-      <ScrollXCarouselContainer className="h-dvh place-content-center flex flex-col gap-8 py-12">
-        <ScrollXCarouselWrap className="flex-4/5 flex space-x-8 [&>*:first-child]:ml-8">
-          {SLIDES.map((slide) => (
-            <CardHoverReveal
-              key={slide.id}
-              className="min-w-[70vw] md:min-w-[38vw] shadow-xl border xl:min-w-[30vw] rounded-xl"
-            >
-              <CardHoverRevealMain>
-                <img
-                  alt={slide.title}
-                  src={slide.imageUrl}
-                  className="size-full aspect-square object-cover"
-                />
-              </CardHoverRevealMain>
-              <CardHoverRevealContent className="space-y-4 rounded-2xl bg-[rgba(0,0,0,.5)] backdrop-blur-3xl p-4">
-                <div className="space-y-2">
-                  <h3 className="text-sm text-white/80">Type</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge className="capitalize rounded-full">
-                      {slide.type}
-                    </Badge>
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-sm text-white/80">Services</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {slide.services.map((service) => (
-                      <Badge
-                        key={service}
-                        className="capitalize rounded-full"
-                        variant={'secondary'}
-                      >
-                        {service}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
+      <ScrollXCarouselContainer className="min-h-dvh place-content-center space-y-6">
+        <div className=" pointer-events-none w-[5vw] h-[103%] absolute inset-[0_auto_0_0] z-10 bg-[linear-gradient(90deg,_var(--background)_15%,_transparent)]" />
+        <div className="pointer-events-none bg-[linear-gradient(270deg,_var(--background)_15%,_transparent)] w-[5vw] h-[103%] absolute inset-[0_0_0_auto] z-10" />
 
-                <div className="space-y-2 mt-2">
-                  <h3 className="text-white capitalize font-medium">
-                    {slide.title}
-                  </h3>
-                  <p className="text-white/80 text-sm">{slide.description}</p>
-                </div>
-              </CardHoverRevealContent>
-            </CardHoverReveal>
+        <ScrollXCarouselWrap
+          className="flex space-x-8 [&>*:first-child]:ml-8"
+          strain
+        >
+          {SLIDES.map((slide, index) => (
+            <div key={index} className="min-w-[260px] max-h-[70vh]">
+              <img
+                alt="showcase"
+                src={slide}
+                className="size-full inline-block align-middle object-cover"
+              />
+            </div>
           ))}
         </ScrollXCarouselWrap>
         <ScrollXCarouselProgress
           className="bg-secondary mx-8 h-1 rounded-full overflow-hidden"
-          progressStyle="size-full bg-primary/70 rounded-full"
+          progressStyle="size-full bg-secondary-foreground rounded-full"
         />
       </ScrollXCarouselContainer>
     </ScrollXCarousel>

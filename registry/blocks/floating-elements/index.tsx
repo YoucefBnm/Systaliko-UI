@@ -8,6 +8,7 @@ import {
   useSpring,
   useAnimationFrame,
   type MotionValue,
+  useReducedMotion,
 } from 'motion/react';
 import React from 'react';
 
@@ -112,6 +113,7 @@ export function FloatingElementItem({
   damping = 15,
   ...props
 }: FloatingElementItemProps) {
+  const reducedMotion = useReducedMotion();
   const ref = React.useRef<HTMLDivElement>(null);
   const { pointerX, pointerY, containerWidth, containerHeight, isInside } =
     useFloatingElements();
@@ -143,8 +145,8 @@ export function FloatingElementItem({
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const springX = useSpring(x, { stiffness, damping });
-  const springY = useSpring(y, { stiffness, damping });
+  const springX = reducedMotion ? x : useSpring(x, { stiffness, damping });
+  const springY = reducedMotion ? y : useSpring(y, { stiffness, damping });
 
   useAnimationFrame(() => {
     if (!isInside.current) {
@@ -215,11 +217,12 @@ export function InfiniteFloatingItem({
 }: InfiniteFloatingItemProps) {
   const { pointerX, pointerY, containerWidth, containerHeight, isInside } =
     useFloatingElements();
+  const reducedMotion = useReducedMotion();
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const springX = useSpring(x, { stiffness, damping });
-  const springY = useSpring(y, { stiffness, damping });
+  const springX = reducedMotion ? x : useSpring(x, { stiffness, damping });
+  const springY = reducedMotion ? y : useSpring(y, { stiffness, damping });
 
   useAnimationFrame((time) => {
     // time is in ms — convert to seconds
