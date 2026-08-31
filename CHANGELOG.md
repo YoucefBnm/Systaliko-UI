@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-08-31
+
+### Added
+
+- ✨ **Magnetic Grid** — InteractivInteractive grid with magnetic effect when mouse enter.
+
+### Changed
+
+- 🔄 **Expandable Grid** — make it more accessible by adding keyboard controls and esc cancel. - add `<ExpandableGridControls />` where you can control current shown item - add `<ExpandableGridContent` to add content when item is expanded
+- 🔄 **Scroll X Carousel** — add new prop strain to <ScrollXCarouselWrap /> to add moving effect.
+
 ## [1.0.0] - 2026-08-17
 
 ### Added
