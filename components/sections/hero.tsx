@@ -13,6 +13,8 @@ import { Showcase } from './showcase';
 import { TextWavy } from '@/registry/text/text-wavy';
 import { LinkText } from '../link-text';
 import { Badge } from '@/registry/shadcn/badge';
+import { AnimatedBorder } from '@/registry/components/animated-border';
+import { ArrowRightIcon } from 'lucide-react';
 
 const TECH_STACK = [
   {
@@ -47,32 +49,33 @@ const animationVariants = ANIMATION_VARIANTS['blur'];
 export function Hero() {
   return (
     <section className="relative max-w-7xl place-content-center w-full overflow-hidden min-h-[60vh]">
-      <ContainerStagger className="flex px-6 pt-12 flex-col items-center text-center justify-center space-y-6 min-h-96">
+      <ContainerStagger className="flex px-6 pt-16 flex-col items-center text-center justify-center space-y-6 min-h-96">
         <MotionConfig
           transition={{ type: 'spring', visualDuration: 0.32, bounce: 0.1 }}
         >
           <motion.div variants={animationVariants}>
             <Link
-              className="flex items-center gap-1 py-0.5 "
-              href="/docs/templates/veo"
+              className="flex items-center gap-1 py-0.5"
+              href="/docs/blocks/magnetic-grid"
             >
-              <Badge className="rounded-full text-[10px] shadow-sm shadow-black/15 ring-1 ring-ring/20 py-0 text-blue-50 bg-blue-500">
-                update
+              <Badge className="rounded-full text-[10px] shadow-sm shadow-black/15 ring-1 ring-ring/50 py-px text-indigo-50 bg-indigo-500">
+                new release
               </Badge>
               <TextWavy
-                className="font-bold leading-[0.9]"
-                text="redesigned Veo agency template"
+                className="font-bold tabular-nums"
+                text="v1.1.0 includes new magnetic grid block and updates"
                 fontWeights={[500, 800, 500]}
               />
+
+              <ArrowRightIcon className="w-4" />
             </Link>
           </motion.div>
 
           <motion.h1
             variants={animationVariants}
-            className="text-3xl md:text-4xl max-w-[30ch] text-balance font-medium tracking-tighter"
+            className="text-3xl md:text-4xl max-w-[30ch] text-balance font-semibold tracking-tight"
           >
-            React UI Blocks Templates & Components Copy Paste or Install via
-            Shadcn
+            React Blocks Templates Components Copy Paste or Install via Shadcn
           </motion.h1>
 
           <motion.p
@@ -88,14 +91,18 @@ export function Hero() {
             variants={animationVariants}
             className="flex items-center gap-2 justify-center"
           >
-            <Button>
+            <Button className="relative">
+              <AnimatedBorder
+                color="var(--muted)"
+                className="absolute inset-0 border-2 border-indigo-400"
+              />
               <LinkText aria-label="view docs" href="/docs">
-                Browse Components
+                Browse Blocks
               </LinkText>
             </Button>
             <Button variant={'secondary'}>
               <LinkText aria-label="view templates" href="/docs/templates">
-                View Templates
+                Browse Templates
               </LinkText>
             </Button>
           </motion.div>

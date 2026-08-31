@@ -1,6 +1,7 @@
 'use client';
 import { cn } from '@/lib/utils';
 import React from 'react';
+import { createPortal } from 'react-dom';
 
 type Breakpoint = [number, number];
 const DEFAULT_BREAKPOINTS: Breakpoint[] = [
@@ -44,6 +45,21 @@ function useGridContext() {
   return context;
 }
 
+const GridCellContext = React.createContext<{
+  isExpanded: boolean;
+  index: number;
+} | null>(null);
+
+function useGridCellContext() {
+  const context = React.useContext(GridCellContext);
+  if (!context) {
+    throw new Error(
+      'useGridCellContext must be used within ExpandableGridCell',
+    );
+  }
+  return context;
+}
+
 function getColCount(width: number, breakpoints: Breakpoint[]): number {
   for (const [minWidth, cols] of breakpoints) {
     if (width >= minWidth) return cols;
@@ -56,14 +72,25 @@ function calculateTransform(
   gridElement: HTMLElement,
   targetScale: number,
   padding: number = 40,
+  activeOrigin: { x: number; y: number } | null = null,
 ): TransformValues {
+  // Temporarily remove transform and transition to get true original layout positions
+  const originalTransform = gridElement.style.transform;
+  const originalTransition = gridElement.style.transition;
+  gridElement.style.transition = 'none';
+  gridElement.style.transform = 'none';
+
   const cellRect = cellElement.getBoundingClientRect();
   const gridRect = gridElement.getBoundingClientRect();
 
-  const originX = cellRect.left - gridRect.left + cellRect.width / 2;
-  const originY = cellRect.top - gridRect.top + cellRect.height / 2;
-  const cellCenterX = cellRect.left + cellRect.width / 2;
-  const cellCenterY = cellRect.top + cellRect.height / 2;
+  // Restore immediately
+  gridElement.style.transition = originalTransition;
+  gridElement.style.transform = originalTransform;
+
+  const cellCenterXRelative =
+    cellRect.left - gridRect.left + cellRect.width / 2;
+  const cellCenterYRelative = cellRect.top - gridRect.top + cellRect.height / 2;
+
   const viewportCenterX = window.innerWidth / 2;
   const viewportCenterY = window.innerHeight / 2;
 
@@ -79,9 +106,32 @@ function calculateTransform(
   // Use the smaller of targetScale or maxScale to ensure it fits
   const finalScale = Math.min(targetScale, maxScale);
 
+  // If we already have an active origin (because an item is already expanded),
+  // we keep the same origin to avoid layout jumps during the transition.
+  let originX = cellCenterXRelative;
+  let originY = cellCenterYRelative;
+
+  if (activeOrigin) {
+    originX = activeOrigin.x;
+    originY = activeOrigin.y;
+  }
+
+  // Calculate tx/ty required to move the cell's center to the viewport center,
+  // taking into account the fixed transformOrigin.
+  const tx =
+    viewportCenterX -
+    gridRect.left -
+    originX -
+    finalScale * (cellCenterXRelative - originX);
+  const ty =
+    viewportCenterY -
+    gridRect.top -
+    originY -
+    finalScale * (cellCenterYRelative - originY);
+
   return {
-    tx: viewportCenterX - cellCenterX,
-    ty: viewportCenterY - cellCenterY,
+    tx,
+    ty,
     scale: finalScale,
     originX,
     originY,
@@ -102,6 +152,7 @@ export function ExpandableGrid({
   const [expandedIndex, setExpandedIndex] = React.useState<number | null>(null);
   const [colCount, setColCount] = React.useState(1);
   const [totalItems, setTotalItems] = React.useState(0);
+  const activeOriginRef = React.useRef<{ x: number; y: number } | null>(null);
   const [cssVars, setCssVars] = React.useState({
     tx: 0,
     ty: 0,
@@ -143,7 +194,10 @@ export function ExpandableGrid({
         gridRef.current,
         expandScale,
         padding,
+        activeOriginRef.current,
       );
+
+      activeOriginRef.current = { x: originX, y: originY };
 
       setCssVars({
         tx,
@@ -162,6 +216,7 @@ export function ExpandableGrid({
   // Calculate and apply transforms when expanded index changes
   React.useEffect(() => {
     if (expandedIndex === null) {
+      activeOriginRef.current = null;
       setCssVars({
         tx: 0,
         ty: 0,
@@ -183,7 +238,10 @@ export function ExpandableGrid({
         gridRef.current,
         expandScale,
         padding,
+        activeOriginRef.current,
       );
+
+      activeOriginRef.current = { x: originX, y: originY };
 
       setCssVars({
         tx,
@@ -195,6 +253,33 @@ export function ExpandableGrid({
       });
     });
   }, [expandedIndex, expandScale, padding]);
+
+  // Keyboard accessibility (Escape to close, Arrows to navigate)
+  React.useEffect(() => {
+    if (expandedIndex === null) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        setExpandedIndex(null);
+      } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        setExpandedIndex((prev) =>
+          prev === null || totalItems === 0 ? null : (prev + 1) % totalItems,
+        );
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        setExpandedIndex((prev) =>
+          prev === null || totalItems === 0
+            ? null
+            : (prev - 1 + totalItems) % totalItems,
+        );
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [expandedIndex, totalItems]);
 
   // Lock body scroll when expanded
   React.useEffect(() => {
@@ -243,9 +328,9 @@ export function ExpandableGridCell({
   onClick,
   className,
   ...props
-}: React.ComponentPropsWithRef<'button'> & { index: number }) {
+}: React.ComponentPropsWithRef<'div'> & { index: number }) {
   const { expandedIndex, setExpandedIndex, registerCell } = useGridContext();
-  const cellRef = React.useRef<HTMLButtonElement>(null);
+  const cellRef = React.useRef<HTMLDivElement>(null);
   const isExpanded = expandedIndex === index;
   const isAnyExpanded = expandedIndex !== null;
 
@@ -255,25 +340,120 @@ export function ExpandableGridCell({
     }
   }, [index, registerCell]);
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (isExpanded) {
-      setExpandedIndex(null);
-    } else if (!isAnyExpanded) {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isExpanded && !isAnyExpanded) {
       setExpandedIndex(index);
     }
     onClick?.(e);
   };
 
   return (
+    <GridCellContext.Provider value={{ isExpanded, index }}>
+      <div
+        ref={cellRef}
+        aria-expanded={isExpanded}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (!isExpanded && !isAnyExpanded) setExpandedIndex(index);
+          }
+        }}
+        className={cn(
+          'relative flex-col flex items-center w-[min(500px,100%)]  transition-opacity',
+          isAnyExpanded && !isExpanded && 'opacity-0 pointer-events-none',
+          className,
+        )}
+        onClick={handleClick}
+        {...props}
+      />
+    </GridCellContext.Provider>
+  );
+}
+
+export function ExpandableGridContent({
+  className,
+  children,
+  ...props
+}: React.ComponentPropsWithRef<'div'>) {
+  const { isExpanded } = useGridCellContext();
+
+  if (!isExpanded) return null;
+
+  return (
+    <div
+      className={cn('animate-in fade-in duration-300 ease-out', className)}
+      onClick={(e) => e.stopPropagation()}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+}
+
+export function ExpandableGridClose({
+  ...props
+}: React.ComponentPropsWithRef<'button'>) {
+  const { setExpandedIndex } = useGridContext();
+
+  return (
     <button
-      ref={cellRef}
-      className={cn(
-        'flex-col flex items-center w-[min(500px, 100%)] cursor-pointer outline-none focus:outline-none active:outline-none transition-opacity',
-        isAnyExpanded && !isExpanded && 'opacity-0 pointer-events-none',
-        className,
-      )}
-      onClick={handleClick}
+      type="button"
+      onClick={(e) => {
+        e.stopPropagation();
+        setExpandedIndex(null);
+      }}
+      data-slot="expandble-grid-close"
       {...props}
     />
+  );
+}
+export function ExpandbleGridArrow({
+  direction,
+  ...props
+}: React.ComponentProps<'button'> & { direction: 'previous' | 'next' }) {
+  const { expandedIndex, totalItems, setExpandedIndex } = useGridContext();
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    if (expandedIndex === null) return null;
+    if (direction === 'previous') {
+      setExpandedIndex((expandedIndex - 1 + totalItems) % totalItems);
+    } else {
+      setExpandedIndex((expandedIndex + 1) % totalItems);
+    }
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={handleClick}
+      data-slot="expandble-grid-arrow"
+      data-direction={direction}
+      {...props}
+    />
+  );
+}
+export function ExpandableGridControls({
+  className,
+  ...props
+}: React.ComponentPropsWithRef<'div'>) {
+  const { expandedIndex } = useGridContext();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted || expandedIndex === null) return null;
+
+  return createPortal(
+    <div
+      className={cn('fixed top-4 right-4 z-999', className)}
+      onClick={(e) => e.stopPropagation()}
+      {...props}
+    />,
+    document.body,
   );
 }

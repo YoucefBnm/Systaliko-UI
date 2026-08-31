@@ -1,3 +1,4 @@
+'use client';
 import { SPRING_CONFIG } from '@/lib/spring-transition';
 import { CardsStackContainer, CardSticky } from '@/registry/cards/cards-stack';
 import { Button } from '@/registry/shadcn/button';
@@ -7,7 +8,6 @@ import {
   TextStaggerHoverHidden,
 } from '@/registry/text/text-stagger-hover';
 import { TextStaggerInterval } from '@/registry/text/text-stagger-interval';
-import { TextStaggerInview } from '@/registry/text/text-stagger-inview';
 import {
   BoxIcon,
   BrushIcon,
@@ -15,7 +15,9 @@ import {
   LayersIcon,
   PuzzleIcon,
 } from 'lucide-react';
+import { motion, animate, useMotionValue } from 'motion/react';
 import Link from 'next/link';
+import React from 'react';
 
 const FEATURES = [
   {
@@ -56,19 +58,38 @@ const FEATURES = [
 ];
 
 export function Features() {
+  const timeline = useMotionValue(0);
+  React.useEffect(() => {
+    const controls = animate(timeline, 1, {
+      duration: 3,
+      ease: 'linear',
+      repeat: Infinity,
+    });
+
+    return () => controls.stop();
+  }, []);
   return (
     <section className="py-12 px-8 min-h-screen">
       <div className="grid md:grid-cols-2 md:gap-8 xl:gap-12">
-        <div className="md:sticky top-16 left-0 h-fit space-y-4">
-          <h2 className="text-2xl font-medium tracking-tight">
+        <div className="md:sticky top-24 left-0 h-fit space-y-4">
+          <h2 className="text-2xl font-semibold ">
             Ready to ship{' '}
-            <span className="bg-indigo-100 text-xl shadow-2xs w-32 -rotate-1 p-0.5 rounded text-center inline-block">
+            <span className="relative overflow-hidden bg-accent text-accent-foreground text-xl w-34 -rotate-1 py-1 rounded-md ring-2 ring-ring/10 shadow-2xs text-center inline-block align-middle">
               <TextStaggerInterval
                 words={['Components', 'Blocks', 'Templates']}
                 animation={'blur'}
                 staggerValue={0.05}
                 interval={3000}
               />
+              <div className="absolute -z-1 inset-0 overflow-hidden">
+                <motion.div
+                  className="bg-foreground/15 size-full origin-left "
+                  style={{
+                    scaleX: timeline,
+                    transformOrigin: 'left',
+                  }}
+                />{' '}
+              </div>
             </span>
           </h2>
 
@@ -76,6 +97,7 @@ export function Features() {
             No <code>npm-install</code> a whole library install only the
             components you want, easy to adapt to your design and brand.
           </p>
+
           <Button>
             <Link
               className="p-1 overflow-hidden"

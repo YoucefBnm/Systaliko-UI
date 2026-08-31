@@ -65,7 +65,7 @@ export function InfiniteScrollDemo() {
       currentItemsLength={posts.length}
       allItemsCount={totalCount}
       loadMore={fetchData}
-      className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] justify-center items-start gap-4 p-8"
+      className="w-full grid grid-cols-[repeat(auto-fill,minmax(230px,1fr))] justify-center items-start gap-4 p-16"
     >
       {posts.map((post) => (
         <InfiniteScrollCell

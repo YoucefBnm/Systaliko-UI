@@ -5,13 +5,13 @@ import {
   motion,
   MotionValue,
   useScroll,
+  type UseScrollOptions,
   useTransform,
 } from 'motion/react';
 import * as React from 'react';
 
 interface TextScrollReadProps extends React.HTMLAttributes<HTMLDivElement> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  offset?: any;
+  offset?: UseScrollOptions['offset'];
   yRange?: number[];
   wrapperClassName?: string;
   spaceClass?: string;
@@ -47,7 +47,7 @@ export function TextScrollRead({
     <TextScrollReadContext.Provider value={{ scrollYProgress }}>
       <div ref={ref} className={cn('relative', className)} {...props}>
         {children}
-        <div className={cn('h-60', spaceClass)} />
+        <div className={cn('h-25', spaceClass)} />
       </div>
     </TextScrollReadContext.Provider>
   );
@@ -55,7 +55,7 @@ export function TextScrollRead({
 
 export function TextScrollReadWrap({
   yInput = [0, 1],
-  yRange = [0, 240],
+  yRange = [0, 100],
   style,
   ...props
 }: HTMLMotionProps<'div'> & {
@@ -93,7 +93,7 @@ export function ClipText({
     <motion.span
       className={cn(
         'bg-[length:200%_100%] text-transparent bg-clip-text bg-no-repeat bg-scroll',
-        'bg-[linear-gradient(-90deg,rgba(0,0,0,0.05)_50%,rgb(0,0,0)_50%)]',
+        'bg-[linear-gradient(-90deg,var(--muted)_50%,var(--foreground)_50%)]',
         className,
       )}
       style={{

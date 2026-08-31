@@ -1,5 +1,4 @@
 'use client';
-import { Separator } from '@/components/ui/separator';
 import { useIsMobile } from '@/hooks/use-mobile';
 import {
   AnimatedMenu,
@@ -11,6 +10,8 @@ import {
   CloseAnimatedMenu,
 } from '@/registry/blocks/animated-menu';
 import { Header, HeaderLogo } from '@/registry/blocks/header';
+import { Button } from '@/registry/shadcn/button';
+import { Variants } from 'motion';
 import Link from 'next/link';
 
 const nav_links = [
@@ -57,20 +58,35 @@ const nav_socials = [
     href: 'https://linkedin.com',
   },
 ];
+const menu_variants = {
+  open: {
+    width: 320,
+    height: 380,
+    transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },
+  },
+  close: {
+    width: 320,
+    height: 40,
+    transition: { duration: 0.75, delay: 0.2, ease: [0.76, 0, 0.24, 1] },
+  },
+} as Variants;
 
+const header_styles =
+  'bg-primary/95 text-primary-foreground backdrop-blur ring rounded-md shadow-2xs p-1.5';
 const NavMobile = () => {
   return (
     <AnimatedMenu>
-      <AnimatedMenuButton className="text-primary-foreground">
+      <AnimatedMenuButton className="text-primary-foreground h-10">
         <AnimatedMenuButtonToggleIcon />
         <AnimatedMenuButtonLabel />
       </AnimatedMenuButton>
       <AnimatedMenuList
         layout
-        className="bg-primary/90 backdrop-blur rounded-2xl"
+        className={header_styles}
+        variants={menu_variants}
       >
-        <div className="flex flex-col p-8 justify-evenly gap-6 items-start size-full text-primary-foreground">
-          <div className="flex flex-col items-start gap-4 *:transition-opacity *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
+        <div className="pt-12 size-full flex flex-col justify-evenly ">
+          <div className="*:transition-opacity *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
             {nav_links.map((navLink, i) => (
               <AnimatedMenuItem
                 key={navLink.id}
@@ -79,7 +95,7 @@ const NavMobile = () => {
               >
                 <CloseAnimatedMenu>
                   <Link
-                    className="text-sm font-medium p-3"
+                    className="block text-sm font-medium py-2 px-1"
                     href={navLink.href}
                     title={navLink.label}
                     aria-label={`navigate to ${navLink.label}`}
@@ -90,13 +106,12 @@ const NavMobile = () => {
               </AnimatedMenuItem>
             ))}
           </div>
-          <Separator className="bg-border/15" />
           <div className="flex gap-3 *:transition-blur *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
             {nav_socials.map((navSocial, i) => (
               <AnimatedMenuItem key={navSocial.id} order={i + nav_links.length}>
                 <CloseAnimatedMenu>
                   <Link
-                    className="p-1"
+                    className="p-1 font-medium text-xs opacity-75 hover:opacity-100"
                     href={navSocial.href}
                     title={navSocial.label}
                     target="_blank"
@@ -109,6 +124,11 @@ const NavMobile = () => {
               </AnimatedMenuItem>
             ))}
           </div>
+          <AnimatedMenuItem order={nav_links.length + nav_socials.length}>
+            <Button variant={'secondary'} size={'sm'}>
+              Contact us
+            </Button>
+          </AnimatedMenuItem>
         </div>
       </AnimatedMenuList>
     </AnimatedMenu>
@@ -116,29 +136,41 @@ const NavMobile = () => {
 };
 const NavDesktop = () => {
   return (
-    <nav className="flex gap-2 px-6 items-center justify-between *:transition-opacity *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
-      {nav_links.map((navLink) => (
-        <Link
-          key={navLink.id}
-          className="font-medium text-xs p-2"
-          href={navLink.href}
-          title={navLink.label}
-          aria-label={`navigate to ${navLink.label}`}
-        >
-          {navLink.label}
-        </Link>
-      ))}
+    <nav className="flex justify-between  gap-2 items-center flex-1">
+      <ul className="flex-1 flex justify-center  list-none *:transition-opacity *:duration-200 [&:hover>*]:blur-[2px] [&>*:hover]:blur-none">
+        {nav_links.map((navLink) => (
+          <Link
+            key={navLink.id}
+            className="font-medium text-xs p-2"
+            href={navLink.href}
+            title={navLink.label}
+            aria-label={`navigate to ${navLink.label}`}
+          >
+            {navLink.label}
+          </Link>
+        ))}
+      </ul>
+
+      <Button variant={'secondary'} size={'sm'}>
+        Contact us
+      </Button>
     </nav>
   );
 };
+
 export function HeaderDemo() {
-  const isMobile = useIsMobile(650);
+  const isMobile = useIsMobile(980);
 
   return (
     <div className="h-[180vh]">
-      <Header className="sticky top-2 left-0 w-10/12 mx-auto h-12 z-999 bg-primary/80 text-primary-foreground backdrop-blur border border-border/50 shadow rounded-full p-2">
-        <HeaderLogo className="p-2">
-          <span className="font-semibold">systaliko ui</span>
+      <Header
+        className={`
+          sticky top-2 left-0 w-xs  mx-auto z-999  text-primary-foreground
+          min-[980px]:w-10/12 min-[980px]:bg-primary/95 min-[980px]:backdrop-blur min-[980px]:ring min-[980px]:rounded-md min-[980px]:shadow-2xs min-[980px]:p-1.5
+        `}
+      >
+        <HeaderLogo className="relative py-0.5 px-2 z-999">
+          <span className="font-bold text-sm">systaliko ui</span>
         </HeaderLogo>
 
         {isMobile ? <NavMobile /> : <NavDesktop />}

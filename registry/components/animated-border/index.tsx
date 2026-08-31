@@ -10,7 +10,7 @@ export function AnimatedBorder({
   return (
     <div
       className={cn(
-        'pointer-events-none touch-none z-0 rounded-[inherit] border border-border/5 bg-transparent p-[1.5px]',
+        'pointer-events-none touch-none z-0 rounded-[inherit] border border-border/5 bg-transparent',
         className,
       )}
       style={{
@@ -26,7 +26,7 @@ export function AnimatedBorder({
     >
       <div className="absolute left-1/2 top-1/2 aspect-square w-[250%] -translate-x-1/2 -translate-y-1/2">
         <div
-          className="size-full animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0%,var(--color)_10%,transparent_20%)] will-change-transform"
+          className="size-full animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0%,var(--color)_10%,transparent_20%)] will-change-transform"
           style={{ '--color': color } as React.CSSProperties}
         />
       </div>

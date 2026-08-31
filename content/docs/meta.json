@@ -21,6 +21,7 @@
     "blocks/globe",
     "blocks/header",
     "blocks/image-player",
+    "blocks/magnetic-grid",
     "blocks/shader",
     "blocks/slideshow",
     "blocks/container-stagger",

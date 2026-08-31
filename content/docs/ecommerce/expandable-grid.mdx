@@ -1,7 +1,14 @@
 ---
 title: Expandable Grid
 description: Expandable grid for previewing clicked item.
+updated: true
 ---
+
+<Callout title="Updated" type="info">
+  - make it more accessible by adding keyboard controls and esc cancel
+  - add `<ExpandableGridControls />` where you can control current shown item  
+  - add `<ExpandableGridContent` to add content when item is expanded
+</Callout>
 
 <ComponentPreview name="expandable-grid-demo" />
 
@@ -12,18 +19,59 @@ description: Expandable grid for previewing clicked item.
 ## Usage
 
 ```tsx
-<ExpandableGrid>
+<ExpandableGrid className="w-full min-h-screen place-content-center">
+  <ExpandableGridControls className="flex items-center gap-2">
+    <div className="flex gap-0.5 border p-0.5 rounded-full">
+      <ExpandbleGridArrow direction="previous" className={button_styles}>
+        <ArrowLeftIcon />
+      </ExpandbleGridArrow>
+      <ExpandbleGridArrow direction="next" className={button_styles}>
+        <ArrowRightIcon />
+      </ExpandbleGridArrow>
+    </div>
+    <ExpandableGridClose className={button_styles}>
+      <XIcon />
+    </ExpandableGridClose>
+  </ExpandableGridControls>
   {products.map((product, index) => (
     <ExpandableGridCell key={product.id} index={index}>
-      <div className="size-full p-6">
-        <div className="relative aspect-square w-full max-w-full">
-          <Image
-            className="user-select-none select-none object-contain"
-            fill
-            alt="product"
+      <div className="size-full p-3 space-y-2 flex flex-col items-center">
+        <div className="relative aspect-square w-full p-2 flex justify-center items-end max-w-full">
+          <img
+            className="inline-block max-h-full max-w-full align-middle object-contain"
+            alt={product.name}
             src={product.imageUrl}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           />
+        </div>
+        <div
+          className="space-y-6 w-full transition-transform duration-300 ease-out"
+          style={{
+            transform: 'scale(var(--inv-scale, 1))',
+            transformOrigin: 'top center',
+          }}
+        >
+          <div className="flex gap-1 items-center flex-wrap justify-center text-[10px]">
+            <h3 className="font-medium uppercase tracking-wider text-primary">
+              {product.name}
+            </h3>
+            <p className="font-light">${product.price}</p>
+          </div>
+          <ExpandableGridContent className="space-y-3 text-center">
+            <div className="flex  justify-center items-center gap-1.5">
+              {['7', '8', '9', '10', '11'].map((size) => (
+                <button
+                  key={size}
+                  className="size-5 aspect-square flex items-center justify-center rounded-full border border-border text-[7px] hover:bg-muted"
+                >
+                  {size}
+                </button>
+              ))}
+            </div>
+            <Button className="rounded-full h-6 px-2 text-[8px]">
+              Add to Cart <ShoppingBagIcon className="size-2" />
+            </Button>
+          </ExpandableGridContent>
         </div>
       </div>
     </ExpandableGridCell>
@@ -70,6 +118,18 @@ description: Expandable grid for previewing clicked item.
     index: {
       description: 'the index of the item in the grid.',
       type: 'number',
+      required: true,
+    },
+  }}
+/>
+
+`ExpandbleGridArrow`
+
+<TypeTable
+  type={{
+    direction: {
+      description: 'the direction of the arrow.',
+      type: "'previous' | 'next'",
       required: true,
     },
   }}

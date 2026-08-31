@@ -1,0 +1,96 @@
+---
+title: Magnetic Grid
+description: Interactive grid with magnetic effect when mouse enter.
+new: true
+---
+
+<ComponentPreview name="magnetic-grid-demo" />
+## Installation
+
+<ComponentInstallation name="floating-elements" />
+
+## Usage
+
+```tsx
+<FloatingElements className="bg-secondary w-xs max-w-xs aspect-square mx-auto grid grid-cols-[repeat(20,minmax(0,1fr))] p-1 gap-1">
+  {Array.from({ length: 300 }).map((_, i) => {
+    return (
+      <FloatingElementItem
+        key={i}
+        className="aspect-square bg-secondary-foreground"
+      />
+    );
+  })}
+</FloatingElements>
+```
+
+## Props
+
+`FloatingElementItem`
+
+<TypeTable
+  type={{
+    intensity: {
+      description:
+        'Maximum pixel displacement when the cursor is right on top.',
+      type: 'number',
+      required: false,
+      default: '50',
+    },
+    stiffness: {
+      description:
+        'how tightly the cursor snaps or pulls toward your actual position',
+      type: 'number',
+      required: false,
+      default: '150',
+    },
+    damping: {
+      description: 'Smooths the jump from one point to another.',
+      type: 'number',
+      required: false,
+      default: '15',
+    },
+  }}
+/>
+`InfiniteFloatingItem`
+
+<TypeTable
+  type={{
+    depth: {
+      description: 'Parallax depth factor. Higher = more mouse response.',
+      type: 'number',
+      required: false,
+      default: '0.03',
+    },
+    amplitude: {
+      description: 'Amplitude of the infinite bob in px.',
+      type: 'number',
+      required: false,
+      default: '12',
+    },
+    speed: {
+      description: 'Speed of the infinite bob (radians/sec)',
+      type: 'number',
+      required: false,
+      default: '1',
+    },
+    phase: {
+      description: 'Phase offset in radians so items don’t move in unison.',
+      type: 'number',
+      required: false,
+      default: '0',
+    },
+    stiffness: {
+      description: 'Spring stiffness for parallax response.',
+      type: 'number',
+      required: false,
+      default: '80',
+    },
+    damping: {
+      description: 'Spring damping for parallax response.',
+      type: 'number',
+      required: false,
+      default: '20',
+    },
+  }}
+/>

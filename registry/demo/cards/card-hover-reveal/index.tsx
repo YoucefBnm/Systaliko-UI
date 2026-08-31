@@ -5,7 +5,7 @@ import {
 } from '@/registry/cards/card-hover-reveal';
 
 export const CardHoverRevealDemo = () => (
-  <CardHoverReveal className="h-[512px] w-[385px] rounded-xl">
+  <CardHoverReveal className="h-[470px] w-[340px] rounded-xl ring-2 ring-ring/80 shadow-xs">
     <CardHoverRevealMain>
       <img
         width={385}
@@ -20,26 +20,26 @@ export const CardHoverRevealDemo = () => (
       <div className="space-y-2">
         <h3 className="text-sm ">Services</h3>
         <div className="flex flex-wrap gap-2 ">
-          <div className=" rounded-full bg-secondary-foreground px-2 py-1">
-            <p className=" text-xs leading-normal">Branding</p>
+          <div className="mix-blend-exclusion rounded-full border border-border/10 bg-linear-to-b from-zinc-950 to-black/20 text-primary-foreground px-2 py-0.5">
+            <p className=" text-[10px] leading-normal">Branding</p>
           </div>
-          <div className=" rounded-full bg-secondary-foreground px-2 py-1">
-            <p className=" text-xs leading-normal">3D Modeling</p>
+          <div className="mix-blend-exclusion rounded-full border border-border/10 bg-linear-to-b from-zinc-950 to-black/20 text-primary-foreground px-2 py-0.5">
+            <p className=" text-[10px] leading-normal">3D Modeling</p>
           </div>
         </div>
       </div>
 
       <div className="space-y-2">
         <h3 className=" text-sm ">Stack</h3>
-        <div className="flex flex-wrap gap-2 ">
-          <div className=" rounded-full bg-primary px-2 py-1">
-            <p className=" text-xs leading-normal">Auto CAD</p>
+        <div className="flex items-center  gap-2 ">
+          <div className=" mix-blend-exclusion rounded-full border border-border/20 bg-linear-to-b from-muted/30 to-muted/10 text-muted px-2 py-0.5">
+            <p className="text-[10px] leading-normal">Auto CAD</p>
           </div>
-          <div className=" rounded-full bg-primary px-2 py-1">
-            <p className=" text-xs leading-normal">Key Shot</p>
+          <div className=" mix-blend-exclusion rounded-full border border-border/20 bg-linear-to-b from-muted/30 to-muted/10 text-muted px-2 py-0.5">
+            <p className=" text-[10px] leading-normal">Key Shot</p>
           </div>
-          <div className=" rounded-full bg-primary px-2 py-1">
-            <p className=" text-xs leading-normal">In Design</p>
+          <div className=" mix-blend-exclusion rounded-full border border-border/20 bg-linear-to-b from-muted/30 to-muted/10 text-muted px-2 py-0.5">
+            <p className=" text-[10px] leading-normal">In Design</p>
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@ export const CardHoverRevealDemo = () => (
         <h3 className="text-sm ">Profile</h3>
         {/* tag */}
         <div className="flex flex-wrap gap-2 ">
-          <p className="text-sm text-secondary">
+          <p className="text-xs text-balance ">
             Comprehensive platform designed for an agency, Creating professional
             and business-oriented brand.
           </p>

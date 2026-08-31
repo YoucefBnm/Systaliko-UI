@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "magnetic-grid-demo",
+  "title": "Magnetic Grid Demo",
+  "description": "Demo showing magnetic grid component.",
+  "registryDependencies": [
+    "https://systaliko-ui.vercel.app/r/floating-elements"
+  ],
+  "files": [
+    {
+      "path": "registry/demo/blocks/magnetic-grid/index.tsx",
+      "content": "'use client';\n\nimport {\n  FloatingElementItem,\n  FloatingElements,\n} from '@/components/systaliko-ui/blocks/floating-elements';\nimport { Label } from '@/components/systaliko-ui/shadcn/field';\nimport { Slider } from '@/components/systaliko-ui/shadcn/slider';\nimport React from 'react';\n\nconst colors = ['bg-red-300', 'bg-indigo-300', 'bg-blue-300', 'bg-violet-300'];\n\nexport function MagneticGridDemo() {\n  const [intensity, setIntensity] = React.useState(20);\n  const [stiffness, setStiffness] = React.useState(110);\n  const [damping, setDamping] = React.useState(15);\n\n  return (\n    <div className=\"h-screen space-y-6\">\n      <div className=\"border-b bg-background/80 backdrop-blur-sm p-4 z-10\">\n        <div className=\"flex flex-wrap items-end gap-6\">\n          <div className=\"flex flex-col gap-2 min-w-[180px]\">\n            <Label className=\"text-sm font-medium\">\n              Intensity: {intensity}px\n            </Label>\n            <Slider\n              value={[intensity]}\n              onValueChange={([v]) => setIntensity(v)}\n              min={5}\n              max={150}\n              step={1}\n            />\n          </div>\n\n          <div className=\"flex flex-col gap-2 min-w-[180px]\">\n            <Label className=\"text-sm font-medium\">\n              Stiffness: {stiffness}\n            </Label>\n            <Slider\n              value={[stiffness]}\n              onValueChange={([v]) => setStiffness(v)}\n              min={20}\n              max={500}\n              step={10}\n            />\n          </div>\n\n          <div className=\"flex flex-col gap-2 min-w-[180px]\">\n            <Label className=\"text-sm font-medium\">Damping: {damping}</Label>\n            <Slider\n              value={[damping]}\n              onValueChange={([v]) => setDamping(v)}\n              min={1}\n              max={60}\n              step={1}\n            />\n          </div>\n        </div>\n      </div>\n\n      <FloatingElements className=\"bg-secondary w-xs max-w-xs aspect-square mx-auto grid grid-cols-[repeat(20,minmax(0,1fr))] p-1 gap-1\">\n        {Array.from({ length: 300 }).map((_, i) => {\n          const randomColor = colors[Math.floor(Math.random() * colors.length)];\n\n          return (\n            <FloatingElementItem\n              key={i}\n              className={`aspect-square ${randomColor}`}\n              intensity={intensity}\n              stiffness={stiffness}\n              damping={damping}\n            />\n          );\n        })}\n      </FloatingElements>\n    </div>\n  );\n}\n",
+      "type": "registry:block",
+      "target": "components/systaliko-ui/demo/magnetic-grid.tsx"
+    }
+  ],
+  "type": "registry:block"
+}
